@@ -1,0 +1,5 @@
+.vitepress/cache
+.vitepress/dist
+.vscode
+node_modules
+yarn.lock
