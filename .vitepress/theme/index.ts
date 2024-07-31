@@ -39,7 +39,7 @@ export default {
       
       // Obtain configuration from: https://giscus.app/
       giscusTalk({
-          repo: 'M1hono/CrychicGitDiscuss',
+          repo: 'M1hono/CrychicDoc',
           repoId: 'R_kgDOMdKRUQ',
           category: 'Announcements', // default: `General`
           categoryId: 'DIC_kwDOMdKRUc4ChSHG',

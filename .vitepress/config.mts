@@ -39,6 +39,7 @@ export default withMermaid({
     ],
   },
   markdown: {
+    math: true,
     config: (md) => {
       md.use(timeline);
       md.use(tabsMarkdownPlugin);
