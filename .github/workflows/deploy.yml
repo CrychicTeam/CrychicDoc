@@ -35,12 +35,3 @@ jobs:
         git add .
         git commit -m "Update documentation"
         git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git HEAD:main
-
-    - name: Clean up dist directory
-      run: |
-        rm -rf .vitepress/dist
-        git config --global user.name "GitHub Actions Bot"
-        git config --global user.email "<>"
-        git add .vitepress/dist
-        git commit -m "Clean up dist directory"
-        git push
