@@ -7,4 +7,4 @@ yarn.lock
 .probe/decompiled/
 .probe/server/
 .probe/decompiled/
-.probe/startup/
+.probe/startup/probe-types/global/
