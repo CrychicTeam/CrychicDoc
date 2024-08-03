@@ -3,4 +3,8 @@
 .vscode
 node_modules
 yarn.lock
-.probe
+.probe/client/
+.probe/decompiled/
+.probe/server/
+.probe/decompiled/
+.probe/startup/
