@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import timeline from "vitepress-markdown-timeline";
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { withMermaid } from "vitepress-plugin-mermaid";
+import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 
 export default withMermaid({
   srcDir : "./docs",
@@ -9,11 +10,13 @@ export default withMermaid({
   locales: {
     root: {
       label: '简体中文',
-      lang: 'zh-CN'
+      lang: 'zh-CN',
+      link: '/zh/'
     },
     en: {
       label: 'English',
-      lang: 'en'
+      lang: 'en_US',
+      link: '/en/'
     }
   },
   title: "CryChicDoc",
@@ -44,6 +47,15 @@ export default withMermaid({
       md.use(timeline);
       md.use(tabsMarkdownPlugin);
     },
+    codeTransformers: [
+      transformerTwoslash() 
+    ]
   },
-  mermaid: {}
+  cleanUrls: true,
+  mermaid: {},
+  vite: {
+    ssr: {
+      noExternal: ['vuetify'],
+    },
+  }
 })

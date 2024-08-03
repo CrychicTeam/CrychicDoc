@@ -15,6 +15,9 @@ import codeblocksFold from 'vitepress-plugin-codeblocks-fold'; // import method
 import 'vitepress-plugin-codeblocks-fold/style/index.css'; // import style
 import './style.css'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
+import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
+import '@shikijs/vitepress-twoslash/style.css'
+import vuetify from './vuetify'
 
 export default {
   extends: DefaultTheme,
@@ -28,6 +31,8 @@ export default {
     vitepressNprogress(ctx)
     ctx.app.component('vImageViewer', vImageViewer);
     enhanceAppWithTabs(ctx.app);
+    ctx.app.use(vuetify);
+    ctx.app.use(TwoslashFloatingVue) 
   },
   setup() {
       const route = useRoute();
