@@ -25,23 +25,8 @@ jobs:
         git init
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
-        git clone --depth 1 --sparse https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git temp_repo
-        cd temp_repo
-        git sparse-checkout set .github
-        cd ..
-        if [ -d temp_repo/.github ]; then
-          cp -r temp_repo/.github .
-        fi
-        rm -rf temp_repo
         git add -A
         git commit -m "Update documentation"
-        git remote add origin https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git
-        git fetch origin
-        if git ls-remote --exit-code --heads origin main; then
-          git pull --rebase origin main
-        else
-          git checkout -b main
-        fi
-        git push -f origin main
+        git push -f https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git HEAD:main
         cd ../..
         rm -rf .vitepress/dist
