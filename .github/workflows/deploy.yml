@@ -1,29 +1,22 @@
 name: Build VitePress and Push to Private Repo
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '18.17.1'
-
     - name: Install dependencies
       run: yarn install --frozen-lockfile
-
     - name: Build VitePress site
       run: npm run docs:build
-
     - name: Push to private repo
       env:
         PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
@@ -32,6 +25,13 @@ jobs:
         git init
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
+        git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git temp_repo
+        if [ -d temp_repo/.github ]; then
+          cp -r temp_repo/.github .
+        fi
+        rm -rf temp_repo
         git add .
         git commit -m "Update documentation"
-        git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git HEAD:main
+        git push --force-with-lease https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git HEAD:main
+        cd ../..
+        rm -rf .vitepress/dist

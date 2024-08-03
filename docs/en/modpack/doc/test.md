@@ -1,6 +1,6 @@
 ---
 layout: docs
-
+---
 ```js twoslash
 // @filename: index.ts
 // @ts-check
