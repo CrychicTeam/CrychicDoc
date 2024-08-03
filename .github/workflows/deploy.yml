@@ -25,8 +25,19 @@ jobs:
         git init
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
+        
+        # 克隆现有仓库的 .github 目录
+        git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git temp_repo
+        if [ -d temp_repo/.github ]; then
+          cp -r temp_repo/.github .
+        fi
+        rm -rf temp_repo
+        
         git add -A
         git commit -m "Update documentation"
-        git push -f https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git HEAD:main
+        
+        # 使用 --force-with-lease 代替 -f，以提供一些保护
+        git push --force-with-lease https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git HEAD:main
+        
         cd ../..
         rm -rf .vitepress/dist
