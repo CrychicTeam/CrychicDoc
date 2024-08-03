@@ -18,3 +18,4 @@ ItemEvents.rightClicked("acacia_button",event=>{
     event.player.tell("You right clicked an acacia button")
 })
 ```
+test
