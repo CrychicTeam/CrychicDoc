@@ -1,6 +1,7 @@
 ---
-layout: docs
+layout: doc
 ---
+
 ```mermaid
 journey
     title My working day
