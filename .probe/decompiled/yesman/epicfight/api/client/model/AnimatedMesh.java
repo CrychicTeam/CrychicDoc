@@ -1,0 +1,200 @@
+package yesman.epicfight.api.client.model;
+
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import java.util.List;
+import java.util.Map;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+import org.joml.Vector3f;
+import org.joml.Vector4f;
+import yesman.epicfight.api.model.Armature;
+import yesman.epicfight.api.utils.math.OpenMatrix4f;
+import yesman.epicfight.api.utils.math.Vec3f;
+import yesman.epicfight.api.utils.math.Vec4f;
+import yesman.epicfight.main.EpicFightMod;
+
+@OnlyIn(Dist.CLIENT)
+public class AnimatedMesh extends Mesh<VertexIndicator.AnimatedVertexIndicator> {
+
+    public static final ModelPart<VertexIndicator.AnimatedVertexIndicator> EMPTY = new ModelPart<>(null, null);
+
+    final float[] weights;
+
+    public AnimatedMesh(Map<String, float[]> arrayMap, AnimatedMesh parent, Mesh.RenderProperties properties, Map<String, ModelPart<VertexIndicator.AnimatedVertexIndicator>> parts) {
+        super(arrayMap, parent, properties, parts);
+        this.weights = parent == null ? (float[]) arrayMap.get("weights") : parent.weights;
+    }
+
+    @Override
+    protected ModelPart<VertexIndicator.AnimatedVertexIndicator> getOrLogException(Map<String, ModelPart<VertexIndicator.AnimatedVertexIndicator>> parts, String name) {
+        if (!parts.containsKey(name)) {
+            EpicFightMod.LOGGER.debug("Cannot find the mesh part named " + name + " in " + this.getClass().getCanonicalName());
+            return EMPTY;
+        } else {
+            return (ModelPart<VertexIndicator.AnimatedVertexIndicator>) parts.get(name);
+        }
+    }
+
+    public void drawModelWithPose(PoseStack poseStack, VertexConsumer builder, int packedLightIn, float r, float g, float b, float a, int overlayCoord, Armature armature, OpenMatrix4f[] poses) {
+        Matrix4f matrix4f = poseStack.last().pose();
+        Matrix3f matrix3f = poseStack.last().normal();
+        OpenMatrix4f[] posesNoTranslation = new OpenMatrix4f[poses.length];
+        for (int i = 0; i < poses.length; i++) {
+            posesNoTranslation[i] = OpenMatrix4f.mul(poses[i], armature.searchJointById(i).getToOrigin(), null).removeTranslation();
+        }
+        for (ModelPart<VertexIndicator.AnimatedVertexIndicator> part : this.parts.values()) {
+            if (!part.hidden) {
+                for (VertexIndicator.AnimatedVertexIndicator vi : part.getVertices()) {
+                    int pos = vi.position * 3;
+                    int norm = vi.normal * 3;
+                    int uv = vi.uv * 2;
+                    Vec4f position = new Vec4f(this.positions[pos], this.positions[pos + 1], this.positions[pos + 2], 1.0F);
+                    Vec4f normal = new Vec4f(this.normals[norm], this.normals[norm + 1], this.normals[norm + 2], 1.0F);
+                    Vec4f totalPos = new Vec4f(0.0F, 0.0F, 0.0F, 0.0F);
+                    Vec4f totalNorm = new Vec4f(0.0F, 0.0F, 0.0F, 0.0F);
+                    for (int i = 0; i < vi.joint.size(); i++) {
+                        int jointIndex = (Integer) vi.joint.get(i);
+                        int weightIndex = (Integer) vi.weight.get(i);
+                        float weight = this.weights[weightIndex];
+                        Vec4f.add(OpenMatrix4f.transform(OpenMatrix4f.mul(poses[jointIndex], armature.searchJointById(jointIndex).getToOrigin(), null), position, null).scale(weight), totalPos, totalPos);
+                        Vec4f.add(OpenMatrix4f.transform(posesNoTranslation[jointIndex], normal, null).scale(weight), totalNorm, totalNorm);
+                    }
+                    Vector4f posVec = new Vector4f(totalPos.x, totalPos.y, totalPos.z, 1.0F);
+                    Vector3f normVec = totalNorm.toMojangVector();
+                    posVec.mul(matrix4f);
+                    normVec.mul(matrix3f);
+                    builder.vertex(posVec.x(), posVec.y(), posVec.z(), r, g, b, a, this.uvs[uv], this.uvs[uv + 1], overlayCoord, packedLightIn, normVec.x(), normVec.y(), normVec.z());
+                }
+            }
+        }
+    }
+
+    public void drawWithPoseNoTexture(PoseStack poseStack, VertexConsumer builder, int packedLightIn, float r, float g, float b, float a, int overlayCoord, OpenMatrix4f[] poses) {
+        Matrix4f matrix4f = poseStack.last().pose();
+        Matrix3f matrix3f = poseStack.last().normal();
+        OpenMatrix4f[] posesNoTranslation = new OpenMatrix4f[poses.length];
+        for (int i = 0; i < poses.length; i++) {
+            posesNoTranslation[i] = poses[i].removeTranslation();
+        }
+        for (ModelPart<VertexIndicator.AnimatedVertexIndicator> part : this.parts.values()) {
+            if (!part.hidden) {
+                for (VertexIndicator.AnimatedVertexIndicator vi : part.getVertices()) {
+                    int pos = vi.position * 3;
+                    int norm = vi.normal * 3;
+                    Vec4f position = new Vec4f(this.positions[pos], this.positions[pos + 1], this.positions[pos + 2], 1.0F);
+                    Vec4f normal = new Vec4f(this.normals[norm], this.normals[norm + 1], this.normals[norm + 2], 1.0F);
+                    Vec4f totalPos = new Vec4f(0.0F, 0.0F, 0.0F, 0.0F);
+                    Vec4f totalNorm = new Vec4f(0.0F, 0.0F, 0.0F, 0.0F);
+                    for (int i = 0; i < vi.joint.size(); i++) {
+                        int jointIndex = (Integer) vi.joint.get(i);
+                        int weightIndex = (Integer) vi.weight.get(i);
+                        float weight = this.weights[weightIndex];
+                        Vec4f.add(OpenMatrix4f.transform(poses[jointIndex], position, null).scale(weight), totalPos, totalPos);
+                        Vec4f.add(OpenMatrix4f.transform(posesNoTranslation[jointIndex], normal, null).scale(weight), totalNorm, totalNorm);
+                    }
+                    Vector4f posVec = new Vector4f(totalPos.x, totalPos.y, totalPos.z, 1.0F);
+                    Vector3f normVec = new Vector3f(totalNorm.x, totalNorm.y, totalNorm.z);
+                    posVec.mul(matrix4f);
+                    normVec.mul(matrix3f);
+                    builder.vertex((double) posVec.x(), (double) posVec.y(), (double) posVec.z());
+                    builder.color(r, g, b, a);
+                    builder.uv2(packedLightIn);
+                    builder.endVertex();
+                }
+            }
+        }
+    }
+
+    public JsonObject toJsonObject() {
+        JsonObject root = new JsonObject();
+        JsonObject vertices = new JsonObject();
+        float[] positions = (float[]) this.positions.clone();
+        float[] normals = (float[]) this.normals.clone();
+        OpenMatrix4f toBlenderCoord = OpenMatrix4f.createRotatorDeg(90.0F, Vec3f.X_AXIS);
+        for (int i = 0; i < positions.length / 3; i++) {
+            int k = i * 3;
+            Vec4f posVector = new Vec4f(positions[k], positions[k + 1], positions[k + 2], 1.0F);
+            OpenMatrix4f.transform(toBlenderCoord, posVector, posVector);
+            positions[k] = posVector.x;
+            positions[k + 1] = posVector.y;
+            positions[k + 2] = posVector.z;
+        }
+        for (int i = 0; i < normals.length / 3; i++) {
+            int k = i * 3;
+            Vec4f normVector = new Vec4f(normals[k], normals[k + 1], normals[k + 2], 1.0F);
+            OpenMatrix4f.transform(toBlenderCoord, normVector, normVector);
+            normals[k] = normVector.x;
+            normals[k + 1] = normVector.y;
+            normals[k + 2] = normVector.z;
+        }
+        int[] indices = new int[this.totalVertices * 3];
+        int[] vcounts = new int[positions.length / 3];
+        List<Integer> vIndexList = Lists.newArrayList();
+        Map<Integer, VertexIndicator.AnimatedVertexIndicator> positionMap = Maps.newHashMap();
+        int i = 0;
+        for (ModelPart<VertexIndicator.AnimatedVertexIndicator> part : this.parts.values()) {
+            for (VertexIndicator.AnimatedVertexIndicator vertexIndicator : part.getVertices()) {
+                indices[i * 3] = vertexIndicator.position;
+                indices[i * 3 + 1] = vertexIndicator.uv;
+                indices[i * 3 + 2] = vertexIndicator.normal;
+                vcounts[vertexIndicator.position] = vertexIndicator.joint.size();
+                positionMap.put(vertexIndicator.position, vertexIndicator);
+                i++;
+            }
+        }
+        for (int var22 = 0; var22 < vcounts.length; var22++) {
+            for (int j = 0; j < vcounts[var22]; j++) {
+                VertexIndicator.AnimatedVertexIndicator vi = (VertexIndicator.AnimatedVertexIndicator) positionMap.get(var22);
+                vIndexList.add((Integer) vi.joint.get(j));
+                vIndexList.add((Integer) vi.weight.get(j));
+            }
+        }
+        int[] vIndices = vIndexList.stream().mapToInt(j -> j).toArray();
+        vertices.add("positions", arrayToJsonObject(positions, 3));
+        vertices.add("uvs", arrayToJsonObject(this.uvs, 2));
+        vertices.add("normals", arrayToJsonObject(normals, 3));
+        vertices.add("indices", arrayToJsonObject(indices, 3));
+        vertices.add("vcounts", arrayToJsonObject(vcounts, 1));
+        vertices.add("weights", arrayToJsonObject(this.weights, 1));
+        vertices.add("vindices", arrayToJsonObject(vIndices, 1));
+        root.add("vertices", vertices);
+        if (this.renderProperties != null) {
+            JsonObject renderProperties = new JsonObject();
+            renderProperties.addProperty("texture_path", this.renderProperties.getCustomTexturePath());
+            renderProperties.addProperty("transparent", this.renderProperties.isTransparent());
+            root.add("render_properties", renderProperties);
+        }
+        return root;
+    }
+
+    public static JsonObject arrayToJsonObject(float[] array, int stride) {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("stride", stride);
+        jsonObject.addProperty("count", array.length / stride);
+        JsonArray jsonArray = new JsonArray();
+        for (float element : array) {
+            jsonArray.add(element);
+        }
+        jsonObject.add("array", jsonArray);
+        return jsonObject;
+    }
+
+    public static JsonObject arrayToJsonObject(int[] array, int stride) {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("stride", stride);
+        jsonObject.addProperty("count", array.length / stride);
+        JsonArray jsonArray = new JsonArray();
+        for (int element : array) {
+            jsonArray.add(element);
+        }
+        jsonObject.add("array", jsonArray);
+        return jsonObject;
+    }
+}

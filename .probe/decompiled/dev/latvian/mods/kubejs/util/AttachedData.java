@@ -1,0 +1,20 @@
+package dev.latvian.mods.kubejs.util;
+
+import java.util.HashMap;
+
+public class AttachedData<T> extends HashMap<String, Object> {
+
+    private final T parent;
+
+    public AttachedData(T p) {
+        this.parent = p;
+    }
+
+    public T getParent() {
+        return this.parent;
+    }
+
+    public void add(String key, Object data) {
+        this.put(key, data);
+    }
+}

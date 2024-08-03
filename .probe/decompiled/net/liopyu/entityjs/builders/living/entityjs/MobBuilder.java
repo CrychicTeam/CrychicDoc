@@ -1,0 +1,198 @@
+package net.liopyu.entityjs.builders.living.entityjs;
+
+import dev.latvian.mods.kubejs.registry.RegistryInfo;
+import dev.latvian.mods.kubejs.typings.Generics;
+import dev.latvian.mods.kubejs.typings.Info;
+import dev.latvian.mods.rhino.util.HideFromJS;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import net.liopyu.entityjs.builders.living.BaseLivingEntityBuilder;
+import net.liopyu.entityjs.entities.living.entityjs.IAnimatableJS;
+import net.liopyu.entityjs.item.SpawnEggItemBuilder;
+import net.liopyu.entityjs.util.ContextUtils;
+import net.liopyu.entityjs.util.EntityJSHelperClass;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.item.ProjectileWeaponItem;
+import net.minecraft.world.item.crafting.Ingredient;
+
+public abstract class MobBuilder<T extends Mob & IAnimatableJS> extends BaseLivingEntityBuilder<T> {
+
+    public transient Consumer<ContextUtils.PlayerEntityContext> tickLeash;
+
+    public transient SpawnEggItemBuilder eggItem;
+
+    public transient Consumer<ContextUtils.TargetChangeContext> onTargetChanged;
+
+    public transient Ingredient canFireProjectileWeapon;
+
+    public transient Function<ContextUtils.EntityProjectileWeaponContext, Object> canFireProjectileWeaponPredicate;
+
+    public transient Consumer<LivingEntity> ate;
+
+    public transient Object setAmbientSound;
+
+    public transient Function<ContextUtils.EntityItemStackContext, Object> canHoldItem;
+
+    public transient Boolean shouldDespawnInPeaceful;
+
+    public transient Function<Mob, Object> canPickUpLoot;
+
+    public transient Boolean isPersistenceRequired;
+
+    public transient Function<Mob, Object> meleeAttackRangeSqr;
+
+    public transient Boolean canJump;
+
+    public transient Function<LivingEntity, Object> myRidingOffset;
+
+    public transient Object ambientSoundInterval;
+
+    public transient Function<ContextUtils.EntityDistanceToPlayerContext, Object> removeWhenFarAway;
+
+    public transient Function<ContextUtils.PlayerEntityContext, Object> canBeLeashed;
+
+    public transient Function<ContextUtils.EntityLevelContext, Object> createNavigation;
+
+    public transient boolean noEggItem = false;
+
+    public MobBuilder(ResourceLocation i) {
+        super(i);
+        this.canJump = true;
+        this.ambientSoundInterval = 120;
+        this.canFireProjectileWeaponPredicate = t -> t.projectileWeapon instanceof ProjectileWeaponItem;
+        this.eggItem = new SpawnEggItemBuilder(this.id, this).backgroundColor(0).highlightColor(0);
+    }
+
+    @Info("Indicates that no egg item should be created for this entity type")
+    public MobBuilder<T> noEggItem() {
+        this.noEggItem = true;
+        return this;
+    }
+
+    @Info("Creates a spawn egg item for this entity type")
+    @Generics({ Mob.class, SpawnEggItemBuilder.class })
+    public MobBuilder<T> eggItem(Consumer<SpawnEggItemBuilder> eggItem) {
+        this.eggItem = new SpawnEggItemBuilder(this.id, this);
+        eggItem.accept(this.eggItem);
+        return this;
+    }
+
+    @HideFromJS
+    @Override
+    public void createAdditionalObjects() {
+        if (!this.noEggItem) {
+            RegistryInfo.ITEM.addBuilder(this.eggItem);
+        }
+    }
+
+    @Info("Sets a function to determine the PathNavigation of the entity.\n\n@param createNavigation A Function accepting an EntityLevelContext parameter\n\nExample usage:\n```javascript\nmobBuilder.createNavigation(context => {\n    const {entity, level} = context\n    return EntityJSUtils.createWallClimberNavigation(entity, level) // Return some path navigation\n});\n```\n")
+    public MobBuilder<T> createNavigation(Function<ContextUtils.EntityLevelContext, Object> createNavigation) {
+        this.createNavigation = createNavigation;
+        return this;
+    }
+
+    @Info("Sets a function to determine if the entity can be leashed.\n\n@param canBeLeashed A Function accepting a ContextUtils.PlayerEntityContext parameter\n\nExample usage:\n```javascript\nmobBuilder.canBeLeashed(context => {\n    return true // Return true if the entity can be leashed, false otherwise.\n});\n```\n")
+    public MobBuilder<T> canBeLeashed(Function<ContextUtils.PlayerEntityContext, Object> canBeLeashed) {
+        this.canBeLeashed = canBeLeashed;
+        return this;
+    }
+
+    @Info("Sets a predicate to determine if the entity should be removed when far away from the player.\n\n@param removeWhenFarAway A Function accepting a ContextUtils.EntityDistanceToPlayerContext parameter,\n                         defining the condition for the entity to be removed when far away.\n\nExample usage:\n```javascript\nmobBuilder.removeWhenFarAway(context => {\n    // Custom logic to determine if the entity should be removed when far away\n    // Return true if the entity should be removed based on the provided context.\n});\n```\n")
+    public MobBuilder<T> removeWhenFarAway(Function<ContextUtils.EntityDistanceToPlayerContext, Object> removeWhenFarAway) {
+        this.removeWhenFarAway = removeWhenFarAway;
+        return this;
+    }
+
+    @Info("Sets the interval in ticks between ambient sounds for the mob entity.\n\n@param ambientSoundInterval The interval in ticks between ambient sounds.\nDefaults to 120.\n\nExample usage:\n```javascript\nmobBuilder.ambientSoundInterval(100);\n```\n")
+    public MobBuilder<T> ambientSoundInterval(int ambientSoundInterval) {
+        this.ambientSoundInterval = ambientSoundInterval;
+        return this;
+    }
+
+    @Info("Function which sets the offset for riding on the mob entity.\n\n@param myRidingOffset The offset value for riding on the mob.\nDefaults to 0.0.\n\nExample usage:\n```javascript\nmobBuilder.myRidingOffset(entity => {\n    //Use the provided context about the entity to determine the riding offset of the passengers\n    return 5 //Some double value;\n})\n```\n")
+    public MobBuilder<T> myRidingOffset(Function<LivingEntity, Object> myRidingOffset) {
+        this.myRidingOffset = myRidingOffset;
+        return this;
+    }
+
+    @Info("Sets whether the entity can jump.\n\n@param canJump A boolean indicating whether the entity can jump.\n\nExample usage:\n```javascript\nmobBuilder.canJump(true);\n```\n")
+    public MobBuilder<T> canJump(boolean canJump) {
+        this.canJump = canJump;
+        return this;
+    }
+
+    @Info("Sets a callback function to be executed when the entity's target changes.\n\n@param setTarget A Consumer accepting a ContextUtils.TargetChangeContext parameter,\n                 defining the behavior to be executed when the entity's target changes.\n\nExample usage:\n```javascript\nmobBuilder.onTargetChanged(context => {\n    // Custom logic to handle the entity's target change\n    // Access information about the target change using the provided context.\n});\n```\n")
+    public MobBuilder<T> onTargetChanged(Consumer<ContextUtils.TargetChangeContext> setTarget) {
+        this.onTargetChanged = setTarget;
+        return this;
+    }
+
+    @Info("Sets the ingredient required for the entity to fire a projectile weapon.\n\n@param canFireProjectileWeapon An Ingredient representing the required item for firing a projectile weapon.\n\nExample usage:\n```javascript\nmobBuilder.canFireProjectileWeapon([\n    'minecraft:bow',\n    'minecraft:crossbow'\n]);\n```\n")
+    public MobBuilder<T> canFireProjectileWeapon(Ingredient canFireProjectileWeapon) {
+        this.canFireProjectileWeapon = canFireProjectileWeapon;
+        return this;
+    }
+
+    @Info("Sets a predicate to determine whether the entity can fire a projectile weapon.\n\n@param canFireProjectileWeaponPredicate A Predicate accepting a\n           ContextUtils.EntityProjectileWeaponContext parameter,\n           defining the condition under which the entity can fire a projectile weapon.\n\nExample usage:\n```javascript\nmobBuilder.canFireProjectileWeaponPredicate(context => {\n    // Custom logic to determine whether the entity can fire a projectile weapon\n    // Access information about the entity and the projectile weapon using the provided context.\n    return context.projectileWeapon.id == 'minecraft:bow'; // Replace with your specific condition.\n});\n```\n")
+    public MobBuilder<T> canFireProjectileWeaponPredicate(Function<ContextUtils.EntityProjectileWeaponContext, Object> canFireProjectileWeaponPredicate) {
+        this.canFireProjectileWeaponPredicate = canFireProjectileWeaponPredicate;
+        return this;
+    }
+
+    @Info("Sets a callback function to be executed when the entity performs an eating action.\n\n@param ate A Consumer accepting a LivingEntity parameter,\n           defining the behavior to be executed when the entity eats.\n\nExample usage:\n```javascript\nmobBuilder.ate(entity => {\n    // Custom logic to handle the entity's eating action\n    // Access information about the entity using the provided parameter.\n});\n```\n")
+    public MobBuilder<T> ate(Consumer<LivingEntity> ate) {
+        this.ate = ate;
+        return this;
+    }
+
+    @Info("Sets the sound to play when the entity is ambient using either a string representation or a ResourceLocation object.\n\nExample usage:\n```javascript\nmobBuilder.setAmbientSound(\"minecraft:entity.zombie.ambient\");\n```\n")
+    public MobBuilder<T> setAmbientSound(Object ambientSound) {
+        if (ambientSound instanceof String) {
+            this.setAmbientSound = new ResourceLocation((String) ambientSound);
+        } else if (ambientSound instanceof ResourceLocation resourceLocation) {
+            this.setAmbientSound = resourceLocation;
+        } else {
+            EntityJSHelperClass.logErrorMessageOnce("[EntityJS]: Invalid value for setAmbientSound. Value: " + ambientSound + ". Must be a ResourceLocation or String. Example: \"minecraft:entity.zombie.ambient\"");
+            this.setAmbientSound = null;
+        }
+        return this;
+    }
+
+    @Info("Sets the function to determine whether the entity can hold an item.\n\n@param canHoldItem A Function accepting a {@link ContextUtils.EntityItemStackContext} parameter,\n                   defining the condition for the entity to hold an item.\n\nExample usage:\n```javascript\nmobBuilder.canHoldItem(context => {\n    // Custom logic to determine whether the entity can hold an item based on the provided context.\n    return true;\n});\n```\n")
+    public MobBuilder<T> canHoldItem(Function<ContextUtils.EntityItemStackContext, Object> canHoldItem) {
+        this.canHoldItem = canHoldItem;
+        return this;
+    }
+
+    @Info("Sets whether the entity should despawn in peaceful difficulty.\n\n@param shouldDespawnInPeaceful A boolean indicating whether the entity should despawn in peaceful difficulty.\n\nExample usage:\n```javascript\nmobBuilder.shouldDespawnInPeaceful(true);\n```\n")
+    public MobBuilder<T> shouldDespawnInPeaceful(boolean shouldDespawnInPeaceful) {
+        this.shouldDespawnInPeaceful = shouldDespawnInPeaceful;
+        return this;
+    }
+
+    @Info("Sets the function to determine whether the entity can pick up loot.\n\n@param canPickUpLoot A Function accepting a {@link Mob} parameter,\n                     defining the condition for the entity to pick up loot.\n\nExample usage:\n```javascript\nmobBuilder.canPickUpLoot(entity => {\n    // Custom logic to determine whether the entity can pick up loot based on the provided mob.\n    return true;\n});\n```\n")
+    public MobBuilder<T> canPickUpLoot(Function<Mob, Object> canPickUpLoot) {
+        this.canPickUpLoot = canPickUpLoot;
+        return this;
+    }
+
+    @Info("Sets whether persistence is required for the entity.\n\n@param isPersistenceRequired A boolean indicating whether persistence is required.\n\nExample usage:\n```javascript\nmobBuilder.isPersistenceRequired(true);\n```\n")
+    public MobBuilder<T> isPersistenceRequired(boolean isPersistenceRequired) {
+        this.isPersistenceRequired = isPersistenceRequired;
+        return this;
+    }
+
+    @Info("Sets the function to determine the squared melee attack range for the entity.\n\n@param meleeAttackRangeSqr A Function accepting a {@link Mob} parameter,\n                          defining the squared melee attack range based on the entity's state.\n                          Returns a 'Double' value representing the squared melee attack range.\nExample usage:\n```javascript\nmobBuilder.meleeAttackRangeSqr(entity => {\n    // Custom logic to calculate the squared melee attack range based on the provided mob.\n    return 2;\n});\n```\n")
+    public MobBuilder<T> meleeAttackRangeSqr(Function<Mob, Object> meleeAttackRangeSqr) {
+        this.meleeAttackRangeSqr = meleeAttackRangeSqr;
+        return this;
+    }
+
+    @Info("Sets the callback function to be executed when the entity ticks while leashed.\n\n@param consumer A Consumer accepting a {@link ContextUtils.PlayerEntityContext} parameter,\n                defining the behavior to be executed when the entity ticks while leashed.\n\nExample usage:\n```javascript\nmobBuilder.tickLeash(context => {\n    // Custom logic to handle the entity's behavior while leashed.\n    // Access information about the player and entity using the provided context.\n});\n```\n")
+    public MobBuilder<T> tickLeash(Consumer<ContextUtils.PlayerEntityContext> consumer) {
+        this.tickLeash = consumer;
+        return this;
+    }
+}

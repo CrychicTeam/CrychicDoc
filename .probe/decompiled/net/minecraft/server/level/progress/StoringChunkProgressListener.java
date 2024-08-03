@@ -1,0 +1,81 @@
+package net.minecraft.server.level.progress;
+
+import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
+import javax.annotation.Nullable;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.chunk.ChunkStatus;
+
+public class StoringChunkProgressListener implements ChunkProgressListener {
+
+    private final LoggerChunkProgressListener delegate;
+
+    private final Long2ObjectOpenHashMap<ChunkStatus> statuses;
+
+    private ChunkPos spawnPos = new ChunkPos(0, 0);
+
+    private final int fullDiameter;
+
+    private final int radius;
+
+    private final int diameter;
+
+    private boolean started;
+
+    public StoringChunkProgressListener(int int0) {
+        this.delegate = new LoggerChunkProgressListener(int0);
+        this.fullDiameter = int0 * 2 + 1;
+        this.radius = int0 + ChunkStatus.maxDistance();
+        this.diameter = this.radius * 2 + 1;
+        this.statuses = new Long2ObjectOpenHashMap();
+    }
+
+    @Override
+    public void updateSpawnPos(ChunkPos chunkPos0) {
+        if (this.started) {
+            this.delegate.updateSpawnPos(chunkPos0);
+            this.spawnPos = chunkPos0;
+        }
+    }
+
+    @Override
+    public void onStatusChange(ChunkPos chunkPos0, @Nullable ChunkStatus chunkStatus1) {
+        if (this.started) {
+            this.delegate.onStatusChange(chunkPos0, chunkStatus1);
+            if (chunkStatus1 == null) {
+                this.statuses.remove(chunkPos0.toLong());
+            } else {
+                this.statuses.put(chunkPos0.toLong(), chunkStatus1);
+            }
+        }
+    }
+
+    @Override
+    public void start() {
+        this.started = true;
+        this.statuses.clear();
+        this.delegate.start();
+    }
+
+    @Override
+    public void stop() {
+        this.started = false;
+        this.delegate.stop();
+    }
+
+    public int getFullDiameter() {
+        return this.fullDiameter;
+    }
+
+    public int getDiameter() {
+        return this.diameter;
+    }
+
+    public int getProgress() {
+        return this.delegate.getProgress();
+    }
+
+    @Nullable
+    public ChunkStatus getStatus(int int0, int int1) {
+        return (ChunkStatus) this.statuses.get(ChunkPos.asLong(int0 + this.spawnPos.x - this.radius, int1 + this.spawnPos.z - this.radius));
+    }
+}

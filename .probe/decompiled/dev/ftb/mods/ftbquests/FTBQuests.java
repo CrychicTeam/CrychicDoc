@@ -1,0 +1,67 @@
+package dev.ftb.mods.ftbquests;
+
+import dev.architectury.registry.ReloadListenerRegistry;
+import dev.architectury.utils.Env;
+import dev.architectury.utils.EnvExecutor;
+import dev.architectury.utils.GameInstance;
+import dev.ftb.mods.ftbquests.api.FTBQuestsAPI;
+import dev.ftb.mods.ftbquests.client.FTBQClientProxy;
+import dev.ftb.mods.ftbquests.client.FTBQuestsClient;
+import dev.ftb.mods.ftbquests.integration.RecipeModHelper;
+import dev.ftb.mods.ftbquests.net.ClearDisplayCacheMessage;
+import dev.ftb.mods.ftbquests.net.FTBQuestsNetHandler;
+import dev.ftb.mods.ftbquests.quest.reward.RewardTypes;
+import dev.ftb.mods.ftbquests.quest.task.TaskTypes;
+import java.util.Objects;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class FTBQuests {
+
+    public static final Logger LOGGER = LogManager.getLogger("FTB Quests");
+
+    public static FTBQuests instance;
+
+    public static IQuestProxy PROXY;
+
+    private static RecipeModHelper recipeModHelper;
+
+    private static final RecipeModHelper NO_OP_HELPER = new RecipeModHelper.NoOp();
+
+    public FTBQuests() {
+        FTBQuestsAPI._init(FTBQuestsAPIImpl.INSTANCE);
+        TaskTypes.init();
+        RewardTypes.init();
+        FTBQuestsNetHandler.init();
+        FTBQuestsEventHandler.INSTANCE.init();
+        PROXY = EnvExecutor.getEnvSpecific(() -> FTBQClientProxy::new, () -> FTBQServerProxy::new);
+        ReloadListenerRegistry.register(PackType.SERVER_DATA, new FTBQuests.TagReloadListener());
+        EnvExecutor.runInEnv(Env.CLIENT, () -> FTBQuestsClient::init);
+    }
+
+    public static RecipeModHelper getRecipeModHelper() {
+        return (RecipeModHelper) Objects.requireNonNullElse(recipeModHelper, NO_OP_HELPER);
+    }
+
+    public static void setRecipeModHelper(RecipeModHelper recipeModHelper) {
+        if (FTBQuests.recipeModHelper != null) {
+            throw new IllegalStateException("recipe mod helper has already been initialised!");
+        } else {
+            FTBQuests.recipeModHelper = recipeModHelper;
+        }
+    }
+
+    public void setup() {
+    }
+
+    private static class TagReloadListener implements ResourceManagerReloadListener {
+
+        @Override
+        public void onResourceManagerReload(ResourceManager resourceManager) {
+            ClearDisplayCacheMessage.clearForAll(GameInstance.getServer());
+        }
+    }
+}

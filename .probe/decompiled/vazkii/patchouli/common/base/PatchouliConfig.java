@@ -1,0 +1,85 @@
+package vazkii.patchouli.common.base;
+
+import java.util.Locale;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import vazkii.patchouli.api.PatchouliAPI;
+import vazkii.patchouli.api.PatchouliConfigAccess;
+import vazkii.patchouli.xplat.IXplatAbstractions;
+import vazkii.patchouli.xplat.XplatModContainer;
+
+public class PatchouliConfig {
+
+    private static final Map<String, Boolean> CONFIG_FLAGS = new ConcurrentHashMap();
+
+    private static PatchouliConfigAccess access = null;
+
+    public static PatchouliConfigAccess get() {
+        return access;
+    }
+
+    public static void set(PatchouliConfigAccess a) {
+        if (access != null) {
+            throw new IllegalStateException("ConfigAccess already set");
+        } else {
+            access = a;
+        }
+    }
+
+    public static void reloadBuiltinFlags() {
+        for (XplatModContainer info : IXplatAbstractions.INSTANCE.getAllMods()) {
+            setFlag("mod:" + info.getId(), true);
+        }
+        setFlag("debug", IXplatAbstractions.INSTANCE.isDevEnvironment());
+        setFlag("advancements_disabled", get().disableAdvancementLocking());
+        setFlag("testing_mode", get().testingMode());
+        for (String book : get().noAdvancementBooks()) {
+            setFlag("advancements_disabled_" + book, true);
+        }
+    }
+
+    public static boolean getConfigFlag(String name) {
+        if (name.startsWith("&")) {
+            return getConfigFlagAND(name.replaceAll("[&|]", "").split(","));
+        } else if (name.startsWith("|")) {
+            return getConfigFlagOR(name.replaceAll("[&|]", "").split(","));
+        } else {
+            boolean target = true;
+            if (name.startsWith("!")) {
+                name = name.substring(1);
+                target = false;
+            }
+            name = name.trim().toLowerCase(Locale.ROOT);
+            Boolean b = (Boolean) CONFIG_FLAGS.get(name);
+            if (b == null) {
+                if (!name.startsWith("mod:")) {
+                    PatchouliAPI.LOGGER.warn("Queried for unknown config flag: {}", name);
+                }
+                b = false;
+            }
+            return b == target;
+        }
+    }
+
+    public static boolean getConfigFlagAND(String[] tokens) {
+        for (String s : tokens) {
+            if (!getConfigFlag(s)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean getConfigFlagOR(String[] tokens) {
+        for (String s : tokens) {
+            if (getConfigFlag(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void setFlag(String flag, boolean value) {
+        CONFIG_FLAGS.put(flag.trim().toLowerCase(Locale.ROOT), value);
+    }
+}

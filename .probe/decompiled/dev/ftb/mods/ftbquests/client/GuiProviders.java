@@ -1,0 +1,201 @@
+package dev.ftb.mods.ftbquests.client;
+
+import dev.ftb.mods.ftblibrary.config.ConfigGroup;
+import dev.ftb.mods.ftblibrary.config.FluidConfig;
+import dev.ftb.mods.ftblibrary.config.IntConfig;
+import dev.ftb.mods.ftblibrary.config.ItemStackConfig;
+import dev.ftb.mods.ftblibrary.config.LongConfig;
+import dev.ftb.mods.ftblibrary.config.StringConfig;
+import dev.ftb.mods.ftblibrary.config.ui.EditConfigScreen;
+import dev.ftb.mods.ftblibrary.config.ui.EditStringConfigOverlay;
+import dev.ftb.mods.ftblibrary.config.ui.SelectFluidScreen;
+import dev.ftb.mods.ftblibrary.config.ui.SelectItemStackScreen;
+import dev.ftb.mods.ftbquests.client.gui.SelectQuestObjectScreen;
+import dev.ftb.mods.ftbquests.quest.QuestObjectType;
+import dev.ftb.mods.ftbquests.quest.loot.RewardTable;
+import dev.ftb.mods.ftbquests.quest.reward.ItemReward;
+import dev.ftb.mods.ftbquests.quest.reward.RandomReward;
+import dev.ftb.mods.ftbquests.quest.reward.Reward;
+import dev.ftb.mods.ftbquests.quest.reward.RewardType;
+import dev.ftb.mods.ftbquests.quest.reward.RewardTypes;
+import dev.ftb.mods.ftbquests.quest.reward.XPLevelsReward;
+import dev.ftb.mods.ftbquests.quest.reward.XPReward;
+import dev.ftb.mods.ftbquests.quest.task.CheckmarkTask;
+import dev.ftb.mods.ftbquests.quest.task.DimensionTask;
+import dev.ftb.mods.ftbquests.quest.task.FluidTask;
+import dev.ftb.mods.ftbquests.quest.task.ISingleLongValueTask;
+import dev.ftb.mods.ftbquests.quest.task.ItemTask;
+import dev.ftb.mods.ftbquests.quest.task.LocationTask;
+import dev.ftb.mods.ftbquests.quest.task.ObservationTask;
+import dev.ftb.mods.ftbquests.quest.task.Task;
+import dev.ftb.mods.ftbquests.quest.task.TaskType;
+import dev.ftb.mods.ftbquests.quest.task.TaskTypes;
+import dev.ftb.mods.ftbquests.util.ConfigQuestObject;
+import java.util.function.Consumer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.StructureBlockEntity;
+import net.minecraft.world.phys.BlockHitResult;
+
+public class GuiProviders {
+
+    public static RewardType.GuiProvider defaultRewardGuiProvider(RewardType.Provider provider) {
+        return (gui, quest, callback) -> {
+            Reward reward = provider.create(0L, quest);
+            if (reward instanceof RandomReward randomReward) {
+                ConfigQuestObject<RewardTable> config = new ConfigQuestObject<>(QuestObjectType.REWARD_TABLE);
+                SelectQuestObjectScreen<?> s = new SelectQuestObjectScreen<>(config, accepted -> {
+                    if (accepted) {
+                        randomReward.setTable(config.getValue());
+                        callback.accept(reward);
+                    }
+                    gui.run();
+                });
+                s.setTitle(Component.translatable("ftbquests.gui.select_reward_table"));
+                s.setHasSearchBox(true);
+                s.openGui();
+            } else {
+                ConfigGroup group = new ConfigGroup("ftbquests", accepted -> {
+                    if (accepted) {
+                        callback.accept(reward);
+                    }
+                    gui.run();
+                });
+                reward.fillConfigGroup(reward.createSubGroup(group));
+                new EditConfigScreen(group).openGui();
+            }
+        };
+    }
+
+    public static TaskType.GuiProvider defaultTaskGuiProvider(TaskType.Provider provider) {
+        return (panel, quest, callback) -> {
+            Task task = provider.create(0L, quest);
+            if (task instanceof ISingleLongValueTask slvTask) {
+                LongConfig c = new LongConfig(slvTask.getMinConfigValue(), slvTask.getMaxConfigValue());
+                c.setValue(Long.valueOf(slvTask.getMinConfigValue()));
+                EditStringConfigOverlay<Long> overlay = new EditStringConfigOverlay<>(panel.getGui(), c, accepted -> {
+                    if (accepted) {
+                        slvTask.setValue(c.getValue());
+                        callback.accept(task);
+                    }
+                    panel.run();
+                }, task.getType().getDisplayName()).atMousePosition();
+                overlay.setExtraZlevel(300);
+                panel.getGui().pushModalPanel(overlay);
+            } else {
+                openSetupGui(panel.getGui(), callback, task);
+            }
+        };
+    }
+
+    public static void setTaskGuiProviders() {
+        TaskTypes.ITEM.setGuiProvider((gui, quest, callback) -> {
+            ItemStackConfig c = new ItemStackConfig(false, false);
+            new SelectItemStackScreen(c, accepted -> {
+                gui.run();
+                if (accepted) {
+                    ItemTask itemTask = new ItemTask(0L, quest).setStackAndCount(c.getValue(), c.getValue().getCount());
+                    callback.accept(itemTask);
+                }
+            }).openGui();
+        });
+        TaskTypes.CHECKMARK.setGuiProvider((panel, quest, callback) -> {
+            StringConfig c = new StringConfig(null);
+            c.setValue("");
+            EditStringConfigOverlay<String> overlay = new EditStringConfigOverlay<>(panel.getGui(), c, accepted -> {
+                if (accepted) {
+                    CheckmarkTask checkmarkTask = new CheckmarkTask(0L, quest);
+                    checkmarkTask.setRawTitle(c.getValue());
+                    callback.accept(checkmarkTask);
+                }
+                panel.run();
+            }, TaskTypes.CHECKMARK.getDisplayName()).atMousePosition();
+            overlay.setWidth(150);
+            overlay.setExtraZlevel(300);
+            panel.getGui().pushModalPanel(overlay);
+        });
+        TaskTypes.FLUID.setGuiProvider((gui, quest, callback) -> {
+            FluidConfig c = new FluidConfig(false);
+            new SelectFluidScreen(c, accepted -> {
+                gui.run();
+                if (accepted) {
+                    FluidTask fluidTask = new FluidTask(0L, quest).setFluid(c.getValue().getFluid());
+                    callback.accept(fluidTask);
+                }
+            }).openGui();
+        });
+        TaskTypes.DIMENSION.setGuiProvider((gui, quest, callback) -> {
+            DimensionTask task = new DimensionTask(0L, quest).withDimension(Minecraft.getInstance().level.m_46472_());
+            openSetupGui(gui, callback, task);
+        });
+        TaskTypes.OBSERVATION.setGuiProvider((gui, quest, callback) -> {
+            ObservationTask task = new ObservationTask(0L, quest);
+            if (Minecraft.getInstance().hitResult instanceof BlockHitResult bhr) {
+                Block block = Minecraft.getInstance().level.m_8055_(bhr.getBlockPos()).m_60734_();
+                task.setToObserve(BuiltInRegistries.BLOCK.getKey(block).toString());
+            }
+            openSetupGui(gui, callback, task);
+        });
+        TaskTypes.LOCATION.setGuiProvider((gui, quest, callback) -> {
+            LocationTask task = new LocationTask(0L, quest);
+            Minecraft mc = Minecraft.getInstance();
+            if (mc.hitResult instanceof BlockHitResult bhr && mc.level.m_7702_(bhr.getBlockPos()) instanceof StructureBlockEntity structure) {
+                task.initFromStructure(structure);
+                callback.accept(task);
+                return;
+            }
+            openSetupGui(gui, callback, task);
+        });
+    }
+
+    private static void openSetupGui(Runnable gui, Consumer<Task> callback, Task task) {
+        ConfigGroup group = new ConfigGroup("ftbquests", accepted -> {
+            gui.run();
+            if (accepted) {
+                callback.accept(task);
+            }
+        });
+        task.fillConfigGroup(task.createSubGroup(group));
+        new EditConfigScreen(group).openGui();
+    }
+
+    public static void setRewardGuiProviders() {
+        RewardTypes.ITEM.setGuiProvider((gui, quest, callback) -> {
+            ItemStackConfig c = new ItemStackConfig(false, false);
+            new SelectItemStackScreen(c, accepted -> {
+                if (accepted) {
+                    ItemStack copy = c.getValue().copy();
+                    copy.setCount(1);
+                    ItemReward reward = new ItemReward(0L, quest, copy, c.getValue().getCount());
+                    callback.accept(reward);
+                }
+                gui.run();
+            }).openGui();
+        });
+        RewardTypes.XP.setGuiProvider((panel, quest, callback) -> {
+            IntConfig c = new IntConfig(1, Integer.MAX_VALUE);
+            c.setValue(Integer.valueOf(100));
+            EditStringConfigOverlay<Integer> overlay = new EditStringConfigOverlay<>(panel.getGui(), c, accepted -> {
+                if (accepted) {
+                    callback.accept(new XPReward(0L, quest, c.getValue()));
+                }
+                panel.run();
+            }, RewardTypes.XP.getDisplayName()).atMousePosition();
+            panel.getGui().pushModalPanel(overlay);
+        });
+        RewardTypes.XP_LEVELS.setGuiProvider((panel, quest, callback) -> {
+            IntConfig c = new IntConfig(1, Integer.MAX_VALUE);
+            c.setValue(Integer.valueOf(5));
+            EditStringConfigOverlay<Integer> overlay = new EditStringConfigOverlay<>(panel.getGui(), c, accepted -> {
+                if (accepted) {
+                    callback.accept(new XPLevelsReward(0L, quest, c.getValue()));
+                }
+                panel.run();
+            }, RewardTypes.XP_LEVELS.getDisplayName()).atMousePosition();
+            panel.getGui().pushModalPanel(overlay);
+        });
+    }
+}

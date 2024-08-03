@@ -1,0 +1,21 @@
+package net.minecraft.world.level.storage.loot.functions;
+
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootContextUser;
+
+public interface LootItemFunction extends LootContextUser, BiFunction<ItemStack, LootContext, ItemStack> {
+
+    LootItemFunctionType getType();
+
+    static Consumer<ItemStack> decorate(BiFunction<ItemStack, LootContext, ItemStack> biFunctionItemStackLootContextItemStack0, Consumer<ItemStack> consumerItemStack1, LootContext lootContext2) {
+        return p_80732_ -> consumerItemStack1.accept((ItemStack) biFunctionItemStackLootContextItemStack0.apply(p_80732_, lootContext2));
+    }
+
+    public interface Builder {
+
+        LootItemFunction build();
+    }
+}

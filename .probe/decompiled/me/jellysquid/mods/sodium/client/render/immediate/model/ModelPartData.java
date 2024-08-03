@@ -1,0 +1,20 @@
+package me.jellysquid.mods.sodium.client.render.immediate.model;
+
+import net.minecraft.client.model.geom.ModelPart;
+
+public interface ModelPartData {
+
+    static ModelPartData from(ModelPart child) {
+        return (ModelPartData) child;
+    }
+
+    @Deprecated
+    ModelCuboid[] getCuboids();
+
+    @Deprecated
+    ModelPart[] getChildren();
+
+    boolean isVisible();
+
+    boolean isHidden();
+}

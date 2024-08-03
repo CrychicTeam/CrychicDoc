@@ -1,0 +1,86 @@
+package yesman.epicfight.skill.passive;
+
+import com.google.common.collect.Maps;
+import com.mojang.blaze3d.vertex.PoseStack;
+import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ForgeRegistries;
+import yesman.epicfight.api.utils.ParseUtil;
+import yesman.epicfight.client.gui.BattleModeGui;
+import yesman.epicfight.skill.Skill;
+import yesman.epicfight.skill.SkillCategories;
+import yesman.epicfight.skill.SkillContainer;
+
+public abstract class PassiveSkill extends Skill {
+
+    private final Map<Attribute, AttributeModifier> passiveStats = Maps.newHashMap();
+
+    public static Skill.Builder<PassiveSkill> createPassiveBuilder() {
+        return new Skill.Builder<PassiveSkill>().setCategory(SkillCategories.PASSIVE).setResource(Skill.Resource.NONE);
+    }
+
+    public PassiveSkill(Skill.Builder<? extends Skill> builder) {
+        super(builder);
+    }
+
+    @Override
+    public void setParams(CompoundTag parameters) {
+        super.setParams(parameters);
+        this.passiveStats.clear();
+        if (parameters.contains("attribute_modifiers")) {
+            for (Tag tag : parameters.getList("attribute_modifiers", 10)) {
+                CompoundTag comp = (CompoundTag) tag;
+                String attribute = comp.getString("attribute");
+                Attribute attr = ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation(attribute));
+                AttributeModifier modifier = ParseUtil.toAttributeModifier(comp);
+                this.passiveStats.put(attr, modifier);
+            }
+        }
+    }
+
+    @Override
+    public void onInitiate(SkillContainer container) {
+        for (Entry<Attribute, AttributeModifier> stat : this.passiveStats.entrySet()) {
+            AttributeInstance attr = container.getExecuter().getOriginal().m_21051_((Attribute) stat.getKey());
+            if (!attr.hasModifier((AttributeModifier) stat.getValue())) {
+                attr.addTransientModifier((AttributeModifier) stat.getValue());
+            }
+        }
+    }
+
+    @Override
+    public void onRemoved(SkillContainer container) {
+        for (Entry<Attribute, AttributeModifier> stat : this.passiveStats.entrySet()) {
+            AttributeInstance attr = container.getExecuter().getOriginal().m_21051_((Attribute) stat.getKey());
+            if (attr.hasModifier((AttributeModifier) stat.getValue())) {
+                attr.removeModifier((AttributeModifier) stat.getValue());
+            }
+        }
+    }
+
+    public Set<Entry<Attribute, AttributeModifier>> getModfierEntry() {
+        return this.passiveStats.entrySet();
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void drawOnGui(BattleModeGui gui, SkillContainer container, GuiGraphics guiGraphics, float x, float y) {
+        PoseStack poseStack = guiGraphics.pose();
+        poseStack.pushPose();
+        poseStack.translate(0.0F, (float) gui.getSlidingProgression(), 0.0F);
+        guiGraphics.blit(this.getSkillTexture(), (int) x, (int) y, 24, 24, 0.0F, 0.0F, 1, 1, 1, 1);
+        String remainTime = String.format("%.0f", container.getMaxResource() - container.getResource());
+        guiGraphics.drawString(gui.font, remainTime, x + 12.0F - (float) (4 * remainTime.length()), y + 6.0F, 16777215, true);
+        poseStack.popPose();
+    }
+}

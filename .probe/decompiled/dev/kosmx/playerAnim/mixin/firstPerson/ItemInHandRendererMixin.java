@@ -1,0 +1,44 @@
+package dev.kosmx.playerAnim.mixin.firstPerson;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import dev.kosmx.playerAnim.api.firstPerson.FirstPersonConfiguration;
+import dev.kosmx.playerAnim.api.firstPerson.FirstPersonMode;
+import dev.kosmx.playerAnim.impl.IAnimatedPlayer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.ItemInHandRenderer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin({ ItemInHandRenderer.class })
+public class ItemInHandRendererMixin {
+
+    @Inject(method = { "renderHandsWithItems" }, at = { @At("HEAD") }, cancellable = true)
+    private void disableDefaultItemIfNeeded(float f, PoseStack poseStack, MultiBufferSource.BufferSource bufferSource, LocalPlayer localPlayer, int i, CallbackInfo ci) {
+        if (localPlayer instanceof IAnimatedPlayer player && player.playerAnimator_getAnimation().getFirstPersonMode() == FirstPersonMode.THIRD_PERSON_MODEL) {
+            ci.cancel();
+        }
+    }
+
+    @Inject(method = { "renderItem" }, at = { @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/ItemRenderer;renderStatic(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemDisplayContext;ZLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/world/level/Level;III)V") }, cancellable = true)
+    private void cancelItemRender(LivingEntity entity, ItemStack itemStack, ItemDisplayContext transformType, boolean bl, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, CallbackInfo ci) {
+        if (entity == Minecraft.getInstance().getCameraEntity()) {
+            if (FirstPersonMode.isFirstPersonPass() && entity instanceof IAnimatedPlayer player) {
+                FirstPersonConfiguration config = player.playerAnimator_getAnimation().getFirstPersonConfiguration();
+                if (transformType != ItemDisplayContext.FIRST_PERSON_RIGHT_HAND && transformType != ItemDisplayContext.THIRD_PERSON_RIGHT_HAND) {
+                    if (!config.isShowLeftItem()) {
+                        ci.cancel();
+                    }
+                } else if (!config.isShowRightItem()) {
+                    ci.cancel();
+                }
+            }
+        }
+    }
+}

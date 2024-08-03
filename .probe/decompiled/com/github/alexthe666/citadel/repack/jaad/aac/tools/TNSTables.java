@@ -1,0 +1,14 @@
+package com.github.alexthe666.citadel.repack.jaad.aac.tools;
+
+interface TNSTables {
+
+    float[] TNS_COEF_1_3 = new float[] { 0.0F, -0.43388373F, 0.6427876F, 0.34202015F };
+
+    float[] TNS_COEF_0_3 = new float[] { 0.0F, -0.43388373F, -0.7818315F, -0.9749279F, 0.9848077F, 0.8660254F, 0.6427876F, 0.34202015F };
+
+    float[] TNS_COEF_1_4 = new float[] { 0.0F, -0.2079117F, -0.40673664F, -0.58778524F, 0.6736956F, 0.52643216F, 0.36124167F, 0.18374951F };
+
+    float[] TNS_COEF_0_4 = new float[] { 0.0F, -0.2079117F, -0.40673664F, -0.58778524F, -0.7431448F, -0.8660254F, -0.95105654F, -0.9945219F, 0.99573416F, 0.9618256F, 0.8951633F, 0.7980172F, 0.6736956F, 0.52643216F, 0.36124167F, 0.18374951F };
+
+    float[][] TNS_TABLES = new float[][] { TNS_COEF_0_3, TNS_COEF_0_4, TNS_COEF_1_3, TNS_COEF_1_4 };
+}
