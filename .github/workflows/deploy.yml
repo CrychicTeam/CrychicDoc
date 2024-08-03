@@ -36,8 +36,8 @@ jobs:
         git add -A
         git commit -m "Update documentation"
         
-        # 使用 --force-with-lease 代替 -f，以提供一些保护
-        git push --force-with-lease https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git HEAD:main
+        # 强制推送新的内容，但保留 .github 目录
+        git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocTranslation.git HEAD:main
         
         cd ../..
         rm -rf .vitepress/dist
