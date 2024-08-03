@@ -1,3 +1,6 @@
+---
+layout: docs
+
 ```js twoslash
 // @filename: index.ts
 // @ts-check
@@ -20,3 +23,19 @@ ItemEvents.rightClicked("acacia_button",event=>{
 ```
 test
 test2
+server {
+    listen 1300;
+    server_name docs.mihono.cn;
+
+    root /home/mihono/vitepress;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location = /favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+}
