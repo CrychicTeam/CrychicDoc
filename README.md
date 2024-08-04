@@ -1,1 +1,3 @@
-# This is the source of original files for CrychicDoc.
+# Hi
+This is the source of Crychic Doc.
+这里是Cryhic文档的源代码库。
