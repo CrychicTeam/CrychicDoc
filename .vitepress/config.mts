@@ -3,6 +3,9 @@ import timeline from "vitepress-markdown-timeline";
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { withMermaid } from "vitepress-plugin-mermaid";
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { TDesignResolver } from 'unplugin-vue-components/resolvers';
 
 export default withMermaid({
   srcDir : "./docs",
@@ -49,7 +52,10 @@ export default withMermaid({
     },
     codeTransformers: [
       transformerTwoslash() 
-    ]
+    ],
+    image: {
+      lazyLoading: true
+    }
   },
   cleanUrls: true,
   mermaid: {},
@@ -57,5 +63,18 @@ export default withMermaid({
     ssr: {
       noExternal: ['vuetify'],
     },
+    plugins: [
+      // ...
+      AutoImport({
+        resolvers: [TDesignResolver({
+          library: 'vue-next'
+        })],
+      }),
+      Components({
+        resolvers: [TDesignResolver({
+          library: 'vue-next'
+        })],
+      }),
+    ],
   }
 })

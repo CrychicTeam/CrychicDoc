@@ -22,4 +22,4 @@ ItemEvents.rightClicked("acacia_button",event=>{
     event.player.tell("You right clicked an acacia button")
 })
 ```
-非常好。
+非常好

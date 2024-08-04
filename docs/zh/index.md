@@ -21,4 +21,7 @@ hero:
 #   - title: Feature C
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
+<index />
+<script setup>
+import index from '../index.vue'
+</script>

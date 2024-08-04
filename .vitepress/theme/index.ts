@@ -6,8 +6,6 @@ import vitepressNprogress from 'vitepress-plugin-nprogress'
 import 'vitepress-plugin-nprogress/lib/css/index.css'
 import "vitepress-markdown-timeline/dist/theme/index.css";
 import 'viewerjs/dist/viewer.min.css';
-import imageViewer from 'vitepress-plugin-image-viewer';
-import vImageViewer from 'vitepress-plugin-image-viewer/lib/vImageViewer.vue';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
 import { toRefs } from "vue";
@@ -17,19 +15,20 @@ import './style.css'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import '@shikijs/vitepress-twoslash/style.css'
+import imageViewer from "./components/imageViewer.vue"
 import vuetify from './vuetify'
 
 export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
+			"doc-bottom": () => h(imageViewer)
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
     })
   },
   enhanceApp: (ctx) => {
     DefaultTheme.enhanceApp(ctx);
     vitepressNprogress(ctx)
-    ctx.app.component('vImageViewer', vImageViewer);
     enhanceAppWithTabs(ctx.app);
     ctx.app.use(vuetify);
     ctx.app.use(TwoslashFloatingVue) 
@@ -39,9 +38,6 @@ export default {
       const { frontmatter } = useData();
       // basic use
       codeblocksFold({ route, frontmatter }, true, 400);
-      // 使用
-      imageViewer(route);
-      
       // Obtain configuration from: https://giscus.app/
       giscusTalk({
           repo: 'M1hono/CrychicDoc',
