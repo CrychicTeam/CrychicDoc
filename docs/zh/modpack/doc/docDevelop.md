@@ -24,6 +24,7 @@ Minecraft Hunt使用 Forge 1.20.1 - 40.2.20.
 # 修改为实际的我的世界实例地址如.minecraft或启动器内的版本名称。
 cd path/to/your/minecraft/instance
 git init
+# 此处以Minecraft-Hunt举例，要为它提供代码的话，需要修改拉取fork后的仓库代码。
 # 将YourUsername修改为你的GithubID，你可以直接使用fork后的仓库链接。
 git remote add origin https://github.com/YourUsername/Minecraft-Hunt.git
 git pull origin main
@@ -91,9 +92,10 @@ git checkout main
 git branch -d feature-branch # 删除本地分支
 git push origin --delete feature-branch # 删除远程分支
 ```
+
 ```mermaid
 graph TD
-    A[开始] --> B[Fork 项目]
+    A([开始]) --> B[Fork 项目]
     B --> C[初始化本地仓库]
     C --> D[设置上游仓库]
     D --> E[创建新分支]
@@ -106,37 +108,31 @@ graph TD
     K -->|是| L[删除本地和远程分支]
     K -->|否| F
     L --> M[更新 CHANGELOG 和 DevDocuments]
-    M --> N[结束]
+    M --> N([结束])
 
-    style A fill:#ffcccc,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
-    style N fill:#ffcc99,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
-    style K fill:#ccffcc,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
-    
-    classDef process fill:#cce5ff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
-    class B,C,D,E,F,G,H,I,J,L,M process;
+    class A,N fill:#e6f3ff,stroke:#4a86e8,stroke-width:2px
+    class B,C,D,E,F,G,H,I,J,L,M fill:#fff2cc,stroke:#d6b656,stroke-width:2px
+    class K fill:#d5e8d4,stroke:#82b366,stroke-width:2px
 
-    linkStyle 0 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 1 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 2 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 3 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 4 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 5 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 6 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 7 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 8 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 9 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 10 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 11 stroke:#ff99cc,stroke-width:2px;
-    linkStyle 12 stroke:#ff99cc,stroke-width:2px;
-
+    linkStyle default stroke:#4a86e8,stroke-width:2px
 ```
+
 ## 规范
 
 在每次进行上述步骤时，如果你的仓库落后于原仓库，请点击`Sync fork`按钮来同步进度。
 
-在你完成某项工作时，需要在CHANGELOG与DevDocuments中写入你所提供的贡献。
 
-如果你是外部开发者的话，请在新增事项后留下你的名字。
-    
-例如：
-> 我完成了这个更改 => 2024/某月、某日 - 我的名字
+::: details
+> 如果你参与的项目为Crychic的Minecraft-Hunt，在你完成某项工作时，需要在CHANGELOG与DevDocuments中写入你所提供的贡献。
+
+> 如果你作为外部开发者为Crychic贡献了任何资料与文档的内容，请在新增事项后留下您的署名，非常感谢您的付出。
+
+> 例如：我完成了这个更改 => 2024/某月、某日 - 我的名字
+:::
+
+
+  <v-alert
+    text="你现在已经是Pull Request大师啦！"
+    title="恭喜你！"
+    type="success"
+  ></v-alert>
