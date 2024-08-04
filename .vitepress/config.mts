@@ -105,6 +105,7 @@ export default withMermaid(
           })],
         }),
       ],
-    }
+    },
+    head: [['link', { rel: 'icon', href: 'http://docs.mihono.cn/favicon.ico' }]]
   })
 )
