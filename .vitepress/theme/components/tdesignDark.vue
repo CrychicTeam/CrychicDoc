@@ -1,23 +1,66 @@
-<template></template>
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { watch } from "vue";
+import { watch, onMounted, onUnmounted, ref } from "vue";
+import { useRoute } from 'vitepress'
 
 const { isDark } = useData();
+const route = useRoute()
+const isHomePage = ref(true)
 
-// tdesign暗色切换 https://tdesign.tencent.com/vue-next/dark-mode
-watch(
-	isDark,
-	() => {
-    if(isDark.value) {
-      document.documentElement.setAttribute('theme-mode', 'dark');
-    } else {
-      document.documentElement.removeAttribute('theme-mode');
-    }
-	},
-	{
-		immediate: true,
-	}
-);
+const setHeroBackground = (isDarkMode: boolean) => {
+  if (!isHomePage.value) return;
+  
+  const darkGradient = 'linear-gradient(-45deg, #3a2f2f 50%, #4a3f3f 50%)';
+  const lightGradient = 'linear-gradient(-45deg, #93f5fc 50%, #cadfd9 50%)';
+  const darkBlur = 'blur(72px)';
+  const lightBlur = 'blur(68px)';
 
+  document.documentElement.style.setProperty('--vp-home-hero-image-background-image', isDarkMode ? darkGradient : lightGradient);
+  document.documentElement.style.setProperty('--vp-home-hero-image-filter', isDarkMode ? darkBlur : lightBlur);
+};
+
+const updateThemeMode = (isDarkMode: boolean) => {
+  if (isDarkMode) {
+    document.documentElement.setAttribute('theme-mode', 'dark');
+  } else {
+    document.documentElement.removeAttribute('theme-mode');
+  }
+};
+
+watch(isDark, (newValue) => {
+  updateThemeMode(newValue);
+  setHeroBackground(newValue);
+}, { immediate: true });
+
+watch(() => route.path, (newPath) => {
+  isHomePage.value = newPath === '/';
+  if (isHomePage.value) {
+    setHeroBackground(isDark.value);
+  }
+});
+
+onMounted(() => {
+  isHomePage.value = route.path === '/';
+  if (isHomePage.value) {
+    setHeroBackground(isDark.value);
+  }
+});
+
+onUnmounted(() => {
+  // 清除样式
+  document.documentElement.style.removeProperty('--vp-home-hero-image-background-image');
+  document.documentElement.style.removeProperty('--vp-home-hero-image-filter');
+});
 </script>
+
+<style>
+:root {
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #93f5fc 50%, #cadfd9 50%);
+  --vp-home-hero-image-filter: blur(68px);
+}
+
+.dark {
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #3a2f2f 50%, #4a3f3f 50%);
+  --vp-home-hero-image-filter: blur(72px);
+}
+</style>
