@@ -5,6 +5,10 @@ hero:
   name: "CrychicDoc"
   text: "一个由Crychic团队维护的我的世界文档."
   tagline: 存放了整合包与我的世界开发相关的文档与资料索引。
+  image:
+    light: /logo.png
+    dark: /logodark.png
+    alt: crychic
   actions:
     - theme: brand
       text: Kubejs
@@ -23,5 +27,5 @@ hero:
 ---
 <index />
 <script setup>
-import index from '../index.vue'
+import index from '../index_zh.vue'
 </script>

@@ -3,8 +3,12 @@ layout: home
 
 hero:
   name: "CrychicDoc"
-  text: "一个由Crychic团队维护的我的世界文档."
-  tagline: 存放了整合包与我的世界开发相关的文档与资料索引。
+  text: "A Minecraft doc maintained by Crychic team."
+  tagline: Contains documentation and resource indexes related to modpacks and Minecraft development.
+  image: 
+    light: /logo.png
+    dark: /logodark.png
+    alt: crychic
   actions:
     - theme: brand
       text: Kubejs
@@ -22,3 +26,7 @@ hero:
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
+<index />
+<script setup>
+import index from '../index_en.vue'
+</script>
