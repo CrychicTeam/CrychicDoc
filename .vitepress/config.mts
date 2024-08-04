@@ -53,5 +53,9 @@ export default withMermaid({
   },
   cleanUrls: true,
   mermaid: {},
-  vite: {}
+  vite: {
+    ssr: {
+      noExternal: ['vuetify'],
+    },
+  }
 })

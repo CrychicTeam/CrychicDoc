@@ -5,7 +5,7 @@ import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.css'
 
 export default createVuetify({
-  ssr: false,
+  ssr: true,
   components,
   theme: {
     themes: {
