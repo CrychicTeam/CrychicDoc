@@ -108,12 +108,27 @@ graph TD
     L --> M[更新 CHANGELOG 和 DevDocuments]
     M --> N[结束]
 
-    style A fill:#f9d5e5,stroke:#333,stroke-width:2px
-    style N fill:#eeac99,stroke:#333,stroke-width:2px
-    style K fill:#d3f8e2,stroke:#333,stroke-width:2px
+    style A fill:#ffcccc,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    style N fill:#ffcc99,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    style K fill:#ccffcc,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
     
-    classDef process fill:#e3f2fd,stroke:#333,stroke-width:2px;
+    classDef process fill:#cce5ff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5;
     class B,C,D,E,F,G,H,I,J,L,M process;
+
+    linkStyle 0 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 1 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 2 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 3 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 4 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 5 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 6 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 7 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 8 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 9 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 10 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 11 stroke:#ff99cc,stroke-width:2px;
+    linkStyle 12 stroke:#ff99cc,stroke-width:2px;
+
 ```
 ## 规范
 
