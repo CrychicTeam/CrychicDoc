@@ -1,7 +1,7 @@
 ---
 layout: doc
 ---
-# Test ts-check
+# 测试类型检查
 ```js twoslash
 // @filename: index.ts
 // @ts-check
@@ -22,4 +22,4 @@ ItemEvents.rightClicked("acacia_button",event=>{
     event.player.tell("You right clicked an acacia button")
 })
 ```
-Great
+非常好。
