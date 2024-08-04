@@ -70,7 +70,7 @@ export default withMermaid(
       ],
       footer: {
         message: '',
-        copyright: 'Copyright © 2024-present M1hono	晋ICP备2022005790号-2'
+        copyright: 'Copyright © 2024 M1hono	晋ICP备2022005790号-2'
       },
       lastUpdated: {}
     },
