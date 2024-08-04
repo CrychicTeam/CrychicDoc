@@ -18,8 +18,8 @@
     ></v-sparkline>
     <div class="text-caption text-center mt-1">
       <v-icon small color="primary">mdi-source-branch</v-icon>
-      <span class="ml-1">最近活动</span>
-      <strong class="ml-2">总提交数：{{ totalContributions }}</strong>
+      <span class="ml-1">Recent activity</span>
+      <strong class="ml-2">Total commits: {{ totalContributions }}</strong>
     </div>
   </v-container>
 </template>
@@ -29,7 +29,7 @@ import axios from 'axios';
 
 export default {
   data: () => ({
-    width: 2,
+    width: 1,
     smooth: true,
     padding: 4,
     lineCap: 'round',
@@ -56,7 +56,7 @@ export default {
         const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`);
         this.contributions = this.processContributions(response.data);
       } catch (error) {
-        console.error('获取GitHub提交数据时出错:', error);
+        console.error('Error fetching GitHub contributions:', error);
       }
     },
     processContributions(commits) {

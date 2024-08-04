@@ -12,10 +12,10 @@ hero:
   actions:
     - theme: brand
       text: Kubejs
-      link: 
+      link: /zh/
     - theme: alt
       text: Github合作指南
-      link: zh/modpack/doc/docDevelop/
+      link: /zh/modpack/doc/docDevelop/
 
 # features:
 #   - title: Feature A
@@ -27,5 +27,5 @@ hero:
 ---
 <index />
 <script setup>
-import index from './index_zh.vue'
+import index from '/zh/index_zh.vue'
 </script>

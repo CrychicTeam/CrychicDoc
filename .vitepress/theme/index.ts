@@ -17,6 +17,7 @@ import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import '@shikijs/vitepress-twoslash/style.css'
 import imageViewer from "./components/imageViewer.vue"
 import vuetify from './vuetify'
+import Layout from './Layout.vue'
 
 export default {
   extends: DefaultTheme,

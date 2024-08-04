@@ -129,6 +129,10 @@
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
 
+:lang(zh) {
+  --vp-code-copy-copied-text-content: '已复制'
+}
+
 /**
  * Component: Algolia
  * -------------------------------------------------------------------------- */

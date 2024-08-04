@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: Kubejs
-      link: 
+      link: /en/
     - theme: alt
       text: Github Collaboration guide
       link: modpack/doc/docDevelop/
@@ -28,5 +28,5 @@ hero:
 
 <index />
 <script setup>
-import index from '../index_en.vue'
+import index from './index.vue'
 </script>
