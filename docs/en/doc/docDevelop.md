@@ -90,6 +90,8 @@ git branch -d feature-branch # Delete the local branch
 git push origin --delete feature-branch # Delete the remote branch
 ```
 
+<ClientOnly>
+
 ```mermaid
 graph TD
     A([Start]) --> B[Fork the project]
@@ -113,6 +115,8 @@ graph TD
 
     linkStyle default stroke:#4a86e8,stroke-width:2px
 ```
+
+</ClientOnly>
 
 ## Guidelines
 
