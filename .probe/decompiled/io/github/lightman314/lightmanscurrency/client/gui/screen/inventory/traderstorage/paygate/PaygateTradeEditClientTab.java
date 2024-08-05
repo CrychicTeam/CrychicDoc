@@ -1,0 +1,167 @@
+package io.github.lightman314.lightmanscurrency.client.gui.screen.inventory.traderstorage.paygate;
+
+import io.github.lightman314.lightmanscurrency.LCText;
+import io.github.lightman314.lightmanscurrency.api.misc.EasyText;
+import io.github.lightman314.lightmanscurrency.api.misc.client.rendering.EasyGuiGraphics;
+import io.github.lightman314.lightmanscurrency.api.money.input.MoneyValueWidget;
+import io.github.lightman314.lightmanscurrency.api.money.value.MoneyValue;
+import io.github.lightman314.lightmanscurrency.api.network.LazyPacketData;
+import io.github.lightman314.lightmanscurrency.api.traders.TraderData;
+import io.github.lightman314.lightmanscurrency.api.traders.menu.storage.TraderStorageClientTab;
+import io.github.lightman314.lightmanscurrency.api.traders.trade.TradeData;
+import io.github.lightman314.lightmanscurrency.client.gui.easy.interfaces.IMouseListener;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.TradeButtonArea;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.button.icon.IconButton;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.button.icon.IconData;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.button.trade.TradeButton;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.easy.EasyAddonHelper;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.easy.EasyButton;
+import io.github.lightman314.lightmanscurrency.client.util.ScreenArea;
+import io.github.lightman314.lightmanscurrency.client.util.TextInputUtil;
+import io.github.lightman314.lightmanscurrency.common.core.ModItems;
+import io.github.lightman314.lightmanscurrency.common.items.TicketItem;
+import io.github.lightman314.lightmanscurrency.common.menus.traderstorage.paygate.PaygateTradeEditTab;
+import io.github.lightman314.lightmanscurrency.common.traders.paygate.PaygateTraderData;
+import io.github.lightman314.lightmanscurrency.common.traders.paygate.tradedata.PaygateTradeData;
+import javax.annotation.Nonnull;
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.common.util.NonNullSupplier;
+
+public class PaygateTradeEditClientTab extends TraderStorageClientTab<PaygateTradeEditTab> implements TradeButtonArea.InteractionConsumer, IMouseListener {
+
+    TradeButton tradeDisplay;
+
+    MoneyValueWidget priceSelection;
+
+    EditBox durationInput;
+
+    IconButton ticketStubButton;
+
+    public PaygateTradeEditClientTab(Object screen, PaygateTradeEditTab commonTab) {
+        super(screen, commonTab);
+    }
+
+    @Nonnull
+    @Override
+    public IconData getIcon() {
+        return IconData.of(ModItems.TRADING_CORE);
+    }
+
+    public MutableComponent getTooltip() {
+        return EasyText.empty();
+    }
+
+    @Override
+    public boolean tabButtonVisible() {
+        return false;
+    }
+
+    @Override
+    public boolean blockInventoryClosing() {
+        return true;
+    }
+
+    @Override
+    public int getTradeRuleTradeIndex() {
+        return this.commonTab.getTradeIndex();
+    }
+
+    @Override
+    public void initialize(ScreenArea screenArea, boolean firstOpen) {
+        this.addChild(this);
+        PaygateTradeData trade = this.commonTab.getTrade();
+        this.tradeDisplay = this.addChild(new TradeButton(this.menu::getContext, this.commonTab::getTrade, button -> {
+        }));
+        this.tradeDisplay.setPosition(screenArea.pos.offset(10, 18));
+        this.priceSelection = this.addChild(new MoneyValueWidget(screenArea.pos.offset(15, 55), firstOpen ? null : this.priceSelection, trade == null ? MoneyValue.empty() : trade.getCost(), this::onValueChanged).withAddons(EasyAddonHelper.visibleCheck((NonNullSupplier<Boolean>) (() -> {
+            PaygateTradeData t = this.commonTab.getTrade();
+            return t != null && !t.isTicketTrade();
+        }))));
+        this.priceSelection.drawBG = false;
+        this.ticketStubButton = this.addChild(new IconButton(screenArea.pos.offset(10, 55), this::ToggleTicketStubHandling, this::GetTicketStubIcon).withAddons(EasyAddonHelper.tooltip(this::getTicketStubButtonTooltip), EasyAddonHelper.visibleCheck((NonNullSupplier<Boolean>) (() -> {
+            PaygateTradeData t = this.commonTab.getTrade();
+            return t != null && t.isTicketTrade();
+        }))));
+        int labelWidth = this.getFont().width(LCText.GUI_TRADER_PAYGATE_DURATION.get());
+        int unitWidth = this.getFont().width(LCText.GUI_TRADER_PAYGATE_DURATION_UNIT.get());
+        this.durationInput = this.addChild(new EditBox(this.getFont(), screenArea.x + 15 + labelWidth, screenArea.y + 38, screenArea.width - 30 - labelWidth - unitWidth, 18, EasyText.empty()));
+        this.durationInput.setValue(String.valueOf(trade.getDuration()));
+    }
+
+    @Override
+    public void renderBG(@Nonnull EasyGuiGraphics gui) {
+        if (this.commonTab.getTrade() != null) {
+            TextInputUtil.whitelistInteger(this.durationInput, 1L, (long) PaygateTraderData.getMaxDuration());
+            int inputDuration = Math.max(TextInputUtil.getIntegerValue(this.durationInput, 1), 1);
+            if (inputDuration != this.commonTab.getTrade().getDuration()) {
+                this.commonTab.setDuration(inputDuration);
+            }
+            gui.drawString(LCText.GUI_TRADER_PAYGATE_DURATION.get(), 13, 42, 4210752);
+            MutableComponent unitText = LCText.GUI_TRADER_PAYGATE_DURATION_UNIT.get();
+            int unitWidth = gui.font.width(unitText);
+            gui.drawString(unitText, this.screen.getXSize() - unitWidth - 13, 42, 4210752);
+        }
+    }
+
+    private Component getTicketStubButtonTooltip() {
+        PaygateTradeData trade = this.commonTab.getTrade();
+        if (trade != null) {
+            return trade.shouldStoreTicketStubs() ? LCText.TOOLTIP_TRADER_PAYGATE_TICKET_STUBS_KEEP.get() : LCText.TOOLTIP_TRADER_PAYGATE_TICKET_STUBS_GIVE.get();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public void receiveSelfMessage(LazyPacketData message) {
+        if (message.contains("TradeIndex", (byte) 2)) {
+            this.commonTab.setTradeIndex(message.getInt("TradeIndex"));
+        }
+    }
+
+    @Override
+    public void onTradeButtonInputInteraction(TraderData trader, TradeData trade, int index, int mouseButton) {
+        if (trade instanceof PaygateTradeData t) {
+            if (TicketItem.isMasterTicket(this.menu.getHeldItem())) {
+                this.commonTab.setTicket(this.menu.getHeldItem());
+            } else if (t.isTicketTrade()) {
+                this.commonTab.setTicket(ItemStack.EMPTY);
+            }
+        }
+    }
+
+    @Override
+    public boolean onMouseClicked(double mouseX, double mouseY, int button) {
+        this.tradeDisplay.onInteractionClick((int) mouseX, (int) mouseY, button, this);
+        return false;
+    }
+
+    @Override
+    public void onTradeButtonOutputInteraction(TraderData trader, TradeData trade, int index, int mouseButton) {
+    }
+
+    @Override
+    public void onTradeButtonInteraction(TraderData trader, TradeData trade, int localMouseX, int localMouseY, int mouseButton) {
+    }
+
+    public void onValueChanged(MoneyValue value) {
+        this.commonTab.setPrice(value);
+    }
+
+    private IconData GetTicketStubIcon() {
+        PaygateTradeData trade = this.commonTab.getTrade();
+        boolean shouldStore = trade != null && trade.shouldStoreTicketStubs();
+        return shouldStore ? IconData.of(Items.CHEST) : IconData.of(Items.PLAYER_HEAD);
+    }
+
+    private void ToggleTicketStubHandling(EasyButton button) {
+        PaygateTradeData trade = this.commonTab.getTrade();
+        if (trade != null) {
+            this.commonTab.setTicketStubHandling(!trade.shouldStoreTicketStubs());
+        }
+    }
+}

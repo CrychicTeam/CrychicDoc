@@ -1,0 +1,55 @@
+package com.github.alexmodguy.alexscaves.client.config;
+
+import net.minecraftforge.common.ForgeConfigSpec;
+
+public class ACClientConfig {
+
+    public final ForgeConfigSpec.BooleanValue caveMapsVisibleInThirdPerson;
+
+    public final ForgeConfigSpec.BooleanValue screenShaking;
+
+    public final ForgeConfigSpec.BooleanValue emissiveBlockModels;
+
+    public final ForgeConfigSpec.BooleanValue nuclearBombFlash;
+
+    public final ForgeConfigSpec.BooleanValue biomeAmbientLight;
+
+    public final ForgeConfigSpec.BooleanValue biomeAmbientLightColoring;
+
+    public final ForgeConfigSpec.BooleanValue biomeSkyOverrides;
+
+    public final ForgeConfigSpec.BooleanValue biomeSkyFogOverrides;
+
+    public final ForgeConfigSpec.BooleanValue biomeWaterFogOverrides;
+
+    public final ForgeConfigSpec.BooleanValue ambersolShines;
+
+    public final ForgeConfigSpec.BooleanValue radiationGlowEffect;
+
+    public final ForgeConfigSpec.IntValue subterranodonIndicatorX;
+
+    public final ForgeConfigSpec.IntValue subterranodonIndicatorY;
+
+    public final ForgeConfigSpec.BooleanValue nuclearBombMufflesSounds;
+
+    public ACClientConfig(ForgeConfigSpec.Builder builder) {
+        builder.push("visuals");
+        this.caveMapsVisibleInThirdPerson = builder.comment("whether to cave maps are visible when held by players from the third-person perspective.").translation("cave_maps_visible_in_third_person").define("cave_maps_visible_in_third_person", true);
+        this.screenShaking = builder.comment("whether to shake the screen from tremorsaurus stomping, nuclear explosions, etc.").translation("screen_shaking").define("screen_shaking", true);
+        this.emissiveBlockModels = builder.comment("true if some block models, like uranium ore or abyssmarine bricks render as fullbright. May increase load time, no gameplay performance impact.").translation("emissive_block_models").define("emissive_block_models", true);
+        this.nuclearBombFlash = builder.comment("whether to make the screen flash white during nuclear explosions.").translation("nuclear_bomb_flash").define("nuclear_bomb_flash", true);
+        this.biomeAmbientLight = builder.comment("true if some biomes, such as primordial caves, have ambient light that makes the biome easier to see in.").translation("biome_ambient_light").define("biome_ambient_light", true);
+        this.biomeAmbientLightColoring = builder.comment("true if some biomes, such as toxic caves, apply a color to ambient light. May conflict with shaders.").translation("biome_ambient_light_coloring").define("biome_ambient_light_coloring", true);
+        this.biomeSkyOverrides = builder.comment("true if some biomes, such as primordial caves, have an always well-lit sky when in them. May conflict with shaders.").translation("biome_sky_overrides").define("biome_sky_overrides", true);
+        this.biomeSkyFogOverrides = builder.comment("true if some biomes, such as toxic caves, have an thicker fog to them. May conflict with shaders.").translation("biome_sky_fog_overrides").define("biome_sky_fog_overrides", true);
+        this.biomeWaterFogOverrides = builder.comment("true if some biomes, such as abyssal chasm, have an thicker water fog to them. May conflict with shaders.").translation("biome_water_fog_overrides").define("biome_sky_fog_overrides", true);
+        this.ambersolShines = builder.comment("true if ambersol block renders with rays of light emerging from it.").translation("ambersol_shines").define("ambersol_shines", true);
+        this.radiationGlowEffect = builder.comment("true if irradiated effect makes mobs glow. May conflict with shaders.").translation("radiation_glow_effect").define("radiation_glow_effect", true);
+        this.subterranodonIndicatorX = builder.comment("determines how far to the left the subterranodon flight indicator renders on the screen when mounted. Negative numbers will render it on the right. ").translation("subterranodon_indicator_x").defineInRange("subterranodon_indicator_x", 22, -12000, 12000);
+        this.subterranodonIndicatorY = builder.comment("determines how far from bottom the subterranodon flight indicator renders on the screen when mounted.").translation("subterranodon_indicator_y").defineInRange("subterranodon_indicator_y", 6, -12000, 12000);
+        builder.pop();
+        builder.push("audio");
+        this.nuclearBombMufflesSounds = builder.comment("whether nuclear explosions briefly muffle other sounds.").translation("nuclear_bomb_muffles_sounds").define("nuclear_bomb_muffles_sounds", true);
+        builder.pop();
+    }
+}

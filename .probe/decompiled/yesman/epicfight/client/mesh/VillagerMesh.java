@@ -1,0 +1,32 @@
+package yesman.epicfight.client.mesh;
+
+import java.util.Map;
+import net.minecraft.world.entity.EquipmentSlot;
+import yesman.epicfight.api.client.model.AnimatedMesh;
+import yesman.epicfight.api.client.model.Mesh;
+import yesman.epicfight.api.client.model.Meshes;
+import yesman.epicfight.api.client.model.ModelPart;
+import yesman.epicfight.api.client.model.VertexIndicator;
+
+public class VillagerMesh extends HumanoidMesh {
+
+    public VillagerMesh(Map<String, float[]> arrayMap, AnimatedMesh parent, Mesh.RenderProperties properties, Map<String, ModelPart<VertexIndicator.AnimatedVertexIndicator>> parts) {
+        super(arrayMap, parent, properties, parts);
+    }
+
+    @Override
+    public AnimatedMesh getHumanoidArmorModel(EquipmentSlot slot) {
+        switch(slot) {
+            case HEAD:
+                return Meshes.HELMET_VILLAGER;
+            case CHEST:
+                return Meshes.CHESTPLATE;
+            case LEGS:
+                return Meshes.LEGGINS;
+            case FEET:
+                return Meshes.BOOTS;
+            default:
+                return null;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+package io.github.lightman314.lightmanscurrency.client.gui.screen.inventory.tax_collector;
+
+import io.github.lightman314.lightmanscurrency.LCText;
+import io.github.lightman314.lightmanscurrency.api.misc.EasyText;
+import io.github.lightman314.lightmanscurrency.api.misc.client.rendering.EasyGuiGraphics;
+import io.github.lightman314.lightmanscurrency.api.misc.player.OwnerData;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.OwnerSelectionWidget;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.button.icon.IconButton;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.button.icon.IconData;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.easy.EasyAddonHelper;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.easy.EasyButton;
+import io.github.lightman314.lightmanscurrency.client.gui.widget.easy.EasyTextButton;
+import io.github.lightman314.lightmanscurrency.client.util.IconAndButtonUtil;
+import io.github.lightman314.lightmanscurrency.client.util.ScreenArea;
+import io.github.lightman314.lightmanscurrency.common.menus.tax_collector.TaxCollectorClientTab;
+import io.github.lightman314.lightmanscurrency.common.menus.tax_collector.tabs.OwnershipTab;
+import io.github.lightman314.lightmanscurrency.common.taxes.TaxEntry;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Items;
+
+public class OwnershipClientTab extends TaxCollectorClientTab<OwnershipTab> {
+
+    private boolean manualMode = false;
+
+    private OwnerSelectionWidget ownerSelectionWidget;
+
+    private EditBox playerOwnerInput;
+
+    private EasyButton playerOwnerButton;
+
+    public OwnershipClientTab(Object screen, OwnershipTab commonTab) {
+        super(screen, commonTab);
+    }
+
+    @Nonnull
+    @Override
+    public IconData getIcon() {
+        return IconData.of(Items.PLAYER_HEAD);
+    }
+
+    @Nullable
+    @Override
+    public Component getTooltip() {
+        return LCText.TOOLTIP_TAX_COLLECTOR_OWNER.get();
+    }
+
+    @Override
+    protected void initialize(ScreenArea screenArea, boolean firstOpen) {
+        if (firstOpen) {
+            this.manualMode = false;
+        }
+        this.playerOwnerInput = this.addChild(new EditBox(this.getFont(), screenArea.x + 10, screenArea.y + 50, 160, 20, EasyText.empty()));
+        this.playerOwnerInput.setMaxLength(16);
+        this.playerOwnerButton = this.addChild(new EasyTextButton(screenArea.pos.offset(10, 72), screenArea.width - 20, 20, LCText.BUTTON_OWNER_SET_PLAYER.get(), this::SetOwnerPlayer).withAddons(EasyAddonHelper.tooltip(LCText.TOOLTIP_WARNING_CANT_BE_UNDONE.getWithStyle(ChatFormatting.YELLOW, ChatFormatting.BOLD))));
+        this.ownerSelectionWidget = this.addChild(new OwnerSelectionWidget(screenArea.pos.offset(12, 30), 152, 6, this::getCurrentOwner, this.commonTab::SetOwner, this.ownerSelectionWidget));
+        this.addChild(new IconButton(screenArea.pos.offset(screenArea.width - 25, 5), this::toggleInputMode, this::getModeIcon).withAddons(EasyAddonHelper.tooltip(this::getModeTooltip)));
+        this.updateMode();
+    }
+
+    @Override
+    public void tick() {
+        if (this.manualMode) {
+            this.playerOwnerButton.f_93623_ = !this.playerOwnerInput.getValue().isBlank();
+        }
+    }
+
+    @Override
+    public void renderBG(@Nonnull EasyGuiGraphics gui) {
+        TaxEntry entry = this.getEntry();
+        Component ownerName = LCText.GUI_OWNER_NULL.get();
+        if (entry != null) {
+            ownerName = entry.getOwner().getName();
+        }
+        gui.drawString(LCText.GUI_OWNER_CURRENT.get(ownerName), 8, 6, 4210752);
+    }
+
+    @Nullable
+    protected OwnerData getCurrentOwner() {
+        TaxEntry entry = this.menu.getEntry();
+        return entry != null ? entry.getOwner() : null;
+    }
+
+    private void toggleInputMode(EasyButton button) {
+        this.manualMode = !this.manualMode;
+        this.updateMode();
+    }
+
+    private void updateMode() {
+        this.playerOwnerInput.f_93624_ = this.playerOwnerButton.f_93624_ = this.manualMode;
+        if (this.manualMode) {
+            this.playerOwnerButton.f_93623_ = !this.playerOwnerInput.getValue().isBlank();
+        }
+        this.ownerSelectionWidget.setVisible(!this.manualMode);
+    }
+
+    private IconData getModeIcon() {
+        return this.manualMode ? IconData.of(Items.COMMAND_BLOCK) : IconAndButtonUtil.ICON_ALEX_HEAD;
+    }
+
+    private Component getModeTooltip() {
+        return this.manualMode ? LCText.TOOLTIP_OWNERSHIP_MODE_SELECTION.get() : LCText.TOOLTIP_OWNERSHIP_MODE_MANUAL.get();
+    }
+
+    private void SetOwnerPlayer() {
+        if (this.playerOwnerInput != null) {
+            this.commonTab.SetOwnerPlayer(this.playerOwnerInput.getValue());
+            this.playerOwnerInput.setValue("");
+        }
+    }
+
+    @Override
+    public boolean blockInventoryClosing() {
+        return true;
+    }
+}

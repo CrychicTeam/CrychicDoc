@@ -1,0 +1,6 @@
+@ParametersAreNonnullByDefault
+@FieldsAndMethodsAreNonnullByDefault
+package mezz.jei.forge.input;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+import mezz.jei.core.FieldsAndMethodsAreNonnullByDefault;

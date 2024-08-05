@@ -1,0 +1,99 @@
+package harmonised.pmmo.commands;
+
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import harmonised.pmmo.config.writers.PackGenerator;
+import harmonised.pmmo.setup.datagen.LangProvider;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
+import net.minecraft.commands.SharedSuggestionProvider;
+import net.minecraft.commands.arguments.EntityArgument;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraftforge.fml.ModList;
+
+public class CmdPmmoRoot {
+
+    public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+        dispatcher.register((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) Commands.literal("pmmo").then(CmdNodeAdmin.register(dispatcher))).then(CmdNodeParty.register(dispatcher))).then(((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) ((LiteralArgumentBuilder) Commands.literal("genData").requires(ctx -> ctx.hasPermission(2))).then(Commands.literal("begin").executes(ctx -> set(ctx, CmdPmmoRoot.Setting.RESET)))).then(Commands.literal("withOverride").executes(ctx -> set(ctx, CmdPmmoRoot.Setting.OVERRIDE)))).then(Commands.literal("disabler").executes(ctx -> set(ctx, CmdPmmoRoot.Setting.DISABLER)))).then(Commands.literal("withDefaults").executes(ctx -> set(ctx, CmdPmmoRoot.Setting.DEFAULT)))).then(Commands.literal("simplified").executes(ctx -> set(ctx, CmdPmmoRoot.Setting.SIMPLIFY)))).then(Commands.literal("modFilter").then(Commands.argument("namespace", StringArgumentType.word()).suggests((ctx, builder) -> SharedSuggestionProvider.suggest(ModList.get().getMods().stream().map(modInfo -> modInfo.getNamespace()).filter(modid -> !modid.equals("pmmo") && !modid.equals("forge")), builder)).executes(ctx -> set(ctx, CmdPmmoRoot.Setting.FILTER))))).then(Commands.literal("forPlayers").then(Commands.argument("players", EntityArgument.players()).executes(ctx -> set(ctx, CmdPmmoRoot.Setting.PLAYER))))).then(Commands.literal("create").executes(ctx -> PackGenerator.generatePack(((CommandSourceStack) ctx.getSource()).getServer()))))).then(CmdNodeStore.register(dispatcher))).then(Commands.literal("debug"))).then(Commands.literal("help").executes(ctx -> help(ctx)))).executes(ctx -> credits(ctx)));
+    }
+
+    public static int credits(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        ((CommandSourceStack) context.getSource()).sendSuccess(() -> Component.literal("Mod by Harmony and Caltinor"), false);
+        return 0;
+    }
+
+    public static int help(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        ((CommandSourceStack) context.getSource()).sendSuccess(() -> Component.literal("Help can be found on the wiki or in the discord"), false);
+        return 0;
+    }
+
+    public static int set(CommandContext<CommandSourceStack> context, CmdPmmoRoot.Setting setting) throws CommandSyntaxException {
+        ((CommandSourceStack) context.getSource()).sendSuccess(() -> {
+            MutableComponent var10000;
+            switch(setting) {
+                case RESET:
+                    PackGenerator.applyDefaults = false;
+                    PackGenerator.applyOverride = false;
+                    PackGenerator.applyDisabler = false;
+                    PackGenerator.applySimple = false;
+                    PackGenerator.players.clear();
+                    PackGenerator.namespaceFilter.clear();
+                    MutableComponent var10 = LangProvider.PACK_BEGIN.asComponent();
+                    var10000 = var10;
+                    break;
+                case DEFAULT:
+                    PackGenerator.applyDefaults = true;
+                    MutableComponent var9 = LangProvider.PACK_DEFAULTS.asComponent();
+                    var10000 = var9;
+                    break;
+                case OVERRIDE:
+                    PackGenerator.applyOverride = true;
+                    MutableComponent var8 = LangProvider.PACK_OVERRIDE.asComponent();
+                    var10000 = var8;
+                    break;
+                case DISABLER:
+                    PackGenerator.applyDisabler = true;
+                    MutableComponent var7 = LangProvider.PACK_DISABLER.asComponent();
+                    var10000 = var7;
+                    break;
+                case SIMPLIFY:
+                    PackGenerator.applySimple = true;
+                    MutableComponent var6 = LangProvider.PACK_SIMPLE.asComponent();
+                    var10000 = var6;
+                    break;
+                case PLAYER:
+                    try {
+                        PackGenerator.players.addAll(EntityArgument.getPlayers(context, "players"));
+                    } catch (CommandSyntaxException var4) {
+                    }
+                    MutableComponent var5 = LangProvider.PACK_PLAYERS.asComponent();
+                    var10000 = var5;
+                    break;
+                case FILTER:
+                    PackGenerator.namespaceFilter.add(StringArgumentType.getString(context, "namespace"));
+                    MutableComponent var2 = LangProvider.PACK_FILTER.asComponent();
+                    var10000 = var2;
+                    break;
+                default:
+                    throw new IncompatibleClassChangeError();
+            }
+            return var10000;
+        }, true);
+        return 0;
+    }
+
+    private static enum Setting {
+
+        RESET,
+        DEFAULT,
+        OVERRIDE,
+        DISABLER,
+        PLAYER,
+        SIMPLIFY,
+        FILTER
+    }
+}

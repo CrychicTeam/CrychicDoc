@@ -1,0 +1,67 @@
+package com.simibubi.create.content.kinetics.saw;
+
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllRecipeTypes;
+import com.simibubi.create.compat.jei.category.sequencedAssembly.SequencedAssemblySubCategory;
+import com.simibubi.create.content.processing.recipe.ProcessingRecipe;
+import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
+import com.simibubi.create.content.processing.sequenced.IAssemblyRecipe;
+import com.simibubi.create.foundation.utility.Lang;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Supplier;
+import javax.annotation.ParametersAreNonnullByDefault;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.items.wrapper.RecipeWrapper;
+
+@ParametersAreNonnullByDefault
+public class CuttingRecipe extends ProcessingRecipe<RecipeWrapper> implements IAssemblyRecipe {
+
+    public CuttingRecipe(ProcessingRecipeBuilder.ProcessingRecipeParams params) {
+        super(AllRecipeTypes.CUTTING, params);
+    }
+
+    public boolean matches(RecipeWrapper inv, Level worldIn) {
+        return inv.isEmpty() ? false : this.ingredients.get(0).test(inv.getItem(0));
+    }
+
+    @Override
+    protected int getMaxInputCount() {
+        return 1;
+    }
+
+    @Override
+    protected int getMaxOutputCount() {
+        return 4;
+    }
+
+    @Override
+    protected boolean canSpecifyDuration() {
+        return true;
+    }
+
+    @Override
+    public void addAssemblyIngredients(List<Ingredient> list) {
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public Component getDescriptionForAssembly() {
+        return Lang.translateDirect("recipe.assembly.cutting");
+    }
+
+    @Override
+    public void addRequiredMachines(Set<ItemLike> list) {
+        list.add((ItemLike) AllBlocks.MECHANICAL_SAW.get());
+    }
+
+    @Override
+    public Supplier<Supplier<SequencedAssemblySubCategory>> getJEISubCategory() {
+        return () -> SequencedAssemblySubCategory.AssemblyCutting::new;
+    }
+}

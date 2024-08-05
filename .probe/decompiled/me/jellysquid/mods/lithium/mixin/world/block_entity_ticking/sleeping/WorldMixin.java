@@ -1,0 +1,16 @@
+package me.jellysquid.mods.lithium.mixin.world.block_entity_ticking.sleeping;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
+
+@Mixin({ Level.class })
+public class WorldMixin {
+
+    @Redirect(method = { "tickBlockEntities" }, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;shouldTickBlockPos(Lnet/minecraft/util/math/BlockPos;)Z"))
+    private boolean shouldTickBlockPosFilterNull(Level instance, BlockPos pos) {
+        return pos == null ? false : instance.shouldTickBlocksAt(pos);
+    }
+}

@@ -1,0 +1,19 @@
+package org.embeddedt.embeddium.render.entity;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import net.minecraft.client.model.geom.ModelPart;
+
+public interface ModelPartExtended {
+
+    List<ModelPart> embeddium$getPartsList();
+
+    Optional<ModelPart> embeddium$asOptional();
+
+    Map<String, ModelPart> embeddium$getDescendantsByName();
+
+    static ModelPartExtended of(ModelPart part) {
+        return (ModelPartExtended) part;
+    }
+}

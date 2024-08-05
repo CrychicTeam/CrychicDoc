@@ -1,0 +1,19 @@
+package com.sihenzhang.crockpot.block.entity;
+
+import com.sihenzhang.crockpot.block.CrockPotBlocks;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+public final class CrockPotBlockEntities {
+
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, "crockpot");
+
+    public static final RegistryObject<BlockEntityType<CrockPotBlockEntity>> CROCK_POT_BLOCK_ENTITY = BLOCK_ENTITIES.register("crock_pot", () -> BlockEntityType.Builder.of(CrockPotBlockEntity::new, CrockPotBlocks.CROCK_POT.get(), CrockPotBlocks.PORTABLE_CROCK_POT.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<BirdcageBlockEntity>> BIRDCAGE_BLOCK_ENTITY = BLOCK_ENTITIES.register("birdcage", () -> BlockEntityType.Builder.of(BirdcageBlockEntity::new, CrockPotBlocks.BIRDCAGE.get()).build(null));
+
+    private CrockPotBlockEntities() {
+    }
+}

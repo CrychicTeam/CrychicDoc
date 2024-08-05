@@ -1,0 +1,29 @@
+package com.almostreliable.lootjs.loot.condition;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.phys.Vec3;
+
+public class IsLightLevel implements IExtendedLootCondition {
+
+    private final int min;
+
+    private final int max;
+
+    public IsLightLevel(int min, int max) {
+        this.min = min;
+        this.max = max;
+    }
+
+    public boolean test(LootContext context) {
+        Vec3 origin = context.getParamOrNull(LootContextParams.ORIGIN);
+        if (origin == null) {
+            return false;
+        } else {
+            BlockPos blockPos = new BlockPos((int) origin.x, (int) origin.y, (int) origin.z);
+            int light = context.getLevel().m_46803_(blockPos);
+            return this.min <= light && light <= this.max;
+        }
+    }
+}
