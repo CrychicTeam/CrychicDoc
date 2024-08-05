@@ -14,28 +14,28 @@ Minecraft Hunt uses Forge 1.20.1 - 40.2.20.
 
 1. **Fork the project:**
 
-Open the [Minecraft-Hunt GitHub repository](https://github.com/M1hono/Minecraft-Hunt), click the "Fork" button in the top right corner to fork the project to your GitHub account.
+Open the [CrychicDoc repository](https://github.com/M1hono/CrychicDoc), click the "Fork" button in the top right corner, and fork the project to your GitHub account.
 
 2. **Initialize the repository in your existing Minecraft instance folder:**
 
 Open the command line or terminal, or directly execute the following commands in your Minecraft instance folder:
 
 ```bash
-# Modify it to the actual path of your Minecraft instance, such as .minecraft or the version name in the launcher.
+# Modify it to the actual Minecraft instance address, such as .minecraft or the version name in the launcher.
 cd path/to/your/minecraft/instance
 git init
-# Using Minecraft-Hunt as an example, if you want to contribute code to it, you need to modify the repository code after forking.
-# Replace YourUsername with your GitHub ID, you can directly use the forked repository link.
-git remote add origin https://github.com/YourUsername/Minecraft-Hunt.git
+# In this example, we use CrychicDoc. If you want to provide code for it, you need to modify the repository code after forking.
+# Replace YourUsername with your GithubID, you can directly use the forked repository link.
+git remote add origin https://github.com/YourUsername/CrychicDoc.git
 git pull origin main
 ```
 
-1. **Set up the upstream repository:**
+3. **Set up the upstream repository:**
 
 To keep in sync with the original repository, set up the upstream repository:
 
 ```bash
-git remote add upstream https://github.com/M1hono/Minecraft-Hunt.git
+git remote add upstream https://github.com/M1hono/CrychicDoc.git
 ```
 
 ## Collaboration Workflow
@@ -48,21 +48,21 @@ First, it is recommended to create a new feature branch from the main branch:
 git checkout -b feature-branch
 ```
 
-1. **Modify the code:**
+5. **Modify the code:**
 
 In your Minecraft instance folder, edit the project's code, resource files, or configuration files and make the necessary modifications and adjustments according to your needs.
 
-2. **Commit the changes:**
+6. **Commit the changes:**
 
 After saving the modifications, use the following command to commit the changes to your local repository:
 
 ```bash
-# Using 'git add .' should generally work fine, but you can replace '.' with the specific file path for added safety.
+# Generally, using 'git add .' should work fine, but you can replace '.' with the specific file path for extra caution.
 git add .
 git commit -m "Describe your modifications"
 ```
 
-1. **Push to the remote repository:**
+7. **Push to the remote repository:**
 
 If you are ready to merge your changes into the main branch, push your local branch to the remote repository:
 
@@ -74,7 +74,7 @@ git push
 
 8. **Create a Pull Request:**
 
-Open your forked GitHub repository page, select the feature branch you just pushed, click "Compare & pull request", fill in the relevant information, and submit the PR.
+Open your forked GitHub repository page, select the feature branch you just pushed, click "Compare & pull request," fill in the relevant information, and submit the PR.
 
 9. **Wait for review and merge:**
 
@@ -84,7 +84,7 @@ It is recommended to inform the developers in advance before submitting.
 
 10. **Delete the local and remote branches:**
 
-Once your PR is merged, you can safely delete the feature branch you created:
+Once your PR is merged, you can safely delete the created feature branch:
 
 ```bash
 git checkout main
@@ -118,20 +118,22 @@ graph TD
 
 ## Guidelines
 
-Whenever you perform the above steps, if your repository falls behind the original repository, click the `Sync fork` button to synchronize the progress.
+Whenever you perform the above steps, if your repository is behind the original repository, click the `Sync fork` button to synchronize the progress.
 
 
 ::: details
-> If you are contributing to Crychic's Minecraft-Hunt project, when you complete a task, you need to write your contribution in the CHANGELOG and DevDocuments.
+> If you are contributing to the Crychic Minecraft-Hunt project, when you complete a task, make sure to write your contribution in the CHANGELOG and DevDocuments.
 
-> If you are an external developer contributing any content to Crychic's documentation, please leave your signature after adding the new item. Thank you very much for your contribution.
+> If you are an external developer contributing any content, materials, or documentation to Crychic, especially CrychicDoc, please leave your signature after adding the item. Thank you for your contribution.
+
+> If you would like to standardize your attribution in CrychicDoc, please contact us.
 
 > For example: I completed this change => 2024/Month, Day - My Name
 :::
 
 
-<v-alert
+  <v-alert
     text="You are now a Pull Request master!"
     title="Congratulations!"
     type="success"
-></v-alert>
+  ></v-alert>

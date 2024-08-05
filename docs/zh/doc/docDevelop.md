@@ -14,7 +14,7 @@ Minecraft Hunt使用 Forge 1.20.1 - 40.2.20.
 
 1. **Fork 项目：**
 
-打开 [Minecraft-Hunt GitHub 仓库](https://github.com/M1hono/Minecraft-Hunt)，点击右上角的 "Fork" 按钮，将项目 Fork 到你的 GitHub 账户中。
+打开 [CrychicDoc 仓库](https://github.com/M1hono/CrychicDoc)，点击右上角的 "Fork" 按钮，将项目 Fork 到你的 GitHub 账户中。
 
 2. **在现有的Minecraft实例文件夹中初始化仓库：**
    
@@ -24,9 +24,9 @@ Minecraft Hunt使用 Forge 1.20.1 - 40.2.20.
 # 修改为实际的我的世界实例地址如.minecraft或启动器内的版本名称。
 cd path/to/your/minecraft/instance
 git init
-# 此处以Minecraft-Hunt举例，要为它提供代码的话，需要修改拉取fork后的仓库代码。
+# 此处以CrychicDoc举例，要为它提供代码的话，需要修改拉取fork后的仓库代码。
 # 将YourUsername修改为你的GithubID，你可以直接使用fork后的仓库链接。
-git remote add origin https://github.com/YourUsername/Minecraft-Hunt.git
+git remote add origin https://github.com/YourUsername/CrychicDoc.git
 git pull origin main
 ```
 
@@ -35,7 +35,7 @@ git pull origin main
 为了保持与原始仓库的同步，设置上游仓库：
 
 ```bash
-git remote add upstream https://github.com/M1hono/Minecraft-Hunt.git
+git remote add upstream https://github.com/M1hono/CrychicDoc.git
 ```
 
 ## 合作流程
@@ -125,7 +125,9 @@ graph TD
 ::: details
 > 如果你参与的项目为Crychic的Minecraft-Hunt，在你完成某项工作时，需要在CHANGELOG与DevDocuments中写入你所提供的贡献。
 
-> 如果你作为外部开发者为Crychic贡献了任何资料与文档的内容，请在新增事项后留下您的署名，非常感谢您的付出。
+> 如果你作为外部开发者为Crychic尤其为CrychicDoc贡献了任何资料与文档的内容，请在新增事项后留下您的署名，非常感谢您的付出。
+
+> 如果您希望规范自己在CrychicDoc中的署名使其更加得体。请联系我们。
 
 > 例如：我完成了这个更改 => 2024/某月、某日 - 我的名字
 :::

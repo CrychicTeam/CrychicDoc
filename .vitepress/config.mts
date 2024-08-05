@@ -15,7 +15,7 @@ export default withMermaid(
         label: '简体中文',
         lang: 'zh-CN',
         link: '/zh/',
-        title: "CryChicDoc - 中文",
+        title: "CryChic文档",
         description: "一个包含 Minecraft 开发文档的网站。",
         themeConfig: {
           nav: [
@@ -37,7 +37,7 @@ export default withMermaid(
         label: 'English',
         lang: 'en_US',
         link: '/en/',
-        title: "CryChicDoc - English",
+        title: "CryChicDoc",
         description: "A site containing docs for Minecraft developing.",
         themeConfig: {
           nav: [
@@ -90,7 +90,7 @@ export default withMermaid(
     cleanUrls: true,
     mermaid: {
       startOnLoad: true,
-      securityLevel: 'loose', // 如果您信任图表内容的话
+      securityLevel: 'loose',
       theme: 'default',
       logLevel: 'error'
     },
