@@ -88,7 +88,12 @@ export default withMermaid(
       }
     },
     cleanUrls: true,
-    mermaid: {},
+    mermaid: {
+      startOnLoad: true,
+      securityLevel: 'loose', // 如果您信任图表内容的话
+      theme: 'default',
+      logLevel: 'error'
+    },
     vite: {
       ssr: {
         noExternal: ['vuetify'],
