@@ -10,8 +10,6 @@ layout: doc
 
 ## 初始化项目
 
-Minecraft Hunt使用 Forge 1.20.1 - 40.2.20.
-
 1. **Fork 项目：**
 
 打开 [CrychicDoc 仓库](https://github.com/M1hono/CrychicDoc)，点击右上角的 "Fork" 按钮，将项目 Fork 到你的 GitHub 账户中。

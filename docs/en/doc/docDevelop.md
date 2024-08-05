@@ -10,8 +10,6 @@ layout: doc
 
 ## Initialize the Project
 
-Minecraft Hunt uses Forge 1.20.1 - 40.2.20.
-
 1. **Fork the project:**
 
 Open the [CrychicDoc repository](https://github.com/M1hono/CrychicDoc), click the "Fork" button in the top right corner, and fork the project to your GitHub account.
