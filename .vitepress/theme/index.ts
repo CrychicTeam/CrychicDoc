@@ -18,14 +18,15 @@ import vuetify from './vuetify'
 import { onMounted, watch } from 'vue'
 import mermaid from 'mermaid'
 import Layout from './Layout.vue'
-import TdesignDark from './components/TdesignDark.vue'
-import Comment from './components/Comment.vue'
+import TdesignDark from './components/tdesignDark.vue'
+import Comment from './components/comment.vue'
 
 export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
 			"doc-bottom": () => h(imageViewer),
+      "layout-top": () => h(TdesignDark),
       "doc-after": () => h(Comment)
     })
   },
