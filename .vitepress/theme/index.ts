@@ -25,8 +25,7 @@ export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-      "doc-bottom": () => h(imageViewer),
-      "layout-top": () => h(TdesignDark),
+			"doc-bottom": () => h(imageViewer),
       "doc-after": () => h(Comment)
     })
   },
