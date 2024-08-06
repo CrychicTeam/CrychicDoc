@@ -1,5 +1,7 @@
 ---
 layout: doc
+giscus:
+  term: doc-docDevelop
 ---
 
 # Project Collaboration Tutorial
@@ -10,20 +12,23 @@ layout: doc
 
 ## Initialize the Project
 
-1. **Fork the project:**
+1. **Fork Project:**
 
-Open the [CrychicDoc repository](https://github.com/M1hono/CrychicDoc), click the "Fork" button in the top right corner, and fork the project to your GitHub account.
+Open the repository of the project you want to modify, below is an example using CrychicDoc.
 
-2. **Initialize the repository in your existing Minecraft instance folder:**
+Open the [CrychicDoc repository](https://github.com/M1hono/CrychicDoc), click on the "Fork" button at the top right corner to fork the project to your GitHub account.
 
-Open the command line or terminal, or directly execute the following commands in your Minecraft instance folder:
+2. **Initialize Repository:**
+
+Open a command line or terminal or directly execute the following commands in your project folder:
 
 ```bash
-# Modify it to the actual Minecraft instance address, such as .minecraft or the version name in the launcher.
-cd path/to/your/minecraft/instance
+# Modify to actual folder path such as .minecraft or version name inside launcher, or any empty folder you choose.
+# In this case, enter the folder where you want to store the CrychicDoc code.
+cd path/to/your/project
 git init
-# In this example, we use CrychicDoc. If you want to provide code for it, you need to modify the repository code after forking.
-# Replace YourUsername with your GithubID, you can directly use the forked repository link.
+# Using CrychicDoc as an example here, if you want to provide code for it, modify after pulling forked repository code.
+# Replace YourUsername with your GithubID, you can use direct link of forked repository.
 git remote add origin https://github.com/YourUsername/CrychicDoc.git
 git pull origin main
 ```
@@ -48,7 +53,7 @@ git checkout -b feature-branch
 
 5. **Modify the code:**
 
-In your Minecraft instance folder, edit the project's code, resource files, or configuration files and make the necessary modifications and adjustments according to your needs.
+In your Project folder, edit the project's code, resource files, or configuration files and make the necessary modifications and adjustments according to your needs.
 
 6. **Commit the changes:**
 

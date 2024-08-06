@@ -1,5 +1,7 @@
 ---
 layout: doc
+giscus:
+  term: doc-docDevelop
 ---
 
 # 项目合作教程
@@ -12,15 +14,18 @@ layout: doc
 
 1. **Fork 项目：**
 
+打开你要进行内容修改的项目仓库，下文以CrychicDoc为例进行说明。
+
 打开 [CrychicDoc 仓库](https://github.com/M1hono/CrychicDoc)，点击右上角的 "Fork" 按钮，将项目 Fork 到你的 GitHub 账户中。
 
-2. **在现有的Minecraft实例文件夹中初始化仓库：**
+2. **初始化仓库：**
    
-打开命令行或终端或直接在你的Minecraft实例文件夹执行以下命令：
+打开命令行或终端或直接在你的实例文件夹执行以下命令：
 
 ```bash
-# 修改为实际的我的世界实例地址如.minecraft或启动器内的版本名称。
-cd path/to/your/minecraft/instance
+# 修改为实际的文件夹地址如.minecraft或启动器内的版本名称，或者任一你选择的空白文件夹。
+# 在这种情况下，输入您想要存放CrychicDoc代码的文件夹。
+cd path/to/your/project
 git init
 # 此处以CrychicDoc举例，要为它提供代码的话，需要修改拉取fork后的仓库代码。
 # 将YourUsername修改为你的GithubID，你可以直接使用fork后的仓库链接。

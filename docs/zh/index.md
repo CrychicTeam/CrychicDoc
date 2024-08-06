@@ -12,10 +12,10 @@ hero:
   actions:
     - theme: alt
       text: Github合作指南
-      link: doc/docDevelop/
+      link: /zh/doc/docDevelop/
     - theme: brand
       text: Kubejs
-      link: modpack/kubejs/
+      link: /zh/modpack/kubejs/
     - theme: brand
       text: 模组
       link: mods/
