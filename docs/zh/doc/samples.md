@@ -3,6 +3,8 @@ layout: doc
 title: Crychic文档编写示例
 ---
 
+<ClientOnly>
+
 ```mermaid
 journey
     title My working day
@@ -14,6 +16,9 @@ journey
       Go downstairs: 5: Me
       Sit down: 5: Me
 ```
+
+</ClientOnly>
+
 ::: timeline 2023-05-24
 - **do some thing1**
 - do some thing2
