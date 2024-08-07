@@ -19,6 +19,12 @@ hero:
     - theme: brand
       text: Mods
       link: mods/
+    - theme: brand
+      text: Modpacks
+      link: modpack/
+    - theme: brand
+      text: Developers
+      link: developers/
 
 features:
   - icon : 

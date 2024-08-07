@@ -12,3 +12,15 @@ next:
 ## 简介
 
 <v-card text="该模组是冠军在1.18.2以上版本的非官方移植，该移植目前没有进行深入测试所以可能存在BUG。"variant="tonal"></v-card>
+
+<v-carousel>
+  <v-carousel-item
+    src="https://docs.mihono.cn/mods/adventure/champions-unofficial/1.jpg"
+    cover
+  ></v-carousel-item>
+
+  <v-carousel-item
+    src="https://docs.mihono.cn/mods/adventure/champions-unofficial/2.jpg"
+    cover
+  ></v-carousel-item>
+</v-carousel>

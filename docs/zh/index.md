@@ -12,13 +12,19 @@ hero:
   actions:
     - theme: alt
       text: Github合作指南
-      link: /zh/doc/docDevelop/
+      link: doc/docDevelop/
     - theme: brand
       text: Kubejs
-      link: /zh/modpack/kubejs/
+      link: modpack/kubejs/
     - theme: brand
       text: 模组
       link: mods/
+    - theme: brand
+      text: 整合包
+      link: modpack/
+    - theme: brand
+      text: 开发者
+      link: developers/
 
 features:
   - icon : 
