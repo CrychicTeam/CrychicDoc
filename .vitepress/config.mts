@@ -117,6 +117,10 @@ export default withMermaid(
           })],
         }),
       ],
+      define: {
+        // add this, rebuild, redeploy, and you will see mismatch details
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: true,
+      },
     },
     head: [['link', { rel: 'icon', href: 'https://docs.mihono.cn/favicon.ico' }]]
   })
