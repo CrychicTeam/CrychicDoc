@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 function readDir(dir, rootDir, langPrefix) {
     let items = [];
+    let indexItem = null;
     fs.readdirSync(dir, { withFileTypes: true }).forEach(dirent => {
         const fullPath = path.join(dir, dirent.name);
         const relativePath = path.relative(rootDir, fullPath);
@@ -16,10 +17,20 @@ function readDir(dir, rootDir, langPrefix) {
             const { data } = matter(content);
             if (data.title) {
                 const link = `/${langPrefix}/${relativePath.replace(/\.md$/, '.html')}`;
-                items.push({ text: data.title, link });
+                const item = { text: data.title, link };
+                if (dirent.name === 'index.md') {
+                    indexItem = item;
+                } else {
+                    items.push(item);
+                }
             }
         }
     });
+
+    // Place index.md at the beginning of the array if it exists
+    if (indexItem) {
+        items.unshift(indexItem);
+    }
 
     return items;
 }
