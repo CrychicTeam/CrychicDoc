@@ -34,7 +34,10 @@ export default withMermaid(
           },
           lastUpdated: {
             text: '最后更新于'
-          }
+          },
+          outline: {
+            label: '页面导航'
+          },
         }
       },
       en: {
@@ -59,7 +62,10 @@ export default withMermaid(
           },
           lastUpdated: {
             text: 'Last updated'
-          }
+          },
+          outline: {
+            label: 'Page Content'
+          },
         }
       }
     },
