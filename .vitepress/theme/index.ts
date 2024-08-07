@@ -35,7 +35,7 @@ export default {
     vitepressNprogress(ctx)
     enhanceAppWithTabs(ctx.app);
     ctx.app.use(vuetify);
-    ctx.app.use(TwoslashFloatingVue) 
+    ctx.app.use(TwoslashFloatingVue);
   },
   setup() {
     const route = useRoute();

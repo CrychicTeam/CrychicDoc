@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "devDependencies": {
     "@iconify/json": "^2.2.232",
     "@mdi/font": "^7.4.47",
@@ -23,12 +24,12 @@
   },
   "dependencies": {
     "axios": "^1.7.3",
+    "gray-matter": "^4.0.3",
     "highlight.js": "^11.10.0",
     "markdown-it-mathjax3": "^4.3.2",
     "tdesign-vue-next": "^1.9.8",
     "typescript": "^5.5.4",
     "vitepress-markdown-timeline": "^1.2.1",
-    "vitepress-plugin-codeblocks-fold": "^1.2.28",
-    "vitepress-plugin-comment-with-giscus": "^1.1.15"
+    "vitepress-plugin-codeblocks-fold": "^1.2.28"
   }
 }

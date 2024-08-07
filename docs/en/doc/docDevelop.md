@@ -1,7 +1,6 @@
 ---
 layout: doc
-giscus:
-  term: doc-docDevelop
+title: Project Collaboration Tutorial
 ---
 
 # Project Collaboration Tutorial

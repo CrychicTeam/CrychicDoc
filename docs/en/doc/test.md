@@ -1,5 +1,6 @@
 ---
 layout: doc
+title: ts-check Sample
 ---
 # Test ts-check
 ```js twoslash

@@ -1,5 +1,6 @@
 ---
 layout: doc
+title: Samples for coding CrychicDoc
 ---
 
 ```mermaid

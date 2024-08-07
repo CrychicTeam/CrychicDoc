@@ -6,6 +6,7 @@ import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { TDesignResolver } from 'unplugin-vue-components/resolvers';
+import { generateSidebar } from './theme/generatesidebar';
 
 export default withMermaid(
   defineConfig({
@@ -18,12 +19,15 @@ export default withMermaid(
         title: "CryChic文档",
         description: "一个包含 Minecraft 开发文档的网站。",
         themeConfig: {
-          nav: [
-            // 添加中文导航项
-          ],
-          sidebar: [
-            // 添加中文侧边栏项
-          ],
+          nav: [],
+          sidebar: {
+            '/zh/': generateSidebar('../../docs/zh', '','zh'),
+            '/zh/developers/': generateSidebar('../../docs/zh', 'developers','zh'),
+            '/zh/doc/': generateSidebar('../../docs/zh', 'doc','zh'),
+            '/zh/modpack/': generateSidebar('../../docs/zh', 'modpack','zh'),
+            '/zh/mods/': generateSidebar('../../docs/zh', 'mods','zh'),
+            '/zh/mods/adventure/Champions-Unofficial': generateSidebar('../../docs/zh', 'mods/adventure/Champions-Unofficial','zh')
+          },
           editLink: {
             pattern: 'https://github.com/M1hono/CrychicDoc/edit/main/docs/:path',
             text: '在 GitHub 上编辑此页面'
@@ -40,14 +44,17 @@ export default withMermaid(
         title: "CryChicDoc",
         description: "A site containing docs for Minecraft developing.",
         themeConfig: {
-          nav: [
-            // Add English navigation items
-          ],
-          sidebar: [
-            // Add English sidebar items
-          ],
+          nav: [],
+          sidebar: {
+            '/en/': generateSidebar('../../docs/en', '','en'),
+            '/en/developers/': generateSidebar('../../docs/en', 'developers','en'),
+            '/en/doc/': generateSidebar('../../docs/en', 'doc','en'),
+            '/en/modpack/': generateSidebar('../../docs/en', 'modpack','en'),
+            '/en/mods/': generateSidebar('../../docs/en', 'mods','en'),
+            '/en/mods/adventure/Champions-Unofficial': generateSidebar('../../docs/en', 'mods/adventure/Champions-Unofficial','en')
+          },
           editLink: {
-            pattern: 'https://github.com/M1hono/CrychicDoc/edit/main/docs/:path',
+            pattern: 'https://github.com/M1hono/CryChicDoc/edit/main/docs/:path',
             text: 'Edit this page on GitHub'
           },
           lastUpdated: {
@@ -70,7 +77,7 @@ export default withMermaid(
       ],
       footer: {
         message: '',
-        copyright: 'Copyright © 2024 M1hono	晋ICP备2022005790号-2'
+        copyright: 'Copyright © 2024 M1hono 晋ICP备2022005790号-2'
       },
       lastUpdated: {}
     },
@@ -111,6 +118,6 @@ export default withMermaid(
         }),
       ],
     },
-    head: [['link', { rel: 'icon', href: 'https://docs.mihono.cn/favicon.ico' }],]
+    head: [['link', { rel: 'icon', href: 'https://docs.mihono.cn/favicon.ico' }]]
   })
-)
+);

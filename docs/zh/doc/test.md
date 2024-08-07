@@ -1,5 +1,6 @@
 ---
 layout: doc
+title: 类型检查示例
 ---
 # 测试类型检查
 ```js twoslash

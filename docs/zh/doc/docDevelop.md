@@ -1,7 +1,6 @@
 ---
 layout: doc
-giscus:
-  term: doc-docDevelop
+title: 项目合作教程
 ---
 
 # 项目合作教程

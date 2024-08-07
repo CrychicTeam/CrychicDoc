@@ -1,5 +1,6 @@
 ---
 layout: doc
+title: Crychic文档编写示例
 ---
 
 ```mermaid
