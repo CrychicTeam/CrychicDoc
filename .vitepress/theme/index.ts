@@ -25,7 +25,7 @@ export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-			"doc-bottom": () => h(imageViewer),
+      "doc-bottom": () => h(imageViewer),
       "layout-top": () => h(TdesignDark),
       "doc-after": () => h(Comment)
     })
@@ -40,10 +40,8 @@ export default {
   setup() {
     const route = useRoute();
     const { frontmatter } = useData();
-    // basic use
     codeblocksFold({ route, frontmatter }, true, 400);
 
-    // 添加 Mermaid 初始化
     const initMermaid = () => {
       mermaid.initialize({
         startOnLoad: true,
@@ -79,21 +77,17 @@ export default {
           axisFormat: '%Y-%m-%d'
         }
       });
-      mermaid.init(undefined, '.mermaid');
     };
 
     onMounted(() => {
       initMermaid();
-    });
+      mermaid.init(undefined, '.mermaid');
 
-    watch(() => route.path, () => {
-      setTimeout(() => {
-        initMermaid();
-      }, 100);
+      watch(() => route.path, () => {
+        setTimeout(() => {
+          mermaid.init(undefined, '.mermaid');
+        }, 100);
+      });
     });
-
-    return {
-      // 如果需要，可以在这里返回一些值
-    }
   }
 } satisfies Theme

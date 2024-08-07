@@ -27,31 +27,31 @@ const updateThemeMode = (isDarkMode: boolean) => {
   }
 };
 
-watch(isDark, (newValue) => {
-  updateThemeMode(newValue);
-  setHeroBackground(newValue);
-}, { immediate: true });
-
-watch(() => route.path, (newPath) => {
-  isHomePage.value = newPath === '/';
-  if (isHomePage.value) {
-    setHeroBackground(isDark.value);
-  }
-});
-
 onMounted(() => {
   isHomePage.value = route.path === '/';
-  if (isHomePage.value) {
-    setHeroBackground(isDark.value);
-  }
+  
+  watch(isDark, (newValue) => {
+    updateThemeMode(newValue);
+    setHeroBackground(newValue);
+  }, { immediate: true });
+
+  watch(() => route.path, (newPath) => {
+    isHomePage.value = newPath === '/';
+    if (isHomePage.value) {
+      setHeroBackground(isDark.value);
+    }
+  });
 });
 
 onUnmounted(() => {
-  // 清除样式
   document.documentElement.style.removeProperty('--vp-home-hero-image-background-image');
   document.documentElement.style.removeProperty('--vp-home-hero-image-filter');
 });
 </script>
+
+<template>
+  <!-- This component doesn't render anything visible -->
+</template>
 
 <style>
 :root {
