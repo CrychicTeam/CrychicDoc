@@ -9,6 +9,8 @@ prev:
 next: 
   text: Project Collaboration Tutorial
   link: './samples'
+authors:
+  - M1hono
 ---
 # Test ts-check
 ```js twoslash

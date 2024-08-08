@@ -20,8 +20,8 @@ const previewImageInfo = reactive<{ url: string; list: string[]; idx: number }>(
 function previewImage(e: Event) {
   const target = e.target as HTMLElement
   const currentTarget = e.currentTarget as HTMLElement
-  if (target.tagName.toLowerCase() === 'img') {
-    const imgs = currentTarget.querySelectorAll<HTMLImageElement>('.content-container .main img')
+  if (target.tagName.toLowerCase() === 'img' && !target.classList.contains('non-preview-image')) {
+    const imgs = currentTarget.querySelectorAll<HTMLImageElement>('.content-container .main img:not(.non-preview-image)')
     const idx = Array.from(imgs).findIndex(el => el === target)
     const urls = Array.from(imgs).map(el => el.src)
 

@@ -8,6 +8,8 @@ prev:
 next:
   text: ts-check Sample
   link: './test'
+authors:
+  - M1hono
 ---
 
 # Project Collaboration Tutorial

@@ -8,6 +8,8 @@ prev:
 next:
   text: Project Collaboration Tutorial
   link: './docDevelop'
+authors:
+  - M1hono
 ---
 
 <ClientOnly>

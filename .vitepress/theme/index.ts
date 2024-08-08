@@ -17,6 +17,7 @@ import imageViewer from "./components/imageViewer.vue"
 import vuetify from './vuetify'
 import { onMounted, watch } from 'vue'
 import mermaid from 'mermaid'
+import AuthorsComponent from "./components/AuthorsComponent.vue";
 import Layout from './Layout.vue'
 import TdesignDark from './components/tdesignDark.vue'
 import Comment from './components/comment.vue'
@@ -27,6 +28,7 @@ export default {
     return h(DefaultTheme.Layout, null, {
       "doc-bottom": () => h(imageViewer),
       "layout-top": () => h(TdesignDark),
+      "aside-outline-after": () => h(AuthorsComponent),
       "doc-after": () => h(Comment)
     })
   },

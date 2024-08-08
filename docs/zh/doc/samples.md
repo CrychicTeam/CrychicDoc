@@ -8,6 +8,8 @@ prev:
 next:
   text: 项目合作教程
   link: './docDevelop'
+authors:
+  - M1hono
 ---
 
 <ClientOnly>

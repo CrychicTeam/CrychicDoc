@@ -8,6 +8,8 @@ prev:
 next: 
   text: Crychic文档编写示例
   link: './samples'
+authors:
+  - M1hono
 ---
 # 测试类型检查
 ```js twoslash

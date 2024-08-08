@@ -8,6 +8,8 @@ prev:
 next:
   text: 类型检查示例
   link: './test'
+authors:
+  - M1hono
 ---
 
 # 项目合作教程
