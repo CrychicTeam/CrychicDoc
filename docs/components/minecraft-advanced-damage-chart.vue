@@ -7,10 +7,12 @@ const { isDark } = useData()
 const chartRef = ref(null)
 let chartInstance = null
 
-const incomingDamage = ref(20)
-const armorToughness = ref(0)
+const incomingDamage = ref(201)
+const armorToughness = ref(150)
 const minDamage = ref(0)
-const maxDamage = ref(25)
+const maxDamage = ref(200)
+const maxArmorPoints = ref(50)
+const isJavaEdition = ref(true)
 
 // Debug information
 const debugInfo = ref('')
@@ -41,12 +43,20 @@ const localText = computed(() => ({
   maxDamage: isChinesePath.value ? '最大伤害' : 'Max Damage',
   actualDamage: isChinesePath.value ? '实际伤害' : 'Actual Damage',
   damageReduction: isChinesePath.value ? '伤害减免 (%)' : 'Damage Reduction (%)',
-  armorPoints: isChinesePath.value ? '护甲值' : 'Armor Points'
+  armorPoints: isChinesePath.value ? '护甲值' : 'Armor Points',
+  maxArmorPoints: isChinesePath.value ? '最大护甲值' : 'Max Armor Points',
+  javaEdition: isChinesePath.value ? 'Java版' : 'Java Edition',
+  bedrockEdition: isChinesePath.value ? '基岩版' : 'Bedrock Edition'
 }))
 
-const calculateDamageReduction = (armor, toughness, damage) => {
-  const defensePoints = Math.min(20, Math.max(armor / 5, armor - damage / (2 + toughness / 4)))
-  return defensePoints / 25
+const calculateDamage = (armor, toughness, damage, isJava) => {
+  if (isJava) {
+    const defensePoints = Math.min(20, Math.max(armor / 5, armor - damage / (2 + toughness / 4)))
+    return damage * (1 - defensePoints / 25)
+  } else {
+    // Bedrock 版本的计算
+    return damage * (1 - Math.min(20, armor) * 0.04)
+  }
 }
 
 const chartData = computed(() => {
@@ -54,11 +64,12 @@ const chartData = computed(() => {
   const actualDamage = []
   const damageReduction = []
 
-  for (let armor = 0; armor <= 20; armor += 1) {
+  for (let armor = 0; armor <= maxArmorPoints.value; armor += 1) {
     labels.push(armor)
-    const reduction = calculateDamageReduction(armor, armorToughness.value, incomingDamage.value)
-    actualDamage.push(incomingDamage.value * (1 - reduction))
-    damageReduction.push(reduction * 100)
+    const damage = calculateDamage(armor, armorToughness.value, incomingDamage.value, isJavaEdition.value)
+    const clampedDamage = Math.max(minDamage.value, Math.min(maxDamage.value, damage))
+    actualDamage.push(Number(clampedDamage.toFixed(2)))
+    damageReduction.push(Number(((1 - clampedDamage / incomingDamage.value) * 100).toFixed(2)))
   }
 
   return {
@@ -97,7 +108,8 @@ const chartOptions = computed(() => ({
       },
       grid: {
         color: isDark.value ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
-      }
+      },
+      max: maxArmorPoints.value
     },
     y: {
       type: 'linear',
@@ -146,6 +158,18 @@ const chartOptions = computed(() => ({
     tooltip: {
       mode: 'index',
       intersect: false,
+      callbacks: {
+        label: function(context) {
+          let label = context.dataset.label || '';
+          if (label) {
+            label += ': ';
+          }
+          if (context.parsed.y !== null) {
+            label += context.parsed.y.toFixed(2);
+          }
+          return label;
+        }
+      }
     }
   }
 }))
@@ -159,7 +183,7 @@ const updateChart = () => {
   }
 }
 
-watch([incomingDamage, armorToughness, minDamage, maxDamage, isDark], () => {
+watch([incomingDamage, armorToughness, minDamage, maxDamage, maxArmorPoints, isJavaEdition, isDark], () => {
   updateChart()
 })
 
@@ -179,24 +203,38 @@ const handleInput = (event, key) => {
       case 'maxDamage':
         maxDamage.value = value
         break
+      case 'maxArmorPoints':
+        maxArmorPoints.value = value
+        break
     }
     debugInfo.value = `${key} changed to ${value}`
     updateChart()
   }
+}
+
+const toggleEdition = () => {
+  isJavaEdition.value = !isJavaEdition.value
+  updateChart()
 }
 </script>
 
 <template>
   <div class="minecraft-damage-chart" :class="{ 'dark-mode': isDark }">
     <div class="input-container">
-      <div class="input-group" v-for="key in ['incomingDamage', 'armorToughness', 'minDamage', 'maxDamage']" :key="key">
+      <div class="input-group" v-for="key in ['incomingDamage', 'armorToughness', 'minDamage', 'maxDamage', 'maxArmorPoints']" :key="key">
         <label :for="key">{{ localText[key] }}</label>
         <input
           :id="key"
           type="number"
-          :value="key === 'incomingDamage' ? incomingDamage : key === 'armorToughness' ? armorToughness : key === 'minDamage' ? minDamage : maxDamage"
+          :value="key === 'incomingDamage' ? incomingDamage : key === 'armorToughness' ? armorToughness : key === 'minDamage' ? minDamage : key === 'maxDamage' ? maxDamage : maxArmorPoints"
           @input="(event) => handleInput(event, key)"
         />
+      </div>
+      <div class="input-group">
+        <label>&nbsp;</label> <!-- 添加一个空标签以对齐按钮 -->
+        <button @click="toggleEdition" :class="{ 'java': isJavaEdition, 'bedrock': !isJavaEdition }">
+          {{ isJavaEdition ? localText.javaEdition : localText.bedrockEdition }}
+        </button>
       </div>
     </div>
     <div class="chart-container">
@@ -224,22 +262,45 @@ const handleInput = (event, key) => {
 }
 
 .input-group {
-  flex: 1 1 200px;
+  flex: 1 1 calc(33.333% - 15px);
+  display: flex;
+  flex-direction: column;
 }
 
 label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: var(--vp-c-text-1);
 }
 
-input {
+input, button {
   width: 100%;
   padding: 8px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 4px;
   background-color: var(--vp-c-bg-alt);
   color: var(--vp-c-text-1);
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+input:focus, button:focus {
+  outline: none;
+  border-color: var(--vp-c-brand);
+  box-shadow: 0 0 0 2px var(--vp-c-brand-light);
+}
+
+button {
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: #f6f6f7;
+  color: #333;
+}
+
+button:hover {
+  background-color: #e0e0e0;
 }
 
 .chart-container {
@@ -253,13 +314,38 @@ input {
 .debug-info {
   margin-top: 10px;
   font-size: 12px;
-  color: #888;
+  color: var(--vp-c-text-2);
 }
 
 .dark-mode {
   --vp-c-bg: #1a1a1a;
   --vp-c-bg-alt: #2a2a2a;
   --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #aaaaaa;
   --vp-c-divider: #4a4a4a;
+}
+
+.dark-mode input, .dark-mode button {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode button {
+  background-color: #333333;
+}
+
+.dark-mode button:hover {
+  background-color: #5a5a5a;
+}
+
+.dark-mode input:focus, .dark-mode button:focus {
+  border-color: var(--vp-c-brand);
+  box-shadow: 0 0 0 2px var(--vp-c-brand-dark);
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    flex: 1 1 100%;
+  }
 }
 </style>
