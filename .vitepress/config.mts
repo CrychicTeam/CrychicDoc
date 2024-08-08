@@ -47,7 +47,7 @@ export default withMermaid(
             copyright: `版权所有 © 2024-${new Date().getFullYear()} 不是客服`
           },
           langMenuLabel: '改变语言',
-          darkModeSwitchLabel: '主题',
+          darkModeSwitchLabel: '切换主题',
           lightModeSwitchTitle: '切换到浅色模式',
           darkModeSwitchTitle: '切换到深色模式'
         }
@@ -87,7 +87,7 @@ export default withMermaid(
             copyright: `Copyright © 2024-${new Date().getFullYear()} M1hono`
           },
           langMenuLabel: 'Change Language',
-          darkModeSwitchLabel: 'Theme',
+          darkModeSwitchLabel: 'Switch Theme',
           lightModeSwitchTitle: 'Switch to light mode',
           darkModeSwitchTitle: 'Switch to dark mode'
         }
