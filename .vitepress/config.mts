@@ -97,9 +97,34 @@ export default withMermaid(
     },
     markdown: {
       math: true,
-      config: (md) => {
+      config: async (md) => {
         md.use(timeline);
         md.use(tabsMarkdownPlugin);
+
+        const taskLists = await import('markdown-it-task-lists').then(m => m.default || m);
+        const markdownItFootnote = await import('markdown-it-footnote').then(m => m.default || m);
+        const markdownItDeflist  = await import('markdown-it-deflist').then(m => m.default || m);
+        const markdownItAbbr   = await import('markdown-it-abbr').then(m => m.default || m);
+        const { imgSize } = await import("@mdit/plugin-img-size").then(m => m.default || m);
+        const { align } = await import("@mdit/plugin-align").then(m => m.default || m);
+        const { spoiler } = await import("@mdit/plugin-spoiler").then(m => m.default || m);
+        const { sub } = await import("@mdit/plugin-sub").then(m => m.default || m);
+        const { sup } = await import("@mdit/plugin-sup").then(m => m.default || m);
+        const { ruby } = await import("@mdit/plugin-ruby").then(m => m.default || m);
+        const { demo } = await import("@mdit/plugin-demo").then(m => m.default || m);
+        
+        
+        md.use(align)
+        md.use(spoiler)
+        md.use(sub)
+        md.use(sup)
+        md.use(ruby)
+        md.use(demo)
+        md.use(imgSize);
+        md.use(markdownItDeflist);
+        md.use(markdownItAbbr);
+        md.use(taskLists);
+        md.use(markdownItFootnote);
       },
       codeTransformers: [
         transformerTwoslash() 
