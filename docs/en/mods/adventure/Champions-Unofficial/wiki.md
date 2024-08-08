@@ -2,11 +2,12 @@
 Layout: doc
 title: Wiki
 prev:
-  text: '上一个'
-  link: 'zh/mods/adventure/Champions-Unofficial/index'
+  text: 'Intro'
+  link: './'
 next:
-  text: '下一个'
-  link: 'zh/mods/adventure/Champions-Unofficial/index'
+  text: 'Config'
+  link: './config'
+order: 1
 ---
 
 <script setup>

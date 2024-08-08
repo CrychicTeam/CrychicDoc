@@ -2,11 +2,11 @@
 Layout: doc
 title: Introduction
 prev:
-  text: 'Previous'
-  link: 'en/mods/adventure/Champions-Unofficial/2_wiki'
+  text: 'Config'
+  link: './config'
 next:
-  text: 'Next'
-  link: 'en/mods/adventure/Champions-Unofficial/2_wiki'
+  text: 'Wiki'
+  link: './wiki'
 ---
 
 ## Champions-Unofficial

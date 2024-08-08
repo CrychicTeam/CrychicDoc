@@ -38,6 +38,10 @@ export default withMermaid(
           outline: {
             label: '页面导航'
           },
+          docFooter: {
+            prev: '上一页',
+            next: '下一页'
+          },
         }
       },
       en: {
@@ -65,6 +69,10 @@ export default withMermaid(
           },
           outline: {
             label: 'Page Content'
+          },
+          docFooter: {
+            prev: 'Previous Page', 
+            next: 'Next Page'
           },
         }
       }

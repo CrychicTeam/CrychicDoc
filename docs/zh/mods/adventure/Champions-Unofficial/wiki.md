@@ -1,12 +1,13 @@
 ---
 Layout: doc
 title: Wiki
+order: 1
 prev:
-  text: 'Previous'
-  link: 'en/mods/adventure/Champions-Unofficial/index'
+  text: '介绍'
+  link: './'
 next:
-  text: 'Next'
-  link: 'en/mods/adventure/Champions-Unofficial/index'
+  text: '配置'
+  link: './config'
 ---
 
 <script setup>

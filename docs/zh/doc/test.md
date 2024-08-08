@@ -1,6 +1,13 @@
 ---
 layout: doc
 title: 类型检查示例
+order : 5
+prev:
+  text: 项目合作教程
+  link: './docDevelop'
+next: 
+  text: Crychic文档编写示例
+  link: './samples'
 ---
 # 测试类型检查
 ```js twoslash

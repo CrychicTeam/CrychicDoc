@@ -17,7 +17,11 @@ function readDir(dir, rootDir, langPrefix) {
             const { data } = matter(content);
             if (data.title) {
                 const link = `/${langPrefix}/${relativePath.replace(/\.md$/, '.html')}`;
-                const item = { text: data.title, link };
+                const item = { 
+                    text: data.title, 
+                    link, 
+                    order: typeof data.order !== 'undefined' ? data.order : (dirent.name === 'index.md' ? 0 : Infinity) 
+                };
                 if (dirent.name === 'index.md') {
                     indexItem = item;
                 } else {
@@ -27,10 +31,13 @@ function readDir(dir, rootDir, langPrefix) {
         }
     });
 
-    // Place index.md at the beginning of the array if it exists
+    // Place index.md in the items array if it exists
     if (indexItem) {
-        items.unshift(indexItem);
+        items.push(indexItem);
     }
+
+    // Sort items based on the order
+    items.sort((a, b) => a.order - b.order);
 
     return items;
 }

@@ -1,6 +1,13 @@
 ---
 layout: doc
 title: Crychic文档编写示例
+order : 6
+prev:
+  text: 类型检查示例
+  link: './test'
+next:
+  text: 项目合作教程
+  link: './docDevelop'
 ---
 
 <ClientOnly>

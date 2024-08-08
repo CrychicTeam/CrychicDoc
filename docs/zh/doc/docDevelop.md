@@ -1,6 +1,13 @@
 ---
 layout: doc
 title: 项目合作教程
+order : 0
+prev:
+  text: Crychic文档编写示例
+  link: './samples'
+next:
+  text: 类型检查示例
+  link: './test'
 ---
 
 # 项目合作教程

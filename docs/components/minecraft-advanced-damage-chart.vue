@@ -2,17 +2,35 @@
 import { ref, computed, onMounted, watch } from 'vue'
 import { useData } from 'vitepress'
 
+const props = defineProps({
+  static: {
+    type: Boolean,
+    default: false
+  },
+  presetData: {
+    type: Object,
+    default: () => ({
+      incomingDamage: 201,
+      armorToughness: 150,
+      minDamage: 0,
+      maxDamage: 200,
+      maxArmorPoints: 50,
+      isJavaEdition: true
+    })
+  }
+})
+
 const { isDark } = useData()
 
 const chartRef = ref(null)
 let chartInstance = null
 
-const incomingDamage = ref(201)
-const armorToughness = ref(150)
-const minDamage = ref(0)
-const maxDamage = ref(200)
-const maxArmorPoints = ref(50)
-const isJavaEdition = ref(true)
+const incomingDamage = ref(props.presetData.incomingDamage)
+const armorToughness = ref(props.presetData.armorToughness)
+const minDamage = ref(props.presetData.minDamage)
+const maxDamage = ref(props.presetData.maxDamage)
+const maxArmorPoints = ref(props.presetData.maxArmorPoints)
+const isJavaEdition = ref(props.presetData.isJavaEdition)
 
 // Debug information
 const debugInfo = ref('')
@@ -54,7 +72,6 @@ const calculateDamage = (armor, toughness, damage, isJava) => {
     const defensePoints = Math.min(20, Math.max(armor / 5, armor - damage / (2 + toughness / 4)))
     return damage * (1 - defensePoints / 25)
   } else {
-    // Bedrock 版本的计算
     return damage * (1 - Math.min(20, armor) * 0.04)
   }
 }
@@ -188,6 +205,7 @@ watch([incomingDamage, armorToughness, minDamage, maxDamage, maxArmorPoints, isJ
 })
 
 const handleInput = (event, key) => {
+  if (props.static) return
   const value = parseFloat(event.target.value)
   if (!isNaN(value)) {
     switch(key) {
@@ -213,14 +231,15 @@ const handleInput = (event, key) => {
 }
 
 const toggleEdition = () => {
+  if (props.static) return
   isJavaEdition.value = !isJavaEdition.value
   updateChart()
 }
 </script>
 
 <template>
-  <div class="minecraft-damage-chart" :class="{ 'dark-mode': isDark }">
-    <div class="input-container">
+  <div class="minecraft-damage-chart" :class="{ 'dark-mode': isDark, 'static-mode': static }">
+    <div v-if="!static" class="input-container">
       <div class="input-group" v-for="key in ['incomingDamage', 'armorToughness', 'minDamage', 'maxDamage', 'maxArmorPoints']" :key="key">
         <label :for="key">{{ localText[key] }}</label>
         <input
@@ -231,7 +250,7 @@ const toggleEdition = () => {
         />
       </div>
       <div class="input-group">
-        <label>&nbsp;</label> <!-- 添加一个空标签以对齐按钮 -->
+        <label>&nbsp;</label>
         <button @click="toggleEdition" :class="{ 'java': isJavaEdition, 'bedrock': !isJavaEdition }">
           {{ isJavaEdition ? localText.javaEdition : localText.bedrockEdition }}
         </button>
@@ -240,7 +259,7 @@ const toggleEdition = () => {
     <div class="chart-container">
       <canvas ref="chartRef"></canvas>
     </div>
-    <div class="debug-info">{{ debugInfo }}</div>
+    <div v-if="!static" class="debug-info">{{ debugInfo }}</div>
   </div>
 </template>
 
@@ -295,12 +314,12 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background-color: #f6f6f7;
-  color: #333;
+  background-color: var(--vp-c-bg-alt);
+  color: var(--vp-c-text-1);
 }
 
 button:hover {
-  background-color: #e0e0e0;
+  background-color: var(--vp-c-bg-mute);
 }
 
 .chart-container {
@@ -320,27 +339,18 @@ button:hover {
 .dark-mode {
   --vp-c-bg: #1a1a1a;
   --vp-c-bg-alt: #2a2a2a;
+  --vp-c-bg-mute: #3a3a3a;
   --vp-c-text-1: #ffffff;
   --vp-c-text-2: #aaaaaa;
   --vp-c-divider: #4a4a4a;
 }
 
-.dark-mode input, .dark-mode button {
-  background-color: #333;
-  color: #fff;
+.static-info {
+  margin-bottom: 20px;
 }
 
-.dark-mode button {
-  background-color: #333333;
-}
-
-.dark-mode button:hover {
-  background-color: #5a5a5a;
-}
-
-.dark-mode input:focus, .dark-mode button:focus {
-  border-color: var(--vp-c-brand);
-  box-shadow: 0 0 0 2px var(--vp-c-brand-dark);
+.static-info p {
+  margin: 5px 0;
 }
 
 @media (max-width: 768px) {

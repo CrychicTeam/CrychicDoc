@@ -1,6 +1,14 @@
 ---
 layout: doc
 title: ts-check Sample
+order : 5
+
+prev:
+  text: Samples for coding CrychicDoc
+  link: './docDevelop'
+next: 
+  text: Project Collaboration Tutorial
+  link: './samples'
 ---
 # Test ts-check
 ```js twoslash

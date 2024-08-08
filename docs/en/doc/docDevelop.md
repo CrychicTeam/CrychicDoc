@@ -1,6 +1,13 @@
 ---
 layout: doc
 title: Project Collaboration Tutorial
+order : 0
+prev:
+  text: Samples for coding CrychicDoc
+  link: './samples'
+next:
+  text: ts-check Sample
+  link: './test'
 ---
 
 # Project Collaboration Tutorial

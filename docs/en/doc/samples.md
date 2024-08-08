@@ -1,6 +1,13 @@
 ---
 layout: doc
 title: Samples for coding CrychicDoc
+order : 6
+prev:
+  text: ts-check Sample
+  link: './test'
+next:
+  text: Project Collaboration Tutorial
+  link: './docDevelop'
 ---
 
 <ClientOnly>

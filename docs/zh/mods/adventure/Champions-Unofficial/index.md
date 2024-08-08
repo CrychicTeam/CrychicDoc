@@ -2,11 +2,11 @@
 Layout: doc
 title: 介绍
 prev:
-  text: '上一页'
-  link: 'zh/mods/adventure/Champions-Unofficial/2_wiki'
+  text: '配置'
+  link: './config'
 next:
-  text: '下一页'
-  link: 'zh/mods/adventure/Champions-Unofficial/2_wiki'
+  text: 'Wiki'
+  link: './wiki'
 ---
 
 ## 冠军
