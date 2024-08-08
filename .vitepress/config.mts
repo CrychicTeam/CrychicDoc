@@ -137,8 +137,7 @@ export default withMermaid(
     mermaid: {
       startOnLoad: true,
       securityLevel: 'loose',
-      theme: 'default',
-      logLevel: 'error'
+      theme: 'default'
     },
     vite: {
       ssr: {
