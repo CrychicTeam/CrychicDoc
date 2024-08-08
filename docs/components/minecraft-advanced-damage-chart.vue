@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
-import Chart from 'chart.js/auto'
 import { useData } from 'vitepress'
 
 const { isDark } = useData()
@@ -16,8 +15,23 @@ const maxDamage = ref(25)
 // Debug information
 const debugInfo = ref('')
 
-const isChinesePath = computed(() => {
-  return window.location.pathname.includes('/zh/') || window.location.pathname.startsWith('/zh')
+const isChinesePath = ref(false)
+
+onMounted(() => {
+  isChinesePath.value = window.location.pathname.includes('/zh/') || window.location.pathname.startsWith('/zh')
+  
+  if (chartRef.value) {
+    import('chart.js/auto').then((ChartModule) => {
+      const Chart = ChartModule.default
+      const ctx = chartRef.value.getContext('2d')
+      chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: chartData.value,
+        options: chartOptions.value
+      })
+      debugInfo.value = 'Chart mounted'
+    })
+  }
 })
 
 const localText = computed(() => ({
@@ -144,18 +158,6 @@ const updateChart = () => {
     debugInfo.value = `Chart updated at ${new Date().toLocaleTimeString()}`
   }
 }
-
-onMounted(() => {
-  if (chartRef.value) {
-    const ctx = chartRef.value.getContext('2d')
-    chartInstance = new Chart(ctx, {
-      type: 'line',
-      data: chartData.value,
-      options: chartOptions.value
-    })
-    debugInfo.value = 'Chart mounted'
-  }
-})
 
 watch([incomingDamage, armorToughness, minDamage, maxDamage, isDark], () => {
   updateChart()
