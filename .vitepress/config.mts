@@ -16,33 +16,9 @@ export default withMermaid(
         label: '简体中文',
         lang: 'zh-CN',
         link: '/zh/',
-      },
-      en: {
-        label: 'English',
-        lang: 'en-US',
-        link: '/en/',
-      }
-    },
-    themeConfig: {
-      logo: {
-        alt: 'CryChicDoc',
-        light: '/logo.png',
-        dark: '/logodark.png'
-      },
-      search: {
-        provider: 'local'
-      },
-      socialLinks: [
-        { icon: 'github', link: 'https://github.com/M1hono/CrychicDoc' }
-      ],
-      langMenuLabel: 'Change Language',
-      lastUpdated: {},
-      locales: {
-        'zh-CN': {
-          label: '简体中文',
-          lang: 'zh-CN',
-          title: "CryChic文档",
-          description: "一个包含 Minecraft 开发文档的网站。",
+        title: "CryChic文档",
+        description: "一个包含 Minecraft 开发文档的网站。",
+        themeConfig: {
           nav: [],
           sidebar: {
             '/zh/': generateSidebar('../../docs/zh', '','zh'),
@@ -74,12 +50,15 @@ export default withMermaid(
           darkModeSwitchLabel: '主题',
           lightModeSwitchTitle: '切换到浅色模式',
           darkModeSwitchTitle: '切换到深色模式'
-        },
-        'en-US': {
-          label: 'English',
-          lang: 'en-US',
-          title: "CryChicDoc",
-          description: "A site containing docs for Minecraft developing.",
+        }
+      },
+      en: {
+        label: 'English',
+        lang: 'en-US',
+        link: '/en/',
+        title: "CryChicDoc",
+        description: "A site containing docs for Minecraft developing.",
+        themeConfig: {
           nav: [],
           sidebar: {
             '/en/': generateSidebar('../../docs/en', '','en'),
@@ -112,6 +91,26 @@ export default withMermaid(
           lightModeSwitchTitle: 'Switch to light mode',
           darkModeSwitchTitle: 'Switch to dark mode'
         }
+      }
+    },
+    themeConfig: {
+      logo: {
+        alt: 'CryChicDoc',
+        light: '/logo.png',
+        dark: '/logodark.png'
+      },
+      search: {
+        provider: 'local'
+      },
+      socialLinks: [
+        { icon: 'github', link: 'https://github.com/M1hono/CrychicDoc' }
+      ],
+      langMenuLabel: 'Change Language',
+      lastUpdated: {},
+      // 添加以下配置来启用多语言支持
+      locales: {
+        'root': { label: '简体中文', lang: 'zh-CN' },
+        'en-US': { label: 'English', lang: 'en-US' }
       }
     },
     markdown: {
