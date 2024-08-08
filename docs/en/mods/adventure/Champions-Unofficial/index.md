@@ -18,8 +18,7 @@ next:
 </div>
 
 <script setup>
-import Carousel from '../../../../components/carousel.vue'
-
+import Carousel from '../../../../components/carousel.vue' 
 const carouselImages = [
   { src: "https://docs.mihono.cn/mods/adventure/champions-unofficial/1.png", alt: "Champions Unofficial 1" },
   { src: "https://docs.mihono.cn/mods/adventure/champions-unofficial/2.png", alt: "Champions Unofficial 2" },

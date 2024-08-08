@@ -9,4 +9,8 @@ next:
   link: 'en/mods/adventure/Champions-Unofficial/index'
 ---
 
-## Client Config
+<script setup>
+import MinecraftAdvancedDamageChart from '../../../../components/minecraft-advanced-damage-chart.vue'
+</script>
+
+<MinecraftAdvancedDamageChart />
