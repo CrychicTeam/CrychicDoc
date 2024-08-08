@@ -42,6 +42,12 @@ export default withMermaid(
             prev: '上一页',
             next: '下一页'
           },
+
+          footer: {
+            message: '基于 MIT 许可发布-晋ICP备2022005790号-2',
+            copyright: `版权所有 © 2024-${new Date().getFullYear()} 不是客服`
+          },
+
           langMenuLabel: '改变语言',
           returnToTopLabel: '回到顶部',
           sidebarMenuLabel: '菜单',
@@ -81,13 +87,18 @@ export default withMermaid(
             prev: 'Previous Page', 
             next: 'Next Page'
           },
+
+          footer: {
+            message: 'Licensed under MIT-晋ICP备2022005790号-2',
+            copyright: `Copyright © 2024-${new Date().getFullYear()} M1hono`
+          },
+
           langMenuLabel: 'Change Language',
           returnToTopLabel: 'Back to top',
           sidebarMenuLabel: 'Menu',
           darkModeSwitchLabel: 'Theme',
           lightModeSwitchTitle: 'Switch to light mode',
           darkModeSwitchTitle: 'Switch to dark mode'
-        }
       }
     },
     themeConfig: {
@@ -102,10 +113,6 @@ export default withMermaid(
       socialLinks: [
         { icon: 'github', link: 'https://github.com/M1hono/CrychicDoc' }
       ],
-      footer: {
-        message: '',
-        copyright: 'Copyright © 2024 M1hono 晋ICP备2022005790号-2'
-      },
       lastUpdated: {}
     },
     markdown: {
