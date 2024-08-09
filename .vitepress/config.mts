@@ -43,7 +43,7 @@ export default withMermaid(
             next: '下一页'
           },
           footer: {
-            message: '基于 MIT 许可发布-晋ICP备2022005790号-2',
+            message: '基于 MIT 证书发布-晋ICP备2022005790号-2',
             copyright: `版权所有 © 2024-${new Date().getFullYear()} 不是客服`
           },
           langMenuLabel: '改变语言',

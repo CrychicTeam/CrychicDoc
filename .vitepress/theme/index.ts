@@ -21,6 +21,8 @@ import AuthorsComponent from "./components/AuthorsComponent.vue";
 import Layout from './Layout.vue'
 import TdesignDark from './components/tdesignDark.vue'
 import Comment from './components/comment.vue'
+import YoutubeVideo from './components/YoutubeVideo.vue'
+import BilibiliVideo from './components/BilibiliVideo.vue'
 
 export default {
   extends: DefaultTheme,
@@ -38,6 +40,8 @@ export default {
     enhanceAppWithTabs(ctx.app);
     ctx.app.use(vuetify);
     ctx.app.use(TwoslashFloatingVue);
+    ctx.app.component('YoutubeVideo', YoutubeVideo)
+    ctx.app.component('BilibiliVideo', BilibiliVideo)
   },
   setup() {
     const route = useRoute();
