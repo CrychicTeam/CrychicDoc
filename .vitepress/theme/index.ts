@@ -23,6 +23,8 @@ import TdesignDark from './components/tdesignDark.vue'
 import Comment from './components/comment.vue'
 import YoutubeVideo from './components/YoutubeVideo.vue'
 import BilibiliVideo from './components/BilibiliVideo.vue'
+import damageChart from './components/minecraft-advanced-damage-chart.vue'
+import carousel from './components/carousel.vue'
 
 export default {
   extends: DefaultTheme,
@@ -42,6 +44,8 @@ export default {
     ctx.app.use(TwoslashFloatingVue);
     ctx.app.component('YoutubeVideo', YoutubeVideo)
     ctx.app.component('BilibiliVideo', BilibiliVideo)
+    ctx.app.component('DamageChart', damageChart)
+    ctx.app.component('Carousel', carousel)
   },
   setup() {
     const route = useRoute();

@@ -10,8 +10,4 @@ next:
   link: './config'
 ---
 
-<script setup>
-import MinecraftAdvancedDamageChart from '../../../../components/minecraft-advanced-damage-chart.vue'
-</script>
-
-<MinecraftAdvancedDamageChart />
+<DamageChart />

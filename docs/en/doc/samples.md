@@ -38,6 +38,6 @@ do some thing3
 do some thing4
 :::
 
-## B站视频
+## Youtube Video samples
 
-<BilibiliVideo bvid="BV1rC4y1C7z2" />
+<YoutubeVideo videoId="IL7J9ueYRYc" />

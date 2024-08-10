@@ -37,3 +37,7 @@ journey
 do some thing3
 do some thing4
 :::
+
+## B站视频示例
+
+<BilibiliVideo bvid="BV1rC4y1C7z2" />
