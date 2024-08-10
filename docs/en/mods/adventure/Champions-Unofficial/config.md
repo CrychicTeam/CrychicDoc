@@ -8,6 +8,8 @@ prev:
 next:
   text: 'Intro'
   link: './'
+authors:
+  - M1hono
 ---
 
 ## Client Config

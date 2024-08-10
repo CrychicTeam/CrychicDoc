@@ -8,6 +8,8 @@ prev:
 next:
   text: '配置'
   link: './config'
+authors:
+  - M1hono
 ---
 
 <ClientOnly>

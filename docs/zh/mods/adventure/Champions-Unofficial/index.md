@@ -7,6 +7,8 @@ prev:
 next:
   text: 'Wiki'
   link: './wiki'
+authors:
+  - M1hono
 ---
 
 ## 冠军

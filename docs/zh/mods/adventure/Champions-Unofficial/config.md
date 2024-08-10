@@ -8,6 +8,8 @@ prev:
 next:
   text: '介绍'
   link: './'
+authors:
+  - M1hono
 ---
 
 ## 客户端配置

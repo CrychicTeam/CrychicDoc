@@ -8,6 +8,8 @@ next:
   text: 'Config'
   link: './config'
 order: 1
+authors:
+  - M1hono
 ---
 
 <ClientOnly>
