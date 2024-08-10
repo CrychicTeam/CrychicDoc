@@ -1,6 +1,7 @@
 <template>
   <div :class="['video-container', { dark: isDark }]">
     <iframe
+      ref="videoIframe"
       :src="'https://player.bilibili.com/player.html?bvid=' + bvid + '&high_quality=1&autoplay=0'"
       scrolling="no"
       border="0"
@@ -8,12 +9,13 @@
       framespacing="0"
       allowfullscreen="true"
     ></iframe>
+    <div class="video-overlay" @click="togglePlay"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { defineProps } from "vue";
+import { defineProps, ref, onMounted, onUnmounted } from "vue";
 
 const { isDark } = useData();
 const props = defineProps({
@@ -21,6 +23,35 @@ const props = defineProps({
     type: String,
     required: true
   }
+});
+
+const videoIframe = ref<HTMLIFrameElement | null>(null);
+let player: any = null;
+
+const togglePlay = () => {
+  if (player) {
+    if (player.paused) {
+      player.play();
+    } else {
+      player.pause();
+    }
+  }
+};
+
+const handleMessage = (event: MessageEvent) => {
+  if (event.source === videoIframe.value?.contentWindow) {
+    if (event.data.type === 'videoInfo') {
+      player = event.data.data;
+    }
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('message', handleMessage);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('message', handleMessage);
 });
 </script>
 
@@ -50,5 +81,15 @@ const props = defineProps({
   width: 100%;
   height: 100%;
   border-radius: 10px;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 40px);
+  background: transparent;
+  cursor: pointer;
 }
 </style>

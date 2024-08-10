@@ -12,6 +12,8 @@ authors:
   - M1hono
 ---
 
+## Mermaid Sample
+
 <ClientOnly>
 
 ```mermaid
@@ -26,6 +28,8 @@ journey
       Sit down: 5: Me
 ```
 
+## Timeline plugin sample.
+
 </ClientOnly>
 
 ::: timeline 2023-05-24
@@ -38,6 +42,20 @@ do some thing3
 do some thing4
 :::
 
-## Youtube Video samples
+## Youtube Video sample
 
 <YoutubeVideo videoId="IL7J9ueYRYc" />
+
+## Damage Static chart
+
+<ClientOnly>
+<DamageChart
+  mod="static"
+  :incomingDamage="20"
+  :armorToughness="5"
+  :minDamage="4"
+  :maxDamage="20"
+  :maxArmorPoints="20"
+  :isJavaEdition="true"
+/>
+</ClientOnly>

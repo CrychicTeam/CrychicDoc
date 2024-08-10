@@ -12,6 +12,8 @@ authors:
   - M1hono
 ---
 
+## Mermaid示例
+
 <ClientOnly>
 
 ```mermaid
@@ -25,6 +27,8 @@ journey
       Go downstairs: 5: Me
       Sit down: 5: Me
 ```
+
+## 时间线插件示例
 
 </ClientOnly>
 
@@ -41,3 +45,17 @@ do some thing4
 ## B站视频示例
 
 <BilibiliVideo bvid="BV1rC4y1C7z2" />
+
+## 伤害静态图示例
+
+<ClientOnly>
+<DamageChart
+  mod="static"
+  :incomingDamage="20"
+  :armorToughness="5"
+  :minDamage="4"
+  :maxDamage="20"
+  :maxArmorPoints="20"
+  :isJavaEdition="true"
+/>
+</ClientOnly>

@@ -3,21 +3,17 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useData } from 'vitepress'
 
 const props = defineProps({
-  static: {
-    type: Boolean,
-    default: false
+  mode: {
+    type: String,
+    default: 'interactive', // 'interactive' or 'static'
+    validator: (value) => ['interactive', 'static'].includes(value)
   },
-  presetData: {
-    type: Object,
-    default: () => ({
-      incomingDamage: 201,
-      armorToughness: 150,
-      minDamage: 0,
-      maxDamage: 200,
-      maxArmorPoints: 50,
-      isJavaEdition: true
-    })
-  }
+  incomingDamage: { type: Number, default: 201 },
+  armorToughness: { type: Number, default: 150 },
+  minDamage: { type: Number, default: 0 },
+  maxDamage: { type: Number, default: 200 },
+  maxArmorPoints: { type: Number, default: 50 },
+  isJavaEdition: { type: Boolean, default: true }
 })
 
 const { isDark } = useData()
@@ -25,21 +21,24 @@ const { isDark } = useData()
 const chartRef = ref(null)
 let chartInstance = null
 
-const incomingDamage = ref(props.presetData.incomingDamage)
-const armorToughness = ref(props.presetData.armorToughness)
-const minDamage = ref(props.presetData.minDamage)
-const maxDamage = ref(props.presetData.maxDamage)
-const maxArmorPoints = ref(props.presetData.maxArmorPoints)
-const isJavaEdition = ref(props.presetData.isJavaEdition)
+const incomingDamageRef = ref(props.incomingDamage)
+const armorToughnessRef = ref(props.armorToughness)
+const minDamageRef = ref(props.minDamage)
+const maxDamageRef = ref(props.maxDamage)
+const maxArmorPointsRef = ref(props.maxArmorPoints)
+const isJavaEditionRef = ref(props.isJavaEdition)
 
 // Debug information
 const debugInfo = ref('')
 
-const isChinesePath = ref(false)
+const isChinesePath = computed(() => {
+  if (typeof window !== 'undefined') {
+    return window.location.pathname.includes('/zh/') || window.location.pathname.startsWith('/zh')
+  }
+  return false
+})
 
 onMounted(() => {
-  isChinesePath.value = window.location.pathname.includes('/zh/') || window.location.pathname.startsWith('/zh')
-  
   if (chartRef.value) {
     import('chart.js/auto').then((ChartModule) => {
       const Chart = ChartModule.default
@@ -72,6 +71,7 @@ const calculateDamage = (armor, toughness, damage, isJava) => {
     const defensePoints = Math.min(20, Math.max(armor / 5, armor - damage / (2 + toughness / 4)))
     return damage * (1 - defensePoints / 25)
   } else {
+    // Bedrock 版本的计算
     return damage * (1 - Math.min(20, armor) * 0.04)
   }
 }
@@ -81,12 +81,12 @@ const chartData = computed(() => {
   const actualDamage = []
   const damageReduction = []
 
-  for (let armor = 0; armor <= maxArmorPoints.value; armor += 1) {
+  for (let armor = 0; armor <= maxArmorPointsRef.value; armor += 1) {
     labels.push(armor)
-    const damage = calculateDamage(armor, armorToughness.value, incomingDamage.value, isJavaEdition.value)
-    const clampedDamage = Math.max(minDamage.value, Math.min(maxDamage.value, damage))
+    const damage = calculateDamage(armor, armorToughnessRef.value, incomingDamageRef.value, isJavaEditionRef.value)
+    const clampedDamage = Math.max(minDamageRef.value, Math.min(maxDamageRef.value, damage))
     actualDamage.push(Number(clampedDamage.toFixed(2)))
-    damageReduction.push(Number(((1 - clampedDamage / incomingDamage.value) * 100).toFixed(2)))
+    damageReduction.push(Number(((1 - clampedDamage / incomingDamageRef.value) * 100).toFixed(2)))
   }
 
   return {
@@ -126,7 +126,7 @@ const chartOptions = computed(() => ({
       grid: {
         color: isDark.value ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
       },
-      max: maxArmorPoints.value
+      max: maxArmorPointsRef.value
     },
     y: {
       type: 'linear',
@@ -137,8 +137,8 @@ const chartOptions = computed(() => ({
         text: localText.value.actualDamage,
         color: isDark.value ? '#ffffff' : '#363636'
       },
-      min: minDamage.value,
-      max: maxDamage.value,
+      min: minDamageRef.value,
+      max: maxDamageRef.value,
       ticks: {
         color: isDark.value ? '#ffffff' : '#363636'
       },
@@ -200,29 +200,29 @@ const updateChart = () => {
   }
 }
 
-watch([incomingDamage, armorToughness, minDamage, maxDamage, maxArmorPoints, isJavaEdition, isDark], () => {
+watch([incomingDamageRef, armorToughnessRef, minDamageRef, maxDamageRef, maxArmorPointsRef, isJavaEditionRef, isDark], () => {
   updateChart()
 })
 
 const handleInput = (event, key) => {
-  if (props.static) return
+  if (props.mode === 'static') return
   const value = parseFloat(event.target.value)
   if (!isNaN(value)) {
     switch(key) {
       case 'incomingDamage':
-        incomingDamage.value = value
+        incomingDamageRef.value = value
         break
       case 'armorToughness':
-        armorToughness.value = value
+        armorToughnessRef.value = value
         break
       case 'minDamage':
-        minDamage.value = value
+        minDamageRef.value = value
         break
       case 'maxDamage':
-        maxDamage.value = value
+        maxDamageRef.value = value
         break
       case 'maxArmorPoints':
-        maxArmorPoints.value = value
+        maxArmorPointsRef.value = value
         break
     }
     debugInfo.value = `${key} changed to ${value}`
@@ -231,39 +231,59 @@ const handleInput = (event, key) => {
 }
 
 const toggleEdition = () => {
-  if (props.static) return
-  isJavaEdition.value = !isJavaEdition.value
+  if (props.mode === 'static') return
+  isJavaEditionRef.value = !isJavaEditionRef.value
   updateChart()
 }
+
+// Watch for prop changes
+watch(() => props.incomingDamage, (newVal) => { incomingDamageRef.value = newVal })
+watch(() => props.armorToughness, (newVal) => { armorToughnessRef.value = newVal })
+watch(() => props.minDamage, (newVal) => { minDamageRef.value = newVal })
+watch(() => props.maxDamage, (newVal) => { maxDamageRef.value = newVal })
+watch(() => props.maxArmorPoints, (newVal) => { maxArmorPointsRef.value = newVal })
+watch(() => props.isJavaEdition, (newVal) => { isJavaEditionRef.value = newVal })
 </script>
 
 <template>
-  <div class="minecraft-damage-chart" :class="{ 'dark-mode': isDark, 'static-mode': static }">
-    <div v-if="!static" class="input-container">
+  <div class="minecraft-damage-chart" :class="{ 'dark-mode': isDark }">
+    <div v-if="mode === 'interactive'" class="input-container">
       <div class="input-group" v-for="key in ['incomingDamage', 'armorToughness', 'minDamage', 'maxDamage', 'maxArmorPoints']" :key="key">
         <label :for="key">{{ localText[key] }}</label>
         <input
           :id="key"
           type="number"
-          :value="key === 'incomingDamage' ? incomingDamage : key === 'armorToughness' ? armorToughness : key === 'minDamage' ? minDamage : key === 'maxDamage' ? maxDamage : maxArmorPoints"
+          :value="key === 'incomingDamage' ? incomingDamageRef : key === 'armorToughness' ? armorToughnessRef : key === 'minDamage' ? minDamageRef : key === 'maxDamage' ? maxDamageRef : maxArmorPointsRef"
           @input="(event) => handleInput(event, key)"
         />
       </div>
       <div class="input-group">
         <label>&nbsp;</label>
-        <button @click="toggleEdition" :class="{ 'java': isJavaEdition, 'bedrock': !isJavaEdition }">
-          {{ isJavaEdition ? localText.javaEdition : localText.bedrockEdition }}
+        <button @click="toggleEdition" :class="{ 'java': isJavaEditionRef, 'bedrock': !isJavaEditionRef }">
+          {{ isJavaEditionRef ? localText.javaEdition : localText.bedrockEdition }}
         </button>
       </div>
     </div>
     <div class="chart-container">
       <canvas ref="chartRef"></canvas>
     </div>
-    <div v-if="!static" class="debug-info">{{ debugInfo }}</div>
+    <div v-if="mode === 'interactive'" class="debug-info">{{ debugInfo }}</div>
   </div>
 </template>
 
 <style scoped>
+:root {
+  --button-bg: #f6f6f7;
+  --button-color: #333;
+  --button-hover-bg: #e0e0e0;
+}
+
+.dark-mode {
+  --button-bg: #333333;
+  --button-color: #fff;
+  --button-hover-bg: #5a5a5a;
+}
+
 .minecraft-damage-chart {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--vp-c-bg);
@@ -314,12 +334,12 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background-color: var(--vp-c-bg-alt);
-  color: var(--vp-c-text-1);
+  background-color: var(--button-bg);
+  color: var(--button-color);
 }
 
 button:hover {
-  background-color: var(--vp-c-bg-mute);
+  background-color: var(--button-hover-bg);
 }
 
 .chart-container {
@@ -334,23 +354,6 @@ button:hover {
   margin-top: 10px;
   font-size: 12px;
   color: var(--vp-c-text-2);
-}
-
-.dark-mode {
-  --vp-c-bg: #1a1a1a;
-  --vp-c-bg-alt: #2a2a2a;
-  --vp-c-bg-mute: #3a3a3a;
-  --vp-c-text-1: #ffffff;
-  --vp-c-text-2: #aaaaaa;
-  --vp-c-divider: #4a4a4a;
-}
-
-.static-info {
-  margin-bottom: 20px;
-}
-
-.static-info p {
-  margin: 5px 0;
 }
 
 @media (max-width: 768px) {

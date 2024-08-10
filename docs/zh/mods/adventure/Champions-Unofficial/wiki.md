@@ -10,4 +10,13 @@ next:
   link: './config'
 ---
 
-<DamageChart />
+<ClientOnly>
+<DamageChart 
+  :incomingDamage="50"
+  :armorToughness="0"
+  :minDamage="0"
+  :maxDamage="60"
+  :maxArmorPoints="100"
+  :isJavaEdition="true"
+/>
+</ClientOnly>
