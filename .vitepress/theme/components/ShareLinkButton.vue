@@ -56,15 +56,12 @@ const copyLink = async () => {
   padding: 16px;
   margin-bottom: 16px;
   border-bottom: 1px solid var(--vp-c-divider);
-  display: flex;
-  justify-content: center;
-  width: 100%;
 }
 
 .share-link-button {
-  background-color: #e0e0e0;
-  color: #333;
-  border: none;
+  background-color: #f5f5f5 !important;
+  color: #333 !important;
+  border: 1px solid #ccc !important;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
@@ -74,31 +71,33 @@ const copyLink = async () => {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 200px;
   font-size: 14px;
 }
 
 .share-link-button:hover {
-  background-color: #d0d0d0;
+  background-color: #e0e0e0 !important;
 }
 
 .share-link-button.copied {
-  background-color: #4caf50;
-  color: white;
+  background-color: #4caf50 !important;
+  color: white !important;
+  border-color: #45a049 !important;
 }
 
-.dark-mode .share-link-button {
-  background-color: #3a3a3a;
-  color: #e0e0e0;
+.share-link-container .dark-mode .share-link-button {
+  background-color: #444 !important;
+  color: #f0f0f0 !important;
+  border: 1px solid #666 !important;
 }
 
-.dark-mode .share-link-button:hover {
-  background-color: #4a4a4a;
+.share-link-container .dark-mode .share-link-button:hover {
+  background-color: #555 !important;
 }
 
-.dark-mode .share-link-button.copied {
-  background-color: #45a049;
-  color: white;
+.share-link-container .dark-mode .share-link-button.copied {
+  background-color: #45a049 !important;
+  color: white !important;
+  border-color: #45a049 !important;
 }
 
 @media (max-width: 768px) {
@@ -106,9 +105,8 @@ const copyLink = async () => {
     padding: 12px;
   }
   .share-link-button {
-    padding: 8px 12px;
+    padding: 6px 12px;
     font-size: 12px;
-    max-width: none; /* 在移动端占满容器宽度 */
   }
 }
 </style>
