@@ -51,7 +51,7 @@ do some thing4
 <ClientOnly>
 <!--  -->
 <DamageChart
-  mode="static
+  mode="static"
   :incomingDamage="20"
   :armorToughness="5"
   :minDamage="4"
