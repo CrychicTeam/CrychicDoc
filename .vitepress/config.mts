@@ -130,7 +130,7 @@ export default withMermaid(
         const { sup } = await import("@mdit/plugin-sup").then(m => m.default || m);
         const { ruby } = await import("@mdit/plugin-ruby").then(m => m.default || m);
         const { demo } = await import("@mdit/plugin-demo").then(m => m.default || m);
-        
+        md.use(markdownItFootnote);
         md.use(align)
         md.use(spoiler)
         md.use(sub)
@@ -141,7 +141,6 @@ export default withMermaid(
         md.use(markdownItDeflist);
         md.use(markdownItAbbr);
         md.use(taskLists);
-        md.use(markdownItFootnote);
       },
       codeTransformers: [
         transformerTwoslash() 
