@@ -25,6 +25,7 @@ import YoutubeVideo from './components/YoutubeVideo.vue'
 import BilibiliVideo from './components/BilibiliVideo.vue'
 import damageChart from './components/minecraft-advanced-damage-chart.vue'
 import carousel from './components/carousel.vue'
+import ShareLinkButton from './components/ShareLinkButton.vue'
 
 export default {
   extends: DefaultTheme,
@@ -33,7 +34,8 @@ export default {
       "doc-bottom": () => h(imageViewer),
       "layout-top": () => h(TdesignDark),
       "aside-outline-after": () => h(AuthorsComponent),
-      "doc-after": () => h(Comment)
+      "doc-after": () => h(Comment),
+      "aside-outline-before": () => h(ShareLinkButton)
     })
   },
   enhanceApp: (ctx) => {

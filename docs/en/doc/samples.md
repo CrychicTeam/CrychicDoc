@@ -49,6 +49,7 @@ do some thing4
 ## Damage Static chart
 
 <ClientOnly>
+<!--  -->
 <DamageChart
   mode="static"
   :incomingDamage="20"

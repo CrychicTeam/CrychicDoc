@@ -49,8 +49,9 @@ do some thing4
 ## 伤害静态图示例
 
 <ClientOnly>
+<!--  -->
 <DamageChart
-  mode="static"
+  mode="static
   :incomingDamage="20"
   :armorToughness="5"
   :minDamage="4"
