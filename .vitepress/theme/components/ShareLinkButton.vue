@@ -56,6 +56,9 @@ const copyLink = async () => {
   padding: 16px;
   margin-bottom: 16px;
   border-bottom: 1px solid var(--vp-c-divider);
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .share-link-button {
@@ -71,6 +74,7 @@ const copyLink = async () => {
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 200px;
   font-size: 14px;
 }
 
@@ -102,8 +106,9 @@ const copyLink = async () => {
     padding: 12px;
   }
   .share-link-button {
-    padding: 6px 12px;
+    padding: 8px 12px;
     font-size: 12px;
+    max-width: none; /* 在移动端占满容器宽度 */
   }
 }
 </style>
