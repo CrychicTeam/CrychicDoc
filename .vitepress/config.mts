@@ -8,6 +8,18 @@ import Components from 'unplugin-vue-components/vite';
 import { TDesignResolver } from 'unplugin-vue-components/resolvers';
 import { generateSidebar } from './theme/generatesidebar';
 
+import mdFootnote from 'markdown-it-footnote'
+import mdTaskLists from 'markdown-it-task-lists'
+import mdDeflist from 'markdown-it-deflist'
+import mdAbbr from 'markdown-it-abbr'
+import { imgSize } from "@mdit/plugin-img-size"
+import { align } from "@mdit/plugin-align"
+import { spoiler } from "@mdit/plugin-spoiler"
+import { sub } from "@mdit/plugin-sub"
+import { sup } from "@mdit/plugin-sup"
+import { ruby } from "@mdit/plugin-ruby"
+import { demo } from "@mdit/plugin-demo"
+
 export default withMermaid(
   defineConfig({
     srcDir: "./docs",
@@ -119,28 +131,17 @@ export default withMermaid(
         md.use(timeline);
         md.use(tabsMarkdownPlugin);
 
-        const taskLists = await import('markdown-it-task-lists').then(m => m.default || m);
-        const markdownItFootnote = await import('markdown-it-footnote').then(m => m.default || m);
-        const markdownItDeflist  = await import('markdown-it-deflist').then(m => m.default || m);
-        const markdownItAbbr   = await import('markdown-it-abbr').then(m => m.default || m);
-        const { imgSize } = await import("@mdit/plugin-img-size").then(m => m.default || m);
-        const { align } = await import("@mdit/plugin-align").then(m => m.default || m);
-        const { spoiler } = await import("@mdit/plugin-spoiler").then(m => m.default || m);
-        const { sub } = await import("@mdit/plugin-sub").then(m => m.default || m);
-        const { sup } = await import("@mdit/plugin-sup").then(m => m.default || m);
-        const { ruby } = await import("@mdit/plugin-ruby").then(m => m.default || m);
-        const { demo } = await import("@mdit/plugin-demo").then(m => m.default || m);
-        md.use(markdownItFootnote);
-        md.use(align)
-        md.use(spoiler)
-        md.use(sub)
-        md.use(sup)
-        md.use(ruby)
-        md.use(demo)
+        md.use(mdFootnote);
+        md.use(mdTaskLists);
+        md.use(mdDeflist);
+        md.use(mdAbbr);
         md.use(imgSize);
-        md.use(markdownItDeflist);
-        md.use(markdownItAbbr);
-        md.use(taskLists);
+        md.use(align);
+        md.use(spoiler);
+        md.use(sub);
+        md.use(sup);
+        md.use(ruby);
+        md.use(demo);
       },
       codeTransformers: [
         transformerTwoslash() 
