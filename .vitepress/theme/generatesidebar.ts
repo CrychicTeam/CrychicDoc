@@ -18,7 +18,7 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
     let tagGroups = {};
     let useTagDisplay = false;
     let backPath = null;
-    let autoPN = false; // 默认关闭 autoPN
+    let autoPN = false;
 
     const dirents = fs.readdirSync(dir, { withFileTypes: true });
     
@@ -38,14 +38,14 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
             backPath = data.back;
         }
         if (data.autoPN === true) {
-            autoPN = true; // 只有明确设置为 true 时才开启 autoPN
+            autoPN = true;
         }
 
         if (!isCurrentDir || data.generateSidebar !== false) {
             items.push({
                 text: isCurrentDir ? (data.title || data.sidetitle || path.basename(dir)) : (data.sidetitle || data.title || path.basename(dir)),
                 link: `/${langPrefix}/${path.relative(rootDir, indexPath).replace(/\.md$/, '')}`,
-                order: -Infinity
+                order: sidebarOrder['index'] || -Infinity
             });
         }
     }
@@ -65,7 +65,7 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
                 const item = {
                     text: displayTitle,
                     link: `/${langPrefix}/${relativePath.replace(/\.md$/, '')}`,
-                    order: sidebarOrder[data.sidetitle] || sidebarOrder[data.title] || sidebarOrder[itemName] || Infinity
+                    order: sidebarOrder[itemName] || sidebarOrder[data.title] || Infinity
                 };
                 
                 if (useTagDisplay) {
@@ -87,7 +87,7 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
                 const item = {
                     text: displayTitle,
                     link: `/${langPrefix}/${relativePath}/`,
-                    order: sidebarOrder[data.sidetitle] || sidebarOrder[data.title] || sidebarOrder[dirent.name] || Infinity
+                    order: sidebarOrder[dirent.name] || sidebarOrder[data.title] || Infinity
                 };
                 
                 if (useTagDisplay) {
@@ -103,18 +103,34 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
         }
     }
 
+    const sortItems = (itemsToSort) => {
+        return itemsToSort.sort((a, b) => {
+            if (a.order === b.order) {
+                return a.text.localeCompare(b.text);
+            }
+            return (a.order || Infinity) - (b.order || Infinity);
+        });
+    };
+
     if (useTagDisplay) {
         const sortedGroups = Object.entries(tagGroups).map(([tag, groupItems]) => ({
             text: tag,
-            items: groupItems.sort((a, b) => (a.order || Infinity) - (b.order || Infinity)),
+            items: sortItems(groupItems),
             collapsible: true,
             collapsed: false
         }));
 
-        sortedGroups.sort((a, b) => (a.items[0]?.order || Infinity) - (b.items[0]?.order || Infinity));
+        sortedGroups.sort((a, b) => {
+            const aOrder = sidebarOrder[a.text] || Infinity;
+            const bOrder = sidebarOrder[b.text] || Infinity;
+            if (aOrder === bOrder) {
+                return a.text.localeCompare(b.text);
+            }
+            return aOrder - bOrder;
+        });
         items = sortedGroups;
     } else {
-        items.sort((a, b) => (a.order || Infinity) - (b.order || Infinity));
+        items = sortItems(items);
     }
 
     return { items, indexData, useTagDisplay, backPath, autoPN };
@@ -122,17 +138,16 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
 
 function generatePrevNext(dir, items) {
     const docItems = items.filter(item => item.link && typeof item.link === 'string' && !item.link.endsWith('/') && item.link !== '#');
-    docItems.sort((a, b) => (a.order || Infinity) - (b.order || Infinity));
-
+    
     const introItem = docItems.find(item => item.link.endsWith('index')) || docItems[0];
 
     docItems.forEach((item, index) => {
-        if (!item.link) return; // Skip items without a link
+        if (!item.link) return;
 
         const filePath = path.join(dir, item.link.split('/').pop() + '.md');
         if (!fs.existsSync(filePath)) {
             console.warn(`File not found: ${filePath}`);
-            return; // Skip if file doesn't exist
+            return;
         }
 
         const content = fs.readFileSync(filePath, 'utf8');
@@ -140,7 +155,6 @@ function generatePrevNext(dir, items) {
 
         let updatedFrontmatter = { ...data };
 
-        // Always overwrite prev and next
         if (index === 0) {
             updatedFrontmatter.prev = {
                 text: docItems[docItems.length - 1].text,
