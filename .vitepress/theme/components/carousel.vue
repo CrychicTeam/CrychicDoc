@@ -1,10 +1,14 @@
 <template>
-  <div class="carousel carousel-margin">
-    <div class="carousel-inner" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+  <div class="carousel" :class="{ 'carousel-margin': margin }">
+    <div class="carousel-inner" ref="carouselInner" :style="carouselStyle">
       <slot></slot>
     </div>
-    <button class="carousel-control prev" @click="prev" aria-label="Previous slide">&lt;</button>
-    <button class="carousel-control next" @click="next" aria-label="Next slide">&gt;</button>
+    <button class="carousel-control prev" @click="prev" aria-label="Previous slide">
+      <span aria-hidden="true">&lt;</span>
+    </button>
+    <button class="carousel-control next" @click="next" aria-label="Next slide">
+      <span aria-hidden="true">&gt;</span>
+    </button>
     <div class="carousel-indicators">
       <button 
         v-for="(_, index) in slides" 
@@ -12,13 +16,14 @@
         :class="{ active: index === currentIndex }"
         @click="goToSlide(index)"
         :aria-label="`Go to slide ${index + 1}`"
+        :aria-current="index === currentIndex ? 'true' : 'false'"
       ></button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, useSlots, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, useSlots, watch } from 'vue'
 
 const props = defineProps({
   cycle: {
@@ -28,31 +33,52 @@ const props = defineProps({
   interval: {
     type: Number,
     default: 5000
+  },
+  margin: {
+    type: Boolean,
+    default: true
   }
 })
 
 const slots = useSlots()
-const slides = slots.default ? slots.default() : []
+const slides = computed(() => slots.default ? slots.default() : [])
 
 const currentIndex = ref(0)
 const timer = ref(null)
-const lastIntervalChange = ref(Date.now())
+const lastInteractionTime = ref(Date.now())
+const carouselInner = ref(null)
+
+const carouselStyle = computed(() => ({
+  transform: `translateX(-${currentIndex.value * 100}%)`,
+  transition: 'transform 0.5s ease'
+}))
 
 const next = () => {
-  currentIndex.value = (currentIndex.value + 1) % slides.length
+  currentIndex.value = (currentIndex.value + 1) % slides.value.length
+  updateLastInteractionTime()
 }
 
 const prev = () => {
-  currentIndex.value = (currentIndex.value - 1 + slides.length) % slides.length
+  currentIndex.value = (currentIndex.value - 1 + slides.value.length) % slides.value.length
+  updateLastInteractionTime()
 }
 
 const goToSlide = (index) => {
   currentIndex.value = index
+  updateLastInteractionTime()
+}
+
+const updateLastInteractionTime = () => {
+  lastInteractionTime.value = Date.now()
 }
 
 const startTimer = () => {
-  if (props.cycle && slides.length > 1) {
-    timer.value = setInterval(next, props.interval)
+  if (props.cycle && slides.value.length > 1) {
+    timer.value = setInterval(() => {
+      if (Date.now() - lastInteractionTime.value > props.interval) {
+        next()
+      }
+    }, props.interval)
   }
 }
 
@@ -63,12 +89,11 @@ const stopTimer = () => {
   }
 }
 
-const restartTimer = () => {
-  const now = Date.now()
-  if (now - lastIntervalChange.value > 1000) { // 防抖，1秒内不重复重启
-    stopTimer()
-    startTimer()
-    lastIntervalChange.value = now
+const handleKeydown = (event) => {
+  if (event.key === 'ArrowLeft') {
+    prev()
+  } else if (event.key === 'ArrowRight') {
+    next()
   }
 }
 
@@ -76,15 +101,18 @@ onMounted(() => {
   if (props.cycle) {
     startTimer()
   }
+  window.addEventListener('keydown', handleKeydown)
 })
 
 onUnmounted(() => {
   stopTimer()
+  window.removeEventListener('keydown', handleKeydown)
 })
 
-watch(() => props.interval, (newInterval, oldInterval) => {
-  if (props.cycle && Math.abs(newInterval - oldInterval) > 100) { // 只有当间隔变化超过100ms时才重启
-    restartTimer()
+watch(() => props.interval, () => {
+  if (props.cycle) {
+    stopTimer()
+    startTimer()
   }
 })
 
@@ -103,16 +131,18 @@ watch(() => props.cycle, (newValue) => {
   width: 100%;
   max-width: 700px;
   height: 350px;
-  margin: 2rem auto;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.carousel-margin {
+  margin: 2rem auto;
+}
+
 .carousel-inner {
   display: flex;
   height: 100%;
-  transition: transform 0.5s ease;
 }
 
 .carousel-inner > * {
@@ -130,11 +160,18 @@ watch(() => props.cycle, (newValue) => {
   padding: 10px 15px;
   font-size: 18px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, opacity 0.3s;
+  opacity: 0.7;
 }
 
-.carousel-control:hover {
+.carousel-control:hover, .carousel-control:focus {
   background: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+
+.carousel-control:focus {
+  outline: 2px solid white;
+  outline-offset: -2px;
 }
 
 .prev {
@@ -161,9 +198,31 @@ watch(() => props.cycle, (newValue) => {
   border: none;
   background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .carousel-indicators button.active {
   background: white;
+  transform: scale(1.2);
+}
+
+.carousel-indicators button:hover, .carousel-indicators button:focus {
+  background: white;
+}
+
+.carousel-indicators button:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    height: 250px;
+  }
+
+  .carousel-control {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
 }
 </style>

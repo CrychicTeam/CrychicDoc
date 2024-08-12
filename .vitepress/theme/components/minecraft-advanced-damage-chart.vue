@@ -5,7 +5,7 @@ import { useData } from 'vitepress'
 const props = defineProps({
   mode: {
     type: String,
-    default: 'interactive', // 'interactive' or 'static'
+    default: 'interactive',
     validator: (value) => ['interactive', 'static'].includes(value)
   },
   incomingDamage: { type: Number, default: 201 },
@@ -28,7 +28,6 @@ const maxDamageRef = ref(props.maxDamage)
 const maxArmorPointsRef = ref(props.maxArmorPoints)
 const isJavaEditionRef = ref(props.isJavaEdition)
 
-// Debug information
 const debugInfo = ref('')
 
 const isChinesePath = computed(() => {
@@ -71,7 +70,6 @@ const calculateDamage = (armor, toughness, damage, isJava) => {
     const defensePoints = Math.min(20, Math.max(armor / 5, armor - damage / (2 + toughness / 4)))
     return damage * (1 - defensePoints / 25)
   } else {
-    // Bedrock 版本的计算
     return damage * (1 - Math.min(20, armor) * 0.04)
   }
 }
@@ -137,8 +135,6 @@ const chartOptions = computed(() => ({
         text: localText.value.actualDamage,
         color: isDark.value ? '#ffffff' : '#363636'
       },
-      min: minDamageRef.value,
-      max: maxDamageRef.value,
       ticks: {
         color: isDark.value ? '#ffffff' : '#363636'
       },
@@ -236,7 +232,6 @@ const toggleEdition = () => {
   updateChart()
 }
 
-// Watch for prop changes
 watch(() => props.incomingDamage, (newVal) => { incomingDamageRef.value = newVal })
 watch(() => props.armorToughness, (newVal) => { armorToughnessRef.value = newVal })
 watch(() => props.minDamage, (newVal) => { minDamageRef.value = newVal })
@@ -343,7 +338,8 @@ button:hover {
 }
 
 .chart-container {
-  height: 400px;
+  height: 50vh;
+  min-height: 300px;
   width: 100%;
   background-color: var(--vp-c-bg-alt);
   border-radius: 4px;
@@ -359,6 +355,19 @@ button:hover {
 @media (max-width: 768px) {
   .input-group {
     flex: 1 1 100%;
+  }
+
+  .chart-container {
+    height: 40vh;
+    min-height: 250px;
+  }
+
+  .minecraft-damage-chart {
+    padding: 10px;
+  }
+
+  .input-container {
+    gap: 10px;
   }
 }
 </style>

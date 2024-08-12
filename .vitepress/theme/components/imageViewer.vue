@@ -1,7 +1,13 @@
 <template>
   <div v-if="isMounted" class="image-viewer">
-    <t-image-viewer v-if="show" v-model:visible="show" :images="previewImageInfo.list" :default-index="previewImageInfo.idx"
-      :key="previewImageInfo.idx" @close="show = false">
+    <t-image-viewer
+      v-if="show"
+      v-model:visible="show"
+      :images="previewImageInfo.list"
+      :default-index="previewImageInfo.idx"
+      :key="previewImageInfo.idx"
+      @close="show = false"
+    >
     </t-image-viewer>
   </div>
 </template>
@@ -53,5 +59,37 @@ onUnmounted(() => {
 <style>
 .t-image-viewer__modal-icon:nth-child(7) {
   display: none !important;
+}
+
+.image-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+.t-image-viewer__modal {
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+}
+
+.t-image-viewer__modal-content {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+.t-image-viewer__modal-image {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .t-image-viewer__modal-content {
+    padding: 10px !important;
+  }
+
+  .t-image-viewer__modal-image {
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+  }
 }
 </style>
