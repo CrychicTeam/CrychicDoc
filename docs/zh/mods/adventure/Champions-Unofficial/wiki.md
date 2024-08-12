@@ -2,14 +2,14 @@
 Layout: doc
 title: Wiki
 order: 1
-prev:
-  text: '介绍'
-  link: './'
-next:
-  text: '配置'
-  link: './config'
 authors:
   - M1hono
+prev:
+  text: 介绍
+  link: /zh/mods/adventure/Champions-Unofficial/index
+next:
+  text: 配置
+  link: /zh/mods/adventure/Champions-Unofficial/config
 ---
 
 ## 冠军再续介绍

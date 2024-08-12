@@ -2,15 +2,21 @@
 Layout: doc
 title: Introduction
 sidetitle: Champions-Unofficial
-prev:
-  text: 'Config'
-  link: './config'
-next:
-  text: 'Wiki'
-  link: './wiki'
 authors:
   - M1hono
+generateSidebar: true
 tag: Mob Enhance
+autoPN: true
+sidebarorder:
+  index: 1
+  wiki: 2
+  config: 3
+prev:
+  text: Config
+  link: /en/mods/adventure/Champions-Unofficial/config
+next:
+  text: Wiki
+  link: /en/mods/adventure/Champions-Unofficial/wiki
 ---
 
 ## Champions-Unofficial

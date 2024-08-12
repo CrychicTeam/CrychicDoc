@@ -1,15 +1,20 @@
 ---
 layout: doc
 title: 项目合作教程
-order : 0
-prev:
-  text: Crychic文档编写示例
-  link: './samples'
-next:
-  text: 类型检查示例
-  link: './test'
+generateSidebar: true
+autoPN: true
+sidebarorder:
+  index: 1
+  samples: 2
+  test: 3
 authors:
   - M1hono
+prev:
+  text: 类型检查示例
+  link: /zh/doc/test
+next:
+  text: Crychic文档编写示例
+  link: /zh/doc/samples
 ---
 
 # 项目合作教程

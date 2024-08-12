@@ -1,15 +1,14 @@
 ---
 layout: doc
 title: Samples for coding CrychicDoc
-order : 6
-prev:
-  text: ts-check Sample
-  link: './test'
-next:
-  text: Project Collaboration Tutorial
-  link: './docDevelop'
 authors:
   - M1hono
+prev:
+  text: Project Collaboration Tutorial
+  link: /en/doc/index
+next:
+  text: ts-check Sample
+  link: /en/doc/test
 ---
 
 ## Mermaid Sample

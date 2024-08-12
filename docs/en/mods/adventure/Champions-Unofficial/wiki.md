@@ -2,11 +2,11 @@
 Layout: doc
 title: Wiki
 prev:
-  text: 'Intro'
-  link: './'
+  text: Introduction
+  link: /en/mods/adventure/Champions-Unofficial/index
 next:
-  text: 'Config'
-  link: './config'
+  text: Config
+  link: /en/mods/adventure/Champions-Unofficial/config
 order: 1
 authors:
   - M1hono

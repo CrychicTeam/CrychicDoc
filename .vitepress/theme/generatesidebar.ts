@@ -18,6 +18,7 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
     let tagGroups = {};
     let useTagDisplay = false;
     let backPath = null;
+    let autoPN = false; // 默认关闭 autoPN
 
     const dirents = fs.readdirSync(dir, { withFileTypes: true });
     
@@ -36,11 +37,14 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
         if (data.back) {
             backPath = data.back;
         }
+        if (data.autoPN === true) {
+            autoPN = true; // 只有明确设置为 true 时才开启 autoPN
+        }
 
-        if (!isCurrentDir || data.generateSidebar === true) {
+        if (!isCurrentDir || data.generateSidebar !== false) {
             items.push({
-                text: data.sidetitle || data.title || path.basename(dir),
-                link: `/${langPrefix}/${path.relative(rootDir, indexPath).replace(/\.md$/, '.html')}`,
+                text: isCurrentDir ? (data.title || data.sidetitle || path.basename(dir)) : (data.sidetitle || data.title || path.basename(dir)),
+                link: `/${langPrefix}/${path.relative(rootDir, indexPath).replace(/\.md$/, '')}`,
                 order: -Infinity
             });
         }
@@ -60,7 +64,7 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
                 const displayTitle = isCurrentDir ? (data.title || data.sidetitle) : (data.sidetitle || data.title);
                 const item = {
                     text: displayTitle,
-                    link: `/${langPrefix}/${relativePath.replace(/\.md$/, '.html')}`,
+                    link: `/${langPrefix}/${relativePath.replace(/\.md$/, '')}`,
                     order: sidebarOrder[data.sidetitle] || sidebarOrder[data.title] || sidebarOrder[itemName] || Infinity
                 };
                 
@@ -113,7 +117,57 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
         items.sort((a, b) => (a.order || Infinity) - (b.order || Infinity));
     }
 
-    return { items, indexData, useTagDisplay, backPath };
+    return { items, indexData, useTagDisplay, backPath, autoPN };
+}
+
+function generatePrevNext(dir, items) {
+    const docItems = items.filter(item => item.link && typeof item.link === 'string' && !item.link.endsWith('/') && item.link !== '#');
+    docItems.sort((a, b) => (a.order || Infinity) - (b.order || Infinity));
+
+    const introItem = docItems.find(item => item.link.endsWith('index')) || docItems[0];
+
+    docItems.forEach((item, index) => {
+        if (!item.link) return; // Skip items without a link
+
+        const filePath = path.join(dir, item.link.split('/').pop() + '.md');
+        if (!fs.existsSync(filePath)) {
+            console.warn(`File not found: ${filePath}`);
+            return; // Skip if file doesn't exist
+        }
+
+        const content = fs.readFileSync(filePath, 'utf8');
+        const { data, content: fileContent } = matter(content);
+
+        let updatedFrontmatter = { ...data };
+
+        // Always overwrite prev and next
+        if (index === 0) {
+            updatedFrontmatter.prev = {
+                text: docItems[docItems.length - 1].text,
+                link: docItems[docItems.length - 1].link
+            };
+        } else {
+            updatedFrontmatter.prev = {
+                text: docItems[index - 1].text,
+                link: docItems[index - 1].link
+            };
+        }
+
+        if (index === docItems.length - 1) {
+            updatedFrontmatter.next = {
+                text: introItem.text,
+                link: introItem.link
+            };
+        } else {
+            updatedFrontmatter.next = {
+                text: docItems[index + 1].text,
+                link: docItems[index + 1].link
+            };
+        }
+
+        const updatedContent = matter.stringify(fileContent, updatedFrontmatter);
+        fs.writeFileSync(filePath, updatedContent);
+    });
 }
 
 function generateSidebar(fullPath, parentTags = null) {
@@ -130,7 +184,7 @@ function generateSidebar(fullPath, parentTags = null) {
         return [];
     }
 
-    const { items, indexData, useTagDisplay, backPath } = readDirContent(fullDir, rootDir, langPrefix, true, parentTags);
+    const { items, indexData, useTagDisplay, backPath, autoPN } = readDirContent(fullDir, rootDir, langPrefix, true, parentTags);
 
     if (rest.length > 0) {
         let parentLink;
@@ -151,6 +205,10 @@ function generateSidebar(fullPath, parentTags = null) {
             link: parentLink,
             order: -Infinity
         });
+    }
+
+    if (autoPN) {
+        generatePrevNext(fullDir, items);
     }
 
     return { items, tags: indexData?.tags, useTagDisplay };

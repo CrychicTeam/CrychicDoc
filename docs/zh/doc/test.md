@@ -1,15 +1,14 @@
 ---
 layout: doc
 title: 类型检查示例
-order : 5
-prev:
-  text: 项目合作教程
-  link: './docDevelop'
-next: 
-  text: Crychic文档编写示例
-  link: './samples'
 authors:
   - M1hono
+prev:
+  text: Crychic文档编写示例
+  link: /zh/doc/samples
+next:
+  text: 项目合作教程
+  link: /zh/doc/index
 ---
 # 测试类型检查
 ```js twoslash
