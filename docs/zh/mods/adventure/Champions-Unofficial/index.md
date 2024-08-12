@@ -1,6 +1,7 @@
 ---
 Layout: doc
 title: 介绍
+sidetitle: 冠军再续
 prev:
   text: '配置'
   link: './config'
@@ -9,6 +10,8 @@ next:
   link: './wiki'
 authors:
   - M1hono
+tagDisplay: false
+tags: 怪物增强
 ---
 
 ## 冠军再续

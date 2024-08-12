@@ -1,5 +1,6 @@
 ---
 Layout: doc
 title: Mods
+sidebarfolder: true
 ---
-## This Page contains the introduction and the Wiki page of mods.
+## Mods

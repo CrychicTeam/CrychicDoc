@@ -1,6 +1,7 @@
 ---
 Layout: doc
 title: Introduction
+sidetitle: Champions-Unofficial
 prev:
   text: 'Config'
   link: './config'
@@ -9,6 +10,7 @@ next:
   link: './wiki'
 authors:
   - M1hono
+tag: Mob Enhance
 ---
 
 ## Champions-Unofficial

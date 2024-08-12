@@ -6,7 +6,7 @@ import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { TDesignResolver } from 'unplugin-vue-components/resolvers';
-import { generateSidebar } from './theme/generatesidebar';
+import { generateSidebarConfig } from './theme/generatesidebar';
 
 import mdFootnote from 'markdown-it-footnote'
 import mdTaskLists from 'markdown-it-task-lists'
@@ -32,14 +32,7 @@ export default withMermaid(
         description: "一个包含 Minecraft 开发文档的网站。",
         themeConfig: {
           nav: [],
-          sidebar: {
-            '/zh/': generateSidebar('../../docs/zh', '','zh'),
-            '/zh/developers/': generateSidebar('../../docs/zh', 'developers','zh'),
-            '/zh/doc/': generateSidebar('../../docs/zh', 'doc','zh'),
-            '/zh/modpack/': generateSidebar('../../docs/zh', 'modpack','zh'),
-            '/zh/mods/': generateSidebar('../../docs/zh', 'mods','zh'),
-            '/zh/mods/adventure/Champions-Unofficial': generateSidebar('../../docs/zh', 'mods/adventure/Champions-Unofficial','zh')
-          },
+          sidebar: generateSidebarConfig('zh'),
           editLink: {
             pattern: 'https://github.com/M1hono/CryChicDoc/blob/main/docs/:path?plain=1',
             text: '在 GitHub 上查看此页面'
@@ -72,14 +65,7 @@ export default withMermaid(
         description: "A site containing docs for Minecraft developing.",
         themeConfig: {
           nav: [],
-          sidebar: {
-            '/en/': generateSidebar('../../docs/en', '','en'),
-            '/en/developers/': generateSidebar('../../docs/en', 'developers','en'),
-            '/en/doc/': generateSidebar('../../docs/en', 'doc','en'),
-            '/en/modpack/': generateSidebar('../../docs/en', 'modpack','en'),
-            '/en/mods/': generateSidebar('../../docs/en', 'mods','en'),
-            '/en/mods/adventure/Champions-Unofficial': generateSidebar('../../docs/en', 'mods/adventure/Champions-Unofficial','en')
-          },
+          sidebar: generateSidebarConfig('en'),
           editLink: {
             pattern: 'https://github.com/M1hono/CryChicDoc/blob/main/docs/:path?plain=1',
             text: 'Check this page on GitHub'
