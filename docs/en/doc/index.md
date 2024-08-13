@@ -9,12 +9,13 @@ sidebarorder:
   index: 1
   samples: 2
   test: 3
+  sidebarTutorial: 4
 prev:
-  text: ts-check Sample
-  link: /en/doc/test
+  text: Sidebar Configuration Tutorial
+  link: /en/doc\sidebarTutorial
 next:
   text: Samples for coding CrychicDoc
-  link: /en/doc/samples
+  link: /en/doc\samples
 ---
 
 # Project Collaboration Tutorial

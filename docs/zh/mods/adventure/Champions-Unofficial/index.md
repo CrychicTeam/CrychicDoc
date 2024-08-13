@@ -13,10 +13,10 @@ sidebarorder:
   config: 3
 prev:
   text: 配置
-  link: /zh/mods/adventure/Champions-Unofficial/config
+  link: /zh/mods\adventure\Champions-Unofficial\config
 next:
   text: Wiki
-  link: /zh/mods/adventure/Champions-Unofficial/wiki
+  link: /zh/mods\adventure\Champions-Unofficial\wiki
 ---
 
 ## 冠军再续

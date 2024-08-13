@@ -46,7 +46,6 @@ function readDirContent(dir, rootDir, langPrefix, tagOrder = {}, isCurrentDir = 
         }
         folderBlackList = data.folderBlackList || [];
 
-        // Changed this condition to default to false
         if (data.generateSidebar === true) {
             items.push({
                 text: isCurrentDir ? (data.title || data.sidetitle || path.basename(dir)) : (data.sidetitle || data.title || path.basename(dir)),
@@ -144,51 +143,63 @@ function readDirContent(dir, rootDir, langPrefix, tagOrder = {}, isCurrentDir = 
     return { items, indexData, useTagDisplay, backPath, autoPN };
 }
 
-function generatePrevNext(dir, items) {
-    const docItems = items.filter(item => item.link && typeof item.link === 'string' && !item.link.endsWith('/') && item.link !== '#');
+function generatePrevNext(dir, items, rootDir) {
+    const docItems = items.flatMap(item => 
+        Array.isArray(item.items) ? item.items : [item]
+    ).filter(item => 
+        item.link && typeof item.link === 'string' && !item.link.endsWith('/') && item.link !== '#'
+    );
 
     const introItem = docItems.find(item => item.link.endsWith('index')) || docItems[0];
 
     docItems.forEach((item, index) => {
         if (!item.link) return;
 
-        const filePath = path.join(dir, item.link.split('/').pop() + '.md');
+        // 修复文件路径处理
+        const relativePath = item.link.split('/').slice(2).join('/');
+        const filePath = path.join(rootDir, relativePath + '.md');
+
         if (!fs.existsSync(filePath)) {
-            // console.warn(`File not found: ${filePath}`);
+            console.warn(`File not found: ${filePath}`);
             return;
         }
 
-        const content = fs.readFileSync(filePath, 'utf8');
-        const { data, content: fileContent } = matter(content);
+        try {
+            const content = fs.readFileSync(filePath, 'utf8');
+            const { data, content: fileContent } = matter(content);
 
-        let updatedFrontmatter = { ...data };
+            let updatedFrontmatter = { ...data };
 
-        if (index === 0) {
-            updatedFrontmatter.prev = {
-                text: docItems[docItems.length - 1].text,
-                link: docItems[docItems.length - 1].link
-            };
-        } else {
-            updatedFrontmatter.prev = {
-                text: docItems[index - 1].text,
-                link: docItems[index - 1].link
-            };
+            if (index === 0) {
+                updatedFrontmatter.prev = {
+                    text: docItems[docItems.length - 1].text,
+                    link: docItems[docItems.length - 1].link
+                };
+            } else {
+                updatedFrontmatter.prev = {
+                    text: docItems[index - 1].text,
+                    link: docItems[index - 1].link
+                };
+            }
+
+            if (index === docItems.length - 1) {
+                updatedFrontmatter.next = {
+                    text: introItem.text,
+                    link: introItem.link
+                };
+            } else {
+                updatedFrontmatter.next = {
+                    text: docItems[index + 1].text,
+                    link: docItems[index + 1].link
+                };
+            }
+
+            const updatedContent = matter.stringify(fileContent, updatedFrontmatter);
+            fs.writeFileSync(filePath, updatedContent);
+            console.log(`Updated prev/next for: ${filePath}`);
+        } catch (error) {
+            console.error(`Error processing file: ${filePath}`, error);
         }
-
-        if (index === docItems.length - 1) {
-            updatedFrontmatter.next = {
-                text: introItem.text,
-                link: introItem.link
-            };
-        } else {
-            updatedFrontmatter.next = {
-                text: docItems[index + 1].text,
-                link: docItems[index + 1].link
-            };
-        }
-
-        const updatedContent = matter.stringify(fileContent, updatedFrontmatter);
-        fs.writeFileSync(filePath, updatedContent);
     });
 }
 
@@ -203,10 +214,9 @@ function generateSidebar(fullPath, tagOrder = {}, parentTags = null) {
 
     if (!fs.existsSync(fullDir)) {
         console.error(`Directory not found: ${fullDir}`);
-        return [];
+        return { items: [], tags: null, useTagDisplay: false };
     }
 
-    // 读取当前目录的 index.md 文件，获取 tagorder
     const indexPath = path.join(fullDir, 'index.md');
     if (fs.existsSync(indexPath)) {
         const indexContent = fs.readFileSync(indexPath, 'utf8');
@@ -240,7 +250,7 @@ function generateSidebar(fullPath, tagOrder = {}, parentTags = null) {
     }
 
     if (autoPN) {
-        generatePrevNext(fullDir, items);
+        generatePrevNext(fullDir, items, rootDir);
     }
 
     return { items, tags: indexData?.tags, useTagDisplay };

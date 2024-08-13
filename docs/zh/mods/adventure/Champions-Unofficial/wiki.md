@@ -6,10 +6,10 @@ authors:
   - M1hono
 prev:
   text: 介绍
-  link: /zh/mods/adventure/Champions-Unofficial/index
+  link: /zh/mods\adventure\Champions-Unofficial\index
 next:
   text: 配置
-  link: /zh/mods/adventure/Champions-Unofficial/config
+  link: /zh/mods\adventure\Champions-Unofficial\config
 ---
 
 ## 冠军再续介绍

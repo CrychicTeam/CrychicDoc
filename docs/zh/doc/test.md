@@ -5,10 +5,10 @@ authors:
   - M1hono
 prev:
   text: Crychic文档编写示例
-  link: /zh/doc/samples
+  link: /zh/doc\samples
 next:
-  text: 项目合作教程
-  link: /zh/doc/index
+  text: 侧边栏设置教程
+  link: /zh/doc\sidebarTutorial
 ---
 # 测试类型检查
 ```js twoslash

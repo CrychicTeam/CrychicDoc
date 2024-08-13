@@ -10,11 +10,11 @@ sidebarorder:
 authors:
   - M1hono
 prev:
-  text: 类型检查示例
-  link: /zh/doc/test
+  text: 侧边栏设置教程
+  link: /zh/doc\sidebarTutorial
 next:
   text: Crychic文档编写示例
-  link: /zh/doc/samples
+  link: /zh/doc\samples
 ---
 
 # 项目合作教程
