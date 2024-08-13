@@ -1,6 +1,7 @@
 ---
 Layout: doc
 sidebarfolder: true
+generateSidebar: false
 prev:
   text: modpack
   link: /zh/modpack/index

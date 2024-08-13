@@ -6,7 +6,7 @@ tagDisplay: true
 prev: false
 next: false
 tagorder:
-  "Intro" : 2
-  "Mob Enhance" : 1
+  "Intro" : 1
+  "Mob Enhance" : 2
 ---
 ## Adventure Mods

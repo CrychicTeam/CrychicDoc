@@ -19,6 +19,7 @@ function readDirContent(dir, rootDir, langPrefix, tagOrder = {}, isCurrentDir = 
     let useTagDisplay = false;
     let backPath = null;
     let autoPN = false;
+    let folderBlackList = [];
 
     const dirents = fs.readdirSync(dir, { withFileTypes: true });
 
@@ -40,8 +41,13 @@ function readDirContent(dir, rootDir, langPrefix, tagOrder = {}, isCurrentDir = 
         if (data.autoPN === true) {
             autoPN = true;
         }
+        if (data.tagorder) {
+            tagOrder = { ...tagOrder, ...data.tagorder };
+        }
+        folderBlackList = data.folderBlackList || [];
 
-        if (!isCurrentDir || data.generateSidebar !== false) {
+        // Changed this condition to default to false
+        if (data.generateSidebar === true) {
             items.push({
                 text: isCurrentDir ? (data.title || data.sidetitle || path.basename(dir)) : (data.sidetitle || data.title || path.basename(dir)),
                 link: `/${langPrefix}/${path.relative(rootDir, indexPath).replace(/\.md$/, '')}`,
@@ -52,6 +58,7 @@ function readDirContent(dir, rootDir, langPrefix, tagOrder = {}, isCurrentDir = 
 
     for (const dirent of dirents) {
         if (dirent.name === 'index.md') continue;
+        if (folderBlackList.includes(dirent.name)) continue;
 
         const fullPath = path.join(dir, dirent.name);
         const relativePath = path.relative(rootDir, fullPath);
@@ -122,9 +129,8 @@ function readDirContent(dir, rootDir, langPrefix, tagOrder = {}, isCurrentDir = 
         }));
 
         sortedGroups.sort((a, b) => {
-            // 这里的排序逻辑确保使用tagOrder进行排序
-            const orderA = tagOrder[a.text] !== undefined ? tagOrder[a.text] : a.order;
-            const orderB = tagOrder[b.text] !== undefined ? tagOrder[b.text] : b.order;
+            const orderA = tagOrder[a.text] !== undefined ? tagOrder[a.text] : Infinity;
+            const orderB = tagOrder[b.text] !== undefined ? tagOrder[b.text] : Infinity;
             if (orderA === orderB) {
                 return a.text.localeCompare(b.text);
             }
@@ -148,7 +154,7 @@ function generatePrevNext(dir, items) {
 
         const filePath = path.join(dir, item.link.split('/').pop() + '.md');
         if (!fs.existsSync(filePath)) {
-            console.warn(`File not found: ${filePath}`);
+            // console.warn(`File not found: ${filePath}`);
             return;
         }
 
@@ -198,6 +204,16 @@ function generateSidebar(fullPath, tagOrder = {}, parentTags = null) {
     if (!fs.existsSync(fullDir)) {
         console.error(`Directory not found: ${fullDir}`);
         return [];
+    }
+
+    // 读取当前目录的 index.md 文件，获取 tagorder
+    const indexPath = path.join(fullDir, 'index.md');
+    if (fs.existsSync(indexPath)) {
+        const indexContent = fs.readFileSync(indexPath, 'utf8');
+        const { data } = matter(indexContent);
+        if (data.tagorder) {
+            tagOrder = { ...tagOrder, ...data.tagorder };
+        }
     }
 
     const { items, indexData, useTagDisplay, backPath, autoPN } = readDirContent(fullDir, rootDir, langPrefix, tagOrder, true, parentTags);

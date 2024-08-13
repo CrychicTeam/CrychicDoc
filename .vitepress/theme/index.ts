@@ -26,6 +26,7 @@ import BilibiliVideo from './components/BilibiliVideo.vue'
 import damageChart from './components/minecraft-advanced-damage-chart.vue'
 import carousel from './components/carousel.vue'
 import ShareLinkButton from './components/ShareLinkButton.vue'
+import '@mdit/plugin-spoiler/style'
 
 export default {
   extends: DefaultTheme,
