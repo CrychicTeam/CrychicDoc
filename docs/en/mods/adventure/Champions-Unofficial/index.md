@@ -5,7 +5,7 @@ sidetitle: Champions-Unofficial
 authors:
   - M1hono
 generateSidebar: true
-tag: Mob Enhance
+tags: Mob Enhance
 autoPN: true
 sidebarorder:
   index: 1

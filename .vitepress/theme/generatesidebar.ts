@@ -11,7 +11,7 @@ const localization = {
     'en': { 'backToParent': 'Back to Parent', 'uncategorized': 'Uncategorized' }
 };
 
-function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTags = null) {
+function readDirContent(dir, rootDir, langPrefix, tagOrder = {}, isCurrentDir = true, parentTags = null) {
     let items = [];
     let indexData = null;
     let sidebarOrder = {};
@@ -21,7 +21,7 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
     let autoPN = false;
 
     const dirents = fs.readdirSync(dir, { withFileTypes: true });
-    
+
     const indexFile = dirents.find(dirent => dirent.isFile() && dirent.name === 'index.md');
     if (indexFile) {
         const indexPath = path.join(dir, 'index.md');
@@ -67,7 +67,7 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
                     link: `/${langPrefix}/${relativePath.replace(/\.md$/, '')}`,
                     order: sidebarOrder[itemName] || sidebarOrder[data.title] || Infinity
                 };
-                
+
                 if (useTagDisplay) {
                     const tag = data.tag || indexData?.tags || parentTags || localization[langPrefix]?.uncategorized || 'Uncategorized';
                     if (!tagGroups[tag]) {
@@ -89,7 +89,7 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
                     link: `/${langPrefix}/${relativePath}/`,
                     order: sidebarOrder[dirent.name] || sidebarOrder[data.title] || Infinity
                 };
-                
+
                 if (useTagDisplay) {
                     const tag = data.tags || indexData?.tags || parentTags || localization[langPrefix]?.uncategorized || 'Uncategorized';
                     if (!tagGroups[tag]) {
@@ -117,16 +117,18 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
             text: tag,
             items: sortItems(groupItems),
             collapsible: true,
-            collapsed: false
+            collapsed: false,
+            order: tagOrder[tag] !== undefined ? tagOrder[tag] : Infinity
         }));
 
         sortedGroups.sort((a, b) => {
-            const aOrder = sidebarOrder[a.text] || Infinity;
-            const bOrder = sidebarOrder[b.text] || Infinity;
-            if (aOrder === bOrder) {
+            // 这里的排序逻辑确保使用tagOrder进行排序
+            const orderA = tagOrder[a.text] !== undefined ? tagOrder[a.text] : a.order;
+            const orderB = tagOrder[b.text] !== undefined ? tagOrder[b.text] : b.order;
+            if (orderA === orderB) {
                 return a.text.localeCompare(b.text);
             }
-            return aOrder - bOrder;
+            return orderA - orderB;
         });
         items = sortedGroups;
     } else {
@@ -138,7 +140,7 @@ function readDirContent(dir, rootDir, langPrefix, isCurrentDir = true, parentTag
 
 function generatePrevNext(dir, items) {
     const docItems = items.filter(item => item.link && typeof item.link === 'string' && !item.link.endsWith('/') && item.link !== '#');
-    
+
     const introItem = docItems.find(item => item.link.endsWith('index')) || docItems[0];
 
     docItems.forEach((item, index) => {
@@ -184,21 +186,21 @@ function generatePrevNext(dir, items) {
     });
 }
 
-function generateSidebar(fullPath, parentTags = null) {
+function generateSidebar(fullPath, tagOrder = {}, parentTags = null) {
     const docsPath = path.resolve(__dirname, '../../docs');
     const normalizedPath = path.normalize(fullPath).replace(/\\/g, '/');
     const [lang, ...rest] = normalizedPath.split('/');
     const langPrefix = lang;
-    
+
     const fullDir = path.join(docsPath, normalizedPath);
     const rootDir = path.join(docsPath, lang);
-    
+
     if (!fs.existsSync(fullDir)) {
         console.error(`Directory not found: ${fullDir}`);
         return [];
     }
 
-    const { items, indexData, useTagDisplay, backPath, autoPN } = readDirContent(fullDir, rootDir, langPrefix, true, parentTags);
+    const { items, indexData, useTagDisplay, backPath, autoPN } = readDirContent(fullDir, rootDir, langPrefix, tagOrder, true, parentTags);
 
     if (rest.length > 0) {
         let parentLink;
@@ -213,7 +215,7 @@ function generateSidebar(fullPath, parentTags = null) {
             const parentPath = path.dirname(normalizedPath);
             parentLink = `/${parentPath}/`;
         }
-        
+
         items.unshift({
             text: localization[lang]?.backToParent || 'Back to Parent',
             link: parentLink,
@@ -228,7 +230,7 @@ function generateSidebar(fullPath, parentTags = null) {
     return { items, tags: indexData?.tags, useTagDisplay };
 }
 
-function generateSidebarConfig(basePath) {
+function generateSidebarConfig(basePath, tagOrder = {}) {
     const docsPath = path.resolve(__dirname, '../../docs');
     const fullBasePath = path.join(docsPath, basePath);
     const sidebarConfig = {};
@@ -236,7 +238,7 @@ function generateSidebarConfig(basePath) {
     function traverse(dir, currentPath, parentTags = null) {
         const relativePath = path.relative(fullBasePath, dir).replace(/\\/g, '/');
         const key = `/${basePath}${relativePath ? '/' + relativePath : ''}/`;
-        const { items, tags, useTagDisplay } = generateSidebar(path.join(basePath, relativePath), parentTags);
+        const { items, tags, useTagDisplay } = generateSidebar(path.join(basePath, relativePath), tagOrder, parentTags);
         sidebarConfig[key] = items;
 
         const subdirs = fs.readdirSync(dir, { withFileTypes: true })

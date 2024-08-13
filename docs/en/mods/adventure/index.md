@@ -3,7 +3,10 @@ Layout: doc
 title: Adventure Mods
 sidebarfolder: true
 tagDisplay: true
-sidebarorder:
-  'Champions-Unofficial': 1
+prev: false
+next: false
+tagorder:
+  "Intro" : 2
+  "Mob Enhance" : 1
 ---
 ## Adventure Mods
