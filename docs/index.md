@@ -53,3 +53,5 @@ features:
 <script setup>
 import index from './zh/index.vue'
 </script>
+
+<Test/>
