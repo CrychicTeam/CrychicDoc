@@ -1,9 +1,7 @@
 ---
-prev:
-  text: Crychic
-  link: /zh/developers/Crychic/index
-next:
-  text: Crychic
-  link: /zh/developers/Crychic/index
+Layout: doc
+title: Crychic
+folderBlackList:
+    - private
+    - drafts
 ---
-
