@@ -27,12 +27,14 @@ jobs:
         TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
       run: |
         git clone --depth 1 https://${TYPE_REPO_TOKEN}@github.com/M1hono/CrychicDocTypes.git type_repo
-        mkdir -p src/types
-        cp -r type_repo/typefiles/1.20.1/.probe/* src/types/
+        cp -r type_repo/typefiles .
         rm -rf type_repo
 
     - name: Build VitePress site
       run: npm run docs:build
+
+    - name: Clean up typefiles
+      run: rm -rf typefiles 
 
     - name: Push to private repo
       env:
