@@ -21,7 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: yarn install --frozen-lockfile
-      
+
     - name: Pull types from type repo
       env:
         TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
@@ -42,6 +42,7 @@ jobs:
         git init
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
+
         git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git temp_repo
         if [ -d temp_repo/.github ]; then
           cp -r temp_repo/.github .
@@ -50,6 +51,7 @@ jobs:
 
         git add -A
         git commit -m "Update documentation"
+        
         git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
         
         cd ../..
