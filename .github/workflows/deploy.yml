@@ -27,6 +27,7 @@ jobs:
         TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
       run: |
         git clone --depth 1 https://${TYPE_REPO_TOKEN}@github.com/M1hono/CrychicDocTypes.git type_repo
+        mkdir -p src/types
         cp -r type_repo/typefiles/1.20.1/.probe/* src/types/
         rm -rf type_repo
 
