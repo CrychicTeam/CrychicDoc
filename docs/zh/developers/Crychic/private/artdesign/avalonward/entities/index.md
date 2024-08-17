@@ -21,3 +21,15 @@ next: false
 &emsp;&emsp;特效方面，需要单独做出装有不同颜色内容物的玻璃瓶，然后法杖需要有两个相同的法阵贴图围绕宝石旋转，因此需要一个法阵贴图，然后需要一个电球、冰球和火球和光球与暗球的元素球模型，样式随意不同的球换色就好，可以适当加一些纹路上的区别来做出差异。
 
 &emsp;&emsp;需要绘制几个特效件贴图，就是和上面的元素球颜色对应的[符文图案](https://zh.wikipedia.org/wiki/%E7%9B%A7%E6%81%A9%E5%AD%97%E6%AF%8D)，样式随意可以换色，需要的话我去找不同元素对应的卢恩文字。
+
+## 概念图
+
+概念参考图:
+
+<Carousel :cycle="true" :interval="2800">
+    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 1">
+    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/2.png" alt="Champions Unofficial 2">
+    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 3">
+    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 4">
+    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 5">
+  </Carousel>
