@@ -26,7 +26,7 @@ next: false
 
 概念参考图:
 
-<Carousel :cycle="true" :interval="2800">
+<Carousel :cycle="false">
     <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/samples/1.png">
     <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/samples/2.png">
     <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/samples/3.png">
@@ -38,7 +38,7 @@ next: false
 
 玻璃瓶参考图:
 
-<Carousel :cycle="true" :interval="2800">
+<Carousel :cycle=" false">
     <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/bottles/1.png">
     <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/bottles/2.png">
     <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/bottles/3.png">
@@ -49,7 +49,7 @@ next: false
 
 卢恩文字参考图
 
-<Carousel :cycle="true" :interval="2800">
+<Carousel :cycle="false">
     <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/lunes/1.png">
     <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/lunes/2.png">
   </Carousel>
