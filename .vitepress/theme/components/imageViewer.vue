@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isMounted" class="image-viewer">
+  <div class="image-viewer">
     <t-image-viewer
       v-if="show"
       v-model:visible="show"
@@ -13,9 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, reactive, ref } from 'vue'
+import { reactive, ref, onMounted, onUnmounted } from 'vue'
 
-const isMounted = ref(false)
 const show = ref(false)
 const previewImageInfo = reactive<{ url: string; list: string[]; idx: number }>({
   url: '',
@@ -32,6 +31,7 @@ function previewImage(e: Event) {
     const urls = Array.from(imgs).map(el => el.src)
 
     const url = target.getAttribute('src')
+    console.log("Selected Image URL: ", url)
     previewImageInfo.url = url!
     previewImageInfo.list = urls
     previewImageInfo.idx = idx
@@ -40,12 +40,12 @@ function previewImage(e: Event) {
       previewImageInfo.list.push(url)
       previewImageInfo.idx = previewImageInfo.list.length - 1
     }
+    console.log("Preview Image Info: ", previewImageInfo)
     show.value = true
   }
 }
 
 onMounted(() => {
-  isMounted.value = true
   const docDomContainer = document.querySelector('#VPContent')
   docDomContainer?.addEventListener('click', previewImage)
 })
@@ -55,41 +55,3 @@ onUnmounted(() => {
   docDomContainer?.removeEventListener('click', previewImage)
 })
 </script>
-
-<style>
-.t-image-viewer__modal-icon:nth-child(7) {
-  display: none !important;
-}
-
-.image-viewer {
-  width: 100%;
-  height: 100%;
-}
-
-.t-image-viewer__modal {
-  max-width: 100vw !important;
-  max-height: 100vh !important;
-}
-
-.t-image-viewer__modal-content {
-  max-width: 100% !important;
-  max-height: 100% !important;
-}
-
-.t-image-viewer__modal-image {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  object-fit: contain;
-}
-
-@media (max-width: 768px) {
-  .t-image-viewer__modal-content {
-    padding: 10px !important;
-  }
-
-  .t-image-viewer__modal-image {
-    max-width: 90vw !important;
-    max-height: 90vh !important;
-  }
-}
-</style>

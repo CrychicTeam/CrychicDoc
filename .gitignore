@@ -1,7 +1,7 @@
+.probe
 .vitepress/cache
 .vitepress/dist
-.vscode
+.vscode/settings.json
 node_modules
 yarn.lock
 route.bash
-.probe

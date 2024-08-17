@@ -1,7 +1,9 @@
 <template>
   <div class="carousel" :class="{ 'carousel-margin': margin }">
     <div class="carousel-inner" ref="carouselInner" :style="carouselStyle">
-      <slot></slot>
+      <div v-for="(slide, index) in slides" :key="index" class="carousel-item">
+        <component :is="slide" />
+      </div>
     </div>
     <button class="carousel-control prev" @click="prev" aria-label="Previous slide">
       <span aria-hidden="true">&lt;</span>
@@ -130,7 +132,8 @@ watch(() => props.cycle, (newValue) => {
   position: relative;
   width: 100%;
   max-width: 700px;
-  height: 350px;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -141,13 +144,26 @@ watch(() => props.cycle, (newValue) => {
 }
 
 .carousel-inner {
-  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  display: flex;
 }
 
-.carousel-inner > * {
+.carousel-item {
   flex: 0 0 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item :deep(img) {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .carousel-control {
@@ -217,7 +233,7 @@ watch(() => props.cycle, (newValue) => {
 
 @media (max-width: 768px) {
   .carousel {
-    height: 250px;
+    padding-bottom: 75%; /* 4:3 aspect ratio for mobile */
   }
 
   .carousel-control {

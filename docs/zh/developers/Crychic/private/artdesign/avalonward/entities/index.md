@@ -27,9 +27,29 @@ next: false
 概念参考图:
 
 <Carousel :cycle="true" :interval="2800">
-    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 1">
-    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/2.png" alt="Champions Unofficial 2">
-    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/3.png" alt="Champions Unofficial 3">
-    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/4.png" alt="Champions Unofficial 4">
-    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/5.png" alt="Champions Unofficial 5">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/samples/1.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/samples/2.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/samples/3.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/samples/4.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/samples/5.png">
+  </Carousel>
+
+![alt text](/crychic/artdesign/avalonward/entities/mage/guide1.png)
+
+玻璃瓶参考图:
+
+<Carousel :cycle="true" :interval="2800">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/bottles/1.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/bottles/2.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/bottles/3.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/bottles/4.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/bottles/5.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/bottles/6.png">
+  </Carousel>
+
+卢恩文字参考图
+
+<Carousel :cycle="true" :interval="2800">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/lunes/1.png">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/mage/lunes/2.png">
   </Carousel>
