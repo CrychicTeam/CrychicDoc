@@ -27,9 +27,9 @@ next: false
 概念参考图:
 
 <Carousel :cycle="true" :interval="2800">
-    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 1">
-    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/2.png" alt="Champions Unofficial 2">
-    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 3">
-    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 4">
-    <img src="https://docs.mihono.cn/mods/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 5">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/1.png" alt="Champions Unofficial 1">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/2.png" alt="Champions Unofficial 2">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/3.png" alt="Champions Unofficial 3">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/4.png" alt="Champions Unofficial 4">
+    <img src="https://docs.mihono.cn/crychic/artdesign/avalonward/entities/5.png" alt="Champions Unofficial 5">
   </Carousel>
