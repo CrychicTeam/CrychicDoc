@@ -14,13 +14,13 @@ next:
 ```js twoslash
 // @filename: index.ts
 // @ts-check
-import '.probe/server/probe-types/global/index.d.ts';
+import 'typefiles/1.20.1/.probe/server/probe-types/global/index.d.ts';
 // @filename: com.almostreliable.d.ts
-import '.probe/server/probe-types/packages/com.almostreliable.d.ts'
+import 'typefiles/1.20.1/.probe/server/probe-types/packages/com.almostreliable.d.ts'
 // @filename: dev.latvian.d.ts
-import '.probe/server/probe-types/packages/dev.latvian.d.ts'
+import 'typefiles/1.20.1/.probe/server/probe-types/packages/dev.latvian.d.ts'
 // @filename: net.minecraft.d.ts
-import '.probe/server/probe-types/packages/net.minecraft.d.ts'
+import 'typefiles/1.20.1/.probe/server/probe-types/packages/net.minecraft.d.ts'
 // ---cut-before---
 LootJS.modifiers(event=>{
     event.addBlockLootModifier("minecraft:grass")

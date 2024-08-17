@@ -1,4 +1,5 @@
 .probe
+typefiles
 .vitepress/cache
 .vitepress/dist
 .vscode/settings.json
