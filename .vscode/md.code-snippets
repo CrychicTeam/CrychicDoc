@@ -1,0 +1,7 @@
+{
+    "Insert Non-breaking Space": {
+        "prefix": "#nbsp",
+        "body": ["&nbsp;&nbsp;"],
+        "description": "Insert two non-breaking spaces in Markdown"
+    }
+}
