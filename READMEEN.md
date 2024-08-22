@@ -1,5 +1,5 @@
 
-<div align="center"><img height="150" src="docs/public/logo.png" width="190"/></div>
+<div align="center"><img height="200" src="docs/public/logo.png" width="200"/></div>
 
 ## License
 
