@@ -29,93 +29,18 @@ At the beginning of each Markdown file, use `---` to separate the front matter s
 
 Available front matter fields:
 
-1. title
-
-Purpose: Sets the title of the document
-Type: String
-Example:
-yamlCopytitle: Getting Started Guide
-
-
-2. sidetitle
-
-Purpose: Sets the title displayed in the sidebar (if not set, the title is used)
-Type: String
-Example:
-yamlCopysidetitle: Quick Start
-
-
-3. sidebarorder
-
-Purpose: Customizes the order of documents and subdirectories in the current directory
-Type: Object
-Example:
-yamlCopysidebarorder:
-        index: -1
-        introduction: 1
-        advanced: 2
-
-
-4. tagDisplay
-
-Purpose: Enables tag grouping display
-Type: Boolean
-Example:
-yamlCopytagDisplay: true
-
-
-5. back
-
-Purpose: Customizes the path to return to the parent directory
-Type: String
-Example:
-yamlCopyback: /guide/
-
-
-6. autoPN
-
-Purpose: Automatically generates previous/next navigation
-Type: Boolean
-Example:
-yamlCopyautoPN: true
-
-
-7. tagorder
-
-Purpose: Customizes the order of tags
-Type: Object
-Example:
-yamlCopytagorder:
-        Basics: 1
-        Advanced: 2
-
-
-8. folderBlackList
-
-Purpose: Specifies the list of folders to exclude from the sidebar
-Type: Array
-Example:
-yamlCopyfolderBlackList:
-        - private
-        - drafts
-
-
-9. generateSidebar
-
-Purpose: Includes the current index.md file in the sidebar
-Type: Boolean
-Default: false
-Example:
-yamlCopygenerateSidebar: true
-
-
-10. tag/s
-
-Purpose: Specifies tags for the document (used for tag grouping display). When used in a index.md, It should be tags for taging this folder.
-Type: String
-Example:
-yamlCopytag: Basics
-
+| Field          | Purpose                                      | Type    | Example                                      |
+| -------------- | -------------------------------------------- | ------- | -------------------------------------------- |
+| `title`        | Set the title of the document                 | String  | `title: Getting Started`                     |
+| `sidetitle`    | Set the title displayed in the sidebar        | String  | `sidetitle: Quick Start`                      |
+| `sidebarorder` | Customize the order of documents and subfolders in the current directory | Object  | `sidebarorder: \n    index: -1 \n    introduction: 1 \n    advanced: 2` |
+| `tagDisplay`   | Enable tag grouping display                   | Boolean | `tagDisplay: true`                           |
+| `back`         | Customize the path to navigate back to the parent directory | String  | `back: /guide/`                              |
+| `autoPN`       | Automatically generate previous/next navigation | Boolean | `autoPN: true`                               |
+| `tagorder`     | Customize the order of tags                   | Object  | `tagorder: \n    Basics: 1 \n    Advanced: 2` |
+| `folderBlackList` | Specify a list of folders to exclude from the sidebar | Array   | `folderBlackList: \n    - private \n    - drafts` |
+| `generateSidebar` | Include the current `index.md` file in the sidebar | Boolean | `generateSidebar: true`                      |
+| `tag`          | Specify a tag for the document (used for tag grouping display) | String  | `tag: Basics`                                 |
 
 Complete example
 Here is an example of the front matter configuration for an index.md file that includes all available configurations:

@@ -29,93 +29,18 @@ next:
 
 可用的前置配置字段
 
-1. title
-
-目的：设置文档的标题
-类型：字符串
-示例：
-yamlCopytitle: 入门指南
-
-
-2. sidetitle
-
-目的：设置侧边栏中显示的标题（如果未设置，则使用标题）
-类型：字符串
-示例：
-yamlCopysidetitle: 快速入门
-
-
-3. sidebarorder
-
-目的：自定义当前目录中文档和子目录的顺序
-类型：对象
-示例：
-yamlCopysidebarorder:
-    index: -1
-    introduction: 1
-    advanced: 2
-
-
-4. tagDisplay
-
-目的：启用标签分组显示
-类型：布尔值
-示例：
-yamlCopytagDisplay: true
-
-
-5. back
-
-目的：自定义返回到父目录的路径
-类型：字符串
-示例：
-yamlCopyback: /guide/
-
-
-6. autoPN
-
-目的：自动生成上一篇/下一篇导航
-类型：布尔值
-示例：
-yamlCopyautoPN: true
-
-
-7. tagorder
-
-目的：自定义标签的顺序
-类型：对象
-示例：
-yamlCopytagorder:
-    Basics: 1
-    Advanced: 2
-
-
-8. folderBlackList
-
-目的：指定要在侧边栏中排除的文件夹列表
-类型：数组
-示例：
-yamlCopyfolderBlackList:
-    - private
-    - drafts
-
-
-9. generateSidebar
-
-目的：在侧边栏中包含当前的 index.md 文件
-类型：布尔值
-默认值：false
-示例：
-yamlCopygenerateSidebar: true
-
-
-10. tag
-
-目的：为文档指定标签（用于标签分组显示）
-类型：字符串
-示例：
-yamlCopytag: 基础知识
-
+| 配置字段       | 目的                                  | 类型     | 示例 |
+| ------------- | ----------------------------------- | ------ | ---- |
+| `title`       | 设置文档的标题                          | 字符串    | `title: 入门指南` |
+| `sidetitle`   | 设置侧边栏中显示的标题（如果未设置，则使用标题） | 字符串    | `sidetitle: 快速入门` |
+| `sidebarorder`| 自定义当前目录中文档和子目录的顺序       | 对象      | `sidebarorder: \n    index: -1 \n    introduction: 1 \n    advanced: 2` |
+| `tagDisplay`  | 启用标签分组显示                        | 布尔值    | `tagDisplay: true` |
+| `back`        | 自定义返回到父目录的路径                 | 字符串    | `back: /guide/` |
+| `autoPN`      | 自动生成上一篇/下一篇导航                | 布尔值    | `autoPN: true` |
+| `tagorder`    | 自定义标签的顺序                        | 对象      | `tagorder: \n    Basics: 1 \n    Advanced: 2` |
+| `folderBlackList` | 指定要在侧边栏中排除的文件夹列表        | 数组      | `folderBlackList: \n    - private \n    - drafts` |
+| `generateSidebar` | 在侧边栏中包含当前的 `index.md` 文件    | 布尔值    | `generateSidebar: true` |
+| `tag`         | 为文档指定标签（用于标签分组显示）         | 字符串    | `tag: 基础知识` |
 
 完整示例
 以下是一个包含所有可用配置的 index.md 文件的前置配置示例：
