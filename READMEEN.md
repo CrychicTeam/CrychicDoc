@@ -7,7 +7,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 # Hello
 
-你可以在这里[这里](/README.md)查看中文的README.
+你可以在[这里](/README.md)查看中文的README.
 
 This is the source code repository for Cryhic documentation.
 
