@@ -33,7 +33,7 @@
   const lang = computed(() => route.path.startsWith("/en") ? 'en' : 'zh-Hans');
   
   const giscusConfig = reactive({
-    repo: "M1hono/CrychicDoc",
+    repo: "CrychicTeam/CrychicDoc",
     repoId: "R_kgDOMdKRUQ",
     category: "Announcements",
     categoryId: "DIC_kwDOMdKRUc4ChSHG",

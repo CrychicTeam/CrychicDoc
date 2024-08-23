@@ -34,7 +34,7 @@ export default withMermaid(
           nav: [],
           sidebar: generateSidebarConfig('zh'),
           editLink: {
-            pattern: 'https://github.com/M1hono/CryChicDoc/blob/main/docs/:path?plain=1',
+            pattern: 'https://github.com/CrychicTeam/CrychicDoc/blob/main/docs/:path?plain=1',
             text: '在 GitHub 上查看此页面'
           },
           lastUpdated: {
@@ -67,7 +67,7 @@ export default withMermaid(
           nav: [],
           sidebar: generateSidebarConfig('en'),
           editLink: {
-            pattern: 'https://github.com/M1hono/CryChicDoc/blob/main/docs/:path?plain=1',
+            pattern: 'https://github.com/CrychicTeam/CrychicDoc/blob/main/docs/:path?plain=1',
             text: 'Check this page on GitHub'
           },
           lastUpdated: {
@@ -101,7 +101,7 @@ export default withMermaid(
         provider: 'local'
       },
       socialLinks: [
-        { icon: 'github', link: 'https://github.com/M1hono/CrychicDoc' }
+        { icon: 'github', link: 'https://github.com/CrychicTeam/CrychicDoc' }
       ],
       langMenuLabel: 'Change Language',
       lastUpdated: {},

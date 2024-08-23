@@ -29,7 +29,7 @@ next:
 
 打开你要进行内容修改的项目仓库，下文以CrychicDoc为例进行说明。
 
-打开 [CrychicDoc 仓库](https://github.com/M1hono/CrychicDoc)，点击右上角的 "Fork" 按钮，将项目 Fork 到你的 GitHub 账户中。
+打开 [CrychicDoc 仓库](https://github.com/CrychicTeam/CrychicDoc)，点击右上角的 "Fork" 按钮，将项目 Fork 到你的 GitHub 账户中。
 
 2. **初始化仓库：**
    
@@ -51,7 +51,7 @@ git pull origin main
 为了保持与原始仓库的同步，设置上游仓库：
 
 ```bash
-git remote add upstream https://github.com/M1hono/CrychicDoc.git
+git remote add upstream https://github.com/CrychicTeam/CrychicDoc.git
 ```
 
 ## 合作流程

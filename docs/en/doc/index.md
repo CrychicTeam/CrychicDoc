@@ -30,7 +30,7 @@ next:
 
 Open the repository of the project you want to modify, below is an example using CrychicDoc.
 
-Open the [CrychicDoc repository](https://github.com/M1hono/CrychicDoc), click on the "Fork" button at the top right corner to fork the project to your GitHub account.
+Open the [CrychicDoc repository](https://github.com/CrychicTeam/CrychicDoc), click on the "Fork" button at the top right corner to fork the project to your GitHub account.
 
 2. **Initialize Repository:**
 
@@ -52,7 +52,7 @@ git pull origin main
 To keep in sync with the original repository, set up the upstream repository:
 
 ```bash
-git remote add upstream https://github.com/M1hono/CrychicDoc.git
+git remote add upstream https://github.com/CrychicTeam/CrychicDoc.git
 ```
 
 ## Collaboration Workflow
