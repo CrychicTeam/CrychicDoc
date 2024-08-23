@@ -36,7 +36,7 @@
     repo: "CrychicTeam/CrychicDoc",
     repoId: "R_kgDOMnN0IQ",
     category: "Announcements",
-    categoryId: "DIC_kwDOMdKRUc4ChSHG",
+    categoryId: "DIC_kwDOMnN0Ic4Ch3qm",
     mapping: "specific",
     strict: "0",
     reactionsEnabled: "1",
