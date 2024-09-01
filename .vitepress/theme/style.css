@@ -137,7 +137,6 @@
   --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
-
 :lang(zh) {
   --vp-code-copy-copied-text-content: '已复制'
 }
@@ -148,8 +147,4 @@
 
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
-}
-
-:root {
-  --vp-c-brand: #93f5fc;
 }

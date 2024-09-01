@@ -3,10 +3,10 @@ Layout: doc
 title: Wiki
 prev:
   text: Introduction
-  link: /en/mods\adventure\Champions-Unofficial\index
+  link: /en/mods/adventure/Champions-Unofficial/index
 next:
   text: Config
-  link: /en/mods\adventure\Champions-Unofficial\config
+  link: /en/mods/adventure/Champions-Unofficial/config
 order: 1
 authors:
   - M1hono

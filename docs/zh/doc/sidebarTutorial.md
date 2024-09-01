@@ -5,10 +5,10 @@ authors:
   - M1hono
 prev:
   text: 类型检查示例
-  link: /zh/doc\test
+  link: /zh/doc/test
 next:
   text: 项目合作教程
-  link: /zh/doc\index
+  link: /zh/doc/index
 ---
 
 # VitePress 侧边栏生成器前置配置指南

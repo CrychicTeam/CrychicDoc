@@ -5,10 +5,10 @@ authors:
   - M1hono
 prev:
   text: ts-check Sample
-  link: /en/doc\test
+  link: /en/doc/test
 next:
   text: Project Collaboration Tutorial
-  link: /en/doc\index
+  link: /en/doc/index
 ---
 
 # VitePress Sidebar Generator Pre-Configuration Guide

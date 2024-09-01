@@ -4,7 +4,7 @@
       v-if="contributions.length"
       :auto-line-width="autoLineWidth"
       :fill="fill"
-      :gradient="isDark ? darkGradient : lightGradient"
+      :gradient="gradientColors"
       :gradient-direction="gradientDirection"
       :line-width="width"
       :model-value="contributions"
@@ -17,7 +17,7 @@
       height="50"
     ></v-sparkline>
     <div class="text-caption text-center mt-1">
-      <v-icon small :color="isDark ? 'grey-lighten-2' : 'primary'">mdi-source-branch</v-icon>
+      <v-icon small class="theme-icon">mdi-source-branch</v-icon>
       <span class="ml-1">仓库活动</span>
       <strong class="ml-2">总提交数：{{ totalContributions }}</strong>
     </div>
@@ -27,36 +27,24 @@
 <script>
 import axios from 'axios';
 import { useData } from 'vitepress';
-import { computed } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 
 export default {
   setup() {
     const { isDark } = useData();
-    return { isDark };
-  },
-  data: () => ({
-    width: 1,
-    smooth: true,
-    padding: 4,
-    lineCap: 'round',
-    lightGradient: ['#42b3f4', '#00c6ff', '#0099ff'],
-    darkGradient: ['#8E24AA', '#AB47BC', '#CE93D8'],
-    contributions: [],
-    gradientDirection: 'top',
-    type: 'trend',
-    autoLineWidth: true,
-    fill: false,
-  }),
-  computed: {
-    totalContributions() {
-      return this.contributions.reduce((sum, value) => sum + value, 0);
-    }
-  },
-  mounted() {
-    this.fetchContributions();
-  },
-  methods: {
-    async fetchContributions() {
+    const contributions = ref([]);
+
+    const totalContributions = computed(() => {
+      return contributions.value.reduce((sum, value) => sum + value, 0);
+    });
+
+    const gradientColors = computed(() => {
+      return isDark.value 
+        ? ['#4A148C', '#6A1B9A', '#8E24AA'] // Updated dark mode colors
+        : ['#1565C0', '#1976D2', '#2196F3']; // Updated light mode colors
+    });
+
+    const fetchContributions = async () => {
       try {
         const owner = 'M1hono';
         const repo = 'CrychicDoc';
@@ -67,22 +55,23 @@ export default {
           const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/commits`, {
             params: {
               page: page,
-              per_page: 100  // Get 100 records per page
+              per_page: 100
             }
           });
           
-          if (response.data.length === 0) break;  // Exit loop if no more commits
+          if (response.data.length === 0) break;
           
           allCommits = allCommits.concat(response.data);
           page++;
         }
         
-        this.contributions = this.processContributions(allCommits);
+        contributions.value = processContributions(allCommits);
       } catch (error) {
         console.error('获取GitHub提交数据时出错:', error);
       }
-    },
-    processContributions(commits) {
+    };
+
+    const processContributions = (commits) => {
       const contributionsMap = {};
       const today = new Date();
       const thirtyDaysAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
@@ -94,6 +83,7 @@ export default {
           contributionsMap[dateString] = (contributionsMap[dateString] || 0) + 1;
         }
       });
+
       const contributions = Array(30).fill(0);
       for (let i = 0; i < 30; i++) {
         const date = new Date(today.getTime() - i * 24 * 60 * 60 * 1000);
@@ -101,13 +91,48 @@ export default {
         contributions[29 - i] = contributionsMap[dateString] || 0;
       }
       return contributions;
-    },
+    };
+
+    onMounted(() => {
+      fetchContributions();
+    });
+
+    return {
+      contributions,
+      totalContributions,
+      gradientColors,
+      isDark,
+      width: 1,
+      smooth: true,
+      padding: 4,
+      lineCap: 'round',
+      gradientDirection: 'top',
+      type: 'trend',
+      autoLineWidth: true,
+      fill: false,
+    };
   },
-}
+};
 </script>
 
 <style scoped>
 .transparent-bg {
   background-color: transparent !important;
+}
+
+.theme-icon {
+  color: var(--vp-c-brand);
+}
+
+:root {
+  --vp-c-brand: #1976D2;
+}
+
+.dark .theme-icon {
+  color: var(--vp-c-text-1);
+}
+
+.dark {
+  --vp-c-text-1: #B0BEC5;
 }
 </style>

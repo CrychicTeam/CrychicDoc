@@ -13,10 +13,10 @@ sidebarorder:
   config: 3
 prev:
   text: Config
-  link: /en/mods\adventure\Champions-Unofficial\config
+  link: /en/mods/adventure/Champions-Unofficial/config
 next:
   text: Wiki
-  link: /en/mods\adventure\Champions-Unofficial\wiki
+  link: /en/mods/adventure/Champions-Unofficial/wiki
 ---
 
 ## Champions-Unofficial
