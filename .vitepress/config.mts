@@ -47,10 +47,6 @@ export default withMermaid(
             prev: '上一页',
             next: '下一页'
           },
-          footer: {
-            message: '基于 MIT 证书发布-晋ICP备2022005790号-2',
-            copyright: `版权所有 © 2024-${new Date().getFullYear()} 不是客服`
-          },
           langMenuLabel: '改变语言',
           darkModeSwitchLabel: '切换主题',
           lightModeSwitchTitle: '切换到浅色模式',
@@ -79,10 +75,6 @@ export default withMermaid(
           docFooter: {
             prev: 'Previous Page', 
             next: 'Next Page'
-          },
-          footer: {
-            message: 'Licensed under MIT-晋ICP备2022005790号-2',
-            copyright: `Copyright © 2024-${new Date().getFullYear()} M1hono`
           },
           langMenuLabel: 'Change Language',
           darkModeSwitchLabel: 'Switch Theme',

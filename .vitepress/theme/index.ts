@@ -25,6 +25,7 @@ import BilibiliVideo from './components/BilibiliVideo.vue'
 import damageChart from './components/minecraft-advanced-damage-chart.vue'
 import carousel from './components/carousel.vue'
 import ShareLinkButton from './components/ShareLinkButton.vue'
+import Footer from './components/Footer.vue'
 import '@mdit/plugin-spoiler/style'
 
 export default {
@@ -35,7 +36,8 @@ export default {
       "layout-top": () => h(TdesignDark),
       "aside-outline-after": () => h(AuthorsComponent),
       "doc-after": () => h(Comment),
-      "aside-outline-before": () => h(ShareLinkButton)
+      "aside-outline-before": () => h(ShareLinkButton),
+      "layout-bottom" : () => h(Footer)
     })
   },
   enhanceApp: (ctx) => {
