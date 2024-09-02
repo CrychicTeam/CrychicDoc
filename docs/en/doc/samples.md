@@ -5,10 +5,10 @@ authors:
   - M1hono
 prev:
   text: Project Collaboration Tutorial
-  link: /en/doc/index
+  link: /en/doc\index
 next:
   text: ts-check Sample
-  link: /en/doc/test
+  link: /en/doc\test
 ---
 
 ## Mermaid Sample

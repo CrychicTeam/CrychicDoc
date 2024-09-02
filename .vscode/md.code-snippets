@@ -3,5 +3,57 @@
         "prefix": "#nbsp",
         "body": ["&nbsp;&nbsp;"],
         "description": "Insert two non-breaking spaces in Markdown"
+    },
+    "nogui": {
+        "prefix": "noguide",
+        "body": [
+            "noguide: $0"
+        ],
+        "description": "nogui"
+    },
+    "root": {
+        "prefix": "root",
+        "body": [
+            "root:",
+            "  $0"
+        ],
+        "description": "root"
+    },
+    "title": {
+        "prefix": "title",
+        "body": [
+            "title: $0"
+        ],
+        "description": "title"
+    },
+    "subDir": {
+        "prefix": "subDir",
+        "body": [
+            "subDir:",
+            "    $0"
+        ],
+        "description": "subDir"
+    },
+    "path": {
+        "prefix": "path",
+        "body": [
+            "path: $0"
+        ],
+        "description": "path"
+    },
+    "collapsed": {
+        "prefix": "collapsed",
+        "body": [
+            "collapsed: $0"
+        ],
+        "description": "collapsed"
+    },
+    "subdir": {
+        "prefix": "@subdir",
+        "body": [
+            "- title: $1",
+            "  path: $0"
+        ],
+        "description": "subdir"
     }
 }

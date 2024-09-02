@@ -12,10 +12,10 @@ sidebarorder:
   sidebarTutorial: 4
 prev:
   text: Sidebar Configuration Tutorial
-  link: /en/doc/sidebarTutorial
+  link: /en/doc\sidebarTutorial
 next:
   text: Samples for coding CrychicDoc
-  link: /en/doc/samples
+  link: /en/doc\samples
 ---
 
 # Project Collaboration Tutorial

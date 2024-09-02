@@ -7,6 +7,7 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { TDesignResolver } from 'unplugin-vue-components/resolvers';
 import { generateSidebarConfig } from './theme/generatesidebar';
+import sidebars from './index';
 
 import mdFootnote from 'markdown-it-footnote'
 import mdTaskLists from 'markdown-it-task-lists'
@@ -32,7 +33,7 @@ export default withMermaid(
         description: "一个包含 Minecraft 开发文档的网站。",
         themeConfig: {
           nav: [],
-          sidebar: generateSidebarConfig('zh'),
+          sidebar: sidebars("zh"),
           editLink: {
             pattern: 'https://github.com/CrychicTeam/CrychicDoc/blob/main/docs/:path?plain=1',
             text: '在 GitHub 上查看此页面'
