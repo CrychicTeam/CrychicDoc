@@ -46,7 +46,7 @@ export default {
 
     const fetchContributions = async () => {
       try {
-        const owner = 'M1hono';
+        const owner = 'CrychicTeam';
         const repo = 'CrychicDoc';
         let allCommits = [];
         let page = 1;
