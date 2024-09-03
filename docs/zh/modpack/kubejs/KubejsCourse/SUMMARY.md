@@ -33,7 +33,7 @@
     * [添加药水](/KubejsBasic/Customs/PotionEffectsRegistry.md) 
     * [添加药水效果](/KubejsBasic/Customs/PotionRegistry.md) 
 * [kjs资源路径文件夹](/Texture/README.md)
-  * [lang文件](/Lang.md)
+  * [lang文件](/Texture/Lang.md)
   * [贴图](/Texture/Texture.md)
   * [音乐](/Texture/Sounds.md)
   * [模型](/Texture/Model.md)
