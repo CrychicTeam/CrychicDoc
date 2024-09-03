@@ -35,7 +35,7 @@ createEntity(arg0: Internal.Function_\<Internal.Level, Internal.Entity\>): Inter
 var _sheep = scene.world.createEntity("minecraft:sheep", [2.5, 1, 2.5]);
 
 //编辑实体 _sheep
-scene.world.modifyEntity(_sheep, event =\> {
+scene.world.modifyEntity(_sheep, event => {
 
     //设置其名字为 jeb_
     event.setCustomName("jeb_");

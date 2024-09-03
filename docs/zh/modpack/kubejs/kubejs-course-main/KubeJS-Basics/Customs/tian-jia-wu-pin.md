@@ -2,7 +2,7 @@
 kubejs可以在startup_scripts文件夹内创建去创建物品，注意所有的添加自定义的操作都是无法热加载的，写完之后需要重启游戏后才会加载进游戏内
 ## 基础写法
 ```js
-StartupEvents.registry("item",event=\>{
+StartupEvents.registry("item",event=>{
     event.create("meng:my_item","basic")
 })
 ```
@@ -89,7 +89,7 @@ kjs创建物品是非常简单的，只需要一行就可以解决
 **注:以下内容根据个人习惯选择性使用和更改**
 
 ```js
-StartupEvents.registry("item", (event) =\> {
+StartupEvents.registry("item", (event) => {
 	// ModID声明如果选择不更改ModID(默认即"kubejs")直接把ModID这个变量取消
 	const MODID = "meng:"
 
@@ -102,7 +102,7 @@ StartupEvents.registry("item", (event) =\> {
 	let itemRegisters = [
 		["example_item", "common", false],
 	]
-	itemRegisters.forEach(([name, rarity, glow]) =\> {
+	itemRegisters.forEach(([name, rarity, glow]) => {
 		event.create(MODID + name) // 声明id
 			.rarity(rarity) // 稀有度
 			.glow(glow) // 是否有附魔光效

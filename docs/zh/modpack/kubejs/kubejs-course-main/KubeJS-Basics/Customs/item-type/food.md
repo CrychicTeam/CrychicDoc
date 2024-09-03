@@ -3,7 +3,7 @@
 
 ## 基础写法
 ```js
-StartupEvents.registry("item", event =\> {
+StartupEvents.registry("item", event => {
     event.create("meng:my_food")
         .food(foodBuilder=>{})
 })
@@ -38,9 +38,9 @@ effect(
 ## 药水效果设置
 ### 添加药水效果
 ```js
-StartupEvents.registry("item", event =\> {
+StartupEvents.registry("item", event => {
     event.create("meng:my_food")
-        .food(foodBuilder=\>{
+        .food(foodBuilder=>{
             foodBuilder.effect("minecraft:speed",20*20,0,0.5)
         })
 })
@@ -49,9 +49,9 @@ StartupEvents.registry("item", event =\> {
 
 ### 移除药水效果
 ```js
-StartupEvents.registry("item", event =\> {
+StartupEvents.registry("item", event => {
     event.create("meng:my_food2")
-        .food(foodBuilder=\>{
+        .food(foodBuilder=>{
             foodBuilder.removeEffect("speed")
         })
 })
@@ -62,10 +62,10 @@ StartupEvents.registry("item", event =\> {
 ```js
 const { $Player } = require("packages/net/minecraft/world/entity/player/$Player")
 
-StartupEvents.registry("item", event =\> {
+StartupEvents.registry("item", event => {
     event.create("meng:my_food3")
-        .food(foodBuilder=\>{
-            foodBuilder.eaten(foodEatenEvent=\>{
+        .food(foodBuilder=>{
+            foodBuilder.eaten(foodEatenEvent=>{
                 /**
                  * @type {$Player}
                  */
@@ -91,7 +91,7 @@ StartupEvents.registry("item", event =\> {
 ## 简单示例
 ```js
 event.create("meng:my_food4")
-        .food(foodBuilder=\>{
+        .food(foodBuilder=>{
             foodBuilder.hunger(10) //设置恢复5个“鸡腿”
             foodBuilder.saturation(0.5) // 饱和度设置为10*0.5 = 5
             foodBuilder.meat() // 设置食物属性为肉，可以被狗食用
