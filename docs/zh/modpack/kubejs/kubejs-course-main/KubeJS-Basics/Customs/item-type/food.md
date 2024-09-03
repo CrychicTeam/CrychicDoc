@@ -5,7 +5,7 @@
 ```js
 StartupEvents.registry("item", event =\> {
     event.create("meng:my_food")
-        .food(foodBuilder=\>{})
+        .food(foodBuilder=>{})
 })
 ```
 这是最基础的写法，将该物品设置为食物，我们可以为食物设置一些参数
