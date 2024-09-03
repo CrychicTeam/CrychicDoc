@@ -9,7 +9,7 @@
 |     主事件     |      子事件       |       用处       |             示例             |
 | :------------: | :---------------: | :--------------: | :--------------------------: |
 | StartupEvents  |       init        |  游戏初始化事件  |              -               |
-| StartupEvents  |     registry      | 注册各种游戏内容 | [链接](../KubeJSBasic/Customs/README.md) |
+| StartupEvents  |     registry      | 注册各种游戏内容 | [链接](../KubejsBasic/Customs/README.md) |
 | WorldgenEvents |        add        | 世界生成添加事件 |              -               |
 | WorldgenEvents |      remove       | 世界生成删除事件 |              -               |
 |   ItemEvents   |   modification    |   修改物品属性   |              -               |
