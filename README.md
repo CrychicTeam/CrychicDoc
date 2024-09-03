@@ -7,7 +7,7 @@
 
 # 你好
 
-You main find English version of readme on [here](/READMEEN.md).
+You may find English version of readme on [here](/READMEEN.md).
 
 这里是Cryhic文档的源代码库。
 
