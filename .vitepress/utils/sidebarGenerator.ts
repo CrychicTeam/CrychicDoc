@@ -46,6 +46,18 @@ export default class SidebarGenerator{
             text:"回到上级",
             link:".."
         })
+        this.items.forEach(item => {
+            const filePath: string = path.join(this.dirPath, item);
+            const file: FileFrontMatter| null = this.fileReader(filePath);
+            if(!this.isDir(filePath) && !file?.noguide) {
+                const itemWithoutMd: string = item.replace(/\.md$/i, "")
+                this._sidebar.items.push({
+                    text : file?.title || itemWithoutMd,
+                    link : `${this._correctedPathname}/${itemWithoutMd}`
+                });
+            }
+            
+        })
         const root = this.indexReader()?.root;
         if(root){
             const rootTitle: string = root.title;
@@ -65,25 +77,17 @@ export default class SidebarGenerator{
                     subSideBar.text = subDir.title;
                     subSideBar.collapsed = subDir.collapsed;
                     this._sidebar.items.push(subSideBar);
-                    const subDirContainer = new SidebarGenerator(`${this.pathname}/${subDir.path}`, false);
-                    subDirContainer._sidebar.items.forEach(item => {
-                        subSideBar.items.push(item)
-                    });
+                    if (!subDir.noScan){
+                        const subDirContainer = new SidebarGenerator(`${this.pathname}/${subDir.path}`, false);
+                        subDirContainer._sidebar.items.forEach(item => {
+                            subSideBar.items.push(item)
+                        });
+                    } else if (subDir.noScan) {
+                        subSideBar.link = `${this.pathname.replace("docs/", "")}/${subDir.path}/${subDir.file}`
+                    }
                 }
             });
         }
-        this.items.forEach(item => {
-            const filePath: string = path.join(this.dirPath, item);
-            const file: FileFrontMatter| null = this.fileReader(filePath);
-            if(!this.isDir(filePath) && !file?.noguide) {
-                const itemWithoutMd: string = item.replace(/\.md$/i, "")
-                this._sidebar.items.push({
-                    text : file?.title || itemWithoutMd,
-                    link : `${this._correctedPathname}/${itemWithoutMd}`
-                });
-            }
-            
-        });
     }
 
     private isDir(path: string): boolean {
@@ -127,13 +131,16 @@ export default class SidebarGenerator{
 }
 
 export interface Sidebar {
-    text: string;
+    text?: string;
     collapsed?:boolean;
+    link?: string;
     items: Array<FileItem | Sidebar>;
 }
-interface FileItem {
+export interface FileItem {
     text: string;
     link: string;
+    collapsed?: boolean;
+    items?: [];
 }
 interface Index {
     root: {
@@ -145,7 +152,9 @@ interface Index {
 interface SubDir {
     title: string;
     path: string;
+    noScan?: boolean;
     collapsed?: boolean;
+    file?: string;
 }
 interface FileFrontMatter {
     title: string;

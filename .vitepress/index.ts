@@ -1,6 +1,6 @@
 import sidebar from "./utils/sidebarGenerator"
-import { Sidebar } from "./utils/sidebarGenerator"
-import path from "path";
+import md from "./utils/mdParser"
+import Path from "path";
 import fs from "fs";
 
 const dirs = [
@@ -18,10 +18,11 @@ export default function sidebars(lang: string): {} {
         const generator = new sidebar(`docs/${lang}/${dir}`, true);
         ISidebar[`${lang}/${dir}/`] = [generator.sidebar]
     })
-    
-    logger(JSON.stringify(ISidebar, null, 2))
+    ISidebar["zh/modpack/kubejs/kubejs-course-main/"] = [new md("./docs/zh/modpack/kubejs/kubejs-course-main").sidebar]
+    // logger(JSON.stringify(ISidebar, null, 2), "dev.json")
+    // logger(JSON.stringify(new md("./docs/zh/modpack/kubejs/kubejs-course-main").sidebar, null, 2), "ast.json")
     return ISidebar;
 }
-function logger(string: string): void {
-    fs.writeFileSync(path.join(__dirname, 'dev.json'), `${string}\n`, { flag: 'w+' });
+function logger(string: string, name: string): void {
+    fs.writeFileSync(Path.join(__dirname, name), `${string}\n`, { flag: 'w+' });
 }
