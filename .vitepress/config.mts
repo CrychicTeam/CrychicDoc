@@ -42,6 +42,7 @@ export default withMermaid(
             text: '最后更新于'
           },
           outline: {
+            level: "deep",
             label: '页面导航'
           },
           docFooter: {
@@ -71,6 +72,7 @@ export default withMermaid(
             text: 'Last updated'
           },
           outline: {
+            level: "deep",
             label: 'Page Content'
           },
           docFooter: {

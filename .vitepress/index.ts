@@ -18,7 +18,7 @@ export default function sidebars(lang: string): {} {
         const generator = new sidebar(`docs/${lang}/${dir}`, true);
         ISidebar[`${lang}/${dir}/`] = [generator.sidebar]
     })
-    ISidebar["zh/modpack/kubejs/kubejs-course-main/"] = [new md("./docs/zh/modpack/kubejs/kubejs-course-main").sidebar]
+    ISidebar["zh/modpack/kubejs/KubejsCourse/"] = [new md("./docs/zh/modpack/kubejs/KubejsCourse").sidebar]
     // logger(JSON.stringify(ISidebar, null, 2), "dev.json")
     // logger(JSON.stringify(new md("./docs/zh/modpack/kubejs/kubejs-course-main").sidebar, null, 2), "ast.json")
     return ISidebar;

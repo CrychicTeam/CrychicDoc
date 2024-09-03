@@ -44,7 +44,7 @@ root:
       path: NetworkInteration
       collapsed: true
     - title: kubejs教程-1.20.1(孤梦版)
-      path: kubejs-course-main
+      path: KubejsCourse
       noScan: true
       file: README
 ---
