@@ -7,6 +7,7 @@ const dirs = [
     "doc",
     "developers",
     "mods",
+    "mods/adventure",
     "modpack",
     "modpack/kubejs"
 ];

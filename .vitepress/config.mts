@@ -6,7 +6,6 @@ import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { TDesignResolver } from 'unplugin-vue-components/resolvers';
-import { generateSidebarConfig } from './theme/generatesidebar';
 import sidebars from './index';
 
 import mdFootnote from 'markdown-it-footnote'
@@ -62,7 +61,7 @@ export default withMermaid(
         description: "A site containing docs for Minecraft developing.",
         themeConfig: {
           nav: [],
-          sidebar: generateSidebarConfig('en'),
+          sidebar: sidebars("en"),
           editLink: {
             pattern: 'https://github.com/CrychicTeam/CrychicDoc/blob/main/docs/:path?plain=1',
             text: 'Check this page on GitHub'

@@ -19,7 +19,7 @@
     <div class="text-caption text-center mt-1">
       <v-icon small class="theme-icon">mdi-source-branch</v-icon>
       <span class="ml-1">仓库活动</span>
-      <strong class="ml-2">总提交数：{{ totalContributions }}</strong>
+      <strong class="ml-2">最近提交数：{{ totalContributions }}</strong>
     </div>
   </v-container>
 </template>

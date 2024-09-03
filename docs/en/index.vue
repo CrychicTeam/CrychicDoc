@@ -19,7 +19,7 @@
     <div class="text-caption text-center mt-1">
       <v-icon small class="theme-icon">mdi-source-branch</v-icon>
       <span class="ml-1">Repository Activity</span>
-      <strong class="ml-2">Total Commits: {{ totalContributions }}</strong>
+      <strong class="ml-2">Recent Commits: {{ totalContributions }}</strong>
     </div>
   </v-container>
 </template>
