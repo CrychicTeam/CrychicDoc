@@ -121,7 +121,7 @@ onEvent("ponder.registry", (event) => {
 
     为了轻松的定位/选择场景内容一类,ponder除了scene对象还有个util对象：
 
-![utils截图](/imgs/PonderJS/utils.png)
+![utils截图](/imgs/PonderJs/utils.png)
 
 util.grid里的方法用来选择某一个位置
 
