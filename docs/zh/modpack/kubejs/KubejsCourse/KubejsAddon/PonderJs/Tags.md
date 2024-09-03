@@ -3,7 +3,7 @@
 > 什么是 PonderTag？
 
 在思索索引创建分类, 相同分类的 Ponder 也能互相跳转, 是非常方便的功能
-# 其一 无中生有
+## 其一 无中生有
 
 > 建立新的 PonderTag
 
@@ -21,7 +21,7 @@ Ponder.tags((event) => {
 
 ![图片](/imgs/PonderJs/PonderTag.gif)
 
-# 其二 画龙点睛
+## 其二 画龙点睛
 
 > 为已有的 PonderTag 添加新的关联词条
 
@@ -51,7 +51,7 @@ Ponder.registry(event => {
 });
 ```
 
-# 其三 去芜存菁
+## 其三 去芜存菁
 
 > 删除 PonderTag 内的的关联物品
 
@@ -64,7 +64,7 @@ Ponder.tags((event) => {
 });
 ```
 
-# 其四 一扫而空
+## 其四 一扫而空
 
 > 删除已有的 PonderTag
 
@@ -76,7 +76,7 @@ Ponder.tags((event) => {
 });
 ```
 
-# 其五 承上启下
+## 其五 承上启下
 
 > 机械动力自带的 [PonderTag](https://github.com/Creators-of-Create/Create/blob/mc1.18/dev/src/main/java/com/simibubi/create/infrastructure/ponder/AllPonderTags.java) 如下
 
