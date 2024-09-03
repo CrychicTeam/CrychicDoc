@@ -11,7 +11,7 @@ ServerEvents.entityLootTables(event => {
     })
 })
 ```
-在上面代码中，我们将猪的掉落物(战利品,盖章后面统称为掉落物),修改为掉落3~6个钻石或者掉落一个铁锭，其中铁锭的权重占比是2，钻石的权重占比是1([权重的概念](../../ti-wai-hua/quan-zhong.md))
+在上面代码中，我们将猪的掉落物(战利品,盖章后面统称为掉落物),修改为掉落3~6个钻石或者掉落一个铁锭，其中铁锭的权重占比是2，钻石的权重占比是1([权重的概念](../../ti-wai-hua/quan-zhong))
 
 这里`pool.addItem("diamond").weight(1).count([3, 6])`是将权重占比和出现数量单独进行添加的，我们也可以写在一起，像这样`pool.addItem("diamond",1,[3,6])`
 
@@ -105,7 +105,7 @@ pool.entityProperties("killer", {
 ```
 检测击杀猪的是否为玩家，获取击杀猪的武器是否为钻石剑且附魔为精准采集
 
-参数1: 实体类型(可选："[this](../../ti-wai-hua/zhan-li-pin-shang-xia-wen.md#this)","[killer_player](../../ti-wai-hua/zhan-li-pin-shang-xia-wen.md#killer_player)","[killer](../../ti-wai-hua/zhan-li-pin-shang-xia-wen.md#killer)","[direct_killer](../../ti-wai-hua/zhan-li-pin-shang-xia-wen.md#direct_killer)")
+参数1: 实体类型(可选："[this](../../ti-wai-hua/zhan-li-pin-shang-xia-wen#this)","[killer_player](../../ti-wai-hua/zhan-li-pin-shang-xia-wen#killer_player)","[killer](../../ti-wai-hua/zhan-li-pin-shang-xia-wen#killer)","[direct_killer](../../ti-wai-hua/zhan-li-pin-shang-xia-wen#direct_killer)")
 
 参数2: json格式的战利品表谓词里的entity_properties下的predicate
 ### addTag

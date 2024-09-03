@@ -45,7 +45,7 @@ ServerEvents.recipes((event) => {
 
 `grid.find(物品id)`是寻找合成台里的物品，返回为 **·ItemStack·**
 
-`·ItemStack·.getEnchantments()`获取物品的所有附魔，返回为 **·Map<(string), (integer)>·**
+`·ItemStack·.getEnchantments()`获取物品的所有附魔，返回为 **·Map\<(string), (integer)\>·**
 
 `·ItemStack·.enchant(附魔类型id,等级)`给物品附魔,这里并不会直接改变物品属性所以需要 ***使用变量接收返回参数***
 

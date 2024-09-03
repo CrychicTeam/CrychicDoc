@@ -1,5 +1,5 @@
 # 村民礼物战利品
-这里的村民礼物是在玩家获得村庄英雄时，[不同村民](/ti-wai-hua/zhan-li-pin-id.md/#村民礼物战利品)会赠送礼物给玩家
+这里的村民礼物是在玩家获得村庄英雄时，[不同村民](../../ti-wai-hua/zhan-li-pin-id.md/#村民礼物战利品)会赠送礼物给玩家
 ## 覆盖村民的礼物赠送
 ```js
 ServerEvents.giftLootTables(e=>{

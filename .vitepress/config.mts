@@ -19,6 +19,7 @@ import { sub } from "@mdit/plugin-sub"
 import { sup } from "@mdit/plugin-sup"
 import { ruby } from "@mdit/plugin-ruby"
 import { demo } from "@mdit/plugin-demo"
+import { dl } from "@mdit/plugin-dl";
 
 export default withMermaid(
   defineConfig({
@@ -120,6 +121,7 @@ export default withMermaid(
         md.use(sup);
         md.use(ruby);
         md.use(demo);
+        md.use(dl);
       },
       codeTransformers: [
         transformerTwoslash() 
@@ -154,6 +156,7 @@ export default withMermaid(
         __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: true,
       },
     },
-    head: [['link', { rel: 'icon', href: 'https://docs.mihono.cn/favicon.ico' }]]
+    head: [['link', { rel: 'icon', href: 'https://docs.mihono.cn/favicon.ico' }]],
+    ignoreDeadLinks: true
   })
 );

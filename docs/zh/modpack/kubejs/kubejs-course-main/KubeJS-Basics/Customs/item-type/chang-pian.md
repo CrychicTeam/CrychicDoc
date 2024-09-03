@@ -54,7 +54,7 @@ StartupEvents.registry("item", (event) => {
     },
 }
 ```
-[关于sounds.json的文件结构](/ti-wai-hua/sounds-json.md)
+[关于sounds.json的文件结构](../../../ti-wai-hua/sounds-json)
 
 ## 本地化和材质
 接下来就是最简单的对物品进行汉化，让物品显示中文文本

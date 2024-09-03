@@ -16,7 +16,7 @@
 >
 > `zh_cn.json` 对应简体中文
 
-关于更多语言的文件命名:[链接](/ti-wai-hua/lang-wen-jian-ming.md)
+关于更多语言的文件命名:[链接](../../ti-wai-hua/lang-wen-jian-ming.md)
 
 # 开始
 

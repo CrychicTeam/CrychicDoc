@@ -1,5 +1,5 @@
 ## 基础写法
-在这一章会教会大家如何去魔改基础配方，比如工作台、熔炉等,如需请点=>[配方合成进阶](../kjs-jin-jie/pei-fang-he-cheng-jin-jie.md)
+在这一章会教会大家如何去魔改基础配方，比如工作台、熔炉等,如需请点=>[配方合成进阶](../kjs-jin-jie/pei-fang-he-cheng-jin-jie)
 ### 工作台
 首先工作台有有序合成、无序合成,在kjs里同样支持简易写法和json写法，这个可以根据个人需求喜好进行选择
 #### 有序合成
@@ -99,7 +99,7 @@ ServerEvents.recipes(event => {
     ]).id("meng_sand");
 });
 ```
-[**配方ID详细讲解传送门**](/ti-wai-hua/recipe-id.md)
+[**配方ID详细讲解传送门**](../ti-wai-hua/recipe-id)
 
 这里注意一下，如果你直接像上面一样写，该配方id则为minecraft下的配方
 

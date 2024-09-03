@@ -15,11 +15,11 @@ ServerEvents.chestLootTables(event=>{
     })
 })
 ```
-使用`addChest()`的第一个参数，是需要覆盖掉的宝箱战利品表的名称([原版宝箱战利品表](/ti-wai-hua/zhan-li-pin-id.md/#宝箱战利品id))
+使用`addChest()`的第一个参数，是需要覆盖掉的宝箱战利品表的名称([原版宝箱战利品表](../../ti-wai-hua/zhan-li-pin-id#宝箱战利品id))
 
 如果你不需要覆盖掉而是**直接在原有的基础上进行添加**，则可以使用`modify()`,参数和`addChest()`一样
 
-覆盖原有的战利品，只需要奖池内的物品和[权重占比](/ti-wai-hua/quan-zhong.md)
+覆盖原有的战利品，只需要奖池内的物品和[权重占比](../../ti-wai-hua/quan-zhong)
 
 如果你希望给物品添加一些条件才能生成可以使用[战利品谓词](https://zh.minecraft.wiki/w/%E6%88%98%E5%88%A9%E5%93%81%E8%A1%A8?variant=zh-cn)和[物品修饰词](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E4%BF%AE%E9%A5%B0%E5%99%A8)
 

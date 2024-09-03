@@ -8,7 +8,7 @@ StartupEvents.registry("block", (event) => {
     event.create("meng:my_block", "basic")
 })
 ```
-上面的代码中我们选择的是方块注册，将方块id设置为`"meng:my_block"`，这里前面的`meng`是[命名空间](/ti-wai-hua/ming-ming-kong-jian.md),主要关系到我们之后去添加[材质贴图](/cai-zhi/tie-tu.md)和[本地化(lang文件)](/cai-zhi/lang.md)的路径
+上面的代码中我们选择的是方块注册，将方块id设置为`"meng:my_block"`，这里前面的`meng`是[命名空间](../../ti-wai-hua/ming-ming-kong-jian),主要关系到我们之后去添加[材质贴图](../../cai-zhi/tie-tu)和[本地化(lang文件)](../../cai-zhi/lang)的路径
 
 ## 方块类型
 我们的方块类型设置的为`basic`也就是默认的、基本的方块类型，在kubejs中已经给我们提供了不少的方块类型，如下
@@ -36,7 +36,7 @@ StartupEvents.registry("block", (event) => {
 | :-----------------------------------------------: | :-----------------------------------------: | :--------------------------------------------: | :------: |
 |   `randomTick(Consumer\<RandomTickCallbackJS>)`   |                      -                      |                  方块随机tick                  |   this   |
 |        `lootTable(Consumer\<LootBuilder>)`        |                      -                      |                 方块战利品构建                 |    ~     |
-|           `tagBlock(ResourceLocation)`            | [常用参数](#chang-yong-de-tagblock-can-shu) | 设置方块的标签(如可被挖掘的工具类型和挖掘等级) |   this   |
+|           `tagBlock(ResourceLocation)`            | [常用参数](#常用的tagblock参数) | 设置方块的标签(如可被挖掘的工具类型和挖掘等级) |   this   |
 |            `tagItem(ResourceLocation)`            |                     ->                      |               设置方块物品的tag                |   this   |
 |                    `noItem()`                     |                      -                      |                不生成对应的物品                |   this   |
 |             `displayName(Component)`              |                     ->                      |                  设置显示名字                  |   this   |

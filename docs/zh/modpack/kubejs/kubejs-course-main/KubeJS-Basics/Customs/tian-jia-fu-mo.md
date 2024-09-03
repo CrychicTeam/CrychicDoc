@@ -50,10 +50,10 @@ StartupEvents.registry("enchantment",event =>{
 |  breakable  |   ？？？   |
 
 ## 设置稀有度
-[关于稀有度](/ti-wai-hua/xi-you-du.md)
+[关于稀有度](../../ti-wai-hua/xi-you-du)
 |     方法名     | 传入参数 |                       方法用处                       |
 | :------------: | :------: | :--------------------------------------------------: |
-| rarity(rarity) |  稀有度  | [添加稀有度](/ti-wai-hua/xi-you-du.md/#稀有度的等级) |
+| rarity(rarity) |  稀有度  | [添加稀有度](../../ti-wai-hua/xi-you-du#稀有度的等级) |
 |   uncommon()   | 无需传参 |                   设置稀有度为罕见                   |
 |     rare()     | 无需传参 |                   设置稀有度为稀有                   |
 |   veryRare()   | 无需传参 |                   设置稀有度为史诗                   |
@@ -146,7 +146,7 @@ StartupEvents.registry("enchantment",event =>{
 
 简单来说当返回值等于25时玩家将绝对免疫这次伤害,但是因为mc的游戏机制问题，返回值最多只有20，超过20的部分也只有20
 
-更加详细的可以查看[mcwiki的保护机制](https://zh.minecraft.wiki/w/%E7%9B%94%E7%94%B2%E6%9C%BA%E5%88%B6#%E4%BF%9D%E6%8A%A4%E9%AD%94%E5%92%92%E6%9C%BA%E5%88%B6)或者文档内的[附魔保护机制](/ti-wai-hua/fu-mo-bao-hu-ji-zhi.md)
+更加详细的可以查看[mcwiki的保护机制](https://zh.minecraft.wiki/w/%E7%9B%94%E7%94%B2%E6%9C%BA%E5%88%B6#%E4%BF%9D%E6%8A%A4%E9%AD%94%E5%92%92%E6%9C%BA%E5%88%B6)或者文档内的[附魔保护机制](../../ti-wai-hua/fu-mo-bao-hu-ji-zhi)
 
 ```js
 StartupEvents.registry("enchantment",event =>{
@@ -215,7 +215,7 @@ StartupEvents.registry("enchantment",event =>{
             })
 })
 ```
-上面的代码中实现了，注册了一个生命窃取的附魔，并只能附给盔甲，注册后别忘了写[lang文件](/cai-zhi/lang.md)
+上面的代码中实现了，注册了一个生命窃取的附魔，并只能附给盔甲，注册后别忘了写[lang文件](../../cai-zhi/lang)
 ```json
 {
     "enchantment.meng.health_theft": "生命窃取"
@@ -240,7 +240,7 @@ StartupEvents.registry("enchantment",event =>{
             })
 })
 ```
-上面的代码中实现了，注册了一个生命吸取的附魔，并只能附给武器，注册后别忘了写[lang文件](/cai-zhi/lang.md)
+上面的代码中实现了，注册了一个生命吸取的附魔，并只能附给武器，注册后别忘了写[lang文件](../../cai-zhi/lang)
 ```json
 {
     "enchantment.meng.health_steal": "生命吸取"

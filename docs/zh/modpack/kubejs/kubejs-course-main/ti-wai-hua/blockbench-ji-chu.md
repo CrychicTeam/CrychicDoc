@@ -1,7 +1,7 @@
 # 模型
 ## 一、关于Blockbench
 
-* [**Blockbench**](https://www.blockbench.net)可以说是Minecraft界的建模神器了,你们所见到的奇奇怪怪的方块基本都是Blockbench做的(但也有少数[`obj`](/ti-wai-hua/ForgeReadObjModel.md)格式的进阶模型),例如这个锻造台\
+* [**Blockbench**](https://www.blockbench.net)可以说是Minecraft界的建模神器了,你们所见到的奇奇怪怪的方块基本都是Blockbench做的(但也有少数[`obj`](../ti-wai-hua/ForgeReadObjModel)格式的进阶模型),例如这个锻造台\
   ![smithing\_table_1.png](/imgs/Blockbench/smithing_table_1.png)![smithing\_table_2.png](/imgs/Blockbench/smithing_table_2.png)
 * **文件路径**
   * 模型文件往往存放于`assets/${modid}/models`

@@ -9,10 +9,10 @@
 
 |   战利品事件调用                |     用途   |   添加  |  覆盖 |  用法 |
 | :----------------------------: | :-------: | :----------: | :--------: | :-----------------------------------: |
-| ServerEvents.genericLootTables | 全局战利品 | modify       | addGeneric | [全局战利品](./quan-ju-zhan-li-pin.md)   |
-| ServerEvents.blockLootTables   | 方块战利品 | modifyBlock  | addBlock   | [方块战利品](./fang-kuai-diao-luo.md)    |
-| ServerEvents.entityLootTables  | 生物战利品 | modifyEntity | addEntity  | [生物战利品](./sheng-wu-diao-luo.md)     |
-| ServerEvents.giftLootTables    | 礼物战利品 | modify       | addGift    | [礼物战利品](./li-wu-zhan-li-pin.md)     |
-| ServerEvents.fishingLootTables | 钓鱼战利品 | modify       | addFishing | [钓鱼战利品](./diao-yu-zhan-li-pin.md)   |
-| ServerEvents.chestLootTables   | 宝箱战利品 | modify       | addChest   | [宝箱战利品](./bao-xiang-zhan-li-pin.md) |
+| ServerEvents.genericLootTables | 全局战利品 | modify       | addGeneric | [全局战利品](./quan-ju-zhan-li-pin)   |
+| ServerEvents.blockLootTables   | 方块战利品 | modifyBlock  | addBlock   | [方块战利品](./fang-kuai-diao-luo)    |
+| ServerEvents.entityLootTables  | 生物战利品 | modifyEntity | addEntity  | [生物战利品](./sheng-wu-diao-luo)     |
+| ServerEvents.giftLootTables    | 礼物战利品 | modify       | addGift    | [礼物战利品](./li-wu-zhan-li-pin)     |
+| ServerEvents.fishingLootTables | 钓鱼战利品 | modify       | addFishing | [钓鱼战利品](./diao-yu-zhan-li-pin)   |
+| ServerEvents.chestLootTables   | 宝箱战利品 | modify       | addChest   | [宝箱战利品](./bao-xiang-zhan-li-pin) |
 

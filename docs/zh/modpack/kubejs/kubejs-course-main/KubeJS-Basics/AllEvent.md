@@ -9,7 +9,7 @@
 |     主事件     |      子事件       |       用处       |             示例             |
 | :------------: | :---------------: | :--------------: | :--------------------------: |
 | StartupEvents  |       init        |  游戏初始化事件  |              -               |
-| StartupEvents  |     registry      | 注册各种游戏内容 | [链接](./tian-jia/README.md) |
+| StartupEvents  |     registry      | 注册各种游戏内容 | [链接](../KubeJS-Basics/Customs/README.md) |
 | WorldgenEvents |        add        | 世界生成添加事件 |              -               |
 | WorldgenEvents |      remove       | 世界生成删除事件 |              -               |
 |   ItemEvents   |   modification    |   修改物品属性   |              -               |
@@ -29,18 +29,18 @@
 | ServerEvents  |           tags           |           -           |                       -                        |
 | ServerEvents  |     commandRegistry      |     指令注册事件      |                       -                        |
 | ServerEvents  |         command          |    服务器指令事件     |                       -                        |
-| ServerEvents  |      customCommand       |      自定义指令       |  [链接](/kjs-jin-jie/zi-ding-yi-zhi-ling.md)   |
-| ServerEvents  |         recipes          |       配方事件        |      [链接](./ji-chu-xie-fa-tian-jia.md)       |
+| ServerEvents  |      customCommand       |      自定义指令       |  [链接](../kjs-jin-jie/zi-ding-yi-zhi-ling)   |
+| ServerEvents  |         recipes          |       配方事件        |      [链接](./ji-chu-xie-fa-tian-jia)       |
 | ServerEvents  |       afterRecipes       | 配方事件后处理(有bug) |                       -                        |
 | ServerEvents  | specialRecipeSerializers |           -           |                       -                        |
 | ServerEvents  |    compostableRecipes    |           -           |                       -                        |
 | ServerEvents  |    recipeTypeRegistry    |           -           |                       -                        |
-| ServerEvents  |    genericLootTables     |    全局战利品事件     |  [链接](./zhan-li-pin/quan-ju-zhan-li-pin.md)  |
-| ServerEvents  |     blockLootTables      |    方块战利品事件     |  [链接](./zhan-li-pin/fang-kuai-diao-luo.md)   |
-| ServerEvents  |     entityLootTables     |    实体战利品事件     |   [链接](./zhan-li-pin/sheng-wu-diao-luo.md)   |
-| ServerEvents  |      giftLootTables      |  村民礼物战利品事件   |   [链接](./zhan-li-pin/li-wu-zhan-li-pin.md)   |
-| ServerEvents  |    fishingLootTables     |    钓鱼战利品事件     |  [链接](./zhan-li-pin/diao-yu-zhan-li-pin.md)  |
-| ServerEvents  |     chestLootTables      |    宝箱战利品事件     | [链接](./zhan-li-pin/bao-xiang-zhan-li-pin.md) |
+| ServerEvents  |    genericLootTables     |    全局战利品事件     |  [链接](./LootTables/quan-ju-zhan-li-pin)  |
+| ServerEvents  |     blockLootTables      |    方块战利品事件     |  [链接](./LootTables/fang-kuai-diao-luo)   |
+| ServerEvents  |     entityLootTables     |    实体战利品事件     |   [链接](./LootTables/sheng-wu-diao-luo)   |
+| ServerEvents  |      giftLootTables      |  村民礼物战利品事件   |   [链接](./LootTables/li-wu-zhan-li-pin)   |
+| ServerEvents  |    fishingLootTables     |    钓鱼战利品事件     |  [链接](./LootTables/diao-yu-zhan-li-pin)  |
+| ServerEvents  |     chestLootTables      |    宝箱战利品事件     | [链接](./LootTables/bao-xiang-zhan-li-pin) |
 |  LevelEvents  |          loaded          |     世界加载事件      |                       -                        |
 |  LevelEvents  |         unloaded         |           -           |                       -                        |
 |  LevelEvents  |           tick           |     世界tick事件      |                       -                        |
@@ -95,7 +95,7 @@
 | ClientEvents  |   rightDebugInfo   |       -        |             -              |
 | ClientEvents  |    paintScreen     |       -        |             -              |
 | NetworkEvents |     fromServer     |       -        |             -              |
-|  ItemEvents   |      tooltip       |    物品提示    | [链接](./wu-pin-ti-shi.md) |
+|  ItemEvents   |      tooltip       |    物品提示    | [链接](./wu-pin-ti-shi) |
 |  ItemEvents   | clientRightClicked |       -        |             -              |
 |  ItemEvents   | clientLeftClicked  |       -        |             -              |
 

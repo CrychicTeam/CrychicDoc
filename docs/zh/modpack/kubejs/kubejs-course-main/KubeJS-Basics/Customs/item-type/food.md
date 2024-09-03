@@ -3,9 +3,9 @@
 
 ## 基础写法
 ```js
-StartupEvents.registry("item", event => {
+StartupEvents.registry("item", event =\> {
     event.create("meng:my_food")
-        .food(foodBuilder=>{})
+        .food(foodBuilder=\>{})
 })
 ```
 这是最基础的写法，将该物品设置为食物，我们可以为食物设置一些参数
@@ -19,11 +19,11 @@ StartupEvents.registry("item", event => {
 |             alwaysEdible()             |           -           |        设置为随时可食用        | 不需要消耗饱食度就可食用 |
 |              fastToEat()               |           -           |         设置为快速食用         |          吃得快          |
 |        removeEffect(MobEffect)         |       药水效果        |    食用后清除某一种药水效果    |            -             |
-|    eaten(Consumer<FoodEatenEvent>)     |      食用后事件       |               -                |            -             |
+|    eaten(Consumer\<FoodEatenEvent\>)     |      食用后事件       |               -                |            -             |
 | effect(ResourceLocation,int,int,float) | [effect参数](#effect) |     设置食用后给予药水效果     |            -             |
 |                build()                 |           -           | 返回该食物的`FoodProperties`类 |            -             |
 
-[关于饱和度和饱食度的区别](/ti-wai-hua/saturation-hunger.md)
+[关于饱和度和饱食度的区别](../../../ti-wai-hua/saturation-hunger)
 
 ### effect
 ```
@@ -38,9 +38,9 @@ effect(
 ## 药水效果设置
 ### 添加药水效果
 ```js
-StartupEvents.registry("item", event => {
+StartupEvents.registry("item", event =\> {
     event.create("meng:my_food")
-        .food(foodBuilder=>{
+        .food(foodBuilder=\>{
             foodBuilder.effect("minecraft:speed",20*20,0,0.5)
         })
 })
@@ -49,9 +49,9 @@ StartupEvents.registry("item", event => {
 
 ### 移除药水效果
 ```js
-StartupEvents.registry("item", event => {
+StartupEvents.registry("item", event =\> {
     event.create("meng:my_food2")
-        .food(foodBuilder=>{
+        .food(foodBuilder=\>{
             foodBuilder.removeEffect("speed")
         })
 })
@@ -62,10 +62,10 @@ StartupEvents.registry("item", event => {
 ```js
 const { $Player } = require("packages/net/minecraft/world/entity/player/$Player")
 
-StartupEvents.registry("item", event => {
+StartupEvents.registry("item", event =\> {
     event.create("meng:my_food3")
-        .food(foodBuilder=>{
-            foodBuilder.eaten(foodEatenEvent=>{
+        .food(foodBuilder=\>{
+            foodBuilder.eaten(foodEatenEvent=\>{
                 /**
                  * @type {$Player}
                  */
@@ -91,7 +91,7 @@ StartupEvents.registry("item", event => {
 ## 简单示例
 ```js
 event.create("meng:my_food4")
-        .food(foodBuilder=>{
+        .food(foodBuilder=\>{
             foodBuilder.hunger(10) //设置恢复5个“鸡腿”
             foodBuilder.saturation(0.5) // 饱和度设置为10*0.5 = 5
             foodBuilder.meat() // 设置食物属性为肉，可以被狗食用

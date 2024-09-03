@@ -407,4 +407,4 @@ scene.showControls(80, [2, 1, 2], "down")
  .whileSneaking(); // 在框内显示 潜行 的图示
 ```
 
-[PonderIcons.md 跳转连接](internal/PonderIcons.md).
+[PonderIcons.md 跳转连接](./internal/PonderIcons.md).
