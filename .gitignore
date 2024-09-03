@@ -8,3 +8,4 @@ yarn.lock
 route.bash
 .vitepress/dev.json
 .vitepress/.DS_Store
+*.DS_Store*
