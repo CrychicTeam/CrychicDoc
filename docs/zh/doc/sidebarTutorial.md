@@ -65,6 +65,8 @@ function logger(string: string, name: string): void {
 
 :::
 
+>引用示例
+
 ::: warning 注意
 
 路径字符串不应包含`docs/<lang>`目录  
@@ -106,7 +108,7 @@ authors:
 
 在本站生成器中，目录不会被自动递归扫描，您需要在目录目录上级创建`index.md`并对其[frontmatter](#frontmatter)进行配置，手动指定需要进入并扫描的目录。
 
-#### 解析
+#### 解析 {#index}
 
 `index.md`中的frontmatter除了支持常规的文件配置格式，还会额外读取一项名为`root`的`<Object>`对象，其配置字段及代码声明如下。
 
@@ -187,7 +189,7 @@ root:
 
 :::
 
-### frontmatter声明 {#frontmatter}
+## frontmatter声明 {#frontmatter}
 
 在每个 Markdown 文件的开头，使用 `---` 来创建frontmatter配置
 

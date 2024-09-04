@@ -26,7 +26,9 @@ import damageChart from './components/minecraft-advanced-damage-chart.vue'
 import carousel from './components/carousel.vue'
 import ShareLinkButton from './components/ShareLinkButton.vue'
 import Footer from './components/Footer.vue'
+import ArticleMetadata from "./components/ArticleMetadataCN.vue"
 import '@mdit/plugin-spoiler/style'
+import './style/index.css'
 
 export default {
   extends: DefaultTheme,
@@ -51,6 +53,7 @@ export default {
     ctx.app.component('BilibiliVideo', BilibiliVideo)
     ctx.app.component('DamageChart', damageChart)
     ctx.app.component('Carousel', carousel)
+    ctx.app.component('ArticleMetadata' , ArticleMetadata)
   },
   setup() {
     const route = useRoute();
