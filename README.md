@@ -1,5 +1,5 @@
 
-<div align="center"><img height="200" src="/docs/public/logo.png" width="200"/></div>
+<div align="center"><img height="200" src="docs/public/logo.png" width="200"/></div>
 
 ## 协议
 
@@ -44,4 +44,3 @@ You may find English version of readme on [here](/READMEEN.md).
 2. 使用阿里云的GeoDNS将国内外的流量分流，国外玩家访问时将自动访问[CloudFlare](https://cloudflare.com/)加速后的数据。
 
 > 域名在阿里云购买
-
