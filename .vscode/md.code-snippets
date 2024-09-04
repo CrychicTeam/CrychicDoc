@@ -12,7 +12,7 @@
         "description": "nogui"
     },
     "root": {
-        "prefix": "root",
+        "prefix": "@root",
         "body": [
             "root:",
             "  $0"
