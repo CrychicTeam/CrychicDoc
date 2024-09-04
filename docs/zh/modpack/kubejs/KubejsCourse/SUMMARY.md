@@ -44,7 +44,7 @@
   * [世界生成](/KubejsAdvanced/WorldGen.md)
   * [global全局变量](/KubejsAdvanced/GlobalVariable.md)
 * [kjs模组](/KubejsAddon/README.md)
-  * [AdvancementJS(进度)](/KubejsAddon/AdvancementJS.md)
+  * [AdvancementJS(进度)](/KubejsAddon/AdvancementJs.md)
   * [ArsNouveauJS(新生魔艺)](/KubejsAddon/ArsNouveauJS.md)
   * [BotaniaJS(植物魔法)](/KubejsAddon/BotaniaJS.md)
   * [BotanyPotsJS](/KubejsAddon/BotanyPotsJS.md)
