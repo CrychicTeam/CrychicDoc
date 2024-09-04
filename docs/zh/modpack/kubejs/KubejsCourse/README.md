@@ -13,15 +13,15 @@
 
 # 关于一些文件夹的帮助
 ## 文件夹分类
-* KubeJS-Basics 存放kubejs基础内容
-* kjs-jin-jie 存放kubejs的进阶内容
-* kjs-mo-zu 存放关于kubejs周边的联动模组内容
-* ti-wai-hua 存放除了kubejs代码以外可能需要知道的内容
-* cai-zhi 存放关于assets资源内容
-* KubeJS-Projects-Share 存放一些大家写的项目(对应的文件夹路径代表着对应的分享人)
-* files 存放着文档里出现的可下载资源
+* KubejsBasic 存放kubejs基础内容
+* KubejsAdvanced 存放kubejs的进阶内容
+* KubejsAddon 存放关于kubejs周边的联动模组内容
+* Digression 存放除了kubejs代码以外可能需要知道的内容
+* Texture 存放关于assets资源内容
+* KubejsProjects 存放一些大家写的项目(对应的文件夹路径代表着对应的分享人)
+* Files 存放着文档里出现的可下载资源
 * imgs 存放着文档里出现的图片,对应的路径代表着出现的位置
-* code 存放着代码分享
+* Code 存放着代码分享
   * Projects是项目分享的代码
   * This是教程中会涉及到的一些文件
 * 提交
