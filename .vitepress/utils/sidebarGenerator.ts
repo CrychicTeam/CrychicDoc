@@ -76,15 +76,15 @@ export default class SidebarGenerator{
                 if (this.isDir(subDirPath)) {
                     subSideBar.text = subDir.title;
                     subSideBar.collapsed = subDir.collapsed;
-                    this._sidebar.items.push(subSideBar);
                     if (!subDir.noScan){
                         const subDirContainer = new SidebarGenerator(`${this.pathname}/${subDir.path}`, false);
                         subDirContainer._sidebar.items.forEach(item => {
                             subSideBar.items.push(item)
                         });
-                    } else if (subDir.noScan) {
+                    } else if (subDir.file) {
                         subSideBar.link = `${this.pathname.replace("docs/", "")}/${subDir.path}/${subDir.file}`
                     }
+                    this._sidebar.items.push(subSideBar);
                 }
             });
         }

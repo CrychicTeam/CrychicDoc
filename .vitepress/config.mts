@@ -53,7 +53,7 @@ export default withMermaid(
           darkModeSwitchLabel: '切换主题',
           lightModeSwitchTitle: '切换到浅色模式',
           darkModeSwitchTitle: '切换到深色模式'
-        }
+        },
       },
       en: {
         label: 'English',
@@ -111,6 +111,7 @@ export default withMermaid(
     },
     markdown: {
       math: true,
+      lineNumbers: true,
       config: async (md) => {
         md.use(timeline);
         md.use(tabsMarkdownPlugin);
@@ -127,6 +128,11 @@ export default withMermaid(
         md.use(ruby);
         md.use(demo);
         md.use(dl);
+        md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+          let htmlResult = slf.renderToken(tokens, idx, options);
+          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
+          return htmlResult;
+      }
       },
       codeTransformers: [
         transformerTwoslash() 
