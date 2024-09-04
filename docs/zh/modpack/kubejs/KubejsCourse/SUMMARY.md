@@ -1,6 +1,4 @@
 # Table of contents
-
-* [kubejs教程-1.20.1](/README.md)
 * [kjs基础](/KubejsBasic/README.md)
   * [前言](/KubejsBasic/Foreword.md)
   * [认识kjs的文件夹](/KubejsBasic/FileStructure.md)
@@ -22,7 +20,7 @@
   * [自定义游戏内容](/KubejsBasic/Customs/README.md)
     * [添加物品](/KubejsBasic/Customs/ItemRegistry.md)
     * [添加物品示例](/KubejsBasic/Customs/ItemType/README.md)
-      * [唱片添加](/KubejsBasic/Customs/ItemType/chang-pian.md)
+      * [唱片添加](/KubejsBasic/Customs/ItemType/MusicDisc.md)
       * [食物添加](/KubejsBasic/Customs/ItemType/food.md)
       * [工具添加](/KubejsBasic/Customs/ItemType/tools.md)
       * [右键使用物品](/KubejsBasic/Customs/ItemType/use.md)

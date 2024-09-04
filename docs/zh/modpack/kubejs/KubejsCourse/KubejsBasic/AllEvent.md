@@ -1,11 +1,11 @@
 # 所有事件
 本章中将会列举出所有事件和对应的示例，其中包括kubejs提供的和模组提供的
 
-# kubejs提供的所有事件
+## kubejs提供的所有事件
 下面是kubejs模组提供的所有可供调用的事件，需要注意存放的文件夹
 
 写法为:`主事件.子事件`
-## 启动时文件夹下startup_scripts
+### 启动时文件夹下startup_scripts
 |     主事件     |      子事件       |       用处       |             示例             |
 | :------------: | :---------------: | :--------------: | :--------------------------: |
 | StartupEvents  |       init        |  游戏初始化事件  |              -               |
@@ -18,7 +18,7 @@
 |   ItemEvents   |  modelProperties  |        -         |              -               |
 |  BlockEvents   |   modification    |   修改方块属性   |              -               |
 
-## 服务端文件夹下server_scripts
+### 服务端文件夹下server_scripts
 |    主事件     |          子事件          |         用处          |                      示例                      |
 | :-----------: | :----------------------: | :-------------------: | :--------------------------------------------: |
 | ServerEvents  |     lowPriorityData      |           -           |                       -                        |
@@ -82,7 +82,7 @@
 | PlayerEvents  |       chestOpened        |   玩家打开箱子事件    |                       -                        |
 | PlayerEvents  |       chestClosed        |   玩家关闭箱子事件    |                       -                        |
 
-## 客户端文件夹下client_scripts
+### 客户端文件夹下client_scripts
 |    主事件     |       子事件       |      用处      |            示例            |
 | :-----------: | :----------------: | :------------: | :------------------------: |
 | ClientEvents  | highPriorityAssets |       -        |             -              |
@@ -99,4 +99,4 @@
 |  ItemEvents   | clientRightClicked |       -        |             -              |
 |  ItemEvents   | clientLeftClicked  |       -        |             -              |
 
-# 模组提供的事件
+## 模组提供的事件
