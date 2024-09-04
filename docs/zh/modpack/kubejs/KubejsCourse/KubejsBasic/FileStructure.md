@@ -1,4 +1,4 @@
-## 认识KubeJS的文件夹
+# 认识KubeJS的文件夹
 kjs在第一次运行后，会在版本文件夹下创建一个自己的魔改文件夹 **`kubejs`** ，在该文件夹里有
 \
 **`assets`**\
@@ -10,7 +10,7 @@ kjs在第一次运行后，会在版本文件夹下创建一个自己的魔改�
 
 这些文件夹，下面会介绍这些文件夹所存放的类型
 
-### 资源Assets
+## 资源Assets
 
 **`assets`** 其结构如下所示assets/\<namespace\>/...
 
@@ -25,7 +25,7 @@ kjs在第一次运行后，会在版本文件夹下创建一个自己的魔改�
     type="info"
   ></v-alert>
 
-### 数据Data
+## 数据Data
 
 **`data`** 其结构如下所示data/\<namespace\>/... 
 
@@ -75,6 +75,8 @@ kjs在第一次运行后，会在版本文件夹下创建一个自己的魔改�
 1. [Paxi](https://www.mcmod.cn/class/4615.html)
 2. [Global Data & Resourcepacks](https://www.mcmod.cn/class/2826.html)
 3. [Json Things](https://www.mcmod.cn/class/7734.html)
+
+## 配置文件
 
 **`config`** 是存放配置文件的，可以自己定义一些配置文件丢里面
 
