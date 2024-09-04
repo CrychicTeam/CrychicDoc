@@ -65,8 +65,6 @@ function logger(string: string, name: string): void {
 
 :::
 
->引用示例
-
 ::: warning 注意
 
 路径字符串不应包含`docs/<lang>`目录  
