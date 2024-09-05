@@ -17,6 +17,8 @@ import { demo } from "@mdit/plugin-demo"
 import { dl } from "@mdit/plugin-dl";
 import { stepper} from '../plugins/stepper';
 import { tab } from "@mdit/plugin-tab";
+import { mark } from "@mdit/plugin-mark";
+import { ins } from "@mdit/plugin-ins";
 import { v_alert } from "../plugins/v-alert"
 import fs from 'fs';
 import path from 'path'
@@ -41,10 +43,12 @@ export const markdown: MarkdownOptions = {
         md.use(demo);
         md.use(dl);
         md.use(v_alert);
+        md.use(mark);
+        md.use(ins);
         //md.use(container, stepper);
         //md.use(container, template);
         md.use(tab, stepper)
-        // const test = md.render(fs.readFileSync(path.join("docs","zh","doc","index.md")).toString())
+        // const test = md.render(fs.readFileSync(path.join("docs","zh","modpack","kubejs","KubejsCourse","KubejsBasic","FileStructure.md")).toString())
         // fs.writeFileSync('output.html', test);
         md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
           let htmlResult = slf.renderToken(tokens, idx, options);
