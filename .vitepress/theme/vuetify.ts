@@ -3,6 +3,7 @@ import * as components from 'vuetify/components'
 
 import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.css'
+import './style/v-theme.css'
 
 export default createVuetify({
   ssr: true,

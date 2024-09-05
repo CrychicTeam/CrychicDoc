@@ -39,6 +39,7 @@
     "chart.js": "^4.4.3",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.10.0",
+    "markdown-it": "^14.1.0",
     "markdown-it-abbr": "^2.0.0",
     "markdown-it-alert": "^0.1.5",
     "markdown-it-deflist": "^3.0.0",

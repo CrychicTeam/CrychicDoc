@@ -151,9 +151,6 @@ graph TD
 > 例如：我完成了这个更改 => 2024/某月、某日 - 我的名字
 :::
 
-
-  <v-alert
-    text="你现在已经是Pull Request大师啦！"
-    title="恭喜你！"
-    type="success"
-  ></v-alert>
+:::v-success 恭喜你！
+你现在已经是Pull Request大师啦！
+:::
