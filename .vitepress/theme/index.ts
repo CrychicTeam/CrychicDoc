@@ -27,6 +27,7 @@ import carousel from './components/carousel.vue'
 import ShareLinkButton from './components/ShareLinkButton.vue'
 import Footer from './components/Footer.vue'
 import ArticleMetadata from "./components/ArticleMetadataCN.vue"
+import backTop from "./components/backTop.vue"
 import '@mdit/plugin-spoiler/style'
 import './style/index.css'
 
@@ -39,7 +40,8 @@ export default {
       "aside-outline-after": () => h(AuthorsComponent),
       "doc-after": () => h(Comment),
       "aside-outline-before": () => h(ShareLinkButton),
-      "layout-bottom" : () => h(Footer)
+      "layout-bottom" : () => h(Footer),
+      'doc-footer-before': () => h(backTop),
     })
   },
   enhanceApp: (ctx) => {
