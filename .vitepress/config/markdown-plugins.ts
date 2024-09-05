@@ -15,8 +15,11 @@ import { sup } from "@mdit/plugin-sup"
 import { ruby } from "@mdit/plugin-ruby"
 import { demo } from "@mdit/plugin-demo"
 import { dl } from "@mdit/plugin-dl";
-import { stepper} from '../utils/stepper';
+import { stepper} from '../plugins/stepper';
 import { tab } from "@mdit/plugin-tab";
+import { v_alert } from "../plugins/v-alert"
+import fs from 'fs';
+import path from 'path'
 
 export const markdown: MarkdownOptions = {
     math: true,
@@ -37,9 +40,12 @@ export const markdown: MarkdownOptions = {
         md.use(ruby);
         md.use(demo);
         md.use(dl);
+        md.use(v_alert);
         //md.use(container, stepper);
         //md.use(container, template);
         md.use(tab, stepper)
+        // const test = md.render(fs.readFileSync(path.join("docs","zh","doc","index.md")).toString())
+        // fs.writeFileSync('output.html', test);
         md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
           let htmlResult = slf.renderToken(tokens, idx, options);
           if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
