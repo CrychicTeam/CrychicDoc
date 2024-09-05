@@ -43,6 +43,7 @@
   * [物品属性修改](/KubejsAdvanced/ItemAttributeModify.md)
   * [世界生成](/KubejsAdvanced/WorldGen.md)
   * [global全局变量](/KubejsAdvanced/GlobalVariable.md)
+  * [RecipesSchema简单教程](/KubejsAdvanced/RecipesSchemaAdded.md)
 * [kjs模组](/KubejsAddon/README.md)
   * [KubeJSAdditions](/KubejsAddon/KubeJSAdditions/README.md)
     * [关于事件](/KubejsAddon/KubeJSAdditions/Events.md)
