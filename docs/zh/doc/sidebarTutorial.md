@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: 侧边栏设置教程
+noguide: true
 authors:
   - M1hono
   - skyraah

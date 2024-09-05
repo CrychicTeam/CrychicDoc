@@ -3,8 +3,6 @@ layout: doc
 title: Project Collaboration Tutorial
 authors:
   - M1hono
-generateSidebar: true
-autoPN: true
 sidebarorder:
   index: 1
   samples: 2

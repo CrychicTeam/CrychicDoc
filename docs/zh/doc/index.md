@@ -1,12 +1,27 @@
 ---
 layout: doc
 title: 项目合作教程
-generateSidebar: true
-autoPN: true
-sidebarorder:
-  index: 1
-  samples: 2
-  test: 3
+noguide: true
+root:
+  title: 文档相关
+  collapsed: false
+  subDir:
+      - title: 项目合作教程
+        path: /
+        noScan: true
+        file: index
+      - title: 侧边栏设置教程
+        path: /
+        noScan: true
+        file: sidebarTutorial
+      - title: 文档插件示例
+        path: /
+        noScan: true
+        file: samples
+      - title: 类型检查示例
+        path: /
+        noScan: true
+        file: test
 authors:
   - M1hono
 prev:
@@ -142,12 +157,9 @@ graph TD
 
 
 ::: details
-> 如果你参与的项目为Crychic的Minecraft-Hunt，在你完成某项工作时，需要在CHANGELOG与DevDocuments中写入你所提供的贡献。
-
-> 如果你作为外部开发者为Crychic尤其为CrychicDoc贡献了任何资料与文档的内容，请在新增事项后留下您的署名，非常感谢您的付出。
-
-> 如果您希望规范自己在CrychicDoc中的署名使其更加得体。请联系我们。
-
+> 如果你参与的项目为Crychic的Minecraft-Hunt，在你完成某项工作时，需要在CHANGELOG与DevDocuments中写入你所提供的贡献。<br/>
+> 如果你作为外部开发者为Crychic尤其为CrychicDoc贡献了任何资料与文档的内容，请在新增事项后留下您的署名，非常感谢您的付出。<br/>
+> 如果您希望规范自己在CrychicDoc中的署名使其更加得体。请联系我们。<br/>
 > 例如：我完成了这个更改 => 2024/某月、某日 - 我的名字
 :::
 

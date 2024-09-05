@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: 文档插件示例
+noguide: true
 authors:
   - M1hono
 prev:
