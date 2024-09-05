@@ -47,7 +47,7 @@ ServerEvents.recipes((event) => {
 
 介绍和示例就演示到这里, 下面开始正文(完整的代码在下面👇)
 
-首先请先下载这个Schema配方文件[**RecipesSchema**](/Files/RecipesSchema.java), 这个文件内有着各种类型的组件, 在编写的时候需要很频繁的查阅这些东西
+首先请先下载这个Schema配方文件[**RecipesSchema**](https://cloud.mihono.cn/s/FPCmZY3ibF5JyDD/download/RecipesSchema.java), 这个文件内有着各种类型的组件, 在编写的时候需要很频繁的查阅这些东西
 
 然后去[**迺逸夫老师的GitHub**](https://github.com/Prunoideae/-recipes/blob/1.20.1/src)仓库下载[**prelude.js**](https://github.com/Prunoideae/-recipes/blob/1.20.1/src/prelude.js), 这个文件是逸夫老师事先写好的轮子, 可以非常大程度的提升编写效率
 

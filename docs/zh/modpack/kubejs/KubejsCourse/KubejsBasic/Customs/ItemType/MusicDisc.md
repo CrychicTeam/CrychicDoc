@@ -75,4 +75,4 @@ StartupEvents.registry("item", (event) => {
 材质路径为`kubejs/assets/${modid}/textures/item` 将已经画好的唱片材质放在该路径下并命名为`my_music.png` 这里和物品id名称一样
 
 ## 注意事项和音乐下载
-如果你上面做的都没问题，唱片也能成功放进唱片机，代码也没报错，但是就是没声音，建议先用孤梦[提供的音乐](https://gitee.com/gumengmengs/kubejs-course/blob/main/files/my_music.ogg) 如果链接打不开或者无法下载，在[哔哩哔哩私信孤梦](https://space.bilibili.com/16632546)
+如果你上面做的都没问题，唱片也能成功放进唱片机，代码也没报错，但是就是没声音，建议先用孤梦[提供的音乐](https://cloud.mihono.cn/s/5WicT8yJcsA86Co/download/my_music.ogg) 如果链接打不开或者无法下载，在[哔哩哔哩私信孤梦](https://space.bilibili.com/16632546)
