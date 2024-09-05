@@ -5,6 +5,8 @@
 
 This project is licensed under the [MIT License](LICENSE).
 
+!!! warning The project/team logo is created by [Huan Yue の Yin Yi](https://www.pixiv.net/users/7865026) and is authorized for non-commercial use. Please do not take it for any commercial activities.
+
 # Hello
 
 你可以在[这里](/README.md)查看中文的README.

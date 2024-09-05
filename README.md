@@ -5,6 +5,8 @@
 
 本项目使用自由的[MIT许可](LICENSE)开源。
 
+!!! warning 本项目/团队Logo由[幻月の银翼](https://www.pixiv.net/users/7865026)老师创作经授权进行非商业行为的使用，请勿取走来用作任何商业行为。
+
 # 你好
 
 You may find English version of readme on [here](/READMEEN.md).
