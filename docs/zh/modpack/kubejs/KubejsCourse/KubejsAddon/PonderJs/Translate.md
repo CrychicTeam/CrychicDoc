@@ -1,10 +1,10 @@
-## 关于翻译
+# 关于翻译
 
 > 在构筑代码的时候, 你可能会为了将内容翻译成其他语种而烦恼, 不过不用担心, Ponder 会自动建立翻译文件
 >
 > 只要知道你的代码与其的对应关系便可进行档案的修改了
 
-## 开始之前
+# 开始之前
 
 当你完成代码并启动游戏时, Ponder 会自动生成对应的名为 [en_us.json](https://gitee.com/gumengmengs/kubejs-course/tree/main/Code/Ponder/kubejs/assets/ponderjs_generated/lang/en_us.json) 的翻译文件 **（即使你的代码内对应的描述并非英文）**, 其档案路径为
 
@@ -18,11 +18,11 @@
 
 关于更多语言的文件命名:[链接](../../DigressionLangFileNamingChart.md)
 
-## 开始
+# 开始
 
 以 [iron_golem.js](https://gitee.com/gumengmengs/kubejs-course/tree/main/Code/Ponder/kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
 
-## PonderTag 的部分
+# PonderTag 的部分
 
 ```js
 Ponder.tags((event) => {
@@ -50,27 +50,15 @@ Ponder.tags((event) => {
 >
 > `iron_golem` 对应 PonderTag 的 id 的路径（path）
 
-## Ponder 的部分
+# Ponder 的部分
 
 ```js
 Ponder.registry(event => {
-    ↓
-    ==
-    ↑
     event.create("minecraft:iron_block")
         .tag("kubejs:iron_golem")
         .scene("kubejs:iron_golem_1", "召唤铁傀儡", (scene, util) => {
-    ↓
-    ==
-    ↑
             scene.text(25, '想要召唤铁傀儡\n首先, 你需要将四个铁块以 §bT§r 字摆放');
-    ↓
-    ==
-    ↑
             scene.text(20, '注意 : §4这四个位置必须是空气方块§r\n任何非空气方块（包括雪、高草和水）在这四个位置时都会阻碍铁傀儡的生成');
-    ↓
-    ==
-    ↑
        });
 });
 ```
