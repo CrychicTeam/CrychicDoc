@@ -4,10 +4,8 @@ export const stepper: MarkdownItTabOptions = {
   name: "stepper",
   tabsOpenRenderer(info) {
     const { data } = info;
-    const items = data.map(tab => {
-      return `'${tab.title}'`
-    })
-    return `\n<v-stepper :items="[${items}]">`;
+    const items = data.map(tab => `'${tab.title}'`);
+    return `\n<v-stepper :items="[${items}]" class="theme-stepper">`;
   },
   tabsCloseRenderer() {
     return `\n</v-stepper>\n`;
@@ -18,4 +16,4 @@ export const stepper: MarkdownItTabOptions = {
   tabCloseRenderer() {
     return `</template> `;
   },
-}
+};

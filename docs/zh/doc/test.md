@@ -32,3 +32,82 @@ ItemEvents.rightClicked("acacia_button",event=>{
 })
 ```
 非常好
+
+::: stepper
+@tab 第一步
+
+只是测试
+
+OK
+
+```yaml
+---
+noguide: true
+root:
+  title: example // [!code focus]
+  collapsed: true
+  subDir:
+      - title: subDir a
+        path: test
+        collapsed: true
+      - title: subDir back
+        path: test
+        noScan: true
+        file: README
+---
+```
+
+@tab 第二步
+```yaml
+---
+noguide: true
+root:
+  title: example
+  collapsed: true
+  subDir: // [!code focus:4]
+      - title: subDir a
+        path: test
+        collapsed: true
+      - title: subDir back
+        path: test
+        noScan: true
+        file: README
+---
+```
+
+@tab 第三步
+```yaml
+---
+noguide: true // [!code focus]
+root:
+  title: example
+  collapsed: true
+  subDir:
+      - title: subDir a
+        path: test
+        collapsed: true
+      - title: subDir back
+        path: test
+        noScan: true
+        file: README
+---
+```
+
+@tab 第四步
+```yaml
+---
+noguide: true // [!code focus]
+root:
+  title: example
+  collapsed: true
+  subDir:
+      - title: subDir a
+        path: test
+        collapsed: true
+      - title: subDir back
+        path: test
+        noScan: true
+        file: README
+---
+
+:::
