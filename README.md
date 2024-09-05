@@ -5,14 +5,15 @@
 
 本项目使用自由的[MIT许可](LICENSE)开源。
 
-> [!caution]
-> 本项目/团队Logo由[幻月の银翼](https://www.pixiv.net/users/7865026)老师创作经授权进行非商业行为的使用，请勿取走来用作任何商业行为。
+> **本项目/团队Logo由[幻月の银翼](https://www.pixiv.net/users/7865026)老师创作经授权进行非商业行为的使用，请勿取走来用作任何商业行为。**
 
 # 你好
 
 You may find English version of readme on [here](/READMEEN.md).
 
 这里是Cryhic文档的源代码库。
+
+我一直认为最能够推动社区创作环境的是详细而生动的文档，因此我计划并维护了这个文档计划，来帮助开发者与玩家获得更好的开发与游玩体验（尤其在模组环境）。
 
 ## 目录介绍
 
@@ -40,6 +41,7 @@ You may find English version of readme on [here](/READMEEN.md).
 3. 克隆仓库到本地
 4. 在终端输入`yarn install`安装依赖
 5. 在终端输入`npm run dev`启动本地服务，可在浏览器预览
+6. 剩下的可以查看该[文档](https://vitepress.yiov.top/preface.html)与[官方文档](https://vitepress.dev/zh/)来获得更详细具体的教程。
 
 
 本文档使用安全稳定的的部署方案，可长期稳定运行并保证不同地区玩家的访问：

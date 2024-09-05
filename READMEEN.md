@@ -5,14 +5,15 @@
 
 This project is licensed under the [MIT License](LICENSE).
 
-> [!caution]
-> The project/team logo is created by [Huan Yue の Yin Yi](https://www.pixiv.net/users/7865026) and is authorized for non-commercial use. Please do not take it for any commercial activities.
+> **The project/team logo is created by [Huan Yue の Yin Yi](https://www.pixiv.net/users/7865026) and is authorized for non-commercial use. Please do not take it for any commercial activities.**
 
 # Hello
 
 你可以在[这里](/README.md)查看中文的README.
 
 This is the source code repository for Cryhic documentation.
+
+I have always believed that the most effective way to foster a creative community is through detailed and engaging documentation. That's why I have planned and maintained this documentation project, to help developers and players have a better development and gaming experience (especially in modded environment).
 
 ## Directory Structure
 
@@ -40,6 +41,7 @@ This website uses [Vitepress](https://vitepress.dev/) as a static site generator
 3. Clone the repository to your local machine.
 4. Install dependencies by running `yarn install` in the terminal.
 5. Start the local server by running `npm run dev` in the terminal. You can preview it in your browser.
+6. For more detailed and specific tutorials, you can refer to this [document](https://vitepress.yiov.top/preface.html) and the [official documentation](https://vitepress.dev/en/).
 
 This documentation uses a secure and stable deployment solution that ensures long-term stability and access for players in different regions:
 1. Use [github action](.github/workflows/build.yaml) to build the static files of the website and upload them to a private repository, then forward them to a physical server.
