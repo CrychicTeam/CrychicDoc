@@ -24,10 +24,9 @@ import YoutubeVideo from './components/YoutubeVideo.vue'
 import BilibiliVideo from './components/BilibiliVideo.vue'
 import damageChart from './components/minecraft-advanced-damage-chart.vue'
 import carousel from './components/carousel.vue'
-import ShareLinkButton from './components/ShareLinkButton.vue'
 import Footer from './components/Footer.vue'
 import ArticleMetadata from "./components/ArticleMetadataCN.vue"
-import backTop from "./components/backTop.vue"
+import buttons from "./components/Buttons.vue"
 import '@mdit/plugin-spoiler/style'
 import './style/index.css'
 
@@ -39,9 +38,8 @@ export default {
       "layout-top": () => h(TdesignDark),
       "aside-outline-after": () => h(AuthorsComponent),
       "doc-after": () => h(Comment),
-      "aside-outline-before": () => h(ShareLinkButton),
       "layout-bottom" : () => h(Footer),
-      'doc-footer-before': () => h(backTop),
+      'doc-footer-before': () => h(buttons),
     })
   },
   enhanceApp: (ctx) => {
