@@ -30,6 +30,8 @@
     "@mdit/plugin-demo": "^0.13.0",
     "@mdit/plugin-dl": "^0.13.1",
     "@mdit/plugin-img-size": "^0.13.0",
+    "@mdit/plugin-ins": "^0.13.1",
+    "@mdit/plugin-mark": "^0.13.1",
     "@mdit/plugin-ruby": "^0.13.0",
     "@mdit/plugin-spoiler": "^0.13.0",
     "@mdit/plugin-sub": "^0.13.0",

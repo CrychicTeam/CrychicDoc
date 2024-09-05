@@ -20,7 +20,7 @@ export const v_alert: PluginSimple = (md) => {
 
     md.renderer.rules.paragraph_open = (tokens, idx, options, env, self) => {
         const token = tokens[idx - 1];
-        if (token && token.type.startsWith('container_v-')) {
+        if (token && token.type.startsWith('container_v-') && token.type.endsWith('open')) {
             return ''; // Skip paragraph opening inside container
         }
         return self.renderToken(tokens, idx, options);
@@ -28,7 +28,7 @@ export const v_alert: PluginSimple = (md) => {
 
     md.renderer.rules.paragraph_close = (tokens, idx, options, env, self) => {
         const token = tokens[idx + 1];
-        if (token && token.type.startsWith('container_v-')) {
+        if (token && token.type.startsWith('container_v-') && token.type.endsWith('close')) {
             return '\n'; // Skip paragraph closing inside container
         }
         return self.renderToken(tokens, idx, options);

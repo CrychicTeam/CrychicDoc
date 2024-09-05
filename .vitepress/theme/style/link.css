@@ -1,0 +1,13 @@
+
+.vp-doc a[href^="https://www.mcmod.cn/"]:before {
+    content: '';
+    background-image: url(https://www.mcmod.cn/static/public/images/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -2px;
+    margin-right: 4px;
+}
