@@ -20,6 +20,8 @@ import { sup } from "@mdit/plugin-sup"
 import { ruby } from "@mdit/plugin-ruby"
 import { demo } from "@mdit/plugin-demo"
 import { dl } from "@mdit/plugin-dl";
+import { stepper} from './utils/stepper';
+import { tab } from "@mdit/plugin-tab";
 
 export default withMermaid(
   defineConfig({
@@ -104,6 +106,7 @@ export default withMermaid(
       langMenuLabel: 'Change Language',
       lastUpdated: {},
       // 添加以下配置来启用多语言支持
+      //@ts-ignore
       locales: {
         'root': { label: '简体中文', lang: 'zh-CN' },
         'en-US': { label: 'English', lang: 'en-US' }
@@ -128,11 +131,14 @@ export default withMermaid(
         md.use(ruby);
         md.use(demo);
         md.use(dl);
+        //md.use(container, stepper);
+        //md.use(container, template);
+        md.use(tab, stepper)
         md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
           let htmlResult = slf.renderToken(tokens, idx, options);
           if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
           return htmlResult;
-      }
+        }
       },
       codeTransformers: [
         transformerTwoslash() 

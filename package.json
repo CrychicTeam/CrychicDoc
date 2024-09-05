@@ -26,6 +26,7 @@
   "dependencies": {
     "@mdit/plugin-alert": "^0.13.0",
     "@mdit/plugin-align": "^0.13.0",
+    "@mdit/plugin-container": "^0.13.1",
     "@mdit/plugin-demo": "^0.13.0",
     "@mdit/plugin-dl": "^0.13.1",
     "@mdit/plugin-img-size": "^0.13.0",
@@ -33,6 +34,7 @@
     "@mdit/plugin-spoiler": "^0.13.0",
     "@mdit/plugin-sub": "^0.13.0",
     "@mdit/plugin-sup": "^0.13.0",
+    "@mdit/plugin-tab": "^0.13.1",
     "axios": "^1.7.4",
     "chart.js": "^4.4.3",
     "gray-matter": "^4.0.3",
