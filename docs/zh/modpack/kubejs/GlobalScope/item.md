@@ -41,7 +41,7 @@ JavaScript（Kubejs）方法重载实现方式请查看(未完成，看到了请
 
 ### Item.of(args)
 
-**Item.of(args)共有4个重载方法。**
+**Item.of(args)可以返回一个ItemStack实例，共有4个重载方法。**
 
 > Item.of(in_: Internal.ItemStack_): Internal.ItemStack;\
 表示接收 **`Internal.ItemStack_`** 类型参数in_，返回一个 **`Internal.ItemStack`** 对象。
@@ -98,3 +98,43 @@ Kubejs内部会进行自动类型转换。
 2. 对象字面量{key： value}或者字符串类型的对象字面量'{key： value}'，会经由Kubejs内部的类型转换成Internal.CompoundTag。
 3. 打开Internal.CompoundTag类型声明，可以看到起其构造函数 constructor(arg0: Internal.Map_\<string, Internal.Tag\>); 也就是说它的实例化需要接收一个键值对，这与我们传递的参数具有形式上的相似性，出于经验，认为Kubejs内部进行了类型转换，此处没有再进行深究。
 :::
+
+### Item.withNBT(args)
+
+**Item.withNBT(args) 返回输入的ItemStack，并包含给定的NBT数据。**
+
+> Item.withNBT(in_: Internal.ItemStack_, nbt: Internal.CompoundTag_): Internal.ItemStack;\
+表示接收 **`Internal.ItemStack_`** 类型参数in_， **`Internal.CompoundTag_`** 类型参数nbt，返回带有指定NBT数据的ItemStack。
+
+```js
+// 一个带有'{test: 6}'NBT的草方块物品
+Item.withNBT(Item.of('grass_block'), '{test: 6}');
+```
+
+### Item.getTypeToStackMap()
+
+### Item.playerHeadFromSkinHash(args)
+
+### Item.getEmpty()
+
+### Item.getItem(args)
+
+### Item.getVariants(args)
+
+### Item.getList()
+
+### Item.fireworks(args)
+
+### Item.playerHead(args)
+
+**Item.playerHead(args) 返回玩家头ItemStack，具有两个方法重载。**
+
+> Item.playerHead(name: string): Internal.ItemStack;\
+接收string类型参数name，返回ItemStack。
+
+```js
+
+```
+
+> Item.playerHead(uuid: Internal.UUID_, textureBase64: string): Internal.ItemStack;\
+接收Internal.UUID_类型参数uuid，返回ItemStack。
