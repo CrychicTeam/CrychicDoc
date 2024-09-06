@@ -165,16 +165,16 @@
 
 .spoiler {
   background-color: black !important;
-  color: transparent;
-  position: relative;
+  color: transparent !important;;
+  position: relative !important;;
 }
 
 .dark .spoiler {
   background-color: white !important;
-  color: transparent;
+  color: transparent !important;; 
 }
 
 .spoiler:hover {
-  color: inherit;
-  background-color: transparent;
+  color: inherit !important;;
+  background-color: transparent !important;;
 }

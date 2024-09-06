@@ -19,7 +19,7 @@ import mermaid from 'mermaid'
 
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import Layout from './Layout.vue'
-import TdesignDark from './components/tdesignDark.vue'
+import themeControl from './components/themeControl.vue'
 import Comment from './components/comment.vue'
 import YoutubeVideo from './components/YoutubeVideo.vue'
 import BilibiliVideo from './components/BilibiliVideo.vue'
@@ -39,7 +39,7 @@ export default {
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       "doc-bottom": () => h(imageViewer),
-      "layout-top": () => h(TdesignDark),
+      "layout-top": () => h(themeControl),
       "aside-outline-after": () => h(AuthorsComponent),
       "doc-after": () => h(Comment),
       "layout-bottom" : () => h(Footer),
