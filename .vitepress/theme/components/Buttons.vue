@@ -54,7 +54,6 @@ function copyLink() {
   });
 }
 
-// 新增：更新主题的函数
 const updateTheme = (isDarkMode) => {
   if (isDarkMode) {
     document.documentElement.classList.add('dark-theme');
@@ -65,13 +64,11 @@ const updateTheme = (isDarkMode) => {
   }
 };
 
-// 在 mounted 钩子中设置初始主题
 onMounted(() => {
   window.addEventListener('scroll', onScroll);
   updateTheme(isDark.value);
 });
 
-// 监听主题变化
 watch(isDark, (newValue) => {
   updateTheme(newValue);
 });
@@ -82,7 +79,6 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <!-- 返回顶部按钮 -->
   <Transition name="fade">
     <div
       v-show="showBackTop"
@@ -109,7 +105,6 @@ onBeforeUnmount(() => {
     </div>
   </Transition>
   
-  <!-- 分享按钮 -->
   <button 
     @click="copyLink" 
     class="floating-button copy-button" 
@@ -122,14 +117,14 @@ onBeforeUnmount(() => {
 
 <style>
 :root {
-  --button-bg-color: #005dc0;
-  --button-hover-color: #0056b3;
+  --button-bg-color: #c5a16b;
+  --button-hover-color: #a38348;
   --button-copied-color: #4caf50;
 }
 
 .dark-theme {
-  --button-bg-color: #af6900;
-  --button-hover-color: #e65100;
+  --button-bg-color: #2b4796;
+  --button-hover-color: #283d83;
   --button-copied-color: #45a049;
 }
 

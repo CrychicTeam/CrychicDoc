@@ -84,7 +84,7 @@ onUnmounted(() => {
 }
 
 .theme-stepper {
-  background-color: transparent;
+  background-color: var(--vp-custom-block-info-bg);
   color: var(--stepper-text-color);
 }
 
@@ -104,4 +104,13 @@ onUnmounted(() => {
 .theme-stepper .v-stepper__content {
   background-color: transparent;
 }
+
+.v-divider.v-theme--light {
+  border-color: var(--stepper-text-color);
+}
+ 
+.v-divider.v-theme--dark {
+  border-color: var(--stepper-active-color);
+}
+
 </style>

@@ -157,3 +157,24 @@
 *::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+.justified-text {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.spoiler {
+  background-color: black !important;
+  color: transparent;
+  position: relative;
+}
+
+.dark .spoiler {
+  background-color: white !important;
+  color: transparent;
+}
+
+.spoiler:hover {
+  color: inherit;
+  background-color: transparent;
+}
