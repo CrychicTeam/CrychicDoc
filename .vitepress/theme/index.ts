@@ -48,6 +48,7 @@ export default {
     enhanceAppWithTabs(ctx.app);
     ctx.app.use(vuetify);
     ctx.app.use(TwoslashFloatingVue);
+    //@ts-expect-error
     ctx.app.use(Layout);
     ctx.app.component('YoutubeVideo', YoutubeVideo)
     ctx.app.component('BilibiliVideo', BilibiliVideo)

@@ -7,10 +7,10 @@ export const v_alert: PluginSimple = (md) => {
         md.use((md) =>
             container(md, {
                 name,
-                openRender: (tokens, index, _options) => {{
+                openRender: (tokens, index, _options) => {
                         const info: string = tokens[index].info.trim().slice(name.length).trim();
                         const defaultTitle: string = name.replace("v-", "")
-                        return `<p><v-alert title="${info || defaultTitle}" type="${defaultTitle}" >\n`;}
+                        return `<p><v-alert title="${info || defaultTitle}" type="${defaultTitle}" >\n`;
                 },
                 closeRender: (): string => `</v-alert></p>\n`,
             }),
