@@ -45,6 +45,8 @@ root:
       collapsed: true
     - title: 全局类
       path: GlobalScope
+    - title: JavaScript相关概念
+      path: JavaScript
       collapsed: true
     - title: kubejs教程-1.20.1(孤梦版)
       path: KubejsCourse

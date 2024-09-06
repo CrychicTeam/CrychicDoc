@@ -1,3 +1,8 @@
+---
+layout: doc
+title: 物品类(Item)
+---
+
 # Item类
 
 **`Item`** 用于进行与物品相关的操作。
@@ -33,13 +38,17 @@ JavaScript（Kubejs）方法重载实现方式请查看(未完成，看到了请
 别名，指的是人或物除了自己本名以外的名字，而类型别名，则是指除了数据类型自身的类型名之外，新赋予的类型名称。\
 例：假设苹果树、梨树，现在是我们有的两个对象的类型，你有一个“摘”的动作（函数）可以从“果树”类型对象上获得果实，苹果树与梨树都属于果树，或者说苹果树与梨树都是果树这个类型的子类型，你很容易明白，这个“摘”函数的参数类型写“果树”。\
 但“摘”仅适用于果树吗？如果我把梨挂墙上能不能摘呢？很显然是能的，但这与前边定义的函数参数类型不符，“挂起来的梨”很显然不是果树，我们需要将所有可以被执行“摘”这个动作的类型归类到一个类型下，以便于使用类型提示。\
-在Typescript中：type 果树_ = 果树 | 挂起来的梨; 这样就是一个类型别名声明。在Kubejs使用过程中，会经常看见这样形式的type_类型别名。
+在Typescript中：type 果树_= 果树 | 挂起来的梨; 这样就是一个类型别名声明。在Kubejs使用过程中，会经常看见这样形式的type_类型别名。
 
-## 常用函数
+### get与set属性
+
+### readonly属性
+
+## 所有函数
 
 ### Item.of(args)
 
-**Item.of(args)可以返回一个ItemStack实例，共有4个重载方法。**
+**可以返回一个ItemStack实例，共有4个重载方法。**
 
 > Item.of(in_: Internal.ItemStack_): Internal.ItemStack;\
 表示接收 **`Internal.ItemStack_`** 类型参数in_，返回一个 **`Internal.ItemStack`** 对象。
@@ -99,7 +108,7 @@ Kubejs内部会进行自动类型转换。
 
 ### Item.withNBT(args)
 
-**Item.withNBT(args) 返回输入的ItemStack，并包含给定的NBT数据。**
+**返回输入的ItemStack，并包含给定的NBT数据。**
 
 > Item.withNBT(in_: Internal.ItemStack_, nbt: Internal.CompoundTag_): Internal.ItemStack;\
 表示接收 **`Internal.ItemStack_`** 类型参数in_， **`Internal.CompoundTag_`** 类型参数nbt，返回带有指定NBT数据的ItemStack。
@@ -110,6 +119,38 @@ Item.withNBT(Item.of('grass_block'), '{test: 6}');
 ```
 
 ### Item.getTypeToStackMap()
+
+**获取一个包含了物品id和存放其对应物品堆栈的集合的键值对。**
+
+> Item.getTypeToStackMap(): Internal.Map\<ResourceLocation, Internal.Collection\<Internal.ItemStack\>\>;\
+无参数，返回一个Map键值对\<物品id，Set集合\>，这个Map是java.util.HashMap类型，这个Set集合是java.util.ImmutableCollections$Set类型，大小size为1，内含1个对应物品id的ItemStack实例。
+
+```js
+// 示例
+PlayerEvents.chat(event => {
+    const { message } = event;
+    if (message !== 'test') return;
+    Item.getTypeToStackMap().forEach(
+    /**
+     * 
+     * @param {ResourceLocation} key 
+     * @param {Internal.Set} value 
+     */
+        (key, value) => {
+            if (key.namespace === 'minecraft') {
+                console.log(`键值对值<${key},${value}>`);
+                console.log(`键值对类型<${key.getClass()},${value.getClass()}>`);
+            }
+        }
+    );
+})
+```
+
+**它是一个Map（java.util.HashMap）其中键为物品id（ResourceLocation），值为Set（java.util.ImmutableCollections$Set）。**
+
+**其中Set的size()为1，内含一个对应物品id的物品堆栈(ItemStack)。**
+
+
 
 ### Item.playerHeadFromSkinHash(args)
 
@@ -125,7 +166,7 @@ Item.withNBT(Item.of('grass_block'), '{test: 6}');
 
 ### Item.playerHead(args)
 
-**Item.playerHead(args) 返回玩家头ItemStack，具有两个方法重载。**
+**返回玩家头颅ItemStack实例，具有两个方法重载。**
 
 > Item.playerHead(name: string): Internal.ItemStack;\
 接收string类型参数name，返回ItemStack。
@@ -139,4 +180,22 @@ Item.withNBT(Item.of('grass_block'), '{test: 6}');
 
 ### Item.isItem(args)
 
-**Item.isItem(o: any): boolean; 判断传递的参数类型是否为ItemStack，返回布尔值。**
+**判断传递的参数类型是否为ItemStack，返回布尔值。**
+
+### Item.getId(args)
+
+**从Item实例（并非ItemStack实例）获取其id。**
+
+## 所有属性
+
+### empty
+
+### list
+
+### typeList
+
+### KJS_ARMOR_MODIFIER_UUID_PER_SLOT
+
+### KJS_BASE_ATTACK_SPEED_UUID
+
+### KJS_BASE_ATTACK_DAMAGE_UUID
