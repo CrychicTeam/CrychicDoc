@@ -46,16 +46,16 @@ jobs:
         cp -r type_repo/typefiles .
         rm -rf type_repo
 
-    - name: Build VitePress site
-      run: yarn docs:build
-
     - name: Cache VitePress build cache
       uses: actions/cache@v2
       with:
         path: .vitepress/cache
-        key: ${{ runner.os }}-vitepress-${{ hashFiles('yarn.lock') }}
+        key: ${{ runner.os }}-vitepress-${{ hashFiles('yarn.lock', '.vitepress/config.js') }}
         restore-keys: |
           ${{ runner.os }}-vitepress-
+
+    - name: Build VitePress site
+      run: yarn docs:build
 
     - name: Clean up typefiles
       run: rm -rf typefiles 
