@@ -146,12 +146,6 @@ PlayerEvents.chat(event => {
 })
 ```
 
-**它是一个Map（java.util.HashMap）其中键为物品id（ResourceLocation），值为Set（java.util.ImmutableCollections$Set）。**
-
-**其中Set的size()为1，内含一个对应物品id的物品堆栈(ItemStack)。**
-
-
-
 ### Item.playerHeadFromSkinHash(args)
 
 ### Item.getEmpty()
