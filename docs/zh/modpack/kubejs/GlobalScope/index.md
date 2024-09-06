@@ -7,6 +7,8 @@ prev:
 next:
   text: Item类
   link: /zh/modpack/kubejs/GlobalScope/item
+  authors:
+  - Eikidona
 ---
 
 ## 全局类

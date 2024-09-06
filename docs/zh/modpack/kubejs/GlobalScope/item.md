@@ -1,18 +1,16 @@
----
-layout: doc
-title: Item类
----
-## 前言
+# Item类
 
 **`Item`** 用于进行与物品相关的操作。
 
 ## 前置知识
 
-::: details **物品堆栈(ItemStack)**
+### 物品堆栈(ItemStack)
+
 例如接下来谈到的Item.of(...args)函数会返回一个ItemStack对象，在Minecraft中，玩家手上，箱子，创造模式物品栏中等你所能见到的物品均为ItemStack的实例。
-:::
-::: details **方法重载(Overload)**
-重载是指同一个方法(函数)名可以有多个不同的实现。例如下文提到的Item.of(...args);就有四种。
+
+### 方法重载(Overload)
+
+重载是指同一个方法(函数)名可以有多个不同的实现。例如下文提到的Item.of(...args);就有四种。特点如下：
 
 1. 同名但参数不同：重载的方法必须有不同的参数列表。可以通过改变参数的类型、数量或顺序来实现重载。
 
@@ -30,12 +28,12 @@ Kubejs（JavaScript）的方法重载不能这样实现。\
 JavaScript（Kubejs）方法重载实现方式请查看(未完成，看到了请催一催)。
 :::
 
-::: details **类型别名（Type Alias）**
+### 类型别名（Type Alias）
+
 别名，指的是人或物除了自己本名以外的名字，而类型别名，则是指除了数据类型自身的类型名之外，新赋予的类型名称。\
 例：假设苹果树、梨树，现在是我们有的两个对象的类型，你有一个“摘”的动作（函数）可以从“果树”类型对象上获得果实，苹果树与梨树都属于果树，或者说苹果树与梨树都是果树这个类型的子类型，你很容易明白，这个“摘”函数的参数类型写“果树”。\
 但“摘”仅适用于果树吗？如果我把梨挂墙上能不能摘呢？很显然是能的，但这与前边定义的函数参数类型不符，“挂起来的梨”很显然不是果树，我们需要将所有可以被执行“摘”这个动作的类型归类到一个类型下，以便于使用类型提示。\
 在Typescript中：type 果树_ = 果树 | 挂起来的梨; 这样就是一个类型别名声明。在Kubejs使用过程中，会经常看见这样形式的type_类型别名。
-:::
 
 ## 常用函数
 
@@ -138,3 +136,7 @@ Item.withNBT(Item.of('grass_block'), '{test: 6}');
 
 > Item.playerHead(uuid: Internal.UUID_, textureBase64: string): Internal.ItemStack;\
 接收Internal.UUID_类型参数uuid，返回ItemStack。
+
+### Item.isItem(args)
+
+**Item.isItem(o: any): boolean; 判断传递的参数类型是否为ItemStack，返回布尔值。**
