@@ -30,6 +30,13 @@ Kubejs（JavaScript）的方法重载不能这样实现。\
 JavaScript（Kubejs）方法重载实现方式请查看(未完成，看到了请催一催)。
 :::
 
+::: details **类型别名（Type Alias）**
+别名，指的是人或物除了自己本名以外的名字，而类型别名，则是指除了数据类型自身的类型名之外，新赋予的类型名称。\
+例：假设苹果树、梨树，现在是我们有的两个对象的类型，你有一个“摘”的动作（函数）可以从“果树”类型对象上获得果实，苹果树与梨树都属于果树，或者说苹果树与梨树都是果树这个类型的子类型，你很容易明白，这个“摘”函数的参数类型写“果树”。\
+但“摘”仅适用于果树吗？如果我把梨挂墙上能不能摘呢？很显然是能的，但这与前边定义的函数参数类型不符，“挂起来的梨”很显然不是果树，我们需要将所有可以被执行“摘”这个动作的类型归类到一个类型下，以便于使用类型提示。\
+在Typescript中：type 果树_ = 果树 | 挂起来的梨; 这样就是一个类型别名声明。在Kubejs使用过程中，会经常看见这样形式的type_类型别名。
+:::
+
 ## 常用函数
 
 ### Item.of(args)
@@ -68,23 +75,26 @@ Item.of('minecraft:iron_pickaxe', 1);
 Item.of('minecraft:iron_pickaxe', '{Damage:100}');
 ```
 
-::: details 要求参数不是Internal.ItemStack_类型吗?为什么传入的实际值是字符串呢?
+**疑问，为什么Internal.ItemStack_类型的参数却传递了字符串？为什么Internal.CompoundTag_类的参数传递字符串或对象字面量?详情查看前置知识类型别名与下列对应类型别名解析。**
 
-1. 首先，并不是所有字符串都是被当做Internal.ItemStack_的，可以尝试一番，乱打的字符串在/reload后是会报错的，也就是说，是一些特定的字符串被定义为了Internal.ItemStack_，这个问题也就转变成了谁定义了这些特定字符串，为什么这些特定字符串可以当做Internal.ItemStack_传递。
-2. 在Vscode打开你的游戏根目录(就像平时编写kubejs做的那样)，Ctrl+鼠标左键点击Item.of(...args);函数，可以看到这样一行of(in_: Internal.ItemStack_): Internal.ItemStack;
-3. Ctrl+鼠标左键点击Internal.ItemStack_来到Internal.ItemStack_类型别名的定义部分。
-4. 非常长，这里可以点击Alt+Z开启自动换行，不过我们的关注点是等号右边第二个类型别名Internal.Item_。
-5. Ctrl+鼠标左键点击Internal.Item_打开它的类型别名定义，type Item_ = Item | Special.Item;
-6. Item指代的是Item类的实例，因此我们的目的不是它，将注意力转向Special.Item并Ctrl+鼠标左键点击。
-7. 在这里你可以发现，Special.Item是大量的物品id，而Special.Item是Internal.ItemStack_中的一个类型别名，因此你可以使用字符串来传递Internal.ItemStack_类型参数，且当你传递字符串后，kubejs内部会进行类型转换。这意味着你不仅可以使用字符串，你还可以使用Internal.ItemStack_中任何一个类型的参数来传递。
+::: details Internal.ItemStack_类型解析
+
+1. 在Vscode中打开你的游戏根目录(就像平时编写kubejs做的那样)，Ctrl+鼠标左键点击Item.of(...args);函数，可以看到这样一行of(in_: Internal.ItemStack_): Internal.ItemStack;
+2. Ctrl+鼠标左键点击Internal.ItemStack_来到Internal.ItemStack_类型别名的定义部分。在这里看到Internal.ItemStack_类型别名下都有什么类型。
+3. 它非常长，为了阅读方便，这里可以点击Alt+Z开启自动换行，不过请将关注点放在等号右边第二个类型别名Internal.Item_。
+4. Ctrl+鼠标左键点击Internal.Item_打开它的类型别名定义，type Item_ = Item | Special.Item;
+5. Item指代的是Minecraft的Item类的实例，不过现在将注意力转向Special.Item并Ctrl+鼠标左键点击。
+6. 在这里你可以发现，Special.Item是大量的物品id，而Special.Item是Internal.ItemStack_中引用的一个类型，因此你可以使用字符串来传递Internal.ItemStack_类型参数。
+7. 对于Internal.ItemStack_类型别名引用的其他类型，也可以使用，不过会不如字符串方便。
 
 > [!NOTE] 总结
 Special.Item内每一个字符串，游戏内都有与之对应的物品id。\
 Kubejs内部会进行自动类型转换。
 :::
 
-::: details Internal.CompoundTag_类型别名定义中，并没有找到字符串或者对象字面量的类型声明，为什么依然可以被游戏识别为NBT？
+::: details Internal.CompoundTag_类型解析
 
-1. 这里面依然有Kubejs内部的类型转换。
-2. 打开Internal.CompoundTag类型声明，可以看到起其构造函数 constructor(arg0: Internal.Map_\<string, Internal.Tag\>); 也就是说它接收一个键值对，这与我们传递的参数具有形式上的相似性，出于经验，认为Kubejs内部进行了类型转换，此处没有再进行深究。
+1. 打开Internal.CompoundTag_类型别名定义，它只引用了Internal.CompoundTag类型，也就是说Internal.CompoundTag_与Internal.CompoundTag是等价的，没有像Special.Item这样的方便类型供我们使用。
+2. 对象字面量{key： value}或者字符串类型的对象字面量'{key： value}'，会经由Kubejs内部的类型转换成Internal.CompoundTag。
+3. 打开Internal.CompoundTag类型声明，可以看到起其构造函数 constructor(arg0: Internal.Map_\<string, Internal.Tag\>); 也就是说它的实例化需要接收一个键值对，这与我们传递的参数具有形式上的相似性，出于经验，认为Kubejs内部进行了类型转换，此处没有再进行深究。
 :::
