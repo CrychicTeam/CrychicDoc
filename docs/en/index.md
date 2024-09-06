@@ -50,7 +50,8 @@ features:
     details: Build using GitHub Flow, send it to a private repository, and then transfer it to a physical server. This optimizes the access speed for users in China while ensuring the stability of the website for all users by using Cloudflare CDN.
 ---
 
-<index />
-<script setup>
-import index from './index.vue'
-</script>
+<commitsCounter
+  username="CrychicTeam"
+  repoName="CrychicDoc"
+  :daysToFetch="60"
+/>

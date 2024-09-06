@@ -29,6 +29,7 @@ import ArticleMetadata from "./components/ArticleMetadataCN.vue"
 import buttons from "./components/Buttons.vue"
 import Linkcard from "./components/Linkcard.vue"
 import carousels from './components/carousels.vue'
+import commitsCounter from './components/CommitsCounter.vue'
 
 import '@mdit/plugin-spoiler/style'
 import './style/index.css'
@@ -59,6 +60,7 @@ export default {
     ctx.app.component('DamageChart', damageChart)
     ctx.app.component('ArticleMetadata' , ArticleMetadata)
     ctx.app.component('Linkcard' , Linkcard)
+    ctx.app.component('commitsCounter' , commitsCounter)
   },
   setup() {
     const route = useRoute();

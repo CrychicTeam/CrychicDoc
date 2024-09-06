@@ -1,96 +1,130 @@
 <template>
-  <div class="giscus-wrapper">
-    <component
-      v-if="showComment"
-      src="https://giscus.app/client.js"
-      :is="'script'"
-      :key="commentKey"
-      :data-repo="giscusConfig.repo"
-      :data-repo-id="giscusConfig.repoId"
-      :data-category="giscusConfig.category"
-      :data-category-id="giscusConfig.categoryId"
-      :data-mapping="giscusConfig.mapping"
-      :data-term="term"
-      :data-strict="giscusConfig.strict"
-      :data-reactions-enabled="giscusConfig.reactionsEnabled"
-      :data-emit-metadata="giscusConfig.emitMetadata"
-      :data-input-position="giscusConfig.inputPosition"
-      :data-lang="lang"
-      :data-theme="giscusConfig.theme"
-      :data-loading="giscusConfig.loading"
-      crossorigin="anonymous"
-    />
-  </div>
+    <div class="giscus-wrapper" ref="giscusContainer"></div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, watch, computed } from "vue";
-import { useData, useRoute } from "vitepress";
+    import { ref, watch, onMounted, computed } from "vue";
+    import { useData, useRoute } from "vitepress";
 
-const route = useRoute();
-const { isDark } = useData();
+    const { isDark, lang } = useData();
+    const route = useRoute();
 
-const lang = computed(() => route.path.startsWith("/en") ? 'en' : 'zh-Hans');
+    const translations = {
+        "en-US": {
+            langCode: "en",
+        },
+        "zh-CN": {
+            langCode: "zh-CN",
+        },
+    };
 
-const giscusConfig = reactive({
-  repo: "CrychicTeam/CrychicDoc",
-  repoId: "R_kgDOMnN0IQ",
-  category: "Announcements",
-  categoryId: "DIC_kwDOMnN0Ic4Ch3qm",
-  mapping: "specific",
-  strict: "1",
-  reactionsEnabled: "1",
-  emitMetadata: "0",
-  inputPosition: "top",
-  loading: "lazy",
-  theme: computed(() => (isDark.value ? "noborder_dark" : "noborder_light")),
-});
+    const currentLangConfig = computed(() => {
+        return translations[lang.value] || translations["en-US"];
+    });
 
-const term = computed(() => {
-  let path = route.path;
-  path = path.replace(/^\/(?:zh|en)/, '').replace(/^\//, '');
-  return path || 'home';
-});
+    const extractTerm = (path: string) => {
+        const cleanedPath = path.replace(/^\/[a-z]{2}\//, "");
+        return cleanedPath.length > 0 ? cleanedPath : "none";
+    };
 
-const commentKey = computed(() => term.value);
+    const giscusContainer = ref<HTMLElement | null>(null);
 
-const showComment = ref(true);
+    const loadGiscus = () => {
+        if (!giscusContainer.value) return;
 
-watch(
-  () => route.path,
-  () => {
-    showComment.value = false;
-    setTimeout(() => {
-      showComment.value = true;
-    }, 200);
-  },
-  { immediate: true }
-);
+        giscusContainer.value.innerHTML = "";
 
-watch(
-  () => isDark.value,
-  () => {
-    const iframe = document.querySelector('iframe.giscus-frame') as HTMLIFrameElement;
-    if (iframe) {
-      iframe.contentWindow?.postMessage(
-        { giscus: { setConfig: { theme: giscusConfig.theme } } },
-        'https://giscus.app'
-      );
-    }
-  }
-);
+        const script = document.createElement("script");
+        script.src = "https://giscus.app/client.js";
+        script.async = true;
+        script.setAttribute("data-repo", "CrychicTeam/CrychicDoc");
+        script.setAttribute("data-repo-id", "R_kgDOMnN0IQ");
+        script.setAttribute("data-category", "Announcements");
+        script.setAttribute("data-category-id", "DIC_kwDOMnN0Ic4Ch3qm");
+        script.setAttribute("data-mapping", "specific");
+        script.setAttribute("data-term", extractTerm(route.path)); // 动态提取 term
+        script.setAttribute("data-strict", "1");
+        script.setAttribute("data-reactions-enabled", "1");
+        script.setAttribute("data-emit-metadata", "0");
+        script.setAttribute("data-input-position", "top");
+        script.setAttribute("data-lang", currentLangConfig.value.langCode);
+        script.setAttribute(
+            "data-theme",
+            isDark.value ? "noborder_dark" : "noborder_light"
+        );
+        script.setAttribute("crossorigin", "anonymous");
+        giscusContainer.value.appendChild(script);
+    };
+
+    onMounted(() => {
+        loadGiscus();
+    });
+
+    watch(
+        () => route.path,
+        () => {
+            loadGiscus();
+        }
+    );
+
+    watch(
+        () => isDark.value,
+        () => {
+            const iframe = document.querySelector(
+                "iframe.giscus-frame"
+            ) as HTMLIFrameElement;
+            if (iframe) {
+                iframe.contentWindow?.postMessage(
+                    {
+                        giscus: {
+                            setConfig: {
+                                theme: isDark.value
+                                    ? "noborder_dark"
+                                    : "noborder_light",
+                            },
+                        },
+                    },
+                    "https://giscus.app"
+                );
+            }
+        }
+    );
+
+    watch(
+        () => lang.value,
+        () => {
+            const iframe = document.querySelector(
+                "iframe.giscus-frame"
+            ) as HTMLIFrameElement;
+            if (iframe) {
+                iframe.contentWindow?.postMessage(
+                    {
+                        giscus: {
+                            setConfig: {
+                                lang: currentLangConfig.value.langCode,
+                            },
+                        },
+                    },
+                    "https://giscus.app"
+                );
+            } else {
+                loadGiscus();
+            }
+        }
+    );
 </script>
 
 <style>
-.giscus-wrapper {
-  margin-top: 2rem;
-}
+    .giscus-wrapper {
+        margin-top: 2rem;
+    }
 
-main .giscus, main .giscus-frame {
-  width: 100%;
-}
+    main .giscus,
+    main .giscus-frame {
+        width: 100%;
+    }
 
-main .giscus-frame {
-  border: none;
-}
+    main .giscus-frame {
+        border: none;
+    }
 </style>
