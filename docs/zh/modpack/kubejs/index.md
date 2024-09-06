@@ -43,6 +43,9 @@ root:
     - title: Network通信
       path: NetworkInteration
       collapsed: true
+    - title: 全局类
+      path: GlobalScope
+      collapsed: true
     - title: kubejs教程-1.20.1(孤梦版)
       path: KubejsCourse
       noScan: true
