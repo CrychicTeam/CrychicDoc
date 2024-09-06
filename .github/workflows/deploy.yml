@@ -12,15 +12,33 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v2
 
+    - name: Cache node_modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '18.17.1'
+        cache: 'yarn'
 
     - name: Install dependencies
       run: yarn install --frozen-lockfile
 
+    - name: Cache type repo
+      uses: actions/cache@v2
+      with:
+        path: typefiles
+        key: ${{ runner.os }}-typefiles-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-typefiles
+
     - name: Pull types from type repo
+      if: steps.cache.outputs.cache-hit != 'true'
       env:
         TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
       run: |
@@ -29,7 +47,7 @@ jobs:
         rm -rf type_repo
 
     - name: Build VitePress site
-      run: npm run docs:build
+      run: yarn docs:build
 
     - name: Clean up typefiles
       run: rm -rf typefiles 
