@@ -55,5 +55,43 @@
             "  path: $0"
         ],
         "description": "subdir"
+    },
+    "authors": {
+        "prefix": "authors",
+        "body": [
+            "authors: ",
+            "  - $0"
+        ],
+        "description": "authors"
+    },
+    "noScan": {
+        "prefix": "noScan",
+        "body": [
+            "noScan:  $0"
+        ],
+        "description": "noScan"
+    },
+    "file": {
+        "prefix": "file",
+        "body": [
+            "file:  $0"
+        ],
+        "description": "file"
+    },
+    "@title": {
+        "prefix": "@title",
+        "body": [
+            "{{ $frontmatter.title }}"
+        ],
+        "description": "title"
+    },
+    "demo": {
+        "prefix": "@demo",
+        "body": [
+            "::: demo 示例",
+            "$0",
+            ":::"
+        ],
+        "description": "demo"
     }
 }
