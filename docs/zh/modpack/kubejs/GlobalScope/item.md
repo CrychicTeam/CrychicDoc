@@ -123,7 +123,7 @@ Item.withNBT(Item.of('grass_block'), '{test: 6}');
 **获取一个包含了物品id和存放其对应物品堆栈的集合的键值对。**
 
 > Item.getTypeToStackMap(): Internal.Map\<ResourceLocation, Internal.Collection\<Internal.ItemStack\>\>;\
-无参数，返回一个Map键值对\<物品id，Set集合\>，这个Map是java.util.HashMap类型，这个Set集合是java.util.ImmutableCollections$Set类型，大小size为1，内含1个对应物品id的ItemStack实例。
+返回一个Map键值对\<物品id，Set集合\>，这个Map是java.util.HashMap类型，这个Set集合是java.util.ImmutableCollections$Set类型，大小size为1，内含1个对应物品id的ItemStack实例。
 
 ```js
 // 示例
@@ -148,15 +148,50 @@ PlayerEvents.chat(event => {
 
 ### Item.playerHeadFromSkinHash(args)
 
+**从hash获取玩家头颅物品堆栈实例。**
+
 ### Item.getEmpty()
+
+**返回空气/空槽物品堆栈实例。**
+
+> Item.getEmpty()
+
+```js
+// 将一个空气/空槽物品堆栈给予玩家，这什么也不会发生。
+PlayerEvents.chat(event => {
+    const { message, level, server, player } = event;
+    if (message !== 'test') return;
+    player.give(Item.getEmpty());
+});
+```
 
 ### Item.getItem(args)
 
+**从物品id（ResourceLocation）获取Item实例。**
+> Item.getItem(id: ResourceLocation_): Internal.Item;
+
+```js
+// 一个草方块的Item实例
+Item.getItem('minecraft:grass_block');
+```
+
 ### Item.getVariants(args)
+
+**返回一个物品（ItemStack）的变种集合。**
+
+> Item.getVariants(item: Internal.ItemStack_): Internal.Collection\<Internal.ItemStack\>;
 
 ### Item.getList()
 
+**返回所有处在创造模式物品栏中的物品（ItemStack）列表。**
+
+> Item.getList(): Internal.List\<Internal.ItemStack\>;
+
 ### Item.fireworks(args)
+
+**返回具有输入属性的烟花。**
+
+> Item.fireworks(properties: Internal.Map_\<string, any\>): Internal.FireworksJS;
 
 ### Item.playerHead(args)
 
@@ -166,11 +201,16 @@ PlayerEvents.chat(event => {
 接收string类型参数name，返回ItemStack。
 
 ```js
-
+// 获取了玩家的头
+PlayerEvents.chat(event => {
+    const { message, level, server, player } = event;
+    if (message !== 'test') return;
+    player.give(Item.playerHead(player.name.getString()));
+});
 ```
 
 > Item.playerHead(uuid: Internal.UUID_, textureBase64: string): Internal.ItemStack;\
-接收Internal.UUID_类型参数uuid，返回ItemStack。
+接收Internal.UUID_类型参数uuid，string类型textureBase64参数返回ItemStack。
 
 ### Item.isItem(args)
 
