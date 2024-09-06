@@ -4,6 +4,7 @@ title: 文档插件示例
 noguide: true
 authors:
   - M1hono
+  - skyraah
 prev:
   text: 项目合作教程
   link: /zh/doc/index
