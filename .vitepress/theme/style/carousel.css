@@ -1,0 +1,23 @@
+:root {
+    --vp-carousel-overlay : #00000073;
+}
+
+/* .carousel .v-btn__overlay {
+    background-color: var(--vp-carousel-overlay);
+}
+.carousel .v-btn__underlay {
+    background-color: var(--vp-carousel-underlay);
+} */
+
+.carousel .v-btn--variant-elevated {
+    background: var(--vp-carousel-overlay);
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+}
+
+.carousel .mdi-chevron-right, .mdi-chevron-left {
+    color: #ffffffa6;
+}
+
+.carousel .v-img {
+    border-radius: 8px;
+}

@@ -12,7 +12,7 @@ export function sidebars(lang: string): {} {
     return ISidebar;
 }
 
-function logger(string: string, name: string): void {
+export function logger(string: string, name: string): void {
     fs.writeFileSync(Path.join(__dirname, name), `${string}\n`, { flag: 'w+' });
 }
 
