@@ -22,6 +22,10 @@ root:
         path: /
         noScan: true
         file: test
+      - title: 文档样式一览
+        path: /
+        noScan: true
+        file: styleList
 authors:
   - M1hono
 prev:

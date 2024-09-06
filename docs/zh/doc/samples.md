@@ -17,6 +17,7 @@ next:
 
 ## Mermaid示例
 
+:::demo
 <ClientOnly>
 
 ```mermaid
@@ -31,6 +32,7 @@ journey
       Sit down: 5: Me
 ```
 </ClientOnly>
+:::
 
 ## 时间线插件示例
 
@@ -68,64 +70,3 @@ do some thing4
   :isJavaEdition="true"
 />
 </ClientOnly>
-
-VuePress Theme Hope !!十分强大!!。
-
-## Stepper插件示例
-
-::: stepper
-@tab 第一步
-```yaml
----
-noguide: true
-root:
-  title: example // [!code focus]
-  collapsed: true
-  subDir:
-      - title: subDir a
-        path: test
-        collapsed: true
-      - title: subDir back
-        path: test
-        noScan: true
-        file: README
----
-```
-
-@tab 第二步
-```yaml
----
-noguide: true
-root:
-  title: example
-  collapsed: true
-  subDir: // [!code focus:4]
-      - title: subDir a
-        path: test
-        collapsed: true
-      - title: subDir back
-        path: test
-        noScan: true
-        file: README
----
-```
-
-@tab 第三步
-```yaml
----
-noguide: true // [!code focus]
-root:
-  title: example
-  collapsed: true
-  subDir:
-      - title: subDir a
-        path: test
-        collapsed: true
-      - title: subDir back
-        path: test
-        noScan: true
-        file: README
----
-```
-:::
-

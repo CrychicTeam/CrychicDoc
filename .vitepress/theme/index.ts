@@ -16,6 +16,7 @@ import imageViewer from "./components/imageViewer.vue"
 import vuetify from './vuetify'
 import { onMounted, watch } from 'vue'
 import mermaid from 'mermaid'
+
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import Layout from './Layout.vue'
 import TdesignDark from './components/tdesignDark.vue'
@@ -27,6 +28,8 @@ import carousel from './components/carousel.vue'
 import Footer from './components/Footer.vue'
 import ArticleMetadata from "./components/ArticleMetadataCN.vue"
 import buttons from "./components/Buttons.vue"
+import Linkcard from "./components/Linkcard.vue"
+
 import '@mdit/plugin-spoiler/style'
 import './style/index.css'
 
@@ -55,6 +58,7 @@ export default {
     ctx.app.component('DamageChart', damageChart)
     ctx.app.component('Carousel', carousel)
     ctx.app.component('ArticleMetadata' , ArticleMetadata)
+    ctx.app.component('Linkcard' , Linkcard)
   },
   setup() {
     const route = useRoute();
