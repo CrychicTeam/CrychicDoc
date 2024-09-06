@@ -13,6 +13,14 @@
 
 该项目的[开源地址GitHub](https://github.com/Gu-meng/kubejs-course) GitHub不支持内容提交
 
+::: info 仓库活动
+<commitsCounter
+  username="Gu-meng"
+  repoName="kubejs-course"
+  :daysToFetch="90"
+/>
+:::
+
 孤梦的[bilibili主页](https://space.bilibili.com/16632546)
 
 项目[问题反馈](https://gitee.com/gumengmengs/kubejs-course/issues/new/choose)
