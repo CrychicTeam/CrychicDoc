@@ -29,11 +29,13 @@ journey
       Go downstairs: 5: Me
       Sit down: 5: Me
 ```
+</ClientOnly>
 
 ## 时间线插件示例
 
-</ClientOnly>
 
+
+:::: demo 示例
 ::: timeline 2023-05-24
 - **do some thing1**
 - do some thing2
@@ -43,10 +45,13 @@ journey
 do some thing3
 do some thing4
 :::
+::::
 
 ## B站视频示例
 
+:::demo
 <BilibiliVideo bvid="BV1rC4y1C7z2" />
+:::
 
 ## 伤害静态图示例
 

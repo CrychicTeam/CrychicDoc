@@ -18,6 +18,9 @@
 
     --vp-custom-block-important: #a371f7;
     --vp-custom-block-important-bg: #f4eefe;
+
+    --vp-custom-block-demo: #cccccc;
+    --vp-custom-block-demo-bg: #fafafa;
 }
 
 .dark {
@@ -38,6 +41,9 @@
 
     --vp-custom-block-important: #a371f7;
     --vp-custom-block-important-bg: #230555;
+
+    --vp-custom-block-demo: #a7a7a7;
+    --vp-custom-block-demo-bg: #474748;
 }
 
 

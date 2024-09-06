@@ -1,0 +1,23 @@
+.demo .custom-block {
+    font-size: 18px;
+    border-color: var(--vp-custom-block-demo);
+    border-width: 2px;
+    color: var(--vp-custom-block-details-text);
+    /* background-color: var(--vp-custom-block-demo-bg); */
+    padding: 8px 16px 8px;
+    background-image: linear-gradient(to bottom, var(--vp-custom-block-demo-bg) 64px, #1b1b1f 64px);
+}
+
+.demo hr {
+    margin: 16px -16px;
+    border-top: 2px solid var(--vp-custom-block-demo);
+}
+
+.demo .custom-block div[class*='language-'] {
+    border-top-left-radius: 0px;
+    border-top-right-radius: opx;
+    margin-top: -14px;
+    margin-bottom: -6px;
+    margin-left: -16px;
+    margin-right: -16px;
+}
