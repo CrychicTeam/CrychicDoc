@@ -29,6 +29,14 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
 
+    - name: Cache VitePress build cache
+      uses: actions/cache@v2
+      with:
+        path: .vitepress/cache
+        key: ${{ runner.os }}-vitepress-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-vitepress-
+
     - name: Cache type repo
       uses: actions/cache@v2
       with:
