@@ -19,6 +19,9 @@ root:
   title: KubeJS
   collapsed: false
   subDir:
+    - title: 入门
+      path: Introduction
+      collapsed: true
     - title: 配方
       path: Recipe
       collapsed: true
