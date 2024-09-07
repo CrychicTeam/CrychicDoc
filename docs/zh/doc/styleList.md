@@ -173,21 +173,104 @@ VuePress Theme Hope ==十分强大==。
 VuePress Theme Hope ++十分++ 强大。
 :::
 
-## 警告框
+## 警告框 {#alert}
 
 由本站维护成员[椰浆](https://www.mcmod.cn/author/24749.html)编写的`v-alert`插件提供，用于创建vuetify风格的警告容器。
 
-:::: demo 示例
+>[!INFO]注
+>此插件基于[`@mdit/plugin-container`](https://mdit-plugins.github.io/zh/container.html)
+
+::::: demo 示例
 ::: v-success 成功
 这是成功样式
 :::
-::: v-info 提示
-这是提示样式
+::: v-info 
+这是提示样式，默认标题
 :::
 ::: v-warning 警告
-这是警告样式
+这是警告样式,支持其它++插件++
 :::
-::: v-error 错误
+:::: v-error 错误
 这是错误样式
+::: v-success 成功
+可以嵌套
 :::
 ::::
+:::::
+
+## 滚动横幅 {#carousels}
+
+由本站维护成员[椰浆](https://www.mcmod.cn/author/24749.html)编写的`carousels`插件提供，用于创建自定义内容的滚动横幅。
+
+>[!INFO]注
+>此插件基于[`@mdit/plugin-container`](https://mdit-plugins.github.io/zh/container.html)
+
+:::: demo 示例
+::: carousels#{"cycle": true, "interval": 2800, "undelimiters": true}
+@tab
+![1](https://docs.mihono.cn/mods/adventure/champions-unofficial/1.png)
+@tab
+![2](https://docs.mihono.cn/mods/adventure/champions-unofficial/2.png)
+:::
+::::
+
+### 配置语法 {#carousels-grammer}
+
+`carousels`容器的配置项由跟随在容器声明后的`json`提供，使用`#`以连接配置与容器声明。
+
+| 配置字段        | 用途                                    | 类型    | 省缺值   |
+|----------------|----------------------------------------|---------|---------|
+| `ratio`        | 设置横幅的比例，默认为16:9。                 | `number` | `16/9`  |
+| `cycle`        | 设置横幅是否自动循环，默认为关闭。            | `boolean` | `false` |
+| `interval`     | 设置横幅循环时停留的时间，默认为6秒。        | `number` | `6000`  |
+| `arrows`       | 设置横幅导航控制按钮是否显示，hover为<br/>鼠标悬停在横幅上时显示，默认显示。 | `boolean` \| "`hover`" | `true`  |
+| `undelimiters` | 设置横幅底部的控制条是否显示，默认为显示。      | `boolean` | `false` |
+
+### 图片缩放兼容 {#img-zoom}
+
+在横幅中插入图片有两种形式，分别为
+::: code-group
+
+```md [可缩放]
+@tab
+![img](你的图片路径)
+```
+
+```md [不可缩放]
+@tab 你的图片路径
+<!-- 该空行不可缺少，否则组件不会正确识别@tab标识 -->
+```
+
+:::
+
+## 卡片 {#card}
+
+由本站维护成员[椰浆](https://www.mcmod.cn/author/24749.html)编写的`card`插件提供，用于创建自定义内容的卡片。
+
+>[!INFO]注
+>此插件基于[`@mdit/plugin-container`](https://mdit-plugins.github.io/zh/container.html)
+
+::::: demo 示例
+:::text 标题#副标题
+这是text样式
+:::
+:::flat 只有标题
+这是flat样式
+:::
+:::elevated #只有副标题
+这是elevated样式
+:::
+:::tonal 标题#副标题
+这是tonal样式
+:::
+:::outlined
+这是outlined样式，没有标题和副标题
+:::
+::::plain 标题#副标题
+这是plain样式  
+只能使用双空格或`\`换行\
+:::tonal 嵌套
+支持嵌套，支持!!别的插件!!
+:::
+::::
+:::::

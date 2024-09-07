@@ -22,6 +22,8 @@ import { ins } from "@mdit/plugin-ins";
 import { v_alert } from "../plugins/v-alert"
 import { mdDemo } from "../plugins/demo"
 import { carousels } from "../plugins/carousels";
+import { card } from "../plugins/card";
+
 import fs from 'fs';
 import path from 'path'
 
@@ -51,6 +53,7 @@ export const markdown: MarkdownOptions = {
         //md.use(container, template);
         md.use(tab, stepper)
         md.use(carousels)
+        md.use(card)
         // const test = md.render("::: carousels#{\"test\": 123}\n123546\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/1.png\n\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/2.png\n\n:::\n", {})
         // const test = md.render(fs.readFileSync(path.join("docs","zh","modpack","kubejs","KubejsCourse","KubejsBasic","FileStructure.md")).toString())
         // fs.writeFileSync('output.html', test);

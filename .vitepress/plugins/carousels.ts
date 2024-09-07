@@ -59,7 +59,7 @@ const carouselsRenderer: MarkdownItTabOptions = {
                 }
             }
 
-            // if (configObj.height && typeof configObj.height === "number") config += `height="${configObj.height * 0.36}" `
+            if (configObj.ratio && typeof configObj.ratio === "number") config += `aspectRatio="${configObj.ratio}" `
         } catch (error) { }
 
         return `<MdCarousel${config} >`;
