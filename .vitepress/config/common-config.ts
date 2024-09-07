@@ -55,7 +55,8 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
               js: localIconLoader(import.meta.url, '../../docs/public/svg/Javascript.svg'),
               ts: 'logos:typescript-icon-round',
               java: 'logos:java',
-              css: 'logos:css-3'
+              css: 'logos:css-3',
+              git: 'logos:git-icon',
             }}),
         AutoImport({
             resolvers: [TDesignResolver({
