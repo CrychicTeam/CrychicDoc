@@ -1,27 +1,43 @@
 /* .vitepress/theme/style/vp-code-group.css */
 
-/* 代码块tab */
-.vp-code-group .tabs {
-    padding-top: 30px;
+:root {
+    --code-border-color: #e9ecef;
+    --tab-active-color: #007bff;
+    --tab-hover-color: #6c757d;
+    --code-text-color: #212529;
 }
 
-/* 代码块tab-顶部小圆点 */
-.vp-code-group .tabs::before {
-    background: #fc625d;
-    border-radius: 50%;
-    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-    content: ' ';
-    height: 12px;
-    width: 12px;
-    left: 12px;
-    margin-top: -15px;
-    position: absolute;
-}
-
-
-/* 代码组 */
 .vp-code-group {
-    color: var(--vp-c-black-soft);
-    border-radius: 8px;
-    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
+    background-color: var(--code-bg-color);
+    border: 1px solid var(--code-bg-color);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1.5em 0;
+}
+
+.vp-code-group .tabs {
+    display: flex;
+    background-color: var(--code-bg-color);
+    padding: 0.5em 1em;
+    margin: 0;
+    border: 1.6px solid var(--code-group-border-color);
+}
+
+.vp-code-group .tabs label {
+    cursor: pointer;
+    padding: 0.5em 1em;
+    margin-right: 0.5em;
+    font-size: 0.9em;
+    color: var(--code-text-color);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.vp-code-group .tabs label:hover {
+    color: var(--tab-hover-color);
+}
+
+.vp-code-group .tabs label.active {
+    color: var(--tab-active-color);
+    border-bottom-color: var(--tab-active-color);
 }

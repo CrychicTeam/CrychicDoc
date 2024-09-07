@@ -2,6 +2,7 @@ import { DefaultTheme, UserConfig } from "vitepress"
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { TDesignResolver } from 'unplugin-vue-components/resolvers';
+import { groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 import * as config from "./markdown-plugins"
 
 export const commonConfig: UserConfig<DefaultTheme.Config> = {
@@ -45,6 +46,17 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         noExternal: ['vuetify'],
         },
         plugins: [
+        groupIconVitePlugin({ 
+            customIcon: {
+              mcmeta: localIconLoader(import.meta.url, '../../docs/public/svg/minecraft.svg'),
+              json: localIconLoader(import.meta.url, '../../docs/public/svg/json.svg'),
+              md: localIconLoader(import.meta.url, '../../docs/public/svg/markdown.svg'),
+              kubejs: localIconLoader(import.meta.url, '../../docs/public/svg/kubejs.svg'),
+              js: localIconLoader(import.meta.url, '../../docs/public/svg/Javascript.svg'),
+              ts: 'logos:typescript-icon-round',
+              java: 'logos:java',
+              css: 'logos:css-3'
+            }}),
         AutoImport({
             resolvers: [TDesignResolver({
             library: 'vue-next'

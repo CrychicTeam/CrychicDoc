@@ -23,6 +23,7 @@ import { v_alert } from "../plugins/v-alert"
 import { mdDemo } from "../plugins/demo"
 import { carousels } from "../plugins/carousels";
 import { card } from "../plugins/card";
+import { groupIconMdPlugin } from 'vitepress-plugin-group-icons'
 
 import fs from 'fs';
 import path from 'path'
@@ -31,6 +32,7 @@ export const markdown: MarkdownOptions = {
     math: true,
       lineNumbers: true,
       config: async (md) => {
+        md.use(groupIconMdPlugin)
         md.use(timeline);
         md.use(tabsMarkdownPlugin);
 
