@@ -85,11 +85,14 @@
             #cadfd9 50%
         );
         --vp-home-hero-image-filter: blur(68px);
+        --code-bg-color: var(--vp-c-brand-light);
+        --code-group-border-color: #cccac0;
         --vp-c-brand: #1565c0;
         --vp-c-text-2: #546e7a;
         --stepper-text-color: var(--vp-c-text-1);
         --stepper-active-color: var(--vp-c-brand);
         --stepper-hover-color: var(--vp-c-brand-light);
+        --github-bg-image: url("/icon/github.png");
     }
 
     .dark {
@@ -99,11 +102,14 @@
             #4a3f3f 50%
         );
         --vp-home-hero-image-filter: blur(72px);
+        --code-bg-color: var(--vp-c-brand-dark);
+        --code-group-border-color: #242631;
         --vp-c-brand: #4a148c;
         --vp-c-text-2: #b0bec5;
         --stepper-text-color: var(--vp-c-text-1);
         --stepper-active-color: var(--vp-c-brand-dark);
         --stepper-hover-color: var(--vp-c-brand);
+        --github-bg-image: url("/icon/github_dark.png");
     }
 
     .theme-stepper {
@@ -135,4 +141,5 @@
     .v-divider.v-theme--dark {
         border-color: var(--stepper-active-color);
     }
+
 </style>

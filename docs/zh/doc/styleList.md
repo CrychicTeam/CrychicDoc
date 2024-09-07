@@ -111,6 +111,10 @@ The HTML specification is maintained by the W3C.
 ::: right
 右对齐的内容
 :::
+
+::: justify
+两端对齐的内容
+:::
 ::::
 
 ## 隐藏内容 {#spoiler}
@@ -268,9 +272,18 @@ VuePress Theme Hope ++十分++ 强大。
 :::
 ::::plain 标题#副标题
 这是plain样式  
-只能使用双空格或`\`换行\
+只能使用双空格或`\`换行
 :::tonal 嵌套
 支持嵌套，支持!!别的插件!!
 :::
 ::::
+:::::
+
+## 文本均分
+
+::::: demo 示例
+::: justify
+这是一个展示均分对齐的段落。通过CSS的text-align: justify属性，可以在VitePress中实现文字的两端对齐效果。
+:::
+
 :::::
