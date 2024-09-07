@@ -1,0 +1,22 @@
+{
+    "NavLink": {
+        "scope": "typescript",
+        "prefix": "@navlink",
+        "body": [
+            "{",
+            "    title: \"$1\",",
+            "    link: \"$2\",",
+            "    icon: \"$0\"",
+            "},"
+        ],
+        "description": "NavLink"
+    },
+    "desc": {
+        "scope": "typescript",
+        "prefix": "desc",
+        "body": [
+            "desc: \"$0\"",
+        ],
+        "description": "desc"
+    },
+}

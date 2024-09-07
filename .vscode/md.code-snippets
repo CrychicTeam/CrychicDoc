@@ -81,7 +81,7 @@
     "@title": {
         "prefix": "@title",
         "body": [
-            "{{ $frontmatter.title }}"
+            "{{ \\$frontmatter.title }}"
         ],
         "description": "title"
     },

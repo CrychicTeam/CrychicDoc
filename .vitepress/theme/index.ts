@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { h } from "vue";
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
@@ -30,6 +31,7 @@ import buttons from "./components/Buttons.vue";
 import Linkcard from "./components/Linkcard.vue";
 import carousels from "./components/carousels.vue";
 import commitsCounter from "./components/CommitsCounter.vue";
+import MNavLinks from './components/MNavLinks.vue';
 
 import "@mdit/plugin-spoiler/style";
 import "./style/index.css";
@@ -38,7 +40,12 @@ import 'virtual:group-icons.css'
 export default {
     extends: DefaultTheme,
     Layout: () => {
-        return h(DefaultTheme.Layout, null, {
+        const props: Record<string, any> = {}
+        const { frontmatter } = useData()
+        if (frontmatter.value?.layoutClass) {
+            props.class = frontmatter.value.layoutClass
+        }
+        return h(DefaultTheme.Layout, props, {
             "doc-bottom": () => h(imageViewer),
             "layout-top": () => h(themeControl),
             "aside-outline-after": () => h(AuthorsComponent),
@@ -53,7 +60,6 @@ export default {
         enhanceAppWithTabs(ctx.app);
         ctx.app.use(vuetify);
         ctx.app.use(TwoslashFloatingVue);
-        //@ts-expect-error
         ctx.app.use(Layout);
         ctx.app.component("MdCarousel", carousels);
         ctx.app.component("YoutubeVideo", YoutubeVideo);
@@ -62,6 +68,7 @@ export default {
         ctx.app.component("ArticleMetadata", ArticleMetadata);
         ctx.app.component("Linkcard", Linkcard);
         ctx.app.component("commitsCounter", commitsCounter);
+        ctx.app.component('MNavLinks' , MNavLinks)
     },
     setup() {
         const route = useRoute();
