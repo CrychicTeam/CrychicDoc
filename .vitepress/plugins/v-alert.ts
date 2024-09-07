@@ -19,17 +19,25 @@ export const v_alert: PluginSimple = (md) => {
     );
 
     md.renderer.rules.paragraph_open = (tokens, idx, options, env, self) => {
-        const token = tokens[idx - 1];
-        if (token && token.type.startsWith('container_v-') && token.type.endsWith('open')) {
+        const open = tokens[idx - 1];
+        if (open && open.type.startsWith('container_v-') && open.type.endsWith('open')) {
             return ''; // Skip paragraph opening inside container
+        }
+        const close = tokens[idx + 3];
+        if (close && close.type.startsWith('container_v-') && close.type.endsWith('close')) {
+            return '\n'; // Skip paragraph closing inside container
         }
         return self.renderToken(tokens, idx, options);
     };
 
     md.renderer.rules.paragraph_close = (tokens, idx, options, env, self) => {
-        const token = tokens[idx + 1];
-        if (token && token.type.startsWith('container_v-') && token.type.endsWith('close')) {
+        const close = tokens[idx + 1];
+        if (close && close.type.startsWith('container_v-') && close.type.endsWith('close')) {
             return '\n'; // Skip paragraph closing inside container
+        }
+        const open = tokens[idx - 3];
+        if (open && open.type.startsWith('container_v-') && open.type.endsWith('open')) {
+            return ''; // Skip paragraph opening inside container
         }
         return self.renderToken(tokens, idx, options);
     };

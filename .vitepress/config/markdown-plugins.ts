@@ -50,7 +50,7 @@ export const markdown: MarkdownOptions = {
         //md.use(container, stepper);
         //md.use(container, template);
         md.use(tab, stepper)
-        md.use(tab, carousels)
+        md.use(carousels)
         // const test = md.render("::: carousels#{\"test\": 123}\n123546\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/1.png\n\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/2.png\n\n:::\n", {})
         // const test = md.render(fs.readFileSync(path.join("docs","zh","modpack","kubejs","KubejsCourse","KubejsBasic","FileStructure.md")).toString())
         // fs.writeFileSync('output.html', test);
