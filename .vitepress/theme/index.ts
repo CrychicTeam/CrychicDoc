@@ -19,16 +19,17 @@ import mermaid from 'mermaid'
 
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import Layout from './Layout.vue'
-import TdesignDark from './components/tdesignDark.vue'
+import themeControl from './components/themeControl.vue'
 import Comment from './components/comment.vue'
 import YoutubeVideo from './components/YoutubeVideo.vue'
 import BilibiliVideo from './components/BilibiliVideo.vue'
 import damageChart from './components/minecraft-advanced-damage-chart.vue'
-import carousel from './components/carousel.vue'
 import Footer from './components/Footer.vue'
 import ArticleMetadata from "./components/ArticleMetadataCN.vue"
 import buttons from "./components/Buttons.vue"
 import Linkcard from "./components/Linkcard.vue"
+import carousels from './components/carousels.vue'
+import commitsCounter from './components/CommitsCounter.vue'
 
 import '@mdit/plugin-spoiler/style'
 import './style/index.css'
@@ -38,7 +39,7 @@ export default {
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       "doc-bottom": () => h(imageViewer),
-      "layout-top": () => h(TdesignDark),
+      "layout-top": () => h(themeControl),
       "aside-outline-after": () => h(AuthorsComponent),
       "doc-after": () => h(Comment),
       "layout-bottom" : () => h(Footer),
@@ -53,12 +54,13 @@ export default {
     ctx.app.use(TwoslashFloatingVue);
     //@ts-expect-error
     ctx.app.use(Layout);
+    ctx.app.component("MdCarousel", carousels);
     ctx.app.component('YoutubeVideo', YoutubeVideo)
     ctx.app.component('BilibiliVideo', BilibiliVideo)
     ctx.app.component('DamageChart', damageChart)
-    ctx.app.component('Carousel', carousel)
     ctx.app.component('ArticleMetadata' , ArticleMetadata)
     ctx.app.component('Linkcard' , Linkcard)
+    ctx.app.component('commitsCounter' , commitsCounter)
   },
   setup() {
     const route = useRoute();
@@ -95,6 +97,7 @@ export default {
           leftPadding: 75,
           gridLineStartPadding: 35,
           fontSize: 11,
+          //@ts-expect-error
           fontFamily: '"Open-Sans", "sans-serif"',
           numberSectionStyles: 4,
           axisFormat: '%Y-%m-%d'

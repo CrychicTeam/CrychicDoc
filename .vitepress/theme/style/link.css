@@ -1,4 +1,3 @@
-
 .vp-doc a[href^="https://www.mcmod.cn/"]:before {
     content: '';
     background-image: url(https://www.mcmod.cn/static/public/images/favicon.ico);
@@ -9,5 +8,53 @@
     position: relative;
     background-size: cover;
     top: -2px;
+    margin-right: 4px;
+}
+
+.vp-doc a[href^="https://www.curseforge.com/"]:before {
+    content: '';
+    background-image: url(https://www.curseforge.com/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    margin-right: 4px;
+}
+
+.vp-doc a[href^="https://modrinth.com/"]:before {
+    content: '';
+    background-image: url(https://modrinth.com/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    margin-right: 4px;
+}
+
+.vp-doc a[href^="https://zh.minecraft.wiki/"]:before {
+    content: '';
+    background-image: url(https://zh.minecraft.wiki/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    margin-right: 4px;
+}
+
+.vp-doc a[href^="https://minecraft.wiki/"]:before {
+    content: '';
+    background-image: url(https://minecraft.wiki/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
     margin-right: 4px;
 }

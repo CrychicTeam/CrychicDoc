@@ -54,7 +54,9 @@ next:
   text: zh
   link: /zh/index
 ---
-<index />
-<script setup>
-import index from './index.vue'
-</script>
+
+<commitsCounter
+  username="CrychicTeam"
+  repoName="CrychicDoc"
+  :daysToFetch="60"
+/>

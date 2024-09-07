@@ -58,8 +58,8 @@ do some thing4
 
 ## 伤害静态图示例
 
+:::demo
 <ClientOnly>
-<!--  -->
 <DamageChart
   mode="static"
   :incomingDamage="20"
@@ -70,3 +70,4 @@ do some thing4
   :isJavaEdition="true"
 />
 </ClientOnly>
+:::
