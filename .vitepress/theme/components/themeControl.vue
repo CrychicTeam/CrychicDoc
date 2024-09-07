@@ -92,6 +92,7 @@
         --stepper-text-color: var(--vp-c-text-1);
         --stepper-active-color: var(--vp-c-brand);
         --stepper-hover-color: var(--vp-c-brand-light);
+        --github-bg-image: url("/icon/github.png");
     }
 
     .dark {
@@ -108,6 +109,7 @@
         --stepper-text-color: var(--vp-c-text-1);
         --stepper-active-color: var(--vp-c-brand-dark);
         --stepper-hover-color: var(--vp-c-brand);
+        --github-bg-image: url("/icon/github_dark.png");
     }
 
     .theme-stepper {
@@ -139,4 +141,5 @@
     .v-divider.v-theme--dark {
         border-color: var(--stepper-active-color);
     }
+
 </style>

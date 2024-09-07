@@ -11,7 +11,7 @@ next: false
 
 <script setup>
 import { ref } from "vue";
-import { NAV_DATA } from './guide.ts'
+import { NAV_DATA } from '../Components/guide.ts'
 const NAV_DATAS = ref(NAV_DATA)
 </script>
 

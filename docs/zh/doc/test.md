@@ -33,17 +33,3 @@ ItemEvents.rightClicked("acacia_button",event=>{
 })
 ```
 非常好
-
-::: code-group
-```sh [kubejs]
-pnpm -v
-```
-
-```sh [mcmeta]
-yarn -v
-```
-
-```sh [json]
-bun -v
-```
-:::

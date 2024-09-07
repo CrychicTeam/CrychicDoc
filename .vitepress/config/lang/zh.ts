@@ -7,7 +7,9 @@ export const zh_CN = <DefaultTheme.Config>({
     title: "CryChic文档",
     description: "一个包含 Minecraft 开发文档的网站。",
     themeConfig: {
-        nav: [],
+        nav: [
+            { text: '导航', link: '/zh/doc/guide' }
+            ],
         sidebar: sidebars("zh"),
         editLink: {
         pattern: 'https://github.com/CrychicTeam/CrychicDoc/blob/main/docs/:path?plain=1',

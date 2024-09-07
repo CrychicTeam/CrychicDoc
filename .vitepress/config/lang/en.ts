@@ -7,7 +7,9 @@ export const en_US = <DefaultTheme.Config>({
     title: "CryChicDoc",
     description: "A site containing docs for Minecraft developing.",
     themeConfig: {
-        nav: [],
+        nav: [
+            { text: 'Guide', link: '/en/doc/guide' }
+            ],
         sidebar: sidebars("en"),
         editLink: {
         pattern: 'https://github.com/CrychicTeam/CrychicDoc/blob/main/docs/:path?plain=1',
