@@ -43,8 +43,9 @@ root:
     - title: Network通信
       path: NetworkInteration
       collapsed: true
-    - title: 全局类
+    - title: 全局范围
       path: GlobalScope
+      collapsed: true
     - title: JavaScript相关概念
       path: JavaScript
       collapsed: true
