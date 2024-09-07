@@ -47,7 +47,13 @@ JavaScript（Kubejs）方法重载实现方式请查看(未完成，看到了请
 
 ### get与set属性
 
+**`get`** 类型的属性，用于读取对象的属性值，更加详细的信息等待后续更新。
+
+**`set`** 类型的属性，用于设置对象的属性值，更加详细的信息等待后续更新。
+
 ### readonly属性
+
+**`readonly`** 类型的属性，一旦初始化后不可更改，只能读取，更加详细的信息等待后续更新。
 
 ## 所有函数
 
@@ -344,7 +350,7 @@ PlayerEvents.chat(event => {
 
 ### typeToStackMap
 
-- **`get`** 属性，同Item.getTypeToStackMap()函数，返回映射 **`java.util.HashMap`** ，其中键为物品id **`ResourceLocation`**，值为集合 **`java.util.ImmutableCollections$Set`**
+- **`get`** 属性，同Item.getTypeToStackMap()函数，返回映射 **`java.util.HashMap`** ，其中键为物品id **`ResourceLocation`**，值为集合 **`java.util.ImmutableCollections$Set`** 其大小size为1，内含对应物品id的物品实例 **`Internal.ItemStack`**
 
 ### empty
 
@@ -364,8 +370,8 @@ PlayerEvents.chat(event => {
 
 ### KJS_BASE_ATTACK_SPEED_UUID
 
-- **`readonly`** 属性，返回一个 **`交叉类型`** **`(Internal.UUID) & (Internal.UUID)`**，含义等待研究，目前认为是基础攻击速度值属性修饰符。
+- **`readonly`** 属性，返回一个 **`交叉类型`** **`(Internal.UUID) & (Internal.UUID)`**，含义等待研究，目前认为是基础攻击速度值属性修饰符的uuid。
 
 ### KJS_BASE_ATTACK_DAMAGE_UUID
 
-- **`readonly`** 属性，返回一个 **`交叉类型`** **`(Internal.UUID) & (Internal.UUID)`**，含义等待研究，目前认为是基础攻击伤害值属性修饰符。
+- **`readonly`** 属性，返回一个 **`交叉类型`** **`(Internal.UUID) & (Internal.UUID)`**，含义等待研究，目前认为是基础攻击伤害值属性修饰符的uuid。
