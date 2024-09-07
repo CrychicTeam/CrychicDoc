@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 对象（Object）
+title: 实用工具类（Utils）
 authors:
     - Eikidona
 ---

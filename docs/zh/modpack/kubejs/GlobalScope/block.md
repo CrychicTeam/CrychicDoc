@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 对象（Object）
+title: 方块类（Block）
 authors:
     - Eikidona
 ---

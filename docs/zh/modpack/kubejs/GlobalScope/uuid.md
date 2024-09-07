@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 对象（Object）
+title: 通用唯一标识符类（UUID）
 authors:
     - Eikidona
 ---

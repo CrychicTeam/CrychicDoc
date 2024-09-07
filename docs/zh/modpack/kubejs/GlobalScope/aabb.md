@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 对象（Object）
+title: 轴对齐包围盒类（AABB）
 authors:
     - Eikidona
 ---

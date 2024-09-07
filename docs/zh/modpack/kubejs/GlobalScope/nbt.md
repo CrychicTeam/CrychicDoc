@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 对象（Object）
+title: NBT类（NBT）
 authors:
     - Eikidona
 ---

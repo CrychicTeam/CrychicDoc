@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 对象（Object）
+title: 文本类（Text）
 authors:
     - Eikidona
 ---

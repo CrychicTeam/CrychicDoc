@@ -1,1 +1,6 @@
-# Array类
+---
+layout: doc
+title: 数组（Array）
+authors:
+    - Eikidona
+---

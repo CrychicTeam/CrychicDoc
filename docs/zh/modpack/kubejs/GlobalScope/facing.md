@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 对象（Object）
+title: 面类（Facing）
 authors:
     - Eikidona
 ---

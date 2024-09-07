@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 对象（Object）
+title: 原料类（Ingredient）
 authors:
     - Eikidona
 ---

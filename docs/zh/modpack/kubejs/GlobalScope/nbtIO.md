@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: 对象（Object）
+title: NBT读写类（NBTIO）
 authors:
     - Eikidona
 ---
