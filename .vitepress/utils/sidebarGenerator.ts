@@ -265,8 +265,8 @@ interface SubDir {
     path: string;
     noScan?: boolean;
     collapsed?: boolean;
-    children?: SubDir[];
     file?: string;
+    children?: SubDir[];
 }
 
 interface FileFrontMatter {
