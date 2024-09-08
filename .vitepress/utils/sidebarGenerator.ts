@@ -125,7 +125,6 @@ export default class SidebarGenerator {
             return subSideBar;
         });
     }
-
     private scanDirectory(
         dirPath: string,
         currentPath: string
@@ -183,12 +182,12 @@ export default class SidebarGenerator {
 
         let link: string;
         if (file.path === "/") {
-            // 如果 path 是 '/'，我们使用 currentPath 和 file 属性
+            // 如果 path 是 '/'，使用 currentPath 和 file 属性
             link = file.file
                 ? `${currentPath}/${file.file.replace(/\.md$/i, "")}`
                 : currentPath;
         } else {
-            // 如果 path 不是 '/'，我们包含 path 和 file（如果存在）
+            // 如果 path 不是 '/'就包含 path 和 file（如果存在）
             link = file.file
                 ? `${currentPath}/${file.path}/${file.file.replace(
                         /\.md$/i,
@@ -266,6 +265,8 @@ export interface Sidebar {
 export interface FileItem {
     text: string;
     link: string;
+    collapsed?: boolean;
+    items?: FileItem[];
 }
 
 interface Index {
