@@ -158,6 +158,7 @@ interface SubDir {
 | `path`      | 设置该子侧边栏的目录路径，必填字段               | string  | `N/A`   |
 | `noScan`    | 设置是否应自动扫描该目录内的所有文件              | boolean | `false` |
 | `file`      | 设置该子侧边栏名称连接的文件，非必填字段，文件需处于该子目录内 | string  | `N/A`   |
+| `files`     | 设置该子侧边栏的子栏目文件的顺序，noScan为false时才生效 | string[] | `N/A` | 
 
 :::
 
@@ -172,7 +173,11 @@ root:
   subDir:
       - title: subDir a
         path: test
-        collapsed: true
+        collapsed: true  
+        files:
+          - first.md
+          - second.md
+          - third.md
       - title: subDir back
         path: test
         noScan: true

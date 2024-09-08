@@ -18,10 +18,23 @@ noguide: true
 root:
   title: KubeJS
   collapsed: false
-  subDir:
+  children:
     - title: 入门
       path: Introduction
       collapsed: true
+      children:
+        - title: 目录
+          path: /
+          noScan: true
+          file: Catalogue
+        - title: 数据类型
+          path: /
+          noScan: true
+          file: DataType
+        - title: 基本类型
+          path: /
+          noScan: true
+          file: VariableType
     - title: 配方
       path: Recipe
       collapsed: true
