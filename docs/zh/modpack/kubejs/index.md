@@ -63,6 +63,7 @@ root:
       path: JavaScript
       collapsed: true
     - title: kubejs教程-1.20.1(孤梦版)
+      noScan: true
       path: KubejsCourse
       file: README
 ---

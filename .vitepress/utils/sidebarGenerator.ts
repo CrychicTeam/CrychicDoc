@@ -162,6 +162,17 @@ export default class SidebarGenerator {
         );
     }
 
+    /**
+     * This function creates a file item for the sidebar.
+     * If the file has a title in the front matter, it will be used.
+     * Otherwise, the file name will be used.
+     * If the file is in a subdirectory, the link will include the path.
+     * If the file is in the root directory, the link will not include the path.
+     * @param file
+     * @param currentPath 
+     * @param filePath 
+     * @returns 
+     */
     private createFileItem(
         file: SubDir,
         currentPath: string,
@@ -171,23 +182,28 @@ export default class SidebarGenerator {
         const itemWithoutMd = (file.file || file.path).replace(/\.md$/i, "");
 
         let link: string;
-        if (file.file) {
-            link = `${currentPath}/${file.file.replace(/\.md$/i, "")}`;
-        } else if (file.path === "/") {
-            // 如果 path 是 '/'使用 currentPath
-            link = currentPath;
+        if (file.path === "/") {
+            // 如果 path 是 '/'，我们使用 currentPath 和 file 属性
+            link = file.file
+                ? `${currentPath}/${file.file.replace(/\.md$/i, "")}`
+                : currentPath;
         } else {
-            link = `${currentPath}/${file.path}`;
+            // 如果 path 不是 '/'，我们包含 path 和 file（如果存在）
+            link = file.file
+                ? `${currentPath}/${file.path}/${file.file.replace(
+                        /\.md$/i,
+                        ""
+                    )}`
+                : `${currentPath}/${file.path}`;
         }
+
+        // 移除链接中可能的重复部分
         link = link.replace(/\/+/g, "/");
 
         return {
             text: file.title || fileContent?.title || itemWithoutMd,
             link: link,
         };
-    }
-    private isDir(path: string): boolean {
-        return fs.lstatSync(path).isDirectory();
     }
 
     private detectLanguage(): string {
