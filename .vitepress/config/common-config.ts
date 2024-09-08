@@ -48,13 +48,13 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     vite: {
         optimizeDeps: {
           exclude: [ 
-            '@nolebase/vitepress-plugin-enhanced-readabilities/client', 
+            '@nolebase/*'
           ], 
         },
         ssr: {
         noExternal: [
           'vuetify',
-          '@nolebase/vitepress-plugin-enhanced-readabilities',
+          '@nolebase/*',
         ],
         },
         plugins: [
