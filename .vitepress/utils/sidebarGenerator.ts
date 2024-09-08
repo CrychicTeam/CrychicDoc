@@ -46,6 +46,8 @@ export default class SidebarGenerator {
         this.language = this.detectLanguage();
 
         this.builder();
+
+        // this.logger(JSON.stringify(this.sidebar, null, 2));
     }
 
     public get sidebar(): Sidebar {
@@ -70,79 +72,120 @@ export default class SidebarGenerator {
         if (root) {
             this._sidebar.text = root.title;
             this._sidebar.collapsed = root.collapsed;
-            this._sidebar.items = this.buildSidebarItems(root.children, this._correctedPathname, this.dirPath);
+            this._sidebar.items = this.buildSidebarItems(
+                root.children,
+                this._correctedPathname,
+                this.dirPath
+            );
         } else {
             // 如果没有找到 index.md，扫描当前目录
-            this._sidebar.items = this.scanDirectory(this.dirPath, this._correctedPathname);
+            this._sidebar.items = this.scanDirectory(
+                this.dirPath,
+                this._correctedPathname
+            );
         }
     }
 
-    private buildSidebarItems(children: SubDir[], currentPath: string, currentDirPath: string): Array<Sidebar | FileItem> {
-        return children.map(child => {
+    private buildSidebarItems(
+        children: SubDir[],
+        currentPath: string,
+        currentDirPath: string
+    ): Array<Sidebar | FileItem> {
+        return children.map((child) => {
             const childPath = path.join(currentDirPath, child.path);
-            if (child.path.endsWith('.md')) {
-                // 这是一个文件
+
+            // 如果存在 file 属性，则创建文件项
+            if (child.file) {
                 return this.createFileItem(child, currentPath, childPath);
-            } else {
-                // 这是一个目录
-                const subSideBar: Sidebar = {
-                    text: child.title,
-                    collapsed: child.collapsed,
-                    items: []
-                };
-
-                const subPath = `${currentPath}/${child.path}`;
-
-                if (child.children && child.children.length > 0) {
-                    subSideBar.items = this.buildSidebarItems(child.children, subPath, childPath);
-                } else if (!child.noScan) {
-                    // 如果没有定义 children 且 noScan 不为 true，则扫描目录
-                    subSideBar.items = this.scanDirectory(childPath, subPath);
-                }
-
-                return subSideBar;
             }
+
+            // 处理目录
+            const subSideBar: Sidebar = {
+                text: child.title,
+                collapsed: child.collapsed,
+                items: [],
+            };
+
+            const subPath =
+                child.path === "/"
+                    ? currentPath
+                    : `${currentPath}/${child.path}`.replace(/\/+/g, "/");
+
+            if (child.children && child.children.length > 0) {
+                subSideBar.items = this.buildSidebarItems(
+                    child.children,
+                    subPath,
+                    childPath
+                );
+            } else if (!child.noScan) {
+                // 只有在 noScan 不为 true 且没有 file 属性时才扫描目录
+                subSideBar.items = this.scanDirectory(childPath, subPath);
+            }
+
+            return subSideBar;
         });
     }
 
-    private scanDirectory(dirPath: string, currentPath: string): Array<Sidebar | FileItem> {
+    private scanDirectory(
+        dirPath: string,
+        currentPath: string
+    ): Array<Sidebar | FileItem> {
         const items = fs.readdirSync(dirPath);
         const filteredItems = items
-            .filter(item => !SidebarGenerator.BLACK_LIST.includes(item))
-            .map(item => {
+            .filter((item) => !SidebarGenerator.BLACK_LIST.includes(item))
+            .map((item) => {
                 const fullPath = path.join(dirPath, item);
                 if (fs.statSync(fullPath).isDirectory()) {
                     const sidebarItem: Sidebar = {
                         text: item,
                         collapsed: true,
-                        items: this.scanDirectory(fullPath, `${currentPath}/${item}`)
+                        items: this.scanDirectory(
+                            fullPath,
+                            `${currentPath}/${item}`
+                        ),
                     };
                     return sidebarItem;
-                } else if (item.endsWith('.md')) {
+                } else if (item.endsWith(".md")) {
                     const fileContent = this.fileReader(fullPath);
                     const itemWithoutMd = item.replace(/\.md$/i, "");
                     const fileItem: FileItem = {
                         text: fileContent?.title || itemWithoutMd,
-                        link: `${currentPath}/${itemWithoutMd}`
+                        link: `${currentPath}/${itemWithoutMd}`,
                     };
                     return fileItem;
                 }
                 return null;
             });
-    
-        return filteredItems.filter((item): item is Sidebar | FileItem => item !== null);
+
+        return filteredItems.filter(
+            (item): item is Sidebar | FileItem => item !== null
+        );
     }
 
-    private createFileItem(file: SubDir, currentPath: string, filePath: string): FileItem {
+    private createFileItem(
+        file: SubDir,
+        currentPath: string,
+        filePath: string
+    ): FileItem {
         const fileContent = this.fileReader(filePath);
-        const itemWithoutMd = file.path.replace(/\.md$/i, "");
+        const itemWithoutMd = (file.file || file.path).replace(/\.md$/i, "");
+
+        let link: string;
+        if (file.file) {
+            link = `${currentPath}/${file.file.replace(/\.md$/i, "")}`;
+        } else if (file.path === "/") {
+            // 如果 path 是 '/'使用 currentPath
+            link = currentPath;
+        } else {
+            link = `${currentPath}/${file.path}`;
+        }
+        link = link.replace(/\/+/g, "/");
 
         return {
             text: file.title || fileContent?.title || itemWithoutMd,
-            link: `${currentPath}/${itemWithoutMd}`
+            link: link,
         };
     }
-
     private isDir(path: string): boolean {
         return fs.lstatSync(path).isDirectory();
     }
@@ -198,17 +241,15 @@ export default class SidebarGenerator {
 }
 
 export interface Sidebar {
-    text?: string;
+    text: string;
     collapsed?: boolean;
     link?: string;
-    items: Array<FileItem | Sidebar>;
+    items: Array<Sidebar | FileItem>;
 }
 
 export interface FileItem {
     text: string;
     link: string;
-    collapsed?: boolean;
-    items?: [];
 }
 
 interface Index {
@@ -225,6 +266,7 @@ interface SubDir {
     noScan?: boolean;
     collapsed?: boolean;
     children?: SubDir[];
+    file?: string;
 }
 
 interface FileFrontMatter {

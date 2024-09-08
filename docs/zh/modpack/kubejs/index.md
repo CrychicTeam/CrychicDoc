@@ -25,15 +25,12 @@ root:
       children:
         - title: 目录
           path: /
-          noScan: true
           file: Catalogue
         - title: 数据类型
           path: /
-          noScan: true
           file: DataType
         - title: 基本类型
           path: /
-          noScan: true
           file: VariableType
     - title: 配方
       path: Recipe
@@ -67,6 +64,5 @@ root:
       collapsed: true
     - title: kubejs教程-1.20.1(孤梦版)
       path: KubejsCourse
-      noScan: true
       file: README
 ---
