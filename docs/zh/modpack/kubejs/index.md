@@ -19,19 +19,39 @@ root:
   title: KubeJS
   collapsed: false
   children:
-    - title: 入门
+    - title: 入门级
       path: Introduction
       collapsed: true
       children:
         - title: 目录
           path: /
           file: Catalogue
+        - title: 配方入门
+          path: Recipe
+          collapsed: true
+          children:
+            - title: 物品与原料表示
+              path: /
+              file: ItemAndIngredient
+            - title: 修改与删除配方
+              path: /
+              file: ModifyDeleteRecipe
+            - title: 添加原版配方
+              path: /
+              file: Vanilla
         - title: 数据类型
           path: /
           file: DataType
         - title: 基本类型
           path: /
           file: VariableType
+    - title: 进阶
+      path: Upgrade
+      children:
+        - title: 占位符
+          path: /
+          file: placeholder
+      collapsed: true
     - title: 配方
       path: Recipe
       collapsed: true
