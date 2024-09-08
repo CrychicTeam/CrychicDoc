@@ -26,7 +26,7 @@ root:
         - title: 目录
           path: /
           file: Catalogue
-        - title: 配方入门
+        - title: 配方
           path: Recipe
           collapsed: true
           children:
@@ -39,12 +39,13 @@ root:
             - title: 添加原版配方
               path: /
               file: Vanilla
-        - title: 数据类型
-          path: /
-          file: DataType
-        - title: 基本类型
-          path: /
-          file: VariableType
+        - title: 药水效果
+          path: PotionEffect
+          collapsed: true
+          children:
+            - title: 为实体添加药水效果
+              path: /
+              file: AddtoEntity
     - title: 进阶
       path: Upgrade
       children:
