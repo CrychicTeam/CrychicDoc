@@ -66,11 +66,11 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
           repoURL: () => 'https://github.com/CrychicTeam/CrychicDoc',
           mapAuthors: [ 
             { 
-              name: 'M1hono', 
-              username: 'M1hono',
-              mapByEmailAliases: ['xche0557@uni.sydney.edu.au' , '2311374931@qq.com' , '3374182836@qq.com'],
-              mapByNameAliases: ['CrychicTeam', 'M1hono', 'm1hono'],
-              avatar: generateAvatarUrl('M1hono')
+              name: 'M1hono',  // The name you want to display
+              username: 'M1hono', // The username of the author which is used to summon github's link. (won't work with links options)
+              mapByNameAliases: ['CrychicTeam', 'M1hono', 'm1hono' , 'Guda chen'], // Add the name you want to map, these names will be replaced with the name.
+              avatar: generateAvatarUrl('M1hono') // The avatar of the author, normally it's the github avatar
+              // links: "https://gitee.com/CrychicTeam/CrychicDoc" Change to the url You want to link to
             },
             { 
               name: 'skyraah', 
