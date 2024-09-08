@@ -83,7 +83,7 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://www.bilibili.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
+.vp-doc a[href*=".bilibili.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://www.bilibili.com/favicon.ico);
     width: 15px;
@@ -95,9 +95,9 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://space.bilibili.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
+.vp-doc a[href*=".gitbook.io"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
-    background-image: url(https://www.bilibili.com/favicon.ico);
+    background-image: url(https://framerusercontent.com/assets/93a6peqhbHQaWP67zttmrKDazq4.png);
     width: 15px;
     height: 15px;
     display: inline-block;
