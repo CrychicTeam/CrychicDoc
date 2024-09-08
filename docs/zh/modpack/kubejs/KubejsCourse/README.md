@@ -5,7 +5,7 @@
 
 <ClientOnly>
   <div style="display: flex; justify-content: center;">
-    <VPTeamMembers size="medium" :members="members" />
+    <VPTeamMembers size="small" :members="members" />
   </div>
 </ClientOnly>
 
