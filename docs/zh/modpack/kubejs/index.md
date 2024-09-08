@@ -41,11 +41,18 @@ root:
               file: Vanilla
         - title: 药水效果
           path: PotionEffect
+          children:
+            - title: 目录
+              path: /
+              file: Catalogue
+          collapsed: true
+        - title: 实体
+          path: Entity
           collapsed: true
           children:
             - title: 为实体添加药水效果
               path: /
-              file: AddToEntity
+              file: AddPotionEffects
     - title: 进阶-究其物理
       path: Upgrade
       children:
