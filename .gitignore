@@ -9,3 +9,4 @@ route.bash
 *.DS_Store
 *.temp
 output.html
+.cache
