@@ -16,6 +16,48 @@
     </Transition>
 
     <button
+        @click="refreshPage"
+        class="floating-button refresh-button"
+        :title="translations.refresh[lang]"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="30"
+            height="30"
+            viewBox="0,0,250,250"
+        >
+            <g
+                fill="#ffffff"
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+            >
+                <g transform="scale(10.66667,10.66667)">
+                    <path
+                        d="M21,15v-5c0,-3.866 -3.134,-7 -7,-7h-3c-0.552,0 -1,0.448 -1,1v0c0,1.657 1.343,3 3,3h1c1.657,0 3,1.343 3,3v5h-1.294c-0.615,0 -0.924,0.742 -0.491,1.178l3.075,3.104c0.391,0.395 1.03,0.395 1.421,0l3.075,-3.104c0.432,-0.436 0.122,-1.178 -0.492,-1.178z"
+                        opacity="0.35"
+                    ></path>
+                    <path
+                        d="M3,9v5c0,3.866 3.134,7 7,7h3c0.552,0 1,-0.448 1,-1v0c0,-1.657 -1.343,-3 -3,-3h-1c-1.657,0 -3,-1.343 -3,-3v-5h1.294c0.615,0 0.924,-0.742 0.491,-1.178l-3.075,-3.105c-0.391,-0.395 -1.03,-0.395 -1.421,0l-3.074,3.105c-0.433,0.436 -0.123,1.178 0.491,1.178z"
+                    ></path>
+                </g>
+            </g>
+        </svg>
+    </button>
+
+    <button
         @click="copyLink"
         class="floating-button copy-button"
         :class="{ copied }"
@@ -42,22 +84,14 @@
     const translations = {
         backToTop: { "en-US": "Back to Top", "zh-CN": "返回顶部" },
         copyLink: { "en-US": "Copy Link", "zh-CN": "复制链接" },
+        refresh: { "en-US": "Refresh", "zh-CN": "刷新" },
     };
 
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-    const throttle = (fn, delay = 100) => {
-        let lastTime = 0;
-        return (...args) => {
-            const nowTime = Date.now();
-            if (nowTime - lastTime > delay) {
-                fn(...args);
-                lastTime = nowTime;
-            }
-        };
+    const onScroll = () => {
+    showBackTop.value = window.scrollY > 100;
     };
-
-    const onScroll = throttle(() => (showBackTop.value = window.scrollY > 100));
 
     const copyLink = () => {
         navigator.clipboard
@@ -91,11 +125,14 @@
         window.addEventListener("scroll", onScroll);
         updateTheme(isDark.value);
 
-        // Watch for changes in theme
         watch(isDark, (newVal) => {
             updateTheme(newVal);
         });
     });
+
+    const refreshPage = () => {
+        window.location.reload(); // 重新加载当前页面
+    };
 
     onBeforeUnmount(() => {
         window.removeEventListener("scroll", onScroll);
@@ -139,11 +176,15 @@
     }
 
     .top-button {
-        bottom: 80px;
+        bottom: 140px;
     }
 
     .copy-button {
         bottom: 20px;
+    }
+
+    .refresh-button {
+        bottom: 80px;
     }
 
     .floating-button.copied {
