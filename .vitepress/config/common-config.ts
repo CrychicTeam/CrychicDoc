@@ -9,6 +9,10 @@ import {
 } from '@nolebase/vitepress-plugin-git-changelog/vite'
 import * as config from "./markdown-plugins"
 
+function generateAvatarUrl(username: string) {
+	return `https://github.com/${username}.png`
+}
+
 export const commonConfig: UserConfig<DefaultTheme.Config> = {
     srcDir: "./docs",
     themeConfig: {
@@ -59,7 +63,28 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         },
         plugins: [
         GitChangelog({ 
-          repoURL: () => 'https://github.com/CrychicTeam/CrychicDoc', 
+          repoURL: () => 'https://github.com/CrychicTeam/CrychicDoc',
+          mapAuthors: [ 
+            { 
+              name: 'M1hono', 
+              username: 'M1hono',
+              mapByEmailAliases: ['xche0557@uni.sydney.edu.au' , '2311374931@qq.com' , '3374182836@qq.com'],
+              mapByNameAliases: ['CrychicTeam', 'M1hono', 'm1hono'],
+              avatar: generateAvatarUrl('M1hono')
+            },
+            { 
+              name: 'skyraah', 
+              username: 'skyraah',
+              mapByNameAliases: ['cyciling','skyraah'],
+              avatar: generateAvatarUrl('skyraah')
+            },
+            { 
+              name: 'Eikidona', 
+              username: 'Eikidona',
+              mapByNameAliases: ['Nagasaki Soyo','Eikidona'],
+              avatar: generateAvatarUrl('Eikidona')
+            }
+          ]
         }), 
         GitChangelogMarkdownSection(), 
         groupIconVitePlugin({ 
