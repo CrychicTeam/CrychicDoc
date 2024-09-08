@@ -1,4 +1,4 @@
-.vp-doc a[href^="https://www.mcmod.cn/"]:not(.m-nav-link):not(.VPSocialLink):before {
+.vp-doc a[href^="https://www.mcmod.cn/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://www.mcmod.cn/static/public/images/favicon.ico);
     width: 15px;
@@ -11,7 +11,7 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://www.curseforge.com/"]:not(.m-nav-link):not(.VPSocialLink):before {
+.vp-doc a[href^="https://www.curseforge.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://www.curseforge.com/favicon.ico);
     width: 15px;
@@ -23,7 +23,7 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://modrinth.com/"]:not(.m-nav-link):not(.VPSocialLink):before {
+.vp-doc a[href^="https://modrinth.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://modrinth.com/favicon.ico);
     width: 15px;
@@ -35,7 +35,7 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://zh.minecraft.wiki/"]:not(.m-nav-link):not(.VPSocialLink):before {
+.vp-doc a[href^="https://zh.minecraft.wiki/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://zh.minecraft.wiki/favicon.ico);
     width: 15px;
@@ -47,7 +47,7 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://minecraft.wiki/"]:not(.m-nav-link):not(.VPSocialLink):before {
+.vp-doc a[href^="https://minecraft.wiki/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://minecraft.wiki/favicon.ico);
     width: 15px;
@@ -59,7 +59,7 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://github.com/"]:not(.m-nav-link):not(.VPSocialLink):before {
+.vp-doc a[href^="https://github.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):not(.no-icon):before {
     content: '';
     background-image: var(--github-bg-image);
     width: 15px;
@@ -71,7 +71,7 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://gitee.com/"]:not(.m-nav-link):not(.VPSocialLink):before {
+.vp-doc a[href^="https://gitee.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://gitee.com/favicon.ico);
     width: 15px;
@@ -83,7 +83,7 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://www.bilibili.com/"]:not(.m-nav-link):not(.VPSocialLink):before {
+.vp-doc a[href^="https://www.bilibili.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://www.bilibili.com/favicon.ico);
     width: 15px;
@@ -95,7 +95,7 @@
     margin-right: 4px;
 }
 
-.vp-doc a[href^="https://space.bilibili.com/"]:not(.m-nav-link):not(.VPSocialLink):before {
+.vp-doc a[href^="https://space.bilibili.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://www.bilibili.com/favicon.ico);
     width: 15px;
