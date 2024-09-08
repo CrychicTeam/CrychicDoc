@@ -48,6 +48,7 @@ features:
       dark: /icon/mainindex/dashicons--privacy-dark.png
     title: 易访问
     details: 使用Github Flow进行构建后发送给私人仓库再转运至物理服务器，优化中国用户的访问速度同时保证了网页的稳定性。
+gitChangelog: false
 ---
 
 <commitsCounter

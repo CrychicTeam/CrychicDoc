@@ -48,6 +48,7 @@ features:
       dark: /icon/mainindex/dashicons--privacy-dark.png
     title: Easy Accessibility
     details: Build using GitHub Flow, send it to a private repository, and then transfer it to a physical server. This optimizes the access speed for users in China while ensuring the stability of the website for all users by using Cloudflare CDN.
+gitChangelog: false
 ---
 
 <commitsCounter

@@ -3,6 +3,10 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { TDesignResolver } from 'unplugin-vue-components/resolvers';
 import { groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
+import { 
+  GitChangelog, 
+  GitChangelogMarkdownSection, 
+} from '@nolebase/vitepress-plugin-git-changelog/vite'
 import * as config from "./markdown-plugins"
 
 export const commonConfig: UserConfig<DefaultTheme.Config> = {
@@ -42,10 +46,22 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         theme: 'default'
     },
     vite: {
+        optimizeDeps: {
+          exclude: [ 
+            '@nolebase/vitepress-plugin-enhanced-readabilities/client', 
+          ], 
+        },
         ssr: {
-        noExternal: ['vuetify'],
+        noExternal: [
+          'vuetify',
+          '@nolebase/vitepress-plugin-enhanced-readabilities',
+        ],
         },
         plugins: [
+        GitChangelog({ 
+          repoURL: () => 'https://github.com/CrychicTeam/CrychicDoc', 
+        }), 
+      GitChangelogMarkdownSection(), 
         groupIconVitePlugin({ 
             customIcon: {
               mcmeta: localIconLoader(import.meta.url, '../../docs/public/svg/minecraft.svg'),

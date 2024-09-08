@@ -281,9 +281,8 @@ VuePress Theme Hope ++十分++ 强大。
 
 ## 文本均分
 
-::::: demo 示例
+:::: demo 示例
 ::: justify
 这是一个展示均分对齐的段落。通过CSS的text-align: justify属性，可以在VitePress中实现文字的两端对齐效果。
 :::
-
-:::::
+::::

@@ -15,7 +15,7 @@
 
 该项目的[开源地址GitHub](https://github.com/Gu-meng/kubejs-course) GitHub不支持内容提交
 
-::: info 仓库活动
+<!-- ::: info 仓库活动
 <div style="display: flex; justify-content: center;">
 <commitsCounter
   username="Gu-meng"
@@ -23,7 +23,7 @@
   :daysToFetch="90"
 />
 </div>
-:::
+::: -->
 
 项目[问题反馈](https://gitee.com/gumengmengs/kubejs-course/issues/new/choose)
 

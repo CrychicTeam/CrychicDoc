@@ -17,6 +17,17 @@ import imageViewer from "./components/imageViewer.vue";
 import vuetify from "./vuetify";
 import { onMounted, watch } from "vue";
 import mermaid from "mermaid";
+import { 
+  NolebaseEnhancedReadabilitiesMenu, 
+  NolebaseEnhancedReadabilitiesScreenMenu, 
+} from '@nolebase/vitepress-plugin-enhanced-readabilities/client'
+import { 
+    NolebaseInlineLinkPreviewPlugin, 
+} from '@nolebase/vitepress-plugin-inline-link-preview/client'
+import { 
+  NolebaseGitChangelogPlugin 
+} from '@nolebase/vitepress-plugin-git-changelog/client'
+
 
 import AuthorsComponent from "./components/AuthorsComponent.vue";
 import Layout from "./Layout.vue";
@@ -33,9 +44,15 @@ import carousels from "./components/carousels.vue";
 import commitsCounter from "./components/CommitsCounter.vue";
 import MNavLinks from './components/MNavLinks.vue';
 
+import '@nolebase/vitepress-plugin-inline-link-preview/client/style.css'
+
 import "@mdit/plugin-spoiler/style";
 import "./style/index.css";
-import 'virtual:group-icons.css' 
+import 'virtual:group-icons.css';
+import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
+import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css'
+import '@nolebase/vitepress-plugin-inline-link-preview/client/style.css'
+import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 
 export default {
     extends: DefaultTheme,
@@ -52,6 +69,8 @@ export default {
             "doc-after": () => h(Comment),
             "layout-bottom": () => h(Footer),
             "doc-footer-before": () => h(buttons),
+            'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu), 
+            'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu), 
         });
     },
     enhanceApp: (ctx) => {
@@ -61,6 +80,8 @@ export default {
         ctx.app.use(vuetify);
         ctx.app.use(TwoslashFloatingVue);
         ctx.app.use(Layout);
+        ctx.app.use(NolebaseInlineLinkPreviewPlugin);
+        ctx.app.use(NolebaseGitChangelogPlugin)  
         ctx.app.component("MdCarousel", carousels);
         ctx.app.component("YoutubeVideo", YoutubeVideo);
         ctx.app.component("BilibiliVideo", BilibiliVideo);

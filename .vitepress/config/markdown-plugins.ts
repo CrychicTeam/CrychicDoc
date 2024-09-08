@@ -1,6 +1,10 @@
 import { MarkdownOptions } from "vitepress"
 
 import timeline from "vitepress-markdown-timeline";
+import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
+import { 
+  InlineLinkPreviewElementTransform 
+} from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import mdFootnote from 'markdown-it-footnote'
@@ -32,7 +36,9 @@ export const markdown: MarkdownOptions = {
     math: true,
       lineNumbers: true,
       config: async (md) => {
-        md.use(groupIconMdPlugin)
+        md.use(InlineLinkPreviewElementTransform);
+        md.use(BiDirectionalLinks());
+        md.use(groupIconMdPlugin);
         md.use(timeline);
         md.use(tabsMarkdownPlugin);
 

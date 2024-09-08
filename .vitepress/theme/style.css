@@ -196,3 +196,7 @@
     color: inherit !important;
     background-color: transparent !important;
 }
+
+.VPSocialLinks.VPNavBarSocialLinks.social-links {
+    margin-right: 0;
+}
