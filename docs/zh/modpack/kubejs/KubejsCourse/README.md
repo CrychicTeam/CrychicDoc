@@ -4,8 +4,8 @@
 这是1.20.1的kubejs内容分享，包括一些教程和项目
 
 <ClientOnly>
-  <div style="display: flex; justify-content: center;">
-    <VPTeamMembers size="small" :members="members" />
+  <div class="responsive-container">
+    <VPTeamMembers size="medium" :members="members" />
   </div>
 </ClientOnly>
 
@@ -86,3 +86,29 @@ const members = [
   },
 ]
 </script>
+
+<style>
+.responsive-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .responsive-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+  }
+}
+</style>
