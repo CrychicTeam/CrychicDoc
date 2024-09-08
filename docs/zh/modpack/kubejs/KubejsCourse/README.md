@@ -91,24 +91,28 @@ const members = [
 .responsive-container {
   display: flex;
   justify-content: center;
-  flex-direction: row;
   flex-wrap: wrap;
+  gap: 16px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
+}
+
+.responsive-container > * {
+  flex: 1 1 calc(33.3333% - 16px);
+  min-width: 200px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
-  .responsive-container {
-    flex-direction: column;
-    align-items: center;
+  .responsive-container > * {
+    flex: 1 1 calc(50% - 16px);
   }
 }
 
 @media (max-width: 768px) {
-  .responsive-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 10px;
+  .responsive-container > * {
+    flex: 1 1 100%;
   }
 }
 </style>
