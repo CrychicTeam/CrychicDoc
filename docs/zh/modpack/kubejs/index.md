@@ -19,19 +19,47 @@ root:
   title: KubeJS
   collapsed: false
   children:
-    - title: 入门
+    - title: 入门-开箱急用
       path: Introduction
       collapsed: true
       children:
         - title: 目录
           path: /
           file: Catalogue
-        - title: 数据类型
+        - title: 配方
+          path: Recipe
+          collapsed: true
+          children:
+            - title: 物品与原料表示
+              path: /
+              file: ItemAndIngredient
+            - title: 修改与删除配方
+              path: /
+              file: ModifyDeleteRecipe
+            - title: 添加原版配方
+              path: /
+              file: Vanilla
+        - title: 药水效果
+          path: PotionEffect
+          children:
+            - title: 目录
+              path: /
+              file: Catalogue
+          collapsed: true
+        - title: 实体
+          path: Entity
+          collapsed: true
+          children:
+            - title: 为实体添加药水效果
+              path: /
+              file: AddPotionEffects
+    - title: 进阶-究其物理
+      path: Upgrade
+      children:
+        - title: 占位符
           path: /
-          file: DataType
-        - title: 基本类型
-          path: /
-          file: VariableType
+          file: placeholder
+      collapsed: true
     - title: 配方
       path: Recipe
       collapsed: true
