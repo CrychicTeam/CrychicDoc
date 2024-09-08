@@ -61,7 +61,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         GitChangelog({ 
           repoURL: () => 'https://github.com/CrychicTeam/CrychicDoc', 
         }), 
-      GitChangelogMarkdownSection(), 
+        GitChangelogMarkdownSection(), 
         groupIconVitePlugin({ 
             customIcon: {
               mcmeta: localIconLoader(import.meta.url, '../../docs/public/svg/minecraft.svg'),
