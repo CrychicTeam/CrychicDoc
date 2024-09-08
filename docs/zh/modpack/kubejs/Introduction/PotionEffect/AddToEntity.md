@@ -1,4 +1,10 @@
-# 为实体添加药水效果
+# 药水效果
+
+## 添加到实体
+
+- 需要反射MobEffectInstance类，如果不懂，现在也不需要知道反射是什么，照抄不误。
+
+- 例：当进行实体交互，玩家获得夜视效果。
 
 ```js
 // 反射 务必放在事件外边
@@ -9,13 +15,14 @@ ItemEvents.entityInteracted(event => {
     const { entity, target, hand, server, level } = event;
     if (hand !== 'main_hand') return;
     // 药水效果的属性
+    let effectId = 'minecraft:night_vision'; // 药水效果的id
     let tickTime = 200; // 持续时间，单位：游戏刻
     let effectLevel = 0; // 药水效果等级，最低级从0开始
     let isAmbient = false; // 是否为环境效果，目前不知有什么用
     let isVisible = false; // 是否有粒子效果
     let showIcon = false;// 是否在屏幕上显示图标
     // 新建$MobEffectInstance实例
-    let mobEffectInstance = new $MobEffectInstance('minecraft:night_vision', tickTime, effectLevel, isAmbient, isVisible, showIcon);
+    let mobEffectInstance = new $MobEffectInstance(effectId, tickTime, effectLevel, isAmbient, isVisible, showIcon);
     // 添加到实体
     target.addEffect(mobEffectInstance);
 })

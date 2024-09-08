@@ -19,7 +19,7 @@ root:
   title: KubeJS
   collapsed: false
   children:
-    - title: 入门级
+    - title: 入门-开箱急用
       path: Introduction
       collapsed: true
       children:
@@ -45,8 +45,8 @@ root:
           children:
             - title: 为实体添加药水效果
               path: /
-              file: AddtoEntity
-    - title: 进阶
+              file: AddToEntity
+    - title: 进阶-究其物理
       path: Upgrade
       children:
         - title: 占位符
