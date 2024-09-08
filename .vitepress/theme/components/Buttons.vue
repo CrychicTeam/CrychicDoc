@@ -89,18 +89,9 @@
 
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-    const throttle = (fn, delay = 100) => {
-        let lastTime = 0;
-        return (...args) => {
-            const nowTime = Date.now();
-            if (nowTime - lastTime > delay) {
-                fn(...args);
-                lastTime = nowTime;
-            }
-        };
+    const onScroll = () => {
+    showBackTop.value = window.scrollY > 100;
     };
-
-    const onScroll = throttle(() => (showBackTop.value = window.scrollY > 100));
 
     const copyLink = () => {
         navigator.clipboard
