@@ -10,13 +10,13 @@
 :::
 ::::
 
-- 语句：entity.potionEffects.add(args); 具有5个方法重载。
+- 语句：entity.potionEffects.add(args); 具有4个方法重载。
 
 - 例：当进行实体交互，玩家获得夜视效果。
 
-- 参数：药水id，持续时间，等级，是不是环境效果，有没有粒子效果
+::: code-group
 
-```js
+```js [示例]
 // 使用实体交互事件演示
 ItemEvents.entityInteracted(event => {
     const { entity, target, hand, server, level } = event;
@@ -26,25 +26,10 @@ ItemEvents.entityInteracted(event => {
      */
     entity.potionEffects.add('minecraft:night_vision', 200, 0, false, true);
 })
+
 ```
 
-- 参数：药水id，持续时间，等级
-
-```js
-// 使用实体交互事件演示
-ItemEvents.entityInteracted(event => {
-    const { entity, target, hand, server, level } = event;
-    if (hand !== 'main_hand') return;
-    /**
-     * 药水id，持续时间 -默认0级（游戏内1级），不是环境效果，有粒子效果
-     */
-    entity.potionEffects.add('minecraft:night_vision', 200);
-})
-```
-
-- 参数：药水id，持续时间
-
-```js
+```js [示例]
 // 使用实体交互事件演示
 ItemEvents.entityInteracted(event => {
     const { entity, target, hand, server, level } = event;
@@ -56,9 +41,19 @@ ItemEvents.entityInteracted(event => {
 })
 ```
 
-- 参数：药水id
+```js [示例]
+// 使用实体交互事件演示
+ItemEvents.entityInteracted(event => {
+    const { entity, target, hand, server, level } = event;
+    if (hand !== 'main_hand') return;
+    /**
+     * 药水id，持续时间 -默认0级（游戏内1级），不是环境效果，有粒子效果
+     */
+    entity.potionEffects.add('minecraft:night_vision', 200);
+})
+```
 
-```js
+```js [示例]
 // 使用实体交互事件演示
 ItemEvents.entityInteracted(event => {
     const { entity, target, hand, server, level } = event;
@@ -69,3 +64,5 @@ ItemEvents.entityInteracted(event => {
     entity.potionEffects.add('minecraft:night_vision');
 })
 ```
+
+:::

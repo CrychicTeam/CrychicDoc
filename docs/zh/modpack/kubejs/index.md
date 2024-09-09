@@ -34,9 +34,15 @@ root:
             - title: 物品与原料表示
               path: /
               file: ItemAndIngredient
-            - title: 修改与删除配方
+            - title: 配方过滤器表示
               path: /
-              file: ModifyDeleteRecipe
+              file: RecipeFilter
+            - title: 修改配方
+              path: /
+              file: ModifyRecipe
+            - title: 删除配方
+              path: /
+              file: DeleteRecipe
             - title: 添加原版配方
               path: /
               file: Vanilla

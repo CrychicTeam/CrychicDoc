@@ -5,7 +5,25 @@
 
 # 修改与删除配方
 
-- 删除配方的条件可以任意组合。
+- **`配方过滤器`** 删除配方需根据条件判断是否删除，这些专门用于判断配方的条件统称配方过滤器。
+
+- **`原料`** 把参与配方合成的物品、物品标签、流体等统称为原料，表示原料请查看[传送门](ItemAndIngredient.md)。
+
+- 语句：event.remove(配方过滤器);
+
+## 按配方id删除
+
+- 删除了配方id为'minecraft:iron_ingot_from_nuggets'（铁粒合成铁锭）的配方。
+
+```js
+ServerEvents.recipes(event => {
+    event.remove({id: 'minecraft:iron_ingot_from_nuggets'})
+})
+```
+
+- 快速获取配方id，JEI演示。
+
+- 按键设置搜索‘复制配方id到剪切板’，设置一个按键，对合成输出的物品按R打开JEI合成提示界面，鼠标移动至输出物品，按刚刚设置的按键。
 
 ## 按输出物品删除
 
@@ -43,7 +61,7 @@ ServerEvents.recipes(event => {
 
 - 在你装有Probejs且已经/probejs dump 生成了的前提下。
 
-- 在你的vscode中输入下方这串，Ctrl点击‘Mod’。
+- 在你的vscode中复制下方这段，Ctrl点击‘Mod’。
 
 ```js
 /**
@@ -65,37 +83,13 @@ ServerEvents.recipes(event => {
 
 - 在你装有Probejs且已经/probejs dump 生成了的前提下。
 
-- 在你的vscode中输入下方这串，Ctrl点击‘CreativeModeTab’。
+- 在你的vscode中复制下方这段，Ctrl点击‘CreativeModeTab’。
 
 ```js
 /**
  * @type {Special.CreativeModeTab}
  */
 ```
-
-### 输出无限制
-
-- '*'意味着任何输出物品都通过条件，可用于与其他条件配合。
-
-```js
-ServerEvents.recipes(event => {
-    event.remove({output: '*'})
-})
-```
-
-## 按配方id删除
-
-- 删除了配方id为'minecraft:iron_ingot_from_nuggets'（铁粒合成铁锭）的配方。
-
-```js
-ServerEvents.recipes(event => {
-    event.remove({id: 'minecraft:iron_ingot_from_nuggets'})
-})
-```
-
-- 快速获取配方id，JEI演示。
-
-- 按键设置搜索‘复制配方id到剪切板’，设置一个按键，对合成输出的物品按R打开JEI合成提示界面，鼠标移动至输出物品，按刚刚设置的按键。
 
 ## 按输入物品删除
 
@@ -143,22 +137,12 @@ ServerEvents.recipes(event => {
 
 - 在你装有Probejs且已经/probejs dump 生成了的前提下。
 
-- 在你的vscode中输入下方这串，Ctrl点击‘CreativeModeTab’。
+- 在你的vscode中复制下方这段，Ctrl点击‘CreativeModeTab’。
 
 ```js
 /**
  * @type {Special.CreativeModeTab}
  */
-```
-
-### 输入无限制
-
-- '*'意味着任何输入物品都通过条件，可用于与其他条件配合。
-
-```js
-ServerEvents.recipes(event => {
-    event.remove({input: '*'})
-})
 ```
 
 ## 按配方类型删除
@@ -175,7 +159,7 @@ ServerEvents.recipes(event => {
 
 - 在你装有Probejs且已经/probejs dump 生成了的前提下。
 
-- 在你的vscode中输入下方这串，Ctrl点击‘CreativeModeTab’。
+- 在你的vscode中复制下方这段，Ctrl点击‘CreativeModeTab’。
 
 ```js
 /**
@@ -193,7 +177,7 @@ ServerEvents.recipes(event => {
 })
 ```
 
-## 按反转逻辑删除
+## 按非逻辑删除
 
 - 上述配方删除方式都是以符合全部条件来删除，此处相反，不符合全部条件的删除。
 
