@@ -68,7 +68,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
             { 
               name: 'M1hono',  // The name you want to display
               username: 'M1hono', // The username of the author which is used to summon github's link. (won't work with links options)
-              mapByNameAliases: ['CrychicTeam', 'M1hono', 'm1hono' , 'Guda chen'], // Add the name you want to map, these names will be replaced with the name.
+              mapByNameAliases: ['CrychicTeam', 'M1hono', 'm1hono' , 'Guda chen','Customer service is currently offline.'], // Add the name you want to map, these names will be replaced with the name.
               avatar: generateAvatarUrl('M1hono') // The avatar of the author, normally it's the github avatar
               // links: "https://gitee.com/CrychicTeam/CrychicDoc" Change to the url You want to link to
             },

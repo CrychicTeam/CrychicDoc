@@ -16,6 +16,7 @@ layout: doc
 
 noguide: true
 root:
+  backLink: "../../"
   title: KubeJS
   collapsed: false
   children:

@@ -5,7 +5,7 @@ noguide: true
 root:
   title: 文档相关
   collapsed: false
-  subDir:
+  children:
       - title: 项目合作教程
         path: /
         noScan: true

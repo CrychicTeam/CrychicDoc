@@ -46,8 +46,6 @@ export default class SidebarGenerator {
         this.language = this.detectLanguage();
 
         this.builder();
-
-        // this.logger(JSON.stringify(this.sidebar, null, 2));
     }
 
     public get sidebar(): Sidebar {
@@ -59,29 +57,38 @@ export default class SidebarGenerator {
     }
 
     private builder(): void {
+        const root = this.indexReader()?.root;
+        const backLink = root?.backLink || "..";
         if (this.isTop) {
             const backText =
                 SidebarGenerator.LANGUAGE_CONFIG[this.language].backText;
             this._sidebar.items.unshift({
                 text: backText,
-                link: "..",
+                link: backLink,
             });
         }
 
-        const root = this.indexReader()?.root;
         if (root) {
             this._sidebar.text = root.title;
             this._sidebar.collapsed = root.collapsed;
-            this._sidebar.items = this.buildSidebarItems(
-                root.children,
-                this._correctedPathname,
-                this.dirPath
-            );
+
+            if (root.children && root.children.length > 0) {
+                this._sidebar.items.push(
+                    ...this.buildSidebarItems(
+                        root.children,
+                        this._correctedPathname,
+                        this.dirPath
+                    )
+                );
+            } else {
+                this._sidebar.items.push(
+                    ...this.scanDirectory(this.dirPath, this._correctedPathname)
+                );
+            }
         } else {
             // 如果没有找到 index.md，扫描当前目录
-            this._sidebar.items = this.scanDirectory(
-                this.dirPath,
-                this._correctedPathname
+            this._sidebar.items.push(
+                ...this.scanDirectory(this.dirPath, this._correctedPathname)
             );
         }
     }
@@ -125,6 +132,7 @@ export default class SidebarGenerator {
             return subSideBar;
         });
     }
+
     private scanDirectory(
         dirPath: string,
         currentPath: string
@@ -161,17 +169,6 @@ export default class SidebarGenerator {
         );
     }
 
-    /**
-     * This function creates a file item for the sidebar.
-     * If the file has a title in the front matter, it will be used.
-     * Otherwise, the file name will be used.
-     * If the file is in a subdirectory, the link will include the path.
-     * If the file is in the root directory, the link will not include the path.
-     * @param file
-     * @param currentPath 
-     * @param filePath 
-     * @returns 
-     */
     private createFileItem(
         file: SubDir,
         currentPath: string,
@@ -182,12 +179,10 @@ export default class SidebarGenerator {
 
         let link: string;
         if (file.path === "/") {
-            // 如果 path 是 '/'，使用 currentPath 和 file 属性
             link = file.file
                 ? `${currentPath}/${file.file.replace(/\.md$/i, "")}`
                 : currentPath;
         } else {
-            // 如果 path 不是 '/'就包含 path 和 file（如果存在）
             link = file.file
                 ? `${currentPath}/${file.path}/${file.file.replace(
                         /\.md$/i,
@@ -196,7 +191,6 @@ export default class SidebarGenerator {
                 : `${currentPath}/${file.path}`;
         }
 
-        // 移除链接中可能的重复部分
         link = link.replace(/\/+/g, "/");
 
         return {
@@ -245,12 +239,6 @@ export default class SidebarGenerator {
         }
     }
 
-    public logger(string: string): void {
-        fs.writeFileSync(path.join(__dirname, "dev.log"), `${string}\n`, {
-            flag: "a+",
-        });
-    }
-
     private filterOutWhiteList = (files: string[], blackList: string[]) =>
         files.filter((file: string) => !blackList.includes(file));
 }
@@ -272,6 +260,7 @@ export interface FileItem {
 interface Index {
     root: {
         title: string;
+        backLink?: string;
         collapsed?: boolean;
         children: SubDir[];
     };
