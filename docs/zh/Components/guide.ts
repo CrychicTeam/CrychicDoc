@@ -94,6 +94,16 @@ export const NAV_DATA: NavData[] = [
                 desc: "MoonshotAI旗下产品，中国大陆可以正常访问。",
                 icon: "https://statics.moonshot.cn/kimi-chat/favicon.ico"
             },
+            {
+                title: "CodeGeex",
+                link: "https://codegeex.cn/",
+                icon: "https://codegeex.cn/assets/images/only_logo_dark.png"
+            },
+            {
+                title: "Tabnine",
+                link: "https://www.tabnine.com/",
+                icon: "https://www.tabnine.com/wp-content/uploads/2024/09/cropped-tabnine-favicon-192x192.png"
+            },
         ]
     }
 ]

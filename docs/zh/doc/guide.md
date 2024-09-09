@@ -7,8 +7,10 @@ noguide: true
 prev: false
 next: false
 editLink: false
+editor: false
 gitChangelog: false
 showComment: false
+unmetadata: true
 outline: [2,2]
 ---
 <style src="../../../.vitepress/theme/style/nav.scss"></style>
