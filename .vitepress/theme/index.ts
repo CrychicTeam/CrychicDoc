@@ -24,7 +24,6 @@ import {
 import { NolebaseInlineLinkPreviewPlugin } from "@nolebase/vitepress-plugin-inline-link-preview/client";
 import { NolebaseGitChangelogPlugin } from "@nolebase/vitepress-plugin-git-changelog/client";
 
-import AuthorsComponent from "./components/AuthorsComponent.vue";
 import Layout from "./Layout.vue";
 import themeControl from "./components/themeControl.vue";
 import Comment from "./components/comment.vue";
@@ -61,7 +60,7 @@ export default {
         return h(DefaultTheme.Layout, props, {
             "doc-bottom": () => h(imageViewer),
             "layout-top": () => h(themeControl),
-            "aside-outline-after": () => h(AuthorsComponent),
+            "aside-outline-after": () => h(),
             "doc-after": () => h(Comment),
             "layout-bottom": () => h(Footer),
             "doc-footer-before": () => [ h(buttons) , h(ResponsibleEditor) ],

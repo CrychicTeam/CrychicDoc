@@ -11,13 +11,6 @@ export const en_US = <DefaultTheme.Config>({
             { text: 'Guide', link: '/en/doc/guide' }
             ],
         sidebar: sidebars("en"),
-        editLink: {
-        pattern: 'https://github.com/CrychicTeam/CrychicDoc/blob/main/docs/:path?plain=1',
-        text: 'Check this page on GitHub'
-        },
-        lastUpdated: {
-        text: 'Last updated'
-        },
         outline: {
         level: "deep",
         label: 'Page Content'
