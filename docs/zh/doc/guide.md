@@ -6,6 +6,7 @@ sidebar: false
 noguide: true
 prev: false
 next: false
+editLink: false
 gitChangelog: false
 showComment: false
 ---

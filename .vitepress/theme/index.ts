@@ -38,7 +38,7 @@ import Linkcard from "./components/Linkcard.vue";
 import carousels from "./components/carousels.vue";
 import commitsCounter from "./components/CommitsCounter.vue";
 import MNavLinks from "./components/MNavLinks.vue";
-import tag from "./components/tag.vue";
+import ResponsibleEditor from "./components/ResponsibleEditor.vue";
 
 import "@nolebase/vitepress-plugin-inline-link-preview/client/style.css";
 
@@ -64,7 +64,7 @@ export default {
             "aside-outline-after": () => h(AuthorsComponent),
             "doc-after": () => h(Comment),
             "layout-bottom": () => h(Footer),
-            "doc-footer-before": () => h(buttons),
+            "doc-footer-before": () => [ h(buttons) , h(ResponsibleEditor) ],
             "nav-bar-content-after": () => h(NolebaseEnhancedReadabilitiesMenu),
             "nav-screen-content-after": () =>
                 h(NolebaseEnhancedReadabilitiesScreenMenu),
