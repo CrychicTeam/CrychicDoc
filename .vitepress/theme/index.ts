@@ -38,6 +38,7 @@ import Linkcard from "./components/Linkcard.vue";
 import carousels from "./components/carousels.vue";
 import commitsCounter from "./components/CommitsCounter.vue";
 import MNavLinks from "./components/MNavLinks.vue";
+import tag from "./components/tag.vue";
 
 import "@nolebase/vitepress-plugin-inline-link-preview/client/style.css";
 

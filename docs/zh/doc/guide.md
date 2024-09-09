@@ -6,6 +6,8 @@ sidebar: false
 noguide: true
 prev: false
 next: false
+gitChangelog: false
+showComment: false
 ---
 <style src="../../../.vitepress/theme/style/nav.scss"></style>
 

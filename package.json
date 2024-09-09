@@ -46,6 +46,7 @@
     "@mdit/plugin-sup": "^0.13.0",
     "@mdit/plugin-tab": "^0.13.1",
     "axios": "^1.7.4",
+    "blueimp-md5": "^2.19.0",
     "chart.js": "^4.4.3",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.10.0",
