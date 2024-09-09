@@ -34,7 +34,6 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
           }, link: 'https://www.mcmod.cn/author/32860.html' }
         ],
         langMenuLabel: 'Change Language',
-        lastUpdated: {},
         // 添加以下配置来启用多语言支持
         //@ts-ignore
         locales: {
