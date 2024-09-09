@@ -36,20 +36,24 @@
 </script>
 
 <template>
-    <div v-if="editor" class="flex flex-wrap gap-4">
-    <p class="vp-main-color con">{{ editorLabel }}</p>
-        <div class="flex gap-2 items-center vp-main-color">
-            <a
-                :href="getGitHubLink(editor)"
-                rel="noreferrer"
-                target="_blank"
-                class="flex items-center gap-2"
-            >
-                <img :src="getAvatarUrl(editor)" class="w-8 h-8 rounded-full" />
-                <p class="vp-main-color">{{ editor }}</p>
-            </a>
-        </div>
-    </div>
+    <v-card v-if="editor" variant="plain">
+        <v-row align="center" class="align-center gap-4 con" no-gutters>
+                <v-col cols="auto">
+                    <p class="vp-main-color">{{ editorLabel }}</p>
+                </v-col>
+                <v-col cols="auto">
+                    <a
+                        :href="getGitHubLink(editor)"
+                        rel="noreferrer"
+                        target="_blank"
+                        class="flex items-center gap-2"
+                    >
+                        <img :src="getAvatarUrl(editor)" class="w-8 h-8 rounded-full" />
+                        <p class="vp-main-color">{{ editor }}</p>
+                    </a>
+                </v-col>
+        </v-row>
+    </v-card>
 </template>
 
 <style scoped>
