@@ -47,7 +47,7 @@ onMounted(() => {
 })
 
 const metadata = computed(() => {
-        return !frontmatter.value?.unmetadata;
+        return frontmatter.value?.metadata || true;
     });
 </script>
 
