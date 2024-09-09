@@ -36,8 +36,8 @@
 </script>
 
 <template>
-    <p class="vp-main-color con">{{ editorLabel }}</p>
     <div v-if="editor" class="flex flex-wrap gap-4">
+    <p class="vp-main-color con">{{ editorLabel }}</p>
         <div class="flex gap-2 items-center vp-main-color">
             <a
                 :href="getGitHubLink(editor)"
