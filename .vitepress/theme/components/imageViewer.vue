@@ -1,17 +1,3 @@
-<template>
-    <div class="image-viewer">
-        <t-image-viewer
-            v-if="show"
-            v-model:visible="show"
-            :images="previewImageInfo.list"
-            :default-index="previewImageInfo.idx"
-            :key="previewImageInfo.idx"
-            @close="show = false"
-        >
-        </t-image-viewer>
-    </div>
-</template>
-
 <script setup lang="ts">
     import { reactive, ref, onMounted, onUnmounted } from "vue";
 
@@ -26,6 +12,10 @@
         idx: 0,
     });
 
+    const prefixBlacklist = ref<string[]>([
+        "https://avatars.githubusercontent.com/",
+    ]);
+
     function previewImage(e: Event) {
         const target = e.target as HTMLElement;
         const currentTarget = e.currentTarget as HTMLElement;
@@ -33,15 +23,21 @@
             target.tagName.toLowerCase() === "img" &&
             !target.classList.contains("non-preview-image")
         ) {
+            const url = (target as HTMLImageElement).src;
+
+            const isPrefixBlacklisted = prefixBlacklist.value.some(prefix => url.startsWith(prefix));
+            if (isPrefixBlacklisted) {
+                console.log("This image's URL has a blacklisted prefix and cannot be previewed.");
+                return;
+            }
+
             const imgs = currentTarget.querySelectorAll<HTMLImageElement>(
                 ".content-container .main img:not(.non-preview-image)"
             );
             const idx = Array.from(imgs).findIndex((el) => el === target);
             const urls = Array.from(imgs).map((el) => el.src);
 
-            const url = target.getAttribute("src");
-            console.log("Selected Image URL: ", url);
-            previewImageInfo.url = url!;
+            previewImageInfo.url = url;
             previewImageInfo.list = urls;
             previewImageInfo.idx = idx;
 

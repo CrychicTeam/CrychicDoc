@@ -4,11 +4,12 @@ const dirs = [
     "mods",
     "mods/adventure",
     "modpack",
-    "modpack/kubejs"
+    "modpack/kubejs",
+    "modpack/kubejs/1.20.1"
 ];
 
 const summary = [
-    ["zh/modpack/kubejs/KubejsCourse/", "./docs/zh/modpack/kubejs/KubejsCourse"]
+    ["zh/modpack/kubejs/1.20.1/KubejsCourse/", "./docs/zh/modpack/kubejs/1.20.1/KubejsCourse"]
 ]
 
 export {dirs, summary}
