@@ -5,6 +5,8 @@ noguide: true
 authors:
   - M1hono
   - skyraah
+tags:
+  - sample
 prev:
   text: 项目合作教程
   link: /zh/doc/index

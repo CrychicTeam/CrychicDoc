@@ -1,13 +1,18 @@
 <template>
-    <div class="giscus-wrapper" ref="giscusContainer"></div>
+    <!-- 使用 v-if 根据 showComment 是否为 true 来控制评论组件的显示 -->
+    <div v-if="showComment" class="giscus-wrapper" ref="giscusContainer"></div>
 </template>
 
 <script lang="ts" setup>
     import { ref, watch, onMounted, computed } from "vue";
     import { useData, useRoute } from "vitepress";
 
-    const { isDark, lang } = useData();
+    // 从 useData 中获取 frontmatter、isDark 和 lang
+    const { isDark, lang, frontmatter } = useData();
     const route = useRoute();
+
+    // 根据 frontmatter.showComment 控制显示，默认为 true
+    const showComment = computed(() => frontmatter.value.showComment !== false);
 
     const translations = {
         "en-US": {
@@ -57,35 +62,41 @@
     };
 
     onMounted(() => {
-        loadGiscus();
+        if (showComment.value) {
+            loadGiscus();
+        }
     });
 
     watch(
         () => route.path,
         () => {
-            loadGiscus();
+            if (showComment.value) {
+                loadGiscus();
+            }
         }
     );
 
     watch(
         () => isDark.value,
         () => {
-            const iframe = document.querySelector(
-                "iframe.giscus-frame"
-            ) as HTMLIFrameElement;
-            if (iframe) {
-                iframe.contentWindow?.postMessage(
-                    {
-                        giscus: {
-                            setConfig: {
-                                theme: isDark.value
-                                    ? "noborder_dark"
-                                    : "noborder_light",
+            if (showComment.value) {
+                const iframe = document.querySelector(
+                    "iframe.giscus-frame"
+                ) as HTMLIFrameElement;
+                if (iframe) {
+                    iframe.contentWindow?.postMessage(
+                        {
+                            giscus: {
+                                setConfig: {
+                                    theme: isDark.value
+                                        ? "noborder_dark"
+                                        : "noborder_light",
+                                },
                             },
                         },
-                    },
-                    "https://giscus.app"
-                );
+                        "https://giscus.app"
+                    );
+                }
             }
         }
     );
@@ -93,22 +104,24 @@
     watch(
         () => lang.value,
         () => {
-            const iframe = document.querySelector(
-                "iframe.giscus-frame"
-            ) as HTMLIFrameElement;
-            if (iframe) {
-                iframe.contentWindow?.postMessage(
-                    {
-                        giscus: {
-                            setConfig: {
-                                lang: currentLangConfig.value.langCode,
+            if (showComment.value) {
+                const iframe = document.querySelector(
+                    "iframe.giscus-frame"
+                ) as HTMLIFrameElement;
+                if (iframe) {
+                    iframe.contentWindow?.postMessage(
+                        {
+                            giscus: {
+                                setConfig: {
+                                    lang: currentLangConfig.value.langCode,
+                                },
                             },
                         },
-                    },
-                    "https://giscus.app"
-                );
-            } else {
-                loadGiscus();
+                        "https://giscus.app"
+                    );
+                } else {
+                    loadGiscus();
+                }
             }
         }
     );

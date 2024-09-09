@@ -1,0 +1,104 @@
+<script setup lang="ts">
+    import { useData } from "vitepress";
+    import { computed } from "vue";
+
+    const { isDark , lang, frontmatter } = useData();
+
+    // 定义翻译的内容
+    const translations = {
+        "en-US": {
+            editorLabel: "Responsible Editor:",
+        },
+        "zh-CN": {
+            editorLabel: "本文责任编辑:",
+        },
+    };
+
+    // 根据当前语言获取对应的文本
+    const editorLabel = computed(() => {
+        return (
+            translations[lang.value]?.editorLabel ||
+            translations["en-US"].editorLabel
+        );
+    });
+
+    const editor = computed(() => {
+        return frontmatter.value?.editor ?? "CrychicTeam";
+    });
+
+    function getAvatarUrl(name: string) {
+        return `https://github.com/${name}.png`;
+    }
+
+    function getGitHubLink(name: string) {
+        return `https://github.com/${name}`;
+    }
+</script>
+
+<template>
+    <div v-if="editor" class="flex flex-wrap gap-4">
+    <p class="vp-main-color con">{{ editorLabel }}</p>
+        <div class="flex gap-2 items-center vp-main-color">
+            <a
+                :href="getGitHubLink(editor)"
+                rel="noreferrer"
+                target="_blank"
+                class="flex items-center gap-2"
+            >
+                <img :src="getAvatarUrl(editor)" class="w-8 h-8 rounded-full" />
+                <p class="vp-main-color">{{ editor }}</p>
+            </a>
+        </div>
+    </div>
+</template>
+
+<style scoped>
+    .flex {
+        display: flex;
+    }
+
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+
+    .gap-2 {
+        grid-gap: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .gap-4 {
+        grid-gap: 1rem;
+        gap: 1rem;
+    }
+
+    .items-center {
+        align-items: center;
+    }
+
+    .w-8 {
+        width: 2rem;
+    }
+
+    .h-8 {
+        width: 2rem;
+    }
+
+    .rounded-full {
+        border-radius: 9999px;
+    }
+
+    img {
+        display: block;
+        border: 0.1px solid var(--vp-c-brand);
+    }
+
+    p {
+        line-height: 24px;
+        font-weight: 500;
+        color: var(--vp-c-brand);
+    }
+
+    .con {
+        margin-bottom: 5px;
+    }
+</style>

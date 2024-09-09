@@ -88,6 +88,8 @@ function logger(string: string, name: string): void {
 | `title`   | 设置侧边栏中显示的标题（如未设置则使用文件名）        | string  | `N/A`   |
 | `noguide` | 设置该文件是否添加到侧边栏中                 | boolean | `false` |
 | `authors`  | 设置该文件的作者（github用户名），显示在页面导航栏下方 | string[]  | `N/A`   |
+| `showComment`  | 是否显示评论区 | boolean  | `true`   |
+| `gitChangelog`  | 是否显示贡献者和页面历史 | boolean  | `true`   |
 
 ::: details 示例
 
@@ -148,7 +150,7 @@ interface SubDir {
 |-------------|-----------------------------|---------|-------|
 | `title`     | 设置该侧边栏的名称，非必填字段             | string  | `N/A` |
 | `collapsed` | 设置该侧边栏默认展开/收缩，非必填字段，留空以禁用展开 | boolean | `N/A` |
-| `children`  | 设置该目录下哪些子目录应被递归，必填字段        | SubDir  | `N/A` |
+| `children`  | 设置该目录下哪些子目录应被递归，在root为必填字段        | SubDir  | `N/A` |
   
 == SubDir
 
@@ -159,7 +161,7 @@ interface SubDir {
 | `path`      | 设置该子侧边栏的目录路径，必填字段               | string  | `N/A`   |
 | `noScan`    | 设置是否应自动扫描该目录内的所有文件              | boolean | `false` |
 | `file`      | 设置该子侧边栏名称连接的文件，非必填字段，文件需处于该子目录内 | string  | `N/A`   |
-| `children`  | 设置该子侧边栏的子目录文件的顺序                   | SubDir  | `N/A` | 
+| `children`  | 设置该目录下哪些子目录应被递归                   | SubDir  | `N/A` | 
 
 :::
 

@@ -104,8 +104,8 @@
         --vp-home-hero-image-filter: blur(72px);
         --code-bg-color: var(--vp-c-brand-dark);
         --code-group-border-color: #242631;
-        --vp-c-brand: #4a148c;
-        --vp-c-text-2: #b0bec5;
+        --vp-c-brand: #948465;
+        --vp-c-text-2: #b0bec5; 
         --stepper-text-color: var(--vp-c-text-1);
         --stepper-active-color: var(--vp-c-brand-dark);
         --stepper-hover-color: var(--vp-c-brand);
