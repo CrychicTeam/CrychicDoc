@@ -10,7 +10,7 @@ editLink: false
 editor: false
 gitChangelog: false
 showComment: false
-metadata: true
+metadata: false
 outline: [2,2]
 ---
 <style src="../../../.vitepress/theme/style/nav.scss"></style>
