@@ -70,9 +70,10 @@ const formatBadge = computed(() => {
   height: 100%;
   background-color: var(--vp-c-bg-soft);
   transition: all 0.25s;
+
   &:hover {
     box-shadow: var(--vp-shadow-2);
-    //border-color: var(--vp-c-brand);
+    border-color: var(--vp-c-brand);
     text-decoration: initial;
     background-color: var(--vp-c-bg-soft-up);
     transform: translateY(-5px);

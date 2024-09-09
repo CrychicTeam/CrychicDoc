@@ -15,7 +15,7 @@
         "scope": "typescript",
         "prefix": "desc",
         "body": [
-            "desc: \"$0\"",
+            "desc: \"$0\",",
         ],
         "description": "desc"
     },

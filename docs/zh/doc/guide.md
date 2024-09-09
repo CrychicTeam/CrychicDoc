@@ -9,6 +9,7 @@ next: false
 editLink: false
 gitChangelog: false
 showComment: false
+outline: [2,2]
 ---
 <style src="../../../.vitepress/theme/style/nav.scss"></style>
 
