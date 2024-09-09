@@ -82,8 +82,11 @@ export const NAV_DATA: NavData[] = [
         items: [
             {
                 title: "ChatGPT",
+                badge: {
+                    type: "warning",
+                    text: "中国大陆无法正常访问"
+                },
                 link: "https://chatgpt.com/",
-                desc: "OpenAI旗下产品，中国大陆地区网络无法正常访问。",
                 icon: {
                     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><path fill="currentColor" d="M22.282 9.821a6 6 0 0 0-.516-4.91a6.05 6.05 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a6 6 0 0 0-3.998 2.9a6.05 6.05 0 0 0 .743 7.097a5.98 5.98 0 0 0 .51 4.911a6.05 6.05 0 0 0 6.515 2.9A6 6 0 0 0 13.26 24a6.06 6.06 0 0 0 5.772-4.206a6 6 0 0 0 3.997-2.9a6.06 6.06 0 0 0-.747-7.073M13.26 22.43a4.48 4.48 0 0 1-2.876-1.04l.141-.081l4.779-2.758a.8.8 0 0 0 .392-.681v-6.737l2.02 1.168a.07.07 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494M3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085l4.783 2.759a.77.77 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646M2.34 7.896a4.5 4.5 0 0 1 2.366-1.973V11.6a.77.77 0 0 0 .388.677l5.815 3.354l-2.02 1.168a.08.08 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.08.08 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667m2.01-3.023l-.141-.085l-4.774-2.782a.78.78 0 0 0-.785 0L9.409 9.23V6.897a.07.07 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.8.8 0 0 0-.393.681zm1.097-2.365l2.602-1.5l2.607 1.5v2.999l-2.597 1.5l-2.607-1.5Z"/></svg>`
                 }
@@ -91,7 +94,6 @@ export const NAV_DATA: NavData[] = [
             {
                 title: "Kimi",
                 link: "https://kimi.moonshot.cn/",
-                desc: "MoonshotAI旗下产品，中国大陆可以正常访问。",
                 icon: "https://statics.moonshot.cn/kimi-chat/favicon.ico"
             },
             {
@@ -103,6 +105,42 @@ export const NAV_DATA: NavData[] = [
                 title: "Tabnine",
                 link: "https://www.tabnine.com/",
                 icon: "https://www.tabnine.com/wp-content/uploads/2024/09/cropped-tabnine-favicon-192x192.png"
+            },
+        ]
+    },
+    {
+        title: "实用网站",
+        items: [
+            {
+                title: "Json.cn",
+                link: "https://www.json.cn/",
+                icon: "https://static.json.cn/r/img/favicon/favicon.ico"
+            },
+            {
+                title: "RGB与十六进制色码转换",
+                link: "https://www.sioe.cn/yingyong/yanse-rgb-16/",
+                icon: {
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 512 512"><path fill="#E5AA6E" d="M256.295 9.217C120.001 9.217 9.512 119.706 9.512 256c0 43.532 11.693 84.2 31.055 119.939c24.744 45.676 120.236-129.338 171.165-91.196S90.776 447.079 138.533 472.527c35.252 18.784 75.036 30.256 117.762 30.256c136.294 0 246.783-110.488 246.783-246.783S392.59 9.217 256.295 9.217"/><path fill="#FFF" d="M274.829 451.585c-24.167 0-43.758-17.564-43.758-39.23s19.591-39.23 43.758-39.23s43.758 17.564 43.758 39.23s-19.591 39.23-43.758 39.23"/><path fill="#FFD469" d="M435.954 299.272c12.708 19.521 5.991 46.425-15.003 60.092s-48.315 8.922-61.023-10.599s-5.991-46.425 15.004-60.092c20.993-13.668 48.314-8.922 61.022 10.599"/><path fill="#0074A8" d="M443.193 159.103c1.598 23.238-17.366 43.469-42.358 45.188s-46.547-15.726-48.145-38.964s17.366-43.469 42.358-45.188s46.547 15.726 48.145 38.964"/><path fill="#FF473E" d="M287.822 100.348c1.598 23.238-21.619 43.762-51.857 45.841s-56.046-15.073-57.644-38.311s21.619-43.762 51.857-45.841s56.046 15.073 57.644 38.311"/><path fill="#009B51" d="M155.826 201.296c1.598 23.238-17.366 43.469-42.358 45.188s-46.547-15.726-48.145-38.964s17.366-43.469 42.358-45.188s46.547 15.726 48.145 38.964"/></svg>`
+                }
+            },
+            {
+                title: "VSC代码片段生成器",
+                link: "https://snippet-generator.app/",
+                icon: {
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><mask id="IconifyId191d5d48585f2379a4" width="128" height="128" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#fff" fill-rule="evenodd" d="M90.767 127.126a7.97 7.97 0 0 0 6.35-.244l26.353-12.681a8 8 0 0 0 4.53-7.209V21.009a8 8 0 0 0-4.53-7.21L97.117 1.12a7.97 7.97 0 0 0-9.093 1.548l-50.45 46.026L15.6 32.013a5.33 5.33 0 0 0-6.807.302l-7.048 6.411a5.335 5.335 0 0 0-.006 7.888L20.796 64L1.74 81.387a5.336 5.336 0 0 0 .006 7.887l7.048 6.411a5.33 5.33 0 0 0 6.807.303l21.974-16.68l50.45 46.025a8 8 0 0 0 2.743 1.793Zm5.252-92.183L57.74 64l38.28 29.058V34.943Z" clip-rule="evenodd"/></mask><g mask="url(#IconifyId191d5d48585f2379a4)"><path fill="#0065A9" d="M123.471 13.82L97.097 1.12A7.97 7.97 0 0 0 88 2.668L1.662 81.387a5.333 5.333 0 0 0 .006 7.887l7.052 6.411a5.33 5.33 0 0 0 6.811.303l103.971-78.875c3.488-2.646 8.498-.158 8.498 4.22v-.306a8 8 0 0 0-4.529-7.208Z"/><g filter="url(#IconifyId191d5d48585f2379a5)"><path fill="#007ACC" d="m123.471 114.181l-26.374 12.698A7.97 7.97 0 0 1 88 125.333L1.662 46.613a5.333 5.333 0 0 1 .006-7.887l7.052-6.411a5.33 5.33 0 0 1 6.811-.303l103.971 78.874c3.488 2.647 8.498.159 8.498-4.219v.306a8 8 0 0 1-4.529 7.208"/></g><g filter="url(#IconifyId191d5d48585f2379a6)"><path fill="#1F9CF0" d="M97.098 126.882A7.98 7.98 0 0 1 88 125.333c2.952 2.952 8 .861 8-3.314V5.98c0-4.175-5.048-6.266-8-3.313a7.98 7.98 0 0 1 9.098-1.549L123.467 13.8A8 8 0 0 1 128 21.01v85.982a8 8 0 0 1-4.533 7.21z"/></g><path fill="url(#IconifyId191d5d48585f2379a7)" fill-rule="evenodd" d="M90.69 127.126a7.97 7.97 0 0 0 6.349-.244l26.353-12.681a8 8 0 0 0 4.53-7.21V21.009a8 8 0 0 0-4.53-7.21L97.039 1.12a7.97 7.97 0 0 0-9.093 1.548l-50.45 46.026l-21.974-16.68a5.33 5.33 0 0 0-6.807.302l-7.048 6.411a5.336 5.336 0 0 0-.006 7.888L20.718 64L1.662 81.386a5.335 5.335 0 0 0 .006 7.888l7.048 6.411a5.33 5.33 0 0 0 6.807.303l21.975-16.681l50.45 46.026a8 8 0 0 0 2.742 1.793m5.252-92.184L57.662 64l38.28 29.057z" clip-rule="evenodd" opacity=".25"/></g><defs><filter id="IconifyId191d5d48585f2379a5" width="144.744" height="113.408" x="-8.411" y="22.594" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="4.167"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend in2="BackgroundImageFix" mode="overlay" result="effect1_dropShadow_1_36"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_1_36" result="shape"/></filter><filter id="IconifyId191d5d48585f2379a6" width="56.667" height="144.007" x="79.667" y="-8.004" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="4.167"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend in2="BackgroundImageFix" mode="overlay" result="effect1_dropShadow_1_36"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_1_36" result="shape"/></filter><linearGradient id="IconifyId191d5d48585f2379a7" x1="63.922" x2="63.922" y1=".33" y2="127.67" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs></svg>`
+                }
+            },
+            {
+                title: "在线表格转换器",
+                link: "https://tableconvert.com/zh-cn/",
+                icon: "https://tableconvert.com/images/favicon.png"
+            },
+            {
+                title: "JS工具整合",
+                link: "https://js.wfuapp.com/",
+                icon: {
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#F0DB4F" rx="60"/><path fill="#323330" d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.889-3.092 12.889-15.12v-81.798h24.058v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.579c-17.357-7.388-28.871-16.668-28.871-36.258c0-18.044 13.748-31.792 35.229-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.731 12.029c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.139 14.778 14.608l6.014 2.577c20.449 8.765 31.963 17.699 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574"/></g></svg>`
+                }
             },
         ]
     }
