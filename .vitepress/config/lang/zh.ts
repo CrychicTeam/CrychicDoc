@@ -11,13 +11,6 @@ export const zh_CN = <DefaultTheme.Config>({
             { text: '导航', link: '/zh/doc/guide' }
             ],
         sidebar: sidebars("zh"),
-        editLink: {
-        pattern: 'https://github.com/CrychicTeam/CrychicDoc/blob/main/docs/:path?plain=1',
-        text: '在 GitHub 上查看此页面'
-        },
-        lastUpdated: {
-        text: '最后更新于'
-        },
         outline: {
         level: "deep",
         label: '页面导航'
