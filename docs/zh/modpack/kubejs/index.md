@@ -20,6 +20,75 @@ root:
   title: KubeJS
   collapsed: false
   children:
+    - title: '1.21'
+      path: '1.21'
+      collapsed: true
+    - title: '1.20.1'
+      path: '1.20.1'
+      collapsed: true
+      children:
+        - title: Kubejs教程-1.20.1(Crychic版)
+          path: Crychic
+          collapsed: true
+          children:
+            - title: 入门
+              path: Introduction
+              collapsed: true
+              children:
+                - title: 目录
+                  path: /
+                  file: Catalogue
+                - title: 配方
+                  path: Recipe
+                  collapsed: true
+                  children:
+                    - title: 物品与原料表示
+                      path: /
+                      file: ItemAndIngredient
+                    - title: 配方过滤器表示
+                      path: /
+                      file: RecipeFilter
+                    - title: 修改配方
+                      path: /
+                      file: ModifyRecipe
+                    - title: 删除配方
+                      path: /
+                      file: DeleteRecipe
+                    - title: 添加原版配方
+                      path: /
+                      file: Vanilla
+                - title: 药水效果
+                  path: PotionEffect
+                  children:
+                    - title: 目录
+                      path: /
+                      file: Catalogue
+                  collapsed: true
+                - title: 实体
+                  path: Entity
+                  collapsed: true
+                  children:
+                    - title: 为实体添加药水效果
+                      path: /
+                      file: AddPotionEffects
+            - title: 进阶
+              path: Upgrade
+              collapsed: true
+              children:
+                - title: 占位符
+                  path: /
+                  file: placeholder
+            - title: 高级
+              path: Advanced
+              collapsed: true
+              children:
+                - title: 占位符
+                  path: /
+                  file: placeholder     
+        - title: kubejs教程-1.20.1(孤梦版)
+          noScan: true
+          path: KubejsCourse
+          file: README
     - title: 入门-开箱急用
       path: Introduction
       collapsed: true
@@ -101,4 +170,10 @@ root:
       noScan: true
       path: KubejsCourse
       file: README
+    - title: '1.19.2'
+      path: '1.19.2'
+      collapsed: true
+    - title: '1.18.2'
+      path: '1.19.2'
+      collapsed: true
 ---
