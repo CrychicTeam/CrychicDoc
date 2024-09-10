@@ -9,6 +9,8 @@ import {
 } from '@nolebase/vitepress-plugin-git-changelog/vite'
 import * as config from "./markdown-plugins"
 
+import { search as zhSearch } from './lang/zh'
+
 function generateAvatarUrl(username: string) {
 	return `https://github.com/${username}.png`
 }
@@ -22,7 +24,15 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
           dark: '/logodark.png'
         },
         search: {
-          provider: 'local'
+          provider: 'algolia',
+          options: {
+            appId: 'PKTPUKPHOX',
+            apiKey: '0e4935f8918afecaf8278e3d32a66329',
+            indexName: 'crychicdoc',
+            locales: {
+              ...zhSearch
+            }
+          }
         },
         socialLinks: [
           { icon: 'github', link: 'https://github.com/CrychicTeam/CrychicDoc' },
