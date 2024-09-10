@@ -9,3 +9,7 @@
 .vp-doc .carousel p {
     margin: 0px;
 }
+
+.edit-info {
+    display: none !important;
+}
