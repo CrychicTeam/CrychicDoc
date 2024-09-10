@@ -29,56 +29,56 @@
         idx: 0,
     });
 
-    // URL 前缀黑名单，用于屏蔽特定的图片
     const prefixBlacklist = ref<string[]>([
-        "https://avatars.githubusercontent.com/", // 添加你想屏蔽的前缀
+        "https://avatars.githubusercontent.com/",
+        "https://www.github.com/",
+        "https://github.com/",
     ]);
 
-    // 图片预览功能，增加前缀过滤
     function previewImage(e: Event) {
-  const target = e.target as HTMLElement;
-  const currentTarget = e.currentTarget as HTMLElement;
+        const target = e.target as HTMLElement;
+        const currentTarget = e.currentTarget as HTMLElement;
 
-  if (target.tagName.toLowerCase() === "img" && !target.classList.contains("non-preview-image")) {
-    const url = (target as HTMLImageElement).src;
+        if (
+            target.tagName.toLowerCase() === "img" &&
+            !target.classList.contains("non-preview-image")
+        ) {
+            const url = (target as HTMLImageElement).src;
 
-    // 输出调试信息，确认获取的 URL
-    console.log("Clicked image URL: ", url);
+            const isPrefixBlacklisted = prefixBlacklist.value.some((prefix) =>
+                url.startsWith(prefix)
+            );
 
-    // 检查图片 URL 是否在前缀黑名单中
-    const isPrefixBlacklisted = prefixBlacklist.value.some(prefix => url.startsWith(prefix));
+            if (isPrefixBlacklisted) {
+                return;
+            }
 
-    // 输出调试信息，确认黑名单匹配情况
-    console.log("Is blacklisted: ", isPrefixBlacklisted);
+            const imgs = currentTarget.querySelectorAll<HTMLImageElement>(
+                ".content-container .main img:not(.non-preview-image)"
+            );
+            const idx = Array.from(imgs).findIndex((el) => el === target);
+            const urls = Array.from(imgs).map((el) => el.src);
 
-    if (isPrefixBlacklisted) {
-      console.log("该图片的 URL 存在于黑名单中，无法预览。");
-      return;
+            previewImageInfo.url = url;
+            previewImageInfo.list = urls;
+            previewImageInfo.idx = idx;
+
+            if (idx === -1 && url) {
+                previewImageInfo.list.push(url);
+                previewImageInfo.idx = previewImageInfo.list.length - 1;
+            }
+
+            show.value = true;
+        }
     }
 
-    const imgs = currentTarget.querySelectorAll<HTMLImageElement>(".content-container .main img:not(.non-preview-image)");
-    const idx = Array.from(imgs).findIndex((el) => el === target);
-    const urls = Array.from(imgs).map((el) => el.src);
-
-    previewImageInfo.url = url;
-    previewImageInfo.list = urls;
-    previewImageInfo.idx = idx;
-
-    // 兼容点击 main 之外的图片
-    if (idx === -1 && url) {
-      previewImageInfo.list.push(url);
-      previewImageInfo.idx = previewImageInfo.list.length - 1;
-    }
-
-    show.value = true;
-  }
-}
-
-
-    // 组件挂载时添加点击事件，卸载时移除事件
     onMounted(() => {
         const docDomContainer = document.querySelector("#VPContent");
-        docDomContainer?.addEventListener("click", previewImage);
+        if (docDomContainer) {
+            docDomContainer.addEventListener("click", previewImage);
+        } else {
+            console.error("#VPContent 元素未找到，无法绑定事件");
+        }
     });
 
     onUnmounted(() => {
