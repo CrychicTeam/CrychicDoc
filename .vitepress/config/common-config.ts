@@ -125,5 +125,23 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         },
     },
     head: [['link', { rel: 'icon', href: 'https://docs.mihono.cn/favicon.ico' }]],
-    ignoreDeadLinks: true
+    ignoreDeadLinks: true,
+    transformHead({ assets }) {
+      // 相应地调整正则表达式以匹配字体
+      const JetBrainsMono = assets.find(file => /JetBrainsMono-Light\.\w+\.woff2/)
+      if (JetBrainsMono) {
+        return [
+          [
+            'link',
+            {
+              rel: 'preload',
+              href: JetBrainsMono,
+              as: 'font',
+              type: 'font/woff2',
+              crossorigin: ''
+            }
+          ]
+        ]
+      }
+    }
 }

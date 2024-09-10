@@ -23,12 +23,12 @@ import 'typefiles/1.20.1/.probe/server/probe-types/packages/dev.latvian.d.ts'
 // @filename: net.minecraft.d.ts
 import 'typefiles/1.20.1/.probe/server/probe-types/packages/net.minecraft.d.ts'
 // ---cut-before---
-LootJS.modifiers(event=>{
+LootJS.modifiers(event => {
     event.addBlockLootModifier("minecraft:grass")
     .addLoot(Item.of("minecraft:dirt").setCount(1))
 })
 
-ItemEvents.rightClicked("acacia_button",event=>{
+ItemEvents.rightClicked("acacia_button", event => {
     event.player.tell("You right clicked an acacia button")
 })
 ```
