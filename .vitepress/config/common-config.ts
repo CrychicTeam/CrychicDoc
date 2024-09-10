@@ -126,7 +126,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     },
     head: [['link', { rel: 'icon', href: 'https://docs.mihono.cn/favicon.ico' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:locale', content: 'docs/zh' }],
+    ['meta', { property: 'og:locale', content: 'zh' }],
     ['meta', { property: 'og:title', content: 'CrychicDoc | 一个由Crychic团队维护的我的世界文档' }],
     ['meta', { property: 'og:site_name', content: 'CrychicDoc' }],
     ['meta', { property: 'og:image', content: 'https://docs.mihono.cn/logo.png' }],
