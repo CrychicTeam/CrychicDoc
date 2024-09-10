@@ -124,7 +124,13 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: true,
         },
     },
-    head: [['link', { rel: 'icon', href: 'https://docs.mihono.cn/favicon.ico' }]],
+    head: [['link', { rel: 'icon', href: 'https://docs.mihono.cn/favicon.ico' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:locale', content: 'docs/zh' }],
+    ['meta', { property: 'og:title', content: 'CrychicDoc | 一个由Crychic团队维护的我的世界文档' }],
+    ['meta', { property: 'og:site_name', content: 'CrychicDoc' }],
+    ['meta', { property: 'og:image', content: 'https://docs.mihono.cn/logo.png' }],
+    ['meta', { property: 'og:url', content: 'https://docs.mihono.cn/' }],],
     ignoreDeadLinks: true,
     transformHead({ assets }) {
       // 相应地调整正则表达式以匹配字体
