@@ -1,24 +1,37 @@
 <template>
     <div class="image-viewer">
-        <!-- 使用 t-image-viewer 组件预览图片 -->
-        <t-image-viewer
-            v-model:visible="show"
-            :images="previewImageInfo.list"
-            :default-index="previewImageInfo.idx"
-            :key="previewImageInfo.idx"
-            @close="show = false"
-        >
-        </t-image-viewer>
-        <!-- 自定义暗模式支持 -->
+        <client-only>
+            <t-image-viewer
+                v-if="isMounted"
+                v-model:visible="show"
+                :images="previewImageInfo.list"
+                :default-index="previewImageInfo.idx"
+                :key="previewImageInfo.idx"
+                @close="show = false"
+            >
+            </t-image-viewer>
+        </client-only>
         <tdesign-dark></tdesign-dark>
     </div>
 </template>
 
 <script setup lang="ts">
-    import { reactive, ref, onMounted, onUnmounted } from "vue";
+    import {
+        reactive,
+        shallowRef,
+        onMounted,
+        onUnmounted,
+        defineAsyncComponent,
+        onBeforeMount,
+    } from "vue";
     import tdesignDark from "./themeControl.vue";
 
-    const show = ref(false);
+    const TImageViewer = defineAsyncComponent(() =>
+        import("tdesign-vue-next").then((mod) => mod.ImageViewer)
+    );
+
+    const show = shallowRef(false);
+    const isMounted = shallowRef(false);
     const previewImageInfo = reactive<{
         url: string;
         list: string[];
@@ -29,11 +42,13 @@
         idx: 0,
     });
 
-    const prefixBlacklist = ref<string[]>([
+    const prefixBlacklist = shallowRef<string[]>([
         "https://avatars.githubusercontent.com/",
         "https://www.github.com/",
         "https://github.com/",
     ]);
+
+    let docDomContainer: Element | null = null;
 
     function previewImage(e: Event) {
         const target = e.target as HTMLElement;
@@ -72,8 +87,13 @@
         }
     }
 
+    onBeforeMount(() => {
+        docDomContainer = null;
+    });
+
     onMounted(() => {
-        const docDomContainer = document.querySelector("#VPContent");
+        isMounted.value = true;
+        docDomContainer = document.querySelector("#VPContent");
         if (docDomContainer) {
             docDomContainer.addEventListener("click", previewImage);
         } else {
@@ -82,7 +102,8 @@
     });
 
     onUnmounted(() => {
-        const docDomContainer = document.querySelector("#VPContent");
-        docDomContainer?.removeEventListener("click", previewImage);
+        if (docDomContainer) {
+            docDomContainer.removeEventListener("click", previewImage);
+        }
     });
 </script>
