@@ -47,7 +47,7 @@
         updateThemeMode(isDark.value);
         setHeroBackground(isDark.value);
 
-watch(isDark, (newValue) => {
+        watch(isDark, (newValue) => {
             updateThemeMode(newValue);
             setHeroBackground(newValue);
         });
@@ -72,6 +72,10 @@ watch(isDark, (newValue) => {
         );
     });
 </script>
+
+<template>
+    <!-- This component doesn't render anything visible -->
+</template>
 
 <style>
     :root {
@@ -100,7 +104,7 @@ watch(isDark, (newValue) => {
         --vp-home-hero-image-filter: blur(72px);
         --code-bg-color: var(--vp-c-brand-dark);
         --code-group-border-color: #242631;
-        --vp-c-brand: #6e7aad;
+        --vp-c-brand: #948465;
         --vp-c-text-2: #b0bec5; 
         --stepper-text-color: var(--vp-c-text-1);
         --stepper-active-color: var(--vp-c-brand-dark);
