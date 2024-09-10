@@ -26,9 +26,9 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         search: {
           provider: 'algolia',
           options: {
-            appId: 'PKTPUKPHOX',
-            apiKey: '0e4935f8918afecaf8278e3d32a66329',
-            indexName: 'crychicdoc',
+            appId: 'ATKJZ0G8V5',
+            apiKey: 'f75b80326d9a5599254436f088bcb548',
+            indexName: 'mihono',
             locales: {
               ...zhSearch
             }
