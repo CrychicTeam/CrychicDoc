@@ -1,4 +1,4 @@
-import { DefaultTheme, UserConfig } from "vitepress"
+import { DefaultTheme, UserConfig, HeadConfig, Awaitable } from "vitepress"
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { TDesignResolver } from 'unplugin-vue-components/resolvers';
@@ -134,20 +134,37 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     ignoreDeadLinks: true,
     transformHead({ assets }) {
       // 相应地调整正则表达式以匹配字体
-      const JetBrainsMono = assets.find(file => /JetBrainsMono-Light\.\w+\.woff2/)
-      if (JetBrainsMono) {
-        return [
-          [
+      const fonts: string[] = []
+      const JetBrainsMono = () => fontAdd(assets.find(file => /JetBrainsMono-Ragular\.\w+\.woff2/))
+      const ChillRoundGothic_Bold = () => fontAdd( assets.find(file => /ChillRoundGothic_Bold\.\w+\.otf/))
+      const ChillRoundGothic_ExtraLight = () => fontAdd(assets.find(file => /ChillRoundGothic_ExtraLight\.\w+\.otf/))
+      const ChillRoundGothic_Heavy = () => fontAdd(assets.find(file => /ChillRoundGothic_Heavy\.\w+\.otf/))
+      const ChillRoundGothic_Light = () => fontAdd(assets.find(file => /ChillRoundGothic_Light\.\w+\.otf/))
+      const ChillRoundGothic_Medium = () => fontAdd(assets.find(file => /ChillRoundGothic_Medium\.\w+\.otf/))
+      const ChillRoundGothic_Regular = () => fontAdd(assets.find(file => /ChillRoundGothic_Regular\.\w+\.otf/))
+      const fontAdd = (font: string | undefined) => {
+        if (font) {
+          fonts.push(font)
+        }
+      }
+      function fontConfig():Awaitable<HeadConfig[] | void>  {
+        const hcfg: HeadConfig[] = []
+        fonts.forEach(font => {
+          hcfg.push([
             'link',
             {
               rel: 'preload',
-              href: JetBrainsMono,
+              href: font,
               as: 'font',
               type: 'font/woff2',
               crossorigin: ''
-            }
-          ]
-        ]
+            },
+            
+          ])
+          return hcfg
+        })
       }
-    }
+
+        return fontConfig()
+    },
 }

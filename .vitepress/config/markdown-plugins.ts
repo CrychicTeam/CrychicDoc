@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { MarkdownOptions } from "vitepress"
 
 import timeline from "vitepress-markdown-timeline";

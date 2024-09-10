@@ -1,7 +1,7 @@
 .demo .custom-block {
     font-size: 18px;
     border-color: var(--vp-custom-block-demo);
-    border-width: 2px;
+    border-width: 0px;
     color: var(--vp-custom-block-details-text);
     /* background-color: var(--vp-custom-block-demo-bg); */
     padding: 8px 16px 8px;
@@ -10,14 +10,18 @@
 
 .demo hr {
     margin: 16px -16px;
-    border-top: 2px solid var(--vp-custom-block-demo);
+    border-top: 3px solid var(--vp-custom-block-demo);
 }
 
 .demo .custom-block div[class*='language-'] {
     border-top-left-radius: 0px;
-    border-top-right-radius: opx;
-    margin-top: -14px;
+    border-top-right-radius: 0px;
+    margin-top: -16px;
     margin-bottom: -6px;
     margin-left: -16px;
     margin-right: -16px;
+}
+
+.demo details {
+    box-shadow: 0 5px 20px 0 rgb(0 0 0 / 40%);
 }

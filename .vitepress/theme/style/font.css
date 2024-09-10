@@ -1,6 +1,72 @@
 @font-face {
     font-family: "JetBrains Mono";
-    src: url("./JetBrainsMono-Light.woff2") format("woff2");
+    src: url("./font/JetBrainsMono-Regular.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Heavy.otf") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Bold.otf") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Medium.otf") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Regular.otf") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Light.otf") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_ExtraLight.otf") format("woff2");
+    font-weight: 200;
+    font-style: normal;
+}
+
+body:where(:lang(zh)) {
+    font-family: 'ChillRoundGothic','Punctuation SC', 'Inter', ui-sans-serif, system-ui,
+    'PingFang SC', 'Noto Sans CJK SC', 'Noto Sans SC', 'Heiti SC',
+    'Microsoft YaHei', 'DengXian', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-size: 1.05em;
+}
+
+.vp-doc p {
+    line-height: 27px;
+}
+
+.is-home , .name .text {
+    font-family: 'Punctuation SC', 'Inter', ui-sans-serif, system-ui,
+    'PingFang SC', 'Noto Sans CJK SC', 'Noto Sans SC', 'Heiti SC',
+    'Microsoft YaHei', 'DengXian', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-size: 1.05em;
+}
+
+.vp-doc h1{
+    font-weight: 00;
 }
