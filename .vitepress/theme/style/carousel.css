@@ -21,3 +21,7 @@
 .carousel .v-carousel {
     border-radius: 8px;
 }
+
+.carousel img{
+    object-fit: cover;
+}
