@@ -1,14 +1,21 @@
+:::: center
+# KubeJS教程-1.20.1
 
-# KubeJS Tutorial-1.20.1
+这是1.20.1的kubejs内容分享，包括一些教程和项目
 
-This is the content sharing for KubeJS 1.20.1, including tutorials and projects.
+<ClientOnly>
+  <div class="responsive-container">
+    <VPTeamMembers size="medium" :members="members" />
+  </div>
+</ClientOnly>
 
-- Access the project directly on [GitBook webpage](https://gumeng.gitbook.io/kubejs-jiao-cheng-1.20.1)
-- The project's open source address on [Gitee](https://gitee.com/gumengmengs/kubejs-course)
-- The project's open source address on [GitHub](https://github.com/Gu-meng/kubejs-course) (GitHub does not support content submission)
+直接访问该项目[gitbook网页](https://gumeng.gitbook.io/kubejs-jiao-cheng-1.20.1)
 
-<!-- Repository activity -->
-<!-- ::: info Repository Activity
+该项目的[开源地址Gitee](https://gitee.com/gumengmengs/kubejs-course)
+
+该项目的[开源地址GitHub](https://github.com/Gu-meng/kubejs-course) GitHub不支持内容提交
+
+<!-- ::: info 仓库活动
 <div style="display: flex; justify-content: center;">
 <commitsCounter
   username="Gu-meng"
@@ -18,33 +25,32 @@ This is the content sharing for KubeJS 1.20.1, including tutorials and projects.
 </div>
 ::: -->
 
-- [Issue feedback](https://gitee.com/gumengmengs/kubejs-course/issues/new/choose)
+项目[问题反馈](https://gitee.com/gumengmengs/kubejs-course/issues/new/choose)
 
-## About Writing Documentation
-### Documentation Requirements
-1. The first letter of files and folders should be capitalized.
-2. All newly created files need to be written in the SUMMARY for directory compilation.
-3. Document content must have a clear topic and avoid inconsistency.
-4. Documents should be simple and easy to understand. If there are any technical terms, explain them separately.
+::::
 
-### About Documentation Folders
-- KubeJS-Basics: Contains basic KubeJS content.
-- KubejsAdvanced: Contains advanced KubeJS content.
-- KubejsAddon: Contains content related to KubeJS peripheral modules.
-- Digression: Contains information unrelated to KubeJS code.
-- Texture: Contains assets resource content.
-- KubejsProjects: Contains projects written by everyone (the folder path represents the corresponding sharer).
-- Files: Contains downloadable resources mentioned in the document.
-- imgs: Contains images mentioned in the document, with the corresponding path representing their location (use absolute paths).
-- Code: Contains shared code.
-  - Projects: Contains code for project sharing.
-  - This: Contains files mentioned in the tutorial.
-  - You can also create your own folders for classification, with the folder name matching the document name.
-
-### About Documentation Rules
-- The document contains three types of table markers: `-`, `~`, and `?`. `-` represents none, `~` represents to be edited, and `?` represents unknown.
-* There are three types of table markers in the document: `-`, `~`, and `?`. `-` represents none, `~` represents to be edited, and `?` represents unknown.
-* Images must use **absolute paths**.
+## 关于编写文档
+### 编写文档要求 
+1. 文件和文件夹首字母为大写
+2. 所有新建文件需要在SUMMARY内进行编写目录
+3. 文档内容必须明确主题，不要一会儿这个一会儿那个的
+4. 文档需要简单通俗易懂，如果有什么专有名词需要花大段去解释就放到题外话里
+### 关于文档文件夹
+* KubeJS-Basics 存放kubejs基础内容
+* KubejsAdvanced 存放kubejs的进阶内容
+* KubejsAddon 存放关于kubejs周边的联动模组内容
+* Digression 题外话——存放除了kubejs代码以外可能需要知道的内容
+* Texture 存放关于assets资源内容
+* KubejsProjects 存放一些大家写的项目(对应的文件夹路径代表着对应的分享人)
+* Files 存放着文档里出现的可下载资源
+* imgs 存放着文档里出现的图片,对应的路径代表着出现的位置(使用绝对路径)
+* Code 存放着代码分享
+  * Projects是项目分享的代码
+  * This是教程中会涉及到的一些文件
+  * 你也可以自己新建文件夹作为分类,文件夹需和文档名称一样
+### 关于文档一些规则
+* 文档内表格存在三种类型`-` `~`和`?`, 其中`-`代表无, `~`代表待编辑, `?`代表不知道
+* 图片一定要使用**绝对路径**
 
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
@@ -52,8 +58,8 @@ import { VPTeamMembers } from 'vitepress/theme'
 const members = [
   {
     avatar: 'https://www.github.com/Gu-meng.png',
-    name: 'Gu-meng',
-    title: 'The maintainer of Original Documentation',
+    name: '孤梦',
+    title: '原文档主要维护人',
     links: [
       { icon: 'github', link: 'https://github.com/Gu-meng' },
       { icon: {
@@ -67,7 +73,7 @@ const members = [
   {
     avatar: 'https://www.github.com/CrychicTeam.png',
     name: 'CrychicTeam',
-    title: 'Main Maintainer for Third-Party Documentation',
+    title: '第三方文档主要维护团队',
     links: [
       { icon: 'github', link: 'https://github.com/CrychicTeam' },
       // { icon: {
