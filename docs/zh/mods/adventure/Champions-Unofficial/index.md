@@ -1,16 +1,6 @@
 ---
 Layout: doc
 title: 介绍
-sidetitle: 冠军再续
-authors:
-  - M1hono
-generateSidebar: true
-autoPN: true
-tags: 怪物增强
-sidebarorder:
-  index: 1
-  wiki: 2
-  config: 3
 prev:
   text: 配置
   link: /zh/mods/adventure/Champions-Unofficial/config
@@ -31,4 +21,3 @@ next:
 @tab
 ![2](https://docs.mihono.cn/mods/adventure/champions-unofficial/2.png)
 :::
-
