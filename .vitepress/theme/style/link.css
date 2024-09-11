@@ -86,6 +86,8 @@
     vertical-align: middle;
     position: relative;
     background-size: cover;
+    top: -0.5px;
+    right: -0.6;
     margin-right: 2px;
     margin-left: 2px;
 }
