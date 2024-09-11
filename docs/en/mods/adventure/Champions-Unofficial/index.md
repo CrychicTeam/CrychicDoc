@@ -1,12 +1,18 @@
 ---
 Layout: doc
 title: Introduction
-prev:
-  text: Config
-  link: /en/mods\adventure\Champions-Unofficial\config
-next:
-  text: Wiki
-  link: /en/mods\adventure\Champions-Unofficial\wiki
+root:
+  title: 冠军再续
+  children:
+      - title: Intro
+        path: /
+        file: index
+      - title: wiki
+        path: /
+        file: wiki
+      - title: Config
+        path: /
+        file: config
 ---
 
 ## Champions-Unofficial

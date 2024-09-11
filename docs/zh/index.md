@@ -27,22 +27,22 @@ hero:
 features:
   - icon:
       light: /icon/mainindex/material-symbols--markdown-copy-sharp.png
-      dark: /icon/mainindex/material-symbols--markdown-copy-sharp-dark.png
+      dark: /icon/mainindex/material-symbols--markdown-copy-sharp-dark-v2.png
     title: 易上手
     details: 使用Vitepress构建文档，只需编辑Markdown文件即可撰写内容。
   - icon:
       light: /icon/mainindex/mdi--professional-hexagon.png
-      dark: /icon/mainindex/mdi--professional-hexagon-dark.png
+      dark: /icon/mainindex/mdi--professional-hexagon-dark-v2.png
     title: 高拓展
     details: 具备Mermaid、语法高亮与类型变量显示等功能，同时拥有Vuetify的各种组件，帮助丰富分享内容的可读性与专业性。
   - icon:
       light: /icon/mainindex/dashicons--format-chat.png
-      dark: /icon/mainindex/dashicons--format-chat-dark.png
+      dark: /icon/mainindex/dashicons--format-chat-dark-v2.png
     title: 易合作
     details: 使用Github进行合作，简化共创流程且使得源码较为安全。
   - icon:
       light: /icon/mainindex/dashicons--privacy.png
-      dark: /icon/mainindex/dashicons--privacy-dark.png
+      dark: /icon/mainindex/dashicons--privacy-dark-v2.png
     title: 易访问
     details: >-
       使用Github

@@ -4,14 +4,10 @@ title: 类型检查示例
 authors:
   - M1hono
 noguide: true
-prev:
-  text: Crychic文档编写示例
-  link: /zh/doc/samples
-next:
-  text: 侧边栏设置教程
-  link: /zh/doc/sidebarTutorial
 ---
 # 测试类型检查
+
+::: demo 示例
 ```js twoslash
 // @filename: index.ts
 // @ts-check
@@ -32,4 +28,5 @@ ItemEvents.rightClicked("acacia_button", event => {
     event.player.tell("You right clicked an acacia button")
 })
 ```
+:::
 非常好

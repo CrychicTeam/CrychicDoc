@@ -1,19 +1,17 @@
 ---
 Layout: doc
-sidebarfolder: true
-generateSidebar: false
-noguide: true
 root:
   title: 整合包
-  subDir:
-      - title: KubeJS
+  children:
+      - title: kubejs
         path: kubejs
         collapsed: true
-prev:
-  text: modpack
-  link: /zh/modpack/index
-next:
-  text: modpack
-  link: /zh/modpack/index
+        file: index
+      - title: 整合包推荐
+        path: recommendation
+        collapsed: true
+        file: index
+prev: false
+next: false
 ---
 

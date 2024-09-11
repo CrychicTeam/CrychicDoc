@@ -7,12 +7,6 @@ authors:
   - skyraah
 tags:
   - sample
-prev:
-  text: 项目合作教程
-  link: /zh/doc/index
-next:
-  text: 类型检查示例
-  link: /zh/doc/test
 ---
 
 # 文档插件示例

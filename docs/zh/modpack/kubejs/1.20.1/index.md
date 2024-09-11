@@ -155,8 +155,20 @@ root:
               - title: 包装类
                 path: WrappedClasses
                 collapsed: true
+          - title: 占位符
+            path: /
+            file: placeholder
+      # - title: 高级
+      #   path: Advanced
+      #   collapsed: true
+      #   children:
+      #     - title: 占位符
+      #       path: /
+      #       file: placeholder     
       - title: kubejs教程-1.20.1(孤梦版)
         noScan: true
         path: KubejsCourse
         file: README
+prev: false
+next: false
 ---

@@ -78,4 +78,6 @@ root:
         noScan: true
         path: KubejsCourse
         file: README
+prev: false
+next: false
 ---

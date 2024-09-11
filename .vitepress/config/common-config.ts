@@ -104,6 +104,8 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
               md: localIconLoader(import.meta.url, '../../docs/public/svg/markdown.svg'),
               kubejs: localIconLoader(import.meta.url, '../../docs/public/svg/kubejs.svg'),
               js: localIconLoader(import.meta.url, '../../docs/public/svg/Javascript.svg'),
+              sh: localIconLoader(import.meta.url, '../../docs/public/svg/powershell.svg'),
+              npm: localIconLoader(import.meta.url, '../../docs/public/svg/npm.svg'),
               ts: 'logos:typescript-icon-round',
               java: 'logos:java',
               css: 'logos:css-3',
@@ -133,23 +135,20 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     ['meta', { property: 'og:url', content: 'https://docs.mihono.cn/' }],],
     ignoreDeadLinks: true,
     transformHead({ assets }) {
-      // 相应地调整正则表达式以匹配字体
-      const fonts: string[] = []
-      const JetBrainsMono = () => fontAdd(assets.find(file => /JetBrainsMono-Ragular\.\w+\.woff2/))
-      const ChillRoundGothic_Bold = () => fontAdd( assets.find(file => /ChillRoundGothic_Bold\.\w+\.otf/))
-      const ChillRoundGothic_ExtraLight = () => fontAdd(assets.find(file => /ChillRoundGothic_ExtraLight\.\w+\.otf/))
-      const ChillRoundGothic_Heavy = () => fontAdd(assets.find(file => /ChillRoundGothic_Heavy\.\w+\.otf/))
-      const ChillRoundGothic_Light = () => fontAdd(assets.find(file => /ChillRoundGothic_Light\.\w+\.otf/))
-      const ChillRoundGothic_Medium = () => fontAdd(assets.find(file => /ChillRoundGothic_Medium\.\w+\.otf/))
-      const ChillRoundGothic_Regular = () => fontAdd(assets.find(file => /ChillRoundGothic_Regular\.\w+\.otf/))
-      const fontAdd = (font: string | undefined) => {
-        if (font) {
-          fonts.push(font)
-        }
+      const fonts = (): string[] => {
+         return [
+          assets.find(file => /JetBrainsMono-Ragular\.\w+\.woff2/),
+          assets.find(file => /ChillRoundGothic_Bold\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_ExtraLight\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_Heavy\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_Light\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_Medium\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_Regular\.\w+\.otf/)
+        ].filter(value => value !== undefined)
       }
-      function fontConfig():Awaitable<HeadConfig[] | void>  {
+      const fontConfig = ():Awaitable<HeadConfig[] | void> => {
         const hcfg: HeadConfig[] = []
-        fonts.forEach(font => {
+        fonts().forEach(font => {
           hcfg.push([
             'link',
             {
@@ -164,7 +163,6 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
           return hcfg
         })
       }
-
-        return fontConfig()
+      return fontConfig()
     },
 }

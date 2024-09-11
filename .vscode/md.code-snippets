@@ -1,12 +1,12 @@
 {
     "Insert Non-breaking Space": {
-        "scope":"markdown",
+        
         "prefix": "#nbsp",
         "body": ["&nbsp;&nbsp;"],
         "description": "Insert two non-breaking spaces in Markdown"
     },
     "nogui": {
-        "scope":"markdown",
+        
         "prefix": "noguide",
         "body": [
             "noguide: $0"
@@ -14,7 +14,7 @@
         "description": "nogui"
     },
     "root": {
-        "scope":"markdown",
+        
         "prefix": "@root",
         "body": [
             "root:",
@@ -23,7 +23,7 @@
         "description": "root"
     },
     "title": {
-        "scope":"markdown",
+        
         "prefix": "title",
         "body": [
             "title: $0"
@@ -31,7 +31,7 @@
         "description": "title"
     },
     "subDir": {
-        "scope":"markdown",
+        
         "prefix": "subDir",
         "body": [
             "subDir:",
@@ -40,7 +40,7 @@
         "description": "subDir"
     },
     "path": {
-        "scope":"markdown",
+        
         "prefix": "path",
         "body": [
             "path: $0"
@@ -48,7 +48,7 @@
         "description": "path"
     },
     "collapsed": {
-        "scope":"markdown",
+        
         "prefix": "collapsed",
         "body": [
             "collapsed: $0"
@@ -56,7 +56,7 @@
         "description": "collapsed"
     },
     "subdir": {
-        "scope":"markdown",
+        
         "prefix": "@subdir",
         "body": [
             "- title: $1",
@@ -65,7 +65,7 @@
         "description": "subdir"
     },
     "authors": {
-        "scope":"markdown",
+        
         "prefix": "authors",
         "body": [
             "authors: ",
@@ -74,7 +74,7 @@
         "description": "authors"
     },
     "noScan": {
-        "scope":"markdown",
+        
         "prefix": "noScan",
         "body": [
             "noScan:  $0"
@@ -82,7 +82,7 @@
         "description": "noScan"
     },
     "file": {
-        "scope":"markdown",
+        
         "prefix": "file",
         "body": [
             "file:  $0"
@@ -90,7 +90,7 @@
         "description": "file"
     },
     "@title": {
-        "scope":"markdown",
+        
         "prefix": "@title",
         "body": [
             "{{ \\$frontmatter.title }}"
@@ -98,7 +98,7 @@
         "description": "title"
     },
     "demo": {
-        "scope":"markdown",
+        
         "prefix": "@demo",
         "body": [
             "::: demo 示例",
