@@ -104,6 +104,8 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
               md: localIconLoader(import.meta.url, '../../docs/public/svg/markdown.svg'),
               kubejs: localIconLoader(import.meta.url, '../../docs/public/svg/kubejs.svg'),
               js: localIconLoader(import.meta.url, '../../docs/public/svg/Javascript.svg'),
+              sh: localIconLoader(import.meta.url, '../../docs/public/svg/powershell.svg'),
+              npm: localIconLoader(import.meta.url, '../../docs/public/svg/npm.svg'),
               ts: 'logos:typescript-icon-round',
               java: 'logos:java',
               css: 'logos:css-3',

@@ -5,12 +5,6 @@ noguide: true
 authors:
   - M1hono
   - skyraah
-prev:
-  text: 类型检查示例
-  link: /zh/doc/test
-next:
-  text: 项目合作教程
-  link: /zh/doc/index
 ---
 
 # VitePress 侧边栏生成器配置指南 {#guide}
