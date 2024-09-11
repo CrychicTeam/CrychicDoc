@@ -47,7 +47,7 @@
         updateThemeMode(isDark.value);
         setHeroBackground(isDark.value);
 
-watch(isDark, (newValue) => {
+        watch(isDark, (newValue) => {
             updateThemeMode(newValue);
             setHeroBackground(newValue);
         });
@@ -109,33 +109,33 @@ watch(isDark, (newValue) => {
     }
 
     .theme-stepper {
-        background-color: var(--vp-custom-block-info-bg);
-        color: var(--stepper-text-color);
+        background-color: var(--vp-custom-block-info-bg)!important;
+        color: var(--stepper-text-color)!important;
     }
 
     .theme-stepper .v-stepper__step {
-        background-color: transparent;
+        background-color: transparent!important;
     }
 
     .theme-stepper .v-stepper__step--active {
-        color: var(--stepper-active-color);
+        color: var(--stepper-active-color)!important;
     }
 
     .theme-stepper .v-stepper__step:hover {
-        background-color: var(--stepper-hover-color);
+        background-color: var(--stepper-hover-color)!important;
         opacity: 0.1;
     }
 
     .theme-stepper .v-stepper__content {
-        background-color: transparent;
+        background-color: transparent!important;
     }
 
     .v-divider.v-theme--light {
-        border-color: var(--stepper-text-color);
+        border-color: var(--stepper-text-color)!important;
     }
 
     .v-divider.v-theme--dark {
-        border-color: var(--stepper-active-color);
+        border-color: var(--stepper-active-color)!important;
     }
 
 </style>
