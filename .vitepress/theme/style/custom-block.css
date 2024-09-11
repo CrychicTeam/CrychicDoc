@@ -21,6 +21,8 @@
 
     --vp-custom-block-demo: #cccccc;
     --vp-custom-block-demo-bg: #fafafa;
+
+    --vp-shadow: rgba(0, 0, 0, 0.1);
 }
 
 .dark {
@@ -44,6 +46,8 @@
 
     --vp-custom-block-demo: #111111;
     --vp-custom-block-demo-bg: #2a2a2e;
+
+    --vp-shadow: #00000066;
 }
 
 

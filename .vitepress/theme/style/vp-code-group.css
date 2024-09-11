@@ -4,6 +4,13 @@
     --code-border-color: #e9ecef;
     --tab-active-color: #007bff;
     --tab-hover-color: #51565a;
+    --code-text-color: #99a2aa;
+    --code-group-border-color: #5c5c5c4f;
+}
+
+.dark {
+    --code-group-border-color: #5053557e;
+    --tab-hover-color: #d4d6d8;
     --code-text-color: #7f868d;
 }
 
@@ -13,7 +20,7 @@
     border-radius: 6px;
     overflow: hidden;
     margin: 1.5em 0;
-    box-shadow: 0 5px 20px 0 rgb(0 0 0 / 40%);
+    box-shadow: 0 5px 20px 0 var(--vp-shadow);
     border-top: 1px solid var(--code-group-border-color);
 }
 

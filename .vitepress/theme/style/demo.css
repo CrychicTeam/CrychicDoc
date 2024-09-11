@@ -23,5 +23,5 @@
 }
 
 .demo details {
-    box-shadow: 0 5px 20px 0 rgb(0 0 0 / 40%);
+    box-shadow: 0 5px 20px 0 var(--vp-shadow);
 }
