@@ -57,23 +57,104 @@ root:
             path: Entity
             collapsed: true
             children:
-              - title: 为实体添加药水效果
+              - title: 药水效果
                 path: /
-                file: AddPotionEffects
+                file: PotionEffects
+              - title: 属性
+                path: /
+                file: Attribute
+          - title: 事件
+            path: Event
+            collapsed: true
+            children:
+              - title: 服务器侧事件
+                path: Server
+                collapsed: true
+                children:
+                  - title: 实体交互事件
+                    path: /
+                    file: EntityInteracted
+              - title: 客户端侧事件
+                path: Client
+                collapsed: true
+              - title: 启动事件
+                path: Startup
+                collapsed: true
       - title: 进阶
         path: Upgrade
         collapsed: true
         children:
-          - title: 占位符
-            path: /
-            file: placeholder
-      - title: 高级
-        path: Advanced
-        collapsed: true
-        children:
-          - title: 占位符
-            path: /
-            file: placeholder     
+          - title: 全局范围
+            path: GlobalScope
+            collapsed: true
+            children:
+              - title: 类
+                path: Classes
+                collapsed: true
+                children:
+                  - title: 目录
+                    path: /
+                    file: index
+                  - title: 轴对齐包围盒（AABB）
+                    path: /
+                    file: AABB
+                  - title: 方块（Block）
+                    path: /
+                    file: Block
+                  - title: 方块状态谓词（BlockStatePredicate）
+                    path: /
+                    file: BlockStatePredicate
+                  - title: 颜色（Color）
+                    path: /
+                    file: Color
+                  - title: 方向（Direction）
+                    path: /
+                    file: Direction
+                  - title: 面（Facing）
+                    path: /
+                    file: Facing
+                  - title: 流体（Fluid）
+                    path: /
+                    file: Fluid
+                  - title: 原料（Ingredient）
+                    path: /
+                    file: Ingredient
+                  - title: 原料助手（IngredientHelper）
+                    path: /
+                    file: IngredientHelper
+                  - title: 物品（tem）
+                    path: /
+                    file: Item
+                  - title: Json读写（JsonIO）
+                    path: /
+                    file: JsonIO
+                  - title: NBT（NBT）
+                    path: /
+                    file: NBT
+                  - title: NBT读写（NBTIO）
+                    path: /
+                    file: NBTIO
+                  - title: 平台（Platform）
+                    path: /
+                    file: Platform
+                  - title: 资源位置（ResourceLocation）
+                    path: /
+                    file: ResourceLocation
+                  - title: 文本（Text）
+                    path: /
+                    file: Text
+                  - title: 通用唯一标识符（Uuid）
+                    path: /
+                    file: Uuid
+                  - title: 实用工具（Utils）
+                    path: /
+                    file: Utils
+              - title: 常量与对象
+                path: ConstantsAndObjects
+                collapsed: true  
+              - title: 包装类
+                path: WrappedClasses
+                collapsed: true
       - title: kubejs教程-1.20.1(孤梦版)
         noScan: true
         path: KubejsCourse

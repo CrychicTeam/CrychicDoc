@@ -1,4 +1,6 @@
-# 为实体添加药水效果
+# 药水效果
+
+## 前言
 
 :::: warning **注意**
 ::: justify
@@ -9,6 +11,8 @@
 有生命的实体：继承LivingEntity类，不懂没关系，不影响下边的使用。
 :::
 ::::
+
+## 添加到实体
 
 - 语句：entity.potionEffects.add(args); 具有4个方法重载。
 
@@ -66,3 +70,23 @@ ItemEvents.entityInteracted(event => {
 ```
 
 :::
+
+## 实体是否拥有
+
+- 语句：livingEntity.hasEffect(药水效果注册名);
+
+- 例：尸壳是否有夜视。
+
+```js
+ItemEvents.entityInteracted(event => {
+    const { entity, target, hand, level, server } = event;
+    if (hand !== 'main_hand' || target.type !== 'minecraft:husk') return;
+    
+    /**@type {Internal.LivingEntity} */
+    const livingEntity = target;
+
+    const boolean = livingEntity.hasEffect('minecraft:night_vision');
+
+    console.log(`尸壳是否具有夜视药水效果：${boolean}`);
+});
+```
