@@ -12,6 +12,8 @@ next:
   link: /zh/doc/sidebarTutorial
 ---
 # 测试类型检查
+
+::: demo 示例
 ```js twoslash
 // @filename: index.ts
 // @ts-check
@@ -32,4 +34,5 @@ ItemEvents.rightClicked("acacia_button", event => {
     event.player.tell("You right clicked an acacia button")
 })
 ```
+:::
 非常好

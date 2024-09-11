@@ -54,7 +54,8 @@ next:
    
 打开命令行或终端或直接在你的实例文件夹执行以下命令：
 
-```bash
+::: code-group
+```bash [git]
 # 修改为实际的文件夹地址如.minecraft或启动器内的版本名称，或者任一你选择的空白文件夹。
 # 在这种情况下，输入您想要存放CrychicDoc代码的文件夹。
 cd path/to/your/project
@@ -64,14 +65,17 @@ git init
 git remote add origin https://github.com/YourUsername/CrychicDoc.git
 git pull origin main
 ```
+:::
 
-1. **设置上游仓库：**
+3. **设置上游仓库：**
 
 为了保持与原始仓库的同步，设置上游仓库：
 
-```bash
+::: code-group
+```bash [git]
 git remote add upstream https://github.com/CrychicTeam/CrychicDoc.git
 ```
+:::
 
 ## 合作流程
 
@@ -79,31 +83,37 @@ git remote add upstream https://github.com/CrychicTeam/CrychicDoc.git
 
 首先，建议从主分支创建一个新的特性分支：
 
-```bash
+::: code-group
+```bash [git]
 git checkout -b feature-branch
 ```
+::: 
 
-1. **修改代码：**
+5. **修改代码：**
 
 在你的Minecraft实例文件夹中，编辑项目的代码、资源文件或配置文件，根据你的需求进行修改和调整。
 
-2. **提交更改：**
+6. **提交更改：**
 
 保存修改后，使用以下命令将更改提交到你的本地仓库：
 
-```bash
+::: code-group
+```bash [git]
 # 一般直接add .不会出现问题，但保险起见可以将.替换为具体的文件路径。
 git add .
 git commit -m "描述你的修改内容"
 ```
+:::
 
-1. **推送到远程仓库：**
+7. **推送到远程仓库：**
 
 如果你准备将你的更改合并到主分支中，将你的本地分支推送到远程仓库：
 
-```bash
+::: code-group
+```bash [git]
 git push
 ```
+:::
 
 
 ## 提交 Pull Request (PR)
@@ -122,11 +132,15 @@ git push
 
 一旦你的PR被合并，你可以安全地删除新建的特性分支：
 
-```bash
+::: code-group
+```bash [git]
 git checkout main
 git branch -d feature-branch # 删除本地分支
 git push origin --delete feature-branch # 删除远程分支
 ```
+:::
+
+::: details 工作流示意图
 <ClientOnly>
 
 ```mermaid
@@ -154,6 +168,8 @@ graph TD
 ```
 
 </ClientOnly>
+
+:::
 
 ## 规范
 
