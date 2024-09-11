@@ -28,12 +28,9 @@ root:
         file: styleList
 authors:
   - M1hono
-prev:
-  text: 侧边栏设置教程
-  link: /zh/doc/sidebarTutorial
 next:
-  text: Crychic文档编写示例
-  link: /zh/doc/samples
+  text: 侧边栏设置教程
+  link: zh/doc/sidebarTutorial
 ---
 
 # 项目合作教程
@@ -48,7 +45,7 @@ next:
 
 打开你要进行内容修改的项目仓库，下文以CrychicDoc为例进行说明。
 
-打开 [CrychicDoc 仓库](https://github.com/CrychicTeam/CrychicDoc)，点击右上角的 "Fork" 按钮，将项目 Fork 到你的 GitHub 账户中。
+打开[CrychicDoc 仓库](https://github.com/CrychicTeam/CrychicDoc)，点击右上角的 "Fork" 按钮，将项目 Fork 到你的 GitHub 账户中。
 
 2. **初始化仓库：**
    
