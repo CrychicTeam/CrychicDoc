@@ -1,12 +1,13 @@
 ---
 Layout: doc
 title: Adventure Mods
-sidebarfolder: true
-tagDisplay: true
 prev: false
 next: false
-tagorder:
-  "Intro" : 1
-  "Mob Enhance" : 2
+root:
+  title: adventure
+  children:
+      - title: Champions-Unofficial
+        path: Champions-Unofficial
+        file: index
 ---
 ## Adventure Mods

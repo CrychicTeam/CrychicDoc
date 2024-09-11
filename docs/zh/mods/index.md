@@ -3,10 +3,11 @@ Layout: doc
 title: 模组
 root:
   title: 模组
-  subDir:
+  children:
       - title: 冒险
         path: adventure
         collapsed: true
+        file: index
       - title: 科技
         path: tech
         collapsed: true
@@ -25,16 +26,6 @@ root:
       - title: 储存
         path: storages
         collapsed: true
-      
-SidebarFolder: true
-sidebarorder:
-  adventure: 1
-  armor_tools: 2
-  cosmetic: 3
-  performance: 4
-  server: 5
-  storages: 6
-  tech: 7
 prev: false
 next: false
 ---

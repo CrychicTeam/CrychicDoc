@@ -3,6 +3,7 @@ const dirs = [
     "developers",
     "mods",
     "mods/adventure",
+    "mods/adventure/Champions-Unofficial",
     "modpack",
     "modpack/kubejs",
     "modpack/kubejs/1.20.1"

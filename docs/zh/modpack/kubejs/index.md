@@ -10,4 +10,6 @@ root:
         noScan: true
         collapsed: true
         file: index
+prev: false
+next: false
 ---

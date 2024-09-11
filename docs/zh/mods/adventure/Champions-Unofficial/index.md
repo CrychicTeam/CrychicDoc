@@ -1,12 +1,18 @@
 ---
 Layout: doc
 title: 介绍
-prev:
-  text: 配置
-  link: /zh/mods/adventure/Champions-Unofficial/config
-next:
-  text: Wiki
-  link: /zh/mods/adventure/Champions-Unofficial/wiki
+root:
+  title: 冠军再续
+  children:
+      - title: 介绍
+        path: /
+        file: index
+      - title: wiki
+        path: /
+        file: wiki
+      - title: 配置
+        path: /
+        file: config
 ---
 
 ## 冠军再续
