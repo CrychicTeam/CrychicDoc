@@ -38,6 +38,7 @@ import carousels from "./components/carousels.vue";
 import commitsCounter from "./components/CommitsCounter.vue";
 import MNavLinks from "./components/MNavLinks.vue";
 import ResponsibleEditor from "./components/ResponsibleEditor.vue";
+import Animation from "./components/Animation.vue";
 
 import "@nolebase/vitepress-plugin-inline-link-preview/client/style.css";
 
@@ -57,16 +58,18 @@ export default {
         if (frontmatter.value?.layoutClass) {
             props.class = frontmatter.value.layoutClass;
         }
-        return h(DefaultTheme.Layout, props, {
-            "doc-bottom": () => h(imageViewer),
-            "layout-top": () => h(themeControl),
-            "aside-outline-after": () => h(),
-            "doc-after": () => h(Comment),
-            "layout-bottom": () => h(Footer),
-            "doc-footer-before": () => [ h(buttons) , h(ResponsibleEditor) ],
-            "nav-bar-content-after": () => h(NolebaseEnhancedReadabilitiesMenu),
-            "nav-screen-content-after": () =>
-                h(NolebaseEnhancedReadabilitiesScreenMenu),
+        return h(Animation, props, {
+            slot: () => h(DefaultTheme.Layout, null, {
+                "doc-bottom": () => h(imageViewer),
+                "layout-top": () => h(themeControl),
+                "aside-outline-after": () => h(),
+                "doc-after": () => h(Comment),
+                "layout-bottom": () => h(Footer),
+                "doc-footer-before": () => [ h(buttons) , h(ResponsibleEditor) ],
+                "nav-bar-content-after": () => h(NolebaseEnhancedReadabilitiesMenu),
+                "nav-screen-content-after": () =>
+                    h(NolebaseEnhancedReadabilitiesScreenMenu),
+            })
         });
     },
     enhanceApp: (ctx) => {
