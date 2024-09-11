@@ -57,12 +57,34 @@ root:
             path: Entity
             collapsed: true
             children:
+              - title: 生成
+                path: /
+                file: Spawn
               - title: 药水效果
                 path: /
                 file: PotionEffects
               - title: 属性
                 path: /
                 file: Attribute
+          - title: 标签
+            path: Tag
+            collapsed: true
+            children:
+              - title: 物品标签
+                path: /
+                file: Item
+              - title: 方块标签
+                path: /
+                file: Block
+              - title: 生物群系标签
+                path: /
+                file: Biome
+              - title: 结构标签
+                path: /
+                file: Structure
+          - title: 战利品表
+            path: LootTable
+            collapsed: true
           - title: 事件
             path: Event
             collapsed: true
