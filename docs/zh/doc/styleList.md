@@ -1,7 +1,5 @@
 ---
 title: 文档样式一览
-authors: 
-  - skyraah
 noguide: true
 ---
 # {{ $frontmatter.title }}

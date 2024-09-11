@@ -1,19 +1,8 @@
 ---
 layout: doc
 title: Project Collaboration Tutorial
-authors:
-  - M1hono
-sidebarorder:
-  index: 1
-  samples: 2
-  test: 3
-  sidebarTutorial: 4
-prev:
-  text: Sidebar Configuration Tutorial
-  link: /en/doc\sidebarTutorial
-next:
-  text: Samples for coding CrychicDoc
-  link: /en/doc\samples
+prev: false
+next: false
 ---
 
 # Project Collaboration Tutorial

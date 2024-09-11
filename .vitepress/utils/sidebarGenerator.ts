@@ -2,21 +2,12 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 
-type LanguageConfig = {
-    [key: string]: {
-        backText: string;
-        pathIdentifier: string;
-    };
-};
-
 export default class SidebarGenerator {
     private dirPath: string;
     private _correctedPathname: string;
     private pathname: string;
     private items: string[];
     private _sidebar: Sidebar;
-    private isTop: boolean;
-    private language: string;
 
     private static DIR_PATH: string = path.resolve();
     private static readonly BLACK_LIST: string[] = [
@@ -24,13 +15,8 @@ export default class SidebarGenerator {
         "node_modules",
         "assets",
     ];
-    private static readonly LANGUAGE_CONFIG: LanguageConfig = {
-        en: { backText: "Back to parent", pathIdentifier: "/en/" },
-        zh: { backText: "回到上级", pathIdentifier: "/zh/" },
-    };
-    private static readonly DEFAULT_LANGUAGE: string = "zh";
 
-    constructor(pathname: string, isTop: boolean) {
+    constructor(pathname: string) {
         this._sidebar = {
             text: "",
             items: [],
@@ -42,8 +28,6 @@ export default class SidebarGenerator {
             SidebarGenerator.BLACK_LIST
         );
         this._correctedPathname = this.pathname.replace(/^docs\//, "/");
-        this.isTop = isTop;
-        this.language = this.detectLanguage();
 
         this.builder();
     }
@@ -58,15 +42,6 @@ export default class SidebarGenerator {
 
     private builder(): void {
         const root = this.indexReader()?.root;
-        const backLink = root?.backLink || "..";
-        if (this.isTop) {
-            const backText =
-                SidebarGenerator.LANGUAGE_CONFIG[this.language].backText;
-            this._sidebar.items.unshift({
-                text: backText,
-                link: backLink,
-            });
-        }
 
         if (root) {
             this._sidebar.text = root.title;
@@ -86,7 +61,7 @@ export default class SidebarGenerator {
                 );
             }
         } else {
-            // 如果没有找到 index.md，扫描当前目录
+            // If index.md is not found, scan the current directory
             this._sidebar.items.push(
                 ...this.scanDirectory(this.dirPath, this._correctedPathname)
             );
@@ -101,12 +76,12 @@ export default class SidebarGenerator {
         return children.map((child) => {
             const childPath = path.join(currentDirPath, child.path);
 
-            // 如果存在 file 属性，则创建文件项
+            // If file property exists, create a file item
             if (child.file) {
                 return this.createFileItem(child, currentPath, childPath);
             }
 
-            // 处理目录
+            // Handle directories
             const subSideBar: Sidebar = {
                 text: child.title,
                 collapsed: child.collapsed,
@@ -125,7 +100,7 @@ export default class SidebarGenerator {
                     childPath
                 );
             } else if (!child.noScan) {
-                // 只有在 noScan 不为 true 且没有 file 属性时才扫描目录
+                // Only scan directory if noScan is not true and file property doesn't exist
                 subSideBar.items = this.scanDirectory(childPath, subPath);
             }
 
@@ -199,17 +174,6 @@ export default class SidebarGenerator {
         };
     }
 
-    private detectLanguage(): string {
-        for (const [lang, config] of Object.entries(
-            SidebarGenerator.LANGUAGE_CONFIG
-        )) {
-            if (this.pathname.includes(config.pathIdentifier)) {
-                return lang;
-            }
-        }
-        return SidebarGenerator.DEFAULT_LANGUAGE;
-    }
-
     private fileReader(filePath: string): FileFrontMatter | null {
         try {
             const fileObject: string = fs.readFileSync(filePath, "utf8");
@@ -260,7 +224,6 @@ export interface FileItem {
 interface Index {
     root: {
         title: string;
-        backLink?: string;
         collapsed?: boolean;
         children: SubDir[];
     };

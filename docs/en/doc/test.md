@@ -1,14 +1,6 @@
 ---
 layout: doc
 title: ts-check Sample
-authors:
-  - M1hono
-prev:
-  text: Samples for coding CrychicDoc
-  link: /en/doc\samples
-next:
-  text: Sidebar Configuration Tutorial
-  link: /en/doc\sidebarTutorial
 ---
 # Test ts-check
 ```js twoslash

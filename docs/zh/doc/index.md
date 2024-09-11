@@ -30,10 +30,8 @@ root:
         path: /
         noScan: true
         file: styleList
-authors:
-  - M1hono
-next: false
 prev: false
+next: false
 ---
 
 # 项目合作教程

@@ -82,26 +82,26 @@ root:
               - title: 结构标签
                 path: /
                 file: Structure
-          - title: 战利品表
-            path: LootTable
-            collapsed: true
-          - title: 事件
-            path: Event
-            collapsed: true
-            children:
-              - title: 服务器侧事件
-                path: Server
-                collapsed: true
-                children:
-                  - title: 实体交互事件
-                    path: /
-                    file: EntityInteracted
-              - title: 客户端侧事件
-                path: Client
-                collapsed: true
-              - title: 启动事件
-                path: Startup
-                collapsed: true
+          # - title: 战利品表
+          #   path: LootTable
+          #   collapsed: true
+          # - title: 事件
+          #   path: Event
+          #   collapsed: true
+          #   children:
+          #     - title: 服务器侧事件
+          #       path: Server
+          #       collapsed: true
+          #       children:
+          #         - title: 实体交互事件
+          #           path: /
+          #           file: EntityInteracted
+          #     - title: 客户端侧事件
+          #       path: Client
+          #       collapsed: true
+          #     - title: 启动事件
+          #       path: Startup
+          #       collapsed: true
       - title: 进阶
         path: Upgrade
         collapsed: true

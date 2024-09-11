@@ -1,14 +1,6 @@
 ---
 layout: doc
 title: Sidebar Configuration Tutorial
-authors:
-  - M1hono
-prev:
-  text: ts-check Sample
-  link: /en/doc\test
-next:
-  text: Project Collaboration Tutorial
-  link: /en/doc\index
 ---
 # VitePress Sidebar Configuration Guide {#guide}
 

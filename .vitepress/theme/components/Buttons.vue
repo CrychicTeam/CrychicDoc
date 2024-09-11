@@ -70,13 +70,37 @@
             ></path>
         </svg>
     </button>
+
+    <button
+        @click="goBack"
+        class="floating-button back-button"
+        :title="translations.back[lang]"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="30"
+            viewBox="0 0 48 48"
+        >
+            <path
+                fill="#ffffff"
+                fill-rule="evenodd"
+                stroke="#ffffff"
+                stroke-linejoin="round"
+                stroke-width="4"
+                d="M44 40.836q-7.34-8.96-13.036-10.168t-10.846-.365V41L4 23.545L20.118 7v10.167q9.523.075 16.192 6.833q6.668 6.758 7.69 16.836Z"
+                clip-rule="evenodd"
+            />
+        </svg>
+    </button>
 </template>
 
 <script setup lang="ts">
-    import { ref, onMounted, onBeforeUnmount, watch } from "vue";
-    import { useData } from "vitepress";
+    import { ref, onMounted, onBeforeUnmount, watch, computed } from "vue";
+    import { useData, useRouter } from "vitepress";
 
     const { isDark, lang } = useData();
+    const router = useRouter();
 
     const showBackTop = ref(false);
     const copied = ref(false);
@@ -85,28 +109,44 @@
         backToTop: { "en-US": "Back to Top", "zh-CN": "返回顶部" },
         copyLink: { "en-US": "Copy Link", "zh-CN": "复制链接" },
         refresh: { "en-US": "Refresh", "zh-CN": "刷新" },
+        back: { "en-US": "Back", "zh-CN": "返回" },
     };
+
+    const currentPath = computed(() => router.route.path);
+
+    const specialPaths = [
+        {
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/KubejsCourse\//,
+            getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
+        },
+        {
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/?$/,
+            getTargetPath: (match) => `/${match[1]}/`,
+        },
+        {
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/Introduction\/Catalogue$/,
+            getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
+        },
+        {
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/(?!KubejsCourse)/,
+            getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
+        },
+    ];
 
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
     const onScroll = () => {
-    showBackTop.value = window.scrollY > 100;
+        showBackTop.value = window.scrollY > 100;
     };
-
     const copyLink = () => {
-        navigator.clipboard
-            .writeText(window.location.href.replace(/\/[a-z]{2}\//, "/"))
-            .then(() => {
-                copied.value = true;
-                setTimeout(() => (copied.value = false), 2000);
-            });
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            copied.value = true;
+            setTimeout(() => (copied.value = false), 2000);
+        });
     };
-
     const updateTheme = (isDarkMode: boolean) => {
         document.documentElement.classList.toggle("dark-theme", isDarkMode);
         document.documentElement.classList.toggle("light-theme", !isDarkMode);
 
-        // Apply CSS variables dynamically
         document.documentElement.style.setProperty(
             "--button-bg-color",
             isDarkMode ? "#2b4796" : "#c5a16b"
@@ -131,9 +171,37 @@
     });
 
     const refreshPage = () => {
-        window.location.reload(); // 重新加载当前页面
+        window.location.reload();
     };
-
+    const normalizePath = (path) => {
+        return path.endsWith("/") || path === "/" ? path : `${path}/`;
+    };
+    const goBack = () => {
+        const path = normalizePath(currentPath.value);
+        for (const { regex, getTargetPath } of specialPaths) {
+            const match = path.match(regex);
+            if (match) {
+                const targetPath = normalizePath(getTargetPath(match));
+                if (targetPath !== path) {
+                    router.go(targetPath);
+                    return;
+                }
+            }
+        }
+        const segments = path.split("/").filter((segment) => segment !== "");
+        if (segments.length <= 1) {
+            router.go("/");
+            return;
+        }
+        segments.pop();
+        const newPath = normalizePath(`/${segments.join("/")}`);
+        if (newPath === path) {
+            segments.pop();
+            router.go(normalizePath(`/${segments.join("/")}`));
+        } else {
+            router.go(newPath);
+        }
+    };
     onBeforeUnmount(() => {
         window.removeEventListener("scroll", onScroll);
     });
@@ -176,7 +244,7 @@
     }
 
     .top-button {
-        bottom: 140px;
+        bottom: 200px;
     }
 
     .copy-button {
@@ -185,6 +253,10 @@
 
     .refresh-button {
         bottom: 80px;
+    }
+
+    .back-button {
+        bottom: 140px;
     }
 
     .floating-button.copied {
