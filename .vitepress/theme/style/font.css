@@ -53,6 +53,7 @@ body:where(:lang(zh)) {
     'Microsoft YaHei', 'DengXian', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     font-size: 1.05em;
+    font-weight: 300;
 }
 
 .vp-doc p {
@@ -67,6 +68,12 @@ body:where(:lang(zh)) {
     font-size: 1.05em;
 }
 
-.vp-doc h1{
-    font-weight: 00;
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6
+{
+    font-weight: 400;
 }
