@@ -138,11 +138,14 @@
         showBackTop.value = window.scrollY > 100;
     };
     const copyLink = () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-            copied.value = true;
-            setTimeout(() => (copied.value = false), 2000);
-        });
-    };
+    let currentUrl = window.location.href;
+    let modifiedUrl = currentUrl.replace(/\/[a-z]{2}\//, '/');
+    navigator.clipboard.writeText(modifiedUrl).then(() => {
+        copied.value = true;
+        setTimeout(() => (copied.value = false), 2000);
+    });
+};
+
     const updateTheme = (isDarkMode: boolean) => {
         document.documentElement.classList.toggle("dark-theme", isDarkMode);
         document.documentElement.classList.toggle("light-theme", !isDarkMode);
