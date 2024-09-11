@@ -155,9 +155,6 @@ root:
               - title: 包装类
                 path: WrappedClasses
                 collapsed: true
-          - title: 占位符
-            path: /
-            file: placeholder
       # - title: 高级
       #   path: Advanced
       #   collapsed: true
