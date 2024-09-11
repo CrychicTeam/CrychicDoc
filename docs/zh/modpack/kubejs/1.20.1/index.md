@@ -22,7 +22,7 @@ root:
   children:
       - title: 入门
         path: Introduction
-        collapsed: true
+        collapsed: false
         children:
           - title: 目录
             path: /
@@ -104,7 +104,7 @@ root:
           #       collapsed: true
       - title: 进阶
         path: Upgrade
-        collapsed: true
+        collapsed: false
         children:
           - title: 全局范围
             path: GlobalScope
@@ -116,7 +116,7 @@ root:
                 children:
                   - title: 目录
                     path: /
-                    file: index
+                    file: Catalogue
                   - title: 轴对齐包围盒（AABB）
                     path: /
                     file: AABB
@@ -173,10 +173,12 @@ root:
                     file: Utils
               - title: 常量与对象
                 path: ConstantsAndObjects
-                collapsed: true  
+                collapsed: true
+                file: Catalogue
               - title: 包装类
                 path: WrappedClasses
                 collapsed: true
+                file: Catalogue
       # - title: 高级
       #   path: Advanced
       #   collapsed: true
@@ -184,10 +186,10 @@ root:
       #     - title: 占位符
       #       path: /
       #       file: placeholder     
-      - title: kubejs教程-1.20.1(孤梦版)
-        noScan: true
-        path: KubejsCourse
-        file: README
+      # - title: kubejs教程-1.20.1(孤梦版)
+      #   noScan: true
+      #   path: KubejsCourse
+      #   file: README
 prev: false
 next: false
 ---
