@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: alt
       text: Github Collaboration guide
-      link: doc/
+      link: doc/cooperation
     - theme: brand
       text: Kubejs
       link: modpack/kubejs/
