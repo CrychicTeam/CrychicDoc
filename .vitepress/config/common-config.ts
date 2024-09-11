@@ -133,16 +133,15 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     ['meta', { property: 'og:url', content: 'https://docs.mihono.cn/' }],],
     ignoreDeadLinks: true,
     transformHead({ assets }) {
-      const {find} = assets
       const fonts = (): string[] => {
          return [
-          find(file => /JetBrainsMono-Ragular\.\w+\.woff2/),
-          find(file => /ChillRoundGothic_Bold\.\w+\.otf/),
-          find(file => /ChillRoundGothic_ExtraLight\.\w+\.otf/),
-          find(file => /ChillRoundGothic_Heavy\.\w+\.otf/),
-          find(file => /ChillRoundGothic_Light\.\w+\.otf/),
-          find(file => /ChillRoundGothic_Medium\.\w+\.otf/),
-          find(file => /ChillRoundGothic_Regular\.\w+\.otf/)
+          assets.find(file => /JetBrainsMono-Ragular\.\w+\.woff2/),
+          assets.find(file => /ChillRoundGothic_Bold\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_ExtraLight\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_Heavy\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_Light\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_Medium\.\w+\.otf/),
+          assets.find(file => /ChillRoundGothic_Regular\.\w+\.otf/)
         ].filter(value => value !== undefined)
       }
       const fontConfig = ():Awaitable<HeadConfig[] | void> => {
