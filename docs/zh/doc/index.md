@@ -10,6 +10,10 @@ root:
         path: /
         noScan: true
         file: index
+      - title: 环境配置与预览
+        path: /
+        noScan:  true
+        file:  dev
       - title: 侧边栏设置教程
         path: /
         noScan: true
@@ -28,9 +32,8 @@ root:
         file: styleList
 authors:
   - M1hono
-next:
-  text: 侧边栏设置教程
-  link: zh/doc/sidebarTutorial
+next: false
+prev: false
 ---
 
 # 项目合作教程
