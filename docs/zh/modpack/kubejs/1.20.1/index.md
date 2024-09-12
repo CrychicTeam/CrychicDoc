@@ -95,6 +95,21 @@ root:
               - title: 战利品表
                 path: /
                 file: LootTable
+              - title: 方块
+                path: /
+                file: Block
+              - title: 实体
+                path: /
+                file: Entity
+              - title: 钓鱼
+                path: /
+                file: Fish
+              - title: 礼物
+                path: /
+                file: Gift
+              - title: 箱子
+                path: /
+                file: Chest
           - title: 事件
             path: Event
             collapsed: true
