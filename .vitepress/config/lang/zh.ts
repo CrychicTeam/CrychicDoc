@@ -19,7 +19,7 @@ export const zh_CN = <DefaultTheme.Config>{
                     text: "文档",
                     items: [
                         {
-                            text: "1.21-谋划中",
+                            text: "1.21-计划中",
                             link: "...",
                         },
                         {
@@ -28,11 +28,11 @@ export const zh_CN = <DefaultTheme.Config>{
                             activeMatch: "/zh/modpack/kubejs/1.20.1/",
                         },
                         {
-                            text: "1.19.2-谋划中",
+                            text: "1.19.2-计划中",
                             link: "...",
                         },
                         {
-                            text: "1.18.2-谋划中",
+                            text: "1.18.2-计划中",
                             link: "...",
                         },
                     ]
