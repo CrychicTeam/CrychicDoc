@@ -76,3 +76,50 @@ ServerEvents.recipes(event =>{
     event.replaceOutput({not:{input:'minecraft:stick',input:'#minecraft:planks'}},'#minecraft:logs','minecraft:stone_bricks');
 })
 ```
+
+### 删除配方的简单轮子
+```js
+// 各种需要删除的东西直接放入中括号内即可, 记得使用逗号进行分隔
+/*
+ * let output = [
+ *		"minecraft:crafting_table",
+ *		"create:brass_ingot"
+ *	]
+ *	output.forEach((item) => {
+ *		event.remove({ output: item })
+ *	})
+ */
+ServerEvents.recipes((event) => {
+	// 输出
+	let output = [
+		
+	]
+	output.forEach((item) => {
+		event.remove({ output: item })
+	})
+
+	// 输入
+	let input = [
+
+	]
+	input.forEach((item) => {
+		event.remove({ input: item })
+	})
+
+	// 配方类型
+	let recipeType = [
+		
+	]
+	recipeType.forEach((type) => {
+		event.remove({ type: type })
+	})
+
+	// ModRecipes
+	let modRecipes = [
+		
+	]
+	modRecipes.forEach((modid) => {
+		event.remove({ mod: modid })
+	})
+})
+```
