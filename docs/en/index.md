@@ -12,19 +12,19 @@ hero:
   actions:
     - theme: alt
       text: Github Collaboration guide
-      link: doc/cooperation
+      link: /en/doc/cooperation
     - theme: brand
       text: Kubejs
-      link: modpack/kubejs/
+      link: /en/modpack/kubejs/
     - theme: brand
       text: Mods
-      link: mods/
+      link: /en/mods/
     - theme: brand
       text: Modpacks
-      link: modpack/
+      link: /en/modpack/
     - theme: brand
       text: Developers
-      link: developers/
+      link: /en/developers/
 
 features:
   - icon : 
