@@ -49,9 +49,9 @@ root:
           - title: 药水效果
             path: PotionEffect
             children:
-              - title: 目录
+              - title: 药水效果
                 path: /
-                file: Catalogue
+                file: PotionEffect
             collapsed: true
           - title: 实体
             path: Entity
@@ -82,26 +82,41 @@ root:
               - title: 结构标签
                 path: /
                 file: Structure
-          # - title: 战利品表
-          #   path: LootTable
-          #   collapsed: true
-          # - title: 事件
-          #   path: Event
-          #   collapsed: true
-          #   children:
-          #     - title: 服务器侧事件
-          #       path: Server
-          #       collapsed: true
-          #       children:
-          #         - title: 实体交互事件
-          #           path: /
-          #           file: EntityInteracted
-          #     - title: 客户端侧事件
-          #       path: Client
-          #       collapsed: true
-          #     - title: 启动事件
-          #       path: Startup
-          #       collapsed: true
+          - title: 战利品表
+            path: LootTable
+            collapsed: true
+            children:
+              - title: 战利品表
+                path: /
+                file: LootTable
+          - title: 事件
+            path: Event
+            collapsed: true
+            children:
+              - title: 服务器事件
+                path: Server
+                collapsed: true
+                children:
+                  - title: 服务器事件
+                    path: /
+                    file: Server
+                  - title: 实体交互事件
+                    path: /
+                    file: EntityInteracted
+              - title: 客户端侧事件
+                path: Client
+                collapsed: true
+                children:
+                  - title: 客户端事件
+                    path: /
+                    file: Client
+              - title: 启动事件
+                path: Startup
+                collapsed: true
+                children:
+                  - title: 启动事件
+                    path: /
+                    file: Startup
       - title: 进阶
         path: Upgrade
         collapsed: false

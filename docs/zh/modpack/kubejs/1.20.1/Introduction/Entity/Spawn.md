@@ -6,6 +6,8 @@
 
 - 借聊天事件为例，生成尸壳。
 
+- 并非瞬时生成，生成总是有约几十刻的延时，正常现象，原因未探明。
+
 ```js
 PlayerEvents.chat(event => {
     const { message, player, player: { block, block: { x, y, z, } }, server, level } = event;
