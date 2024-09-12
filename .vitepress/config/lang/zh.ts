@@ -7,7 +7,10 @@ export const zh_CN = <DefaultTheme.Config>{
     title: "CryChic文档",
     description: "一个包含 Minecraft 开发文档的网站。",
     themeConfig: {
-        nav: [{ text: "导航", link: "/zh/doc/guide" }],
+        nav: [
+            {text: "第三方文档-孤梦文档", link: "/zh/modpack/kubejs/1.20.1/KubejsCourse/README"},
+            { text: "导航", link: "/zh/doc/guide" }
+        ],
         sidebar: sidebars("zh"),
         outline: {
             level: "deep",
