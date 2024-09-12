@@ -79,6 +79,9 @@ root:
               - title: 方块标签
                 path: /
                 file: Block
+              - title: 流体标签
+                path: /
+                file: Fluid
               - title: 生物群系标签
                 path: /
                 file: Biome
