@@ -1,14 +1,6 @@
 ---
 layout: doc
 title: 全局类
-prev:
-  text: 全局类
-  link: /zh/modpack/kubejs/GlobalScope/Classes/index
-next:
-  text: Item类
-  link: /zh/modpack/kubejs/GlobalScope/Classes/item
-  authors:
-  - Eikidona
 ---
 
 # 全局类
