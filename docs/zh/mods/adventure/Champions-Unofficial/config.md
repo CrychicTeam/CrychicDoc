@@ -1,6 +1,7 @@
 ---
 Layout: doc
 title: 配置
+backPath: ../
 prev:
   text: Wiki
   link: /zh/mods/adventure/Champions-Unofficial/wiki

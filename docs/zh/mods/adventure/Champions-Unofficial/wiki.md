@@ -1,7 +1,7 @@
 ---
 Layout: doc
 title: Wiki
-order: 1
+backPath: ../
 authors:
   - M1hono
 prev:

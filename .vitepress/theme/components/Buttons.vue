@@ -99,7 +99,7 @@
     import { ref, onMounted, onBeforeUnmount, watch, computed } from "vue";
     import { useData, useRouter } from "vitepress";
 
-    const { isDark, lang } = useData();
+    const { isDark, lang, page, frontmatter } = useData();
     const router = useRouter();
 
     const showBackTop = ref(false);
@@ -137,14 +137,15 @@
     const onScroll = () => {
         showBackTop.value = window.scrollY > 100;
     };
+
     const copyLink = () => {
-    let currentUrl = window.location.href;
-    let modifiedUrl = currentUrl.replace(/\/[a-z]{2}\//, '/');
-    navigator.clipboard.writeText(modifiedUrl).then(() => {
-        copied.value = true;
-        setTimeout(() => (copied.value = false), 2000);
-    });
-};
+        let currentUrl = window.location.href;
+        let modifiedUrl = currentUrl.replace(/\/[a-z]{2}\//, "/");
+        navigator.clipboard.writeText(modifiedUrl).then(() => {
+            copied.value = true;
+            setTimeout(() => (copied.value = false), 2000);
+        });
+    };
 
     const updateTheme = (isDarkMode: boolean) => {
         document.documentElement.classList.toggle("dark-theme", isDarkMode);
@@ -176,11 +177,23 @@
     const refreshPage = () => {
         window.location.reload();
     };
+
     const normalizePath = (path) => {
         return path.endsWith("/") || path === "/" ? path : `${path}/`;
     };
+
     const goBack = () => {
         const path = normalizePath(currentPath.value);
+
+        if (frontmatter.value.backPath) {
+            let backPath = frontmatter.value.backPath;
+            const baseUrl = window.location.origin + router.route.path;
+            backPath = new URL(backPath, baseUrl).pathname;
+
+            router.go(backPath);
+            return;
+        }
+
         for (const { regex, getTargetPath } of specialPaths) {
             const match = path.match(regex);
             if (match) {
@@ -191,6 +204,7 @@
                 }
             }
         }
+
         const segments = path.split("/").filter((segment) => segment !== "");
         if (segments.length <= 1) {
             router.go("/");
@@ -205,6 +219,7 @@
             router.go(newPath);
         }
     };
+
     onBeforeUnmount(() => {
         window.removeEventListener("scroll", onScroll);
     });
