@@ -7,8 +7,6 @@ import "vitepress-plugin-nprogress/lib/css/index.css";
 import "vitepress-markdown-timeline/dist/theme/index.css";
 import "viewerjs/dist/viewer.min.css";
 import { useData, useRoute } from "vitepress";
-import codeblocksFold from "vitepress-plugin-codeblocks-fold";
-import "vitepress-plugin-codeblocks-fold/style/index.css";
 import "./style.css";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import TwoslashFloatingVue from "@shikijs/vitepress-twoslash/client";
@@ -93,7 +91,6 @@ export default {
     setup() {
         const route = useRoute();
         const { frontmatter } = useData();
-        codeblocksFold({ route, frontmatter }, true, 400);
 
         const initMermaid = () => {
             mermaid.initialize({

@@ -47,9 +47,9 @@ ServerEvents.recipes(event => {
 ```js
 // 换行为了是避免太长看的难受，可以不换行
 ServerEvents.recipes(event => {
-event.recipes.minecraft.crafting_shapeless(Item.of('minecraft:stone', 2), 
-['minecraft:stone', 
-Ingredient.of('#minecraft:planks')]);
+    event.recipes.minecraft.crafting_shapeless(Item.of('minecraft:stone', 2), 
+    ['minecraft:stone', 
+    Ingredient.of('#minecraft:planks')]);
 })
 ```
 

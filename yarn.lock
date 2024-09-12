@@ -4277,11 +4277,6 @@ vitepress-markdown-timeline@^1.2.1:
   dependencies:
     dayjs "^1.11.7"
 
-vitepress-plugin-codeblocks-fold@^1.2.28:
-  version "1.2.28"
-  resolved "https://registry.npmjs.org/vitepress-plugin-codeblocks-fold/-/vitepress-plugin-codeblocks-fold-1.2.28.tgz"
-  integrity sha512-ilckzzYmTIv3A9t4xiCSsTcYCfzCFzlsycV9nDtgvRTuk7Fy1lNHMZgPOk6ysB7PLFG/R71HsgQC44AZZKL8cw==
-
 vitepress-plugin-group-icons@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vitepress-plugin-group-icons/-/vitepress-plugin-group-icons-1.1.0.tgz#45dd95aee6b5f071c2add9a9985fc99202b67ee2"

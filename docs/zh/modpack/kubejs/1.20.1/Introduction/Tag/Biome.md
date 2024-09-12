@@ -46,3 +46,4 @@ ServerEvents.tags('minecraft:biome', event => {
         event.add('kubejs:my_biome_tags', biome);
     }
 })
+```

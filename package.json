@@ -62,7 +62,6 @@
     "tdesign-vue-next": "^1.9.8",
     "typescript": "^5.5.4",
     "vitepress-markdown-timeline": "^1.2.1",
-    "vitepress-plugin-codeblocks-fold": "^1.2.28",
     "vue-chartjs": "^5.3.1",
     "yarn": "^1.22.22"
   },
