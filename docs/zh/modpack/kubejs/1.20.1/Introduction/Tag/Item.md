@@ -2,9 +2,11 @@
 
 ## 前言
 
-## 从标签添加物品
+## 向标签添加物品
 
 - 向标签中添加物品，如标签不存在会自动创建。
+
+- 事件：ServerEvents.tags('item', event=>{});
 
 - 语句：event.add(标签, 物品);
 
@@ -27,6 +29,8 @@ ServerEvents.tags('item', event => {
 
 - 从标签中删除物品。
 
+- 事件：ServerEvents.tags('minecraft:item', event=>{});
+
 - 语句：event.remove(标签, 物品);
 
 ```js
@@ -43,7 +47,3 @@ ServerEvents.tags('item', event => {
     }
 })
 ```
-
-## 物品标签在原版的应用
-
-- 引用文献[minecraft-wiki/标签#物品](https://zh.minecraft.wiki/w/%E6%A0%87%E7%AD%BE#%E7%89%A9%E5%93%81)

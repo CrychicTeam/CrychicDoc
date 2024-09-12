@@ -70,6 +70,9 @@ root:
             path: Tag
             collapsed: true
             children:
+              - title: 标签
+                path: /
+                file: Tag
               - title: 物品标签
                 path: /
                 file: Item
