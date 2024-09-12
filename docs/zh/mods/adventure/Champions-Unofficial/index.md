@@ -1,6 +1,7 @@
 ---
 Layout: doc
 title: 介绍
+backPath: ../
 root:
   title: 冠军再续
   children:
