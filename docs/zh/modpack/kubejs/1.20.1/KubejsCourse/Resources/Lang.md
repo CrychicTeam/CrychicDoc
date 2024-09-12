@@ -39,6 +39,8 @@ ItemEvents.tooltip((event) => {
 * ### 修改 & 本地化
   * 在修改别的Mod的`lang`文件时需要先创建一个资源包,具体教程请看[**Wiki**](https://zh.minecraft.wiki/w/Tutorial:制作资源包)
   随后在`assets`文件夹下创建一个和`Modid`相同的文件夹
+  
+  * 这种本地化资源包建议直接内置, 所以和前面说的一样, 需要一个Mod来进行资源包的内置加载[**Json Things**](https://www.mcmod.cn/class/7734.html)
 
   * 你也可以复制`ModFile.jar/assets`下的文件夹名称,然后自己创建一个文件夹,随后和开头所说的一样,`${modid}`下再创建一个`lang`文件,随后把需要修改的`lang`文件解压进去便是
   * 如果是汉化Mod文本也一样,把原先的`lang`文件解压出来后改名为`zh_cn.json`**(请严格确保不是`zh_cn.json.txt`或`zh_cn.txt.json`)**

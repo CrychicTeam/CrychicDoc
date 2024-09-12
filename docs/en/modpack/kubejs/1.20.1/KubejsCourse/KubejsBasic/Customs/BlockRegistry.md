@@ -8,7 +8,7 @@ StartupEvents.registry("block", (event) => {
     event.create("meng:my_block", "basic")
 })
 ```
-上面的代码中我们选择的是方块注册，将方块id设置为`"meng:my_block"`，这里前面的`meng`是[命名空间](../../Digression/NameSpace),主要关系到我们之后去添加[材质贴图](../../Texture/Texture)和[本地化(lang文件)](../../Lang)的路径
+上面的代码中我们选择的是方块注册，将方块id设置为`"meng:my_block"`，这里前面的`meng`是[命名空间](../../Digression/NameSpace),主要关系到我们之后去添加[材质贴图](../../Resources/Texture)和[本地化(lang文件)](../../Lang)的路径
 
 ## 方块类型
 我们的方块类型设置的为`basic`也就是默认的、基本的方块类型，在kubejs中已经给我们提供了不少的方块类型，如下
