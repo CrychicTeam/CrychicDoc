@@ -8,8 +8,52 @@ export const zh_CN = <DefaultTheme.Config>{
     description: "一个包含 Minecraft 开发文档的网站。",
     themeConfig: {
         nav: [
-            {text: "第三方文档-孤梦文档", link: "/zh/modpack/kubejs/1.20.1/KubejsCourse/README"},
-            { text: "导航", link: "/zh/doc/guide" }
+            {
+                text: "Kubejs",
+                items: [
+                    {
+                        text: "主页",
+                        link: "/zh/modpack/kubejs/",
+                    },
+                    {
+                    text: "文档",
+                    items: [
+                        {
+                            text: "1.21-谋划中",
+                            link: "...",
+                        },
+                        {
+                            text: "1.20.1",
+                            link: "/zh/modpack/kubejs/1.20.1/",
+                            activeMatch: "/zh/modpack/kubejs/1.20.1/",
+                        },
+                        {
+                            text: "1.19.2-谋划中",
+                            link: "...",
+                        },
+                        {
+                            text: "1.18.2-谋划中",
+                            link: "...",
+                        },
+                    ]
+                },
+                    {
+                        text: "第三方文档",
+                        items: [
+                            {
+                                text: "孤梦",
+                                link: "/zh/modpack/kubejs/1.20.1/KubejsCourse/README",
+                                activeMatch: "/zh/modpack/kubejs/1.20.1/",
+                            },
+                            {
+                                text: "Wudji-正在迁移中",
+                                link: "...",
+                            },
+                        ]
+                    },
+                ]
+            },
+            { text: "导航", link: "/zh/doc/guide" },
         ],
         sidebar: sidebars("zh"),
         outline: {
@@ -21,12 +65,12 @@ export const zh_CN = <DefaultTheme.Config>{
             next: "下一页",
         },
 
-        langMenuLabel: '切换语言',
-        returnToTopLabel: '回到顶部',
-        sidebarMenuLabel: '菜单',
-        darkModeSwitchLabel: '主题',
-        lightModeSwitchTitle: '切换到浅色模式',
-        darkModeSwitchTitle: '切换到深色模式'
+        langMenuLabel: "切换语言",
+        returnToTopLabel: "回到顶部",
+        sidebarMenuLabel: "菜单",
+        darkModeSwitchLabel: "主题",
+        lightModeSwitchTitle: "切换到浅色模式",
+        darkModeSwitchTitle: "切换到深色模式",
     },
 };
 

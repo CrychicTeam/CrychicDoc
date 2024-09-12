@@ -20,64 +20,60 @@ root:
   title: KubeJS
   collapsed: false
   children:
-      - title: 入门
+      - title: Getting Started
         path: Introduction
         collapsed: true
         children:
-          - title: 目录
+          - title: Table of Contents
             path: /
             file: Catalogue
-          - title: 配方
-            path: Recipe
-            collapsed: true
-            children:
-              - title: 物品与原料表示
-                path: /
-                file: ItemAndIngredient
-              - title: 配方过滤器表示
-                path: /
-                file: RecipeFilter
-              - title: 修改配方
-                path: /
-                file: ModifyRecipe
-              - title: 删除配方
-                path: /
-                file: DeleteRecipe
-              - title: 添加原版配方
-                path: /
-                file: Vanilla
-          - title: 药水效果
+          - title: Item and Ingredient Representation
+            path: /
+            file: ItemAndIngredient
+          - title: Recipe Filter Representation
+            path: /
+            file: RecipeFilter
+          - title: Modifying Recipes
+            path: /
+            file: ModifyRecipe
+          - title: Deleting Recipes
+            path: /
+            file: DeleteRecipe
+          - title: Adding Vanilla Recipes
+            path: /
+            file: Vanilla
+          - title: Potion Effects
             path: PotionEffect
             children:
-              - title: 目录
+              - title: Table of Contents
                 path: /
                 file: Catalogue
             collapsed: true
-          - title: 实体
+          - title: Entities
             path: Entity
             collapsed: true
             children:
-              - title: 为实体添加药水效果
+              - title: Adding Potion Effects to Entities
                 path: /
                 file: AddPotionEffects
-      - title: 进阶
+      - title: Advanced
         path: Upgrade
         collapsed: true
         children:
-          - title: 占位符
+          - title: Placeholders
             path: /
             file: placeholder
-      - title: 高级
+      - title: Expert
         path: Advanced
         collapsed: true
         children:
-          - title: 占位符
+          - title: Placeholders
             path: /
             file: placeholder     
-      - title: kubejs教程-1.20.1(孤梦版)
-        noScan: true
-        path: KubejsCourse
-        file: README
+      # - title: kubejs教程-1.20.1(孤梦版)
+      #   noScan: true
+      #   path: KubejsCourse
+      #   file: README
 prev: false
 next: false
 ---
