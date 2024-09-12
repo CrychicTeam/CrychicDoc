@@ -8,6 +8,7 @@ export const en_US = <DefaultTheme.Config>({
     description: "A site containing docs for Minecraft developing.",
     themeConfig: {
         nav: [
+            {text: "Third-party document GuMeng docs", link: "/en/modpack/kubejs/1.20.1/KubejsCourse/README"},
             { text: 'Guide', link: '/en/doc/guide' }
             ],
         sidebar: sidebars("en"),
