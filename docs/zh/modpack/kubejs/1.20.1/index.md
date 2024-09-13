@@ -92,18 +92,18 @@ root:
             path: LootTable
             collapsed: true
             children:
-              - title: 战利品
-                path: /
-                file: LootTable
-              - title: 战利品表示
-                path: /
-                file: LootEntry
-              - title: 战利品修改
-                path: /
-                file: ModifyLootEntry
-              - title: 战利品添加
-                path: /
-                file: AddLootEntry
+              # - title: 战利品
+              #   path: /
+              #   file: LootTable
+              # - title: 战利品表示
+              #   path: /
+              #   file: LootEntry
+              # - title: 战利品修改
+              #   path: /
+              #   file: ModifyLootEntry
+              # - title: 战利品添加
+              #   path: /
+              #   file: AddLootEntry
               - title: 方块
                 path: /
                 file: Block
@@ -147,6 +147,17 @@ root:
                   - title: 启动事件
                     path: /
                     file: Startup
+          - title: 附属
+            path: Addon
+            collapsed: true
+            children:
+              - title: LootJs
+                path: LootJs
+                collapsed: true
+                children:
+                - title: LootJs
+                  path: /
+                  file: LootJs
           - title: 杂项知识
             path: MiscellaneousKnowledge
             collapsed: true
