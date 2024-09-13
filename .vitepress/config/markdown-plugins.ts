@@ -1,42 +1,49 @@
 //@ts-nocheck
-import { MarkdownOptions } from "vitepress"
+import { argv, cwd, env } from 'node:process'
+
+import { MarkdownOptions } from "vitepress";
+import { compilerOptions } from "../twoslashConfig";
 
 import timeline from "vitepress-markdown-timeline";
-import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
-import { 
-  InlineLinkPreviewElementTransform 
-} from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
-import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
-import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
-import mdFootnote from 'markdown-it-footnote'
-import mdTaskLists from 'markdown-it-task-lists'
-import mdDeflist from 'markdown-it-deflist'
-import mdAbbr from 'markdown-it-abbr'
-import { imgSize } from "@mdit/plugin-img-size"
-import { align } from "@mdit/plugin-align"
-import { spoiler } from "@mdit/plugin-spoiler"
-import { sub } from "@mdit/plugin-sub"
-import { sup } from "@mdit/plugin-sup"
-import { ruby } from "@mdit/plugin-ruby"
-import { demo } from "@mdit/plugin-demo"
+import { BiDirectionalLinks } from "@nolebase/markdown-it-bi-directional-links";
+import { InlineLinkPreviewElementTransform } from "@nolebase/vitepress-plugin-inline-link-preview/markdown-it";
+import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
+import { transformerTwoslash } from "@shikijs/vitepress-twoslash";
+import mdFootnote from "markdown-it-footnote";
+import mdTaskLists from "markdown-it-task-lists";
+import mdDeflist from "markdown-it-deflist";
+import mdAbbr from "markdown-it-abbr";
+import { imgSize } from "@mdit/plugin-img-size";
+import { align } from "@mdit/plugin-align";
+import { spoiler } from "@mdit/plugin-spoiler";
+import { sub } from "@mdit/plugin-sub";
+import { sup } from "@mdit/plugin-sup";
+import { ruby } from "@mdit/plugin-ruby";
+import { demo } from "@mdit/plugin-demo";
 import { dl } from "@mdit/plugin-dl";
-import { stepper} from '../plugins/stepper';
+import { stepper } from "../plugins/stepper";
 import { tab } from "@mdit/plugin-tab";
 import { mark } from "@mdit/plugin-mark";
 import { ins } from "@mdit/plugin-ins";
-import { v_alert } from "../plugins/v-alert"
-import { mdDemo } from "../plugins/demo"
+import { v_alert } from "../plugins/v-alert";
+import { mdDemo } from "../plugins/demo";
 import { carousels } from "../plugins/carousels";
 import { card } from "../plugins/card";
-import { groupIconMdPlugin } from 'vitepress-plugin-group-icons'
+import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
+import ts from 'typescript';
 
-import fs from 'fs';
-import path from 'path'
+import fs from "fs";
+import path from "path";
+
+function noTwoslash() {
+  // 始终返回 false，以确保 Twoslash 转换总是启用
+  return false;
+}
 
 export const markdown: MarkdownOptions = {
     math: true,
-      lineNumbers: true,
-      config: async (md) => {
+    lineNumbers: true,
+    config: async (md) => {
         md.use(InlineLinkPreviewElementTransform);
         md.use(BiDirectionalLinks());
         md.use(groupIconMdPlugin);
@@ -60,22 +67,25 @@ export const markdown: MarkdownOptions = {
         md.use(ins);
         //md.use(container, stepper);
         //md.use(container, template);
-        md.use(tab, stepper)
-        md.use(carousels)
-        md.use(card)
+        md.use(tab, stepper);
+        md.use(carousels);
+        md.use(card);
         // const test = md.render("::: carousels#{\"test\": 123}\n123546\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/1.png\n\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/2.png\n\n:::\n", {})
         // const test = md.render(fs.readFileSync(path.join("docs","zh","modpack","kubejs","KubejsCourse","KubejsBasic","FileStructure.md")).toString())
         // fs.writeFileSync('output.html', test);
         md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
-          let htmlResult = slf.renderToken(tokens, idx, options);
-          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
-          return htmlResult;
-        }
-      },
-      codeTransformers: [
-        transformerTwoslash() 
-      ],
-      image: {
-        lazyLoading: true
-      }
-}
+            let htmlResult = slf.renderToken(tokens, idx, options);
+            if (tokens[idx].tag === "h1") htmlResult += `<ArticleMetadata />`;
+            return htmlResult;
+        };
+    },
+
+    codeTransformers: [
+      transformerTwoslash({
+        twoslashOptions: compilerOptions
+      })
+    ],
+    image: {
+        lazyLoading: true,
+    },
+};
