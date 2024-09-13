@@ -92,9 +92,9 @@ root:
             path: LootTable
             collapsed: true
             children:
-              # - title: 战利品
-              #   path: /
-              #   file: LootTable
+              - title: 战利品
+                path: /
+                file: LootTable
               # - title: 战利品表示
               #   path: /
               #   file: LootEntry

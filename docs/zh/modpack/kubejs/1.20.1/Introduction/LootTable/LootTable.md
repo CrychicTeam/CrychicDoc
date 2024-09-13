@@ -1,123 +1,288 @@
 # 战利品
 
-- **`战利品`** 战利品用于决定在何种情况下生成何种物品。比如自然生成的容器和可疑的方块内容物、破坏方块时的掉落物、杀死实体时的掉落物、钓鱼时可以钓上的物品、猪灵的以物易物——引用自[minecraft-wiki/战利品表](https://zh.minecraft.wiki/w/%E6%88%98%E5%88%A9%E5%93%81%E8%A1%A8)
-
 ## 前言
 
 - 本条目作为战利品章节所需必备知识的页面，你可以先阅读战利品章节的其他页面，遇到不理解的名词再折返来查看解释。
 
-:::: warning **注意**
-::: justify
-本章需要安装Kubejs附属模组[lootJs](https://www.mcmod.cn/class/6327.html)
-:::
-::::
+- **`战利品`** 战利品用于决定在何种情况下生成何种物品。比如自然生成的容器和可疑的方块内容物、破坏方块时的掉落物、杀死实体时的掉落物、钓鱼时可以钓上的物品、猪灵的以物易物——引用自[minecraft-wiki/战利品表](https://zh.minecraft.wiki/w/%E6%88%98%E5%88%A9%E5%93%81%E8%A1%A8)，战利品触发时，将测试所持有的所有战利品池的谓词，过滤出条件通过的战利品池，对这些战利品池中的每个战利品项测试战利品项谓词，随后应用战利品修饰，如果战利品修饰也有谓词，则也需要判断谓词是否通过。
 
-## 战利品表示
+- **`战利品谓词`** 战利品谓词是应用于战利品池、战利品项、战利品修饰的条件组，当用于战利品池时，谓词的通过与否决定该池是否参与抽取；当应用于战利品项时，谓词的通过与否影响该战利品项的掉落；当应用于战利品修饰时，谓词的通过与否影响该战利品修饰的执行。
 
-- 在kubejs表示战利品的方法，用于任何需要表示“战利品”的地方。
+- **`战利品修饰`** 战利品修饰是应用于战利品池或战利品项的函数，当用于战利品池时，整个战利品池的战利品项都会尝试应用战利品修饰，当用于战利品项时，该项掉落时会尝试应用战利品修饰。
 
-### 字符串表示法
+## 战利品池
 
-- 字符串表示法，用于简单的只涉及物品的表示。
+- 存放许多战利品项的数组，当触发战利品时将从战利品池按抽取次数抽取若干次战利品项。
 
-```js
-// 代表一个火药战利品
-'minecraft:gunpowder'
-```
+### 抽取次数
 
-### 对象表示法
+- 决定尝试抽取多少次战利品项，使用1个语句设置即可。
 
-- 推荐阅读[物品表示法](../Recipe/ItemAndIngredient.md)，一切涉及“物品”参数均可使用物品表示法。
+- 语句：pool.rolls = 数字提供器; 请查看[数字提供器](../MiscellaneousKnowledge/NumberProvider.md)
 
-- 作为LootEntry对象而存在，支持调用该类函数以实现复杂功能。
+- 语句：pool.setBinomialRolls(重复次数, 成功概率); 设置符合二项分布的抽取次数
 
-- 语句：LootEntry.of(args); 拥有4个方法重载。
+- 语句：pool.setUniformRolls(最小值, 最大值); 设置抽取次数区间
 
-- 语句：LootEntry.withChance(物品, 几率数字); 创建一个带有掉落几率（取值范围\(0, 1\]）的战利品。
+## 战利品项
+
+- 作为战利品池的元素而存在。
+
+### 添加物品类型战利品项
+
+- 向战利品池中添加物品类型的战利品项。
+
+- 语句：pool.addItem(args); 具有3个方法重载。
 
 ::: code-group
 
-```js [使用物品表示法]
-// 表示一个火药战利品
-LootEntry.of(Item.of('minecraft:gunpowder'));
-// 或更简便的使用字符串
-LootEntry.of('minecraft:gunpowder');
+```js [简单]
+// 向战利品池中添加一个物品类型战利品
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple')
+        })
+    })
+})
 ```
 
-```js [指定数量]
-// 表示一个指定数量的火药战利品
-LootEntry.of('minecraft:gunpowder', 1);
+```js [权重]
+// 向战利品池中添加一个物品类型战利品并设置权重
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5)
+        })
+    })
+})
 ```
 
-```js [指定NBT]
-// 表示一个指定NBT的火药战利品
-LootEntry.of('minecraft:gunpowder', '{test:test}');
-```
-
-```js [指定数量与NBT]
-// 表示一个指定数量与NBT的火药战利品
-LootEntry.of('minecraft:gunpowder', 1, '{test:test}');
-```
-
-```js [概率战利品]
-// 表示一个具有0.5掉落几率的战利品
-LootEntry.withChance(Item.of('minecraft:gunpowder'), 0.5);
+```js [物品个数]
+// 向战利品池中添加一个物品类型战利品并设置权重与个数，个数由数字提供器决定
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5)
+        })
+    })
+})
 ```
 
 :::
 
-## 为战利品添加修饰
+### 添加空类型战利品项
 
-- 即对战利品内的物品做出的操作，如可以使空地图变成藏宝图，对于这样的操作称为“物品修饰器”。
+- 空的战利品项，抽到它什么都不会掉。
 
-- **`物品修饰器`** 为战利品中的物品应用物品修饰器，引用文献[minecraft-wiki/物品修饰器](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E4%BF%AE%E9%A5%B0%E5%99%A8)，在这里你可以使用kjs代码的方式应用这些修饰器。
+- 语句：pool.addEmpty(权重);
 
-### 应用奖励
-
-- 语句：.applyBonus(附魔, 数字);
-
-### 随机附魔
-
-- 语句：.enchantRandomly();
-
-- 语句：.enchantRandomly(附魔数组);
-
-### 给予等价于经验等级的附魔书
-
-- 名词解释：[数字提供器](../MiscellaneousKnowledge/NumberProvider.md)
-
-- 语句：.enchantWithLevels(数字提供器);
-
-- 语句：.enchantWithLevels(数字提供器, 是否宝藏型附魔);
-
-### 添加权重
-
-- 用于权重战利品池中。
-
-- 语句：withWeight(数字);
+- 示例：尸壳死亡时在该战利品池中将有5的权重什么都不掉。
 
 ```js
-LootEntry.of('minecraft:gunpowder').withWeight(50);
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5)
+            pool.addEmpty(5)
+        })
+    })
+})
 ```
 
-### 添加战利品函数
+### 添加标签类型战利品项
 
-- 语句：addFunction(战利品函数回调);
+- 创建一个物品标签类型战利品项，将物品标签的全部或单个物品作为战利品。
 
-- 回调内返回1个ItemStack对象，。
+- 语句：pool.addTag(标签, 是否从中抽取1个物品); 如果为否，则生成标签中全部物品作为战利品。
+
+:::: warning **注意**
+::: justify
+从标签中抽取物品为true时无法应用战利品修饰，原因：漏洞。目前该漏洞仍在 1.21.1 和 24w33a 中，见[漏洞追踪](https://bugs.mojang.com/browse/MC-212671)
+:::
+::::
+
+- 示例：尸壳死亡掉落1个猪灵喜爱的物品。
 
 ```js
-LootEntry.of(Item.of('minecraft:gunpowder')).addFunction((lootItem) => {});
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addTag('minecraft:piglin_loved', true)
+            
+        })
+    })
+})
 ```
 
-### 从json添加战利品表函数
+## 战利品谓词
 
-- 语句：customFunction(Json);
+### 随机概率
 
-- 这是一种数据包的方式添加战利品表函数回调。
+- 通过小数表示的随机概率。
+
+- 语句：randomChance(数字);
+
+- 例：
+
+::: code-group
+
+```js [应用战利品池]
+// 有0.5的概率尝试抽取该池 此时概率决定是否尝试抽取战利品池
+ServerEvents.blockLootTables(event => {
+    event.modifyBlock('minecraft:gravel', loot => {
+        loot.addPool(pool => {
+            pool.rolls = [1, 1];
+            pool.addItem('minecraft:gunpowder');
+            pool.randomChance(0.5);
+        })
+    })
+})
+```
+
+```js [应用战利品项]
+// 有0.5的概率尝试掉落火药 此时概率决定抽取战利品池后是否掉落火药
+ServerEvents.blockLootTables(event => {
+    event.modifyBlock('minecraft:gravel', loot => {
+        loot.addPool(pool => {
+            pool.rolls = [1, 1];
+            pool.addItem('minecraft:gunpowder').randomChance(0.5);
+        })
+    })
+})
+```
+
+:::
+
+### 抢夺影响概率
+
+- 根据抢夺附魔等级影响条件通过的概率。
+
+- 语句：randomChanceWithLooting(无抢夺的基础概率,每级抢夺增加的概率);
+
+- 示例：尸壳有0.2概率掉落苹果，每1级抢夺多0.2概率。
 
 ```js
-LootEntry.of(Item.of('minecraft:gunpowder')).customFunction(Json);
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5, 1)
+            .randomChanceWithLooting(0.2, 0.2)
+        })
+    })
+})
 ```
 
-## 为战利品添加条件
+### 未被爆炸破坏
+
+- 返回成功概率为1 / 爆炸半径，如果上下文未传递爆炸则始终通过。
+
+- 语句：survivesExplosion()
+
+- 示例：如果燧石被爆炸摧毁不会掉落火药。
+
+```js
+ServerEvents.blockLootTables(event => {
+    event.modifyBlock('minecraft:gravel', loot => {
+        loot.addPool(pool => {
+            pool.rolls = [1, 1];
+            pool.addItem('minecraft:gunpowder').survivesExplosion()
+        })
+    })
+})
+```
+
+### 被玩家所击杀
+
+- 实体死于被玩家击杀则条件通过。
+
+- 语句：killedByPlayer();
+
+- 示例：尸壳死于玩家掉落金苹果。
+
+```js
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5, 1)
+            .killedByPlayer()
+        })
+    })
+})
+```
+
+## 战利品修饰
+
+### 对战利品项随机附魔
+
+- 将对战利品项从附魔列表中随机附魔。
+
+- 语句：enchantRandomly(附魔id数组);
+
+- 示例：掉落了保护1的金苹果。
+
+```js
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5, 1)
+            .enchantRandomly(['minecraft:protection'])
+        })
+    })
+})
+```
+
+### 对战利品项按等级附魔
+
+- 对战利品项执行一次数字提供器返回的等级的附魔。
+
+- 语句：.enchantWithLevels(数字提供器, 是否包含宝藏附魔);
+
+- 示例：尸壳掉落一把30级附魔的铁剑。
+
+```js
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem(Item.of('minecraft:iron_sword', '{Damage:0}'), 5, 1)
+            .enchantWithLevels(30, true)
+        })
+    })
+})
+```
+
+### 抢夺额外掉落
+
+- 语句：lootingEnchant(每级抢夺掉落数-数字提供器, 战利品项总计最大掉落数);
+
+- 示例：尸壳掉落金苹果，每多1级抢夺额外掉落1-2个，总共最多掉落6个。
+
+```js
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5, 1)
+            .lootingEnchant([1, 2], 6) 
+        })
+    })
+})
+```
+
+### 熔炉冶炼
+
+- 得到物品放入熔炉冶炼后的产物。
+
+- 语句：furnaceSmelt()
+
+- 示例：尸壳死亡掉落橡木的熔炉冶炼产物。
+
+```js
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:oak_wood', 5, 1).furnaceSmelt()
+            
+        })
+    })
+})
+```
