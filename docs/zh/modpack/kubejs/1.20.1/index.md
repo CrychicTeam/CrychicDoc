@@ -88,13 +88,22 @@ root:
               - title: 结构标签
                 path: /
                 file: Structure
-          - title: 战利品表
+          - title: 战利品
             path: LootTable
             collapsed: true
             children:
-              - title: 战利品表
+              - title: 战利品
                 path: /
                 file: LootTable
+              - title: 战利品表示
+                path: /
+                file: LootEntry
+              - title: 战利品修改
+                path: /
+                file: ModifyLootEntry
+              - title: 战利品添加
+                path: /
+                file: AddLootEntry
               - title: 方块
                 path: /
                 file: Block
@@ -138,6 +147,16 @@ root:
                   - title: 启动事件
                     path: /
                     file: Startup
+          - title: 杂项知识
+            path: MiscellaneousKnowledge
+            collapsed: true
+            children:
+              - title: 杂项知识
+                path: /
+                file: MiscellaneousKnowledge
+              - title: 数字提供器
+                path: /
+                file: NumberProvider
       - title: 进阶
         path: Upgrade
         collapsed: false
