@@ -123,25 +123,32 @@ root:
             path: Event
             collapsed: true
             children:
-              - title: 服务器事件
-                path: Server
+              - title: 服务器脚本
+                path: ServerScript
                 collapsed: true
                 children:
-                  - title: 服务器事件
+                  - title: 服务器事件列表
                     path: /
-                    file: Server
-                  - title: 实体交互事件
-                    path: /
-                    file: EntityInteracted
-              - title: 客户端侧事件
-                path: Client
+                    file: ServerEventList
+                  - title: 服务器事件示例
+                    path: ServerEventExamples
+                    collapsed: true
+                    children:
+                      - title: 命令注册事件
+                        path: /
+                        file: CommandRegistry
+                      - title: 实体交互事件
+                        path: /
+                        file: EntityInteracted
+              - title: 客户端脚本
+                path: ClientScript
                 collapsed: true
                 children:
                   - title: 客户端事件
                     path: /
                     file: Client
-              - title: 启动事件
-                path: Startup
+              - title: 启动脚本
+                path: StartupScript
                 collapsed: true
                 children:
                   - title: 启动事件
