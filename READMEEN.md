@@ -1,9 +1,16 @@
-
 <div align="center"><img height="200" src="docs/public/logo.png" width="200"/></div>
+
+![GitHub Release Date](https://img.shields.io/github/created-at/CrychicTeam/CrychicDoc) [![crychicdoc](https://img.shields.io/badge/CrychicDoc-Maintaining-green)](https://docs.mihono.cn)
+
+
+ ![GitHub issue custom search in repo](https://img.shields.io/github/issues/CrychicTeam/CrychicDoc.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/CrychicTeam/CrychicDoc) ![Total Commits](https://img.shields.io/github/commit-activity/t/CrychicTeam/CrychicDoc) ![GitHub branch status](https://img.shields.io/github/check-runs/CrychicTeam/CrychicDoc/main)  ![cc-by-sa-shield](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/CrychicTeam/CrychicDoc)
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](LICENSE).
+
+Please include a link to this work when reproducing it: https://docs.mihono.cn
 
 > **The project/team logo is created by [Huan Yue の Yin Yi](https://www.pixiv.net/users/7865026) and is authorized for non-commercial use. Please do not take it for any commercial activities.**
 

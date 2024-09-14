@@ -42,7 +42,6 @@ function noTwoslash() {
 
 export const markdown: MarkdownOptions = {
     math: true,
-    lineNumbers: true,
     config: async (md) => {
         md.use(InlineLinkPreviewElementTransform);
         md.use(BiDirectionalLinks());

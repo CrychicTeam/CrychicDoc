@@ -58,10 +58,10 @@
 
     const license = {
         code: {
-            "en-US": "Licensed under MIT",
-            "zh-CN": "基于 MIT 证书发布",
+            "en-US": "Licensed under CC BY-SA 4.0",
+            "zh-CN": "基于 CC BY-SA 4.0 证书发布",
         },
-        link: "https://mit-license.org/",
+        link: "https://creativecommons.org/licenses/by-sa/4.0/",
         icon: "mdi-wrench-outline",
     };
 

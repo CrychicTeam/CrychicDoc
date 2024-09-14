@@ -38,6 +38,8 @@ import MNavLinks from "./components/MNavLinks.vue";
 import ResponsibleEditor from "./components/ResponsibleEditor.vue";
 import Animation from "./components/Animation.vue";
 
+import { InjectionKey } from '@nolebase/vitepress-plugin-inline-link-preview/client'
+
 import "@nolebase/vitepress-plugin-inline-link-preview/client/style.css";
 
 import "@mdit/plugin-spoiler/style";
@@ -87,6 +89,11 @@ export default {
         ctx.app.component("Linkcard", Linkcard);
         ctx.app.component("commitsCounter", commitsCounter);
         ctx.app.component("MNavLinks", MNavLinks);
+
+        ctx.app.provide(InjectionKey, { 
+            previewAllHostNames: true,
+        }) 
+
     },
     setup() {
         const route = useRoute();

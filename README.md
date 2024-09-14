@@ -1,8 +1,17 @@
 <div align="center"><img height="200" src="docs/public/logo.png" width="200"/></div>
 
+![GitHub Release Date](https://img.shields.io/github/created-at/CrychicTeam/CrychicDoc) [![crychicdoc](https://img.shields.io/badge/CrychicDoc-Maintaining-green)](https://docs.mihono.cn)
+
+
+ ![GitHub issue custom search in repo](https://img.shields.io/github/issues/CrychicTeam/CrychicDoc.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/CrychicTeam/CrychicDoc) ![Total Commits](https://img.shields.io/github/commit-activity/t/CrychicTeam/CrychicDoc) ![GitHub branch status](https://img.shields.io/github/check-runs/CrychicTeam/CrychicDoc/main)  ![cc-by-sa-shield](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/CrychicTeam/CrychicDoc)
+
 ## 协议
 
-本项目使用自由的[MIT许可](LICENSE)开源。
+本项目遵循[知识共享署名-相同方式共享 4.0 国际许可协议进行许可。
+](LICENSE)进行许可。
+
+转载请附上本作品链接： https://docs.mihono.cn
 
 > **本项目/团队Logo由[幻月の银翼](https://www.pixiv.net/users/7865026)老师创作经授权进行非商业行为的使用，请勿取走来用作任何商业行为。**
 
