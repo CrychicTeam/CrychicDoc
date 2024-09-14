@@ -14,10 +14,6 @@
 
 - 语句：event.addEntity(方块id, loot => { loot.addPool(pool => { }) });
 
-- 语句：pool.rolls 设置抽取次数。
-
-- 语句：pool.addItem(args)，添加战利品项，具有3个方法重载。
-
 - 示例：砂砾只会掉落火药。
 
 ::: code-group
@@ -25,7 +21,7 @@
 ```js [单个物品]
 ServerEvents.entityLootTables(event => {
     // addEntity将替换该实体战利品
-    event.addEntity('minecraft:gravel', loot => {
+    event.addEntity('minecraft:husk', loot => {
         // addPool创建一个战利品池
         loot.addPool(pool => {
             // 战利品池抽取次数
@@ -40,7 +36,7 @@ ServerEvents.entityLootTables(event => {
 ```js [权重列表]
 ServerEvents.entityLootTables(event => {
     // addEntity将替换该实体战利品
-    event.addEntity('minecraft:gravel', loot => {
+    event.addEntity('minecraft:husk', loot => {
         // addPool创建一个战利品池
         loot.addPool(pool => {
             // 战利品池抽取次数
@@ -56,7 +52,7 @@ ServerEvents.entityLootTables(event => {
 ```js [具有战利品项个数提供器的权重列表]
 ServerEvents.entityLootTables(event => {
     // addEntity将替换该实体战利品
-    event.addEntity('minecraft:gravel', loot => {
+    event.addEntity('minecraft:husk', loot => {
         // addPool创建一个战利品池
         loot.addPool(pool => {
             // 战利品池抽取次数
@@ -77,18 +73,14 @@ ServerEvents.entityLootTables(event => {
 
 - 语句：event.modifyEntity(方块id, loot => { loot.addPool(pool => { }) });
 
-- 语句：pool.rolls 设置抽取次数。
-
-- 语句：pool.addItem(args)，添加战利品项，具有3个方法重载。
-
-- 示例：砂砾还会额外掉落火药。
+- 示例：尸壳还会额外掉落火药。
 
 ::: code-group
 
 ```js [单个物品]
 ServerEvents.entityLootTables(event => {
     // modifyEntity将为该实体添加新战利品池
-    event.modifyEntity('minecraft:gravel', loot => {
+    event.modifyEntity('minecraft:husk', loot => {
         // addPool创建一个战利品池
         loot.addPool(pool => {
             // 战利品池抽取次数
@@ -103,7 +95,7 @@ ServerEvents.entityLootTables(event => {
 ```js [权重列表]
 ServerEvents.entityLootTables(event => {
     // modifyEntity将为该实体添加新战利品池
-    event.modifyEntity('minecraft:gravel', loot => {
+    event.modifyEntity('minecraft:husk', loot => {
         // addPool创建一个战利品池
         loot.addPool(pool => {
             // 战利品池抽取次数
@@ -119,7 +111,7 @@ ServerEvents.entityLootTables(event => {
 ```js [具有战利品项个数提供器的权重列表]
 ServerEvents.entityLootTables(event => {
     // modifyEntity将为该实体添加新战利品池
-    event.modifyEntity('minecraft:gravel', loot => {
+    event.modifyEntity('minecraft:husk', loot => {
         // addPool创建一个战利品池
         loot.addPool(pool => {
             // 战利品池抽取次数

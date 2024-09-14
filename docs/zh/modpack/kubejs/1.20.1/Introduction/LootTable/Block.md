@@ -14,10 +14,6 @@
 
 - 语句：event.addBlock(方块id, loot => { loot.addPool(pool => { }) });
 
-- 语句：pool.rolls 设置抽取次数。
-
-- 语句：pool.addItem(args)，添加战利品项，具有3个方法重载。
-
 - 示例：砂砾只会掉落火药。
 
 ::: code-group
@@ -76,10 +72,6 @@ ServerEvents.blockLootTables(event => {
 - 战利品池抽取次数与战利品项物品个数是一个数字提供器
 
 - 语句：event.modifyBlock(方块id, loot => { loot.addPool(pool => { }) });
-
-- 语句：pool.rolls 设置抽取次数。
-
-- 语句：pool.addItem(args)，添加战利品项，具有3个方法重载。
 
 - 示例：砂砾还会额外掉落火药。
 
