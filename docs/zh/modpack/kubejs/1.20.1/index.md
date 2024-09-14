@@ -123,15 +123,15 @@ root:
             path: Event
             collapsed: true
             children:
-              - title: 服务器脚本
+              - title: 服务端脚本
                 path: ServerScript
                 collapsed: true
                 children:
-                  - title: 服务器事件列表
+                  - title: 事件列表
                     path: /
-                    file: ServerEventList
-                  - title: 服务器事件示例
-                    path: ServerEventExamples
+                    file: EventList
+                  - title: 事件示例
+                    path: EventExamples
                     collapsed: true
                     children:
                       - title: 命令注册事件
@@ -144,16 +144,16 @@ root:
                 path: ClientScript
                 collapsed: true
                 children:
-                  - title: 客户端事件
+                  - title: 事件列表
                     path: /
-                    file: Client
+                    file: EventList
               - title: 启动脚本
                 path: StartupScript
                 collapsed: true
                 children:
-                  - title: 启动事件
+                  - title: 事件列表
                     path: /
-                    file: Startup
+                    file: EventList
           - title: 附属
             path: Addon
             collapsed: true
