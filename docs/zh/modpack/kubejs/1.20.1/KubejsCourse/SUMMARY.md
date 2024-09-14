@@ -98,3 +98,8 @@
   * [下落合成](/KubejsProjects/Meng/FallItem.md)
   * [玩家禁言](/KubejsProjects/Meng/NoChat.md)
   * [服务器签到](/KubejsProjects/Meng/SignIn.md)
+  * [孤梦的小项目](/KubejsProjects/Meng/SmallProject/README.md)
+    * [自动适配台阶合成对应块](/KubejsProjects/Meng/SmallProject/SlabPairBlock.md)
+    * [原版修改流体对撞产生块](/KubejsProjects/Meng/SmallProject/McFluidPlaceBlock.md)
+    * [机械动力修改流体管道流体和流体产生块](/KubejsProjects/Meng/SmallProject/CreatePipeCollision.md)
+    * [禁止实体穿越指定维度](/KubejsProjects/Meng/SmallProject/EntityTravelToDimension.md)

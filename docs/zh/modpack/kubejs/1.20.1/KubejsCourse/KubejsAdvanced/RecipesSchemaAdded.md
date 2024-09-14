@@ -123,13 +123,13 @@ ServerEvents.recipes((event) => {
 })
 ```
 
-理论上这个配方其实已经可以用了, 但是配方内还有`processingTime`和`mold_consumed`两个键, 对应着`加工时间`和是否`消耗模具`
+理论上这个配方其实已经可以用了, 但是配方内还有`processingTime`和`mold_consumed`两个键, 对应着`加工时间`和`是否消耗模具`
 
 因此我们需要将这两项也写上, 这两个都比较简单
 
 首先是`加工时间`, 加工时间用的是数字(单位[**Tick**](https://zh.minecraft.wiki/w/刻#游戏刻与计算速率)), 因此其实随便找一个和数字(**Number**)有关的就好, 第三个参数表现的时间可写可不写, 但最好随便写个数字
 
-我这里用的是`doubleNumber`, 这种加工时间的一般在方法后用`方法`表示
+我这里用的是`doubleNumber`, 这种加工时间的一般在配方后用`方法`表示
 
 ![7](/imgs/Schema/7.png)
 

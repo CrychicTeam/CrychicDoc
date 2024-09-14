@@ -1,4 +1,4 @@
-# 模型
+# BlockBench基础使用
 ## 一、关于Blockbench
 
 * [**Blockbench**](https://www.blockbench.net)可以说是Minecraft界的建模神器了,你们所见到的奇奇怪怪的方块基本都是Blockbench做的(但也有少数[`obj`](../Digression/ForgeReadObjModel)格式的进阶模型),例如这个锻造台\
