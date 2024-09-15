@@ -72,6 +72,13 @@ git remote add upstream https://github.com/CrychicTeam/CrychicDoc.git
 ```
 :::
 
+同时，出于谨慎请不要忘记关闭ignorecase来使Git大小写敏感。
+::: code-group
+```bash [git]
+Git config core.ignorecase false
+```
+:::
+
 ## 合作流程
 
 4. **创建并切换到新分支：**

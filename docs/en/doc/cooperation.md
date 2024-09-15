@@ -72,6 +72,12 @@ git remote add upstream https://github.com/CrychicTeam/CrychicDoc.git
 ```
 :::
 
+By the way, don't forget to disable ignorecase to make Git case-sensitive.
+::: code-group
+```bash [git]
+Git config core.ignorecase false
+```
+
 ## Collaboration Workflow
 
 4. **Create and switch to a new branch:**
