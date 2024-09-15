@@ -1,57 +1,72 @@
 @font-face {
     font-family: "JetBrains Mono";
-    src: url("./font/JetBrainsMono-Regular.woff2") format("woff2");
+    src: url("./font/JetBrainsMono-Regular.woff2") format("woff2"),
+        url("./font/JetBrainsMono-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
+/* 优化 ChillRoundGothic 字体 */
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Heavy.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Bold.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Medium.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Light.woff2") format("woff2");
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_ExtraLight.woff2") format("woff2");
+    src: url("./font/ChillRoundGothic_ExtraLight.woff2") format("woff2"),
+        url("./font/ChillRoundGothic_ExtraLight.woff") format("woff");
     font-weight: 200;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Light.woff2") format("woff2"),
+        url("./font/ChillRoundGothic_Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Regular.woff2") format("woff2"),
+        url("./font/ChillRoundGothic_Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Medium.woff2") format("woff2"),
+        url("./font/ChillRoundGothic_Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Bold.woff2") format("woff2"),
+        url("./font/ChillRoundGothic_Bold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ChillRoundGothic";
+    src: url("./font/ChillRoundGothic_Heavy.woff2") format("woff2"),
+        url("./font/ChillRoundGothic_Heavy.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 body:where(:lang(zh)) {
-    font-family: 'ChillRoundGothic','Punctuation SC', 'Inter', ui-sans-serif, system-ui,
-    'PingFang SC', 'Noto Sans CJK SC', 'Noto Sans SC', 'Heiti SC',
-    'Microsoft YaHei', 'DengXian', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-family: "ChillRoundGothic", "Punctuation SC", "Inter", ui-sans-serif,
+        system-ui, "PingFang SC", "Noto Sans CJK SC", "Noto Sans SC", "Heiti SC",
+        "Microsoft YaHei", "DengXian", sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1.05em;
     font-weight: 300;
 }
@@ -60,11 +75,12 @@ body:where(:lang(zh)) {
     line-height: 27px;
 }
 
-.is-home , .name .text {
-    font-family: 'Punctuation SC', 'Inter', ui-sans-serif, system-ui,
-    'PingFang SC', 'Noto Sans CJK SC', 'Noto Sans SC', 'Heiti SC',
-    'Microsoft YaHei', 'DengXian', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+.is-home,
+.name .text {
+    font-family: "Punctuation SC", "Inter", ui-sans-serif, system-ui,
+        "PingFang SC", "Noto Sans CJK SC", "Noto Sans SC", "Heiti SC",
+        "Microsoft YaHei", "DengXian", sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1.05em;
 }
 
@@ -73,7 +89,6 @@ body:where(:lang(zh)) {
 .vp-doc h3,
 .vp-doc h4,
 .vp-doc h5,
-.vp-doc h6
-{
+.vp-doc h6 {
     font-weight: 400;
 }
