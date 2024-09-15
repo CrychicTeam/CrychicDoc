@@ -1,7 +1,7 @@
 @font-face {
     font-family: "JetBrains Mono";
-    src: url("./font/JetBrainsMono-Regular.woff2") format("woff2"),
-        url("./font/JetBrainsMono-Regular.woff") format("woff");
+    src: url("/font/JetBrainsMono-Regular.woff2") format("woff2"),
+        url("/font/JetBrainsMono-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -9,8 +9,8 @@
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_ExtraLight.woff2") format("woff2"),
-        url("./font/ChillRoundGothic_ExtraLight.woff") format("woff");
+    src: url("/font/ChillRoundGothic_ExtraLight.woff2") format("woff2"),
+        url("/font/ChillRoundGothic_ExtraLight.woff") format("woff");
     font-weight: 200;
     font-style: normal;
     font-display: swap;
@@ -18,8 +18,8 @@
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Light.woff2") format("woff2"),
-        url("./font/ChillRoundGothic_Light.woff") format("woff");
+    src: url("/font/ChillRoundGothic_Light.woff2") format("woff2"),
+        url("/font/ChillRoundGothic_Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -27,8 +27,8 @@
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Medium.woff2") format("woff2"),
-        url("./font/ChillRoundGothic_Medium.woff") format("woff");
+    src: url("/font/ChillRoundGothic_Medium.woff2") format("woff2"),
+        url("/font/ChillRoundGothic_Medium.woff") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -36,8 +36,8 @@
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Bold.woff2") format("woff2"),
-        url("./font/ChillRoundGothic_Bold.woff") format("woff");
+    src: url("/font/ChillRoundGothic_Bold.woff2") format("woff2"),
+        url("/font/ChillRoundGothic_Bold.woff") format("woff");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -45,8 +45,8 @@
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Heavy.woff2") format("woff2"),
-        url("./font/ChillRoundGothic_Heavy.woff") format("woff");
+    src: url("/font/ChillRoundGothic_Heavy.woff2") format("woff2"),
+        url("/font/ChillRoundGothic_Heavy.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
