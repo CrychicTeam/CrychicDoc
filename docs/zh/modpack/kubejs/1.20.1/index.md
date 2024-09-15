@@ -43,6 +43,35 @@ root:
               - title: 删除配方
                 path: /
                 file: DeleteRecipe
+              - title: 添加配方
+                path: AddRecipe
+                collapsed: true
+                children:
+                  - title: 原版配方
+                    path: Vanilla
+                    collapsed: true
+                    children:
+                      - title: 工作台
+                        path: /
+                        file: CraftingTable
+                      - title: 熔炉
+                        path: /
+                        file: Furnace
+                      - title: 高炉
+                        path: /
+                        file: BlastFurnace
+                      - title: 烟熏炉
+                        path: /
+                        file: Smoker
+                      - title: 营火
+                        path: /
+                        file: Campfire
+                      - title: 锻造台
+                        path: /
+                        file: SmithingTable
+                      - title: 切石机
+                        path: /
+                        file: Stonecutter
               - title: 添加原版配方
                 path: /
                 file: Vanilla
@@ -172,6 +201,18 @@ root:
               - title: 杂项知识
                 path: /
                 file: MiscellaneousKnowledge
+              - title: 物品栈
+                path: /
+                file: ItemStack
+              - title: 原料
+                path: /
+                file: Ingredient
+              - title: 原料动作过滤器
+                path: /
+                file: IngredientActionFilter
+              - title: 可变组件
+                path: /
+                file: MutableComponent
               - title: 数字提供器
                 path: /
                 file: NumberProvider
