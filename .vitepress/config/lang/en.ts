@@ -46,8 +46,12 @@ export const en_US = <DefaultTheme.Config>{
                                 activeMatch: "/en/modpack/kubejs/1.20.1/",
                             },
                             {
-                                text: "Wudji-Migrating",
-                                link: "...",
+                                text: "Wudji-1.19.2",
+                                link: "en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/README",
+                            },
+                            {
+                                text: "Wudji-1.18.2",
+                                link: "en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/README",
                             },
                         ],
                     },

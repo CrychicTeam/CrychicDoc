@@ -46,8 +46,12 @@ export const zh_CN = <DefaultTheme.Config>{
                                 activeMatch: "/zh/modpack/kubejs/1.20.1/",
                             },
                             {
-                                text: "Wudji-正在迁移中",
-                                link: "...",
+                                text: "Wudji-1.19.2",
+                                link: "zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/README",
+                            },
+                            {
+                                text: "Wudji-1.18.2",
+                                link: "zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/README",
                             },
                         ]
                     },
