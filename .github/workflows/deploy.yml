@@ -5,14 +5,14 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-push:
+  setup-and-build:
     runs-on: self-hosted
 
     steps:
     - name: Checkout the code
       uses: actions/checkout@v4
       with: 
-          fetch-depth: 0
+        fetch-depth: 0
 
     - name: Cache node_modules
       uses: actions/cache@v4
@@ -31,6 +31,21 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
 
+    - name: Cache VitePress build cache
+      uses: actions/cache@v4
+      with:
+        path: .vitepress/cache
+        key: ${{ runner.os }}-vitepress-${{ hashFiles('yarn.lock', '.vitepress/config.js') }}
+        restore-keys: |
+          ${{ runner.os }}-vitepress-
+
+    - name: Build VitePress site
+      run: yarn docs:build
+
+  pull-types:
+    runs-on: self-hosted
+    needs: setup-and-build
+    steps:
     - name: Cache type repo
       uses: actions/cache@v4
       with:
@@ -48,19 +63,12 @@ jobs:
         cp -r type_repo/typefiles .
         rm -rf type_repo
 
-    - name: Cache VitePress build cache
-      uses: actions/cache@v4
-      with:
-        path: .vitepress/cache
-        key: ${{ runner.os }}-vitepress-${{ hashFiles('yarn.lock', '.vitepress/config.js') }}
-        restore-keys: |
-          ${{ runner.os }}-vitepress-
-
-    - name: Build VitePress site
-      run: yarn docs:build
-
+  push-to-private-repo:
+    runs-on: self-hosted
+    needs: [setup-and-build, pull-types]
+    steps:
     - name: Clean up typefiles
-      run: rm -rf typefiles 
+      run: rm -rf typefiles
 
     - name: Push to private repo
       env:
@@ -79,7 +87,6 @@ jobs:
 
         git add -A
         git commit -m "Update documentation"
-        
         git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
         
         cd ../..
