@@ -64,7 +64,7 @@ scene.world.createItemEntity([2, 1, 2], [0.5, 0, 0], 'minecraft:iron_ingot');
 ```
 以下分别是 **([2, 1, 2], [0.5, 0, 0])** 和 **([3, 1, 2], [0, 0, 0])**
 
-![ItemEntity_move](/imgs/PonderJs/ItemEntity_move.gif)
+![ItemEntity_move](/imgs/PonderJS/ItemEntity_move.gif)
 
 其返回值为 **Internal.ElementLink\<Internal.EntityElement\>**
 

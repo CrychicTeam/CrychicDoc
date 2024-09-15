@@ -1,0 +1,7 @@
+{
+    "variants":{
+        "":{
+            "model": "meng:block/test_block"
+        }
+    }
+}

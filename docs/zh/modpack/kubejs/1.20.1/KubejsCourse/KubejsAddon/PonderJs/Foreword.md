@@ -14,7 +14,7 @@
 
 > 该文字为教程作者附言。
 
-![完整gif](/imgs/PonderJs/wan-zheng.gif)
+![完整gif](/imgs/PonderJS/wan-zheng.gif)
 
 > 本处使用的范例文件为 [Submarine.js](https://gitee.com/gumengmengs/kubejs-course/tree/main/Code/Ponder/kubejs/client_scripts/Ponder/Submarine.js)
 >

@@ -19,7 +19,7 @@ Ponder.tags((event) => {
 });
 ```
 
-![图片](/imgs/PonderJs/PonderTag.gif)
+![图片](/imgs/PonderJS/PonderTag.gif)
 
 ## 其二 画龙点睛
 
