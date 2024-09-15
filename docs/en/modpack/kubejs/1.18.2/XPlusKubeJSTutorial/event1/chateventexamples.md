@@ -2,9 +2,9 @@
 
 ***
 
-{% hint style="info" %}
+:::info
 **Warning:** This page may be outdated. Please verify the details with the latest updates or documentation.
-{% endhint %}
+:::
 
 一个基础的例子：当有人在发送‘kubejs教程’时回复'请访问[https://www.mcbbs.net/thread-1207772-1-1.html'](https://www.mcbbs.net/thread-1207772-1-1.html)
 

@@ -7,7 +7,6 @@
     font-display: swap;
 }
 
-/* 优化 ChillRoundGothic 字体 */
 @font-face {
     font-family: "ChillRoundGothic";
     src: url("./font/ChillRoundGothic_ExtraLight.woff2") format("woff2"),
@@ -22,15 +21,6 @@
     src: url("./font/ChillRoundGothic_Light.woff2") format("woff2"),
         url("./font/ChillRoundGothic_Light.woff") format("woff");
     font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Regular.woff2") format("woff2"),
-        url("./font/ChillRoundGothic_Regular.woff") format("woff");
-    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }

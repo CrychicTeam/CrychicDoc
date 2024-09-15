@@ -2,9 +2,9 @@
 
 ***
 
-{% hint style="info" %}
+:::info 
 This page is currently under construction and does not yet cover all aspects or information. We are working on it. Thank you for your understanding.
-{% endhint %}
+:::
 
 ```
 mekanism:crushing

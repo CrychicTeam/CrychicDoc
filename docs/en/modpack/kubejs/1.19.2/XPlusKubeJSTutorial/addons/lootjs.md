@@ -1,8 +1,8 @@
 # 11.2 LootJS —— 便捷战利品表修改
 
-{% hint style="info" %}
+:::info
 This page is currently under construction and does not yet cover all aspects or information. We are working on it. Thank you for your understanding.
-{% endhint %}
+:::
 
 KubeJS 自带的`LootBuilder`并不便于简单的战利品表修改，如添加额外掉落物。其修改掉落条件和函数也较为繁琐，而LootJS便解决了这个问题，它能够让你更加便捷地修改战利品表，掉落战利品时执行事件等。
 

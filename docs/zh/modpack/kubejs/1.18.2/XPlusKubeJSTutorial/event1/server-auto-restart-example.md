@@ -2,9 +2,9 @@
 
 ***
 
-{% hint style="info" %}
+:::info
 **Warning:** This page may be outdated. Please verify the details with the latest updates or documentation.
-{% endhint %}
+:::
 
 当服务器启动时，你可以为其计划执行各种内容。你可以使用 callback.reschedule(时间) 来在指定时间内重复这个事件(括号内留空即为使用之前设定的时间)。
 
