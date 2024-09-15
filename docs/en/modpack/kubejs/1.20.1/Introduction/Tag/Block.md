@@ -46,3 +46,4 @@ ServerEvents.tags('minecraft:block', event => {
         event.remove('kubejs:my_block_tags', block);
     }
 })
+```

@@ -46,3 +46,4 @@ ServerEvents.tags('minecraft:fluid', event => {
         event.remove('kubejs:my_fluid_tags', fluid);
     }
 })
+```

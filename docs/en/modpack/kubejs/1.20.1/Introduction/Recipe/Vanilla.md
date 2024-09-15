@@ -1,8 +1,3 @@
----
-  authors:
-  - Eikidona
----
-
 # 原版配方
 
 ## 前言
@@ -19,22 +14,42 @@
 
 - 语句：event.recipes.minecraft.crafting_shaped(输出物品 , 形状 , 输入物品)。
 
-- 例子：用 4个海绵 和 4个钻石 合成 3个石头。
+- 例子：用 4个水桶 和 4个熔岩桶 合成 4个黑曜石。
 
-```js
+::: code-group
+
+```js [KJS的有序合成]
 ServerEvents.recipes(event => {
-    event.recipes.minecraft.crafting_shaped(Item.of('minecraft:stone', 3), 
+    event.recipes.kubejs.shaped('4x minecraft:obsidian', 
     [
         'LOL',
         'O O',
         'LOL'
     ],
     {
-        L: 'minecraft:sponge',
-        O: 'minecraft:diamond'
+        L: 'minecraft:water_bucket',
+        O: 'minecraft:lava_bucket'
     });
 })
 ```
+
+```js [原版的有序合成]
+// 区别是minecraft下的有序合成无法使用诸如“返回原料”的操作
+ServerEvents.recipes(event => {
+    event.recipes.minecraft.crafting_shaped('4x minecraft:obsidian', 
+    [
+        'LOL',
+        'O O',
+        'LOL'
+    ],
+    {
+        L: 'minecraft:water_bucket',
+        O: 'minecraft:lava_bucket'
+    });
+})
+```
+
+:::
 
 ### 无序合成
 
@@ -50,6 +65,94 @@ ServerEvents.recipes(event => {
     event.recipes.minecraft.crafting_shapeless(Item.of('minecraft:stone', 2), 
     ['minecraft:stone', 
     Ingredient.of('#minecraft:planks')]);
+})
+```
+
+### 返回原料的有序合成
+
+- 与正常的有序合成相比，该种合成可以返回参与合成的物品，如合成蛋糕时，奶桶返回桶。
+
+- 语句event.recipes.kubejs.shaped(配方).replaceIngredient(原料动作过滤器, 物品);
+
+- 示例：毒药水与金苹果合成苹果，毒药水变成瓶子。
+
+```js
+ServerEvents.recipes(event => {
+    event.recipes.kubejs.shaped('minecraft:apple',
+        [
+            '   ',
+            ' AB',
+            '   '
+        ],
+        {
+            A: Item.of('minecraft:potion', '{Potion:"minecraft:poison"}'),
+            B: 'minecraft:golden_apple'
+
+        }).replaceIngredient(Item.of('minecraft:potion', '{Potion:"minecraft:poison"}').asIngredient(), 'minecraft:glass_bottle');
+})
+```
+
+### 返回原料的无序合成
+
+- 与正常的无序合成相比，该种合成可以返回参与合成的物品，如合成蛋糕时，奶桶返回桶。
+
+- 语句：event.recipes.kubejs.shaped(配方).replaceIngredient(原料动作过滤器, 物品);
+
+- 示例：水桶与熔岩桶合成黑曜石，水桶与熔岩桶将在合成后变为桶。
+
+```js
+ServerEvents.recipes(event => {
+    event.recipes.kubejs.shapeless(
+       'minecraft:obsidian',
+        [ 'minecraft:water_bucket', 'minecraft:lava_bucket']
+    )
+    .replaceIngredient('minecraft:water_bucket', 'minecraft:bucket')
+    .replaceIngredient('minecraft:lava_bucket', 'minecraft:bucket')
+})
+```
+
+### 消耗原料耐久度的有序合成
+
+- 消耗参与合成物品的耐久度。
+
+- 语句：event.recipes.kubejs.shaped(配方).damageIngredient(原料动作过滤器, 损伤值);
+
+- 示例：镐与铁矿石合成生铁，镐损失1耐久度。
+
+```js
+ServerEvents.recipes(event => {
+    event.recipes.kubejs.shaped('minecraft:raw_iron', 
+        [
+            '   ',
+            ' AB',
+            '   '
+        ],
+        {
+            A: '#minecraft:pickaxes',
+            B: '#forge:ores/iron'
+        }
+    )
+    .damageIngredient('#minecraft:pickaxes', 1)
+})
+```
+
+### 消耗原料耐久度的无序合成
+
+- 消耗参与合成物品的耐久度。
+
+- 语句：event.recipes.kubejs.shapeless(配方).damageIngredient(原料动作过滤器, 损伤值);
+
+- 示例：镐与铁矿石合成生铁，镐损失1耐久度。
+
+```js
+ServerEvents.recipes(event => {
+    event.recipes.kubejs.shapeless('minecraft:raw_iron', 
+        [
+            '#minecraft:pickaxes',
+            '#forge:ores/iron'
+        ]
+    )
+    .damageIngredient('#minecraft:pickaxes', 1)
 })
 ```
 
