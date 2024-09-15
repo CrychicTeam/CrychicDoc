@@ -7,42 +7,42 @@
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Heavy.otf") format("woff2");
+    src: url("./font/ChillRoundGothic_Heavy.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Bold.otf") format("woff2");
+    src: url("./font/ChillRoundGothic_Bold.woff2") format("woff2");
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Medium.otf") format("woff2");
+    src: url("./font/ChillRoundGothic_Medium.woff2") format("woff2");
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Regular.otf") format("woff2");
+    src: url("./font/ChillRoundGothic_Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_Light.otf") format("woff2");
+    src: url("./font/ChillRoundGothic_Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: "ChillRoundGothic";
-    src: url("./font/ChillRoundGothic_ExtraLight.otf") format("woff2");
+    src: url("./font/ChillRoundGothic_ExtraLight.woff2") format("woff2");
     font-weight: 200;
     font-style: normal;
 }

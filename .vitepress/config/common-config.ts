@@ -135,34 +135,34 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     ['meta', { property: 'og:url', content: 'https://docs.mihono.cn/' }],],
     ignoreDeadLinks: true,
     transformHead({ assets }) {
-      const fonts = (): string[] => {
-         return [
-          assets.find(file => /JetBrainsMono-Ragular\.\w+\.woff2/),
-          assets.find(file => /ChillRoundGothic_Bold\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_ExtraLight\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_Heavy\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_Light\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_Medium\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_Regular\.\w+\.otf/)
-        ].filter(value => value !== undefined)
-      }
-      const fontConfig = ():Awaitable<HeadConfig[] | void> => {
-        const hcfg: HeadConfig[] = []
-        fonts().forEach(font => {
-          hcfg.push([
-            'link',
-            {
-              rel: 'preload',
-              href: font,
-              as: 'font',
-              type: 'font/woff2',
-              crossorigin: ''
-            },
+      // const fonts = (): string[] => {
+      //    return [
+      //     assets.find(file => /JetBrainsMono-Ragular\.\w+\.woff2/),
+      //     assets.find(file => /ChillRoundGothic_Bold\.\w+\.otf/),
+      //     assets.find(file => /ChillRoundGothic_ExtraLight\.\w+\.otf/),
+      //     assets.find(file => /ChillRoundGothic_Heavy\.\w+\.otf/),
+      //     assets.find(file => /ChillRoundGothic_Light\.\w+\.otf/),
+      //     assets.find(file => /ChillRoundGothic_Medium\.\w+\.otf/),
+      //     assets.find(file => /ChillRoundGothic_Regular\.\w+\.otf/)
+      //   ].filter(value => value !== undefined)
+      // }
+      // const fontConfig = ():Awaitable<HeadConfig[] | void> => {
+      //   const hcfg: HeadConfig[] = []
+      //   fonts().forEach(font => {
+      //     hcfg.push([
+      //       'link',
+      //       {
+      //         rel: 'preload',
+      //         href: font,
+      //         as: 'font',
+      //         type: 'font/woff2',
+      //         crossorigin: ''
+      //       },
             
-          ])
-          return hcfg
-        })
-      }
-      return fontConfig()
+      //     ])
+      //     return hcfg
+      //   })
+      // }
+      // return fontConfig()
     },
 }
