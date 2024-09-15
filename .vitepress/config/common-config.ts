@@ -138,12 +138,12 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
       const fonts = (): string[] => {
          return [
           assets.find(file => /JetBrainsMono-Ragular\.\w+\.woff2/),
-          assets.find(file => /ChillRoundGothic_Bold\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_ExtraLight\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_Heavy\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_Light\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_Medium\.\w+\.otf/),
-          assets.find(file => /ChillRoundGothic_Regular\.\w+\.otf/)
+          assets.find(file => /ChillRoundGothic_Bold\.\w+\.woff2/),
+          assets.find(file => /ChillRoundGothic_ExtraLight\.\w+\.woff2/),
+          assets.find(file => /ChillRoundGothic_Heavy\.\w+\.woff2/),
+          assets.find(file => /ChillRoundGothic_Light\.\w+\.woff2/),
+          assets.find(file => /ChillRoundGothic_Medium\.\w+\.woff2/),
+          assets.find(file => /ChillRoundGothic_Regular\.\w+\.woff2/)
         ].filter(value => value !== undefined)
       }
       const fontConfig = ():Awaitable<HeadConfig[] | void> => {
