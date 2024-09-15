@@ -24,9 +24,9 @@ root:
         path: Introduction
         collapsed: false
         children:
-          - title: 目录
+          - title: 序言
             path: /
-            file: Catalogue
+            file: Foreword
           - title: 配方
             path: Recipe
             collapsed: true
