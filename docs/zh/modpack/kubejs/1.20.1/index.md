@@ -302,7 +302,7 @@ root:
       #       file: placeholder     
       # - title: kubejs教程-1.20.1(孤梦版)
       #   noScan: true
-      #   path: KubejsCourse
+      #   path: KubeJSCourse
       #   file: README
 prev: false
 next: false

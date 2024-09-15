@@ -14,7 +14,7 @@ hero:
       text: Github Collaboration guide
       link: /en/doc/cooperation
     - theme: brand
-      text: Kubejs
+      text: KubeJS
       link: /en/modpack/kubejs/
     - theme: brand
       text: Mods

@@ -23,14 +23,14 @@ let random = Math.random();
 
 事实上就在调用Math这个全局类中的random函数。
 
-对于Kubejs，它提供了一些全局类帮助我们表示Minecraft中的一些对象，例如物品类（Item）
+对于KubeJS，它提供了一些全局类帮助我们表示Minecraft中的一些对象，例如物品类（Item）
 
 ```js
 // 这是一个草方块物品
 let grass_block = Item.of('minecraft:grass_block');
 ```
 
-因此，了解Kubejs提供的全局类，对于使用kubejs大有裨益。
+因此，了解KubeJS提供的全局类，对于使用kubejs大有裨益。
 
 ::: warning 注意
 本文涉及类型信息均依据Probejs-6.0.1提供的自动补全。推荐安装Probejs以获取代码补全与类型提示功能。

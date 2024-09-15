@@ -70,7 +70,7 @@ export const markdown: MarkdownOptions = {
         md.use(carousels);
         md.use(card);
         // const test = md.render("::: carousels#{\"test\": 123}\n123546\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/1.png\n\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/2.png\n\n:::\n", {})
-        // const test = md.render(fs.readFileSync(path.join("docs","zh","modpack","kubejs","KubejsCourse","KubejsBasic","FileStructure.md")).toString())
+        // const test = md.render(fs.readFileSync(path.join("docs","zh","modpack","kubejs","KubeJSCourse","KubeJSBasic","FileStructure.md")).toString())
         // fs.writeFileSync('output.html', test);
         md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
             let htmlResult = slf.renderToken(tokens, idx, options);

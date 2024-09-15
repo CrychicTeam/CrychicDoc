@@ -9,7 +9,7 @@ export const en_US = <DefaultTheme.Config>{
     themeConfig: {
         nav: [
             {
-                text: "Kubejs",
+                text: "KubeJS",
                 items: [
                     {
                         text: "Index",
@@ -42,7 +42,7 @@ export const en_US = <DefaultTheme.Config>{
                         items: [
                             {
                                 text: "gumeng",
-                                link: "/en/modpack/kubejs/1.20.1/KubejsCourse/README",
+                                link: "/en/modpack/kubejs/1.20.1/KubeJSCourse/README",
                                 activeMatch: "/en/modpack/kubejs/1.20.1/",
                             },
                             {

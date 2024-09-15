@@ -9,7 +9,7 @@ export const zh_CN = <DefaultTheme.Config>{
     themeConfig: {
         nav: [
             {
-                text: "Kubejs",
+                text: "KubeJS",
                 items: [
                     {
                         text: "主页",
@@ -42,7 +42,7 @@ export const zh_CN = <DefaultTheme.Config>{
                         items: [
                             {
                                 text: "孤梦",
-                                link: "/zh/modpack/kubejs/1.20.1/KubejsCourse/README",
+                                link: "/zh/modpack/kubejs/1.20.1/KubeJSCourse/README",
                                 activeMatch: "/zh/modpack/kubejs/1.20.1/",
                             },
                             {
