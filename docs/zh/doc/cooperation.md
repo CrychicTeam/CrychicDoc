@@ -22,16 +22,43 @@ noguide: true
    
 打开命令行或终端或直接在你的实例文件夹执行以下命令：
 
+> 分别对应CrychicDoc的Github/gitee链接，如想为其他项目提供代码则请查看第三条。
+
+> [!CAUTION] 注意
+> **请查看注释中的说明来修改指令，不要直接复制粘贴。**
+
 ::: code-group
 ```bash [git]
-# 修改为实际的文件夹地址如.minecraft或启动器内的版本名称，或者任一你选择的空白文件夹。
+# 修改为项目的文件夹地址。
 # 在这种情况下，输入您想要存放CrychicDoc代码的文件夹。
 cd path/to/your/project
-git init
+git init # [!code focus]
 # 此处以CrychicDoc举例，要为它提供代码的话，需要修改拉取fork后的仓库代码。
 # 将YourUsername修改为你的GithubID，你可以直接使用fork后的仓库链接。
-git remote add origin https://github.com/YourUsername/CrychicDoc.git
-git pull origin main
+git remote add origin https://github.com/YourUserName/CrychicDoc.git # [!code focus]
+git pull origin main # [!code focus]
+```
+
+```bash [git]
+# 修改为项目的文件夹地址。
+# 在这种情况下，输入您想要存放CrychicDoc代码的文件夹。
+cd path/to/your/project
+git init # [!code focus]
+# 修改为实际的文件夹地址。
+# 将YourUsername修改为你的GithubID，你可以直接使用fork后的仓库链接。
+git remote add origin https://gitee.com/YourUsername/CrychicDoc.git # [!code focus]
+git pull origin main # [!code focus]
+```
+
+```bash [git]
+# 修改为项目的文件夹地址。
+# 在这种情况下，输入您想要存放CrychicDoc代码的文件夹。
+cd path/to/your/project
+git init # [!code focus]
+# 此处以CrychicDoc举例，要为它提供代码的话，需要修改拉取fork后的仓库代码。
+# 将YourUsername修改为你的GithubID，你可以直接使用fork后的仓库链接。
+git remote add origin https://github.com/YourUsername/TheNameOfRepo.git # [!code focus]
+git pull origin main # [!code focus]
 ```
 :::
 
