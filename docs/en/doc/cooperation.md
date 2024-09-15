@@ -77,6 +77,7 @@ By the way, don't forget to disable ignorecase to make Git case-sensitive.
 ```bash [git]
 Git config core.ignorecase false
 ```
+:::
 
 ## Collaboration Workflow
 
