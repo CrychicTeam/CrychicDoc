@@ -1,5 +1,5 @@
 :::: center
-# Kubejs Tutorial-1.20.1
+# KubeJS Tutorial-1.20.1
 
 ::: warning Warning!
 translation is still in prograss.
@@ -42,11 +42,11 @@ Project [issue feedback](https://gitee.com/gumengmengs/kubejs-course/issues/new/
 
 ### About Documentation Folders
 * KubeJS-Basics: Contains basic KubeJS content.
-* KubejsAdvanced: Contains advanced KubeJS content.
-* KubejsAddon: Contains content related to KubeJS add-ons and integration with other mods.
+* KubeJSAdvanced: Contains advanced KubeJS content.
+* KubeJSAddon: Contains content related to KubeJS add-ons and integration with other mods.
 * Digression: Contains additional information not directly related to KubeJS code.
 * Texture: Contains assets and resource-related content.
-* KubejsProjects: Contains projects shared by contributors (folder names correspond to the contributor's name).
+* KubeJSProjects: Contains projects shared by contributors (folder names correspond to the contributor's name).
 * Files: Contains downloadable resources mentioned in the documentation.
 * imgs: Contains images used in the documentation, with absolute paths corresponding to their locations.
 * Code: Contains shared code snippets.

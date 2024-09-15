@@ -31,8 +31,8 @@ authors:
 函数名相同但参数(类型，顺序，数量)不同的函数，且与返回值类型无关。\
 同名不同参，返回值无关。
 ::: warning 注意
-Kubejs（JavaScript）的方法重载不能这样实现。\
-JavaScript（Kubejs）方法重载实现方式请查看(未完成，看到了请催一催)。
+KubeJS（JavaScript）的方法重载不能这样实现。\
+JavaScript（KubeJS）方法重载实现方式请查看(未完成，看到了请催一催)。
 :::
 
 ### 类型别名（Type Alias）
@@ -43,7 +43,7 @@ JavaScript（Kubejs）方法重载实现方式请查看(未完成，看到了请
 
 - 但“摘”仅适用于果树吗？如果我把梨挂墙上能不能摘呢？很显然是能的，但这与前边定义的函数参数类型不符，“挂起来的梨”很显然不是果树，我们需要将所有可以被执行“摘”这个动作的类型归类到一个类型下，以便于使用。
 
-- 在 **`Typescript`** 中：type 果树_= 果树 | 挂起来的梨; 这样就是一个类型别名声明。在Kubejs使用过程中，会经常看见这样形式的type_类型别名。
+- 在 **`Typescript`** 中：type 果树_= 果树 | 挂起来的梨; 这样就是一个类型别名声明。在KubeJS使用过程中，会经常看见这样形式的type_类型别名。
 
 ### get与set属性
 
@@ -111,14 +111,14 @@ Item.of('minecraft:iron_pickaxe', '{Damage:100}');
 
 > [!NOTE] 总结
 Special.Item内每一个字符串，游戏内都有与之对应的物品id。\
-Kubejs内部会进行自动类型转换。
+KubeJS内部会进行自动类型转换。
 :::
 
 ::: details Internal.CompoundTag_类型解析
 
 1. 打开Internal.CompoundTag_类型别名定义，它只引用了Internal.CompoundTag类型，也就是说Internal.CompoundTag_与Internal.CompoundTag是等价的，没有像Special.Item这样的方便类型供我们使用。
-2. 对象字面量{key： value}或者字符串类型的对象字面量'{key： value}'，会经由Kubejs内部的类型转换成Internal.CompoundTag。
-3. 打开Internal.CompoundTag类型声明，可以看到起其构造函数 constructor(arg0: Internal.Map_\<string, Internal.Tag\>); 也就是说它的实例化需要接收一个键值对，这与我们传递的参数具有形式上的相似性，出于经验，认为Kubejs内部进行了类型转换，此处没有再进行深究。
+2. 对象字面量{key： value}或者字符串类型的对象字面量'{key： value}'，会经由KubeJS内部的类型转换成Internal.CompoundTag。
+3. 打开Internal.CompoundTag类型声明，可以看到起其构造函数 constructor(arg0: Internal.Map_\<string, Internal.Tag\>); 也就是说它的实例化需要接收一个键值对，这与我们传递的参数具有形式上的相似性，出于经验，认为KubeJS内部进行了类型转换，此处没有再进行深究。
 :::
 
 ### Item.withNBT(args)

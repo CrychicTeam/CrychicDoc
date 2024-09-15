@@ -13,7 +13,7 @@ hero:
       text: Github合作指南
       link: /zh/doc/cooperation
     - theme: brand
-      text: Kubejs
+      text: KubeJS
       link: /zh/modpack/kubejs/
     - theme: brand
       text: 模组

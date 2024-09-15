@@ -116,7 +116,7 @@
 
     const specialPaths = [
         {
-            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/KubejsCourse\//,
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/KubeJSCourse\//,
             getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
         },
         {
@@ -128,7 +128,7 @@
             getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
         },
         {
-            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/(?!KubejsCourse)/,
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/(?!KubeJSCourse)/,
             getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
         },
     ];

@@ -6,7 +6,7 @@
 
 :::: warning **注意**
 ::: justify
-本章需要安装Kubejs附属模组[lootJs](https://www.mcmod.cn/class/6327.html)
+本章需要安装KubeJS附属模组[lootJs](https://www.mcmod.cn/class/6327.html)
 :::
 ::::
 
