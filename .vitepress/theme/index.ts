@@ -89,11 +89,6 @@ export default {
         ctx.app.component("Linkcard", Linkcard);
         ctx.app.component("commitsCounter", commitsCounter);
         ctx.app.component("MNavLinks", MNavLinks);
-
-        ctx.app.provide(InjectionKey, { 
-            previewAllHostNames: true,
-        }) 
-
     },
     setup() {
         const route = useRoute();

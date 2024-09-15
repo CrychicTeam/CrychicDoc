@@ -9,6 +9,16 @@ root:
         noScan: true
         collapsed: true
         file: index
+      - title: '1.19.2'
+        path: 1.19.2
+        noScan: true
+        collapsed: true
+        file: index
+      - title: '1.18.2'
+        path: 1.18.2
+        noScan: true
+        collapsed: true
+        file: index
 prev: false
 next: false
 ---
