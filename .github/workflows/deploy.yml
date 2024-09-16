@@ -30,14 +30,6 @@ jobs:
       with: 
         fetch-depth: 0
 
-    - name: Use correct Node.js version with nvm
-      run: |
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        nvm install 20.17.0
-        nvm use 20.17.0
-        node --version
-
     - name: Install dependencies
       run: |
         export NVM_DIR="$HOME/.nvm"
