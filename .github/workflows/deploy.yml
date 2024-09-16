@@ -14,7 +14,6 @@ jobs:
         fetch-depth: 0
 
     - name: Pull types from type repo
-      if: steps.cache.outputs.cache-hit != 'true'
       env:
         TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
       run: |
@@ -30,6 +29,14 @@ jobs:
       uses: actions/checkout@v4
       with: 
         fetch-depth: 0
+
+    - name: Use correct Node.js version
+      run: |
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        nvm install --lts
+        nvm use --lts
+        node --version
 
     - name: Install dependencies
       run: npm install
@@ -53,16 +60,11 @@ jobs:
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
 
-        git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git temp_repo
-        if [ -d temp_repo/.github ]; then
-          cp -r temp_repo/.github .
-        fi
-        
-        rm -rf temp_repo
-
+        git remote add origin https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git
+        git fetch origin
         git add -A
-        git commit -m "Update documentation"
-        git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
+        git commit -m "Update documentation" || echo "No changes to commit"
+        git push --force origin main
 
         cd ../..
         rm -rf .vitepress/dist
