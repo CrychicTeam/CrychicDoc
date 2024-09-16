@@ -78,29 +78,6 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         ssr: {
             noExternal: ["vuetify", "@nolebase/*"],
         },
-        build: {
-            cssCodeSplit: true,
-            minify: "terser",
-            cssMinify: "esbuild",
-            reportCompressedSize: false,
-            chunkSizeWarningLimit: 10000000000000000,
-            terserOptions: {
-                compress: {
-                    drop_console: true,
-                    drop_debugger: true,
-                },
-                format: {
-                    comments: false,
-                },
-            },
-            commonjsOptions: {
-                transformMixedEsModules: true,
-            },
-            modulePreload: {
-                polyfill: false,
-            },
-            manifest: true,
-        },
         plugins: [
             GitChangelog({
                 repoURL: () => "https://github.com/CrychicTeam/CrychicDoc",
