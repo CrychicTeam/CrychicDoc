@@ -2,7 +2,7 @@
 
 ## 前言
 
-- **`文本组件 (Component)`**，游戏中常用于作为富文本表达。
+- **`文本组件 (Component)`**，游戏中常作为[富文本/格式化文本](https://zh.wikipedia.org/wiki/%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%96%87%E6%9C%AC)使用。
 
 参见[Wiki 文本组件格式](https://zh.minecraft.wiki/w/%E6%96%87%E6%9C%AC%E7%BB%84%E4%BB%B6)以及[Wiki 文本组件教程](https://zh.minecraft.wiki/w/Tutorial:%E6%96%87%E6%9C%AC%E7%BB%84%E4%BB%B6)。
 本文不会重复叙述以上内容，即默认已阅读以上内容，而是着重叙述代码实现等方面。
@@ -22,7 +22,7 @@
 
 ### 纯文本 (LiteralContents)
 
-纯文本只包含文本，不包含各种变量。
+纯文本只是单纯的文本，不包含各种变量和参数。
 
 ::: code-group
 
@@ -40,7 +40,7 @@ $Component.nullToEmpty("这是一个文本组件"); // 等同于上一行，但�
 
 ### 翻译文本 (TranslatableContents)
 
-该组件内容是可以加入参数的。该组件内容依赖于客户端的[语言文件](https://zh.minecraft.wiki/w/%E8%B5%84%E6%BA%90%E5%8C%85#%E8%AF%AD%E8%A8%80)。
+该组件内容是可以加入参数的。依赖于客户端的[语言文件](https://zh.minecraft.wiki/w/%E8%B5%84%E6%BA%90%E5%8C%85#%E8%AF%AD%E8%A8%80)。
 在不同的语言下会呈现出不一样的结果。
 
 本文会给出语言文件的内容和示例代码以供更好的理解。
@@ -56,7 +56,7 @@ _Tips：翻译键一般以该规则命名`category.modid.id`_
 Component.translatable("key.example.example_text1");
 
 // 用以下的方式将语言文件中的“%s”替换为“100%”，甚至是你想要的其他内容
-// 参数不只可以有一个
+// 参数可以有多个
 Component.translatable("key.example.example_text2", "100%");
 
 // 该方法会在找不到翻译键的情况下用fallback（即第二个参数）代替所呈现的内容
@@ -97,7 +97,7 @@ $Component.translatableWithFallback(
 
 :::
 
-### 记分板分数（ScoreContents）
+### 记分板分数 (ScoreContents)
 
 该组件内容依赖于[记分板](https://zh.minecraft.wiki/w/%E8%AE%B0%E5%88%86%E6%9D%BF)。
 
@@ -110,7 +110,7 @@ Component.score("@s", "test"); // 显示在test记分项下自身的分数
 
 :::
 
-### 实体名称（SelectorContents）
+### 实体名称 (SelectorContents)
 
 该组件内容为[目标选择器](https://zh.minecraft.wiki/w/%E7%9B%AE%E6%A0%87%E9%80%89%E6%8B%A9%E5%99%A8)找到的实体名称。
 
@@ -156,7 +156,7 @@ $Component.nbt("", false, $Optional.empty(), new $EntityDataSource("@s"));
 
 :::
 
-## 样式（Style）
+## 样式 (Style)
 
 用于修饰文本组件，比如颜色、点击事件、悬浮事件等。
 
@@ -186,7 +186,7 @@ Component.hasStyle(); // 判断该文本组件是否有样式
 Component.isEmpty(); // 判断该文本组件是否为空
 
 // 单独附加样式
-let style = new $Style().withBold(true); // 附加一个粗体
+let style = new $Style().withBold(true); // 附加粗体
 $Component.withStyle(style);
 ```
 
@@ -207,17 +207,14 @@ Component.insertion("其他东西"); // Shift点击时将该内容加入聊天�
 
 ## 子组件 (Sibling)
 
-继承于父组件的样式，也可以独立覆盖父组件的样式。
+子组件继承于父组件的样式，也可以独立覆盖父组件的样式。
 
-::: code-group
-
-```js [颜色]
-// 添加子组件，显示为“这是一个文本组件，这是另一个文本组件。”
+```js
+// 显示为“这是一个文本组件，这是另一个文本组件。”
 Component.literal("这是一个文本组件，").append(
+  // 这个文本组件可以拥有自己的样式，而不影响上面组件的样式
   Component.literal("这是另一个文本组件。")
 );
 
 Component.hasSiblings(); // 该组件是否有子组件
 ```
-
-:::

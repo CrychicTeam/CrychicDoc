@@ -258,7 +258,7 @@ root:
                 - title: 原料助手（IngredientHelper）
                   path: /
                   file: IngredientHelper
-                - title: 物品（tem）
+                - title: 物品（Item）
                   path: /
                   file: Item
                 - title: Json读写（JsonIO）
