@@ -32,10 +32,10 @@ jobs:
         fetch-depth: 0
 
     - name: Install dependencies
-      run: yarn install
+      run: npm install
 
     - name: Build VitePress site
-      run: yarn docs:build
+      run: npm run docs:build
 
   push-to-private-repo:
     runs-on: self-hosted
