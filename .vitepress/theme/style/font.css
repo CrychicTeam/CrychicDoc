@@ -30,21 +30,6 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: "ChillRoundGothic";
-    src: url("../../../docs/public/font/ChillRoundGothic_Bold.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "ChillRoundGothic";
-    src: url("../../../docs/public/font/ChillRoundGothic_Heavy.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
 
 body:where(:lang(zh)) {
     font-family: "ChillRoundGothic", "Punctuation SC", "Inter", ui-sans-serif,
