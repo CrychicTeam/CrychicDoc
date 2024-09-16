@@ -55,31 +55,26 @@ jobs:
     - name: Fix permissions after build
       run: sudo chmod -R 777 .vitepress
 
-  push-to-private-repo:
-    runs-on: self-hosted
-    needs: setup-and-build
-    steps:
-    - name: Clean up typefiles
-      run: rm -rf typefiles
-
     - name: Push to private repo
       env:
         PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
       run: |
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        nvm use 20.17.0
-        sudo chmod -R 777 .vitepress/dist
         cd .vitepress/dist
+
         git init
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
 
-        git remote add origin https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git
-        git fetch origin
-        git add -A
-        git commit -m "Update documentation" || echo "No changes to commit"
-        git push --force origin main
+        git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git temp_repo
+        if [ -d temp_repo/.github ]; then
+          cp -r temp_repo/.github .
+        fi
 
+        rm -rf temp_repo
+        git add -A
+        git commit -m "Update documentation"
+
+        git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
         cd ../..
+        rm -rf typefiles
         rm -rf .vitepress/dist
