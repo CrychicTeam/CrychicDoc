@@ -107,6 +107,12 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                         mapByNameAliases: ["Nagasaki Soyo", "Eikidona"],
                         avatar: generateAvatarUrl("Eikidona"),
                     },
+                    {
+                        name: "Mango",
+                        username: "EvanHsieh0415",
+                        mapByNameAliases: ["EvanHsieh0415", "Mango"],
+                        avatar: generateAvatarUrl("Mango-Minecraft-Project"),
+                    },
                 ],
             }),
             GitChangelogMarkdownSection(),

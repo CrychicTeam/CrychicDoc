@@ -1,20 +1,18 @@
 <template>
-    <p>
-        <div class="carousel">
-            <v-responsive :aspect-ratio="aspectRatio" ref="responsiveContainer">
-                <!-- 动态的 v-responsive 宽高比 -->
-                <v-carousel
-                    :height="carouselHeight"
-                    :show-arrows="showArrows"
-                    :cycle="cycle"
-                    :interval="interval"
-                    :hide-delimiters="hideDelimiters"
-                >
-                    <slot></slot>
-                </v-carousel>
-            </v-responsive>
-        </div>
-    </p>
+    <div class="carousel">
+        <v-responsive :aspect-ratio="aspectRatio" ref="responsiveContainer">
+            <!-- 动态的 v-responsive 宽高比 -->
+            <v-carousel
+                :height="carouselHeight"
+                :show-arrows="showArrows"
+                :cycle="cycle"
+                :interval="interval"
+                :hide-delimiters="hideDelimiters"
+            >
+                <slot></slot>
+            </v-carousel>
+        </v-responsive>
+    </div>
 </template>
 
 <script setup>
@@ -48,24 +46,43 @@ const responsiveContainer = ref(null)
 
 const updateCarouselHeight = () => {
     if (responsiveContainer.value) {
-        const containerElement = responsiveContainer.value.$el
-        carouselHeight.value = containerElement.offsetHeight
+        const containerElement = responsiveContainer.value.$el;
+        carouselHeight.value = containerElement.offsetWidth / props.aspectRatio;
     }
 }
+
+const resizeObserver = new ResizeObserver(() => {
+    updateCarouselHeight()
+})
 
 onMounted(() => {
     nextTick(() => {
         updateCarouselHeight()
-        window.addEventListener('resize', updateCarouselHeight)
+        if (responsiveContainer.value) {
+            resizeObserver.observe(responsiveContainer.value.$el)
+        }
     })
 })
 
 onUnmounted(() => {
-    window.removeEventListener('resize', updateCarouselHeight)
+    if (responsiveContainer.value) {
+        resizeObserver.unobserve(responsiveContainer.value.$el)
+    }
+    resizeObserver.disconnect()
 })
 </script>
 
 <style>
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    position: relative;
+}
+
 .carousel img {
     width: 100%;
     height: 100%;
