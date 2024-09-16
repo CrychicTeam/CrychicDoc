@@ -44,12 +44,11 @@ jobs:
         nvm use 20.17.0
         npm install
 
+    - name: Clean VitePress temp files
+      run: rm -rf .vitepress/.temp
+
     - name: Build VitePress site
-      run: |
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        nvm use 20.17.0
-        npm run docs:build
+      run: npm run docs:build
 
   push-to-private-repo:
     runs-on: self-hosted
