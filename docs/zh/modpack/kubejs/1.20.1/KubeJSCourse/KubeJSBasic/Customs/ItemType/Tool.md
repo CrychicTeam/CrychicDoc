@@ -26,4 +26,4 @@ StartupEvents.registry("item", event => {
 |      attackDamageBaseline(float)       |                            ->                            | 设置工具的基本伤害(直接设置是在3的基础上做加减【剑默认3,斧头默认6】) |   this   |
 |        attackDamageBonus(float)        |                            ->                            |                             设置攻击伤害                             |   this   |
 | modifyTier(Consumer\<MutableToolTier>) |                            ~                             |                                  ~                                   |   this   |
-|               tier(Tier)               | [mcwiki](https://zh.minecraft.wiki/w/%E5%93%81%E8%B4%A8) |                             设置工具品质                             |   this   |
+|               tier(Tier)               | [mcwiki](https://zh.minecraft.wiki/w/%E5%93%81%E8%B4%A8) |                             设置工具品质                             |   this    |
