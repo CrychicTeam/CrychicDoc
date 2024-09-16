@@ -60,6 +60,7 @@
     "marked": "^14.1.0",
     "shiki": "^1.16.2",
     "tdesign-vue-next": "^1.9.8",
+    "terser": "^5.32.0",
     "typescript": "^5.5.4",
     "vitepress-markdown-timeline": "^1.2.1",
     "vue-chartjs": "^5.3.1",

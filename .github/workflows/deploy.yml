@@ -86,5 +86,6 @@ jobs:
         git add -A
         git commit -m "Update documentation"
         git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
+
         cd ../..
         rm -rf .vitepress/dist
