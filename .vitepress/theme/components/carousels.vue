@@ -1,97 +1,129 @@
 <template>
-    <div class="carousel">
-        <v-responsive :aspect-ratio="aspectRatio" ref="responsiveContainer">
-            <!-- 动态的 v-responsive 宽高比 -->
-            <v-carousel
-                :height="carouselHeight"
-                :show-arrows="showArrows"
-                :cycle="cycle"
-                :interval="interval"
-                :hide-delimiters="hideDelimiters"
-            >
-                <slot></slot>
-            </v-carousel>
-        </v-responsive>
+    <div class="carousel" ref="carouselContainer">
+        <v-carousel
+            v-if="isReady"
+            :height="carouselHeight"
+            :show-arrows="showArrows"
+            :cycle="cycle"
+            :interval="interval"
+            :hide-delimiters="hideDelimiters"
+        >
+            <slot></slot>
+        </v-carousel>
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, watch } from "vue";
 
 const props = defineProps({
-    aspectRatio: {
-        type: Number,
-        default: 16 / 9, // 默认宽高比
-    },
     showArrows: {
         type: [Boolean, String],
-        default: true, // 控制箭头的显示，默认为 true，可以传入 'hover' 显示
+        default: true,
     },
     cycle: {
         type: Boolean,
-        default: false, // 是否启用自动轮播
+        default: false,
     },
     interval: {
         type: Number,
-        default: 6000, // 自动轮播的间隔
+        default: 6000,
     },
     hideDelimiters: {
         type: Boolean,
-        default: false, // 是否隐藏指示点
+        default: false,
     },
-})
+});
 
-const carouselHeight = ref(0)
-const responsiveContainer = ref(null)
+const carouselContainer = ref(null);
+const carouselHeight = ref("auto");
+const isReady = ref(false);
 
 const updateCarouselHeight = () => {
-    if (responsiveContainer.value) {
-        const containerElement = responsiveContainer.value.$el;
-        carouselHeight.value = containerElement.offsetWidth / props.aspectRatio;
+    if (carouselContainer.value) {
+        const items =
+            carouselContainer.value.querySelectorAll(".v-carousel__item");
+        let maxHeight = 0;
+
+        items.forEach((item) => {
+            item.style.display = "block";
+            const itemHeight = item.scrollHeight;
+            item.style.display = "";
+            if (itemHeight > maxHeight) maxHeight = itemHeight;
+        });
+
+        carouselHeight.value = maxHeight > 0 ? `${maxHeight}px` : "auto";
+        isReady.value = true;
     }
-}
+};
+
+const debouncedUpdateHeight = debounce(updateCarouselHeight, 100);
 
 let resizeObserver = null;
-if (typeof ResizeObserver !== 'undefined') {
-    resizeObserver = new ResizeObserver(() => {
-        updateCarouselHeight()
-    });
+if (typeof ResizeObserver !== "undefined") {
+    resizeObserver = new ResizeObserver(debouncedUpdateHeight);
 }
 
 onMounted(() => {
     nextTick(() => {
-        updateCarouselHeight()
-        if (responsiveContainer.value && resizeObserver) {
-            resizeObserver.observe(responsiveContainer.value.$el)
+        if (carouselContainer.value && resizeObserver) {
+            resizeObserver.observe(carouselContainer.value);
         }
-    })
-})
+        window.addEventListener("resize", debouncedUpdateHeight);
+        updateCarouselHeight();
+    });
+});
 
 onUnmounted(() => {
-    if (responsiveContainer.value && resizeObserver) {
-        resizeObserver.unobserve(responsiveContainer.value.$el)
+    if (carouselContainer.value && resizeObserver) {
+        resizeObserver.unobserve(carouselContainer.value);
     }
     if (resizeObserver) {
-        resizeObserver.disconnect()
+        resizeObserver.disconnect();
     }
-})
+    window.removeEventListener("resize", debouncedUpdateHeight);
+});
+
+watch(
+    () => props,
+    () => {
+        nextTick(updateCarouselHeight());
+    },
+    { deep: true, immediate: true }
+);
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
 </script>
 
-
-<style>
+<style scoped>
 .carousel {
+    width: 100%;
+    max-width: 100vw;
+}
+
+:deep(.v-carousel__item) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: auto;
-    max-height: 100vh;
-    position: relative;
 }
 
-.carousel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+:deep(.v-carousel__item img) {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 </style>

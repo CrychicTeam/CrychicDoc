@@ -1,58 +1,59 @@
 import { tab, MarkdownItTabOptions } from "@mdit/plugin-tab";
-import { logger } from '../config/sidebarControl';
+import { logger } from "../config/sidebarControl";
 import type { PluginSimple } from "markdown-it";
+
+// 深拷贝函数
+function deepCloneEnv(env) {
+    return JSON.parse(JSON.stringify(env));
+}
 
 export const carousels: PluginSimple = (md) => {
     md.use(tab, {
         name: "carousels",
         tabsOpenRenderer(info, tokens, index, opt, env) {
-            const content = JSON.parse(JSON.stringify(env))
-            const IContent = content.content
-            let token: string = ""
-            let config: string = ""
-            if (IContent && typeof IContent === "string") {
-                const matches = IContent.match(/carousels#\{[^\}]*\}/g)
-                if (matches) {
-                    matches.forEach(match => {
-                        token += match.replace("carousels#", "")
-                    })
+            // 每次使用时深拷贝 env，确保配置不被共享
+            const localEnv = deepCloneEnv(env);
+            const IContent = localEnv.content;
+            let config = "";
+
+            // 重新解析 meta 字段中的配置，确保每次渲染时配置独立
+            const token = tokens[index]; 
+            if (token && token.meta && typeof token.meta.id === 'string') {
+                try {
+                    const configObj = JSON.parse(token.meta.id);
+                    if (configObj.arrows !== undefined) {
+                        config += ` :show-arrows="${configObj.arrows}"`;
+                    }
+                    if (configObj.cycle !== undefined) {
+                        config += ` :cycle="${configObj.cycle}"`;
+                    }
+                    if (configObj.interval !== undefined) {
+                        config += ` :interval="${configObj.interval}"`;
+                    }
+                    if (configObj.undelimiters !== undefined) {
+                        config += ` :hide-delimiters="${configObj.undelimiters}"`;
+                    }
+                    config += ` :continuous="true"`;
+                } catch (error) {
+                    console.error("Error parsing carousel config from meta:", error);
                 }
             }
-            // logger(JSON.stringify(tokens[index]), "jsonCheck.json")
-            try {
-                const configObj = JSON.parse(token)
-    
-                if (configObj.arrows) {
-                    if (typeof configObj.arrows === "boolean") {
-                        config += ` :show-arrows="${configObj.arrows}"`
-                    } else if (configObj.arrows === "hover") {
-                        config += ` :show-arrows="hover"`
-                    }
-                }
-    
-                if (configObj.undelimiters && configObj.undelimiters === true) config += ` :hide-delimiters="true"`
-    
-                if (configObj.cycle && configObj.cycle === true) {
-                    config += ` :cycle="true"`
-    
-                    if (configObj.interval && typeof configObj.interval === "number") {
-                        config += ` :interval="${configObj.interval}"`
-                    }
-                }
-    
-                if (configObj.ratio && typeof configObj.ratio === "number") config += `aspectRatio="${configObj.ratio}" `
-            } catch (error) { }
-            return `<MdCarousel${config} >`;
+            
+            // 确保每次返回独立配置的组件实例
+            return `<MdCarousel
+                v-model="currentIndex"${config}
+                @update:model-value="handleSlideChange"
+                @before-change="onBeforeChange"
+            >`;
         },
         tabsCloseRenderer() {
             return `</MdCarousel>`;
         },
-        tabOpenRenderer(data) {
-            
-            return `\n<v-carousel-item cover src="${data.title}">\n`;
+        tabOpenRenderer() {
+            return `\n<v-carousel-item>\n`;
         },
         tabCloseRenderer() {
-            return `</v-carousel-item>`;
+            return `</v-carousel-item>\n`;
         },
-    })
+    });
 };
