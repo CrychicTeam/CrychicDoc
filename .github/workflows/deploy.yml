@@ -30,11 +30,9 @@ jobs:
       with: 
         fetch-depth: 0
 
-    # 使用国内镜像加速 yarn
     - name: Configure Yarn to use a faster registry
       run: yarn config set registry https://registry.npmmirror.com
 
-    # 缓存 node_modules 依赖，避免重复安装
     - name: Cache node_modules
       uses: actions/cache@v4
       with:
@@ -54,18 +52,6 @@ jobs:
       run: |
         sudo chmod -R 777 .vitepress
         sudo chmod -R 777 node_modules
-
-    # 缓存 VitePress 构建缓存
-    - name: Cache VitePress cache
-      uses: actions/cache@v4
-      with:
-        path: .vitepress/cache
-        key: ${{ runner.os }}-vitepress-${{ hashFiles('.vitepress/config.js', 'yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-vitepress-
-
-    - name: Clean VitePress temp files
-      run: rm -rf .vitepress/.temp
 
     - name: Build VitePress site
       run: |
