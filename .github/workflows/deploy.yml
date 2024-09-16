@@ -34,6 +34,7 @@ jobs:
       run: |
         export NVM_DIR="$HOME/.nvm"
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        nvm install 20.17.0
         nvm use 20.17.0
         node --version
 
@@ -44,6 +45,11 @@ jobs:
         nvm use 20.17.0
         npm install
 
+    - name: Fix permissions for .vitepress folder
+      run: |
+        sudo chmod -R 777 .vitepress
+        sudo chmod -R 777 node_modules
+
     - name: Clean VitePress temp files
       run: rm -rf .vitepress/.temp
 
@@ -53,6 +59,9 @@ jobs:
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
         nvm use 20.17.0
         npm run docs:build
+
+    - name: Fix permissions after build
+      run: sudo chmod -R 777 .vitepress
 
   push-to-private-repo:
     runs-on: self-hosted
@@ -68,6 +77,7 @@ jobs:
         export NVM_DIR="$HOME/.nvm"
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
         nvm use 20.17.0
+        sudo chmod -R 777 .vitepress/dist
         cd .vitepress/dist
         git init
         git config user.name "GitHub Actions Bot"
