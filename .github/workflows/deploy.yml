@@ -7,10 +7,6 @@ on:
 jobs:
   pull-types:
     runs-on: self-hosted
-    env:
-      NODE_VERSION: "v20.17.0"  # 设置你想要使用的 Node.js 版本
-      NODE_HOME: "/usr/local/lib/nodejs/node-$NODE_VERSION"  # Node.js 安装路径，根据你的环境调整
-      PATH: "$NODE_HOME/bin:$PATH"  # 将 Node.js 二进制添加到 PATH 中
     steps:
     - name: Checkout the code
       uses: actions/checkout@v4
@@ -28,32 +24,40 @@ jobs:
   setup-and-build:
     runs-on: self-hosted
     needs: pull-types
-    env:
-      NODE_VERSION: "v20.17.0"  # 设置同样的 Node.js 版本
-      NODE_HOME: "/usr/local/lib/nodejs/node-$NODE_VERSION"
-      PATH: "$NODE_HOME/bin:$PATH"
     steps:
     - name: Checkout the code
       uses: actions/checkout@v4
       with: 
         fetch-depth: 0
 
-    - name: Check Node.js version
-      run: node --version
+    - name: Use correct Node.js version
+      env:
+        NODE_VERSION: 'v20.17.0'
+      run: |
+        export NODE_HOME="/usr/local/lib/nodejs/node-$NODE_VERSION"
+        export PATH="$NODE_HOME/bin:$PATH"
+        echo "Using Node.js version:"
+        node --version
 
     - name: Install dependencies
-      run: npm install
+      env:
+        NODE_VERSION: 'v20.17.0'
+      run: |
+        export NODE_HOME="/usr/local/lib/nodejs/node-$NODE_VERSION"
+        export PATH="$NODE_HOME/bin:$PATH"
+        npm install
 
     - name: Build VitePress site
-      run: npm run docs:build
+      env:
+        NODE_VERSION: 'v20.17.0'
+      run: |
+        export NODE_HOME="/usr/local/lib/nodejs/node-$NODE_VERSION"
+        export PATH="$NODE_HOME/bin:$PATH"
+        npm run docs:build
 
   push-to-private-repo:
     runs-on: self-hosted
     needs: setup-and-build
-    env:
-      NODE_VERSION: "v20.17.0"
-      NODE_HOME: "/usr/local/lib/nodejs/node-$NODE_VERSION"
-      PATH: "$NODE_HOME/bin:$PATH"
     steps:
     - name: Clean up typefiles
       run: rm -rf typefiles
@@ -61,7 +65,10 @@ jobs:
     - name: Push to private repo
       env:
         PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+        NODE_VERSION: 'v20.17.0'
       run: |
+        export NODE_HOME="/usr/local/lib/nodejs/node-$NODE_VERSION"
+        export PATH="$NODE_HOME/bin:$PATH"
         cd .vitepress/dist
         git init
         git config user.name "GitHub Actions Bot"
