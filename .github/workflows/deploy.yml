@@ -8,13 +8,11 @@ jobs:
   pull-types:
     runs-on: self-hosted
     steps:
-    - name: Clean up old files except node_modules
-      run: |
-        find . -maxdepth 1 ! -name 'node_modules' ! -name '.' ! -name '..' -exec rm -rf {} +
     - name: Checkout the code
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+
     - name: Pull types from type repo
       env:
         TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
@@ -27,6 +25,11 @@ jobs:
     runs-on: self-hosted
     needs: pull-types
     steps:
+    - name: Checkout the code
+      uses: actions/checkout@v4
+      with: 
+        fetch-depth: 0
+
     - name: Configure Yarn to use a faster registry
       run: yarn config set registry https://registry.npmmirror.com
 
