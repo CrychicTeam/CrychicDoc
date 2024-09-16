@@ -172,32 +172,26 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     transformHead({ assets }) {
         const fonts = (): string[] => {
             return [
-                assets.find((file) => /JetBrainsMono-Ragular\.\w+\.woff2/),
+                assets.find((file) => /JetBrainsMono-Regular\.\w+\.woff2/),
                 assets.find((file) => /ChillRoundGothic_Bold\.\w+\.woff2/),
-                assets.find(
-                    (file) => /ChillRoundGothic_ExtraLight\.\w+\.woff2/
-                ),
+                assets.find((file) => /ChillRoundGothic_ExtraLight\.\w+\.woff2/),
                 assets.find((file) => /ChillRoundGothic_Heavy\.\w+\.woff2/),
                 assets.find((file) => /ChillRoundGothic_Light\.\w+\.woff2/),
                 assets.find((file) => /ChillRoundGothic_Medium\.\w+\.woff2/),
                 assets.find((file) => /ChillRoundGothic_Regular\.\w+\.woff2/),
-            ].filter((value) => value !== undefined);
+            ].filter((value): value is string => value !== undefined);
         };
-        const fontConfig = (): Awaitable<HeadConfig[] | void> => {
-            const hcfg: HeadConfig[] = [];
-            fonts().forEach((font) => {
-                hcfg.push([
-                    "link",
-                    {
-                        rel: "preload",
-                        href: font,
-                        as: "font",
-                        type: "font/woff2",
-                        crossorigin: "",
-                    },
-                ]);
-                return hcfg;
-            });
+        const fontConfig = (): HeadConfig[] => {
+            return fonts().map((font) => [
+                "link",
+                {
+                    rel: "preload",
+                    href: font,
+                    as: "font",
+                    type: "font/woff2",
+                    crossorigin: "",
+                },
+            ]);
         };
         return fontConfig();
     },
