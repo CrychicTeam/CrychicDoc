@@ -6,11 +6,13 @@
 
 - **`战利品`** 了解战利品可用的函数以及结构，查看[战利品](./LootTable.md)
 
-## 箱子战利品id
+## 战利品
+
+### 箱子战利品id
 
 - 如：末地战利品箱的战利品id为：minecraft:chests/end_city_treasure，那么在函数中作为参数传递的字符串则为minecraft:end_city_treasure，在游戏中可使用`/loot give @s`命令补全查看。
 
-## 替换原有战利品
+### 替换原有战利品
 
 - 语句：event.addChest(箱子战利品表id, loot=>{创建战利品池});
 
@@ -27,7 +29,7 @@ ServerEvents.chestLootTables(event=>{
 })
 ```
 
-## 添加额外战利品
+### 添加额外战利品
 
 - 语句：event.modify(箱子战利品表id, loot=>{创建战利品池});
 
@@ -43,3 +45,7 @@ ServerEvents.chestLootTables(event=>{
     })
 })
 ```
+
+## 战利品谓词
+
+## 战利品修饰

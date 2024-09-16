@@ -8,7 +8,9 @@
 
 - 事件：ServerEvents.entityLootTables(event=>{});
 
-## 替换原有战利品
+## 战利品
+
+### 替换原有战利品
 
 - 战利品池抽取次数与战利品项物品个数是一个数字提供器
 
@@ -67,7 +69,7 @@ ServerEvents.entityLootTables(event => {
 
 :::
 
-## 添加额外战利品
+### 添加额外战利品
 
 - 战利品池抽取次数与战利品项物品个数是一个数字提供器
 
@@ -126,6 +128,10 @@ ServerEvents.entityLootTables(event => {
 
 :::
 
-## 修改原有战利品
+### 修改原有战利品
 
 - 等待后续...
+
+## 战利品谓词
+
+## 战利品修饰

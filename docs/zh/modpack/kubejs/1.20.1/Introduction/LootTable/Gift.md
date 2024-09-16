@@ -12,7 +12,9 @@ Gift类型的战利品表目前仅能对村民赠与村庄英雄玩家的礼物�
 
 - **`战利品`** 了解战利品可用的函数以及结构，查看[战利品](./LootTable.md)
 
-## 村庄英雄礼物战利品id
+## 战利品
+
+### 村庄英雄礼物战利品id
 
 armorer_gift —— 盔甲商
 
@@ -40,7 +42,7 @@ toolsmith_gift —— 工具商
 
 weaponsmith_gift —— 武器商
 
-## 替换原有战利品
+### 替换原有战利品
 
 - 语句：event.addGift(村庄英雄礼物战利品id, loot=>{创建战利品池});
 
@@ -56,7 +58,7 @@ ServerEvents.giftLootTables(event => {
 })
 ```
 
-## 添加额外战利品
+### 添加额外战利品
 
 - 语句：event.modify(村庄英雄礼物战利品id, loot=>{创建战利品池});
 
@@ -71,3 +73,7 @@ ServerEvents.giftLootTables(event => {
     })
 })
 ```
+
+## 战利品谓词
+
+## 战利品修饰

@@ -8,9 +8,11 @@
 
 - 事件：ServerEvents.blockLootTables(event=>{});
 
-## 替换原有战利品
+## 战利品
 
-- 战利品池抽取次数与战利品项物品个数是一个数字提供器
+### 替换原有战利品
+
+- 战利品池抽取次数与战利品项物品个数是一个[数字提供器](../MiscellaneousKnowledge/NumberProvider.md)
 
 - 语句：event.addBlock(方块id, loot => { loot.addPool(pool => { }) });
 
@@ -67,9 +69,9 @@ ServerEvents.blockLootTables(event => {
 
 :::
 
-## 添加额外战利品
+### 添加额外战利品
 
-- 战利品池抽取次数与战利品项物品个数是一个数字提供器
+- 战利品池抽取次数与战利品项物品个数是一个[数字提供器](../MiscellaneousKnowledge/NumberProvider.md)
 
 - 语句：event.modifyBlock(方块id, loot => { loot.addPool(pool => { }) });
 
@@ -126,6 +128,10 @@ ServerEvents.blockLootTables(event => {
 
 :::
 
-## 修改原有战利品
+### 修改原有战利品
 
 - 等待后续...
+
+## 战利品谓词
+
+## 战利品修饰
