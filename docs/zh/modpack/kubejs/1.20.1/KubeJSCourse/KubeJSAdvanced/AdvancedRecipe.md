@@ -1,6 +1,15 @@
 # 配方合成进阶
+本章节所有内容都为KubeJS提供的shapeless和shaped，不适用于其他任何配方，哪怕你能够调用，但是并不会有用
+
+KubeJS只做了自己的适配，并没有适配其他任何合成方式，包括原版的`recipes.minecraft.xxx`
+
+所以这个地方得注意调用的是`shapeless`和`shaped`，或者`recipes.kubejs.shaped`和`recipes.kubejs.shapeless`
+
+关于为什么原版的水桶在合成表里为什么可以返回桶请看 --> [设置物品合成返回物品](./ItemRecipeReturnItem.md)
 ## 合成附带nbt modifyResult
 下面代码是使用工作台里使用钻石剑+附魔书进行合成出带附魔效果的,如果有更高等级的附魔将直接覆盖低等级附魔
+
+这段代码只是示范modifyResult该如何去使用提供的一个示例，具体使用场景可更改
 ```js
 ServerEvents.recipes((event) => {
 	event.shapeless(Item.of('minecraft:diamond_sword'), [
@@ -19,7 +28,9 @@ ServerEvents.recipes((event) => {
 			dsEns.forEach((key, value) => {
 				if (key == ikey) {
 					if (value < ivalue) {
-						/**@type {$ListTag_} */
+						/**
+                         * @type {$ListTag_}
+                         */
 						let dimEns = diamond_sword.getNbt().get("Enchantments")
 						dimEns.forEach(value => {
 							if (value["id"] == key) {
@@ -67,8 +78,8 @@ ServerEvents.recipes((event) => {
 ```js
 ServerEvents.recipes(event => {
     event.shapeless(
-        Item.of('minecraft:lingering_potion', '{Potion:"minecraft:strong_healing"}'),
-        ['minecraft:dragon_breath', Item.of('minecraft:potion', '{Potion:"minecraft:strong_healing"}')]
+        Item.of('minecraft:lingering_potion', '{Potion:"minecraft:strong_healing"}').strongNBT(),
+        ['minecraft:dragon_breath', Item.of('minecraft:potion', '{Potion:"minecraft:strong_healing"}').strongNBT()]
     ).replaceIngredient({ item: "minecraft:dragon_breath" }, Item.of('minecraft:glass_bottle'))
 })
 ```

@@ -51,26 +51,32 @@ const updateCarouselHeight = () => {
     }
 }
 
-const resizeObserver = new ResizeObserver(() => {
-    updateCarouselHeight()
-})
+let resizeObserver = null;
+if (typeof ResizeObserver !== 'undefined') {
+    resizeObserver = new ResizeObserver(() => {
+        updateCarouselHeight()
+    });
+}
 
 onMounted(() => {
     nextTick(() => {
         updateCarouselHeight()
-        if (responsiveContainer.value) {
+        if (responsiveContainer.value && resizeObserver) {
             resizeObserver.observe(responsiveContainer.value.$el)
         }
     })
 })
 
 onUnmounted(() => {
-    if (responsiveContainer.value) {
+    if (responsiveContainer.value && resizeObserver) {
         resizeObserver.unobserve(responsiveContainer.value.$el)
     }
-    resizeObserver.disconnect()
+    if (resizeObserver) {
+        resizeObserver.disconnect()
+    }
 })
 </script>
+
 
 <style>
 .carousel {

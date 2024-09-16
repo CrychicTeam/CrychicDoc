@@ -294,21 +294,22 @@ const incomplete = "create:incomplete_precision_mechanism"
     .transitionalItem(incomplete)
     // 循环次数--如果不写默认为5次
     .loops(3)
-
-	// 下方是无注释写法
-	const incomplete = "create:incomplete_precision_mechanism"
-
-	create.sequenced_assembly([
-		Item.of("diamond").withChance(0.02),
-		Item.of("cobblestone").withChance(0.5),
-		Item.of("stone").withChance(0.8)
-	], "minecraft:deepslate", [
-		create.deploying(incomplete, [incomplete, "minecraft:tnt"]).keepHeldItem(),
-		create.cutting(incomplete, incomplete),
-		create.filling(incomplete, [incomplete, Fluid.of("minecraft:lava", 100)]),
-		create.pressing(incomplete, incomplete)
-	]).transitionalItem(incomplete).loops(3)
 ```
+
+```js
+// 下方是无注释写法
+const incomplete = "create:incomplete_precision_mechanism"
+
+create.sequenced_assembly([
+	Item.of("diamond").withChance(0.02),
+	Item.of("cobblestone").withChance(0.5),
+	Item.of("stone").withChance(0.8)
+], "minecraft:deepslate", [
+	create.deploying(incomplete, [incomplete, "minecraft:tnt"]).keepHeldItem(),
+	create.cutting(incomplete, incomplete),
+	create.filling(incomplete, [incomplete, Fluid.of("minecraft:lava", 100)]),
+	create.pressing(incomplete, incomplete)
+]).transitionalItem(incomplete).loops(3)
 这里值得一提的是，目前官方总共提供只有上面的四种方式进行机器参与
 
 注:序列组装的半成品是可以使用原版的物品的
