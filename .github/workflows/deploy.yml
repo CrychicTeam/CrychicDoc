@@ -30,29 +30,25 @@ jobs:
       with: 
         fetch-depth: 0
 
-    - name: Use correct Node.js version
-      env:
-        NODE_VERSION: 'v20.17.0'
+    - name: Use correct Node.js version with nvm
       run: |
-        export NODE_HOME="/usr/local/lib/nodejs/node-$NODE_VERSION"
-        export PATH="$NODE_HOME/bin:$PATH"
-        echo "Using Node.js version:"
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        nvm use 20.17.0
         node --version
 
     - name: Install dependencies
-      env:
-        NODE_VERSION: 'v20.17.0'
       run: |
-        export NODE_HOME="/usr/local/lib/nodejs/node-$NODE_VERSION"
-        export PATH="$NODE_HOME/bin:$PATH"
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        nvm use 20.17.0
         npm install
 
     - name: Build VitePress site
-      env:
-        NODE_VERSION: 'v20.17.0'
       run: |
-        export NODE_HOME="/usr/local/lib/nodejs/node-$NODE_VERSION"
-        export PATH="$NODE_HOME/bin:$PATH"
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        nvm use 20.17.0
         npm run docs:build
 
   push-to-private-repo:
@@ -65,10 +61,10 @@ jobs:
     - name: Push to private repo
       env:
         PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
-        NODE_VERSION: 'v20.17.0'
       run: |
-        export NODE_HOME="/usr/local/lib/nodejs/node-$NODE_VERSION"
-        export PATH="$NODE_HOME/bin:$PATH"
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        nvm use 20.17.0
         cd .vitepress/dist
         git init
         git config user.name "GitHub Actions Bot"
