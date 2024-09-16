@@ -5,47 +5,14 @@ on:
     branches: [ main ]
 
 jobs:
-  setup-and-build:
+  pull-types:
     runs-on: self-hosted
-
     steps:
     - name: Checkout the code
       uses: actions/checkout@v4
-      with: 
+      with:
         fetch-depth: 0
 
-    - name: Cache node_modules
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18.17.1'
-        cache: 'yarn'
-
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
-
-    - name: Cache VitePress build cache
-      uses: actions/cache@v4
-      with:
-        path: .vitepress/cache
-        key: ${{ runner.os }}-vitepress-${{ hashFiles('yarn.lock', '.vitepress/config.js') }}
-        restore-keys: |
-          ${{ runner.os }}-vitepress-
-
-    - name: Build VitePress site
-      run: yarn docs:build
-
-  pull-types:
-    runs-on: self-hosted
-    needs: setup-and-build
-    steps:
     - name: Cache type repo
       uses: actions/cache@v4
       with:
@@ -63,9 +30,40 @@ jobs:
         cp -r type_repo/typefiles .
         rm -rf type_repo
 
+  setup-and-build:
+    runs-on: self-hosted
+    needs: pull-types
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v4
+      with: 
+        fetch-depth: 0
+
+    - name: Cache node_modules
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+
+    - name: Cache VitePress build cache
+      uses: actions/cache@v4
+      with:
+        path: .vitepress/cache
+        key: ${{ runner.os }}-vitepress-${{ hashFiles('yarn.lock', '.vitepress/config.js') }}
+        restore-keys: |
+          ${{ runner.os }}-vitepress-
+
+    - name: Build VitePress site
+      run: yarn docs:build
+
   push-to-private-repo:
     runs-on: self-hosted
-    needs: [setup-and-build, pull-types]
+    needs: setup-and-build
     steps:
     - name: Clean up typefiles
       run: rm -rf typefiles
