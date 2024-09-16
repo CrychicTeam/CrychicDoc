@@ -31,12 +31,12 @@ root:
             path: Recipe
             collapsed: true
             children:
-              - title: 物品与原料表示
-                path: /
-                file: ItemAndIngredient
-              - title: 配方过滤器表示
-                path: /
-                file: RecipeFilter
+              # - title: 物品与原料表示
+              #   path: /
+              #   file: ItemAndIngredient
+              # - title: 配方过滤器表示
+              #   path: /
+              #   file: RecipeFilter
               - title: 修改配方
                 path: /
                 file: ModifyRecipe
@@ -72,9 +72,9 @@ root:
                       - title: 切石机
                         path: /
                         file: Stonecutter
-              - title: 添加原版配方
-                path: /
-                file: Vanilla
+              # - title: 添加原版配方
+              #   path: /
+              #   file: Vanilla
           - title: 药水效果
             path: PotionEffect
             children:

@@ -12,11 +12,11 @@
 
 - 原料需以确定顺序、排列的合成称为有序合成。
 
-- “输出物品”是一个物品栈，表示物品栈需要了解[物品栈](../../../MiscellaneousKnowledge/ItemStack.md)
+- 表示输出物品栈需要了解[物品栈](../../../MiscellaneousKnowledge/ItemStack.md)
 
-- “输入物品”是一个原料，表示原料需要了解[原料](../../../MiscellaneousKnowledge/Ingredient.md)
+- 表示原料需要了解[原料](../../../MiscellaneousKnowledge/Ingredient.md)
 
-- 语句：event.recipes.kubejs.shapeless(输出物品栈, 图案, 图案字符代表的物品栈);
+- 语句：event.recipes.kubejs.shapeless(输出物品栈, 图案, 图案字符代表的原料);
 
 - 示例：木剑 + 铁锭 + 铁锭 = 铁剑
 
@@ -24,11 +24,14 @@
 ServerEvents.recipes(event => {
     event.recipes.kubejs.shaped(
         Item.of('minecraft:iron_sword', '{Damage:0}'),
+        // 图案是一个包含三个字符串的数组，每个字符串有3个字符，空格代表该槽位没有物品
+        // 相同的物品使用同一个字母
         [
             '  A',
             ' A ',
             'B  '
         ],
+        // 这里将声明字母代表的原料
         {
             A: 'minecraft:iron_ingot',
             B: Item.of('minecraft:wooden_sword', '{Damage:0}')
@@ -41,11 +44,13 @@ ServerEvents.recipes(event => {
 
 - 原料无需以确定顺序、排列的合成称为无序合成。
 
-- “输出物品”是一个物品栈，表示物品栈需要了解[物品栈](../../../MiscellaneousKnowledge/ItemStack.md)
+- 表示输出物品栈需要了解[物品栈](../../../MiscellaneousKnowledge/ItemStack.md)
 
-- “输入物品”是一个原料，表示原料需要了解[原料](../../../MiscellaneousKnowledge/Ingredient.md)
+- 表示原料需要了解[原料](../../../MiscellaneousKnowledge/Ingredient.md)
 
-- 示例：木剑 + 铁锭 + 铁锭 = 铁剑
+- 语句：event.recipes.kubejs.shapeless(输出物品栈, 原料数组)
+
+- 示例：木剑 + 铁锭 + 铁锭 => 铁剑
 
 ```js
 ServerEvents.recipes(event => {
@@ -73,7 +78,7 @@ ServerEvents.recipes(event => {
 
 - 语句：replaceIngredient(原料动作过滤器, 物品栈);
 
-- 示例：木剑 + 2x铁锭 = 铁剑，铁锭将变为橡木木板。
+- 示例：木剑 + 2x铁锭 => 铁剑，铁锭将变为橡木木板。
 
 ```js
 ServerEvents.recipes(event => {
@@ -100,7 +105,7 @@ ServerEvents.recipes(event => {
 
 - 语句：
 
-- 示例：木剑 + 铁锭 = 10铁粒，扣除木剑1点耐久
+- 示例：木剑 + 铁锭 => 10铁粒，扣除木剑1点耐久
 
 ::: code-group
 
@@ -138,7 +143,7 @@ ServerEvents.recipes(event => {
 
 - 语句：keepIngredient(配方动作过滤器);
 
-- 示例：铁镐 + 铁矿石 = 2x粗铁，铁镐不会消失。
+- 示例：铁镐 + 铁矿石 => 2x粗铁，铁镐不会消失。
 
 ```js
 
