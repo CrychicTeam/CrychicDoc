@@ -13,14 +13,6 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Cache type repo
-      uses: actions/cache@v4
-      with:
-        path: typefiles
-        key: ${{ runner.os }}-typefiles-${{ hashFiles('yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-typefiles
-
     - name: Pull types from type repo
       if: steps.cache.outputs.cache-hit != 'true'
       env:
@@ -39,24 +31,8 @@ jobs:
       with: 
         fetch-depth: 0
 
-    - name: Cache node_modules
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
-
     - name: Install dependencies
-      run: yarn install --frozen-lockfile
-
-    - name: Cache VitePress build cache
-      uses: actions/cache@v4
-      with:
-        path: .vitepress/cache
-        key: ${{ runner.os }}-vitepress-${{ hashFiles('yarn.lock', '.vitepress/config.js') }}
-        restore-keys: |
-          ${{ runner.os }}-vitepress-
+      run: yarn install
 
     - name: Build VitePress site
       run: yarn docs:build
@@ -81,6 +57,7 @@ jobs:
         if [ -d temp_repo/.github ]; then
           cp -r temp_repo/.github .
         fi
+        
         rm -rf temp_repo
 
         git add -A
