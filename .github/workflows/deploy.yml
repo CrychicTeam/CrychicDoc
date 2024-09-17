@@ -18,7 +18,7 @@ jobs:
                   TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
               run: |
                   git clone --depth 1 https://${TYPE_REPO_TOKEN}@github.com/M1hono/CrychicDocTypes.git type_repo
-                  cp -r type_repo/typefiles ./typefiles
+                  cp -r type_repo/typefiles .
                   rm -rf type_repo
 
             - name: Checkout the code
@@ -39,10 +39,6 @@ jobs:
               run: |
                   sudo chmod -R 777 .vitepress
                   sudo chmod -R 777 node_modules
-
-            - name: Ensure typefiles remain in root directory
-              run: |
-                  ls -l ./typefiles
 
             - name: Build VitePress site
               run: |
