@@ -21,7 +21,6 @@ jobs:
                   cp -r type_repo/typefiles .
                   rm -rf type_repo
                   echo "Types pulled successfully"
-                  ls -R typefiles
 
             - name: Configure Yarn to use a faster registry
               run: yarn config set registry https://registry.npmmirror.com
@@ -36,8 +35,6 @@ jobs:
 
             - name: Build VitePress site
               run: |
-                  echo "Current directory contents:"
-                  ls -R
                   echo "Building VitePress site..."
                   yarn docs:build
 
