@@ -81,7 +81,7 @@ ServerEvents.fishingLootTables(event => {
 
 - 战利品池抽取次数与战利品项物品个数是一个数字提供器
 
-- 语句：event.modifyEntity(方块id, loot => { loot.addPool(pool => { }) });
+- 语句：event.modify(方块id, loot => { loot.addPool(pool => { }) });
 
 - 语句：pool.rolls 设置抽取次数。
 
@@ -93,7 +93,7 @@ ServerEvents.fishingLootTables(event => {
 
 ```js [单个物品]
 ServerEvents.fishingLootTables(event => {
-    // modifyEntity将为该实体添加新战利品池
+    // modify将添加新战利品池
     event.modify('fish', loot => {
         // addPool创建一个战利品池
         loot.addPool(pool => {
@@ -108,8 +108,8 @@ ServerEvents.fishingLootTables(event => {
 
 ```js [权重列表]
 ServerEvents.fishingLootTables(event => {
-    // modifyEntity将为该实体添加新战利品池
-    event.modifyEntity('fish', loot => {
+    // modify将添加新战利品池
+    event.modify('fish', loot => {
         // addPool创建一个战利品池
         loot.addPool(pool => {
             // 战利品池抽取次数
@@ -124,8 +124,8 @@ ServerEvents.fishingLootTables(event => {
 
 ```js [具有战利品项个数提供器的权重列表]
 ServerEvents.fishingLootTables(event => {
-    // modifyEntity将为该实体添加新战利品池
-    event.modifyEntity('fish', loot => {
+    // modify将添加新战利品池
+    event.modify('fish', loot => {
         // addPool创建一个战利品池
         loot.addPool(pool => {
             // 战利品池抽取次数
@@ -146,4 +146,98 @@ ServerEvents.fishingLootTables(event => {
 
 ## 战利品谓词
 
+### 随机概率
+
+- 通过小数表示的随机概率。
+
+- 语句：randomChance(数字);
+
+- 例：
+
+::: code-group
+
+```js [应用战利品池]
+// 有0.5的概率尝试抽取该池 此时概率决定是否尝试抽取战利品池
+ServerEvents.fishingLootTables(event => {
+    event.modify('fish', loot => {
+        loot.addPool(pool => {
+            pool.rolls = [1, 1];
+            pool.addItem('minecraft:gunpowder');
+            pool.randomChance(0.5);
+        })
+    })
+})
+```
+
+```js [应用战利品项]
+// 有0.5的概率尝试掉落火药 此时概率决定抽取战利品池后是否掉落火药
+ServerEvents.fishingLootTables(event => {
+    event.modify('fish', loot => {
+        loot.addPool(pool => {
+            pool.rolls = [1, 1];
+            pool.addItem('minecraft:gunpowder').randomChance(0.5);
+        })
+    })
+})
+```
+
+:::
+
 ## 战利品修饰
+
+### 对战利品项随机附魔
+
+- 将对战利品项从附魔列表中随机附魔。
+
+- 语句：enchantRandomly(附魔id数组);
+
+- 示例：掉落了保护1的金苹果。
+
+```js
+ServerEvents.fishingLootTables(event => {
+    event.modify('fish', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5, 1)
+            .enchantRandomly(['minecraft:protection'])
+        })
+    })
+})
+```
+
+### 对战利品项按等级附魔
+
+- 对战利品项执行一次数字提供器返回的等级的附魔。
+
+- 语句：.enchantWithLevels(数字提供器, 是否包含宝藏附魔);
+
+- 示例：尸壳掉落一把30级附魔的铁剑。
+
+```js
+ServerEvents.fishingLootTables(event => {
+    event.modify('fish', loot => {
+        loot.addPool(pool => {
+            pool.addItem(Item.of('minecraft:iron_sword', '{Damage:0}'), 5, 1)
+            .enchantWithLevels(30, true)
+        })
+    })
+})
+```
+
+### 熔炉熔炼
+
+- 得到物品放入熔炉冶炼后的产物。
+
+- 语句：furnaceSmelt()
+
+- 示例：尸壳死亡掉落橡木的熔炉冶炼产物。
+
+```js
+ServerEvents.fishingLootTables(event => {
+    event.modify('fish', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:oak_wood', 5, 1).furnaceSmelt()
+            
+        })
+    })
+})
+```
