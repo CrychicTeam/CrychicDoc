@@ -34,6 +34,8 @@ jobs:
               run: yarn install --frozen-lockfile
 
             - name: Build VitePress site
+              env:
+                NODE_OPTIONS: --max-old-space-size=8192
               run: |
                   echo "Building VitePress site..."
                   yarn docs:build
