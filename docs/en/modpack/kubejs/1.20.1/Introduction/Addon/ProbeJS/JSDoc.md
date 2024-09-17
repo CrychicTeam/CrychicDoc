@@ -10,24 +10,30 @@
 ItemEvents.entityInteracted(event => {
     const { entity, target, hand, server, level } = event;
     if (hand !== 'main_hand') return;
-
-    // 将 potionEffects 显式声明为 any 类型
     entity.potionEffects.add('minecraft:night_vision', 200, 0, false, true);
-//               ^?
+//                ^?
 })
 ```
 
+::: justify
 可以看到，`potionEffects`并没有正确显示`Twoslash`提供的类型提示。
 
-这是因为`potionEffects`是`Internal.LivingEntity`的方法，而 `ItemEvents.entityInteracted` 提供的参数类型为 `Entity`。由于`ProbeJS`生成的类型文件无法正确体现类的继承关系，这种问题在`KubeJS`的魔改中较为常见。
+这是因为`potionEffects`是`Internal.LivingEntity`的方法，同时
+
+ `ItemEvents.entityInteracted` 提供的参数类型为 `Entity`，便导致了无法正确为`event.entity`补全`potionEffects`的情况。
+ 
+ 由于`KubeJS`的事件设计，这种问题在`KubeJS`的魔改中较为常见。
+
+> 更具体的内容可以参照[类篇章](../../../Upgrade/GlobalScope/Classes/Catalogue)
 
 然而，通过使用 JSDoc 标记变量类型可以缓解这一问题：
+:::
 
 ```js twoslash
 ItemEvents.entityInteracted(event => {
     const { entity, target, hand, server, level } = event;
     /**
-     * @type {Internal.LivingEntity}
+     * @type {Internal.LivingEntity} 这是一个改变了类型的变量。
      */
     let livingentity = entity;
     entity.potionEffects.add('minecraft:night_vision', 200, 0, false, true);
@@ -37,8 +43,9 @@ ItemEvents.entityInteracted(event => {
 ```
 <br>
 
-可以看到，现在potionsEffects可以正常地获取到应
-该方式能够让 potionEffects 的类型补全更加准确，从而提升开发体验。
+可以看到，现在`potionsEffects`的类型可以正常显示。
+
+该方式能够让类型补全更加准确，从而改进开发体验。
 
 ## 基础JSDoc用法 {#BasicJSDoc}
 
@@ -94,11 +101,11 @@ function first(arr) {
 }
 ```
 
-通过@template标签，你可以为函数指定泛型类型，使得代码更具通用性。
+通过`@template`标签，你可以为函数指定泛型类型，使得代码更具通用性。
 
 ## this上下文 {#This}
 
-在某些场景下，尤其是在`面向对象`的编程中，this的上下文可能不够明确。通过JSDoc，你可以为this标注类型(尽管KubeJS只有阉割的类)：
+在某些场景下，尤其是在`面向对象`的编程中，`this`的上下文可能不够明确。通过JSDoc，你可以为`this`标注类型(尽管KubeJS只有阉割的类)：
 
 ```js twoslash
 /**
@@ -109,4 +116,18 @@ function logUsername() {
 }
 ```
 
-[^T]: 泛型（Generic）是指在编程语言中可以在编写代码时不确定具体数据类型，而在实际使用时才明确具体类型的编程技术。<br>这种机制允许函数、类或接口在处理不同类型的数据时保持通用性，避免重复编写同样逻辑但只适用于特定类型的代码。
+[^T]: 泛型（Generic）是指在编程语言中可以在编写代码时不确定具体数据类型，而在实际使用时才明确具体类型的编程技术。<br>这种机制允许函数、类或接口在处理不同类型的数据时保持通用性，避免重复编写同样逻辑但只适用于特定类型的代码。<br>KubeJS的开发一般用不到这一部分。
+
+## Q&A
+
+- Q: JSDoc能改变一个变量/参数具体的类型吗？
+
+::: justify
+答案是否定的，JSDoc所起到的只是**标记作用**，这意味着你必须明确自己要标记的类型确实与原类型有着继承关系，且在该事件中的确作为所标记的类型存在，才能够使用JSDoc来重新标记类型。JSDoc 的作用仅仅是为开发工具提供类型提示，而不会改变 JavaScript 运行时的实际类型。
+:::
+
+- Q: JSDoc 可以自动推断类型吗？
+
+::: justify
+不可以，JSDoc 只能提供你手动指定的类型信息，不能自动推断变量或参数的类型。你需要明确使用`@type`、`@param`、`@returns`等标签来告知开发工具具体的类型。对于推断类型的功能，TypeScript 提供了更好的支持。
+:::
