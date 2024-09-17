@@ -1,87 +1,79 @@
 name: Build VitePress, Pull Types, and Push to Private Repo
 
 on:
-  push:
-    branches: [ main ]
+    push:
+        branches: [main]
 
 jobs:
-  pull-types:
-    runs-on: self-hosted
-    steps:
-    - name: Checkout the code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+    setup-and-build:
+        runs-on: self-hosted
+        steps:
+            - name: Checkout the code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-    - name: Pull types from type repo
-      env:
-        TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
-      run: |
-        git clone --depth 1 https://${TYPE_REPO_TOKEN}@github.com/M1hono/CrychicDocTypes.git type_repo
-        ls -l type_repo  # 检查是否成功 clone 仓库
-        cp -r type_repo/typefiles ./typefiles  # 确保 typefiles 被复制到根目录
-        ls -l ./typefiles  # 检查 typefiles 是否存在于根目录
-        rm -rf type_repo
+            - name: Pull types from type repo
+              env:
+                  TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
+              run: |
+                  git clone --depth 1 https://${TYPE_REPO_TOKEN}@github.com/M1hono/CrychicDocTypes.git type_repo
+                  cp -r type_repo/typefiles ./typefiles
+                  rm -rf type_repo
 
-  setup-and-build:
-    runs-on: self-hosted
-    needs: pull-types
-    steps:
-    - name: Checkout the code
-      uses: actions/checkout@v4
-      with: 
-        fetch-depth: 0
+            - name: Checkout the code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+            - name: Configure Yarn to use a faster registry
+              run: yarn config set registry https://registry.npmmirror.com
 
-    - name: Configure Yarn to use a faster registry
-      run: yarn config set registry https://registry.npmmirror.com
+            - name: Install dependencies
+              run: |
+                  export NVM_DIR="$HOME/.nvm"
+                  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+                  nvm use 20.17.0
+                  yarn install --frozen-lockfile
 
-    - name: Install dependencies
-      run: |
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        nvm use 20.17.0
-        yarn install --frozen-lockfile
+            - name: Fix permissions for .vitepress folder
+              run: |
+                  sudo chmod -R 777 .vitepress
+                  sudo chmod -R 777 node_modules
 
-    - name: Fix permissions for .vitepress folder
-      run: |
-        sudo chmod -R 777 .vitepress
-        sudo chmod -R 777 node_modules
+            - name: Ensure typefiles remain in root directory
+              run: |
+                  ls -l ./typefiles
 
-    - name: Ensure typefiles remain in root directory
-      run: |
-        ls -l ./typefiles  # 再次检查 typefiles 是否在根目录
-        cp -r ./typefiles ./  # 确保 typefiles 保持在根目录
+            - name: Build VitePress site
+              run: |
+                  export NVM_DIR="$HOME/.nvm"
+                  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+                  nvm use 20.17.0
+                  yarn docs:build
 
-    - name: Build VitePress site
-      run: |
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        nvm use 20.17.0
-        yarn docs:build
+            - name: Fix permissions after build
+              run: sudo chmod -R 777 .vitepress
 
-    - name: Fix permissions after build
-      run: sudo chmod -R 777 .vitepress
+            - name: Push to private repo
+              env:
+                  PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+              run: |
+                  cd .vitepress/dist
 
-    - name: Push to private repo
-      env:
-        PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
-      run: |
-        cd .vitepress/dist
+                  git init
+                  git config user.name "GitHub Actions Bot"
+                  git config user.email "<>"
 
-        git init
-        git config user.name "GitHub Actions Bot"
-        git config user.email "<>"
+                  git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git temp_repo
+                  if [ -d temp_repo/.github ]; then
+                    cp -r temp_repo/.github .
+                  fi
 
-        git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git temp_repo
-        if [ -d temp_repo/.github ]; then
-          cp -r temp_repo/.github .
-        fi
+                  rm -rf temp_repo
+                  git add -A
+                  git commit -m "Update documentation"
 
-        rm -rf temp_repo
-        git add -A
-        git commit -m "Update documentation"
-
-        git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
-        cd ../..
-        rm -rf typefiles
-        rm -rf .vitepress/dist
+                  git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
+                  cd ../..
+                  rm -rf typefiles
+                  rm -rf .vitepress/dist
