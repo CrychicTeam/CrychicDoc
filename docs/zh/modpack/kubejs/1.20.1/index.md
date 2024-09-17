@@ -194,6 +194,16 @@ root:
                 - title: LootJs
                   path: /
                   file: LootJs
+            - title: ProbeJS
+              path: ProbeJS
+              collapsed: true
+              children:
+                - title: 使用方法
+                  path: /
+                  file: ProbeJS
+                - title: JSDoc
+                  path: /
+                  file: JSDoc
         - title: 杂项知识
           path: MiscellaneousKnowledge
           collapsed: true
