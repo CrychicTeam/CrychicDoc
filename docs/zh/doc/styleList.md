@@ -229,23 +229,6 @@ VuePress Theme Hope ++十分++ 强大。
 | `arrows`       | 设置横幅导航控制按钮是否显示，hover为<br/>鼠标悬停在横幅上时显示，默认显示。 | `boolean` \| "`hover`" | `true`  |
 | `undelimiters` | 设置横幅底部的控制条是否显示，默认为显示。      | `boolean` | `false` |
 
-### 图片缩放兼容 {#img-zoom}
-
-在横幅中插入图片有两种形式，分别为
-::: code-group
-
-```md [可缩放]
-@tab
-![img](你的图片路径)
-```
-
-```md [不可缩放]
-@tab 你的图片路径
-<!-- 该空行不可缺少，否则组件不会正确识别@tab标识 -->
-```
-
-:::
-
 ## 卡片 {#card}
 
 由本站维护成员[椰浆](https://www.mcmod.cn/author/24749.html)编写的`card`插件提供，用于创建自定义内容的卡片。
