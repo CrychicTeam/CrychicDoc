@@ -20,7 +20,7 @@
 
 ```js
 ServerEvents.chestLootTables(event=>{
-    event.addChest("minecraft:end_city_treasure",loot=>{
+    event.addChest('minecraft:end_city_treasure', loot=>{
         loot.addPool(pool=>{
             pool.rolls = [1, 1];
             pool.addItem('minecraft:golden_apple');
@@ -48,4 +48,98 @@ ServerEvents.chestLootTables(event=>{
 
 ## 战利品谓词
 
+### 随机概率
+
+- 通过小数表示的随机概率。
+
+- 语句：randomChance(数字);
+
+- 例：
+
+::: code-group
+
+```js [应用战利品池]
+// 有0.5的概率尝试抽取该池 此时概率决定是否尝试抽取战利品池
+ServerEvents.chestLootTables(event => {
+    event.modify('minecraft:end_city_treasure', loot => {
+        loot.addPool(pool => {
+            pool.rolls = [1, 1];
+            pool.addItem('minecraft:gunpowder');
+            pool.randomChance(0.5);
+        })
+    })
+})
+```
+
+```js [应用战利品项]
+// 有0.5的概率尝试掉落火药 此时概率决定抽取战利品池后是否掉落火药
+ServerEvents.chestLootTables(event => {
+    event.modify('minecraft:end_city_treasure', loot => {
+        loot.addPool(pool => {
+            pool.rolls = [1, 1];
+            pool.addItem('minecraft:gunpowder').randomChance(0.5);
+        })
+    })
+})
+```
+
+:::
+
 ## 战利品修饰
+
+### 对战利品项随机附魔
+
+- 将对战利品项从附魔列表中随机附魔。
+
+- 语句：enchantRandomly(附魔id数组);
+
+- 示例：掉落了保护1的金苹果。
+
+```js
+ServerEvents.chestLootTables(event => {
+    event.modify('minecraft:end_city_treasure', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5, 1)
+            .enchantRandomly(['minecraft:protection'])
+        })
+    })
+})
+```
+
+### 对战利品项按等级附魔
+
+- 对战利品项执行一次数字提供器返回的等级的附魔。
+
+- 语句：.enchantWithLevels(数字提供器, 是否包含宝藏附魔);
+
+- 示例：尸壳掉落一把30级附魔的铁剑。
+
+```js
+ServerEvents.chestLootTables(event => {
+    event.modify('minecraft:end_city_treasure', loot => {
+        loot.addPool(pool => {
+            pool.addItem(Item.of('minecraft:iron_sword', '{Damage:0}'), 5, 1)
+            .enchantWithLevels(30, true)
+        })
+    })
+})
+```
+
+### 熔炉熔炼
+
+- 得到物品放入熔炉冶炼后的产物。
+
+- 语句：furnaceSmelt()
+
+- 示例：尸壳死亡掉落橡木的熔炉冶炼产物。
+
+```js
+ServerEvents.chestLootTables(event => {
+    event.modify('minecraft:end_city_treasure', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:oak_wood', 5, 1).furnaceSmelt()
+            
+        })
+    })
+})
+```

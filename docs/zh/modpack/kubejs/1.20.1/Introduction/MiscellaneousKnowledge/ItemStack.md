@@ -5,7 +5,7 @@
 - **`物品堆 (ItemStack)`** 游戏中最常见的对象，玩家物品栏中的每一格都是一个物品堆，物品堆包含了如下信息：
   物品 (Item)、数量 (Count)、标签/Nbt (Tags)
 
-## 表示
+## 简单表示
 
 可以使用如下方式来实例化一个物品堆：
 
@@ -75,7 +75,7 @@ Item.of("minecraft:stone").withName(Component.gold("石头"));
 Item.of("minecraft:stone").withLore(Component.gold("说明"));
 ```
 
-## 其它
+## 复合表示 —— 链式调用
 
 以上的`Item#of`方法返回值都是`ItemStack`，这意味着接下来你可以继续[链式调用](https://blog.csdn.net/Glengaga/article/details/135189920)：
 

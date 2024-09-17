@@ -268,7 +268,7 @@ ServerEvents.entityLootTables(event => {
 })
 ```
 
-### 熔炉冶炼
+### 熔炉熔炼
 
 - 得到物品放入熔炉冶炼后的产物。
 
