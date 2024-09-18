@@ -14,7 +14,7 @@
     - .github/    自动构建脚本
     - .vitepress/
         - config/ 本地化配置文件。
-        - plugins mdit插件存放位置
+        - plugins/ mdit插件存放位置
         - theme/  自定义主题和组件
         - config.mts Vitepress的配置文件
         - index.ts 侧边栏的配置文件。

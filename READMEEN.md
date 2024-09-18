@@ -29,7 +29,7 @@ I have always believed that the most effective way to foster a creative communit
     - .github/    Auto build scripts
     - .vitepress/
         - config/ Localization configuration files
-        - plugins Location for mdit plugins
+        - plugins/ Location for mdit plugins
         - theme/ Custom themes and components
         - config.mts Vitepress configuration file
         - index.ts Sidebar configuration file
