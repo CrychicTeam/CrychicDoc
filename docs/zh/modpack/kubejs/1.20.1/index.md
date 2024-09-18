@@ -117,11 +117,11 @@ root:
             - title: 结构标签
               path: /
               file: Structure
-        - title: 战利品
+        - title: 战利品表
           path: LootTable
           collapsed: true
           children:
-            - title: 战利品
+            - title: 战利品表
               path: /
               file: LootTable
             # - title: 战利品表示
@@ -133,19 +133,19 @@ root:
             # - title: 战利品添加
             #   path: /
             #   file: AddLootEntry
-            - title: 方块
+            - title: 方块类型战利品表
               path: /
               file: Block
-            - title: 实体
+            - title: 实体类型战利品表
               path: /
               file: Entity
-            - title: 钓鱼
+            - title: 钓鱼类型战利品表
               path: /
               file: Fish
-            - title: 礼物
+            - title: 礼物类型战利品表
               path: /
               file: Gift
-            - title: 箱子
+            - title: 箱子类型战利品表
               path: /
               file: Chest
         - title: 事件
@@ -204,6 +204,9 @@ root:
                 - title: JSDoc
                   path: /
                   file: JSDoc
+                - title: ProbeJS类型文件
+                  path: /
+                  file: ProbeJSClassFlie
         - title: 杂项知识
           path: MiscellaneousKnowledge
           collapsed: true

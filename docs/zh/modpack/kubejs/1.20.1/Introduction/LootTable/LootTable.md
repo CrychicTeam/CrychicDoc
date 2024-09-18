@@ -1,4 +1,4 @@
-# 战利品
+# 战利品表
 
 ## 前言
 
@@ -117,6 +117,47 @@ ServerEvents.entityLootTables(event => {
 
 ## 战利品谓词
 
+- 用于判断对象或参数的一组条件。
+
+- 战利品表谓词本质就是[谓词](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D)
+
+### 全部
+
+### 任何
+
+### 方块状态属性
+
+### 伤害来源属性
+
+### 实体属性
+
+### 实体分数
+
+### 取反
+
+### 被玩家击杀
+
+- 实体死于被玩家击杀则条件通过。
+
+- 语句：killedByPlayer();
+
+- 示例：尸壳死于玩家掉落金苹果。
+
+```js
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5, 1)
+            .killedByPlayer()
+        })
+    })
+})
+```
+
+### 检查位置
+
+### 匹配工具
+
 ### 随机概率
 
 - 通过小数表示的随机概率。
@@ -154,7 +195,7 @@ ServerEvents.blockLootTables(event => {
 
 :::
 
-### 抢夺影响概率
+### 受抢夺附魔影响的随机概率
 
 - 根据抢夺附魔等级影响条件通过的概率。
 
@@ -172,6 +213,8 @@ ServerEvents.entityLootTables(event => {
     })
 })
 ```
+
+### 引用谓词文件
 
 ### 未被爆炸破坏
 
@@ -192,28 +235,29 @@ ServerEvents.blockLootTables(event => {
 })
 ```
 
-### 被玩家所击杀
+### 附魔奖励
 
-- 实体死于被玩家击杀则条件通过。
+### 检查时间
 
-- 语句：killedByPlayer();
+### 检查值
 
-- 示例：尸壳死于玩家掉落金苹果。
+### 检查天气
 
-```js
-ServerEvents.entityLootTables(event => {
-    event.modifyEntity('minecraft:husk', loot => {
-        loot.addPool(pool => {
-            pool.addItem('minecraft:golden_apple', 5, 1)
-            .killedByPlayer()
-        })
-    })
-})
-```
+## 战利品修饰器
 
-## 战利品修饰
+- 用于修改战利品表中物品栈的函数。
 
-### 对战利品项随机附魔
+- 战利品修饰器或战利品表物品函数就是[物品修饰器](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E4%BF%AE%E9%A5%B0%E5%99%A8)
+
+### 应用奖励公式
+
+### 复制方块实体显示名
+
+### 复制NBT
+
+### 复制方块状态
+
+### 随机附魔
 
 - 将对战利品项从附魔列表中随机附魔。
 
@@ -232,7 +276,7 @@ ServerEvents.entityLootTables(event => {
 })
 ```
 
-### 对战利品项按等级附魔
+### 给予等价于经验等级的随机魔咒
 
 - 对战利品项执行一次数字提供器返回的等级的附魔。
 
@@ -251,22 +295,11 @@ ServerEvents.entityLootTables(event => {
 })
 ```
 
-### 抢夺额外掉落
+### 设置探险家地图
 
-- 语句：lootingEnchant(每级抢夺掉落数-数字提供器, 战利品项总计最大掉落数);
+### 爆炸损耗
 
-- 示例：尸壳掉落金苹果，每多1级抢夺额外掉落1-2个，总共最多掉落6个。
-
-```js
-ServerEvents.entityLootTables(event => {
-    event.modifyEntity('minecraft:husk', loot => {
-        loot.addPool(pool => {
-            pool.addItem('minecraft:golden_apple', 5, 1)
-            .lootingEnchant([1, 2], 6) 
-        })
-    })
-})
-```
+### 填充玩家头颅
 
 ### 熔炉熔炼
 
@@ -286,3 +319,50 @@ ServerEvents.entityLootTables(event => {
     })
 })
 ```
+
+### 限制堆叠数量
+
+### 根据魔咒调整物品数量
+
+- 语句：lootingEnchant(每级抢夺掉落数-数字提供器, 战利品项总计最大掉落数);
+
+- 示例：尸壳掉落金苹果，每多1级抢夺额外掉落1-2个，总共最多掉落6个。
+
+```js
+ServerEvents.entityLootTables(event => {
+    event.modifyEntity('minecraft:husk', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:golden_apple', 5, 1)
+            .lootingEnchant([1, 2], 6) 
+        })
+    })
+})
+```
+
+### 引用物品修饰器
+
+### 设置属性
+
+### 设置旗帜图案
+
+### 设置内容物
+
+### 设置物品数量
+
+### 设置损伤值
+
+### 设置魔咒
+
+### 设置乐器
+
+### 设置战利品表
+
+### 设置物品描述
+
+### 设置物品名
+
+### 设置NBT
+
+### 设置药水
+
+### 设置迷之炖菜状态效果

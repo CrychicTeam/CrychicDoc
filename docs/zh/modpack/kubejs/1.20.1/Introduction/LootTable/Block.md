@@ -134,13 +134,41 @@ ServerEvents.blockLootTables(event => {
 
 ## 战利品谓词
 
+### 全部
+
+- [全部](LootTable.md#全部)
+
+### 任何
+
+- [任何](LootTable.md#任何)
+
+### 方块状态属性
+
+- [方块状态属性](LootTable.md#方块状态属性)
+
+### 实体属性
+
+- [实体属性](LootTable.md#实体属性)
+
+### 实体分数
+
+- [实体分数](LootTable.md#实体分数)
+
+### 取反
+
+- [取反](LootTable.md#取反)
+
+### 检查位置
+
+- [检查位置](LootTable.md#检查位置)
+
+### 匹配工具
+
+- [匹配工具](LootTable.md#匹配工具)
+
 ### 随机概率
 
-- 通过小数表示的随机概率。
-
-- 语句：randomChance(数字);
-
-- 例：
+- [随机概率](LootTable.md#随机概率)
 
 ::: code-group
 
@@ -171,7 +199,9 @@ ServerEvents.blockLootTables(event => {
 
 :::
 
-### 未被爆炸破坏
+- 引用谓词文件
+
+- 未被爆炸破坏
 
 - 返回成功概率为1 / 爆炸半径，如果上下文未传递爆炸则始终通过。
 
@@ -189,6 +219,14 @@ ServerEvents.blockLootTables(event => {
     })
 })
 ```
+
+- 附魔奖励
+
+- 检查时间
+
+- 检查值
+
+- 检查天气
 
 ## 战利品修饰
 
