@@ -1,6 +1,6 @@
 ---
 layout: doc
-noguide: true
+
 root:
   title: 全局范围
   collapsed: false

@@ -83,7 +83,7 @@ This site also supports the native frontmatter style of VitePress. For more deta
 ```yaml
 ---
 title: Example
-noguide: true
+
 authors:
   - M1hono
   - skyraah
@@ -154,7 +154,7 @@ interface SubDir {
 
 ```yaml
 ---
-noguide: true
+
 root:
   title: example
   collapsed: true

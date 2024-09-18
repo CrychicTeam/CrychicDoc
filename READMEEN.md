@@ -26,17 +26,23 @@ I have always believed that the most effective way to foster a creative communit
 
 ```markdown
 - crychicdoc
-    - .github    Automated build scripts
-    - .vitepress
-        - config VitePress configuration file
-        - theme  Custom themes and components
-    - .vscode md snippets
+    - .github/    Auto build scripts
+    - .vitepress/
+        - config/ Localization configuration files
+        - plugins Location for mdit plugins
+        - theme/ Custom themes and components
+        - config.mts Vitepress configuration file
+        - index.ts Sidebar configuration file
+    - .vscode/ md-snippets
     - docs
-        - public Stores static files
-        - zh    Simplified Chinese content
-        - en    English content
-    - public     Stores static files such as images
-    - README.md  This file
+        - public Directory for storing static files
+        - zh Simplified Chinese content
+        - en English content
+    - README.md This file
+    - .gitignore gitignore file
+    - ExtractClassScript.js Please ignore
+    - extracted_classes.md Please ignore
+    - LICENSE CC BY-SA 4.0
 ```
 
 ## Collaboration

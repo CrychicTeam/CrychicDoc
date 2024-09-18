@@ -3,7 +3,7 @@ layout: doc
 title: CrychicDoc Guide
 layoutClass: m-nav-layout
 sidebar: false
-noguide: true
+
 prev: false
 next: false
 editLink: false

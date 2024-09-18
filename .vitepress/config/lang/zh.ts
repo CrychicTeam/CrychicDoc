@@ -1,5 +1,6 @@
 import { DefaultTheme } from "vitepress";
 import { sidebars } from "../sidebarControl";
+import { text } from "stream/consumers";
 
 export const zh_CN = <DefaultTheme.Config>{
     lang: "zh-CN",
@@ -8,6 +9,7 @@ export const zh_CN = <DefaultTheme.Config>{
     description: "一个包含 Minecraft 开发文档的网站。",
     themeConfig: {
         nav: [
+            {text: "合作须知", link: "/zh/doc/rules"},
             {
                 text: "KubeJS",
                 items: [

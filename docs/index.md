@@ -11,8 +11,8 @@ hero:
     alt: crychic
   actions:
     - theme: alt
-      text: Github合作指南
-      link: /zh/doc/cooperation
+      text: 合作
+      link: /zh/doc/rules
     - theme: brand
       text: KubeJS
       link: /zh/modpack/kubejs/

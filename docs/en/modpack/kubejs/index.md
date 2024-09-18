@@ -1,5 +1,5 @@
 ---
-noguide: true
+
 root:
   title: KubeJS
   collapsed: false

@@ -178,8 +178,14 @@ export default class SidebarGenerator {
         try {
             const fileObject: string = fs.readFileSync(filePath, "utf8");
             const { data } = matter(fileObject);
+    
             if (data) {
-                return data as FileFrontMatter;
+                const defaultTitle = path.basename(filePath, ".md");
+                const frontMatter: FileFrontMatter = {
+                    title: data.title || defaultTitle,
+                    noguide: data.noguide !== undefined ? data.noguide : true,
+                };
+                return frontMatter;
             } else {
                 throw new Error("Invalid file format");
             }
@@ -187,6 +193,7 @@ export default class SidebarGenerator {
             return null;
         }
     }
+    
 
     private indexReader(): Index | null {
         try {

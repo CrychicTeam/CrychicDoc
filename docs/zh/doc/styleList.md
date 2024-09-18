@@ -1,6 +1,5 @@
 ---
 title: 文档样式一览
-noguide: true
 ---
 # {{ $frontmatter.title }}
 

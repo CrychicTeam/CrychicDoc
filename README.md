@@ -27,17 +27,23 @@ You may find English version of readme on [here](/READMEEN.md).
 
 ```markdown
 - crychicdoc
-    - .github    自动构建脚本
-    - .vitepress
-        - config VitePress的配置文件
-        - theme  自定义主题和组件
-    - .vscode md snippets
+    - .github/    自动构建脚本
+    - .vitepress/
+        - config/ 本地化配置文件。
+        - plugins mdit插件存放位置
+        - theme/  自定义主题和组件
+        - config.mts Vitepress的配置文件
+        - index.ts 侧边栏的配置文件。
+    - .vscode/ md-snippets
     - docs
         - public 存放静态文件
         - zh 简体中文内容
         - en 英文内容
-    - public     存放静态文件如图片
     - README.md  本文件
+    - .gitignore gitignore文件。
+    - ExtractClassScript.js 请忽视
+    - extracted_classes.md 请忽视
+    - LICENSE CC BY-SA 4.0
 ```
 
 ## 共创

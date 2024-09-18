@@ -1,9 +1,12 @@
 ---
-noguide: true
 root:
   title: 文档相关
   collapsed: false
   children:
+      - title: Rules
+        path: /
+        noScan: true
+        file: rules
       - title: Cooperation
         path: /
         noScan: true
@@ -20,10 +23,6 @@ root:
         path: /
         noScan: true
         file: samples
-      - title: Twoslash Samples
-        path: /
-        noScan: true
-        file: test
       # - title: 文档样式一览
       #   path: /
       #   noScan: true

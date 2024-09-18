@@ -11,8 +11,8 @@ hero:
     alt: crychic
   actions:
     - theme: alt
-      text: Github Collaboration guide
-      link: /en/doc/cooperation
+      text: Collaboration
+      link: /en/doc/rules
     - theme: brand
       text: KubeJS
       link: /en/modpack/kubejs/

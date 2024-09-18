@@ -14,7 +14,7 @@ layout: doc
 #   WorldGeneration: 7
 #   NetworkInteraction: 8
 
-noguide: true
+
 root:
   backLink: "../"
   title: KubeJS

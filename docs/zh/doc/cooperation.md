@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: 项目合作教程
-noguide: true
+
 ---
 
 # 项目合作教程

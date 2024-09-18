@@ -1,7 +1,5 @@
 ---
 layout: doc
-title: 侧边栏设置教程
-noguide: true
 ---
 
 # VitePress 侧边栏生成器配置指南 {#guide}
@@ -77,8 +75,8 @@ function logger(string: string, name: string): void {
 | 配置字段      | 用途                             | 类型      | 省缺值     |
 |-----------|--------------------------------|---------|---------|
 | `title`   | 设置侧边栏中显示的标题（如未设置则使用文件名）        | string  | `N/A`   |
+| `noguide`| 该文章是否显示在侧边栏|boolean |`true`|
 |`backPath`|设置该界面点击BackButton后前往的位置|string|`N/A`|
-| `noguide` | 设置该文件是否添加到侧边栏中                 | boolean | `false` |
 | `authors`  | 设置该文章额外的作者，显示在贡献者栏，配置可参考[此处](https://nolebase-integrations.ayaka.io/pages/zh-CN/integrations/vitepress-plugin-git-changelog/configure-vite-plugins#%E9%80%89%E9%A1%B9-mapcontributors-%E4%B8%BA%E8%B4%A1%E7%8C%AE%E8%80%85%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%E6%98%A0%E5%B0%84)| string[]  | `N/A`   |
 | `showComment`  | 是否显示评论区 | boolean  | `true`   |
 | `gitChangelog`  | 是否显示贡献者和页面历史 | boolean  | `true`   |
@@ -89,7 +87,6 @@ function logger(string: string, name: string): void {
 ---
 title: 示例
 backPath: ../
-noguide: true
 authors: ['M1hono', 'skyraah'] # 可在common-config中额外配置 但还是请尽量使用Github ID。
 showComment: false
 gitChangelog: false
@@ -162,7 +159,7 @@ interface SubDir {
 
 ```yaml
 ---
-noguide: true
+
 root:
   title: example
   collapsed: true

@@ -1,10 +1,13 @@
 ---
-noguide: true
 root:
   title: 文档相关
   collapsed: false
   children:
-      - title: 项目合作教程
+      - title: 合作规范
+        path: /
+        noScan: true
+        file: rules
+      - title: Git合作教程
         path: /
         noScan: true
         file: cooperation
@@ -19,11 +22,6 @@ root:
       - title: 文档插件示例
         path: /
         noScan: true
-        file: samples
-      - title: 类型检查示例
-        path: /
-        noScan: true
-        file: test
       - title: 文档样式一览
         path: /
         noScan: true

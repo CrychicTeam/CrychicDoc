@@ -8,6 +8,7 @@ export const en_US = <DefaultTheme.Config>{
     description: "A site containing docs for Minecraft developing.",
     themeConfig: {
         nav: [
+            {text: "Cooperation Guide", link: "/en/doc/rules"},
             {
                 text: "KubeJS",
                 items: [

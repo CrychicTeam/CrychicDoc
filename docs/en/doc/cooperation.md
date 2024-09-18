@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Project Collaboration Tutorial
-noguide: true
+
 ---
 
 # Git Tutorial
