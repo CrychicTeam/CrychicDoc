@@ -22,6 +22,7 @@ root:
       - title: 文档插件示例
         path: /
         noScan: true
+        file: samples
       - title: 文档样式一览
         path: /
         noScan: true
