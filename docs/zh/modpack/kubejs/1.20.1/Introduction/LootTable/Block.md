@@ -1,4 +1,4 @@
-# 方块战利品
+<!-- # 方块战利品
 
 ## 前言
 
@@ -283,4 +283,92 @@ ServerEvents.blockLootTables(event => {
         })
     })
 })
+``` -->
+
+# 方块类型战利品表
+
+## 战利品表
+
+::: code-group
+
+```js [覆盖原战利品表]
+// 监听事件
+ServerEvents.blockLootTables(event => {
+    // 覆盖战利品表，填入方块id或方块标签，如果是标签会覆盖标签里所有方块的战利品表
+    event.addBlock('minecraft:gravel', loot => {
+    })
+})
 ```
+
+```js [修改原战利品表]
+// 监听事件
+ServerEvents.blockLootTables(event => {
+    // 修改战利品表，填入方块id或方块标签，如果是标签会修改标签里所有方块的战利品表
+    event.modifyBlock('minecraft:gravel', loot => { 
+    })
+})
+```
+
+:::
+
+## 战利品池
+
+- loot是一个[Internal.LootBuilder](../Addon/ProbeJS/ProbeJSClassFlie.md#internallootbuilder)类型对象
+
+::: code-group
+
+```js [覆盖原战利品表]
+// 监听事件
+ServerEvents.blockLootTables(event => {
+    // 覆盖战利品表，填入方块id或方块标签，如果是标签会覆盖标签里所有方块的战利品表
+    event.addBlock('minecraft:gravel', loot => {
+        loot.addPool(pool => {// [!code ++]
+        })// [!code ++]
+    })
+})
+```
+
+```js [修改原战利品表]
+// 监听事件
+ServerEvents.blockLootTables(event => {
+    // 修改战利品表，填入方块id或方块标签，如果是标签会修改标签里所有方块的战利品表
+    event.modifyBlock('minecraft:gravel', loot => { 
+        loot.addPool(pool => {// [!code ++]
+        })// [!code ++]
+    })
+})
+```
+
+:::
+
+## 战利品
+
+- pool是一个[Internal.LootBuilderPool](../Addon/ProbeJS/ProbeJSClassFlie.md#internallootbuilderpool)对象。
+
+::: code-group
+
+```js [覆盖原战利品表]
+// 监听事件
+ServerEvents.blockLootTables(event => {
+    // 覆盖战利品表，填入方块id或方块标签，如果是标签会覆盖标签里所有方块的战利品表
+    event.addBlock('minecraft:gravel', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:diamond')// [!code ++]
+        })
+    })
+})
+```
+
+```js [修改原战利品表]
+// 监听事件
+ServerEvents.blockLootTables(event => {
+    // 修改战利品表，填入方块id或方块标签，如果是标签会修改标签里所有方块的战利品表
+    event.modifyBlock('minecraft:gravel', loot => { 
+        loot.addPool(pool => {
+            pool.addItem('minecraft:diamond')// [!code ++]
+        })
+    })
+})
+```
+
+:::
