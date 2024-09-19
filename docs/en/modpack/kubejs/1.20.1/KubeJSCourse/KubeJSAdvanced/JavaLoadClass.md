@@ -7,7 +7,7 @@
 
 loadclass就是kjs提供给我们用来加载java类的
 
-这使得KubeJS的可玩性非常高，比如[注册AE存储元件和对应的组件](../KubejsProjects/Meng/RegComponent&Storage.md)就使用到了非常多的loadClass
+这使得KubeJS的可玩性非常高，比如[注册AE存储元件和对应的组件](../KubeJSProjects/Meng/RegComponent&Storage.md)就使用到了非常多的loadClass
 
 ## 关于使用
 ```js

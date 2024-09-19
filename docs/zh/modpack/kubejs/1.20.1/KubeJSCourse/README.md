@@ -42,7 +42,6 @@
 * Digression 题外话——存放除了kubejs代码以外可能需要知道的内容
 * Texture 存放关于assets资源内容
 * KubeJSProjects 存放一些大家写的项目(对应的文件夹路径代表着对应的分享人)
-* Files 存放着文档里出现的可下载资源
 * imgs 存放着文档里出现的图片,对应的路径代表着出现的位置(使用绝对路径)
 * Code 存放着代码分享
   * Projects是项目分享的代码

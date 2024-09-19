@@ -3,7 +3,7 @@
 
 `ForgeEvent`是写在**startup**里的，这个一定得注意！
 
-ForgeEvent不仅仅只能调用到forge提供的事件，如果其他模组在源代码（指的Java代码）里直接继承了`Event`类，也是可以被ForgeEvent捕捉下来的，类似的示例：[机械动力修改流体管道流体和流体产生块](../KubejsProjects/Meng/SmallProject/CreatePipeCollision.md)
+ForgeEvent不仅仅只能调用到forge提供的事件，如果其他模组在源代码（指的Java代码）里直接继承了`Event`类，也是可以被ForgeEvent捕捉下来的，类似的示例：[机械动力修改流体管道流体和流体产生块](../KubeJSProjects/Meng/SmallProject/CreatePipeCollision.md)
 
 ForgeEvent是可以搭配着[loadClass](./JavaLoadClass.md)一起使用的
 

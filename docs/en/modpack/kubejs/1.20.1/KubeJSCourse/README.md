@@ -47,7 +47,6 @@ Project [issue feedback](https://gitee.com/gumengmengs/kubejs-course/issues/new/
 * Digression: Contains additional information not directly related to KubeJS code.
 * Texture: Contains assets and resource-related content.
 * KubeJSProjects: Contains projects shared by contributors (folder names correspond to the contributor's name).
-* Files: Contains downloadable resources mentioned in the documentation.
 * imgs: Contains images used in the documentation, with absolute paths corresponding to their locations.
 * Code: Contains shared code snippets.
   * Projects: Contains code for shared projects.
