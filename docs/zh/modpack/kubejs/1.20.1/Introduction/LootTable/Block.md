@@ -2,19 +2,17 @@
 
 ## 前言
 
-- **`数字提供器`** 返回数字的表达式，详情查看[数字提供器](../MiscellaneousKnowledge/NumberProvider.md)
-
-- **`战利品`** 了解战利品可用的函数以及结构，查看[战利品](./LootTable.md)
-
 - 事件：ServerEvents.blockLootTables(event=>{});
 
-## 战利品
+- 注意：该类型所有可用的谓词与修饰器已在本页面给出。
 
-### 替换原有战利品
+## 战利品池
+
+### 替换原战利品池
 
 - 战利品池抽取次数与战利品项物品个数是一个[数字提供器](../MiscellaneousKnowledge/NumberProvider.md)
 
-- 语句：event.addBlock(方块id, loot => { loot.addPool(pool => { }) });
+- 语句：event.addBlock(方块id, loot => \{loot.addPool(pool => \{\})\});
 
 - 示例：砂砾只会掉落火药。
 
@@ -69,11 +67,11 @@ ServerEvents.blockLootTables(event => {
 
 :::
 
-### 添加额外战利品
+### 添加新战利品池
 
 - 战利品池抽取次数与战利品项物品个数是一个[数字提供器](../MiscellaneousKnowledge/NumberProvider.md)
 
-- 语句：event.modifyBlock(方块id, loot => { loot.addPool(pool => { }) });
+- 语句：event.modifyBlock(方块id, loot => \{loot.addPool(pool => \{ \}) \});
 
 - 示例：砂砾还会额外掉落火药。
 
@@ -128,7 +126,7 @@ ServerEvents.blockLootTables(event => {
 
 :::
 
-### 修改原有战利品
+### 修改原战利品池
 
 - 等待后续...
 
@@ -136,39 +134,39 @@ ServerEvents.blockLootTables(event => {
 
 ### 全部
 
-- [全部](LootTable.md#全部)
+- [全部](Predicate.md#全部)
 
 ### 任何
 
-- [任何](LootTable.md#任何)
+- [任何](Predicate.md#任何)
 
 ### 方块状态属性
 
-- [方块状态属性](LootTable.md#方块状态属性)
+- [方块状态属性](Predicate.md#方块状态属性)
 
 ### 实体属性
 
-- [实体属性](LootTable.md#实体属性)
+- [实体属性](Predicate.md#实体属性)
 
 ### 实体分数
 
-- [实体分数](LootTable.md#实体分数)
+- [实体分数](Predicate.md#实体分数)
 
 ### 取反
 
-- [取反](LootTable.md#取反)
+- [取反](Predicate.md#取反)
 
 ### 检查位置
 
-- [检查位置](LootTable.md#检查位置)
+- [检查位置](Predicate.md#检查位置)
 
 ### 匹配工具
 
-- [匹配工具](LootTable.md#匹配工具)
+- [匹配工具](Predicate.md#匹配工具)
 
 ### 随机概率
 
-- [随机概率](LootTable.md#随机概率)
+- [随机概率](Predicate.md#随机概率)
 
 ::: code-group
 

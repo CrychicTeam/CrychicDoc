@@ -124,6 +124,12 @@ root:
             - title: 战利品表
               path: /
               file: LootTable
+            - title: 谓词
+              path: /
+              file: Predicate
+            - title: 物品修饰器
+              path: /
+              file: ItemModifier
             # - title: 战利品表示
             #   path: /
             #   file: LootEntry
