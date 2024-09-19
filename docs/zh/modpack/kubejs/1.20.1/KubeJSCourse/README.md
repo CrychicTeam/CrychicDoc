@@ -51,6 +51,10 @@
 ### 关于文档一些规则
 * 文档内表格存在三种类型`-` `~`和`?`, 其中`-`代表无, `~`代表待编辑, `?`代表不知道
 * 图片一定要使用**绝对路径**
+# 关于开源
+本项目遵循 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
+您可以转载并使用但是请附上相应的参考文档链接
+**您不得将本项目内容用于商业目的**
 
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'

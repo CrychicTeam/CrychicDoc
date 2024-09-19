@@ -16,3 +16,30 @@
 | ServerEvents.fishingLootTables | 钓鱼战利品 | modify       | addFishing | [钓鱼战利品](./FishingLootTable)   |
 | ServerEvents.chestLootTables   | 宝箱战利品 | modify       | addChest   | [宝箱战利品](./ChestLootTable) |
 
+## LootBuilderPool通用方法
+|                         方法名                          |                  参数                   |           用途           |      返回类型      |
+| :-----------------------------------------------------: | :-------------------------------------: | :----------------------: | :----------------: |
+|              `setUniformRolls(int1,int2)`               |  int1->最小抽取次数 int2->最大抽取次数  |    随机从奖池抽取次数    |        void        |
+|               `addCondition(JsonObject)`                |                    ~                    |            ~             | ConditionContainer |
+| `addConditionalFunction(Consumer<ConditionalFunction>)` |                    ~                    |            ~             | FunctionContainer  |
+|                     `addEmpty(int)`                     |            int->空值占比权重            |     设置抽到空的权重     |   LootTableEntry   |
+|                 `addEntry(JsonObject)`                  |                    ~                    |            ~             |   LootTableEntry   |
+|                  `addItem(ItemStack)`                   |                   ->                    |         添加物品         |   LootTableEntry   |
+|                `addItem(ItemStack,int)`                 |             int-> 权重占比              |         添加物品         |   LootTableEntry   |
+|         `addItem(ItemStack,int,NumberProvider)`         |        NumberProvider-> 数量范围        |         添加物品         |   LootTableEntry   |
+|            `addLootTable(ResourceLocation)`             |                   ->                    |  添加到其他的战利品表里  |   LootTableEntry   |
+|                  `addTag(string,bool)`                  | string->tagId bool-> 是否从其中抽取一个 |    添加tag作为战利品     |   LootTableEntry   |
+|          `randomChanceWithLooting(int1,int2)`           |      int1->chance int2->multiplier      |            ~             | ConditionContainer |
+|                 `count(NumberProvider)`                 |                   ->                    |       设置数量范围       | FunctionContainer  |
+|                `damage(NumberProvider)`                 |                   ->                    |      设置损坏值范围      | FunctionContainer  |
+|          `enchantRandomly(ResourceLocation[])`          |                   ->                    |         随机附魔         | FunctionContainer  |
+|        `enchantWithLevels(NumberProvider,bool)`         |                    ~                    |            ~             | FunctionContainer  |
+|       `entityProperties(EntityTarget,JsonObject)`       |                    ~                    |            ~             | ConditionContainer |
+|      `entityScores(EntityTarget,Map<string, any>)`      |                    ~                    |            ~             | ConditionContainer |
+|                       `entries()`                       |                    -                    |     获取entries列表      |     JsonArray      |
+|                   `killedByPlayer()`                    |                    -                    |     设置需要玩家击杀     | ConditionContainer |
+|                   `randomChance(int)`                   |                   ->                    |            ~             | ConditionContainer |
+|          `randomChanceWithLooting(int1,int2)`           |     int1-> chance int2-> multiplier     |            ~             | ConditionContainer |
+|              `setBinomialRolls(int1,int2)`              |                    ~                    |            ~             |        void        |
+|                  `survivesExplosion()`                  |                    -                    |            ~             | ConditionContainer |
+|                    `furnaceSmelt()`                     |                    -                    | 掉落物品可被火焰附加熔炼 | FunctionContainer  |

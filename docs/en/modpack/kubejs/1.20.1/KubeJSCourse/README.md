@@ -56,7 +56,11 @@ Project [issue feedback](https://gitee.com/gumengmengs/kubejs-course/issues/new/
 
 ### Documentation Rules
 * Tables in the documentation can have three types of markers: `-`, `~`, and `?`. `-` represents "none," `~` represents "to be edited," and `?` represents "unknown."
-* Images must use absolute paths.
+* 图片一定要使用**绝对路径**
+# 关于开源
+本项目遵循 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
+您可以转载并使用但是请附上相应的参考文档链接
+**您不得将本项目内容用于商业目的**
 
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
