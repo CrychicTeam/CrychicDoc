@@ -6,7 +6,7 @@ hero:
   text: "A Minecraft doc maintained by Crychic team."
   tagline: Contains documentation and resource indexes related to modpacks and Minecraft development.
   image: 
-    light: /logo.png
+    light: /svg/crychic.svg
     dark: /logodark.png
     alt: crychic
   actions:
