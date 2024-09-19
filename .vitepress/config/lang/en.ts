@@ -8,7 +8,6 @@ export const en_US = <DefaultTheme.Config>{
     description: "A site containing docs for Minecraft developing.",
     themeConfig: {
         nav: [
-            {text: "Cooperation Guide", link: "/en/doc/rules"},
             {
                 text: "KubeJS",
                 items: [
@@ -58,7 +57,14 @@ export const en_US = <DefaultTheme.Config>{
                     },
                 ],
             },
-            { text: "Guide", link: "/en/doc/guide" },
+            {text: "Cooperation Guide", link: "/en/doc/rules"},
+            {text: "Guide", items: [
+                {text: "Minecraft", link: "/en/doc/guide/minecraft"},
+                {text: "KubeJS", link: "/en/doc/guide/KubeJS"},
+                {text: "Pixelart", link: "/en/doc/guide/pixelart"},
+                {text: "Art Resource", link: "/en/doc/guide/resource"},
+                {text: "Community", link: "/en/doc/guide/community"},
+            ]},
         ],
         sidebar: sidebars("en"),
         outline: {

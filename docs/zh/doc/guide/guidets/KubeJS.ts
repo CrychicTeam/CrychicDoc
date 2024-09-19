@@ -1,42 +1,8 @@
-import type { NavData } from '../../../.vitepress/utils/type'
+import type { NavData } from '../../../../../.vitepress/utils/type'
 
 export const NAV_DATA: NavData[] = [
     {
-        title: "Minecraft Useful Links",
-        items: [
-            {
-                title: "Minecraft wiki",
-                link: "https://zh.minecraft.wiki/",
-                icon: "https://zh.minecraft.wiki/images/Wiki.png"
-            },
-            {
-                title: "modtinth",
-                link: "https://modrinth.com/",
-                icon: {
-                    svg: '<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><path fill="#1bd96a" d="M12.252.004a11.78 11.768 0 0 0-8.92 3.73a11 11 0 0 0-2.17 3.11a11.37 11.359 0 0 0-1.16 5.169c0 1.42.17 2.5.6 3.77c.24.759.77 1.899 1.17 2.529a12.3 12.298 0 0 0 8.85 5.639c.44.05 2.54.07 2.76.02c.2-.04.22.1-.26-1.7l-.36-1.37l-1.01-.06a8.5 8.489 0 0 1-5.18-1.8a5.3 5.3 0 0 1-1.3-1.26c0-.05.34-.28.74-.5a37.572 37.545 0 0 1 2.88-1.629c.03 0 .5.45 1.06.98l1 .97l2.07-.43l2.06-.43l1.47-1.47c.8-.8 1.48-1.5 1.48-1.52c0-.09-.42-1.63-.46-1.7c-.04-.06-.2-.03-1.02.18c-.53.13-1.2.3-1.45.4l-.48.15l-.53.53l-.53.53l-.93.1l-.93.07l-.52-.5a2.7 2.7 0 0 1-.96-1.7l-.13-.6l.43-.57c.68-.9.68-.9 1.46-1.1c.4-.1.65-.2.83-.33c.13-.099.65-.579 1.14-1.069l.9-.9l-.7-.7l-.7-.7l-1.95.54c-1.07.3-1.96.53-1.97.53c-.03 0-2.23 2.48-2.63 2.97l-.29.35l.28 1.03c.16.56.3 1.16.31 1.34l.03.3l-.34.23c-.37.23-2.22 1.3-2.84 1.63c-.36.2-.37.2-.44.1c-.08-.1-.23-.6-.32-1.03c-.18-.86-.17-2.75.02-3.73a8.84 8.84 0 0 1 7.9-6.93c.43-.03.77-.08.78-.1c.06-.17.5-2.999.47-3.039c-.01-.02-.1-.02-.2-.03Zm3.68.67c-.2 0-.3.1-.37.38c-.06.23-.46 2.42-.46 2.52c0 .04.1.11.22.16a8.51 8.499 0 0 1 2.99 2a8.38 8.379 0 0 1 2.16 3.449a6.9 6.9 0 0 1 .4 2.8c0 1.07 0 1.27-.1 1.73a9.4 9.4 0 0 1-1.76 3.769c-.32.4-.98 1.06-1.37 1.38c-.38.32-1.54 1.1-1.7 1.14c-.1.03-.1.06-.07.26c.03.18.64 2.56.7 2.78l.06.06a12.07 12.058 0 0 0 7.27-9.4c.13-.77.13-2.58 0-3.4a11.96 11.948 0 0 0-5.73-8.578c-.7-.42-2.05-1.06-2.25-1.06Z"/></svg>'
-                }
-            },
-            {
-                title: "curseforge",
-                link: "https://www.curseforge.com/",
-                icon: {
-                    svg: '<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><path fill="#f16436" d="M18.326 9.215s4.9-.773 5.674-3.027h-7.507V4.4H0l2.032 2.358v2.415s5.127-.266 7.11 1.237c2.714 2.516-3.053 5.917-3.053 5.917l-.99 3.273c1.547-1.473 4.494-3.377 9.899-3.286c-2.057.65-4.125 1.665-5.735 3.286h10.925l-1.029-3.273s-7.918-4.668-.833-7.112"/></svg>'
-                }
-            },
-            {
-                title: "Fandom wiki",
-                link: "https://minecraft-mods.fandom.com/wiki/Special:Search?query=minecraft&scope=internal&navigationSearch=true/",
-                icon: "https://minecraft-mods.fandom.com/favicon.ico"
-            },
-            // {
-            //     title: "Minecraft Wiki",
-            //     link: "https://minecraft.wiki/",
-            //     icon: "https://zh.minecraft.wiki/images/Wiki.png"
-            // },
-        ]
-    },
-    {
-        title: "Code Hosting",
+        title: "代码托管",
         items: [
             {
                 title: "GitHub",
@@ -50,7 +16,7 @@ export const NAV_DATA: NavData[] = [
                     }
                 },
                 badge: {
-                    text: "Recommended",
+                    text: "推荐",
                     type: "tip"
                 }
             },
@@ -86,10 +52,14 @@ export const NAV_DATA: NavData[] = [
         ]
     },
     {
-        title: "AI",
+        title: "AI工具",
         items: [
             {
                 title: "ChatGPT",
+                badge: {
+                    type: "warning",
+                    text: "中国大陆无法正常访问"
+                },
                 link: "https://chatgpt.com/",
                 icon: {
                     light: {
@@ -123,7 +93,7 @@ export const NAV_DATA: NavData[] = [
         ]
     },
     {
-        title: "Utils",
+        title: "实用网站",
         items: [
             {
                 title: "Json.cn",
@@ -131,154 +101,30 @@ export const NAV_DATA: NavData[] = [
                 icon: "https://static.json.cn/r/img/favicon/favicon.ico"
             },
             {
-                title: "RGB and HEX color code conversion",
-                link: "https://rgbcolorcode.com/color/converter/",
-                icon: "https://rgbcolorcode.com/favicon.ico"
+                title: "RGB与十六进制色码转换",
+                link: "https://www.sioe.cn/yingyong/yanse-rgb-16/",
+                icon: {
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 512 512"><path fill="#E5AA6E" d="M256.295 9.217C120.001 9.217 9.512 119.706 9.512 256c0 43.532 11.693 84.2 31.055 119.939c24.744 45.676 120.236-129.338 171.165-91.196S90.776 447.079 138.533 472.527c35.252 18.784 75.036 30.256 117.762 30.256c136.294 0 246.783-110.488 246.783-246.783S392.59 9.217 256.295 9.217"/><path fill="#FFF" d="M274.829 451.585c-24.167 0-43.758-17.564-43.758-39.23s19.591-39.23 43.758-39.23s43.758 17.564 43.758 39.23s-19.591 39.23-43.758 39.23"/><path fill="#FFD469" d="M435.954 299.272c12.708 19.521 5.991 46.425-15.003 60.092s-48.315 8.922-61.023-10.599s-5.991-46.425 15.004-60.092c20.993-13.668 48.314-8.922 61.022 10.599"/><path fill="#0074A8" d="M443.193 159.103c1.598 23.238-17.366 43.469-42.358 45.188s-46.547-15.726-48.145-38.964s17.366-43.469 42.358-45.188s46.547 15.726 48.145 38.964"/><path fill="#FF473E" d="M287.822 100.348c1.598 23.238-21.619 43.762-51.857 45.841s-56.046-15.073-57.644-38.311s21.619-43.762 51.857-45.841s56.046 15.073 57.644 38.311"/><path fill="#009B51" d="M155.826 201.296c1.598 23.238-17.366 43.469-42.358 45.188s-46.547-15.726-48.145-38.964s17.366-43.469 42.358-45.188s46.547 15.726 48.145 38.964"/></svg>`
+                }
             },
             {
-                title: "VSCode Snippet Generator",
+                title: "VSC代码片段生成器",
                 link: "https://snippet-generator.app/",
                 icon: {
                     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><mask id="IconifyId191d5d48585f2379a4" width="128" height="128" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#fff" fill-rule="evenodd" d="M90.767 127.126a7.97 7.97 0 0 0 6.35-.244l26.353-12.681a8 8 0 0 0 4.53-7.209V21.009a8 8 0 0 0-4.53-7.21L97.117 1.12a7.97 7.97 0 0 0-9.093 1.548l-50.45 46.026L15.6 32.013a5.33 5.33 0 0 0-6.807.302l-7.048 6.411a5.335 5.335 0 0 0-.006 7.888L20.796 64L1.74 81.387a5.336 5.336 0 0 0 .006 7.887l7.048 6.411a5.33 5.33 0 0 0 6.807.303l21.974-16.68l50.45 46.025a8 8 0 0 0 2.743 1.793Zm5.252-92.183L57.74 64l38.28 29.058V34.943Z" clip-rule="evenodd"/></mask><g mask="url(#IconifyId191d5d48585f2379a4)"><path fill="#0065A9" d="M123.471 13.82L97.097 1.12A7.97 7.97 0 0 0 88 2.668L1.662 81.387a5.333 5.333 0 0 0 .006 7.887l7.052 6.411a5.33 5.33 0 0 0 6.811.303l103.971-78.875c3.488-2.646 8.498-.158 8.498 4.22v-.306a8 8 0 0 0-4.529-7.208Z"/><g filter="url(#IconifyId191d5d48585f2379a5)"><path fill="#007ACC" d="m123.471 114.181l-26.374 12.698A7.97 7.97 0 0 1 88 125.333L1.662 46.613a5.333 5.333 0 0 1 .006-7.887l7.052-6.411a5.33 5.33 0 0 1 6.811-.303l103.971 78.874c3.488 2.647 8.498.159 8.498-4.219v.306a8 8 0 0 1-4.529 7.208"/></g><g filter="url(#IconifyId191d5d48585f2379a6)"><path fill="#1F9CF0" d="M97.098 126.882A7.98 7.98 0 0 1 88 125.333c2.952 2.952 8 .861 8-3.314V5.98c0-4.175-5.048-6.266-8-3.313a7.98 7.98 0 0 1 9.098-1.549L123.467 13.8A8 8 0 0 1 128 21.01v85.982a8 8 0 0 1-4.533 7.21z"/></g><path fill="url(#IconifyId191d5d48585f2379a7)" fill-rule="evenodd" d="M90.69 127.126a7.97 7.97 0 0 0 6.349-.244l26.353-12.681a8 8 0 0 0 4.53-7.21V21.009a8 8 0 0 0-4.53-7.21L97.039 1.12a7.97 7.97 0 0 0-9.093 1.548l-50.45 46.026l-21.974-16.68a5.33 5.33 0 0 0-6.807.302l-7.048 6.411a5.336 5.336 0 0 0-.006 7.888L20.718 64L1.662 81.386a5.335 5.335 0 0 0 .006 7.888l7.048 6.411a5.33 5.33 0 0 0 6.807.303l21.975-16.681l50.45 46.026a8 8 0 0 0 2.742 1.793m5.252-92.184L57.662 64l38.28 29.057z" clip-rule="evenodd" opacity=".25"/></g><defs><filter id="IconifyId191d5d48585f2379a5" width="144.744" height="113.408" x="-8.411" y="22.594" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="4.167"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend in2="BackgroundImageFix" mode="overlay" result="effect1_dropShadow_1_36"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_1_36" result="shape"/></filter><filter id="IconifyId191d5d48585f2379a6" width="56.667" height="144.007" x="79.667" y="-8.004" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="4.167"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend in2="BackgroundImageFix" mode="overlay" result="effect1_dropShadow_1_36"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_1_36" result="shape"/></filter><linearGradient id="IconifyId191d5d48585f2379a7" x1="63.922" x2="63.922" y1=".33" y2="127.67" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs></svg>`
                 }
             },
             {
-                title: "Online Table Tool",
-                link: "https://tableconvert.com/",
+                title: "在线表格转换器",
+                link: "https://tableconvert.com/zh-cn/",
                 icon: "https://tableconvert.com/images/favicon.png"
             },
             {
-                title: "JS Tools",
-                badge: {
-                    text: "Google Translate Needed",
-                    type: "tip"
-                },
+                title: "JS工具整合",
                 link: "https://js.wfuapp.com/",
                 icon: {
                     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#F0DB4F" rx="60"/><path fill="#323330" d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.889-3.092 12.889-15.12v-81.798h24.058v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.579c-17.357-7.388-28.871-16.668-28.871-36.258c0-18.044 13.748-31.792 35.229-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.731 12.029c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.139 14.778 14.608l6.014 2.577c20.449 8.765 31.963 17.699 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574"/></g></svg>`
                 }
-            },
-        ]
-    },
-    {
-        title: "Pixel Art - Tools",
-        items: [
-            {
-                title: "Aseprite",
-                badge: {
-                    text: "Recommended",
-                    type: "tip"
-                },
-                link: "https://community.aseprite.org/",
-                icon: "https://community.aseprite.org/uploads/default/optimized/1X/4c44ae432b7068d5c249db3aebb4d64d0a71324a_2_32x32.png"
-            },
-            {
-                title: "BlockBench",
-                link: "https://www.blockbench.net/",
-                icon: "https://www.blockbench.net/favicon.svg"
-            },
-            {
-                title: "PhotoShop",
-                link: "https://www.zhihu.com/tardis/zm/art/461228990?source_id=1005/",
-                icon: {
-                    svg: '<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><path fill="#001e36" d="M22.667 1.6h82.666C117.867 1.6 128 11.733 128 24.267v79.466c0 12.534-10.133 22.667-22.667 22.667H22.667C10.133 126.4 0 116.267 0 103.733V24.267C0 11.733 10.133 1.6 22.667 1.6"/><path fill="#31a8ff" d="M45.867 33.333c-1.6 0-3.2 0-4.853.054c-1.654.053-3.201.053-4.641.107c-1.44.053-2.773.053-4.053.106c-1.227.053-2.08.053-2.987.053c-.373 0-.533.213-.533.587v54.88c0 .48.213.694.64.694h10.347c.373-.054.64-.374.586-.747v-17.12c1.013 0 1.76 0 2.294.053c.533.053 1.386.053 2.666.053c4.374 0 8.374-.48 12-1.813c3.467-1.28 6.454-3.52 8.587-6.507q3.2-4.48 3.2-11.36c0-2.4-.426-4.693-1.226-6.933A17 17 0 0 0 64 39.36a19.05 19.05 0 0 0-7.147-4.374c-2.987-1.12-6.613-1.653-10.986-1.653m1.19 10.505c1.9.036 3.75.368 5.476 1.068c1.547.587 2.827 1.654 3.734 3.04a8.8 8.8 0 0 1 1.227 4.748c0 2.346-.534 4.16-1.654 5.493c-1.174 1.333-2.667 2.347-4.373 2.827c-1.974.64-4.054.959-6.134.959h-2.827c-.64 0-1.332-.053-2.079-.106v-17.92c.373-.054 1.12-.107 2.187-.053c1.013-.054 2.239-.054 3.626-.054q.41-.01.817-.002m44.73 2.723c-3.787 0-6.934.586-9.44 1.866c-2.293 1.067-4.267 2.773-5.6 4.906c-1.173 1.974-1.814 4.16-1.814 6.454a11.45 11.45 0 0 0 1.227 5.44a13.8 13.8 0 0 0 4.054 4.533a32.6 32.6 0 0 0 7.573 3.84c2.613 1.013 4.373 1.813 5.227 2.506c.853.694 1.28 1.387 1.28 2.134c0 .96-.587 1.867-1.44 2.24c-.96.48-2.4.747-4.427.747c-2.133 0-4.267-.267-6.294-.8a22.8 22.8 0 0 1-6.613-2.613c-.16-.107-.32-.16-.48-.053c-.16.106-.213.319-.213.479v9.28c-.053.427.213.8.587 1.013a21.5 21.5 0 0 0 5.44 1.707c2.4.48 4.799.693 7.252.693c3.84 0 7.041-.586 9.654-1.706c2.4-.96 4.48-2.613 5.973-4.747a12.4 12.4 0 0 0 2.08-7.093a11.5 11.5 0 0 0-1.226-5.493c-1.014-1.814-2.454-3.307-4.214-4.427a38.6 38.6 0 0 0-8.213-3.894a49 49 0 0 1-3.787-1.76c-.693-.373-1.333-.853-1.813-1.44c-.32-.427-.533-.906-.533-1.386s.16-1.013.426-1.44c.374-.533.96-.907 1.653-1.067c1.014-.266 2.134-.427 3.2-.374c2.027 0 4 .267 5.974.694c1.814.373 3.52.96 5.12 1.814c.213.106.48.106.96 0a.66.66 0 0 0 .267-.534v-8.693c0-.214-.054-.427-.107-.64c-.107-.213-.32-.427-.533-.48A18.8 18.8 0 0 0 98.4 47.04a46 46 0 0 0-6.613-.48z"/></svg>'
-                }
-            },
-            {
-                title: "Pixelover",
-                badge: {
-                    type: "warning",
-                    text: "Paid"
-                },
-                link: "https://deakcor.itch.io/pixelover/",
-                icon: "https://img.itch.zone/aW1nLzQ4NDkxMzYucG5n/32x32%23/xzPqxt.png"
-            },
-            {
-                title: "Palette knife",
-                badge: {
-                    type: "info",
-                    text: "Donation"
-                },
-                link: "https://zingot.itch.io/palette-knife/",
-                icon: "https://img.itch.zone/aW1hZ2UvNTQxMjE4LzQ1MTEyOTYucG5n/original/vKpGrU.png"
-            },
-            {
-                title: "Pixelbasher",
-                badge: {
-                    type: "warning",
-                    text: "Paid"
-                },
-                link: "https://pixelbasher.dev/",
-                icon: "https://www.pixilart.com/favicon.ico"
-            },
-            {
-                title: "Pixel Composer",
-                badge: {
-                    type: "warning",
-                    text: "Paid"
-                },
-                link: "https://pixelbasher.dev/",
-                icon: "https://pixel-composer.com/src/banner.png"
-            },
-        ]
-    },
-    {
-        title: "Pixel Art - Color",
-        items: [
-            {
-                title: "Pixel Gif",
-                link: "http://pixelgif.cn/",
-                icon: "http://pixelgif.cn/favicon.ico"
-            },
-            {
-                title: "BlockBench",
-                link: "https://www.blockbench.net/",
-                icon: "https://www.blockbench.net/favicon.svg"
-            },
-            {
-                title: "Aseprite",
-                link: "https://community.aseprite.org/",
-                icon: "https://community.aseprite.org/uploads/default/optimized/1X/4c44ae432b7068d5c249db3aebb4d64d0a71324a_2_32x32.png"
-            },
-            {
-                title: "Pixilart",
-                link: "https://www.pixilart.com/tutorials/",
-                icon: "https://www.pixilart.com/favicon.ico"
-            },
-            {
-                title: "Lospec",
-                link: "https://lospec.com/pixel-art-tutorials/",
-                icon: "https://lospec.com/favicon.ico"
-            },
-        ]
-    },
-    {
-        title: "Pixel Art - Color",
-        items: [
-            {
-                title: "Lospec",
-                link: "https://lospec.com/",
-                icon: "https://lospec.com/favicon.ico"
-            },
-            {
-                title: "Adobe Color",
-                link: "https://color.adobe.com/zh/",
-                icon: "https://color.adobe.com/favicon.ico"
-            },
-            {
-                title: "Color Hunt",
-                link: "https://snippet-generator.app/",
-                icon: "https://colorhunt.co/img/colorhunt-favicon.svg"
-            },
-            {
-                title: "Happy Hues",
-                link: "https://www.happyhues.co/",
-                icon: "https://cdn.prod.website-files.com/5dd40aa8049df8748c72d0ee/5dd9b94105da589ba59c4907_happy-hues-fav.png"
-            },
-            {
-                title: "Nipponcolors",
-                link: "https://nipponcolors.com/",
-                icon: "https://nipponcolors.com/favicon.ico"
             },
         ]
     }
