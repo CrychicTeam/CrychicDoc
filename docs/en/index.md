@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: "CrychicDoc"
-  text: "A Minecraft doc maintained by Crychic team."
-  tagline: Contains documentation and resource indexes related to modpacks and Minecraft development.
+  text: "A doc maintained by Crychic team."
+  tagline: Contains documentation and resource indexes related to Minecraft.
   image: 
     light: /svg/crychic.svg
     dark: /logodark.png
