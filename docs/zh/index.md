@@ -5,7 +5,7 @@ hero:
   text: 一个由Crychic团队维护的我的世界文档.
   tagline: 存放了整合包与我的世界开发相关的文档与资料索引。
   image:
-    light: /logo.png
+    light: /svg/crychic.svg
     dark: /logodark.png
     alt: crychic
   actions:
