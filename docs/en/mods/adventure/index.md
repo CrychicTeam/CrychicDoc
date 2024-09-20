@@ -1,6 +1,6 @@
 ---
 Layout: doc
-title: Adventure Mods
+title: Catalogue
 prev: false
 next: false
 root:

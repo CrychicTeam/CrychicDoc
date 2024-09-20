@@ -1,7 +1,12 @@
+---
+progress: 100
+---
 # JSDoc
 ## 类型补全问题 {#Summary}
 ::: justify
-在开发过程中，有时会遇到类型补全的问题。这个问题并非由 ProbeJS 直接导致，而是由于 KubeJS 各个事件返回的 参数 与 JavaScript 的 弱类型 特性所引发。通过合理使用 JSDoc 标记，可以在一定程度上优化这一问题。
+在开发过程中，有时会遇到类型补全的问题。这个问题并非由`ProbeJS`直接导致，而是由于`KubeJS`各个事件返回的`参数`与`JavaScript`的`弱类型`特性所引发。通过合理使用[`JSDoc`](https://jsdoc.app/)标记，可以在一定程度上优化这一问题。
+
+如果你是想要更深入地学习`JSDoc`，可以在文档内撰写好相关内容前查看[这一文档](https://jsdoc.app/)。
 :::
 
 例如在[这个文档](../../Entity/PotionEffects.md)中，虽然可以使用 potionEffects 来修改实体的药水效果，但在尝试获取时可能会遇到问题：
@@ -117,6 +122,62 @@ function logUsername() {
 ```
 
 [^T]: 泛型（Generic）是指在编程语言中可以在编写代码时不确定具体数据类型，而在实际使用时才明确具体类型的编程技术。<br>这种机制允许函数、类或接口在处理不同类型的数据时保持通用性，避免重复编写同样逻辑但只适用于特定类型的代码。<br>KubeJS的开发一般用不到这一部分。
+
+## JSDoc实际应用 {#Examples}
+
+这一章节将简要列举一些具体应用来帮助各位理解JSDoc起到的关键作用。
+
+### Param {#param}
+
+这种情况通常出现在需要为`箭头函数`的参数指定具体类型时。一般来说，箭头函数的参数类型往往被定义为各种类的`父类`，这可能导致在编写代码时，得到的类型提示和补全**少于预期的情况**。
+
+你还不需要知道父类意味着什么，只需知道为了解决这个问题，我们可以使用 JSDoc 注释，将默认的`Internal.Item`类型显式地标注为更具体的`Internal.SwordItem`。
+
+这样不仅可以获得更加精准的类型提示，还能提升代码的可读性和可维护性。
+
+::: code-group
+```js [kubejs] twoslash
+ItemEvents.modification(event=>{
+    event.modify("diamond_sword", item=>{
+        item.getTier()
+    })
+})
+```
+```js [kubejs] twoslash
+ItemEvents.modification(event=>{
+    event.modify("diamond_sword",/**@param {Internal.SwordItem} item */ item=>{
+        item.getTier()
+    })
+})
+```
+:::
+
+### Type {#Type}
+
+在某些情况下，`JavaScript`的类型推断可能不足以提供准确/明确的类型提示。
+
+这时候可以通过使用 `@type`注释来明确指定变量的类型，从而获得更精确的类型信息和代码提示。
+
+::: code-group
+```js [kubejs] twoslash
+ItemEvents.entityInteracted(event => {
+    const { entity, target, hand, server, level } = event;
+    if (hand !== 'main_hand') return;
+    entity.potionEffects.add('minecraft:night_vision', 200, 0, false, true);
+})
+```
+```js [kubejs] twoslash
+ItemEvents.entityInteracted(event => {
+    const { entity, target, hand, server, level } = event;
+    /**
+     * @type {Internal.LivingEntity} 这是一个改变了类型的变量。
+     */
+    let livingentity = entity;
+    entity.potionEffects.add('minecraft:night_vision', 200, 0, false, true);
+    livingentity.potionEffects.add('minecraft:night_vision', 200, 0, false, true);
+})
+```
+:::
 
 ## Q&A {#Q&A}
 
