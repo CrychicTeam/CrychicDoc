@@ -2,6 +2,7 @@
     import { dataSymbol, useData } from 'vitepress'
     import { computed, ref, onMounted } from 'vue'
     import { countWord } from '../../utils/functions'
+    import ProgressLinear from './ProgressLinear.vue';
 
     const { page, frontmatter, lang } = useData()
 
@@ -53,9 +54,9 @@
 
     const metadata = {
         "zh-CN": {
-            update: (text: string)=> `最后更新于：${text}`,
-            wordCount: (text: number) => `字数：${text}字`,
-            readTime: (text: number) => `时长：${text}分钟`,
+            update: (text: string)=> `最后更新：${text}`,
+            wordCount: (text: number) => `全文字数：${text}字`,
+            readTime: (text: number) => `阅读时长：${text}分钟`,
         },
         "en-US": {
             update: (text: string)=> `Last updated on: ${text}`,
@@ -81,23 +82,30 @@
             metadata["en-US"]
         );
     });
+
 </script>
 
 
 <template>
     <div v-if="isMetadata" class="word">
         <p>
-            <v-btn
-                v-for="(value, key, index) in matadataText" 
-                class="mx-0 btn"
-                rounded="lg"
-                variant="text"
-                density="comfortable"
-                :key="index"
-                :prepend-icon="icon(key)"
-                >
-                    {{ value(data[index].value) }}
-            </v-btn>
+            <v-row no-gutters>
+                <v-col 
+                    v-for="(value, key, index) in matadataText" 
+                    :key="index"
+                    >
+                    <v-btn
+                        class="mx-0 btn btn-icon"
+                        rounded="lg"
+                        variant="text"
+                        density="comfortable"
+                        :prepend-icon="icon(key)"
+                        >
+                        {{ value(data[index].value) }}
+                    </v-btn>
+                </v-col>
+            </v-row>
+            <ProgressLinear/>
         </p>
     </div>
 </template>
@@ -115,7 +123,7 @@
     font-weight: 300;
 }
 
-.v-icon, .v-btn__prepend {
+.btn-icon .v-btn__prepend {
     margin-inline: calc(var(--v-btn-height) / -9) 0px;
     color: var(--vp-c-text-2);
     opacity: 85%;
