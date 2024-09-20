@@ -4,6 +4,9 @@ title: 模组
 root:
   title: 模组
   children:
+      - title: 魔改
+        path: custom
+        collapsed: true
       - title: 冒险
         path: adventure
         collapsed: true

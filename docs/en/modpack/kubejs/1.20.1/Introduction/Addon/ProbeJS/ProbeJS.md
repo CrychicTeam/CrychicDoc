@@ -1,4 +1,4 @@
-# ProbeJS概述 {#Summary}
+# ProbeJS使用教程 {#Summary}
 
 ProbeJS是一个`KubeJS`附属模组，它为`KubeJS`脚本的编写带来了`语法补全`，并提供了各种便利的功能。
 
