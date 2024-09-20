@@ -9,7 +9,6 @@ export const zh_CN = <DefaultTheme.Config>{
     description: "一个包含 Minecraft 开发文档的网站。",
     themeConfig: {
         nav: [
-            {text: "合作须知", link: "/zh/doc/rules"},
             {
                 text: "KubeJS",
                 items: [
@@ -59,7 +58,14 @@ export const zh_CN = <DefaultTheme.Config>{
                     },
                 ]
             },
-            { text: "导航", link: "/zh/doc/guide" },
+            {text: "合作须知", link: "/zh/doc/rules"},
+            {text: "导航", items: [
+                {text: "我的世界", link: "/zh/doc/guide/minecraft"},
+                {text: "KubeJS", link: "/zh/doc/guide/KubeJS"},
+                {text: "像素艺术", link: "/zh/doc/guide/pixelart"},
+                {text: "美术资源", link: "/zh/doc/guide/resource"},
+                {text: "社区交流", link: "/zh/doc/guide/community"},
+            ]},
         ],
         sidebar: sidebars("zh"),
         outline: {

@@ -3,7 +3,7 @@
 
 在kubejs当中我们是可以直接跨文件调用方法参数等内容的，但是大前提是这个文件是加载游戏级高的
 
-这里注意一下，这里的跨文件但是不难跨端，比如你无法在`startup`里调用`server`里的方法，如果真的需要可以看[global全局变量](../KubejsAdvanced/GlobalVariable.md)
+这里注意一下，这里的跨文件但是不难跨端，比如你无法在`startup`里调用`server`里的方法，如果真的需要可以看[global全局变量](../KubeJSAdvanced/GlobalVariable.md)
 
 kubejs提供了一个注释来标注文件的优先级 `// priority: 10`
 

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: CrychicDoc导航
+title: Pixel Art
 layoutClass: m-nav-layout
 sidebar: false
 
@@ -13,11 +13,11 @@ showComment: false
 metadata: false
 outline: [2,2]
 ---
-<style src="../../../.vitepress/theme/style/nav.scss"></style>
+<style src="../../../../.vitepress/theme/style/nav.scss"></style>
 
 <script setup>
 import { ref } from "vue";
-import { NAV_DATA } from '../Components/guide.ts'
+import { NAV_DATA } from './guidets/pixelart.ts'
 const NAV_DATAS = ref(NAV_DATA)
 </script>
 

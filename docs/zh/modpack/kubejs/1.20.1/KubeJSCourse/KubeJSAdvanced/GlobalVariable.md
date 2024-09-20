@@ -55,4 +55,4 @@ console.log(global.testObj.b)
 但是使用了global之后，就可以在全局进行调用
 
 ## 用处
-在项目[祭坛合成](../KubejsProjects/Meng/AltarComposition.md)中就有使用到全局变量
+在项目[祭坛合成](../KubeJSProjects/Meng/AltarComposition.md)中就有使用到全局变量
