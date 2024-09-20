@@ -285,7 +285,7 @@ ServerEvents.blockLootTables(event => {
 })
 ``` -->
 
-# 方块类型战利品表
+<!-- # 方块类型战利品表
 
 ## 战利品表
 
@@ -295,8 +295,8 @@ ServerEvents.blockLootTables(event => {
 // 监听事件
 ServerEvents.blockLootTables(event => {
     // 覆盖战利品表，填入方块id或方块标签，如果是标签会覆盖标签里所有方块的战利品表
-    event.addBlock('minecraft:gravel', loot => {
-    })
+    event.addBlock('minecraft:gravel', loot => {// [!code ++]
+    })// [!code ++]
 })
 ```
 
@@ -304,8 +304,8 @@ ServerEvents.blockLootTables(event => {
 // 监听事件
 ServerEvents.blockLootTables(event => {
     // 修改战利品表，填入方块id或方块标签，如果是标签会修改标签里所有方块的战利品表
-    event.modifyBlock('minecraft:gravel', loot => { 
-    })
+    event.modifyBlock('minecraft:gravel', loot => { // [!code ++]
+    })// [!code ++]
 })
 ```
 
@@ -315,9 +315,7 @@ ServerEvents.blockLootTables(event => {
 
 - loot是一个[Internal.LootBuilder](../Addon/ProbeJS/ProbeJSClassFlie.md#internallootbuilder)类型对象
 
-::: code-group
-
-```js [覆盖原战利品表]
+```js
 // 监听事件
 ServerEvents.blockLootTables(event => {
     // 覆盖战利品表，填入方块id或方块标签，如果是标签会覆盖标签里所有方块的战利品表
@@ -327,27 +325,12 @@ ServerEvents.blockLootTables(event => {
     })
 })
 ```
-
-```js [修改原战利品表]
-// 监听事件
-ServerEvents.blockLootTables(event => {
-    // 修改战利品表，填入方块id或方块标签，如果是标签会修改标签里所有方块的战利品表
-    event.modifyBlock('minecraft:gravel', loot => { 
-        loot.addPool(pool => {// [!code ++]
-        })// [!code ++]
-    })
-})
-```
-
-:::
 
 ## 战利品
 
 - pool是一个[Internal.LootBuilderPool](../Addon/ProbeJS/ProbeJSClassFlie.md#internallootbuilderpool)对象。
 
-::: code-group
-
-```js [覆盖原战利品表]
+```js
 // 监听事件
 ServerEvents.blockLootTables(event => {
     // 覆盖战利品表，填入方块id或方块标签，如果是标签会覆盖标签里所有方块的战利品表
@@ -357,18 +340,66 @@ ServerEvents.blockLootTables(event => {
         })
     })
 })
-```
+``` -->
+
+# 方块类型战利品表
+
+## 战利品表
+
+::: code-group
 
 ```js [修改原战利品表]
-// 监听事件
 ServerEvents.blockLootTables(event => {
-    // 修改战利品表，填入方块id或方块标签，如果是标签会修改标签里所有方块的战利品表
-    event.modifyBlock('minecraft:gravel', loot => { 
+    event.modifyBlock('minecraft:gravel', loot => {
         loot.addPool(pool => {
-            pool.addItem('minecraft:diamond')// [!code ++]
-        })
+            pool.addItem('minecraft:diamond')// [!code ++] 添加战利品
+        }) 
     })
 })
 ```
 
+```js [覆盖原战利品表]
+ServerEvents.blockLootTables(event => {
+    event.addBlock('minecraft:gravel', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:diamond')// [!code ++] 添加战利品
+        }) 
+    })
+})
+```
+
+```js [带有谓词&修饰器的]
+ServerEvents.blockLootTables(event => {
+    event.addBlock('minecraft:gravel', loot => {// [!code ++] 覆盖原战利品表
+        loot.addPool(pool => {// [!code ++] 向战利品表添加战利品池
+            pool.addItem('minecraft:diamond')// [!code ++] 向战利品池添加添加战利品
+
+            pool.addItem('minecraft:diamond').addConditionalFunction(c=>c.name(Component.aqua('测试钻石')))// [!code ++] 可以向战利品的物品修饰器列表添加物品修饰器
+
+            pool.addConditionalFunction(c=>c.name(Component.aqua('测试钻石')))// [!code ++] 可以向战利品池的物品修饰器列表添加物品修饰器
+        })
+
+        loot.addPool(pool => {// [!code ++] 还可以再向战利品表添加战利品池
+            pool.addItem('minecraft:diamond')// [!code ++] 向战利品池添加添加战利品
+            pool.addItem('minecraft:diamond').survivesExplosion()// [!code ++] 向战利品的谓词列表添加谓词
+            pool.survivesExplosion()// [!code ++] 向战利品池的谓词列表添加谓词
+        })
+
+        loot.addConditionalFunction(c=>c.name(Component.aqua('测试钻石')))// [!code ++] 可以向战利品表的物品修饰器列表添加物品修饰器
+
+    })
+})
+
+```
+
 :::
+
+## 谓词
+
+- 引用页面。
+
+## 物品修饰器
+
+- 引用页面。
+
+## 示例
