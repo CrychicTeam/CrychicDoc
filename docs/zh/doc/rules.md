@@ -1,6 +1,7 @@
 ---
 progress: 100
 description: 该文章提供了本站文档编写规范！
+state: preliminary
 ---
 
 # 文档编写规范
@@ -119,7 +120,8 @@ description: 该文章提供了本站文档编写规范！
 | `showComment`  | 是否显示评论区 | boolean  | `true`   |
 | `gitChangelog`  | 是否显示贡献者和页面历史 | boolean  | `true`   |
 | `progress`  | 设置该文章的编撰进度 | int  | `N/A`   |
-| `description`  | 设置该文章的预览内容 | string  | `N/A`   |
+| `description`  | 设置该文章的预览内容 | string  | `N/A` |
+| `state`  | 设置该文章的编写状态 | string | `N/A` |
 
 ::: details 示例
 
@@ -132,6 +134,7 @@ showComment: false
 gitChangelog: false
 progress: 100
 description: 该文章提供了本站文档编写规范！
+state: preliminary #仅允许preliminary unfinished outdated renovating四种输入
 ---
 ```
 

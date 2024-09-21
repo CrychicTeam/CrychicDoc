@@ -3,6 +3,7 @@
     import { computed, ref, onMounted } from 'vue'
     import { countWord } from '../../utils/functions'
     import ProgressLinear from './ProgressLinear.vue';
+    import State from './State.vue';
 
     const { page, frontmatter, lang } = useData()
 
@@ -52,7 +53,7 @@
             return frontmatter.value?.metadata ?? true;
     });
 
-    const metadata = {
+    const metadata = ref({
         "zh-CN": {
             update: (text: string)=> `最后更新：${text}`,
             wordCount: (text: number) => `全文字数：${text}字`,
@@ -68,18 +69,18 @@
             wordCount: "mdi-text-shadow",
             readTime: "mdi-timer-outline"
         }
-    }
+    })
 
     const icon = (key: number) => {
-        return metadata.icon[key]
+        return metadata.value.icon[key]
     };
 
     const data = ref([update, wordCount, readTime])
 
     const matadataText = computed(() => {
         return (
-            metadata[lang.value] ||
-            metadata["en-US"]
+            metadata.value[lang.value] ||
+            metadata.value["en-US"]
         );
     });
 
@@ -108,6 +109,7 @@
             <ProgressLinear/>
         </p>
     </div>
+    <State/>
 </template>
 
 <style>
