@@ -51,3 +51,5 @@ do some thing4
   :isJavaEdition="true"
 />
 </ClientOnly>
+
+<PdfViewer pdfSource="/pdf/modding/java/test.pdf"/>

@@ -67,3 +67,9 @@ do some thing4
 />
 </ClientOnly>
 :::
+
+## PDF Viewer
+
+:::demo
+<PdfViewer pdfSource="/pdf/modding/java/test.pdf"/>
+:::

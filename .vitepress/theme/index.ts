@@ -5,7 +5,6 @@ import DefaultTheme from "vitepress/theme";
 import vitepressNprogress from "vitepress-plugin-nprogress";
 import "vitepress-plugin-nprogress/lib/css/index.css";
 import "vitepress-markdown-timeline/dist/theme/index.css";
-import "viewerjs/dist/viewer.min.css";
 import { useData, useRoute } from "vitepress";
 import "./style.css";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
@@ -37,6 +36,7 @@ import commitsCounter from "./components/CommitsCounter.vue";
 import MNavLinks from "./components/MNavLinks.vue";
 import ResponsibleEditor from "./components/ResponsibleEditor.vue";
 import Animation from "./components/Animation.vue";
+import PdfViewer from "./components/PdfViewer.vue";
 
 import { InjectionKey } from '@nolebase/vitepress-plugin-inline-link-preview/client'
 
@@ -89,6 +89,7 @@ export default {
         ctx.app.component("Linkcard", Linkcard);
         ctx.app.component("commitsCounter", commitsCounter);
         ctx.app.component("MNavLinks", MNavLinks);
+        ctx.app.component("PdfViewer", PdfViewer);
     },
     setup() {
         const route = useRoute();

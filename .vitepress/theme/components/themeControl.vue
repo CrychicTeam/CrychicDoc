@@ -89,6 +89,9 @@
         --stepper-active-color: var(--vp-c-brand);
         --stepper-hover-color: var(--vp-c-brand-light);
         --github-bg-image: url("/icon/github.png");
+        --pdf-bg-color: #ffffff;
+        --pdf-text-color: #000000;
+        --pdf-border-color: #ddd;
     }
 
     .dark {
@@ -106,6 +109,9 @@
         --stepper-active-color: var(--vp-c-brand-dark);
         --stepper-hover-color: var(--vp-c-brand);
         --github-bg-image: url("/icon/github_dark.png");
+        --pdf-bg-color: #1e1e1e;
+        --pdf-text-color: #ffffff;
+        --pdf-border-color: #333;
     }
 
     .theme-stepper {
