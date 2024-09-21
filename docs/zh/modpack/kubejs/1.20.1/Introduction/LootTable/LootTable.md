@@ -352,7 +352,7 @@ ServerEvents.blockLootTables(event => {
 ServerEvents.blockLootTables(event => {
     event.addBlock('minecraft:gravel', loot => {
         loot.addPool(pool => {
-            pool.addItem('minecraft:diamond')// [!code ++] 语句的位置
+            pool.addItem('minecraft:diamond')// [!code ++]
         })
     })
 })
@@ -485,7 +485,7 @@ ServerEvents.blockLootTables(event => {
     event.addBlock('minecraft:gravel', loot => {
         loot.addPool(pool => {
             pool.addItem('minecraft:diamond')
-            pool.survivesExplosion()// [!code ++] 语句的位置
+            pool.survivesExplosion()// [!code ++]
         })
     })
 })
@@ -495,7 +495,7 @@ ServerEvents.blockLootTables(event => {
 ServerEvents.blockLootTables(event => {
     event.addBlock('minecraft:gravel', loot => {
         loot.addPool(pool => {
-            pool.addItem('minecraft:diamond').survivesExplosion()// [!code ++] 语句的位置
+            pool.addItem('minecraft:diamond').survivesExplosion()// [!code ++]
         })
     })
 })
@@ -508,7 +508,7 @@ ServerEvents.blockLootTables(event => {
             pool.addItem('minecraft:diamond')
             pool.addConditionalFunction(c => {
                 c.name(Component.aqua('测试钻石'))
-                c.survivesExplosion()// [!code ++] 语句的位置
+                c.survivesExplosion()// [!code ++]
             })
         })
     })
@@ -561,7 +561,7 @@ ServerEvents.blockLootTables(event => {
             pool.addItem('minecraft:diamond')
         })
         loot.addConditionalFunction(c => {// [!code ++]
-            c.name(Component.aqua('测试钻石'))// [!code ++] 语句的位置
+            c.name(Component.aqua('测试钻石'))// [!code ++]
         })// [!code ++]
     })
 })
@@ -573,7 +573,7 @@ ServerEvents.blockLootTables(event => {
         loot.addPool(pool => {
             pool.addItem('minecraft:diamond')
             pool.addConditionalFunction(c => {// [!code ++]
-                c.name(Component.aqua('测试钻石'))// [!code ++] 语句的位置
+                c.name(Component.aqua('测试钻石'))// [!code ++]
             })// [!code ++]
         })
 
@@ -586,7 +586,7 @@ ServerEvents.blockLootTables(event => {
     event.addBlock('minecraft:gravel', loot => {
         loot.addPool(pool => {
             pool.addItem('minecraft:diamond').addConditionalFunction(c => {// [!code ++]
-                c.name(Component.aqua('测试钻石'))// [!code ++] 语句的位置
+                c.name(Component.aqua('测试钻石'))// [!code ++]
             })// [!code ++]
         })
     })
