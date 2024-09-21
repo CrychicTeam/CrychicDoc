@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-    import { dataSymbol, useData } from 'vitepress'
+    import { useData } from 'vitepress'
     import { computed, ref, onMounted } from 'vue'
     import { countWord } from '../../utils/functions'
     import ProgressLinear from './ProgressLinear.vue';

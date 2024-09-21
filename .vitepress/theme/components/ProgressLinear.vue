@@ -14,7 +14,7 @@
     }
 
     const isProgress = computed(() => {
-            return frontmatter.value?.progress;
+            return frontmatter.value?.progress ?? false;
     });
 
     const bufferValue = computed(() => frontmatter.value?.progress ?? 0 );
@@ -56,7 +56,7 @@
         </v-col>
         <v-col>
             <v-progress-linear
-                height="5"
+                height="7"
                 class="theme"
                 rounded
                 :model-value="progressValue"

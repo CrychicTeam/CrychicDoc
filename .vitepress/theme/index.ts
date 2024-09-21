@@ -37,6 +37,7 @@ import MNavLinks from "./components/MNavLinks.vue";
 import ResponsibleEditor from "./components/ResponsibleEditor.vue";
 import Animation from "./components/Animation.vue";
 import PdfViewer from "./components/PdfViewer.vue";
+import Preview from './components/Preview.vue';
 
 import { InjectionKey } from '@nolebase/vitepress-plugin-inline-link-preview/client'
 
@@ -69,6 +70,7 @@ export default {
                 "nav-bar-content-after": () => h(NolebaseEnhancedReadabilitiesMenu),
                 "nav-screen-content-after": () =>
                     h(NolebaseEnhancedReadabilitiesScreenMenu),
+                "doc-before": () => h(Preview)
             })
         });
     },
