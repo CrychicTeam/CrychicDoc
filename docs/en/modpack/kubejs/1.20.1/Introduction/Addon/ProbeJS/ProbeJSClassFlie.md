@@ -117,7 +117,7 @@ furnaceSmelt(): Internal.FunctionContainer;
 - 添加谓词，检查实体属性。
 - 参数1：[战利品表上下文实体](#lootcontextentitytarget_)
 - 参数2：实体属性Json
-- 返回：[谓词列表](#conditioncontainer)
+- 返回：谓词列表\: [Internal.ConditionContainer](#conditioncontainer)
 
 ```js
 entityProperties(entity: Internal.LootContext$EntityTarget_, properties: Internal.JsonObject_): Internal.ConditionContainer;
@@ -129,43 +129,43 @@ entityProperties(entity: Internal.LootContext$EntityTarget_, properties: Interna
 clearFunctions(): void;
 ```
 
-- 
+-
 
 ```js
 lootingEnchant(count: Internal.NumberProvider_, limit: number): Internal.FunctionContainer;
 ```
 
-- 
+-
 
 ```js
 addConditionalFunction(func: Internal.Consumer_<Internal.ConditionalFunction>): Internal.FunctionContainer;
 ```
 
-- 
+-
 
 ```js
 randomChance(chance: number): Internal.ConditionContainer;
 ```
 
-- 
+-
 
 ```js
 killedByPlayer(): Internal.ConditionContainer;
 ```
 
-- 
+-
 
 ```js
 nbt(tag: Internal.CompoundTag_): Internal.FunctionContainer;
 ```
 
-- 
+-
 
 ```js
 entityScores(entity: Internal.LootContext$EntityTarget_, scores: Internal.Map_<string, any>): Internal.ConditionContainer;
 ```
 
-- 
+-
 
 ```js
 name(name: net.minecraft.network.chat.Component_): Internal.FunctionContainer;

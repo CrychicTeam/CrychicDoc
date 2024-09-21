@@ -17,17 +17,28 @@ addFunction(arg0: Internal.JsonObject_): Internal.FunctionContainer;
 ```
 
 - 添加谓词，受抢夺附魔影响的随机概率。
-- 返回：谓词列表[Internal.ConditionContainer](#lootbuilder)。
+- 返回：谓词列表[Internal.ConditionContainer](#lootbuilder)
 
 ```js
 randomChanceWithLooting(chance: number, multiplier: number): Internal.ConditionContainer;
 ```
 
-- ？
+- 设置显示名，具有两个方法重载。
+- 参数1：显示名\: [Component_](../../MiscellaneousKnowledge/Components.md)
+- 参数2？：战利品表上下文实体\: [Internal.LootContext$EntityTarget_](#lootcontextentitytarget_)
+- 返回：谓词列表[Internal.ConditionContainer](#lootbuilder)
 
-```js
+::: code-group
+
+```js [KubeJS]
 name(name: net.minecraft.network.chat.Component_, entity: Internal.LootContext$EntityTarget_): Internal.FunctionContainer;
 ```
+
+```js [KubeJS]
+name(name: net.minecraft.network.chat.Component_): Internal.FunctionContainer;
+```
+
+:::
 
 - 将当前战利品表作为Json对象返回。
 
@@ -71,6 +82,7 @@ clearConditions(): void;
 
 - 复制方块实体显示名。
 - 参数：复制源实体类型[Internal.CopyNameFunction$NameSource_](#copynamefunctionnamesource_)
+- 返回：物品修饰器列表[Internal.FunctionContainer](#functioncontainer)
 
 ```js
 copyName(source: Internal.CopyNameFunction$NameSource_): Internal.FunctionContainer;
@@ -117,7 +129,7 @@ furnaceSmelt(): Internal.FunctionContainer;
 - 添加谓词，检查实体属性。
 - 参数1：[战利品表上下文实体](#lootcontextentitytarget_)
 - 参数2：实体属性Json
-- 返回：[谓词列表](#conditioncontainer)
+- 返回：谓词列表\: [Internal.ConditionContainer](#conditioncontainer)
 
 ```js
 entityProperties(entity: Internal.LootContext$EntityTarget_, properties: Internal.JsonObject_): Internal.ConditionContainer;
@@ -129,75 +141,81 @@ entityProperties(entity: Internal.LootContext$EntityTarget_, properties: Interna
 clearFunctions(): void;
 ```
 
-- 
+- 根据抢夺魔咒调整物品数量。
+- 参数1：物品数量\: [数字提供器](../../MiscellaneousKnowledge/NumberProvider.md)
+- 参数2：最大物品数量\: 数字
+- 返回：物品修饰器列表\: [Internal.FunctionContainer](#functioncontainer)
 
 ```js
 lootingEnchant(count: Internal.NumberProvider_, limit: number): Internal.FunctionContainer;
 ```
 
-- 
+- 添加带有条件的物品修饰器。
+- 参数：回调函数(物品条件函数\: [Internal.ConditionalFunction](#conditionalfunction))
+- 返回：物品修饰器列表\: [Internal.FunctionContainer](#functioncontainer)
 
 ```js
 addConditionalFunction(func: Internal.Consumer_<Internal.ConditionalFunction>): Internal.FunctionContainer;
 ```
 
-- 
+- 随机概率。
+- 参数：概率数字\[0, 1\]
+- 返回：谓词列表\: [Internal.ConditionContainer](#conditioncontainer)
 
 ```js
 randomChance(chance: number): Internal.ConditionContainer;
 ```
 
-- 
+- 被玩家击杀。
+- 返回：谓词列表\: [Internal.ConditionContainer](#conditioncontainer)
 
 ```js
 killedByPlayer(): Internal.ConditionContainer;
 ```
 
-- 
+- 设置NBT
+- 返回：物品修饰器列表\: [Internal.FunctionContainer](#functioncontainer)
 
 ```js
 nbt(tag: Internal.CompoundTag_): Internal.FunctionContainer;
 ```
 
-- 
+- 检查实体分数。
+- 参数1：战利品表上下文实体\: [Internal.LootContext$EntityTarget_](#lootcontextentitytarget_)
+- 参数2：键值对\: \{记分板id, 分数\: [数字提供器](../../MiscellaneousKnowledge/NumberProvider.md)\}
+- 返回：谓词列表\: [Internal.ConditionContainer](#conditioncontainer)
 
 ```js
 entityScores(entity: Internal.LootContext$EntityTarget_, scores: Internal.Map_<string, any>): Internal.ConditionContainer;
 ```
 
-- 
-
-```js
-name(name: net.minecraft.network.chat.Component_): Internal.FunctionContainer;
-```
-
 ### 常用属性
 
--
+- 战利品表类型。
 
 ```js
 type: string;
 ```
 
--
+- 战利品表的谓词列表。
 
 ```js
 conditions: Internal.JsonArray;
 ```
 
--
+- 战利品表的战利品池。
 
 ```js
 pools: Internal.JsonArray;
 ```
 
--
+- 战利品表的物品修饰器列表。
 
 ```js
 functions: Internal.JsonArray;
 ```
 
--
+- 战利品表的资源位置。
 
 ```js
 customId: ResourceLocation;
@@ -236,3 +254,7 @@ customId: ResourceLocation;
 ## LootContext$EntityTarget_
 
 - 战利品表上下文实体
+
+## ConditionalFunction
+
+- 有条件的物品函数。
