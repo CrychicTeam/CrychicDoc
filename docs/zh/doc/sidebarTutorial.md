@@ -64,36 +64,9 @@ function logger(string: string, name: string): void {
 
 ### 文件扫描 {#file-scan}
 
-目标目录的文件将会自动被生成器扫描，并生成相应的侧边栏，每个文件都有以下[frontmatter](#frontmatter)配置字段。
+目标目录的文件将会自动被生成器扫描，并生成相应的侧边栏，每个文件的frontmatter配置字段详见[此处](./rules.md#doc-config)。
 
-::: tip 提示
 
-本站同时支持Vitepress的原生frontmatter样式，详情请见[此处](https://vitepress.dev/zh/reference/frontmatter-config)
-
-:::
-
-| 配置字段      | 用途                             | 类型      | 省缺值     |
-|-----------|--------------------------------|---------|---------|
-| `title`   | 设置侧边栏中显示的标题（如未设置则使用文件名）        | string  | `N/A`   |
-| `noguide`| 该文章是否显示在侧边栏|boolean |`true`|
-|`backPath`|设置该界面点击BackButton后前往的位置|string|`N/A`|
-| `authors`  | 设置该文章额外的作者，显示在贡献者栏，配置可参考[此处](https://nolebase-integrations.ayaka.io/pages/zh-CN/integrations/vitepress-plugin-git-changelog/configure-vite-plugins#%E9%80%89%E9%A1%B9-mapcontributors-%E4%B8%BA%E8%B4%A1%E7%8C%AE%E8%80%85%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%E6%98%A0%E5%B0%84)| string[]  | `N/A`   |
-| `showComment`  | 是否显示评论区 | boolean  | `true`   |
-| `gitChangelog`  | 是否显示贡献者和页面历史 | boolean  | `true`   |
-
-::: details 示例
-
-```yaml
----
-title: 示例
-backPath: ../
-authors: ['M1hono', 'skyraah'] # 可在common-config中额外配置 但还是请尽量使用Github ID。
-showComment: false
-gitChangelog: false
----
-```
-
-:::
 
 ### 目录扫描 {#dir-scan}
 
@@ -188,16 +161,6 @@ root:
 如果您使用VSCode编辑器参与本站的编撰工作，您可以调用我们预设的代码片段，对于类型为非对象的配置字段，您可以直接输入其名称唤起补全。对于`root`对象以及`SubDir`对象，您分别可以使用`@root`以及`@subdir`来唤出相应的片段。
 
 :::
-
-## frontmatter声明 {#frontmatter}
-
-在每个 Markdown 文件的开头，使用 `---` 来创建frontmatter配置
-
-```yaml
----
-# 在这里添加您的frontmatter
----
-```
 
 <!-- ## 基本配置
 
