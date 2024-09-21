@@ -16,6 +16,12 @@
 
 - 作用：定义谓词列表，当数组内全部谓词均通过时此谓词通过。
 
+::: details 全部类型谓词参考
+[minecraft-wiki/谓词#all_of](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#all_of)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
+
 - 语句：addCondition(\{"condition": "minecraft:all_of", "terms": []\});
 
 ::: code-group
@@ -45,6 +51,12 @@ ServerEvents.blockLootTables(event => {
 
 - 作用：定义谓词列表，当数组内任一谓词通过时此谓词通过。
 
+::: details 任何类型谓词参考
+[minecraft-wiki/谓词#any_of](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#any_of)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
+
 - 语句：addCondition(\{"condition": "minecraft:any_of", "terms": []\});
 
 ::: code-group
@@ -73,6 +85,12 @@ ServerEvents.blockLootTables(event => {
 ### 方块状态属性
 
 - 作用：将检查战利品上下文中方块的属性。
+
+::: details 方块状态属性谓词参考
+[minecraft-wiki/谓词#block_state_property](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#block_state_property)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
 
 - 语句：addCondition(...Json);
 
@@ -113,6 +131,12 @@ ServerEvents.blockLootTables(event => {
 ### 伤害来源属性
 
 - 作用：检查伤害来源的属性。
+
+::: details 害来源属性谓词参考
+[minecraft-wiki/谓词#damage_source_properties](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#damage_source_properties)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
 
 - 语句：addCondition(...Json);
 
@@ -166,9 +190,11 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：检查战利品表上下文中的实体。
 
-- 实体属性可参考：
-- [minecraft-wiki/谓词#entity_properties](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#entity_properties)
-- [数据包生成器/谓词](https://misode.github.io/predicate/)
+::: details 实体属性谓词参考
+[minecraft-wiki/谓词#entity_properties](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#entity_properties)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
 
 - 语句：entityProperties(战利品表上下文实体\: [Internal.LootContext$EntityTarget_](../Addon/ProbeJS/ProbeJSClassFlie.md#lootcontextentitytarget_), 实体属性Json);
 
