@@ -58,7 +58,7 @@ description: 该文章提供了本站文档编写规范！
 ### 标题 {#Title}
 
 > [!warning] 请注意
-> 你必须遵守标题使用的规范，<font color=red>否则你的提交将永远不会通过</font>。
+> 你必须遵守标题使用的规范，<font color=red>**否则你的提交将永远不会通过**</font>。
 
 标题的层级应当采用渐进式，且`H1`级别的标题应当在最上方出现且只出现一次。
 
@@ -99,6 +99,53 @@ description: 该文章提供了本站文档编写规范！
 ### 插件 {#Plugin}
 
 文档有一些内置的`插件/组件`，一般是为服务某种特殊场景而添加，可在[此处](./samples.md)查看，
+
+### 文档配置 {#doc-config}
+
+该文档文件都有以下[frontmatter](#frontmatter)配置字段。
+
+::: tip 提示
+
+本站同时支持Vitepress的原生frontmatter样式，详情请见[此处](https://vitepress.dev/zh/reference/frontmatter-config)
+
+:::
+
+| 配置字段      | 用途                             | 类型      | 省缺值     |
+|-----------|--------------------------------|---------|---------|
+| `title`   | 设置侧边栏中显示的标题（如未设置则使用文件名）        | string  | `N/A`   |
+| `noguide`| 该文章是否显示在侧边栏|boolean |`true`|
+|`backPath`|设置该界面点击BackButton后前往的位置|string|`N/A`|
+| `authors`  | 设置该文章额外的作者，显示在贡献者栏，配置可参考[此处](https://nolebase-integrations.ayaka.io/pages/zh-CN/integrations/vitepress-plugin-git-changelog/configure-vite-plugins#%E9%80%89%E9%A1%B9-mapcontributors-%E4%B8%BA%E8%B4%A1%E7%8C%AE%E8%80%85%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%E6%98%A0%E5%B0%84)| string[]  | `N/A`   |
+| `showComment`  | 是否显示评论区 | boolean  | `true`   |
+| `gitChangelog`  | 是否显示贡献者和页面历史 | boolean  | `true`   |
+| `progress`  | 设置该文章的编撰进度 | int  | `N/A`   |
+| `description`  | 设置该文章的预览内容 | string  | `N/A`   |
+
+::: details 示例
+
+```yaml
+---
+title: 示例
+backPath: ../
+authors: ['M1hono', 'skyraah'] # 你必须提交过一次贡献才能正常地显示自己的头像与链接。
+showComment: false
+gitChangelog: false
+progress: 100
+description: 该文章提供了本站文档编写规范！
+---
+```
+
+:::
+
+#### frontmatter声明 {#frontmatter}
+
+在每个 Markdown 文件的开头，使用 `---` 来创建frontmatter配置
+
+```yaml
+---
+# 在这里添加您的frontmatter
+---
+```
 
 ### 类型补全 {#TwoSlash}
 
