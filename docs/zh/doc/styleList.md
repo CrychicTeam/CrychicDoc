@@ -215,6 +215,13 @@ VuePress Theme Hope ++十分++ 强大。
 :::
 ::::
 
+## 内嵌外链 {#iframe}
+
+:::: demo 示例
+:::iframes#{"src": "https://misode.github.io/"}
+:::
+::::
+
 > 尝试塞入一个 codeblock 试试？
 
 ### 配置语法 {#carousels-grammer}
@@ -223,10 +230,8 @@ VuePress Theme Hope ++十分++ 强大。
 
 | 配置字段        | 用途                                    | 类型    | 省缺值   |
 |----------------|----------------------------------------|---------|---------|
-| `cycle`        | 设置横幅是否自动循环，默认为关闭。            | `boolean` | `false` |
-| `interval`     | 设置横幅循环时停留的时间，默认为6秒。        | `number` | `6000`  |
-| `arrows`       | 设置横幅导航控制按钮是否显示，hover为<br/>鼠标悬停在横幅上时显示，默认显示。 | `boolean` \| "`hover`" | `true`  |
-| `undelimiters` | 设置横幅底部的控制条是否显示，默认为显示。      | `boolean` | `false` |
+| `src`        | 网页的链接，必填          | `string` | `N/A` |
+| `height`     | 设置元素的高度。        | `length value` | `140px`  |
 
 ## 卡片 {#card}
 

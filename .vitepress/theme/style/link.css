@@ -1,4 +1,4 @@
-.vp-doc a[href^="https://www.mcmod.cn/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
+.vp-doc a[href*=".mcmod.cn/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before {
     content: '';
     background-image: url(https://www.mcmod.cn/static/public/images/favicon.ico);
     width: 15px;

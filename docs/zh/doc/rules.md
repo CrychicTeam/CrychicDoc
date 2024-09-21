@@ -58,7 +58,7 @@ description: 该文章提供了本站文档编写规范！
 ### 标题 {#Title}
 
 > [!warning] 请注意
-> 你必须遵守标题使用的规范，<font color=red>否则你的提交将永远不会通过</font>。
+> 你必须遵守标题使用的规范，<font color=red>**否则你的提交将永远不会通过**</font>。
 
 标题的层级应当采用渐进式，且`H1`级别的标题应当在最上方出现且只出现一次。
 
@@ -127,7 +127,7 @@ description: 该文章提供了本站文档编写规范！
 ---
 title: 示例
 backPath: ../
-authors: ['M1hono', 'skyraah'] # 可在common-config中额外配置 但还是请尽量使用Github ID。
+authors: ['M1hono', 'skyraah'] # 你必须提交过一次贡献才能正常地显示自己的头像与链接。
 showComment: false
 gitChangelog: false
 progress: 100
