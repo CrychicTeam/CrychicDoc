@@ -267,6 +267,9 @@ ServerEvents.blockLootTables(event => {
         loot.addPool(pool => {
             pool.addItem('minecraft:diamond')
         })
+        // 为战利品表直接应用
+        loot.name(Component.red('测试钻石'))// [!code ++]
+        // 有条件的物品修饰器
         loot.addConditionalFunction(c => {// [!code ++]
             c.name(Component.aqua('测试钻石'))// [!code ++]
         })// [!code ++]
@@ -279,6 +282,9 @@ ServerEvents.blockLootTables(event => {
     event.addBlock('minecraft:gravel', loot => {
         loot.addPool(pool => {
             pool.addItem('minecraft:diamond')
+            // 为战利品池直接应用
+            pool.name(Component.red('测试钻石'))// [!code ++]
+            // 有条件的物品修饰器
             pool.addConditionalFunction(c => {// [!code ++]
                 c.name(Component.aqua('测试钻石'))// [!code ++]
             })// [!code ++]
@@ -292,6 +298,9 @@ ServerEvents.blockLootTables(event => {
 ServerEvents.blockLootTables(event => {
     event.addBlock('minecraft:gravel', loot => {
         loot.addPool(pool => {
+            // 为战利品项直接应用
+            pool.addItem('minecraft:diamond').name(Component.red('测试钻石'))// [!code ++]
+            // 有条件的物品修饰器
             pool.addItem('minecraft:diamond').addConditionalFunction(c => {// [!code ++]
                 c.name(Component.aqua('测试钻石'))// [!code ++]
             })// [!code ++]
