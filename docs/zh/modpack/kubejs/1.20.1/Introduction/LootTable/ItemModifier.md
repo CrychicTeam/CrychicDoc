@@ -7,14 +7,17 @@
 
 - 作用：用于对物品施加单个或多个操作，例如使空地图变为指向某个标签中结构的寻宝地图。
 
-> [!WARNING] 注意
-> 由于大部分物品修饰器并不被KubeJS原生支持，只能以Json传入，本文已尝试给出示例但观感极差，因此建议在[minecraft-wiki/物品修饰器#数据格式](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E4%BF%AE%E9%A5%B0%E5%99%A8#%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F)了解某个修饰器的作用后使用[数据包生成器#物品修饰器](https://misode.github.io/item-modifier/)来快速书写物品修饰器。
+::: warning 注意
+
+- 一些物品修饰器类型并没有被KubeJS提供原生支持，需写为Json文本格式作为addFunction(...Json)函数的参数传递，因此在不被KubeJS原生支持的谓词中会给出可参考链接与数据包生成器来协助使用物品修饰器。
+
+:::
 
 ## 物品修饰器类型
 
 ### 应用奖励公式
 
-- 作用：根据指定魔咒的等级，增加物品数量。
+- 作用：将预定义的奖励公式应用于物品栈的计数。
 
 - 语句：
 
@@ -30,16 +33,20 @@
 
 :::
 
-### 复制显示名
+### 复制实体显示名
 
-- 作用：将物品的名称设置为对应实体或方块实体的名称。
+- 作用：将实体或方块实体的显示名复制到物品栈NBT中。
 
-- 语句：
+- 语句：copyName(战利品表上下文实体\: [Internal.CopyNameFunction$NameSource_](../Addon/ProbeJS/ProbeJSClassFlie.md#lootcontextentitytarget_))
 
 ::: code-group
 
 ```js [KubeJS]
-
+ServerEvents.entityLootTables(event => {
+    event.addEntity("minecraft:husk", loot => {
+        loot.copyName("this")// [!code ++]
+    })
+})
 ```
 
 ```json [Json文本]
@@ -50,7 +57,7 @@
 
 ### 复制NBT
 
-- 作用：从指定类型的数据源复制NBT到物品。
+- 作用：从指定类型的数据源复制NBT到物品栈。
 
 - 语句：
 
@@ -86,14 +93,21 @@
 
 ### 随机附魔
 
-- 作用：将对战利品项从附魔列表中随机附魔。
+- 作用：为物品附上一个随机的魔咒。魔咒的等级也是随机的。
 
-- 语句：
+- 语句：enchantRandomly(附魔id数组\: ResourceLocation\[\]);
 
 ::: code-group
 
 ```js [KubeJS]
-
+ServerEvents.entityLootTables(event => {
+    event.addEntity("minecraft:husk", loot => {
+        loot.enchantRandomly([
+            "minecraft:aqua_affinity",
+            "minecraft:bane_of_arthropods"
+        ]);
+    })
+})
 ```
 
 ```json [Json文本]
@@ -104,14 +118,18 @@
 
 ### 给予等价于经验等级的随机魔咒
 
-- 作用：对战利品项执行一次数字提供器返回的等级的附魔。
+- 作用：使用指定的魔咒等级附魔物品（大约等效于使用这个等级的附魔台附魔物品）。
 
-- 语句：
+- 语句：enchantWithLevels(附魔等级\: [数字提供器](../MiscellaneousKnowledge/NumberProvider.md), 是否包含宝藏附魔\: Boolean)
 
 ::: code-group
 
 ```js [KubeJS]
-
+ServerEvents.entityLootTables(event => {
+    event.addEntity("minecraft:husk", loot => {
+        loot.enchantWithLevels({ min: 1, max: 5 }, true)// [!code ++]
+    })
+})
 ```
 
 ```json [Json文本]
@@ -178,12 +196,16 @@
 
 - 作用：将物品转变为用熔炉烧炼后的对应物品。如果物品不可烧炼，则不做任何处理。
 
-- 语句：
+- 语句：furnaceSmelt()
 
 ::: code-group
 
 ```js [KubeJS]
-
+ServerEvents.entityLootTables(event => {
+    event.addEntity("minecraft:husk", loot => {
+        loot.furnaceSmelt()// [!code ++]
+    })
+})
 ```
 
 ```json [Json文本]
@@ -192,7 +214,7 @@
 
 :::
 
-### 限制堆叠数量
+### 限制物品栈数量
 
 作用：限制物品数量。
 
@@ -286,12 +308,16 @@
 
 - 作用：决定了抢夺魔咒对该物品数量的影响。如果未使用，抢夺魔咒将对该物品没有效果。
 
-- 语句：
+- 语句：lootingEnchant(每级抢夺增加的物品掉落数量\: [数字提供器](../MiscellaneousKnowledge/NumberProvider.md), 最大掉落数量\: Number)
 
 ::: code-group
 
 ```js [KubeJS]
-
+ServerEvents.entityLootTables(event => {
+    event.addEntity("minecraft:husk", loot => {
+        loot.lootingEnchant({ min: 1, max: 5 }, 3)// [!code ++]
+    })
+})
 ```
 
 ```json [Json文本]
@@ -304,12 +330,16 @@
 
 - 作用：设置该物品的数量。
 
-- 语句：
+- 语句：count(数量\: [数字提供器](../MiscellaneousKnowledge/NumberProvider.md))
 
 ::: code-group
 
 ```js [KubeJS]
-
+ServerEvents.entityLootTables(event => {
+    event.addEntity("minecraft:husk", loot => {
+        loot.count({ min: 1, max: 5 })// [!code ++]
+    })
+})
 ```
 
 ```json [Json文本]
@@ -327,7 +357,11 @@
 ::: code-group
 
 ```js [KubeJS]
-
+ServerEvents.entityLootTables(event => {
+    event.addEntity("minecraft:husk", loot => {
+        loot.damage({ min: 1, max: 5 })// [!code ++]
+    })
+})
 ```
 
 ```json [Json文本]
@@ -374,14 +408,18 @@
 
 ### 设置战利品表
 
-- 作用：为一个容器方块物品设定战利品表。
+- 作用：设置放置和打开容器方块时的战利品表。
 
-- 语句：
+- 语句：lootTable(战利品表id\: ResourceLocation, \[可选\]战利品表种子\: Number)
 
 ::: code-group
 
 ```js [KubeJS]
-
+ServerEvents.entityLootTables(event => {
+    event.addEntity("minecraft:husk", loot => {
+        loot.lootTable('minecraft:archaeology/desert_pyramid', 233)// [!code ++]
+    })
+})
 ```
 
 ```json [Json文本]
@@ -476,6 +514,29 @@
 
 ```json [Json文本]
 
+```
+
+:::
+
+## 有条件的物品修饰器(物品条件函数)
+
+- 作用：使一些物品修饰器有条件的应用。
+
+- 语句：addConditionalFunction(回调函数(物品条件函数\: [Internal.ConditionalFunction](../Addon/ProbeJS/ProbeJSClassFlie.md#conditionalfunction)));
+
+::: code-group
+
+```js [KubeJS]
+ServerEvents.entityLootTables(event => {
+    event.addEntity("minecraft:husk", loot => {
+        loot.addConditionalFunction(cf => {// [!code ++]
+            // 添加谓词，还可以通过链式调用继续添加
+            cf.survivesExplosion()// [!code ++]
+            // 添加物品修饰器，还可以通过链式调用继续添加
+            cf.name(Component.red('爆炸残余物'))// [!code ++]
+        })// [!code ++]
+    })
+})
 ```
 
 :::

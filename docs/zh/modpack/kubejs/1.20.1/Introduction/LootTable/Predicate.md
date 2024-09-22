@@ -2,19 +2,23 @@
 
 ## 概述
 
-- 释义：用于判断对象或参数的一组条件，或者说是对一类特征的抽象描述；例如：“他穿了衣服”，谓词：“某某穿了衣服”。
+- 释义：用于判断对象或参数的一组条件，或者说是对一类特征的抽象描述，例如：“他穿了衣服”，谓词：“穿了衣服”。
 
-- 作用：常作为战利品的掉落与物品修饰器的应用条件，不过由于KubeJS并没有原生支持全部的谓词，因此绝大部分都需要写Json作为参数传入。
+- 作用：常作为战利品的掉落与物品修饰器的条件。
 
-## 技巧
+::: warning 注意
 
-- 谓词并不被KubeJS完全原生支持，部分谓词需以Json对象表示作为addCondition()的参数传递，因此建议在[minecraft-wiki/谓词](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D)了解某个谓词的作用后使用[数据包生成器#谓词](https://misode.github.io/predicate/)来快速生成谓词Json文本。
+- 一些谓词类型并没有被KubeJS提供原生支持，需写为Json文本格式作为addCondition(...Json)函数的参数传递。
+
+- 在不被KubeJS原生支持的谓词中会给出可参考链接来协助使用谓词。
+
+:::
 
 ## 谓词类型
 
 ### 全部
 
-- 作用：定义谓词列表，当数组内全部谓词均通过时此谓词通过。
+- 作用：评估一系列战利品表谓词，若它们都通过检查，则评估通过。可从任何上下文调用。
 
 ::: details 全部类型谓词参考
 [minecraft-wiki/谓词#all_of](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#all_of)
@@ -49,7 +53,7 @@ ServerEvents.blockLootTables(event => {
 
 ### 任何
 
-- 作用：定义谓词列表，当数组内任一谓词通过时此谓词通过。
+- 作用：评估一系列战利品表谓词，若其中任意一个通过检查，则评估通过。可从任何上下文调用。
 
 ::: details 任何类型谓词参考
 [minecraft-wiki/谓词#any_of](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#any_of)
@@ -84,7 +88,7 @@ ServerEvents.blockLootTables(event => {
 
 ### 方块状态属性
 
-- 作用：将检查战利品上下文中方块的属性。
+- 作用：检查方块以及其方块状态。需要战利品上下文提供的方块状态进行检测，若未提供则总是不通过。
 
 ::: details 方块状态属性谓词参考
 [minecraft-wiki/谓词#block_state_property](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#block_state_property)
@@ -130,7 +134,7 @@ ServerEvents.blockLootTables(event => {
 
 ### 伤害来源属性
 
-- 作用：检查伤害来源的属性。
+- 作用：检查伤害来源的属性。需要战利品上下文提供的来源和伤害来源进行检测，若未提供则总是不通过。
 
 ::: details 害来源属性谓词参考
 [minecraft-wiki/谓词#damage_source_properties](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#damage_source_properties)
@@ -188,7 +192,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 实体属性
 
-- 作用：检查战利品表上下文中的实体。
+- 作用：检查战利品表上下文中的实体。可从任何上下文调用。
 
 ::: details 实体属性谓词参考
 [minecraft-wiki/谓词#entity_properties](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#entity_properties)
@@ -274,7 +278,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 被玩家击杀
 
-- 作用：检查实体是否死于玩家击杀。
+- 作用：检查实体是否死于玩家击杀(死时被玩家攻击过)。
 
 - 语句：killedByPlayer();
 
@@ -292,7 +296,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 检查位置
 
-- 作用：检查执行位置。
+- 作用：检查当前位置。需要战利品上下文提供的来源进行检测，若未提供则总是不通过。
 
 ::: details 位置信息谓词参考
 [minecraft-wiki/谓词#location_check](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#location_check)
@@ -332,7 +336,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 匹配工具
 
-- 作用：检查战利品上下文工具。
+- 作用：检查工具。需要战利品上下文提供的工具进行检测，若未提供则总是不通过。
 
 ::: details 检查工具谓词参考
 [minecraft-wiki/谓词#match_tool](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#match_tool)
@@ -370,7 +374,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 随机概率
 
-- 作用：检查随机概率，使用[0, 1]的数字表示。
+- 作用：生成一个取值范围为0.0–1.0之间的随机数，并检查其是否小于指定值。可从任何上下文调用。
 
 - 语句：randomChance(概率\[0, 1\]);
 
@@ -407,7 +411,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 引用谓词文件
 
-- 引用一个谓词文件，将其作为谓词。
+- 调用谓词文件并返回其结果。可从任何上下文调用。
 
 - 语句：addCondition(...Json);
 
@@ -460,7 +464,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 附魔奖励
 
-- 作用：定义一个包含概率（小数）的数组，检查魔咒id，根据该id魔咒等级确定使用哪一个数字进行概率判断。
+- 作用：以魔咒等级为索引，从列表中挑选概率通过。需要战利品上下文提供的工具进行检测，如果未提供，则附魔等级被视为 0。
 
 ::: details 附魔奖励谓词参考
 [minecraft-wiki/谓词#reference](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#reference)
@@ -507,7 +511,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 检查时间
 
-- 作用：将当前的游戏时间（更确切地来说，为24000 * 天数 + 当天时间）和给定值进行比较。
+- 作用：将当前的游戏时间（更确切地来说，为24000 * 天数 + 当天时间）和给定值进行比较。可从任何上下文调用。
 
 ::: details 检查时间谓词参考
 [minecraft-wiki/谓词#time_check](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#time_check)
@@ -549,7 +553,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 检查值
 
-- 作用：将一个数与另一个数或范围进行比较。
+- 作用：将一个数与另一个数或范围进行比较。可从任何上下文调用。
 
 ::: details 检查值谓词参考
 [minecraft-wiki/谓词#value_check](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#value_check)
@@ -597,7 +601,7 @@ ServerEvents.entityLootTables(event => {
 
 ### 检查天气
 
-- 检查所在维度天气晴雨。
+- 检查当前游戏的天气状态。可从任何上下文调用。
 
 ::: details 检查天气谓词参考
 [minecraft-wiki/谓词#weather_check](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#weather_check)
