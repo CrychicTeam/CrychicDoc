@@ -143,6 +143,12 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                         mapByNameAliases: ["Qi-Month"],
                         avatar: generateAvatarUrl("Qi-Month"),
                     },
+                    {
+                        name: "xiaoliziawa",
+                        username: "xiaoliziawa",
+                        mapByNameAliases: ["xiaoliziawa"],
+                        avatar: generateAvatarUrl("xiaoliziawa"),
+                    },
                 ],
             }),
             GitChangelogMarkdownSection(),
