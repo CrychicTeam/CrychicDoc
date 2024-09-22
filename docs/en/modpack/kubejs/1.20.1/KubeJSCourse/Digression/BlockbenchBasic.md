@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # BlockBench基础使用
 ## 一、关于Blockbench
 

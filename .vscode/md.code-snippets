@@ -5,6 +5,54 @@
         "body": ["&nbsp;&nbsp;"],
         "description": "Insert two non-breaking spaces in Markdown"
     },
+    "progress": {
+        
+        "prefix": "progress",
+        "body": [
+            "progress: $0"
+        ],
+        "description": "progress"
+    },
+    "description": {
+        
+        "prefix": "description",
+        "body": [
+            "description: $0"
+        ],
+        "description": "description"
+    },
+    "preliminary": {
+        
+        "prefix": "state preliminary",
+        "body": [
+            "state: preliminary"
+        ],
+        "description": "preliminary"
+    },
+    "unfinished": {
+        
+        "prefix": "state unfinished",
+        "body": [
+            "state: unfinished"
+        ],
+        "description": "unfinished"
+    },
+    "outdated": {
+        
+        "prefix": "state outdated",
+        "body": [
+            "state: outdated"
+        ],
+        "description": "outdated"
+    },
+    "renovating": {
+        
+        "prefix": "state renovating",
+        "body": [
+            "state: renovating"
+        ],
+        "description": "renovating"
+    },
     "nogui": {
         
         "prefix": "noguide",

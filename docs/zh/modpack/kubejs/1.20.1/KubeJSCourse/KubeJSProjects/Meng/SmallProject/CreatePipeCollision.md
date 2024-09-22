@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 机械动力修改流体管道流体和流体产生块
 本章主要涉及内容：ForgeEvents、机械动力事件里的`PipeCollisionEvent.Spill`，本章所有代码部分都在`startup_scripts`里
 

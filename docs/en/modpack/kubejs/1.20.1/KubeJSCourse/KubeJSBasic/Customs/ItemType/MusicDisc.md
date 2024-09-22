@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 添加唱片
 
 在本章中会举例如何创建一个可以播放音乐的唱片，本章所有js代码将会存放于在文件夹`startup_scripts`和`server_scripts`下
@@ -95,7 +98,7 @@ StartupEvents.registry('item', (event) => {
 
 在 1.21.1+ 中，可以直接将音频文件放于`./kubejs/assets/<namespace>/sounds/`下，kubejs会识别到
 
-[关于sounds.json的文件结构](../../../Digression/sounds-json)
+[关于sounds.json的文件结构](../../../Digression/SoundsJson)
 
 ## 本地化和材质
 

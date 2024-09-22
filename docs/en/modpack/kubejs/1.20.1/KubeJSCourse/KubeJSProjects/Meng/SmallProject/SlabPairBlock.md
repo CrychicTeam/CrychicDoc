@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 台阶合成木板
 本章主要涉及内容：配方事件里的findRecipes，本章所有代码部分都在`server_scripts`里
 

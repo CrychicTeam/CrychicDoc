@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 ## Section进阶用法(建议先把基础学好了再回来看这个)
 
 > ### showIndependentSection

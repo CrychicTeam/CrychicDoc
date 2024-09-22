@@ -12,6 +12,6 @@ root:
         file: index
       - title: Multiblocked 2
         path: MBD2
-        file: Dialogue
+        file: Catalogue
 ---
 ## 冒险模组

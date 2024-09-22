@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # Pobder基础内容
 本文中未提及到在哪个文件夹新建，则全部在`client_scripts`下
 

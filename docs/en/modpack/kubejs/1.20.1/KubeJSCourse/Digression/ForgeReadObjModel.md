@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # `obj`模型
 * `obj`模型是在制作上相比于`Minecraft`原版模型更为自由的模型,例如[**沉浸工程**](https://www.mcmod.cn/class/463.html)的[**电弧炉**](https://www.mcmod.cn/item/36383.html)和[**斗轮式挖掘机**](https://www.mcmod.cn/item/36550.html)等
   * ### 建立`obj`模型

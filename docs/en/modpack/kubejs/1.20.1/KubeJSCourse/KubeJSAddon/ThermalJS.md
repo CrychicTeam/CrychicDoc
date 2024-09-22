@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 ## 热力膨胀和KubeJs 
 在本章中将介绍如何使用KubeJS去修改热力膨胀模组的配方
 

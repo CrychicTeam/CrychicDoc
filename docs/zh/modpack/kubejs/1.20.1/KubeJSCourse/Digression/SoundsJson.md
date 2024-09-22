@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # sounds.json 结构
 **注：以下内容来自mcwiki**
 ```json

@@ -125,6 +125,18 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                         mapByNameAliases: ["EvanHsieh0415", "Mango"],
                         avatar: generateAvatarUrl("Mango-Minecraft-Project"),
                     },
+                    {
+                        name: "Gu-meng",
+                        username: "Gu-meng",
+                        mapByNameAliases: ["Gu-meng"],
+                        avatar: generateAvatarUrl("Gu-meng"),
+                    },
+                    {
+                        name: "Gu-meng",
+                        username: "Gu-meng",
+                        mapByNameAliases: ["Gu-meng"],
+                        avatar: generateAvatarUrl("Gu-meng"),
+                    },
                 ],
             }),
             GitChangelogMarkdownSection(),

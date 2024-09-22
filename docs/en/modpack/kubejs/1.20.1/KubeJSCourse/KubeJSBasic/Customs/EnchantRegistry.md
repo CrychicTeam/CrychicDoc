@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 添加附魔
 在kubejs中可以非常轻松的添加附魔，一定要注意，写在startup_scripts文件夹里
 ```js
@@ -215,7 +218,7 @@ StartupEvents.registry("enchantment",event =>{
             })
 })
 ```
-上面的代码中实现了，注册了一个生命窃取的附魔，并只能附给盔甲，注册后别忘了写[lang文件](../../Lang)
+上面的代码中实现了，注册了一个生命窃取的附魔，并只能附给盔甲，注册后别忘了写[lang文件](../../Resources/Lang)
 ```json
 {
     "enchantment.meng.health_theft": "生命窃取"
@@ -240,7 +243,7 @@ StartupEvents.registry("enchantment",event =>{
             })
 })
 ```
-上面的代码中实现了，注册了一个生命吸取的附魔，并只能附给武器，注册后别忘了写[lang文件](../../Lang)
+上面的代码中实现了，注册了一个生命吸取的附魔，并只能附给武器，注册后别忘了写[lang文件](../../Resources/Lang)
 ```json
 {
     "enchantment.meng.health_steal": "生命吸取"

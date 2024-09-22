@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 关于翻译
 
 > 在构筑代码的时候, 你可能会为了将内容翻译成其他语种而烦恼, 不过不用担心, Ponder 会自动建立翻译文件
@@ -16,7 +19,7 @@
 >
 > `zh_cn.json` 对应简体中文
 
-关于更多语言的文件命名:[链接](../../DigressionLangFileNamingChart.md)
+关于更多语言的文件命名:[链接](../..../Digression/LangFileNamingChart.md)
 
 # 开始
 

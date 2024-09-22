@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 原版修改流体对撞产生块
 本章主要涉及内容：ForgeEvents、forge事件里的`BlockEvent.FluidPlaceBlockEvent`，本章所有代码部分都在`startup_scripts`里
 

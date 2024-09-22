@@ -1,8 +1,11 @@
+---
+authors: ['Gu-meng']
+---
 # 本地化lang(语言文件)
 这章主要是教会大家如何添加以及修改别的Mod的本地化文件(语言文件)
 
 * ### 文件路径
-  `lang`文件主要存储于`assets/${modid}/lang`,不同的国家也有着不同的文件名称,具体请查看[**Wiki**](https://zh.minecraft.wiki/w/语言)或者文档[内部链接](/DigressionLangFileNamingChart.md),而各文件都以`json`作为后缀,例如`en_us.json` `zh_cn.json` `zh_tw.json`等 
+  `lang`文件主要存储于`assets/${modid}/lang`,不同的国家也有着不同的文件名称,具体请查看[**Wiki**](https://zh.minecraft.wiki/w/语言)或者文档[内部链接](../Digression/LangFileNamingChart.md),而各文件都以`json`作为后缀,例如`en_us.json` `zh_cn.json` `zh_tw.json`等 
 
   `minecraft:sand` `minecraft`是`modid`
 

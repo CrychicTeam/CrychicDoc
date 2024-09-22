@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 机械动力和KubeJs 
 在本章中将介绍如何使用KubeJs去修改机械动力模组的配方
 
@@ -68,7 +71,7 @@ Item.of("物品id", 数量).withChance(0.5)
 
 如果标注可以输出多个物品则是可以像下面这种写法
 ```js
-[Item.of("物品id", 数量),Item.of("物品id", 数量)]
+[Item.of("物品id", 数量), Item.of("物品id", 数量)]
 ```
 这里可以注意的一点，如果标注了可以输出多个物品和概率，那么也可以在`of()`加上`.withChance()`
 
@@ -114,11 +117,11 @@ create.pressing([
 ```
 简单解释一下再上面的代码
 
-**压块**和**压片**的第一个参数是<font color=yellow>输出物品和流体,可以使用数组形式,也可以给物品后面添加<font color=blue>.withChance()</font>来添加输出概率,这里注意的是,1为100%</font>,第二个参数是<font color=yellow>输入物品</font>
+**压块**和**压片**的第一个参数是<font color=red>输出物品和流体,可以使用数组形式,也可以给物品后面添加<font color=blue>.withChance()</font>来添加输出概率,这里注意的是,1为100%</font>,第二个参数是<font color=red>输入物品</font>
 
-如果在后面添加<font color=blue>.heated()</font>是需要加热
+如果在后面添加<font color=red>.heated()</font>是需要加热
 
-如果在后面添加<font color=blue>.superheated()</font>是需要超级加热
+如果在后面添加<font color=red>.superheated()</font>是需要超级加热
 ### 动力搅拌机
 ```js
 // 混合搅拌 - 多个输入
@@ -180,9 +183,9 @@ create.filling("minecraft:soul_torch", [
 	Fluid.of("minecraft:milk", 500)
 ])
 ```
-第一个参数为<font color=yellow>输出物品</font>
+第一个参数为<font color=red>输出物品</font>
 
-第二个参数为<font color=yellow>输入物品和流体</font>
+第二个参数为<font color=red>输入物品和流体</font>
 
 这里注意一点，输入一定是物品和流体
 ### 分液池
@@ -193,9 +196,9 @@ create.emptying([
 	"minecraft:slime_ball"
 ], "minecraft:magma_cream")
 ```
-第一个参数为<font color=yellow>输出物品和流体</font>
+第一个参数为<font color=red>输出物品和流体</font>
 
-第二个参数为<font color=yellow>输入物品</font>
+第二个参数为<font color=red>输入物品</font>
 
 这里注意一点，输出一定是物品和流体
 ### 动力锯
@@ -218,9 +221,9 @@ create.deploying("minecraft:anvil", [
 	"minecraft:iron_ingot"
 ]).keepHeldItem()
 ```
-第一个参数为<font color=yellow>输出物品</font>
+第一个参数为<font color=red>输出物品</font>
 
-第二个参数为<font color=yellow>输入物品和机械手手持物品</font>
+第二个参数为<font color=red>输入物品和机械手手持物品</font>
 
 输入物品的第一个为被安装物品，输入物品的第二个为机械手手持物品,所以千万<font color=red>不要写反</font>
 ### 砂纸
@@ -247,11 +250,11 @@ create.mechanical_crafting("minecraft:cow_spawn_egg", [
 ```
 这个地方他只能类似于json的写法，最大支持9*9的配方
 
-第一个参数为<font color=yellow>输出物品</font>
+第一个参数为<font color=red>输出物品</font>
 
-第二个参数为<font color=yellow>输入配方</font>
+第二个参数为<font color=red>输入配方</font>
 
-第三个参数为<font color=yellow>解释输入配方占位符</font>
+第三个参数为<font color=red>解释输入配方占位符</font>
 
 <font color=green>建议在写输入配方占位符时，一行看作一个工作台的一排,写完一排换一行,如果有四行,但是在第二行是**完全空出来的**,<font color=red>请用空格填满!!!</font></font>
 
@@ -294,8 +297,8 @@ const incomplete = "create:incomplete_precision_mechanism"
     .transitionalItem(incomplete)
     // 循环次数--如果不写默认为5次
     .loops(3)
-```
 
+```
 ```js
 // 下方是无注释写法
 const incomplete = "create:incomplete_precision_mechanism"
@@ -310,6 +313,7 @@ create.sequenced_assembly([
 	create.filling(incomplete, [incomplete, Fluid.of("minecraft:lava", 100)]),
 	create.pressing(incomplete, incomplete)
 ]).transitionalItem(incomplete).loops(3)
+```
 这里值得一提的是，目前官方总共提供只有上面的四种方式进行机器参与
 
 注:序列组装的半成品是可以使用原版的物品的

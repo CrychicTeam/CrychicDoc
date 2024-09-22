@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 配方ID
 
 * **关于Recipe ID(配方ID)**

@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 > ### encapsulateBounds
 >
 > `scene.encapsulateBounds(blockPos: BlockPos): void`
