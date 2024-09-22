@@ -46,7 +46,7 @@ ServerEvents.recipes((event) => {
 	 * const { create, thermal, kubejs, minecraft } = event.recipes
 	 * 如果不知道哪些Mod支持请尝试使用ProbeJS
 	*/
-	const { create } = event.recipes
+    const { create } = event.recipes
 })
 ```
 如果标注支持**加热**那么也支持**超级加热**
@@ -68,7 +68,7 @@ Item.of("物品id", 数量).withChance(0.5)
 
 如果标注可以输出多个物品则是可以像下面这种写法
 ```js
-[Item.of("物品id", 数量),Item.of("物品id", 数量)]
+[Item.of("物品id", 数量), Item.of("物品id", 数量)]
 ```
 这里可以注意的一点，如果标注了可以输出多个物品和概率，那么也可以在`of()`加上`.withChance()`
 
@@ -114,11 +114,11 @@ create.pressing([
 ```
 简单解释一下再上面的代码
 
-**压块**和**压片**的第一个参数是<font color=yellow>输出物品和流体,可以使用数组形式,也可以给物品后面添加<font color=blue>.withChance()</font>来添加输出概率,这里注意的是,1为100%</font>,第二个参数是<font color=yellow>输入物品</font>
+**压块**和**压片**的第一个参数是<font color=red>输出物品和流体,可以使用数组形式,也可以给物品后面添加<font color=blue>.withChance()</font>来添加输出概率,这里注意的是,1为100%</font>,第二个参数是<font color=red>输入物品</font>
 
-如果在后面添加<font color=blue>.heated()</font>是需要加热
+如果在后面添加<font color=red>.heated()</font>是需要加热
 
-如果在后面添加<font color=blue>.superheated()</font>是需要超级加热
+如果在后面添加<font color=red>.superheated()</font>是需要超级加热
 ### 动力搅拌机
 ```js
 // 混合搅拌 - 多个输入
@@ -180,9 +180,9 @@ create.filling("minecraft:soul_torch", [
 	Fluid.of("minecraft:milk", 500)
 ])
 ```
-第一个参数为<font color=yellow>输出物品</font>
+第一个参数为<font color=red>输出物品</font>
 
-第二个参数为<font color=yellow>输入物品和流体</font>
+第二个参数为<font color=red>输入物品和流体</font>
 
 这里注意一点，输入一定是物品和流体
 ### 分液池
@@ -193,9 +193,9 @@ create.emptying([
 	"minecraft:slime_ball"
 ], "minecraft:magma_cream")
 ```
-第一个参数为<font color=yellow>输出物品和流体</font>
+第一个参数为<font color=red>输出物品和流体</font>
 
-第二个参数为<font color=yellow>输入物品</font>
+第二个参数为<font color=red>输入物品</font>
 
 这里注意一点，输出一定是物品和流体
 ### 动力锯
@@ -218,9 +218,9 @@ create.deploying("minecraft:anvil", [
 	"minecraft:iron_ingot"
 ]).keepHeldItem()
 ```
-第一个参数为<font color=yellow>输出物品</font>
+第一个参数为<font color=red>输出物品</font>
 
-第二个参数为<font color=yellow>输入物品和机械手手持物品</font>
+第二个参数为<font color=red>输入物品和机械手手持物品</font>
 
 输入物品的第一个为被安装物品，输入物品的第二个为机械手手持物品,所以千万<font color=red>不要写反</font>
 ### 砂纸
@@ -234,24 +234,24 @@ create.sandpaper_polishing("minecraft:glow_item_frame", [
 ```js
 // 动力合成 最大9*9
 create.mechanical_crafting("minecraft:cow_spawn_egg", [
-	"BBBBB",
-	"B B B",
-	"BBEBB",
-	"BMMMB",
-	"MMMMM"
+    "BBBBB",
+    "B B B",
+    "BBEBB",
+    "BMMMB",
+    "MMMMM"
 ], {
-	B: "minecraft:beef",
-	E: "minecraft:egg",
-	M: "minecraft:milk_bucket"
+    B: "minecraft:beef",
+    E: "minecraft:egg",
+    M: "minecraft:milk_bucket"
 })
 ```
 这个地方他只能类似于json的写法，最大支持9*9的配方
 
-第一个参数为<font color=yellow>输出物品</font>
+第一个参数为<font color=red>输出物品</font>
 
-第二个参数为<font color=yellow>输入配方</font>
+第二个参数为<font color=red>输入配方</font>
 
-第三个参数为<font color=yellow>解释输入配方占位符</font>
+第三个参数为<font color=red>解释输入配方占位符</font>
 
 <font color=green>建议在写输入配方占位符时，一行看作一个工作台的一排,写完一排换一行,如果有四行,但是在第二行是**完全空出来的**,<font color=red>请用空格填满!!!</font></font>
 
@@ -266,36 +266,36 @@ create.mechanical_crafting("minecraft:cow_spawn_egg", [
 const incomplete = "create:incomplete_precision_mechanism"
 
 //序列组装
-	create.sequenced_assembly(
-		// 输出物品及概率(这里的概率更偏向于占比),
-		// 占比越高输出该物品的概率越高
-		// 数组内的第一个物品为主要输出物品
-		// 其他输出物品则为“废料”
-		[
-			Item.of("diamond").withChance(0.02),
-			Item.of("cobblestone").withChance(0.5),
-			Item.of("stone").withChance(0.8)
-		],
-		// 输入物品
-		"minecraft:deepslate",
-		// 参与机器--按顺序加工
-		[
-			// 参与机器--机械手
-			create.deploying(incomplete, [incomplete, "minecraft:tnt"]).keepHeldItem(),
-			// 参与机器--切石机
-			create.cutting(incomplete, incomplete),
-			// 参与机器--注液器
-			create.filling(incomplete, [incomplete, Fluid.of("minecraft:lava", 100)]),
-			// 参与机器--压片
-			create.pressing(incomplete,incomplete)
-		]
+    create.sequenced_assembly(
+        // 输出物品及概率(这里的概率更偏向于占比),
+        // 占比越高输出该物品的概率越高
+        // 数组内的第一个物品为主要输出物品
+        // 其他输出物品则为“废料”
+        [
+            Item.of("diamond").withChance(0.02),
+            Item.of("cobblestone").withChance(0.5),
+            Item.of("stone").withChance(0.8)
+        ],
+        // 输入物品
+        "minecraft:deepslate",
+        // 参与机器--按顺序加工
+        [
+            // 参与机器--机械手
+            create.deploying(incomplete, [incomplete, "minecraft:tnt"]).keepHeldItem(),
+            // 参与机器--切石机
+            create.cutting(incomplete, incomplete),
+            // 参与机器--注液器
+            create.filling(incomplete, [incomplete, Fluid.of("minecraft:lava", 100)]),
+            // 参与机器--压片
+            create.pressing(incomplete,incomplete)
+        ]
 	)
-	// 中间件--加工成的半成品物品
-	.transitionalItem(incomplete)
-	// 循环次数--如果不写默认为5次
-	.loops(3)
-```
+    // 中间件--加工成的半成品物品
+    .transitionalItem(incomplete)
+    // 循环次数--如果不写默认为5次
+    .loops(3)
 
+```
 ```js
 // 下方是无注释写法
 const incomplete = "create:incomplete_precision_mechanism"
@@ -310,6 +310,7 @@ create.sequenced_assembly([
 	create.filling(incomplete, [incomplete, Fluid.of("minecraft:lava", 100)]),
 	create.pressing(incomplete, incomplete)
 ]).transitionalItem(incomplete).loops(3)
+```
 这里值得一提的是，目前官方总共提供只有上面的四种方式进行机器参与
 
 注:序列组装的半成品是可以使用原版的物品的
@@ -318,7 +319,7 @@ create.sequenced_assembly([
 在序列组装是可以自定义半成品的，这里需要写在游戏加载(startup_scripts)时的文件夹内
 ```js
 StartupEvents.registry("item", (event) => {
-	event.create("meng:diamond", "create:sequenced_assembly")
+    event.create("meng:diamond", "create:sequenced_assembly")
 })
 ```
 在`event.create`里的第一个参数为:**物品id**第二个参数为**物品类型**

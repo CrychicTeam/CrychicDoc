@@ -95,7 +95,7 @@ StartupEvents.registry('item', (event) => {
 
 在 1.21.1+ 中，可以直接将音频文件放于`./kubejs/assets/<namespace>/sounds/`下，kubejs会识别到
 
-[关于sounds.json的文件结构](../../../Digression/sounds-json)
+[关于sounds.json的文件结构](../../../Digression/SoundsJson)
 
 ## 本地化和材质
 
