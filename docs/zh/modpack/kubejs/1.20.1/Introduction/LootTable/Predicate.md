@@ -20,13 +20,13 @@
 
 - 作用：评估一系列战利品表谓词，若它们都通过检查，则评估通过。可从任何上下文调用。
 
-::: details 全部类型谓词参考
+- 语句：addFunction(...Json);
+
+::: details “全部”谓词参考
 [minecraft-wiki/谓词#all_of](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#all_of)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(\{"condition": "minecraft:all_of", "terms": []\});
 
 ::: code-group
 
@@ -55,13 +55,13 @@ ServerEvents.blockLootTables(event => {
 
 - 作用：评估一系列战利品表谓词，若其中任意一个通过检查，则评估通过。可从任何上下文调用。
 
-::: details 任何类型谓词参考
+- 语句：addFunction(...Json);
+
+::: details “任何”谓词参考
 [minecraft-wiki/谓词#any_of](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#any_of)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(\{"condition": "minecraft:any_of", "terms": []\});
 
 ::: code-group
 
@@ -90,13 +90,13 @@ ServerEvents.blockLootTables(event => {
 
 - 作用：检查方块以及其方块状态。需要战利品上下文提供的方块状态进行检测，若未提供则总是不通过。
 
+- 语句：addCondition(...Json);
+
 ::: details 方块状态属性谓词参考
 [minecraft-wiki/谓词#block_state_property](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#block_state_property)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(...Json);
 
 ::: code-group
 
@@ -136,13 +136,13 @@ ServerEvents.blockLootTables(event => {
 
 - 作用：检查伤害来源的属性。需要战利品上下文提供的来源和伤害来源进行检测，若未提供则总是不通过。
 
+- 语句：addCondition(...Json);
+
 ::: details 害来源属性谓词参考
 [minecraft-wiki/谓词#damage_source_properties](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#damage_source_properties)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(...Json);
 
 ::: code-group
 
@@ -194,13 +194,13 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：检查战利品表上下文中的实体。可从任何上下文调用。
 
+- 语句：entityProperties(战利品表上下文实体\: [Internal.LootContext$EntityTarget_](../Addon/ProbeJS/ProbeJSClassFlie.md#lootcontextentitytarget_), 实体属性Json);
+
 ::: details 实体属性谓词参考
 [minecraft-wiki/谓词#entity_properties](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#entity_properties)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：entityProperties(战利品表上下文实体\: [Internal.LootContext$EntityTarget_](../Addon/ProbeJS/ProbeJSClassFlie.md#lootcontextentitytarget_), 实体属性Json);
 
 ::: code-group
 
@@ -228,7 +228,13 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：检查实体的记分板分数。
 
-- 语句：entityScores(战利品表上下文实体\: [Internal.LootContext$EntityTarget_](../Addon/ProbeJS/ProbeJSClassFlie.md#lootcontextentitytarget_), 键值对{记分板id, 分数\: [数字提供器](../MiscellaneousKnowledge/NumberProvider.md)})
+- 语句：entityScores(战利品表上下文实体\: [Internal.LootContext$EntityTarget_](../Addon/ProbeJS/ProbeJSClassFlie.md#lootcontextentitytarget_), 键值对{记分板id, 分数\: [数字提供器](../MiscellaneousKnowledge/NumberProvider.md)});
+
+::: details 实体分数谓词参考
+[minecraft-wiki/谓词#entity_scores](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#entity_scores)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
 
 ::: code-group
 
@@ -246,13 +252,13 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：定义一个谓词列表，当内含谓词不通过时该谓词通过。
 
+- 语句：addCondition(...Json);
+
 ::: details 取反谓词参考
 [minecraft-wiki/谓词#inverted](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#inverted)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(...Json);
 
 ::: code-group
 
@@ -282,6 +288,12 @@ ServerEvents.entityLootTables(event => {
 
 - 语句：killedByPlayer();
 
+::: details 被玩家击杀谓词参考
+[minecraft-wiki/谓词#killed_by_player](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#killed_by_player)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
+
 ::: code-group
 
 ```js [KubeJS]
@@ -298,13 +310,13 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：检查当前位置。需要战利品上下文提供的来源进行检测，若未提供则总是不通过。
 
+- 语句：addCondition(...Json);
+
 ::: details 位置信息谓词参考
 [minecraft-wiki/谓词#location_check](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#location_check)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(...Json);
 
 ::: code-group
 
@@ -338,13 +350,13 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：检查工具。需要战利品上下文提供的工具进行检测，若未提供则总是不通过。
 
+- 语句：addCondition(...Json);
+
 ::: details 检查工具谓词参考
 [minecraft-wiki/谓词#match_tool](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#match_tool)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(...Json);
 
 ::: code-group
 
@@ -378,6 +390,12 @@ ServerEvents.entityLootTables(event => {
 
 - 语句：randomChance(概率\[0, 1\]);
 
+::: details 随机概率谓词参考
+[minecraft-wiki/谓词#random_chance](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#random_chance)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
+
 ::: code-group
 
 ```js [KubeJS]
@@ -395,6 +413,12 @@ ServerEvents.entityLootTables(event => {
 - 作用：检查随机概率，这个概率会受到抢夺魔咒的等级影响。
 
 - 语句：randomChanceWithLooting(概率\[0, 1\], 每级抢夺增加概率\[0, 1\]);
+
+::: details 受抢夺附魔影响的随机概率谓词参考
+[minecraft-wiki/谓词#random_chance_with_enchanted_bonus](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#random_chance_with_enchanted_bonus)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
 
 ::: code-group
 
@@ -448,7 +472,13 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：返回成功概率为1 / 爆炸半径，如果上下文未传递爆炸则始终通过。
 
-- 语句：survivesExplosion()
+- 语句：survivesExplosion();
+
+::: details 未被爆炸破坏谓词参考
+[minecraft-wiki/谓词#survives_explosion](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#survives_explosion)
+
+[数据包生成器/谓词](https://misode.github.io/predicate/)
+:::
 
 ::: code-group
 
@@ -466,13 +496,13 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：以魔咒等级为索引，从列表中挑选概率通过。需要战利品上下文提供的工具进行检测，如果未提供，则附魔等级被视为 0。
 
+- 语句：addCondition(...Json);
+
 ::: details 附魔奖励谓词参考
 [minecraft-wiki/谓词#reference](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#reference)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(...Json);
 
 ::: code-group
 
@@ -513,13 +543,13 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：将当前的游戏时间（更确切地来说，为24000 * 天数 + 当天时间）和给定值进行比较。可从任何上下文调用。
 
+- 语句：addCondition(...Json);
+
 ::: details 检查时间谓词参考
 [minecraft-wiki/谓词#time_check](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#time_check)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(...Json);
 
 ::: code-group
 
@@ -555,13 +585,13 @@ ServerEvents.entityLootTables(event => {
 
 - 作用：将一个数与另一个数或范围进行比较。可从任何上下文调用。
 
+- 语句：addCondition(...Json);
+
 ::: details 检查值谓词参考
 [minecraft-wiki/谓词#value_check](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#value_check)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(...Json);
 
 ::: code-group
 
@@ -603,13 +633,13 @@ ServerEvents.entityLootTables(event => {
 
 - 检查当前游戏的天气状态。可从任何上下文调用。
 
+- 语句：addCondition(...Json);
+
 ::: details 检查天气谓词参考
 [minecraft-wiki/谓词#weather_check](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D#weather_check)
 
 [数据包生成器/谓词](https://misode.github.io/predicate/)
 :::
-
-- 语句：addCondition(...Json);
 
 ::: code-group
 
