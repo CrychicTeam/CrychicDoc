@@ -108,6 +108,9 @@ root:
             - title: 方块标签
               path: /
               file: Block
+            - title: 生物类型标签
+              path: /
+              file: EntityType
             - title: 流体标签
               path: /
               file: Fluid
@@ -154,6 +157,9 @@ root:
             - title: 箱子类型战利品表
               path: /
               file: Chest
+            - title: 通用类型战利品表
+              path: /
+              file: Generic
         - title: 事件
           path: Event
           collapsed: true

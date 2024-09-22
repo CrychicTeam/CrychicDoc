@@ -1,6 +1,8 @@
 # 钓鱼类型战利品表
 
-## 战利品表
+## 操作战利品表
+
+::: details 钓鱼战利品表id
 
 - fish —— 表示钓鱼战利品表中的鱼。
 
@@ -8,11 +10,15 @@
 
 - treasure —— 表示钓鱼战利品表中的宝藏。
 
+:::
+
+- 事件：ServerEvents.fishingLootTables(event => \{\});
+
 ::: code-group
 
-```js [修改原战利品表]
-ServerEvents.blockLootTables(event => {
-    // 修改原战利品表
+```js [KubeJS修改原战利品表]
+ServerEvents.fishingLootTables(event => {
+    // 修改原战利品表 event.modify(钓鱼战利品表id, loot=>{})
     event.modify('fish', loot => {
         loot.addPool(pool => {
             // 添加战利品
@@ -22,9 +28,10 @@ ServerEvents.blockLootTables(event => {
 })
 ```
 
-```js [覆盖原战利品表]
-ServerEvents.blockLootTables(event => {
-    // 创建战利品表，但因为id(ResourceLocation)和原战利品表一模一样，因此覆盖了原战利品表
+```js [KubeJS覆盖原战利品表]
+ServerEvents.fishingLootTables(event => {
+    // 创建战利品表，event.addFishing(钓鱼战利品表id, loot=>{})
+    // 因为id(ResourceLocation)和原战利品表一模一样，因此覆盖了原战利品表
     event.addFishing('fish', loot => {
         loot.addPool(pool => {
             // 添加战利品
@@ -34,8 +41,8 @@ ServerEvents.blockLootTables(event => {
 })
 ```
 
-```js [带有谓词&修饰器的]
-ServerEvents.blockLootTables(event => {
+```js [KubeJS带有谓词与修饰器的]
+ServerEvents.fishingLootTables(event => {
     event.addFishing('fish', loot => {// [!code ++]
         loot.addPool(pool => {// [!code ++]
             // 添加战利品
@@ -64,7 +71,7 @@ ServerEvents.blockLootTables(event => {
 
 :::
 
-## 谓词
+## 可用谓词
 
 - 钓鱼类型战利品表上下文可用的谓词。
 
@@ -84,7 +91,7 @@ ServerEvents.blockLootTables(event => {
 |   检查值   |   将一个数与另一个数或范围进行比较。可从任何上下文调用。   |   -   |   [×]   |   [示例](./Predicate.md#检查值)   |
 |   检查天气   |   检查当前游戏的天气状态。可从任何上下文调用。   |   -   |   [×]   |   [示例](./Predicate.md#检查天气)   |
 
-## 物品修饰器
+## 可用物品修饰器
 
 - 钓鱼类型战利品表上下文可用的物品修饰器。
 
