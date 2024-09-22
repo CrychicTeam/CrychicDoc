@@ -1,11 +1,13 @@
 # 实体类型战利品表
 
-## 战利品表
+## 操作战利品表
+
+- 事件：ServerEvents.entityLootTables(event => \{\});
 
 ::: code-group
 
-```js [修改原战利品表]
-ServerEvents.blockLootTables(event => {
+```js [KubeJS修改原战利品表]
+ServerEvents.entityLootTables(event => {
     // 修改原战利品表
     event.modifyEntity('minecraft:husk', loot => {
         loot.addPool(pool => {
@@ -16,8 +18,8 @@ ServerEvents.blockLootTables(event => {
 })
 ```
 
-```js [覆盖原战利品表]
-ServerEvents.blockLootTables(event => {
+```js [KubeJS覆盖原战利品表]
+ServerEvents.entityLootTables(event => {
     // 创建战利品表，但因为id(ResourceLocation)和原战利品表一模一样，因此覆盖了原战利品表
     event.addEntity('minecraft:husk', loot => {
         loot.addPool(pool => {
@@ -28,8 +30,8 @@ ServerEvents.blockLootTables(event => {
 })
 ```
 
-```js [带有谓词&修饰器的]
-ServerEvents.blockLootTables(event => {
+```js [KubeJS带有谓词与修饰器的]
+ServerEvents.entityLootTables(event => {
     event.addEntity('minecraft:husk', loot => {// [!code ++]
         loot.addPool(pool => {// [!code ++]
             // 添加战利品
@@ -58,7 +60,7 @@ ServerEvents.blockLootTables(event => {
 
 :::
 
-## 谓词
+## 可用谓词
 
 - 实体类型战利品表上下文可用的谓词。
 
@@ -79,7 +81,7 @@ ServerEvents.blockLootTables(event => {
 |   检查值   |   将一个数与另一个数或范围进行比较。可从任何上下文调用。   |   -   |   [×]   |   [示例](./Predicate.md#检查值)   |
 |   检查天气   |   检查当前游戏的天气状态。可从任何上下文调用。   |   -   |   [×]   |   [示例](./Predicate.md#检查天气)   |
 
-## 物品修饰器
+## 可用物品修饰器
 
 - 实体类型战利品表上下文可用的物品修饰器。
 

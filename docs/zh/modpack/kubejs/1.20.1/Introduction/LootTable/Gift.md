@@ -2,7 +2,7 @@
 
 ## 战利品表
 
-::: details 赠送村庄英雄的礼物
+::: details 赠送村庄英雄的礼物战利品表id
 
 - armorer_gift —— 盔甲商
 
@@ -32,17 +32,19 @@
 
 :::
 
-::: details 猫的礼物
+<!-- ::: details 猫的礼物战利品表id
 
 - 很可惜 暂无
 
-:::
+::: -->
+
+- 事件：ServerEvents.giftLootTables(event => \{\});
 
 ::: code-group
 
-```js [修改原战利品表]
-ServerEvents.blockLootTables(event => {
-    // 修改原战利品表
+```js [KubeJS修改原战利品表]
+ServerEvents.giftLootTables(event => {
+    // 修改原战利品表 event.modify(礼物战利品表id, loot => {})
     event.modify('armorer_gift', loot => {
         loot.addPool(pool => {
             // 添加战利品
@@ -52,9 +54,10 @@ ServerEvents.blockLootTables(event => {
 })
 ```
 
-```js [覆盖原战利品表]
-ServerEvents.blockLootTables(event => {
-    // 创建战利品表，但因为id(ResourceLocation)和原战利品表一模一样，因此覆盖了原战利品表
+```js [KubeJS覆盖原战利品表]
+ServerEvents.giftLootTables(event => {
+    // 创建战利品表 event.addGift(礼物战利品表id, loot => {})
+    // 因为id(ResourceLocation)和原战利品表一模一样，因此覆盖了原战利品表
     event.addGift('armorer_gift', loot => {
         loot.addPool(pool => {
             // 添加战利品
@@ -64,8 +67,8 @@ ServerEvents.blockLootTables(event => {
 })
 ```
 
-```js [带有谓词&修饰器的]
-ServerEvents.blockLootTables(event => {
+```js [KubeJS带有谓词与修饰器的]
+ServerEvents.giftLootTables(event => {
     event.addGift('armorer_gift', loot => {// [!code ++]
         loot.addPool(pool => {// [!code ++]
             // 添加战利品

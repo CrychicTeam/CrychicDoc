@@ -1,6 +1,6 @@
 # 物品标签
 
-## 前言
+## 概述
 
 - 原版的物品标签应用例：minecraft:fox_food 标签下的物品作为狐狸的食物。
 
@@ -12,20 +12,32 @@
 
 - 语句：event.add(标签, 物品);
 
-```js
+::: code-group
+
+```js [KubeJS]
+ServerEvents.tags('minecraft:item', event => {
+    // 标签id，物品id
+    event.add('kubejs:my_item_tags', 'minecraft:stick');
+})
+```
+
+```js [KubeJS]
+// 使用for循环对付更多的物品id
 ServerEvents.tags('minecraft:item', event => {
     /**
-     * 要加标签的物品
+     * 要加标签的物品id数组
      * @type {Special.Item[]}
      */
     const tagItems = [
-        
+        'minecraft:stick'
     ]
     for (const item of tagItems) {
         event.add('kubejs:my_item_tags', item);
     }
 })
 ```
+
+:::
 
 ## 删除物品标签
 
@@ -35,17 +47,29 @@ ServerEvents.tags('minecraft:item', event => {
 
 - 语句：event.remove(标签, 物品);
 
-```js
+::: code-group
+
+```js [KubeJS]
+ServerEvents.tags('minecraft:item', event => {
+    // 标签id，物品id
+    event.remove('kubejs:my_item_tags', 'minecraft:stick');
+})
+```
+
+```js [KubeJS]
+// 使用for循环对付更多的物品id
 ServerEvents.tags('minecraft:item', event => {
     /**
-     * 要删除标签的物品
+     * 从标签删除的物品id数组
      * @type {Special.Item[]}
      */
     const tagItems = [
-        
+        'minecraft:stick'
     ]
     for (const item of tagItems) {
-        event.add('kubejs:my_item_tags', item);
+        event.remove('kubejs:my_item_tags', item);
     }
 })
 ```
+
+:::
