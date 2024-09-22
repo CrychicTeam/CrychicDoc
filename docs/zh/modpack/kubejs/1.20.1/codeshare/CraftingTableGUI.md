@@ -8,7 +8,7 @@ let $SimpleMenuProvider = Java.loadClass('net.minecraft.world.SimpleMenuProvider
 let $CraftingMenu = Java.loadClass('net.minecraft.world.inventory.CraftingMenu')
 let $Optional = Java.loadClass(`java.util.Optional`)
 
-// 下方以草方块作为一个示例代码，具体需求可以自行更改
+// 下方以草方块作为一个示例代码，具体需求可以自行更改。
 BlockEvents.rightClicked('grass_block', (event) => {
     const { player, level, block } = event
 
@@ -22,7 +22,7 @@ BlockEvents.rightClicked('grass_block', (event) => {
             })
         }, '工作台')
     )
-
+    //这串代码是显示玩家右键是否挥动手臂
     player.swing()
 })
 ```
