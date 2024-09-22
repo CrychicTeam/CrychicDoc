@@ -24,5 +24,5 @@ stateDiagram-v2
     待机(Waiting) --> 工作中(Working)
     基本状态(Base) --> 停止工作(Suspend)
 ```
-
+ 
 :::

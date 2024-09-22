@@ -38,6 +38,7 @@ import ResponsibleEditor from "./components/ResponsibleEditor.vue";
 import Animation from "./components/Animation.vue";
 import PdfViewer from "./components/PdfViewer.vue";
 import Preview from './components/Preview.vue';
+import NotFound from './components/NotFound.vue';
 
 import { InjectionKey } from '@nolebase/vitepress-plugin-inline-link-preview/client'
 
@@ -67,6 +68,7 @@ export default {
                 "doc-after": () => h(Comment),
                 "layout-bottom": () => h(Footer),
                 "doc-footer-before": () => [ h(buttons) , h(ResponsibleEditor) ],
+                "not-found": () => [ h(NotFound)],
                 "nav-bar-content-after": () => h(NolebaseEnhancedReadabilitiesMenu),
                 "nav-screen-content-after": () =>
                     h(NolebaseEnhancedReadabilitiesScreenMenu),
