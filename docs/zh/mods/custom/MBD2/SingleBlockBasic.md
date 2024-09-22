@@ -17,7 +17,7 @@ title: 机器运行逻辑
 ---
 stateDiagram-v2
     direction LR
-    [机器] --> 基本状态(Base)
+    机器 --> 基本状态(Base)
 
     基本状态(Base) --> 工作中(Working)
     工作中(Working) --> 待机(Waiting)
