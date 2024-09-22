@@ -143,9 +143,16 @@ git push origin --delete feature-branch # 删除远程分支
 :::
 
 ::: details 工作流示意图
-<ClientOnly>
-
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: neutral
+  elk:
+    mergeEdges: true
+    nodePlacementStrategy: LINEAR_SEGMENTS
+---
 graph TD
     A([开始]) --> B[Fork 项目]
     B --> C[初始化本地仓库]
@@ -168,9 +175,6 @@ graph TD
 
     linkStyle default stroke:#4a86e8,stroke-width:2px
 ```
-
-</ClientOnly>
-
 :::
 
 ## 规范

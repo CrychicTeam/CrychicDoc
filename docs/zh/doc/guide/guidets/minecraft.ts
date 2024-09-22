@@ -35,6 +35,16 @@ export const NAV_DATA: NavData[] = [
             //     link: "https://minecraft.wiki/",
             //     icon: "https://zh.minecraft.wiki/images/Wiki.png"
             // },
+            {
+                title: "我的世界最大资源网站",
+                link: "https://www.planetminecraft.com/",
+                icon: "https://www.planetminecraft.com/favicon.ico"
+            },
+            {
+                title: "我的世界地球实景地图",
+                link: "https://earth.motfe.net/",
+                icon: "https://earth.motfe.net/"
+            },
         ]
     }
 ]

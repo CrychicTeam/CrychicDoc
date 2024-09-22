@@ -14,8 +14,6 @@ tags:
 ## Mermaid示例
 
 :::demo
-<ClientOnly>
-
 ```mermaid
 journey
     title My working day
@@ -27,7 +25,6 @@ journey
       Go downstairs: 5: Me
       Sit down: 5: Me
 ```
-</ClientOnly>
 :::
 
 ## 时间线插件示例
