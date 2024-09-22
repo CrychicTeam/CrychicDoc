@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # Table of contents
 
 * [KubeJS教程-1.20.1-孤梦版](/README.md)

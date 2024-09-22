@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 什么是命名空间
 来自[McWiki](https://zh.minecraft.wiki/w/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4ID?variant=zh-cn)的解释
 

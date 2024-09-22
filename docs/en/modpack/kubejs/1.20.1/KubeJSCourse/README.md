@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 :::: center
 # KubeJS Tutorial-1.20.1
 

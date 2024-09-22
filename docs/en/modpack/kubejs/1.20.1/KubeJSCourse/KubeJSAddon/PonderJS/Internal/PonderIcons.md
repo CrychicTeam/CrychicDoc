@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 > 调用 picon 使用 `PonderIcons.你要的PonderIcons` 即可
 >
 > 例如 : PonderIcons.I_WHITELIST_AND

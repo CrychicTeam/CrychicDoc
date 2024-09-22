@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 添加唱片
 
 在本章中会举例如何创建一个可以播放音乐的唱片，本章所有js代码将会存放于在文件夹`startup_scripts`和`server_scripts`下

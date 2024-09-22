@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # tag介绍
 
 在[mcwiki](https://zh.minecraft.wiki/w/%E6%A0%87%E7%AD%BE?variant=zh-cn)中已经做出了相对官方的解释，所以本文就简要介绍一下tag在魔改过程中的作用

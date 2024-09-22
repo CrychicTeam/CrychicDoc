@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # KubeJS Additions事件介绍
 在KubeJS Additions(下面简称kubejs拓展)中额外提供了许多事件，下面为大家列举出来
 ## 事件列表

@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # CreateHeatJS(CreateJS的附属Mod)
 ### CreateHeatJS可以允许你通过使用CreateJS自定义部分加工配方所需的热源
 

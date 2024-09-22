@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 以下代码节录自 globals.d.ts
 
 ```ts

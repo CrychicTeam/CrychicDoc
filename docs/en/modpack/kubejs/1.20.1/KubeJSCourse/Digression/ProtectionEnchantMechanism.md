@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 附魔保护机制
 详细请看[mcwiki](https://zh.minecraft.wiki/w/%E7%9B%94%E7%94%B2%E6%9C%BA%E5%88%B6#%E4%BF%9D%E6%8A%A4%E9%AD%94%E5%92%92%E6%9C%BA%E5%88%B6)，在这里主要做一个搬运
 

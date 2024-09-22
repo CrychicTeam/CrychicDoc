@@ -1,1 +1,4 @@
+---
+authors: ['Gu-meng']
+---
 # MoreJS

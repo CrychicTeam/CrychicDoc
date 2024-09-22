@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 机械动力和KubeJs 
 在本章中将介绍如何使用KubeJs去修改机械动力模组的配方
 

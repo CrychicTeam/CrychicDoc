@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 # 方块右键事件
 该代码在server脚本里
 

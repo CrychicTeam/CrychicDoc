@@ -1,3 +1,6 @@
+---
+authors: ['Gu-meng']
+---
 > 调用函数使用 `scene.你要的函数` 即可
 >
 > 例如 : scene.idle(3);
