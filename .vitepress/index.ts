@@ -10,7 +10,7 @@ const dirs = [
     "modpack/kubejs",
     "modpack/kubejs/1.20.1",
     "modpack/kubejs/1.19.2",
-    "modpack/kubejs/1.18.2"
+    "modpack/kubejs/1.18.2",
 ];
 
 const summary = [

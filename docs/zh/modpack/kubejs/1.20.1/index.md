@@ -312,6 +312,13 @@ root:
               path: WrappedClasses
               collapsed: true
               file: Catalogue
+    - title: 代码分享
+      path: codeshare
+      collapsed: true
+      children:
+      - title: PainterAPI血条
+        path: /
+        file: Painter
     # - title: 高级
     #   path: Advanced
     #   collapsed: true
