@@ -325,6 +325,9 @@ root:
       - title: PainterAPI血条
         path: /
         file: Painter
+      - title: 自定义方块打开工作台界面
+        path: /
+        file: CraftingTableGUI
     # - title: 高级
     #   path: Advanced
     #   collapsed: true
