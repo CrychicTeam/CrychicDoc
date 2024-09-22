@@ -27,7 +27,7 @@
 |   事件名称    |   用途    |   示例    |
 |:------------:|:---------:|:---------:|
 |   modelProperties    |   模型属性。   |   -   |
-|   modification    |   修改物品。   |   -   |
+|   modification    |   修改物品属性。   |   -   |
 |   armorTierRegistry   |   盔甲等级注册。   |   -   |
 |   toolTierRegistry    |   工具等级注册。   |   -   |
 

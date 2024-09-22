@@ -34,18 +34,17 @@
 
 |   事件名称    |   用途    |   示例    |
 |:------------:|:---------:|:---------:|
-|   canPickUp   |   -   |   -   |
-|   crafted    |   物品被在工作台上合成。   |   -   |
-|   destroyed   |   物品被摧毁。   |   -   |
-|   dropped    |   物品掉落。   |   -   |
-|   entityInteracted    |   实体交互。   |   -   |
+|   canPickUp   |   当玩家拾取物品时（拾取之前）调用。   |   -   |
+|   crafted    |   当玩家在工作台制作道具时调用。   |   -   |
+|   destroyed   |   物品被摧毁时调用。   |   -   |
+|   dropped    |   当玩家掉落物品时调用。   |   -   |
+|   entityInteracted    |   当玩家右键点击实体时调用。   |   -   |
 |   firstLeftClicked    |   首次左键点击。   |   -   |
-|   firstRightClicked   |   首次右键点击。   |   -   |
-|   foodEaten   |   进食。   |   -   |
-|   pickedUp    |   捡起。   |   -   |
-|   rightClicked    |   右键点击。   |   -   |
-|   smelted    |   被火焰灼烧。   |   -   |
-|   tooltip    |   工具栏提示。   |   -   |
+|   firstRightClicked   |   当玩家右键点击物品而没有瞄准任何东西时调用。   |   -   |
+|   foodEaten   |   当实体吃食物时调用。   |   -   |
+|   pickedUp    |   当玩家拾取道具时（拾取之后）调用。   |   -   |
+|   rightClicked    |   当玩家右键点击物品而没有瞄准任何东西时调用。   |   -   |
+|   smelted    |   当物品被玩家熔炼时调用。。   |   -   |
 
 ### BlockEvents 方块事件
 
@@ -64,25 +63,35 @@
 
 |   事件名称    |   用途    |   示例    |
 |:------------:|:---------:|:---------:|
+|   spawned   |   实体即将被添加到世界时触发(包括从磁盘加载)。   |   -   |
+|   drops   |   -   |   -   |
 |   checkSpawn   |   由BaseSpawner或Chunk generation(待证实)生成的实体才会触发。   |   -   |
 |   death   |   实体即将死亡（死亡之前）触发。   |   -   |
-|   drops   |   -   |   -   |
 |   hurt   |   实体即将受伤（受伤之前）触发。   |   -   |
-|   spawned   |   实体即将被添加到世界时触发(包括从磁盘加载)。   |   -   |
 
 ### PlayerEvents 玩家事件
 
 |   事件名称    |   用途    |   示例    |
 |:------------:|:---------:|:---------:|
-|   advancement   |   玩家获得进度时触发。   |   -   |
+|   advancement   |   玩家获得进度时调用。   |   -   |
 |   chat   |   玩家发送聊天消息时触发。   |   -   |
-|   chestClosed   |   关闭箱子时触发。   |   -   |
-|   chestOpened   |   打开箱子时触发。   |   -   |
-|   decorateChat   |   装饰聊天消息时触发。   |   -   |
-|   inventoryChanged   |   玩家背包物品发生改变时触发。   |   -   |
-|   inventoryClosed   |   玩家关闭背包时触发。   |   -   |
-|   inventoryOpened   |   玩家打开背包时触发。   |   -   |
+|   chestClosed   |   当玩家关闭箱子时调用。   |   -   |
+|   chestOpened   |   当玩家打开箱子时调用。   |   -   |
+|   decorateChat   |   当玩家发送聊天消息时调用。   |   -   |
+|   inventoryChanged   |   当玩家的背包物品改变时调用。   |   -   |
+|   inventoryClosed   |   当玩家关闭容器时调用。   |   -   |
+|   inventoryOpened   |   当玩家打开容器时调用。   |   -   |
 |   loggedIn   |   玩家登录时触发。   |   -   |
 |   loggedOut   |   玩家登出时触发。   |   -   |
 |   respawned   |   玩家重生时触发。   |   -   |
 |   tick   |   玩家每刻更新时触发。   |   -   |
+
+### LevelEvents 维度事件
+
+|   事件名称    |   用途    |   示例    |
+|:------------:|:---------:|:---------:|
+|   loaded   |   维度加载时触发。   |   -   |
+|   unloaded   |   维度卸载时触发。   |   -   |
+|   beforeExplosion   |   在爆炸发生前调用。   |   -   |
+|   tick   |   每刻调用。   |   -   |
+|   afterExplosion   |   爆炸发生后调用。   |   -   |
