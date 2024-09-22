@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 6.3 BlockBench入门教程
 
 本节由@[Qi-Month (柒月)](https://github.com/Qi-Month)编写。

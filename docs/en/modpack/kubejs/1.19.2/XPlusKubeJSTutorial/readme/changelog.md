@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # KubeJS 6 魔改教程更新日志
 
 ***

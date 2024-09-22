@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 15.2 实体生成 & RayTraceResultJS & ItemStackJS及其他
 
 ***

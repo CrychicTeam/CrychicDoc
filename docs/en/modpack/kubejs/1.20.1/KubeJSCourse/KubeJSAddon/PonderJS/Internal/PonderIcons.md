@@ -1,5 +1,5 @@
 ---
-authors: ['Gu-meng']
+authors: ['Gu-meng', 'Qi-Month']
 ---
 > 调用 picon 使用 `PonderIcons.你要的PonderIcons` 即可
 >

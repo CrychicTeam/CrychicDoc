@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 11.4 KubeJs内置游戏阶段 (类似于GameStage)
 
 ***

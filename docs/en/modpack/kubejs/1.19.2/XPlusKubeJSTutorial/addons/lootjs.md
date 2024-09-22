@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 11.2 LootJS —— 便捷战利品表修改
 
 :::info

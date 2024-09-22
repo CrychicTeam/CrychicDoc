@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 12.1 KubeJS Create
 
 ***

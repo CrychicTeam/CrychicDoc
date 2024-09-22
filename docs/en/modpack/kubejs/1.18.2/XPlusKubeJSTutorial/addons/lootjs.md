@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 12.7 便捷战利品表修改(LootJS Forge)
 
 ## 一、概要

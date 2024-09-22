@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 4 自定义Loot Table
 
 ***

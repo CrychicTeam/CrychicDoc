@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 12.2 KubeJS Blood Magic
 
 ***

@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 2.1 物品的表示——ItemStack和Ingredient
 
 **关于ProbeJS提示**

@@ -1,5 +1,5 @@
 ---
-authors: ['Gu-meng']
+authors: ['Gu-meng', 'Qi-Month']
 ---
 ## Section进阶用法(建议先把基础学好了再回来看这个)
 

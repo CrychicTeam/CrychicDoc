@@ -1,5 +1,5 @@
 ---
-authors: ['Gu-meng']
+authors: ['Gu-meng', 'Qi-Month']
 ---
 # 关于方块
 此处介绍其他关于方块的函数

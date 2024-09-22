@@ -1,3 +1,7 @@
+---
+authors: ['Wudji']
+---
+
 # 2.4 配方ID
 
 本节由@[Qi-Month (柒月)](https://github.com/Qi-Month)编写。

@@ -1,5 +1,5 @@
 ---
-authors: ['Gu-meng']
+authors: ['Gu-meng', 'Qi-Month']
 ---
 # 以下代码节录自 globals.d.ts
 
