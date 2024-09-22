@@ -22,7 +22,7 @@ BlockEvents.rightClicked('grass_block', (event) => {
             })
         }, '工作台')
     )
-
+    //这串代码是显示玩家右键是否挥动手臂，可有可无s
     player.swing()
 })
 ```
