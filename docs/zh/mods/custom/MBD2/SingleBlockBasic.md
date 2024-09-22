@@ -6,7 +6,7 @@ backPath: ./Catalogue
 ---
 # 单方块机器 {#SingleBlockMachine}
 
-::: justify
+:::: justify
 `MBD2`提供了两种机器，本篇文章简单地讲解其中一种，并着重讲解如何简单地完善一个单方块机器的功能，不涉及复杂模块。
 
 ## 工作状态 {#WorkingState}
@@ -37,4 +37,5 @@ stateDiagram-v2
 该篇将更专注于各个模块的介绍与使用的大致流程，并非所有的参数都将被提及，更加具体的文档可在此处查看。
 
 ### 基本设定 {#BasicOptions}
-:::
+
+::::
