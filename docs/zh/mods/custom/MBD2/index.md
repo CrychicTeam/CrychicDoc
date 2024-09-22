@@ -11,7 +11,7 @@ root:
       - title: 单方块机器
         path: /
         children:
-            - title: 简单示例
+            - title: 介绍
               path: /
               file: SingleBlockBasic
 ---
