@@ -328,6 +328,9 @@ root:
       - title: 自定义方块打开工作台界面
         path: /
         file: CraftingTableGUI
+      - title: 死亡扣除生命上限
+        path: /
+        file: LifeValue
     # - title: 高级
     #   path: Advanced
     #   collapsed: true
