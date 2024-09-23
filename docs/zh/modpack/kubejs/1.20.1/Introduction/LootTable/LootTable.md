@@ -11,7 +11,7 @@
 title: 战利品表触发逻辑
 ---
 stateDiagram-v2
-    direction LR
+    direction TB
     触发战利品表 --> 可使用的战利品池: 通过战利品池谓词
     可使用的战利品池 --> 待抽取的战利品项: 通过战利品项谓词
     待抽取的战利品项 --> 抽取结果: 计算权重（weight、quality）
