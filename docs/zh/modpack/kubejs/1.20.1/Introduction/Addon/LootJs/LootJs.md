@@ -11,6 +11,8 @@ LootJs是一个`KubeJS`附属模组，它为`KubeJS`对于原版战利品列表�
 
 :::v-info
 该篇教程源自于Github的官方Wiki
+
+适用于Minecraft 1.19.2/1.20.1
 :::
 
 ## 简介
@@ -64,14 +66,12 @@ LootJS.modifiers((event) => {
 })
 ```
 
-::: v-warning WARN
 若要移除之前的掉落则加上↓这段代码在addLoot的上面
 ```js
 .removeLoot("minecraft:flint")
 
 ```
 
-:::
 
 
 根据Js的代码执行顺序，若将这串代码放置在addLoot底下则不会生效
