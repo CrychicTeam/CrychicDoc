@@ -6,11 +6,11 @@ authors: ['Gu-meng']
 
 这是1.20.1的kubejs内容分享，包括一些教程和项目
 
-<ClientOnly>
+
   <div class="responsive-container">
     <VPTeamMembers size="medium" :members="members" />
   </div>
-</ClientOnly>
+
 
 直接访问该项目[gitbook网页](https://gumeng.gitbook.io/kubejs-jiao-cheng-1.20.1)
 

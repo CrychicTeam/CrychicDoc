@@ -5,7 +5,7 @@ title: Samples for coding CrychicDoc
 
 ## Mermaid Sample
 
-<ClientOnly>
+
 
 ```mermaid
 journey
@@ -21,7 +21,7 @@ journey
 
 ## Timeline plugin sample.
 
-</ClientOnly>
+
 
 ::: timeline 2023-05-24
 - **do some thing1**
@@ -39,7 +39,7 @@ do some thing4
 
 ## Damage Static chart
 
-<ClientOnly>
+
 <!--  -->
 <DamageChart
   mode="static"
@@ -50,6 +50,6 @@ do some thing4
   :maxArmorPoints="20"
   :isJavaEdition="true"
 />
-</ClientOnly>
+
 
 <PdfViewer pdfSource="/pdf/modding/java/test.pdf"/>

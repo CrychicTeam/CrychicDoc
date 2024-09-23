@@ -20,7 +20,7 @@ The mod comes with a configuration file that offers plenty of options to tweak t
 
 > **Champions-Unofficial** carries over all the settings from the original mod and aims to further improve and expand on it.
 
-<ClientOnly>
+
 <DamageChart 
   :incomingDamage="50"
   :armorToughness="0"
@@ -29,7 +29,7 @@ The mod comes with a configuration file that offers plenty of options to tweak t
   :maxArmorPoints="100"
   :isJavaEdition="true"
 />
-</ClientOnly>
+
 
 The stats of hostile mobs are an important part of this mod, so here's a dynamic chart that shows how damage changes based on armor value and armor toughness. This can be helpful for modders looking to fine-tune their setups.
 

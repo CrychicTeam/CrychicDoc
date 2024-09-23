@@ -20,7 +20,7 @@ next:
 
 > **冠军再续** 基本继承了该模组的所有设定，并计划进行更深入的优化与增强。
 
-<ClientOnly>
+
 <DamageChart 
   :incomingDamage="50"
   :armorToughness="0"
@@ -29,7 +29,7 @@ next:
   :maxArmorPoints="100"
   :isJavaEdition="true"
 />
-</ClientOnly>
+
 
 由于敌对生物的数值在冒险包中是较为重要的要素，因此在此提供一个伤害随护甲值与护甲韧性的动态变化图表，以供魔改者参考。
 

@@ -14,6 +14,8 @@ tags:
 ## Mermaid示例
 
 :::demo
+
+
 ```mermaid
 journey
     title My working day
@@ -25,6 +27,8 @@ journey
       Go downstairs: 5: Me
       Sit down: 5: Me
 ```
+
+
 :::
 
 ## 时间线插件示例
@@ -52,7 +56,7 @@ do some thing4
 ## 伤害静态图示例
 
 :::demo
-<ClientOnly>
+
 <DamageChart
   mode="static"
   :incomingDamage="20"
@@ -62,7 +66,7 @@ do some thing4
   :maxArmorPoints="20"
   :isJavaEdition="true"
 />
-</ClientOnly>
+
 :::
 
 ## PDF Viewer

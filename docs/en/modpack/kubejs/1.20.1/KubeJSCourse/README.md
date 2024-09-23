@@ -10,11 +10,11 @@ translation is still in prograss.
 
 This is the content sharing of kubejs 1.20.1, including some tutorials and projects.
 
-<ClientOnly>
+
   <div class="responsive-container">
     <VPTeamMembers size="medium" :members="members" />
   </div>
-</ClientOnly>
+
 
 Directly access project [GitBook webpage](https://gumeng.gitbook.io/kubejs-jiao-cheng-1.20.1)
 

@@ -142,7 +142,7 @@ git push origin --delete feature-branch # Delete remote branch
 :::
 
 ::: details Workflow Diagram
-<ClientOnly>
+
 
 ```mermaid
 graph TD
@@ -167,8 +167,6 @@ graph TD
 
   linkStyle default stroke:#4a86e8,stroke-width:2px
 ```
-
-</ClientOnly>
 
 :::
 
