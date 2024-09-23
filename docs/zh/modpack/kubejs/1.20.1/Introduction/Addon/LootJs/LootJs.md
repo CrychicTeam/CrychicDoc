@@ -20,7 +20,9 @@ Action用于更改当前战利品池结果或触发效果。您可以简单地�
 
 ## 操作(基础)
 
-*1*.`addLoot(...items)`
+### 添加战利品 
+
+addLoot(...items){font-small}
 
 将一个或多个添加`items`到当前战利品池中
 
@@ -85,7 +87,9 @@ LootJS.modifiers((event) => {
 来将该方块/实体/战利品列表的所有Loot全部移除
 
 
-*2*. `addAlternativesLoot(...items)`
+### 添加替代战利品 
+
+addAlternativesLoot(...items){font-small}
 
 若要对一个方块添加多种Loot,且有概率随机,这时候就要用到`addAlternativesLoot`
 
@@ -119,7 +123,9 @@ LootJS.modifiers((event) => {
 相当于`addLoot`是所有Loot都会触发，`addAlternativesLoot`只会触发一个.
 
 
-*3*.`addSequenceLoot(...items)`
+### **添加序列战利品**
+
+addSequenceLoot(...items){font-small}
 
 相较于`addAlternativesLoot`,`addSequenceLoot`的区别是
 - 添加多个战利品列表，所有战利品列表都会生效
