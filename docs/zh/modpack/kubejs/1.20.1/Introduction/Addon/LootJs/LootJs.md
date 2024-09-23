@@ -11,6 +11,8 @@ LootJs是一个`KubeJS`附属模组，它为`KubeJS`对于原版战利品列表�
 
 :::v-info
 该篇教程源自于Github的官方Wiki
+
+适用于Minecraft 1.19.2/1.20.1
 :::
 
 ## 简介
