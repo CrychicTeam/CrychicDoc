@@ -154,5 +154,21 @@
             ":::"
         ],
         "description": "demo"
+    },
+    "done": {
+        
+        "prefix": "@done",
+        "body": [
+            "☑"
+        ],
+        "description": "done Unicode "
+    },
+    "pending": {
+        
+        "prefix": "@pending",
+        "body": [
+            "☐"
+        ],
+        "description": "pending Unicode "
     }
 }
