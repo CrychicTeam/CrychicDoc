@@ -143,8 +143,8 @@ LootJS.modifiers((event) => {
             LootEntry.of("minecraft:diamond").when((c) => c.randomChance(0.7)),
             LootEntry.of("minecraft:coal").when((c) => c.randomChance(0.99)),
             LootEntry.of("minecraft:torch").when((c) => c.randomChance(0.2))
-        );
-});
+        )
+})
 ```
 
 例如上述例子所示,若`minecraft:apple`触发并掉落,则接着触发`minecraft:stick`的Loot.
@@ -154,3 +154,121 @@ LootJS.modifiers((event) => {
 若`minecraft:stick`触发，`minecraft:diamond`触发，`minecraft:coal`不触发则会掉落苹果，木棍，以及钻石(煤炭和火把则不会掉落)
 
 以此类推
+
+### 添加加权战利品
+
+addWeightedLoot(NumberProvider, [...items])
+
+可以对任意方块/生物/战利品列表对于的Loot进行权重修改
+
+以下的示例对`minecraft:creeper`进行展开:
+- 使用`removeLoot`来删除原版所有的Loot.
+- `addWeightedLoot`语句来添加加权战利品
+
+::: code-group
+```js [Example-1]
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .removeLoot(Ingredient.all)
+        .addWeightedLoot(
+            [1, 5],
+            [Item.of("minecraft:gunpowder").withChance(20), Item.of("minecraft:nether_star").withChance(80)]
+        )
+})
+```
+```js [Example-2]
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .addWeightedLoot(5, [
+            Item.of("minecraft:gunpowder").withChance(50),
+            Item.of("minecraft:nether_star").withChance(50),
+        ])
+})
+```
+```js [Example-3]
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .addWeightedLoot([
+            Item.of("minecraft:gunpowder").withChance(50),
+            Item.of("minecraft:nether_star").withChance(5),
+        ])
+})
+```
+:::
+
+`Example-1`:`[7,8]`的意思是对于`"minecraft:gunpowder"`以及`"minecraft:nether_star"`两个物品合起来的的掉落数量最少为7个，最多为8个
+
+而`withChance(50)`规定在这7个或者8个掉落物当中各个物品的占比，上述示例的占比就各占了50%.而掉落物品的数量是随机的，在[7,8]之间随机抽取一个数字
+
+`Example-2`:对于掉落物品数量还有另一种写法，相较于使用集合表示，你可以直接填写数字，则两个物品的掉落物数量总和就是5.两个物品掉落数量的权重依旧各占50%
+
+`Example-3`:如果在`addWeightedLoot`中未指定掉落物品数量的时候，掉落物数量总和始终为集合[1,1]
+
+
+### 删除战利品列表
+removeLoot(ItemFilter)
+
+上述我们在演示的时候已经提及到关于删除战利品列表的代码
+
+在`removeLoot`语句中是一个物品选择器，即`ItemFilter`
+
+例如:
+
+- `removeLoot(ItemID)` 删除对应LootTable的ItemID
+- `removeLoot(Ingredient.all)` 删除对应LootTable的所有Loot
+
+
+```js
+LootJS.modifiers((event) => {
+    event.addBlockLootModifier("minecraft:gravel").removeLoot("minecraft:flint")
+})
+```
+
+### 替换战利品
+removeLoot(ItemFilter)
+
+同样的在`replaceLoot`语句中也是一个ItemFilter
+- `replace(originItemID,replaceItemID)`
+- `replace(originItemID,replaceItemID,Boolean)`
+
+在这个例子中，我们用钻石代替沙砾LootTable中的燧石。
+
+::: code-group
+```js [None]
+LootJS.modifiers((event) => {
+    event.addBlockLootModifier("minecraft:gravel").replaceLoot("minecraft:flint", "minecraft:diamond")
+})
+```
+
+```js [Boolean]
+LootJS.modifiers((event) => {
+    event.addBlockLootModifier("minecraft:gravel").replaceLoot("minecraft:flint", "minecraft:diamond", true)//flase
+})
+```
+:::
+
+经过测试后，在`replaceLoot`语句后加Boolean值没有任何变化
+
+### 修改战利品
+modifyLoot(ItemFilter, callback)
+
+修改煤炭矿石的LootTable
+对于`modifyLoot`语句:
+- `Ingredient.all`是个`ItemFilter`，用于指定该物品/生物/战利品列表要修改的物品
+- 回调函数`ItemStack`修改`ItemFilter`的属性
+
+下面的示例修改了煤矿所有的战利品列表(`Ingredient.all`)，回调函数ItemStack获取战利品列表里面的物品，设置了掉落物数量为2，返回新的ItemStack到煤炭矿石的战利品列表
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addBlockLootModifier('minecraft:coal_ore')
+        .modifyLoot(Ingredient.all, (itemStack) => {
+            itemStack.setCount(itemStack.getCount() * 2)
+            return itemStack
+        })
+})
+```
