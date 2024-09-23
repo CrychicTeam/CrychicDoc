@@ -66,14 +66,12 @@ LootJS.modifiers((event) => {
 })
 ```
 
-::: v-warning WARN
 若要移除之前的掉落则加上↓这段代码在addLoot的上面
 ```js
 .removeLoot("minecraft:flint")
 
 ```
 
-:::
 
 
 根据Js的代码执行顺序，若将这串代码放置在addLoot底下则不会生效
