@@ -200,3 +200,37 @@
 .VPSocialLinks.VPNavBarSocialLinks.social-links {
     margin-right: 0;
 }
+
+/* 字体尺寸样式 */
+.font-small {
+    font-size: 13px;
+}
+
+.font-medium {
+    font-size: 18px;
+}
+
+.font-large {
+    font-size: 23px;
+}
+
+.font-xlarge {
+    font-size: 30px;
+}
+
+/* 字体颜色样式 */
+.text-red {
+    color: red;
+}
+
+.text-green {
+    color: green;
+}
+
+.text-blue {
+    color: blue;
+}
+
+.text-yellow {
+    color: yellow;
+}
