@@ -20,30 +20,28 @@ Action用于更改当前战利品池结果或触发效果。您可以简单地�
 
 ## 操作(基础)
 
-*1*. `addLoot(...items)`
+*1*.`addLoot(...items)`
 
 将一个或多个添加`items`到当前战利品池中
+
+以沙砾展开:
+- `addBlockLootModifier`语句对沙砾进行LootTable修改
+- `addLoot`对沙砾的LootTable进行添加
+
+对于具体的LootType，请使用`ProbeJs`来进行补全提示
+
 ```js
 LootJS.modifiers((event) => {
-    // 修改方块的战利品列表
-    // 下列例子以沙砾为展开
+    // 修改方块
     event
-        // 使用修改器指定要修改的方块
         .addBlockLootModifier("minecraft:gravel")
-        // 添加一个新的Loot(燧石)给沙砾
         .addLoot("minecraft:flint")
-        // 进游戏后输入/reload
-        // 尝试破坏一个沙砾，你将会看到掉落一个沙砾和一个燧石，或者掉落两个燧石
-        // 这里的Loot没有指定概率，所以是100%掉落一个燧石('minecraft:flint')
-
-    // 同样的道理，我们也可以修改这样来进行对其他战利品的修改
-    // 修改生物战利品列表
+    // 修改实体
     event
         .addEntityLootModifier("minecraft:pig")
         .addLoot("minecraft:diamond")
-    // 修改战利品类型
+    // 修改原版战利品类型
     event
-        // 具体的战利品类型，玩家可以使用ProbeJs模组来进行补全
         .addLootTypeModifier('chest')
         .addLoot("minecraft:bedrock")
     
@@ -93,16 +91,16 @@ LootJS.modifiers((event) => {
 
 根据 Minecraft Wiki：只会将第一个成功（满足条件）的物品添加到战利品池中。如果没有物品成功，则不会添加任何物品
 
+- `addBlockLootModifier`语句进行对"minecraft:coal_ore"修改
+- `removeLoot`语句内使用`Ingrediten.all`删除"minecraft:coal_ore"的所有Loot
+- `addAlternativesLoot`进行LootTable列表修改
+
 ```js
 LootJS.modifiers((event) => {
     event
-        // 同样的道理对煤炭矿石进行修改modify
         .addBlockLootModifier("minecraft:coal_ore")
-        // 删除煤炭矿石的所有Loot
         .removeLoot(Ingredient.all)
-        // 对于煤炭矿石添加一个替代的LootTable
         .addAlternativesLoot(
-            // 下列列举了五个战利品条目来进行修改
             LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.8)),
             LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.3)),
             LootEntry.of("minecraft:diamond").when((c) => c.randomChance(0.7)),
@@ -120,31 +118,33 @@ LootJS.modifiers((event) => {
 
 相当于`addLoot`是所有Loot都会触发，`addAlternativesLoot`只会触发一个.
 
-官方的复杂示例，值得去研究一下
+
+*3*.`addSequenceLoot(...items)`
+
+相较于`addAlternativesLoot`,`addSequenceLoot`的区别是
+- 添加多个战利品列表，所有战利品列表都会生效
+- 若一个Loot不触发，则停止该Loot往下进行的修改
+
+这里的所有列表都会生效的意思是，当一个条目的战利品列表停止触发后，接下来往下对LootTable的修改将不会再进行
 ```js
 LootJS.modifiers((event) => {
-    /**
-     * First loot entry with a condition. Will drop if the player has fortune.
-     */
-    const stickWhenFortune = LootEntry.of("minecraft:stick")
-        .applyOreBonus("minecraft:fortune")
-        .when((c) => c.matchMainHand(ItemFilter.hasEnchantment("minecraft:fortune")))
-
-    /**
-     * Second loot entry with a condition. Will drop if the player has silk touch and the first entry doesn't match.
-     */
-    const appleWhenSilkTouch = LootEntry.of("minecraft:apple").when((c) =>
-        c.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-    )
-
-    /**
-     * No conditions just an item, so this will always drop if the other two don't.
-     */
-    const ironIngot = "minecraft:iron_ingot"
-
     event
-        .addBlockLootModifier("minecraft:iron_ore")
+        .addBlockLootModifier("minecraft:coal_ore")
         .removeLoot(Ingredient.all)
-        .addAlternativesLoot(stickWhenFortune, appleWhenSilkTouch, ironIngot)
-})
+        .addSequenceLoot(
+            LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.8)),
+            LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.3)),
+            LootEntry.of("minecraft:diamond").when((c) => c.randomChance(0.7)),
+            LootEntry.of("minecraft:coal").when((c) => c.randomChance(0.99)),
+            LootEntry.of("minecraft:torch").when((c) => c.randomChance(0.2))
+        );
+});
 ```
+
+例如上述例子所示,若`minecraft:apple`触发并掉落,则接着触发`minecraft:stick`的Loot.
+
+若`minecraft:stick`的Loot未触发,则该LootTable就不会进行下去，终止在掉落一个苹果，以此类推
+
+若`minecraft:stick`触发，`minecraft:diamond`触发，`minecraft:coal`不触发则会掉落苹果，木棍，以及钻石(煤炭和火把则不会掉落)
+
+以此类推
