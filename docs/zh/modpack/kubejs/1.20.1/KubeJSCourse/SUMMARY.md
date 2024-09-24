@@ -111,6 +111,7 @@ authors: ['Gu-meng']
   * [lang文件命名对照表](/Digression/LangFileNamingChart.md)
   * [饱食度和饱和度](/Digression/SaturationHunger.md)
   * [tag介绍](/Digression/Tag.md)
+  * [VS Code安装](/Digression/VSCodeInstallation.md)
 * [项目分享](/KubeJSProjects/README.md) 
   * [工作台物品附魔](/KubeJSProjects/Wolf/EnchantOnTable.md)
   * [祭坛合成](/KubeJSProjects/Meng/AltarComposition.md)
