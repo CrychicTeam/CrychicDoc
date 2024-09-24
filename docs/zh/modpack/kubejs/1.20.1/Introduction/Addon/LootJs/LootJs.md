@@ -124,7 +124,6 @@ LootJS.modifiers((event) => {
 
 
 ### **添加序列战利品**
-
 addSequenceLoot(...items){font-small}
 
 相较于`addAlternativesLoot`,`addSequenceLoot`的区别是
@@ -156,8 +155,7 @@ LootJS.modifiers((event) => {
 以此类推
 
 ### 添加加权战利品
-
-addWeightedLoot(NumberProvider, [...items])
+addWeightedLoot(NumberProvider, [...items]){font-small}
 
 可以对任意方块/生物/战利品列表对于的Loot进行权重修改
 
@@ -209,7 +207,7 @@ LootJS.modifiers((event) => {
 
 
 ### 删除战利品列表
-removeLoot(ItemFilter)
+removeLoot(ItemFilter){font-small}
 
 上述我们在演示的时候已经提及到关于删除战利品列表的代码
 
@@ -228,7 +226,9 @@ LootJS.modifiers((event) => {
 ```
 
 ### 替换战利品
-removeLoot(ItemFilter)
+replaceLoot(ItemFilter, item){font-small}
+
+replaceLoot(ItemFilter, item, preserveCount){font-small}
 
 同样的在`replaceLoot`语句中也是一个ItemFilter
 - `replace(originItemID,replaceItemID)`
@@ -253,7 +253,7 @@ LootJS.modifiers((event) => {
 经过测试后，在`replaceLoot`语句后加Boolean值没有任何变化
 
 ### 修改战利品
-modifyLoot(ItemFilter, callback)
+modifyLoot(ItemFilter, callback){font-small}
 
 修改煤炭矿石的LootTable
 对于`modifyLoot`语句:
@@ -273,8 +273,8 @@ LootJS.modifiers((event) => {
 })
 ```
 
-### 爆炸触发
-triggerExplosion(radius, destroy, fire)
+### 触发爆炸
+triggerExplosion(radius, destroy, fire){font-small}
 
 注意：该示例仅适用于`1.19.2`，对于`1.20.1`不兼容
 
@@ -304,7 +304,7 @@ LootJS.modifiers(event=>{
 ```
 
 ### 触发雷电
-triggerLightningStrike(shouldDamage)
+triggerLightningStrike(shouldDamage){font-small}
 
 在战利品生成的位置触发雷电`triggerLightningStrike()`
 
@@ -318,7 +318,7 @@ LootJS.modifiers(event=>{
 })
 ```
 ### 掉落经验值
-dropExperience(amount)
+dropExperience(amount){font-small}
 
 在战利品生成的位置会掉落对应的经验值`dropExperience()`
 
@@ -330,7 +330,7 @@ LootJS.modifiers(event=>{
 })
 ```
 ### 战利品池修改
-pool(callback)
+pool(callback){font-small}
 
 针对某一生物/方块/战利品列表的战利品池进行修改
 
@@ -365,7 +365,7 @@ LootJS.modifiers((event) => {
 
 
 ### 玩家Action
-playerAction(callback)
+playerAction(callback){font-small}
 
 在进行战利品修改后可以对玩家的`Action`进行一些修改，例如：
 - 给予玩家经验值
@@ -384,7 +384,7 @@ LootJS.modifiers((event) => {
 上述代码中针对于`minecraft:diamond_block`进行了`Action`修改，玩家破坏钻石块生成了战利品后给予玩家100 points的经验值以及基于玩家一个金合欢木船
 
 ### apply应用
-apply(callback)
+apply(callback){font-small}
 
 对应的回调函数是`LootJs`提供的类`$LootContextJS`
 
