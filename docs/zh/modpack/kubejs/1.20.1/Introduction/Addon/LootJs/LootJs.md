@@ -272,3 +272,133 @@ LootJS.modifiers((event) => {
         })
 })
 ```
+
+### 爆炸触发
+triggerExplosion(radius, destroy, fire)
+
+注意：该示例仅适用于`1.19.2`，对于`1.20.1`不兼容
+
+在战利品生成的位置触发爆炸`triggerExplosion()`
+
+`item`不会被摧毁，`radius`可以是任意的数字`float`，`destory`以及`fire`传入的参数都是`boolean`
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .triggerExplosion(1, false, false)
+})
+```
+对于1.20.1，`triggerExplosion()`的第二个传参变成了`$Explosion$BlockInteraction$Type`，不再是boolean.
+
+![Logo](../../../../../../../public/imgs/LootJs/LootJs1.png)
+
+下面是一个1.20.1的示例
+
+```js
+LootJS.modifiers(event=>{
+    event
+        .addBlockLootModifier('minecraft:coal_ore')
+        .triggerExplosion(1,"destory",false)
+})
+```
+
+### 触发雷电
+triggerLightningStrike(shouldDamage)
+
+在战利品生成的位置触发雷电`triggerLightningStrike()`
+
+对于此方法，1.19.2以及1.20.1传入的参数都是`boolean`
+
+```js
+LootJS.modifiers(event=>{
+    event
+        .addBlockLootModifier('minecraft:gravel')
+        .triggerLightningStrike(true)
+})
+```
+### 掉落经验值
+dropExperience(amount)
+
+在战利品生成的位置会掉落对应的经验值`dropExperience()`
+
+这里掉落的经验值是按`points`计算，而不是`level`
+
+```js
+LootJS.modifiers(event=>{
+    event.addBlockLootModifier('minecraft:gravel').dropExperience(10)
+})
+```
+### 战利品池修改
+pool(callback)
+
+针对某一生物/方块/战利品列表的战利品池进行修改
+
+对`minecraft:creeper`的战利品池进行修改:
+- 添加一个新的战利品池`pool`回调函数
+- `rolls()`设置这个池子的掉落次数为 1 到 3 次（随机掉落，在集合[1,3]之间掉落）
+- `randomChance()`设置一个 30% 的概率来触发这个掉落。
+- `or(() => { })`来进行添加额外的条件，下列示例中使用回调函数`or`来进行修改
+- `anyBiome()`满足条件在指定的生物群系中
+- `lightLevel()`满足光照等级在`0-7`之间
+- 若上述所有条件满足，使用`addLoot()`进行战利品池内物品添加
+
+我们未对原版`minecraft:creeper`的战利品（火药）进行删除
+
+最终我们会看到，在丛林生物群系中，光照等级为0-7之间的地方击杀`minecraft:creeper`后会掉落火药，以及1-3个不等的钻石（触发概率为30%）
+
+
+```js
+LootJS.modifiers((event) => {
+    event.addEntityLootModifier("minecraft:creeper").pool((pool) => {
+        pool.rolls([1, 3])
+        pool.randomChance(0.3)
+            .or((or) => {
+                or.anyBiome("minecraft:jungle")
+                or.lightLevel(0, 7)
+            })
+            .addLoot("minecraft:diamond")
+    })
+})
+```
+更多的方法请使用`ProbeJs`进行查询
+
+
+### 玩家Action
+playerAction(callback)
+
+在进行战利品修改后可以对玩家的`Action`进行一些修改，例如：
+- 给予玩家经验值
+- 给予玩家物品
+
+这里的回调函数是`LootJs`本身提供针对于`player`的类，而不是`KubeJS`的`player`类
+
+```js
+LootJS.modifiers((event) => {
+    event.addBlockLootModifier("minecraft:diamond_block").playerAction((player) => {
+        player.giveExperiencePoints(100)
+        player.give('acacia_boat')
+    })
+})
+```
+上述代码中针对于`minecraft:diamond_block`进行了`Action`修改，玩家破坏钻石块生成了战利品后给予玩家100 points的经验值以及基于玩家一个金合欢木船
+
+### apply应用
+apply(callback)
+
+对应的回调函数是`LootJs`提供的类`$LootContextJS`
+
+更多关于`$LootContextJS`的方法请使用`ProbeJs`进行查看
+
+下面的示例代码是在`minecraft:gravel`的战利品生成后获取该方块的`BlockPos`，最后在控制台的日志输出中打印出来
+
+
+```js
+LootJS.modifiers((event) => {
+    event.addBlockLootModifier("minecraft:gravel").apply((context) => {
+        let BlockPos = context.getBlockPos()
+        console.log(BlockPos)
+    })
+})
+```
+输出的内容请见`logs/kubejs/server.log`
