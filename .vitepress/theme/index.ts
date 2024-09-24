@@ -21,6 +21,7 @@ import {
 import { NolebaseInlineLinkPreviewPlugin } from "@nolebase/vitepress-plugin-inline-link-preview/client";
 import { NolebaseGitChangelogPlugin } from "@nolebase/vitepress-plugin-git-changelog/client";
 
+import { LiteTree } from '@lite-tree/vue'
 import Layout from "./Layout.vue";
 import themeControl from "./components/themeControl.vue";
 import Comment from "./components/comment.vue";
@@ -94,6 +95,7 @@ export default {
         ctx.app.component("commitsCounter", commitsCounter);
         ctx.app.component("MNavLinks", MNavLinks);
         ctx.app.component("PdfViewer", PdfViewer);
+        ctx.app.component('LiteTree',LiteTree);
     },
     setup() {
         const route = useRoute();

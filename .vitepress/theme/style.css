@@ -234,3 +234,11 @@
 .text-yellow {
     color: yellow;
 }
+
+.lite-tree {
+    border: none!important;
+}
+
+.lite-tree .icon {
+    color: var(--vp-c-text-1)!important;
+}

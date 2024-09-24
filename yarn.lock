@@ -448,6 +448,13 @@
   resolved "https://registry.npmjs.org/@kurkle/color/-/color-0.3.2.tgz"
   integrity sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==
 
+"@lite-tree/vue@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@lite-tree/vue/-/vue-1.1.4.tgz#9bc3cc964a6e1cbf733c1b363239554333ba55eb"
+  integrity sha512-gOPHgZ7PmrQuMuB2GaB6PyDKvI00HhxMJn6gzUoNJ8ZhSIAwmpF6D0pdF0UNryA1wXA+MMNdiBBpoWOxvZg93A==
+  dependencies:
+    vue-slide-up-down "^3.0.0"
+
 "@mdi/font@^7.4.47":
   version "7.4.47"
   resolved "https://registry.npmjs.org/@mdi/font/-/font-7.4.47.tgz"
@@ -4087,6 +4094,11 @@ vue-resize@^2.0.0-alpha.1:
   version "2.0.0-alpha.1"
   resolved "https://registry.npmjs.org/vue-resize/-/vue-resize-2.0.0-alpha.1.tgz"
   integrity sha512-7+iqOueLU7uc9NrMfrzbG8hwMqchfVfSzpVlCMeJQe4pyibqyoifDNbKTZvwxZKDvGkB+PdFeKvnGZMoEb8esg==
+
+vue-slide-up-down@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vue-slide-up-down/-/vue-slide-up-down-3.0.0.tgz#ea135f79b86b4890d3eaf6bdf9e9de06e12a73ff"
+  integrity sha512-4ckwKgpkPfjDmwVKdu5UANvxt7nKemIKpqbRGhcekgDuvEwep8YFwkb8G9dix4lL+Wt2G73X1Z90c1oPJvXdOQ==
 
 vue@^3.4.34, vue@^3.4.38, vue@^3.5.4, vue@^3.5.7:
   version "3.5.7"
