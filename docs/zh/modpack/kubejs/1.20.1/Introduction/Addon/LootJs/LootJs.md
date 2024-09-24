@@ -380,7 +380,7 @@ LootJS.modifiers((event) => {
     })
 })
 ```
-上述代码中针对于`minecraft:diamond_block`进行了`Action`修改，玩家破坏钻石块生成了战利品后给予玩家100 points的经验值以及基于玩家一个金合欢木船
+上述代码中针对于`minecraft:diamond_block`进行了`Action`修改，玩家破坏钻石块生成了战利品后给予玩家100 points的经验值以及一个金合欢木船
 
 ### apply应用
 apply(callback){font-small}

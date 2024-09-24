@@ -21,8 +21,16 @@ LootJs是一个`KubeJS`附属模组，它为`KubeJS`对于原版战利品列表�
 
 如果某个条件不成立，则在条件不成立之后不会触发任何操作。可以串联多个条件，以将更多过滤器应用于您的战利品修改器。
 
+开始此篇之前，你需要记住这几个网址
+
+[EntityPredicateBuilderJS](https://github.com/AlmostReliable/lootjs/wiki/1.19.2-Types#EntityPredicateBuilderJS)
+
+[DamageSourcePredicateBuilderJS](https://github.com/AlmostReliable/lootjs/wiki/1.19.2-Types#DamageSourcePredicateBuilderJS)
+
+此篇内容中会讲述到对应的BuilderJS，可以翻阅此链接进行查看
+
 ### 匹配战利品
-matchLoot(ItemFilter, exact)
+matchLoot(ItemFilter, exact){font-small}
 
 语句`matchLoot()`放置在`addLoot()`之前生效
 
@@ -41,7 +49,7 @@ LootJS.modifiers((event) => {
 上述示例代码，对应`minecraft:cow`的战利品列表，若`minecraft:cow`的战利品列表满足了拥有`minecraft:leather`，则添加一个新的战利品`minecraft:diamond`给`minecraft:cow`，若不满足该条件，则不会添加新的战利品
 
 ### 匹配主手物品
-matchMainHand(ItemFilter)
+matchMainHand(ItemFilter){font-small}
 
 匹配主手物品为一个`ItemFilter`，当你要匹配的主手物品带有耐久的时候，建议使用`Item.of().ignoreNBT()`来忽略物品的耐久度
 ```js
@@ -53,7 +61,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 匹配副手物品
-matchOffHand(ItemFilter)
+matchOffHand(ItemFilter){font-small}
 
 匹配副手物品为一个`ItemFilter`，当你要匹配的副手物品带有耐久的时候，建议使用`Item.of().ignoreNBT()`来忽略物品的耐久度
 ```js
@@ -66,7 +74,7 @@ LootJS.modifiers((event) => {
 ```
 
 ### 匹配装备
-matchEquip(slot, ItemFilter)
+matchEquip(slot, ItemFilter){font-small}
 
 匹配玩家身上的装备，包括头部，胸部，腿部，脚以及主副手符合条件后，进行战利品列表修改
 
@@ -89,8 +97,136 @@ LootJS.modifiers((event) => {
         .addLoot("minecraft:gravel")
 })
 ```
+### 匹配实体
+matchEntity(callback)
+
+`matchEntity()`语句通过回调函数来进行实体的匹配，例如当实体拥有对应的NBT或者状态后，进行战利品修改，反之则不进行修改
+
+与死亡、打开箱子或破坏方块的实体匹配
+
+`LootJs`将在您的回调函数中提供`EntityPredicateBuilderJS`以进行匹配。
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchEntity((entity) => {
+            entity.isInWater(true)
+        }) 
+        .addLoot("minecraft:diamond")
+})
+```
+以上的代码示例检测`minecraft:creeper`是否处于水中，若处于水中，则为该实体添加战利品`minecraft:diamond`掉落+
+
+### 匹配直接击杀者
+matchDirectKiller(callback)
+
+直接击杀者以及间接击杀者的关系，例如玩家射箭杀死了一只僵尸：
+- 僵尸是被击杀者
+- 箭是直接击杀者
+- 玩家却是间接击杀者
+
+因为是箭杀死的僵尸，而不是玩家杀死的僵尸，但是箭是玩家射出的，所以玩家属于间接击杀者
+
+相较于匹配实体，`matchDirectKiller()`是匹配直接击杀者的条件
+
+下面的示例代码检查直接击杀者是否在水中击杀了被击杀者，若击杀者在水中，则给被击杀者添加一个战利品掉落`minecraft:diamond`
+
+反之若击杀者未处于水中，则不会给被击杀者添加一个战利品掉落
+
+同样的道理，`LootJs`给回调函数提供的依旧是`EntityPredicateBuilderJS`以进行匹配
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchDirectKiller((entity) => {
+            entity.isInWater(true)
+        }) 
+        .addLoot("minecraft:diamond")
+})
+```
+### 匹配间接击杀者
+matchKiller(callback)
+
+相较于匹配直接击杀者，而`matchKiller()`匹配的是间接击杀者的条件
+
+击杀者不管是弹射物还是玩家，最终都已间接造成伤害的击杀者为准
+
+上述检查`直接击杀者`的代码中，若使用弓箭在地面对`minecraft:creeper`进行射击，不会添加新的战利品给`minecraft:creeper`
+只有在水中射击(箭矢在水中击杀生物，且未离开水面)，才会给`minecraft:creeper`添加一个新的战利品
+
+下面的示例代码中，只会匹配间接击杀者的状态，即玩家，不会匹配箭矢的状态.当间接击杀者的状态符合条件后，对被击杀者添加新的战利品
+
+同样的道理，`LootJs`给回调函数提供的依旧是`EntityPredicateBuilderJS`以进行匹配
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchKiller((entity) => {
+            entity.isInWater(true)
+        }) 
+        .addLoot("minecraft:diamond")
+})
+```
+
+### 匹配玩家
+matchPlayer(callback)
+
+相较于上述的`直接击杀者`,`间接击杀者`，而`matchPlayer`匹配玩家的条件.
+
+`LootJs`给回调函数提供的依旧是`EntityPredicateBuilderJS`以进行匹配
+
+下述代码中，直接检测玩家是否在水中并生成对应的战利品掉落
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchPlayer((player) => {
+            player.isInWater()
+        }) 
+        .addLoot("minecraft:diamond")
+})
+```
+### 匹配伤害来源和类型
+matchDamageSource(callback)
+
+上述三种匹配类型是根据拥有对应的条件后才会进行战利品的生成
+
+而`matchDamageSource()`是针对于伤害的类型，以及来源来进行匹配，并生成对应的战利品
+
+`LootJS`将提供`DamageSourcePredicateBuilderJS`给回调函数中进行匹配
+
+下面的示例代码中，将检测对`minecraft:creeper`的伤害类型是否是铁砧掉落，若是则添加一个新的战利品给`minecraft:creeper`
+
+将`anvil`修改为`arrow`后就是检测来自箭矢的伤害类型
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchDamageSource((source) => {
+            source.anyType('anvil')
+        }) 
+        .addLoot("minecraft:diamond")
+})
+
+```
+更多的伤害类型请查阅Minecraft Wiki进行获取
+
+`and` ?
+`is` ?
+`or` ?
+`isNot` ?
+`invert` ?
+`matchDirectEntity` ?
+`matchSourceEntity` ?
+
+
+
 ### 爆炸检查 
-survivesExplosion()
+survivesExplosion(){font-small}
 
 `survivesExplosion()`语句添加了对能在爆炸中不会消失的方块的检查
 
@@ -108,7 +244,7 @@ LootJS.modifiers((event) => {
 ```
 
 ### tick检查
-timeCheck(period, min, max)
+timeCheck(period, min, max){font-small}
 
 timeCheck(min, max)
 
@@ -146,7 +282,7 @@ LootJS.modifiers((event) => {
 不使用period的时候，检测的是当天tick内对应的0-12000 tick
 
 ### 天气检查
-weatherCheck(value)
+weatherCheck(value){font-small}
 
 `weatherCheck()`语句对应传入的参数是:
 - raining 雨天
@@ -173,7 +309,7 @@ LootJS.modifiers((event) => {
 若检测为雷雨天，则将`raining`更换为`thundering`，若要检测是否为晴天的时候，将`raining`以及`thundering`两个都设置为`false`即可
 
 ### 随机概率
-randomChance(value)
+randomChance(value){font-small}
 
 `randomChance()`语句对应的传入参数为`float`
 
@@ -190,7 +326,7 @@ LootJS.modifiers((event) => {
 ```
 
 ### 抢夺附魔随机概率
-randomChanceWithLooting(value, looting)
+randomChanceWithLooting(value, looting){font-small}
 
 `randomChanceWithLooting()`传入的参数为`value`即概率，`looting`即抢夺附魔的等级
 
@@ -207,7 +343,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 附魔随机概率
-randomChanceWithEnchantment(enchantment, [chances])
+randomChanceWithEnchantment(enchantment, [chances]){font-small}
 
 `randomChanceWithEnchantment()`语句的用途是指定手上物品的附魔ID以及附魔等级来进行战利品列表的修改
 
@@ -240,7 +376,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 生物群系检查
-biome(...biomes)
+biome(...biomes){font-small}
 
 `biome()`语句传入的参数为对应的生物群系ID，或者`Tag`，即在生物群系之前加上`#`来标记为`Tag`
 
@@ -257,7 +393,7 @@ LootJS.modifiers((event) => {
 ```
 
 ### 生物群系检查2
-anyBiome(...biomes)
+anyBiome(...biomes){font-small}
 
 `anyBiome()`语句传入的参数和`biome()`语句传入的参数大相径庭
 
@@ -275,7 +411,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 维度检查
-anyDimension(...dimensions)
+anyDimension(...dimensions){font-small}
 
 `anyDimension()`语句传入的参数为维度ID
 - `minecraft:overworld` 主世界
@@ -296,7 +432,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 结构检查
-anyStructure([structures], exact)
+anyStructure([structures], exact){font-small}
 
 `anyStructure()`语句传入的参数为`structures`(结构ID)以及`exact`(boolean)
 
@@ -317,4 +453,39 @@ LootJS.modifiers((event) => {
         .addLoot("minecraft:diamond")
 })
 ```
+### 亮度检查
+lightLevel(min, max){font-small}
+
+`lightLevel()`语句传入的参数为两个整数，即0-15之间
+
+通过检测方块的亮度来进行战利品的添加
+
+官方示例:
+```js
+LootJS.modifiers((event) => {
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .lightLevel(0, 15) 
+        .addLoot("minecraft:diamond")
+})
+```
+### 玩家击杀检查
+killedByPlayer(){font-small}
+
+该语句不需要传入任何参数，单纯是一个检测的方法
+
+该方法只适用于对生物的战利品修改
+
+检测生物是否被玩家击杀，如果是玩家击杀，则添加对应的战利品
+
+官方示例：
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .killedByPlayer() 
+        .addLoot("minecraft:diamond")
+})
+```
+
 
