@@ -124,42 +124,56 @@ root:
           path: LootTable
           collapsed: true
           children:
-            - title: 战利品表
+            - title: 概述
               path: /
               file: LootTable
-            - title: 谓词
-              path: /
-              file: Predicate
-            - title: 物品修饰器
-              path: /
-              file: ItemModifier
-            # - title: 战利品表示
-            #   path: /
-            #   file: LootEntry
+            - title: 基础知识
+              path: BasicKnowledge
+              # collapsed: false
+              children:
+                - title: 战利品表类型
+                  path: /
+                  file: LootType
+                - title: 随机池
+                  path: /
+                  file: LootPool
+                - title: 抽取项
+                  path: /
+                  file: LootEntry
+                - title: 谓词
+                  path: /
+                  file: Predicate
+                - title: 物品修饰器
+                  path: /
+                  file: ItemModifier
+            - title: 原版战利品表
+              path: Vanilla
+              # collapsed: false
+              children:
             # - title: 战利品修改
             #   path: /
             #   file: ModifyLootEntry
             # - title: 战利品添加
             #   path: /
             #   file: AddLootEntry
-            - title: 方块类型战利品表
-              path: /
-              file: Block
-            - title: 实体类型战利品表
-              path: /
-              file: Entity
-            - title: 钓鱼类型战利品表
-              path: /
-              file: Fish
-            - title: 礼物类型战利品表
-              path: /
-              file: Gift
-            - title: 箱子类型战利品表
-              path: /
-              file: Chest
-            - title: 通用类型战利品表
-              path: /
-              file: Generic
+                - title: 方块类型战利品表
+                  path: /
+                  file: Block
+                - title: 实体类型战利品表
+                  path: /
+                  file: Entity
+                - title: 钓鱼类型战利品表
+                  path: /
+                  file: Fish
+                - title: 礼物类型战利品表
+                  path: /
+                  file: Gift
+                - title: 箱子类型战利品表
+                  path: /
+                  file: Chest
+                - title: 通用类型战利品表
+                  path: /
+                  file: Generic
         - title: 事件
           path: Event
           collapsed: true
