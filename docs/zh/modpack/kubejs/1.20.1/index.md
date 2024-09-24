@@ -206,6 +206,9 @@ root:
                 - title: LootJs
                   path: /
                   file: LootJs
+                - title: Conditions
+                  path: /
+                  file: Conditions         
             - title: ProbeJS
               path: ProbeJS
               collapsed: true
