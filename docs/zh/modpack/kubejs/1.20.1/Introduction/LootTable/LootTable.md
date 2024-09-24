@@ -4,7 +4,7 @@ state: preliminary
 ---
 # 战利品表
 
-## 介绍
+## 名词解释
 
 - **`战利品表`** 战利品用于决定在何种情况下生成何种物品。比如自然生成的容器和可疑的方块内容物、破坏方块时的掉落物、杀死实体时的掉落物、钓鱼时可以钓上的物品、猪灵的以物易物——引用自[minecraft-wiki/战利品表](https://zh.minecraft.wiki/w/%E6%88%98%E5%88%A9%E5%93%81%E8%A1%A8)
 
@@ -68,7 +68,88 @@ stateDiagram-v2
 不同的XXX谓词列表、XXX物品修饰器列表没有本质区别，只是应用的对象不同。
 :::
 
-## 战利品表上下文类型
+## 使用步骤
+
+:::: stepper
+@tab 战利品表类型
+
+- 在[战利品表类型](./BasicKnowledge/LootType.md)选择类型并使用对应事件，本例中使用[方块类型](../LootTable/Vanilla/Block.md)
+
+- 不同的类型能够使用的谓词与物品修饰器有区别，具体可查看各自类型的谓词与物品修饰器的列表。
+
+::: code-group
+
+```js [KubeJS]
+ServerEvents.blockLootTables(event => {
+
+})
+```
+
+:::
+
+@tab 操作战利品表
+
+- 确定要操作的战利品表是谁的战利品表，在本例中操作沙砾的战利品表。
+
+- 这里使用了addBlock()覆盖沙砾原有的战利品表。
+
+- 战利品表（loot）可以应用[物品修饰器](./BasicKnowledge/ItemModifier.md)
+
+::: code-group
+
+```js [KubeJS]
+ServerEvents.blockLootTables(event => {
+    event.addBlock('minecraft:gravel', loot => {// [!code ++]
+
+    })// [!code ++]
+})
+```
+
+:::
+
+@tab 随机池
+
+- 创建[随机池](./BasicKnowledge/LootPool.md)
+
+- 随机池（pool）可以应用[物品修饰器](./BasicKnowledge/ItemModifier.md)和[谓词](./BasicKnowledge/Predicate.md)
+
+::: code-group
+
+```js [KubeJS]
+ServerEvents.blockLootTables(event => {
+    event.addBlock('minecraft:gravel', loot => {
+        loot.addPool(pool => {// [!code ++]
+
+        })// [!code ++]
+    })
+})
+```
+
+:::
+
+@tab 抽取项
+
+- 添加[抽取项](./BasicKnowledge/LootEntry.md)
+
+- 抽取项也可以应用[物品修饰器](./BasicKnowledge/ItemModifier.md)和[谓词](./BasicKnowledge/Predicate.md)
+
+::: code-group
+
+```js [KubeJS]
+ServerEvents.blockLootTables(event => {
+    event.addBlock('minecraft:gravel', loot => {
+        loot.addPool(pool => {
+            pool.addItem('minecraft:diamond')// [!code ++]
+        })
+    })
+})
+```
+
+:::
+
+::::
+
+<!-- ## 战利品表上下文类型
 
 - **`战利品表类型`** 战利品表上下文类型，也称为战利品表类型。
 
@@ -337,4 +418,4 @@ ServerEvents.blockLootTables(event => {
 })
 ```
 
-:::
+::: -->
