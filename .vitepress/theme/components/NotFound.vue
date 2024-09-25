@@ -1,14 +1,50 @@
 <template>
     <div class="not-found">
         <h1 class="glitch" data-text="404">404</h1>
-        <div class="universe">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-        </div>
-        <p class="message">{{ messages[lang].notFound }}</p>
-        <p class="tip">{{ messages[lang].tip }}</p>
-        <p class="advice">{{ messages[lang].advice }}</p>
+        <button
+            @click="refreshPage"
+            class="floating-button refresh-button"
+            :title="messages.tip[lang]"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="30"
+                height="30"
+                viewBox="0,0,250,250"
+            >
+                <g
+                    fill="#ffffff"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="1"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                >
+                    <g transform="scale(10.66667,10.66667)">
+                        <path
+                            d="M21,15v-5c0,-3.866 -3.134,-7 -7,-7h-3c-0.552,0 -1,0.448 -1,1v0c0,1.657 1.343,3 3,3h1c1.657,0 3,1.343 3,3v5h-1.294c-0.615,0 -0.924,0.742 -0.491,1.178l3.075,3.104c0.391,0.395 1.03,0.395 1.421,0l3.075,-3.104c0.432,-0.436 0.122,-1.178 -0.492,-1.178z"
+                            opacity="0.35"
+                        ></path>
+                        <path
+                            d="M3,9v5c0,3.866 3.134,7 7,7h3c0.552,0 1,-0.448 1,-1v0c0,-1.657 -1.343,-3 -3,-3h-1c-1.657,0 -3,-1.343 -3,-3v-5h1.294c0.615,0 0.924,-0.742 0.491,-1.178l-3.075,-3.105c-0.391,-0.395 -1.03,-0.395 -1.421,0l-3.074,3.105c-0.433,0.436 -0.123,1.178 0.491,1.178z"
+                        ></path>
+                    </g>
+                </g>
+            </svg>
+        </button>
+        <p class="message">{{ messages.notFound[lang] }}</p>
+        <p class="tip">{{ messages.tip[lang] }}</p>
+        <p class="advice">{{ messages.advice[lang] }}</p>
     </div>
 </template>
 
@@ -17,18 +53,23 @@
     import { useData } from "vitepress";
 
     const { lang } = useData();
-
     const messages = {
-        "en-US": {
-            notFound: "Oops! Page not found",
-            tip: "Due to caching mechanisms, if your page was inactive and reactivated without refreshing, you might encounter a 404 error if the page has been updated. In this case, try refreshing the page to reload.",
-            advice: "If you still see this page, the page does not exist.",
+        notFound: {
+            "en-US": "Oops! Page not found",
+            "zh-CN": "哎呀！页面未找到",
         },
-        "zh-CN": {
-            notFound: "哎呀！页面未找到",
-            tip: "由于缓存机制，如果你的页面曾处于未激活状态而重新激活后没有刷新过网页，那如果你试图前去的网页有了新的更新，就会导致404问题，这种情况下你可以刷新网页尝试重新加载。",
-            advice: "如果依旧出现该页面，则该页面不存在。",
+        tip: {
+            "en-US": "Click to refresh the page.",
+            "zh-CN": "点击刷新页面。",
         },
+        advice: {
+            "en-US": "If you still see this page, the page does not exist.",
+            "zh-CN": "如果依旧出现该页面，则该页面不存在。",
+        },
+    };
+
+    const refreshPage = () => {
+        window.location.reload();
     };
 
     onMounted(() => {
@@ -40,144 +81,70 @@
 </script>
 
 <style scoped>
-    .not-found {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        text-align: center;
-        background-color: var(--vp-c-bg);
-        color: var(--vp-c-text-1);
-        font-family: var(--vp-font-family-base);
-    }
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    text-align: center;
+    background-color: var(--vp-c-bg);
+    color: var(--vp-c-text-1);
+    font-family: var(--vp-font-family-base);
+    padding-top: 20vh;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
 
-    .glitch {
-        font-size: 8rem;
+
+.glitch {
+        font-size: 10rem;
         font-weight: bold;
         text-transform: uppercase;
         position: relative;
         text-shadow: 0.05em 0 0 var(--vp-c-brand),
             -0.03em -0.04em 0 var(--vp-c-brand-light),
             0.025em 0.04em 0 var(--vp-c-brand-dark);
-        animation: glitch 725ms infinite;
+        margin: 60px 0;
     }
 
-    .glitch span {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+.floating-button.refresh-button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--vp-c-brand);
+    border: none;
+    padding: 10px;
+    box-shadow: 2px 2px 10px 4px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    margin: 60px 0;
+    align-items: center;
+    justify-content: center;
+    position: static; /* 移除任何绝对定位 */
+}
 
-    .glitch span:first-child {
-        animation: glitch 500ms infinite;
-        clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-        transform: translate(-0.04em, -0.03em);
-        opacity: 0.75;
-    }
+.floating-button.refresh-button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.1);
+}
 
-    .glitch span:last-child {
-        animation: glitch 375ms infinite;
-        clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-        transform: translate(0.04em, 0.03em);
-        opacity: 0.75;
-    }
+.message,
+.tip,
+.advice {
+    max-width: 600px;
+    line-height: 1.5;
+    color: var(--vp-c-text-2);
+}
 
-    @keyframes glitch {
-        0% {
-            text-shadow: 0.05em 0 0 var(--vp-c-brand),
-                -0.03em -0.04em 0 var(--vp-c-brand-light),
-                0.025em 0.04em 0 var(--vp-c-brand-dark);
-        }
-        15% {
-            text-shadow: 0.05em 0 0 var(--vp-c-brand),
-                -0.03em -0.04em 0 var(--vp-c-brand-light),
-                0.025em 0.04em 0 var(--vp-c-brand-dark);
-        }
-        16% {
-            text-shadow: -0.05em -0.025em 0 var(--vp-c-brand),
-                0.025em 0.035em 0 var(--vp-c-brand-light),
-                -0.05em -0.05em 0 var(--vp-c-brand-dark);
-        }
-        49% {
-            text-shadow: -0.05em -0.025em 0 var(--vp-c-brand),
-                0.025em 0.035em 0 var(--vp-c-brand-light),
-                -0.05em -0.05em 0 var(--vp-c-brand-dark);
-        }
-        50% {
-            text-shadow: 0.05em 0.035em 0 var(--vp-c-brand),
-                0.03em 0 0 var(--vp-c-brand-light),
-                0 -0.04em 0 var(--vp-c-brand-dark);
-        }
-        99% {
-            text-shadow: 0.05em 0.035em 0 var(--vp-c-brand),
-                0.03em 0 0 var(--vp-c-brand-light),
-                0 -0.04em 0 var(--vp-c-brand-dark);
-        }
-        100% {
-            text-shadow: -0.05em 0 0 var(--vp-c-brand),
-                -0.025em -0.04em 0 var(--vp-c-brand-light),
-                -0.04em -0.025em 0 var(--vp-c-brand-dark);
-        }
-    }
-
-    .universe {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        margin: 20px auto;
-    }
-
-    .circle {
-        position: absolute;
-        border-radius: 50%;
-        background-color: var(--vp-c-brand);
-        animation: orbit 4s linear infinite;
-    }
-
-    .circle:nth-child(1) {
-        width: 100%;
-        height: 100%;
-        background-color: var(--vp-c-brand-lighter);
-    }
-
-    .circle:nth-child(2) {
-        top: 25%;
-        left: 25%;
-        width: 50%;
-        height: 50%;
-        background-color: var(--vp-c-brand-light);
-    }
-
-    .circle:nth-child(3) {
-        top: 40%;
-        left: 40%;
-        width: 20%;
-        height: 20%;
-        background-color: var(--vp-c-brand);
-    }
-
-    @keyframes orbit {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    .message {
+.message {
         font-size: 1.5rem;
         margin: 20px 0;
         color: var(--vp-c-text-1);
     }
-
-    .tip,
-    .advice {
-        max-width: 600px;
-        margin: 10px auto;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: var(--vp-c-text-2);
-    }
+.tip,
+.advice {
+    font-size: 1rem;
+}
 </style>

@@ -8,6 +8,8 @@ export function sidebars(lang: string): {} {
     let ISidebar = {};
     indexParser(dirs, lang, ISidebar)
     gitbookParser(summary, ISidebar)
+
+    logger(JSON.stringify(ISidebar, null, 4), 'sidebar.json')
     
     return ISidebar;
 }
