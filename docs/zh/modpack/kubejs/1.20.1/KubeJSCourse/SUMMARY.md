@@ -52,6 +52,7 @@ authors: ['Gu-meng']
   * [关于事件](/KubeJSAdvanced/Event.md)
   * [事件示例](/KubeJSAdvanced/EventExamples/README.md)
     * [方块右键事件](/KubeJSAdvanced/EventExamples/BlockRightClickedEvent.md)
+    * [玩家库存改变事件](/KubeJSAdvanced/EventExamples/PlayerInventoryChangedEvents.md)
   * [物品属性修改——待编写](/KubeJSAdvanced/ItemAttributeModify.md)
   * [世界生成](/KubeJSAdvanced/WorldGen.md)
   * [global全局变量](/KubeJSAdvanced/GlobalVariable.md)
