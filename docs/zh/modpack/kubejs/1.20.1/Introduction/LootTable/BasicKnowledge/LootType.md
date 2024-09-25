@@ -6,7 +6,7 @@
 
 - 类型决定不同战利品表的可用的谓词与修饰器。
 
-|   战利品表类型    |   事件    |   示例    |
+|   战利品表类型    |   KubeJS事件    |   KubeJS示例    |
 |:------------:|:---------:|:---------:|
 |   方块    |   ServerEvents.blockLootTables   |   [方块类型战利品表](./Block.md)   |
 |   实体    |   ServerEvents.entityLootTables   |   [实体类型战利品表](./Entity.md)   |

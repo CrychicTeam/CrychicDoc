@@ -20,23 +20,23 @@ root:
   title: KubeJS
   collapsed: false
   children:
-    - title: 入门
+    - title: 基础
       path: Introduction
       collapsed: false
       children:
-        - title: 序言
+        - title: 概述
           path: /
-          file: Foreword
+          file: Introduction
+        - title: 物品
+          path: Item
+          collapsed: true
+        - title: 方块
+          path: Block
+          collapsed: true
         - title: 配方
           path: Recipe
           collapsed: true
           children:
-            # - title: 物品与原料表示
-            #   path: /
-            #   file: ItemAndIngredient
-            # - title: 配方过滤器表示
-            #   path: /
-            #   file: RecipeFilter
             - title: 修改配方
               path: /
               file: ModifyRecipe
@@ -72,16 +72,13 @@ root:
                     - title: 切石机
                       path: /
                       file: Stonecutter
-            # - title: 添加原版配方
-            #   path: /
-            #   file: Vanilla
-        - title: 药水效果
+        - title: 状态效果
           path: PotionEffect
           children:
-            - title: 药水效果
+            - title: 概述
               path: /
               file: PotionEffect
-          collapsed: true
+              collapsed: true
         - title: 实体
           path: Entity
           collapsed: true
@@ -89,7 +86,7 @@ root:
             - title: 生成
               path: /
               file: Spawn
-            - title: 药水效果
+            - title: 状态效果
               path: /
               file: PotionEffects
             - title: 属性
@@ -99,27 +96,30 @@ root:
           path: Tag
           collapsed: true
           children:
-            - title: 标签
+            - title: 概述
               path: /
               file: Tag
-            - title: 物品标签
+            - title: 原版标签类型
               path: /
-              file: Item
-            - title: 方块标签
-              path: /
-              file: Block
-            - title: 生物类型标签
-              path: /
-              file: EntityType
-            - title: 流体标签
-              path: /
-              file: Fluid
-            - title: 生物群系标签
-              path: /
-              file: Biome
-            - title: 结构标签
-              path: /
-              file: Structure
+              children:
+                - title: 物品标签
+                  path: /
+                  file: Item
+                - title: 方块标签
+                  path: /
+                  file: Block
+                - title: 生物类型标签
+                  path: /
+                  file: EntityType
+                - title: 流体标签
+                  path: /
+                  file: Fluid
+                - title: 生物群系标签
+                  path: /
+                  file: Biome
+                - title: 结构标签
+                  path: /
+                  file: Structure
         - title: 战利品表
           path: LootTable
           collapsed: true
@@ -129,7 +129,6 @@ root:
               file: LootTable
             - title: 基础知识
               path: BasicKnowledge
-              # collapsed: false
               children:
                 - title: 战利品表类型
                   path: /
@@ -146,32 +145,25 @@ root:
                 - title: 物品修饰器
                   path: /
                   file: ItemModifier
-            - title: 原版战利品表
+            - title: 原版战利品表类型
               path: Vanilla
-              # collapsed: false
               children:
-            # - title: 战利品修改
-            #   path: /
-            #   file: ModifyLootEntry
-            # - title: 战利品添加
-            #   path: /
-            #   file: AddLootEntry
-                - title: 方块类型战利品表
+                - title: 方块战利品表
                   path: /
                   file: Block
-                - title: 实体类型战利品表
+                - title: 实体战利品表
                   path: /
                   file: Entity
-                - title: 钓鱼类型战利品表
+                - title: 钓鱼战利品表
                   path: /
                   file: Fish
-                - title: 礼物类型战利品表
+                - title: 礼物战利品表
                   path: /
                   file: Gift
-                - title: 箱子类型战利品表
+                - title: 箱子战利品表
                   path: /
                   file: Chest
-                - title: 通用类型战利品表
+                - title: 通用战利品表
                   path: /
                   file: Generic
         - title: 事件
@@ -348,17 +340,6 @@ root:
       - title: 死亡扣除生命上限
         path: /
         file: LifeValue
-    # - title: 高级
-    #   path: Advanced
-    #   collapsed: true
-    #   children:
-    #     - title: 占位符
-    #       path: /
-    #       file: placeholder
-    # - title: kubejs教程-1.20.1(孤梦版)
-    #   noScan: true
-    #   path: KubeJSCourse
-    #   file: README
 prev: false
 next: false
 ---
