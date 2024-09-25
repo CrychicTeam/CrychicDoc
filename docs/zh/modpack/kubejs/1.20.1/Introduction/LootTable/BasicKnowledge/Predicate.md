@@ -57,26 +57,26 @@ ServerEvents.blockLootTables(event => {
 
 ## 列表
 
-|   谓词类型    |   作用    |   语句    |   KubeJS原生支持    |   示例    |
-|:------------:|:---------:|:---------:|:---------:|:---------:|
-|   全部   |   评估一系列战利品表谓词，若它们都通过检查，则评估通过。可从任何上下文调用。   |   -   |   ☐   |   [示例](./Predicate.md#全部)   |
-|   任何   |   评估一系列战利品表谓词，若其中任意一个通过检查，则评估通过。可从任何上下文调用。   |   -   |   ☐   |   [示例](./Predicate.md#任何)   |
-|   方块状态属性   |   检查方块以及其方块状态。需要战利品上下文提供的方块状态进行检测，若未提供则总是不通过。   |   -   |   ☐   |   [示例](./Predicate.md#方块状态属性)   |
-|   伤害来源属性   |   检查伤害来源的属性。需要战利品上下文提供的来源和伤害来源进行检测，若未提供则总是不通过。   |   -   |   ☐   |   [示例](./Predicate.md#伤害来源属性)   |
-|   实体属性   |   检查战利品表上下文中的实体。可从任何上下文调用。   |   entityProperties(..args)   |   ☑   |   [示例](./Predicate.md#实体属性)   |
-|   实体分数   |   检查实体的记分板分数。   |   entityScores(..args)   |   ☑   |   [示例](./Predicate.md#实体分数)   |
-|   取反（非）   |   定义一个谓词列表，当内含谓词不通过时该谓词通过。   |   -   |   ☐   |   [示例](./Predicate.md#取反)   |
-|   被玩家击杀   |   检查实体是否死于玩家击杀(死时被玩家攻击过)。   |   killedByPlayer()   |   ☑   |   [示例](./Predicate.md#被玩家击杀)   |
-|   检查位置   |   检查当前位置。需要战利品上下文提供的来源进行检测，若未提供则总是不通过。   |   -   |   ☐   |   [示例](./Predicate.md#检查位置)   |
-|   匹配工具   |   检查工具。需要战利品上下文提供的工具进行检测，若未提供则总是不通过。   |   -   |   ☐   |   [示例](./Predicate.md#匹配工具)   |
-|   随机概率   |   生成一个取值范围为0.0–1.0之间的随机数，并检查其是否小于指定值。可从任何上下文调用。   |   randomChance(..args)   |   ☑   |   [示例](./Predicate.md#随机概率)   |
-|   受抢夺附魔影响的随机概率   |   检查随机概率，这个概率会受到抢夺魔咒的等级影响。   |   randomChanceWithLooting(..args)   |   ☑   |   [示例](./Predicate.md#受抢夺附魔影响的随机概率)   |
-|   引用谓词文件   |   调用谓词文件并返回其结果。可从任何上下文调用。   |   -   |   ☐   |   [示例](./Predicate.md#引用谓词文件)   |
-|   未被爆炸破坏   |   返回成功概率为1/爆炸半径，如果上下文未传递爆炸则始终通过。   |   survivesExplosion()   |   ☑   |   [示例](./Predicate.md#未被爆炸破坏)   |
-|   附魔奖励   |   以魔咒等级为索引，从列表中挑选概率通过。需要战利品上下文提供的工具进行检测，如果未提供，则附魔等级被视为 0。   |   -   |   ☐   |   [示例](./Predicate.md#附魔奖励)   |
-|   检查时间   |   将当前的游戏时间（更确切地来说，为24000 * 天数 + 当天时间）和给定值进行比较。可从任何上下文调用。   |   -   |   ☐   |   [示例](./Predicate.md#检查时间)   |
-|   检查值   |   将一个数与另一个数或范围进行比较。可从任何上下文调用。   |   -   |   ☐   |   [示例](./Predicate.md#检查值)   |
-|   检查天气   |   检查当前游戏的天气状态。可从任何上下文调用。   |   -   |   ☐   |   [示例](./Predicate.md#检查天气)   |
+|   谓词类型    |   作用    |   语句    |   KubeJS原生支持    |   示例    |   维基    |
+|:------------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|   全部   |   评估一系列战利品表谓词，若它们都通过检查，则评估通过。可从任何上下文调用。   |   -   |   ☐   |   [示例](#全部)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#all_of)   |
+|   任何   |   评估一系列战利品表谓词，若其中任意一个通过检查，则评估通过。可从任何上下文调用。   |   -   |   ☐   |   [示例](#任何)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#any_of)   |
+|   方块状态属性   |   检查方块以及其方块状态。需要战利品上下文提供的方块状态进行检测，若未提供则总是不通过。   |   -   |   ☐   |   [示例](#方块状态属性)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#block_state_property)   |
+|   伤害来源属性   |   检查伤害来源的属性。需要战利品上下文提供的来源和伤害来源进行检测，若未提供则总是不通过。   |   -   |   ☐   |   [示例](#伤害来源属性)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#damage_source_properties)   |
+|   实体属性   |   检查战利品表上下文中的实体。可从任何上下文调用。   |   entityProperties(..args)   |   ☑   |   [示例](#实体属性)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#entity_properties)   |
+|   实体分数   |   检查实体的记分板分数。   |   entityScores(..args)   |   ☑   |   [示例](#实体分数)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#entity_scores)   |
+|   取反（非）   |   定义一个谓词列表，当内含谓词不通过时该谓词通过。   |   -   |   ☐   |   [示例](#取反)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#inverted)   |
+|   被玩家击杀   |   检查实体是否死于玩家击杀(死时被玩家攻击过)。   |   killedByPlayer()   |   ☑   |   [示例](#被玩家击杀)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#killed_by_player)   |
+|   检查位置   |   检查当前位置。需要战利品上下文提供的来源进行检测，若未提供则总是不通过。   |   -   |   ☐   |   [示例](#检查位置)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#location_check)   |
+|   匹配工具   |   检查工具。需要战利品上下文提供的工具进行检测，若未提供则总是不通过。   |   -   |   ☐   |   [示例](#匹配工具)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#match_tool)   |
+|   随机概率   |   生成一个取值范围为0.0–1.0之间的随机数，并检查其是否小于指定值。可从任何上下文调用。   |   randomChance(..args)   |   ☑   |   [示例](#随机概率)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#random_chance)   |
+|   受抢夺附魔影响的随机概率   |   检查随机概率，这个概率会受到抢夺魔咒的等级影响。   |   randomChanceWithLooting(..args)   |   ☑   |   [示例](#受抢夺附魔影响的随机概率)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#random_chance_with_enchanted_bonus)   |
+|   引用谓词文件   |   调用谓词文件并返回其结果。可从任何上下文调用。   |   -   |   ☐   |   [示例](#引用谓词文件)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#reference)   |
+|   未被爆炸破坏   |   返回成功概率为1/爆炸半径，如果上下文未传递爆炸则始终通过。   |   survivesExplosion()   |   ☑   |   [示例](#未被爆炸破坏)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#survives_explosion)   |
+|   附魔奖励   |   以魔咒等级为索引，从列表中挑选概率通过。需要战利品上下文提供的工具进行检测，如果未提供，则附魔等级被视为 0。   |   -   |   ☐   |   [示例](#附魔奖励)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#table_bonus)   |
+|   检查时间   |   将当前的游戏时间（更确切地来说，为24000 * 天数 + 当天时间）和给定值进行比较。可从任何上下文调用。   |   -   |   ☐   |   [示例](#检查时间)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#time_check)   |
+|   检查值   |   将一个数与另一个数或范围进行比较。可从任何上下文调用。   |   -   |   ☐   |   [示例](#检查值)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#value_check)   |
+|   检查天气   |   检查当前游戏的天气状态。可从任何上下文调用。   |   -   |   ☐   |   [示例](#检查天气)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#weather_check)   |
 
 ## 类型
 
