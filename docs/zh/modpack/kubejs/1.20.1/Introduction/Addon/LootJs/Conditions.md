@@ -505,7 +505,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 任意阶段检查
-hasAnyStage(...stages)
+hasAnyStage(...stages){font-small}
 
 `hasAnyStage()`语句传入的参数为玩家的阶段
 
@@ -525,7 +525,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 玩家谓词
-playerPredicate(callback)
+playerPredicate(callback){font-small}
 
 谓词跳转[Predicate.md](../../LootTable/BasicKnowledge/Predicate.md)进行详情
 
@@ -540,7 +540,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 实体谓词
-entityPredicate(callback)
+entityPredicate(callback){font-small}
 
 谓词跳转[Predicate.md](../../LootTable/BasicKnowledge/Predicate.md)进行详情
 
@@ -555,7 +555,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 击杀者谓词
-killerPredicate(callback)
+killerPredicate(callback){font-small}
 
 谓词跳转[Predicate.md](../../LootTable/BasicKnowledge/Predicate.md)进行详情
 
@@ -574,7 +574,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 直接击杀者谓词
-directKillerPredicate(callback)
+directKillerPredicate(callback){font-small}
 
 `directKillerPredicate()`的回调函数，是检测直接击杀者的谓词
 
@@ -595,7 +595,7 @@ LootJS.modifiers((event) => {
 ```
 
 ### not语句
-not(callback)
+not(callback){font-small}
 
 `not()`语句为LootTable的修改添加了一个否定，当不满足条件的时候生成对应的战利品
 
@@ -613,7 +613,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### or语句
-or(callback)
+or(callback){font-small}
 
 `or()`语句为LootTable的修改添加多个条件，只要其中一个条件为真，则会对战利品进行修改，若一个条件都不为真，则不会进行战利品修改
 
@@ -631,7 +631,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### and语句
-and(callback)
+and(callback){font-small}
 
 相较于上述的`or()`语句，`and()`语句则是必须满足所有条件，才会对战利品进行修改
 
@@ -649,7 +649,7 @@ LootJS.modifiers((event) => {
 })
 ```
 ### 自定义条件
-customCondition(json)
+customCondition(json){font-small}
 
 `customCondition()`语句里要填入的参数为json，当满足这个自定义条件的时候，对战利品进行修改，反之不会进行修改
 
