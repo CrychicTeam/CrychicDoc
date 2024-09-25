@@ -74,6 +74,7 @@ root:
                       file: Stonecutter
         - title: 状态效果
           path: PotionEffect
+          collapsed: true
           children:
             - title: 概述
               path: /
