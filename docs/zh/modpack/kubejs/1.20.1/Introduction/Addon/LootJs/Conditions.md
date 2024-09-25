@@ -487,5 +487,184 @@ LootJS.modifiers((event) => {
         .addLoot("minecraft:diamond")
 })
 ```
+### 击杀者距离检测
+distanceToKiller(interval){font-small}
+
+`distanceToKiller()`传入的参数为`$MinMaxBounds$Doubles$Type`，只需要填入数字即可
+
+检测被击杀者与击杀者的距离，若击杀者位于所制定的范围之外，则会生成对应的战利品.若在指定的范围内，则不会生成战利品
+
+下面的示例代码中，若玩家在`minecraft:villager`的3格范围内击杀了`minecraft:villager`，则不会生成战利品.若在3格范围之外击杀
+`minecraft:villager`，则会生成相应的战利品
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:villager")
+        .distanceToKiller(3)
+        .addLoot("minecraft:diamond");
+})
+```
+### 任意阶段检查
+hasAnyStage(...stages)
+
+`hasAnyStage()`语句传入的参数为玩家的阶段
+
+若玩家持有指定的该阶段，则会对对应的生物/方块/战利品列表添加对应的战利品掉落
+
+该方法建议搭配[Game Stage](https://www.mcmod.cn/class/1360)[游戏阶段]模组进行搭配使用
+
+下面的示例代码中，当玩家持有`diamondSpawn`阶段的时候，击杀`minecraft:pig`会生成钻石战利品掉落物
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:pig")
+        .hasAnyStage("diamondsSpawn")
+        .addLoot("minecraft:diamond");
+        
+})
+```
+### 玩家谓词
+playerPredicate(callback)
+
+谓词跳转[Predicate.md](../../LootTable/BasicKnowledge/Predicate.md)进行详情
+
+下面的示例代码中，使用回调函数来检查`player`的血量是否大于5，若大于5则生成对应的战利品，反之不生成战利品
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:pig")
+        .playerPredicate((player) => player.getHealth() > 5)
+        .addLoot("minecraft:emerald");
+})
+```
+### 实体谓词
+entityPredicate(callback)
+
+谓词跳转[Predicate.md](../../LootTable/BasicKnowledge/Predicate.md)进行详情
+
+下面的示例中，用回调函数来检查被击杀的`minecraft:pig`(Entity)是否处于水中，若处于水中则生成对应的战利品，反之则不生成战利品
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:pig")
+        .entityPredicate((entity) => entity.isInWater())
+        .addLoot("minecraft:emerald")
+})
+```
+### 击杀者谓词
+killerPredicate(callback)
+
+谓词跳转[Predicate.md](../../LootTable/BasicKnowledge/Predicate.md)进行详情
+
+上面已经科普过直接击杀者与间接击杀者的关系，下面的示例代码中，回调函数检测的是间接击杀者的谓词
+
+当玩家手持钻石剑在水中杀死`minecraft:pig`的时候，会掉落一根羽毛，若玩家使用弓箭来杀死`minecraft:pig`，箭矢射到了水中，而玩家没处于水中，则不会生成战利品掉落，只有玩家在水中用弓箭(箭矢可以离开水面)射死`minecraft:pig`后才会掉落羽毛
+
+这里可以很明显的看出，`killerPredicate()`语句是用于检测间接击杀者的谓词
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:pig")
+        .killerPredicate((entity) => entity.isInWater())
+        .addLoot("minecraft:feather")
+})
+```
+### 直接击杀者谓词
+directKillerPredicate(callback)
+
+`directKillerPredicate()`的回调函数，是检测直接击杀者的谓词
+
+例如：玩家射箭击杀了僵尸，检测的是箭而不是玩家，因为是箭对僵尸造成的击杀，并不是玩家对僵尸造成了击杀
+
+下面的示例代码中，只有直接击杀者在水中击杀了`minecraft:zombie`后才会生成对应的战利品掉落物，例如：
+- 玩家在水中使用剑击杀了`minecraft:zombie`
+- 玩家射出的箭在水中击杀了`minecraft:zombie`
+- 玩家抛出的治疗药水在水中击杀了`minecraft:zombie`
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:zombie")
+        .killerPredicate((entity) => entity.isInWater())
+        .addLoot("minecraft:feather")
+})
+```
+
+### not语句
+not(callback)
+
+`not()`语句为LootTable的修改添加了一个否定，当不满足条件的时候生成对应的战利品
+
+下面的示例代码中：`not()`语句回调函数检测玩家手上的物品是否为`minecraft:diamond_sword`，若为该物品，则不会生成战利品，反之则生成战利品
 
 
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .not((n) => {
+            n.matchMainHand("minecraft:diamond_sword")
+        })
+        .addLoot("minecraft:diamond")
+})
+```
+### or语句
+or(callback)
+
+`or()`语句为LootTable的修改添加多个条件，只要其中一个条件为真，则会对战利品进行修改，若一个条件都不为真，则不会进行战利品修改
+
+下面的示例代码中，添加了两个条件，一个是检测玩家的主手是否为`minecraft:diamond_sword`，应该是检测玩家的副手是否为`minecraft:coal`，当玩家只要满足其中一个条件的时候，都会进行对战利品的修改
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .or((or) => {
+            or.matchMainHand("minecraft:diamond_sword")
+            or.matchOffHand("minecraft:coal")
+        })
+        .addLoot("minecraft:diamond");
+})
+```
+### and语句
+and(callback)
+
+相较于上述的`or()`语句，`and()`语句则是必须满足所有条件，才会对战利品进行修改
+
+下面的示例代码中，只有当玩家的主手为`minecraft:diamond_sword`以及副手为`minecraft:coal`的时候，战利品的修改才会生效.若缺少其中之一一个条件，战利品修改都不会生效
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .and((and) => {
+            and.matchMainHand("minecraft:diamond_sword")
+            and.matchOffHand("minecraft:coal")
+        })
+        .addLoot("minecraft:diamond");
+})
+```
+### 自定义条件
+customCondition(json)
+
+`customCondition()`语句里要填入的参数为json，当满足这个自定义条件的时候，对战利品进行修改，反之不会进行修改
+
+下面的示例代码中，只有当对应修改的方块/实体在满足了`minecraft:weather_check`且`raining`为`true`的时候才会进行对其战利品的修改，也就是检查天气为雨天的时候才会对`minecraft:creeper`的战利品进行修改
+
+具体更多的原版JSON可以查看[Predicate.md](../../LootTable/BasicKnowledge/Predicate.md)进行详情
+
+```js
+LootJS.modifiers((event) => {
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .customCondition({
+            "condition": "minecraft:weather_check",
+            "raining": true,
+        })
+        .addLoot("minecraft:diamond")
+})
+```
