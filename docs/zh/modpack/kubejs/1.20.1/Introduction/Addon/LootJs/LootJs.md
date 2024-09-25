@@ -169,7 +169,7 @@ LootJS.modifiers((event) => {
         .addEntityLootModifier("minecraft:creeper")
         .removeLoot(Ingredient.all)
         .addWeightedLoot(
-            [1, 5],
+            [7, 8],
             [Item.of("minecraft:gunpowder").withChance(20), Item.of("minecraft:nether_star").withChance(80)]
         )
 })
