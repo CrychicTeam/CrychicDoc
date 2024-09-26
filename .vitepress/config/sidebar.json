@@ -463,6 +463,10 @@
                                         {
                                             "text": "Conditions",
                                             "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Conditions"
+                                        },
+                                        {
+                                            "text": "LootEntry",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/LootEntry"
                                         }
                                     ]
                                 },
@@ -539,12 +543,12 @@
                                     "collapsed": true,
                                     "items": [
                                         {
-                                            "text": "方块类（Block）",
-                                            "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Block"
-                                        },
-                                        {
                                             "text": "轴对齐包围盒类（AABB）",
                                             "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/AABB"
+                                        },
+                                        {
+                                            "text": "方块类（Block）",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Block"
                                         },
                                         {
                                             "text": "方块状态谓词类（BlockStatePredicate）",
@@ -1311,6 +1315,10 @@
                                 {
                                     "text": "方块右键事件",
                                     "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/EventExamples/BlockRightClickedEvent"
+                                },
+                                {
+                                    "text": "玩家库存改变事件",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/EventExamples/PlayerInventoryChangedEvents"
                                 }
                             ]
                         },

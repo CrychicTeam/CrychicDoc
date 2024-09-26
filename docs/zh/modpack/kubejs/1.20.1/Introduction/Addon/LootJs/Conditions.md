@@ -667,4 +667,6 @@ LootJS.modifiers((event) => {
         })
         .addLoot("minecraft:diamond")
 })
-```
+```$$
+
+$$
