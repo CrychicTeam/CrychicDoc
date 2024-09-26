@@ -14,7 +14,7 @@
 
 :::
 
-## 示例
+## 应用示例
 
 ::: code-group
 
@@ -55,7 +55,7 @@ ServerEvents.blockLootTables(event => {
 
 :::
 
-## 列表
+## 谓词列表
 
 |   谓词类型    |   作用    |   语句    |   KubeJS原生支持    |   示例    |   维基    |
 |:------------:|:---------:|:---------:|:---------:|:---------:|:---------:|
@@ -78,7 +78,7 @@ ServerEvents.blockLootTables(event => {
 |   检查值   |   将一个数与另一个数或范围进行比较。可从任何上下文调用。   |   -   |   ☐   |   [示例](#检查值)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#value_check)   |
 |   检查天气   |   检查当前游戏的天气状态。可从任何上下文调用。   |   -   |   ☐   |   [示例](#检查天气)   |   [链接](https://zh.minecraft.wiki/w/%E8%B0%93%E8%AF%8D?variant=zh-cn#weather_check)   |
 
-## 类型
+## 谓词类型
 
 ### 全部
 
