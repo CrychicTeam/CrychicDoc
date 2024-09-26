@@ -219,6 +219,15 @@ root:
                 - title: LootEntry
                   path: /
                   file: LootEntry
+                - title: Event
+                  path: /
+                  file: Event
+                - title: Functions
+                  path: /
+                  file: Functions
+                - title: Type
+                  path: /
+                  file: Type
             - title: ProbeJS
               path: ProbeJS
               collapsed: true

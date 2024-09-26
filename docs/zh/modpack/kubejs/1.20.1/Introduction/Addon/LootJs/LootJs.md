@@ -20,6 +20,8 @@ Action用于更改当前战利品池结果或触发效果。您可以简单地�
 
 ## 操作(基础)
 
+开始之前，请跳转[Event](Event.md)来进行基本知识的了解
+
 ### 添加战利品 
 addLoot(...items){font-small}
 

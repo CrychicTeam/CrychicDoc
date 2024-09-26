@@ -51,7 +51,7 @@ LootEntry.of("minecraft:diamond_sword").enchantRandomly().damage(0.3)
 
 更多方法请使用`ProbeJs`模组进行补全查看
 
-### 条件申请
+### 条件检测
 
 你可以地向`LootEntry`添加条件用以过滤，当条件满足时战利品才会进行掉落，适用于多个Loot
 

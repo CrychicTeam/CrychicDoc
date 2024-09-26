@@ -467,6 +467,18 @@
                                         {
                                             "text": "LootEntry",
                                             "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/LootEntry"
+                                        },
+                                        {
+                                            "text": "Event",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Event"
+                                        },
+                                        {
+                                            "text": "Functions",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Functions"
+                                        },
+                                        {
+                                            "text": "Type",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Type"
                                         }
                                     ]
                                 },
