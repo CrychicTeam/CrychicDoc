@@ -126,23 +126,31 @@ export default class SidebarGenerator {
                             `${currentPath}/${item}`
                         ),
                     };
+                    if (sidebarItem.items.length === 0) {
+                        return null;
+                    }
                     return sidebarItem;
                 } else if (item.endsWith(".md")) {
                     const fileContent = this.fileReader(fullPath);
+                    if (fileContent?.noguide) {
+                        return null;
+                    }
                     const itemWithoutMd = item.replace(/\.md$/i, "");
+                    const formattedItem = this.formatPath(itemWithoutMd);
                     const fileItem: FileItem = {
-                        text: fileContent?.title || itemWithoutMd,
-                        link: `${currentPath}/${itemWithoutMd}`,
+                        text: fileContent?.title || formattedItem,
+                        link: `${currentPath}/${formattedItem}`,
                     };
                     return fileItem;
                 }
                 return null;
             });
-
+    
         return filteredItems.filter(
             (item): item is Sidebar | FileItem => item !== null
         );
     }
+    
 
     private createFileItem(
         file: SubDir,
@@ -151,28 +159,31 @@ export default class SidebarGenerator {
     ): FileItem {
         const fileContent = this.fileReader(filePath);
         const itemWithoutMd = (file.file || file.path).replace(/\.md$/i, "");
+        const formattedItem = this.formatPath(itemWithoutMd);
 
         let link: string;
         if (file.path === "/") {
             link = file.file
-                ? `${currentPath}/${file.file.replace(/\.md$/i, "")}`
+                ? `${currentPath}/${formattedItem}`
                 : currentPath;
         } else {
             link = file.file
-                ? `${currentPath}/${file.path}/${file.file.replace(
-                        /\.md$/i,
-                        ""
-                    )}`
+                ? `${currentPath}/${file.path}/${formattedItem}`
                 : `${currentPath}/${file.path}`;
         }
 
         link = link.replace(/\/+/g, "/");
 
         return {
-            text: file.title || fileContent?.title || itemWithoutMd,
+            text: file.title || fileContent?.title || formattedItem,
             link: link,
         };
     }
+
+    private formatPath(filename: string): string {
+        return filename.replace(/^\d+_/, '');
+    }
+    
 
     private fileReader(filePath: string): FileFrontMatter | null {
         try {
@@ -183,7 +194,7 @@ export default class SidebarGenerator {
                 const defaultTitle = path.basename(filePath, ".md");
                 const frontMatter: FileFrontMatter = {
                     title: data.title || defaultTitle,
-                    noguide: data.noguide !== undefined ? data.noguide : true,
+                    noguide: data.noguide !== undefined ? data.noguide : false,
                 };
                 return frontMatter;
             } else {

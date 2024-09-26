@@ -20,6 +20,9 @@ function generateAvatarUrl(username: string) {
 
 export const commonConfig: UserConfig<DefaultTheme.Config> = {
     srcDir: "./docs",
+    rewrites: {
+        '02_AABB.md': 'AABB.md'
+    },
     themeConfig: {
         logo: {
             alt: "CryChicDoc",

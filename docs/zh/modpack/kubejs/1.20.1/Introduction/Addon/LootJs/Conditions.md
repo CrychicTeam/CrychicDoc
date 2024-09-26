@@ -617,7 +617,7 @@ or(callback){font-small}
 
 `or()`语句为LootTable的修改添加多个条件，只要其中一个条件为真，则会对战利品进行修改，若一个条件都不为真，则不会进行战利品修改
 
-下面的示例代码中，添加了两个条件，一个是检测玩家的主手是否为`minecraft:diamond_sword`，应该是检测玩家的副手是否为`minecraft:coal`，当玩家只要满足其中一个条件的时候，都会进行对战利品的修改
+下面的示例代码中，添加了两个条件，一个是检测玩家的主手是否为`minecraft:diamond_sword`，一个是检测玩家的副手是否为`minecraft:coal`，当玩家只要满足其中一个条件的时候，都会进行对战利品的修改
 
 ```js
 LootJS.modifiers((event) => {
