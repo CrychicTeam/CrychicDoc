@@ -77,7 +77,7 @@ ServerEvents.fishingLootTables(event => {
 
 |   谓词类型    |   作用    |   语句    |   KubeJS原生支持    |   示例    |
 |:------------:|:---------:|:---------:|:---------:|:---------:|
-|   全部   |   评估一系列战利品表谓词，若它们都通过检查，则评估通过。可从任何上下文调用。   |   -   |   ☐   |   [示例](./Predicate.md#全部)   |
+|   全部   |   评估一系列战利品表谓词，若它们都通过检查，则评估通过。可从任何上下文调用。   |   -   |   ☐   |   [示例](../BasicKnowledge/Predicate.md#全部)   |
 |   任何   |   评估一系列战利品表谓词，若其中任意一个通过检查，则评估通过。可从任何上下文调用。   |   -   |   ☐   |   [示例](./Predicate.md#任何)   |
 |   实体属性   |   检查战利品表上下文中的实体。可从任何上下文调用。   |   entityProperties(..args)   |   ☑   |   [示例](./Predicate.md#实体属性)   |
 |   实体分数   |   检查实体的记分板分数。   |   entityScores(..args)   |   ☑   |   [示例](./Predicate.md#实体分数)   |
@@ -97,27 +97,27 @@ ServerEvents.fishingLootTables(event => {
 
 |   物品修饰器类型    |   作用    |   语句    |   KubeJS原生支持    |   示例    |
 |:------------:|:---------:|:---------:|:---------:|:---------:|
-|   应用奖励公式   |   将预定义的奖励公式应用于物品栈的计数。   |   -   |   ☐   |   [示例](./ItemModifier.md#应用奖励公式)   |
-|   复制显示名   |   将实体或方块实体的显示名复制到物品栈NBT中。   |   copyName("block_entity")   |   ☐   |   [示例](./ItemModifier.md#复制实体显示名)   |
-|   复制NBT   |   将NBT从指定源复制到项目上。唯一允许的值是"block_entity"   |   -   |   ☐   |   [示例](./ItemModifier.md#复制nbt)   |
-|   随机附魔   |   为物品附上一个随机的魔咒。魔咒的等级也是随机的。   |   enchantRandomly(..args)   |   ☑   |   [示例](./ItemModifier.md#随机附魔)   |
-|   给予等价于经验等级的随机魔咒   |   使用指定的魔咒等级附魔物品（大约等效于使用这个等级的附魔台附魔物品）。   |   enchantWithLevels(..args)   |   ☑   |   [示例](./ItemModifier.md#给予等价于经验等级的随机魔咒)   |
-|   设置探险家地图   |   将普通的地图物品变为一个指引到某个结构标签的探险家地图。如果物品不是地图，则不做任何处理。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置探险家地图)   |
-|   爆炸损耗   |   如果物品栈是因为方块被爆炸破坏而产生，执行该函数的每个物品有1/爆炸半径的概率消失，物品栈会被分为多个单独的物品计算；否则此物品修饰器不做任何处理。   |   -   |   ☐   |   [示例](./ItemModifier.md#爆炸损耗)   |
-|   填充玩家头颅   |   将玩家头颅设置为指定玩家的头颅。如果物品不是玩家头颅则不做任何处理。   |   -   |   ☐   |   [示例](./ItemModifier.md#填充玩家头颅)   |
-|   熔炉熔炼   |   将物品转变为用熔炉烧炼后的对应物品。如果物品不可烧炼，则不做任何处理。   |   furnaceSmelt()   |   ☑   |   [示例](./ItemModifier.md#熔炉熔炼)   |
-|   限制物品栈数量   |   限制物品数量。   |   -   |   ☐   |   [示例](./ItemModifier.md#限制物品栈数量)   |
-|   引用物品修饰器   |   引用另一个物品修饰器。   |   -   |   ☐   |   [示例](./ItemModifier.md#引用物品修饰器)   |
-|   设置属性   |   为物品加上属性修饰符。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置属性)   |
-|   设置旗帜图案   |   设置旗帜物品的图案。如果物品不是旗帜，则此修饰器不做任何处理。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置旗帜图案)   |
-|   设置内容物   |   设置物品的内容物。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置内容物)   |
-|   设置物品数量   |   设置该物品的数量。   |   count(..args)   |   ☑   |   [示例](./ItemModifier.md#设置物品数量)   |
-|   设置损伤值   |   设置工具的损坏值。   |   damage(..args)   |   ☑   |   [示例](./ItemModifier.md#设置损伤值)   |
-|   设置魔咒   |   设置物品的魔咒。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置魔咒)   |
-|   设置乐器   |   设置山羊角的种类。如果物品不是山羊角则不做任何处理。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置乐器)   |
-|   设置战利品表   |   为一个容器方块物品设定战利品表。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置战利品表)   |
-|   设置物品描述   |   为物品添加描述信息。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置物品描述)   |
-|   设置物品名   |   添加或修改物品的自定义名称。   |   name(..args)   |   ☑   |   [示例](./ItemModifier.md#设置物品名)   |
-|   设置NBT   |   设置物品栈NBT数据。   |   nbt(..args)   |   ☐   |   [示例](./ItemModifier.md#设置nbt)   |
-|   设置药水   |   设置物品包含的药水效果标签。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置药水)   |
-|   设置迷之炖菜效果   |   为谜之炖菜添加状态效果。   |   -   |   ☐   |   [示例](./ItemModifier.md#设置迷之炖菜状态效果)   |
+|   应用奖励公式   |   将预定义的奖励公式应用于物品栈的计数。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#应用奖励公式)   |
+|   复制显示名   |   将实体或方块实体的显示名复制到物品栈NBT中。   |   copyName("block_entity")   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#复制实体显示名)   |
+|   复制NBT   |   将NBT从指定源复制到项目上。唯一允许的值是"block_entity"   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#复制nbt)   |
+|   随机附魔   |   为物品附上一个随机的魔咒。魔咒的等级也是随机的。   |   enchantRandomly(..args)   |   ☑   |   [示例](../BasicKnowledge/ItemModifier.md#随机附魔)   |
+|   给予等价于经验等级的随机魔咒   |   使用指定的魔咒等级附魔物品（大约等效于使用这个等级的附魔台附魔物品）。   |   enchantWithLevels(..args)   |   ☑   |   [示例](../BasicKnowledge/ItemModifier.md#给予等价于经验等级的随机魔咒)   |
+|   设置探险家地图   |   将普通的地图物品变为一个指引到某个结构标签的探险家地图。如果物品不是地图，则不做任何处理。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置探险家地图)   |
+|   爆炸损耗   |   如果物品栈是因为方块被爆炸破坏而产生，执行该函数的每个物品有1/爆炸半径的概率消失，物品栈会被分为多个单独的物品计算；否则此物品修饰器不做任何处理。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#爆炸损耗)   |
+|   填充玩家头颅   |   将玩家头颅设置为指定玩家的头颅。如果物品不是玩家头颅则不做任何处理。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#填充玩家头颅)   |
+|   熔炉熔炼   |   将物品转变为用熔炉烧炼后的对应物品。如果物品不可烧炼，则不做任何处理。   |   furnaceSmelt()   |   ☑   |   [示例](../BasicKnowledge/ItemModifier.md#熔炉熔炼)   |
+|   限制物品栈数量   |   限制物品数量。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#限制物品栈数量)   |
+|   引用物品修饰器   |   引用另一个物品修饰器。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#引用物品修饰器)   |
+|   设置属性   |   为物品加上属性修饰符。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置属性)   |
+|   设置旗帜图案   |   设置旗帜物品的图案。如果物品不是旗帜，则此修饰器不做任何处理。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置旗帜图案)   |
+|   设置内容物   |   设置物品的内容物。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置内容物)   |
+|   设置物品数量   |   设置该物品的数量。   |   count(..args)   |   ☑   |   [示例](../BasicKnowledge/ItemModifier.md#设置物品数量)   |
+|   设置损伤值   |   设置工具的损坏值。   |   damage(..args)   |   ☑   |   [示例](../BasicKnowledge/ItemModifier.md#设置损伤值)   |
+|   设置魔咒   |   设置物品的魔咒。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置魔咒)   |
+|   设置乐器   |   设置山羊角的种类。如果物品不是山羊角则不做任何处理。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置乐器)   |
+|   设置战利品表   |   为一个容器方块物品设定战利品表。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置战利品表)   |
+|   设置物品描述   |   为物品添加描述信息。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置物品描述)   |
+|   设置物品名   |   添加或修改物品的自定义名称。   |   name(..args)   |   ☑   |   [示例](../BasicKnowledge/ItemModifier.md#设置物品名)   |
+|   设置NBT   |   设置物品栈NBT数据。   |   nbt(..args)   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置nbt)   |
+|   设置药水   |   设置物品包含的药水效果标签。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置药水)   |
+|   设置迷之炖菜效果   |   为谜之炖菜添加状态效果。   |   -   |   ☐   |   [示例](../BasicKnowledge/ItemModifier.md#设置迷之炖菜状态效果)   |

@@ -60,7 +60,7 @@ authors: ['Gu-meng']
 |  ItemEvents   |        foodEaten         |   食物物品食用事件    |                       -                        |
 |  ItemEvents   |    firstRightClicked     |           -           |                       -                        |
 |  ItemEvents   |     firstLeftClicked     |           -           |                       -                        |
-|  BlockEvents  |       rightClicked       |     方块右键事件      |                       -                        |
+|  BlockEvents  |       rightClicked       |     方块右键事件      |   [链接](../KubeJSAdvanced/EventExamples/BlockRightClickedEvent.md)        |
 |  BlockEvents  |       leftClicked        |     方块左键事件      |                       -                        |
 |  BlockEvents  |          placed          |     方块放置事件      |                       -                        |
 |  BlockEvents  |          broken          |     方块破坏事件      |                       -                        |
@@ -81,7 +81,7 @@ authors: ['Gu-meng']
 | PlayerEvents  |       advancement        |           -           |                       -                        |
 | PlayerEvents  |     inventoryOpened      |   玩家打开背包事件    |                       -                        |
 | PlayerEvents  |     inventoryClosed      |   玩家关闭背包事件    |                       -                        |
-| PlayerEvents  |     inventoryChanged     |   玩家背包变化事件    |                       -                        |
+| PlayerEvents  |     inventoryChanged     |   玩家背包变化事件    |  [链接](../KubeJSAdvanced/EventExamples/PlayerInventoryChangedEvents.md)                       |
 | PlayerEvents  |       chestOpened        |   玩家打开箱子事件    |                       -                        |
 | PlayerEvents  |       chestClosed        |   玩家关闭箱子事件    |                       -                        |
 
