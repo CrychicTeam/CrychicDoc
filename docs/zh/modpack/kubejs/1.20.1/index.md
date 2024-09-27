@@ -30,9 +30,23 @@ root:
         - title: 物品
           path: Item
           collapsed: true
+          children:
+            - title: 概述
+              path: /
+              file: Item
+            - title: 注册
+              path: /
+              file: Register
         - title: 方块
           path: Block
           collapsed: true
+          children:
+            - title: 概述
+              path: /
+              file: Block
+            - title: 注册
+              path: /
+              file: Register
         - title: 配方
           path: Recipe
           collapsed: true

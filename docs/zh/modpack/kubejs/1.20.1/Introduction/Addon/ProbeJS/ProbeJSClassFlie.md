@@ -1,3 +1,7 @@
+---
+progress: 0
+state: unfinished
+---
 # ProbeJS类型文件
 
 ## LootBuilder
@@ -258,3 +262,46 @@ customId: ResourceLocation;
 ## ConditionalFunction
 
 - 有条件的物品函数。
+
+## ItemBuilder
+
+### 继承关系
+
+### 可用函数
+
+|   函数信息    |   是否静态    |   作用描述    |
+|:---------:|:---------:|:---------:|
+|   toToolTier(o: any): Internal.Tier  |   ☑    |    设置工具等级    |
+|   subtypes(fn: Internal.Function_<Internal.ItemStack, Internal.Collection<Internal.ItemStack>>): this   |   ☐    |   添加子类型物品    |
+|   hurtEnemy(context: Internal.Predicate_<Internal.ItemBuilder$HurtEnemyContext>): this    |   ☐    |   攻击实体时调用    |
+|   getTranslationKeyGroup(): string;   |   ☐    |    -    |
+
+## BasicItemJS$Builder
+
+## SwordItemBuilder
+
+## PickaxeItemBuilder
+
+## AxeItemBuilder
+
+## ShovelItemBuilder
+
+## ShearsItemBuilder
+
+## HoeItemBuilder
+
+## ArmorItemBuilder$Helmet
+
+## ArmorItemBuilder$Chestplate
+
+## ArmorItemBuilder$Leggings
+
+## ArmorItemBuilder$Boots
+
+## RecordItemJS$Builder
+
+## SmithingTemplateItemBuilder
+
+## SequencedAssemblyItemBuilder
+
+## SandpaperItemBuilder

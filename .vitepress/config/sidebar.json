@@ -198,8 +198,12 @@
                             "collapsed": true,
                             "items": [
                                 {
-                                    "text": "Item",
+                                    "text": "概述",
                                     "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Item"
+                                },
+                                {
+                                    "text": "注册",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register"
                                 }
                             ]
                         },
@@ -208,8 +212,12 @@
                             "collapsed": true,
                             "items": [
                                 {
-                                    "text": "Block",
+                                    "text": "概述",
                                     "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Block"
+                                },
+                                {
+                                    "text": "注册",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Register"
                                 }
                             ]
                         },
