@@ -251,31 +251,28 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
             ]);
         };
 
-        // OG标签配置
+        const siteUrl = new URL(
+            siteData.base,
+            "https://docs.mihono.cn"
+        ).toString();
+
+        const pageUrl = new URL(pageData.relativePath, siteUrl).toString();
+        const imageUrl = new URL("/og/logo.png", siteUrl).toString();
+
         const ogTags: HeadConfig[] = [
             ["meta", { property: "og:title", content: title }],
             ["meta", { property: "og:description", content: description }],
             ["meta", { property: "og:type", content: "website" }],
+            ["meta", { property: "og:url", content: pageUrl }],
+            ["meta", { property: "og:image", content: imageUrl }],
             [
                 "meta",
-                {
-                    property: "og:url",
-                    content: `${siteData.base}${pageData.relativePath}`,
-                },
+                { property: "og:image:alt", content: "Crychic Logo" },
             ],
-            // 如果你有网站图标，可以添加下面这行
-            ["meta", { property: "og:image", content: `${siteData.base}og/logo.png` }],
+            ["meta", { property: "og:site_name", content: siteData.title }],
+            ["meta", { property: "og:locale", content: siteData.lang }],
         ];
 
-        // Twitter Card标签
-        const twitterTags: HeadConfig[] = [
-            ["meta", { name: "twitter:card", content: "summary_large_image" }],
-            ["meta", { name: "twitter:title", content: title }],
-            ["meta", { name: "twitter:description", content: description }],
-            // 如果你有Twitter账号，可以添加下面这行
-            // ["meta", { name: "twitter:site", content: "@YourTwitterHandle" }],
-        ];
-
-        return [...ogTags, ...twitterTags, ...fontConfig()];
-    }
+        return [...ogTags, ...fontConfig()];
+    },
 };
