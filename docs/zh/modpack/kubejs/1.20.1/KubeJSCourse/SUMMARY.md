@@ -34,6 +34,7 @@ authors: ['Gu-meng']
       * [右键使用物品](/KubeJSBasic/Customs/ItemType/ItemUse.md)
     * [添加方块](/KubeJSBasic/Customs/BlockRegistry.md)
     * [添加方块示例](/KubeJSBasic/Customs/BlockType/README.md)
+      * [添加作物](/KubeJSBasic/Customs/BlockType/CropReg.md)
     * [添加流体](/KubeJSBasic/Customs/LiquidRegistry.md)
     * [添加附魔](/KubeJSBasic/Customs/EnchantRegistry.md)
     * [添加药水](/KubeJSBasic/Customs/PotionEffectsRegistry.md) 
