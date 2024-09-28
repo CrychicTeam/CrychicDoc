@@ -1,4 +1,9 @@
-import { DefaultTheme, UserConfig, HeadConfig, Awaitable } from "vitepress";
+import {
+    DefaultTheme,
+    UserConfig,
+    HeadConfig,
+    TransformContext,
+} from "vitepress";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { TDesignResolver } from "unplugin-vue-components/resolvers";
@@ -21,7 +26,7 @@ function generateAvatarUrl(username: string) {
 export const commonConfig: UserConfig<DefaultTheme.Config> = {
     srcDir: "./docs",
     rewrites: {
-        '02_AABB.md': 'AABB.md'
+        "02_AABB.md": "AABB.md",
     },
     themeConfig: {
         logo: {
@@ -218,7 +223,11 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         ["link", { rel: "icon", href: "https://docs.mihono.cn/favicon.ico" }],
     ],
     ignoreDeadLinks: true,
-    transformHead({ assets }) {
+    transformHead(context: TransformContext) {
+        const { pageData, siteData, title, description } = context;
+        const assets = context.assets;
+
+        // 现有字体预加载逻辑
         const fonts = (): string[] => {
             return [
                 assets.find((file) => /JetBrainsMono-Regular\.\w+\.woff2/),
@@ -229,6 +238,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                 assets.find((file) => /ChillRoundGothic_Regular\.\w+\.woff2/),
             ].filter((value): value is string => value !== undefined);
         };
+
         const fontConfig = (): HeadConfig[] => {
             return fonts().map((font) => [
                 "link",
@@ -240,6 +250,32 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                 },
             ]);
         };
-        return fontConfig();
-    },
+
+        // OG标签配置
+        const ogTags: HeadConfig[] = [
+            ["meta", { property: "og:title", content: title }],
+            ["meta", { property: "og:description", content: description }],
+            ["meta", { property: "og:type", content: "website" }],
+            [
+                "meta",
+                {
+                    property: "og:url",
+                    content: `${siteData.base}${pageData.relativePath}`,
+                },
+            ],
+            // 如果你有网站图标，可以添加下面这行
+            ["meta", { property: "og:image", content: `${siteData.base}/og/logo.png` }],
+        ];
+
+        // Twitter Card标签
+        const twitterTags: HeadConfig[] = [
+            ["meta", { name: "twitter:card", content: "summary_large_image" }],
+            ["meta", { name: "twitter:title", content: title }],
+            ["meta", { name: "twitter:description", content: description }],
+            // 如果你有Twitter账号，可以添加下面这行
+            // ["meta", { name: "twitter:site", content: "@YourTwitterHandle" }],
+        ];
+
+        return [...ogTags, ...twitterTags, ...fontConfig()];
+    }
 };

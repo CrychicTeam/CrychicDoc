@@ -57,6 +57,7 @@
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-task-lists": "^2.1.1",
     "marked": "^14.1.0",
+    "sharp": "^0.33.5",
     "tdesign-vue-next": "^1.9.8",
     "typescript": "^5.5.4",
     "vitepress-markdown-timeline": "^1.2.1",
