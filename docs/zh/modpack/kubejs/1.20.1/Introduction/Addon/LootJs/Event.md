@@ -3,9 +3,9 @@
 LootJs 是一个`KubeJS`附属模组，它为`KubeJS`对于原版战利品列表修改进行了更方便的操作
 `KubeJS`本身自带的修改 Loot 的方法过于繁琐，若要修改关于:
 
-- 方块
-- 实体
-- 战利品列表
+-   方块
+-   实体
+-   战利品列表
 
 内的 LootTable
 
@@ -35,10 +35,10 @@ addBlockLootModifier(...blocks)
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .randomChance(0.3)
-    .addLoot("minecraft:gunpowder");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .randomChance(0.3)
+        .addLoot("minecraft:gunpowder");
 });
 ```
 
@@ -52,9 +52,9 @@ addEntityLootModifier(...entities)
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .addLoot("minecraft:gunpowder");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .addLoot("minecraft:gunpowder");
 });
 ```
 
@@ -70,15 +70,15 @@ addLootTableModifier(...values)
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addLootTableModifier("minecraft:entities/creeper")
-    .randomChance(0.3)
-    .addLoot("minecraft:gunpowder");
+    event
+        .addLootTableModifier("minecraft:entities/creeper")
+        .randomChance(0.3)
+        .addLoot("minecraft:gunpowder");
 
-  event
-    .addLootTableModifier(/.*creeper.*/)
-    .randomChance(0.3)
-    .addLoot("minecraft:gunpowder");
+    event
+        .addLootTableModifier(/.*creeper.*/)
+        .randomChance(0.3)
+        .addLoot("minecraft:gunpowder");
 });
 ```
 
@@ -94,24 +94,24 @@ addLootTypeModifier(...types)
 
 对应的战利品类型有：
 
-- `LootType.ADVANCEMENT_ENTITY` (高级实体战利品)
-- `LootType.ADVANCEMENT_REWARD` (高级奖励战利品)
-- `LootType.BLOCK` (方块战利品)
-- `LootType.CHEST` (箱子战利品)
-- `LootType.ENTITY` (实体战利品)
-- `LootType.FISHING` (钓鱼战利品)
-- `LootType.GIFT` (礼物战利品，例如袭击胜利后村民给予的物品)
-- `LootType.PINGLIN_BARTER` (猪灵交易战利品)
-- `LootType.UNKNOWN` (未知战利品)
+-   `LootType.ADVANCEMENT_ENTITY` (高级实体战利品)
+-   `LootType.ADVANCEMENT_REWARD` (高级奖励战利品)
+-   `LootType.BLOCK` (方块战利品)
+-   `LootType.CHEST` (箱子战利品)
+-   `LootType.ENTITY` (实体战利品)
+-   `LootType.FISHING` (钓鱼战利品)
+-   `LootType.GIFT` (礼物战利品，例如袭击胜利后村民给予的物品)
+-   `LootType.PINGLIN_BARTER` (猪灵交易战利品)
+-   `LootType.UNKNOWN` (未知战利品)
 
 下面的示例代码中对`LootType.ENTITY`进行修改，为所有的`Entity`添加了一个 30%的概率来掉落一个`minecraft:gravel`战利品
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addLootTypeModifier(LootType.ENTITY)
-    .randomChance(0.3)
-    .addLoot("minecraft:gravel");
+    event
+        .addLootTypeModifier(LootType.ENTITY)
+        .randomChance(0.3)
+        .addLoot("minecraft:gravel");
 });
 ```
 
@@ -119,17 +119,17 @@ LootJS.modifiers((event) => {
 
 下面的示例代码中：
 
-- `disableWitherStarDrop()` 禁用下界之星掉落
-- `disableCreeperHeadDrop()` 禁用苦力怕掉落头颅
-- `disableSkeletonHeadDrop()` 禁用骷髅掉落头颅
-- `disableZombieHeadDrop()` 禁用僵尸掉落头颅
+-   `disableWitherStarDrop()` 禁用下界之星掉落
+-   `disableCreeperHeadDrop()` 禁用苦力怕掉落头颅
+-   `disableSkeletonHeadDrop()` 禁用骷髅掉落头颅
+-   `disableZombieHeadDrop()` 禁用僵尸掉落头颅
 
 ```js
 LootJS.modifiers((event) => {
-  event.disableWitherStarDrop();
-  event.disableCreeperHeadDrop();
-  event.disableSkeletonHeadDrop();
-  event.disableZombieHeadDrop();
+    event.disableWitherStarDrop();
+    event.disableCreeperHeadDrop();
+    event.disableSkeletonHeadDrop();
+    event.disableZombieHeadDrop();
 });
 ```
 
@@ -143,7 +143,7 @@ enableLogging()
 
 ```js
 LootJS.modifiers((event) => {
-  event.enableLogging();
+    event.enableLogging();
 });
 ```
 
@@ -159,10 +159,10 @@ getGlobalModifiers()
 
 ```js
 LootJS.modifiers((event) => {
-  const modifiers = event.getGlobalModifiers();
-  modifiers.forEach((modifier) => {
-    console.log(modifier);
-  });
+    const modifiers = event.getGlobalModifiers();
+    modifiers.forEach((modifier) => {
+        console.log(modifier);
+    });
 });
 ```
 
@@ -176,8 +176,8 @@ removeGlobalModifier(...values)
 
 ```js
 LootJS.modifiers((event) => {
-  event.removeGlobalModifier("examplemod:example_loot_change"); // by location
-  event.removeGlobalModifier("@examplemod"); // by mod id. Use `@` as prefix
+    event.removeGlobalModifier("examplemod:example_loot_change"); // by location
+    event.removeGlobalModifier("@examplemod"); // by mod id. Use `@` as prefix
 });
 ```
 
@@ -191,8 +191,8 @@ LootJS.modifiers((event) => {
 
 ```js
 LootJS.modifiers((event) => {
-  event.disableLootModification(/.*:blocks\/.*_leaves/);
+    event.disableLootModification(/.*:blocks\/.*_leaves/);
 
-  event.disableLootModification("minecraft:entities/bat");
+    event.disableLootModification("minecraft:entities/bat");
 });
 ```

@@ -3,9 +3,9 @@
 LootJs 是一个`KubeJS`附属模组，它为`KubeJS`对于原版战利品列表修改进行了更方便的操作
 `KubeJS`本身自带的修改 Loot 的方法过于繁琐，若要修改关于:
 
-- 方块
-- 实体
-- 战利品列表
+-   方块
+-   实体
+-   战利品列表
 
 内的 LootTable
 
@@ -39,11 +39,11 @@ LootEntry.withChance(item, chance)
 
 上述的示例代码中：
 
-- 第一句创建了一个`LootEntry`条目存储了一个`minecraft:apple`
-- 第二句创建了一个`LootEntry`条目存储了一个`minecraft:apple`，并且设置其数量为 1
-- 第三句创建了一个`LootEntry`条目存储了一个`minecraft:apple`，并且设置其 NBT 为`{ ... }`
-- 第四句创建了一个`LootEntry`条目存储了一个`minecraft:apple`，并且设置其数量为 1，并且设置其 NBT 为`{ ... }`
-- 第五句创建了一个`LootEntry`条目，并且设置其概率为`chance`，并且设置其物品为`item`，item 可以是任何`KubeJS`物品符号
+-   第一句创建了一个`LootEntry`条目存储了一个`minecraft:apple`
+-   第二句创建了一个`LootEntry`条目存储了一个`minecraft:apple`，并且设置其数量为 1
+-   第三句创建了一个`LootEntry`条目存储了一个`minecraft:apple`，并且设置其 NBT 为`{ ... }`
+-   第四句创建了一个`LootEntry`条目存储了一个`minecraft:apple`，并且设置其数量为 1，并且设置其 NBT 为`{ ... }`
+-   第五句创建了一个`LootEntry`条目，并且设置其概率为`chance`，并且设置其物品为`item`，item 可以是任何`KubeJS`物品符号
 
 ### 修改 LootEntry
 
@@ -77,91 +77,91 @@ LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.3));
 
 ```js [使用addLoot进行操作]
 LootJS.modifiers((event) => {
-  event.addBlockLootModifier("minecraft:oak_log").addLoot(
-    /**
-     * Creates a LootEntry with 50% chance of dropping a stick.
-     */
-    LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.5)),
-    /**
-     * Creates a LootEntry with 50% chance of dropping a stick.
-     */
-    LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.5))
-  );
+    event.addBlockLootModifier("minecraft:oak_log").addLoot(
+        /**
+         * Creates a LootEntry with 50% chance of dropping a stick.
+         */
+        LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.5)),
+        /**
+         * Creates a LootEntry with 50% chance of dropping a stick.
+         */
+        LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.5))
+    );
 });
 ```
 
 ```js [使用addAlternativesLoot进行操作]
 LootJS.modifiers((event) => {
-  /**
-   * First loot entry with a condition. Will drop if the player has fortune.
-   */
-  const stickWhenFortune = LootEntry.of("minecraft:stick")
-    .applyOreBonus("minecraft:fortune")
-    .when((c) =>
-      c.matchMainHand(ItemFilter.hasEnchantment("minecraft:fortune"))
+    /**
+     * First loot entry with a condition. Will drop if the player has fortune.
+     */
+    const stickWhenFortune = LootEntry.of("minecraft:stick")
+        .applyOreBonus("minecraft:fortune")
+        .when((c) =>
+            c.matchMainHand(ItemFilter.hasEnchantment("minecraft:fortune"))
+        );
+
+    /**
+     * Second loot entry with a condition. Will drop if the player has silk touch and the first entry doesn't match.
+     */
+    const appleWhenSilkTouch = LootEntry.of("minecraft:apple").when((c) =>
+        c.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
     );
 
-  /**
-   * Second loot entry with a condition. Will drop if the player has silk touch and the first entry doesn't match.
-   */
-  const appleWhenSilkTouch = LootEntry.of("minecraft:apple").when((c) =>
-    c.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-  );
+    /**
+     * No conditions just an item, so this will always drop if the other two don't.
+     */
+    const ironIngot = "minecraft:iron_ingot";
 
-  /**
-   * No conditions just an item, so this will always drop if the other two don't.
-   */
-  const ironIngot = "minecraft:iron_ingot";
-
-  event
-    .addBlockLootModifier("minecraft:iron_ore")
-    .removeLoot(Ingredient.all)
-    .addAlternativesLoot(stickWhenFortune, appleWhenSilkTouch, ironIngot);
+    event
+        .addBlockLootModifier("minecraft:iron_ore")
+        .removeLoot(Ingredient.all)
+        .addAlternativesLoot(stickWhenFortune, appleWhenSilkTouch, ironIngot);
 });
 ```
 
 ```js [使用addSequenceLoot进行操作]
 LootJS.modifiers((event) => {
-  /**
-   * First loot entry with a condition. Will drop if the player has fortune.
-   */
-  const stickWhenFortune = LootEntry.of("minecraft:stick").when((c) =>
-    c.matchMainHand(ItemFilter.hasEnchantment("minecraft:fortune"))
-  );
-
-  /**
-   * Second loot entry with a condition. Will drop if the player has silk touch.
-   */
-  const appleWhenEfficiency = LootEntry.of("minecraft:apple").when((c) =>
-    c.matchMainHand(ItemFilter.hasEnchantment("minecraft:efficiency"))
-  );
-
-  /**
-   * Simple item without conditions or anything else, will drop
-   */
-  const flint = "minecraft:flint";
-
-  /**
-   * Random chance is 0 so no diamond will ever drop. Just to show, that it will skip all other entries.
-   */
-  const diamondNoDrop = LootEntry.of("minecraft:diamond").when((c) =>
-    c.randomChance(0.0)
-  );
-
-  /**
-   * No conditions just an item, but this will not drop, because the previous entry failed.
-   */
-  const ironIngot = "minecraft:iron_ingot";
-
-  event
-    .addBlockLootModifier("minecraft:coal_ore")
-    .removeLoot(Ingredient.all)
-    .addSequenceLoot(
-      stickWhenFortune,
-      appleWhenEfficiency,
-      flint,
-      diamondNoDrop,
-      ironIngot
+    /**
+     * First loot entry with a condition. Will drop if the player has fortune.
+     */
+    const stickWhenFortune = LootEntry.of("minecraft:stick").when((c) =>
+        c.matchMainHand(ItemFilter.hasEnchantment("minecraft:fortune"))
     );
+
+    /**
+     * Second loot entry with a condition. Will drop if the player has silk touch.
+     */
+    const appleWhenEfficiency = LootEntry.of("minecraft:apple").when((c) =>
+        c.matchMainHand(ItemFilter.hasEnchantment("minecraft:efficiency"))
+    );
+
+    /**
+     * Simple item without conditions or anything else, will drop
+     */
+    const flint = "minecraft:flint";
+
+    /**
+     * Random chance is 0 so no diamond will ever drop. Just to show, that it will skip all other entries.
+     */
+    const diamondNoDrop = LootEntry.of("minecraft:diamond").when((c) =>
+        c.randomChance(0.0)
+    );
+
+    /**
+     * No conditions just an item, but this will not drop, because the previous entry failed.
+     */
+    const ironIngot = "minecraft:iron_ingot";
+
+    event
+        .addBlockLootModifier("minecraft:coal_ore")
+        .removeLoot(Ingredient.all)
+        .addSequenceLoot(
+            stickWhenFortune,
+            appleWhenEfficiency,
+            flint,
+            diamondNoDrop,
+            ironIngot
+        );
 });
 ```
