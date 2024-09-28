@@ -264,7 +264,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                 },
             ],
             // 如果你有网站图标，可以添加下面这行
-            ["meta", { property: "og:image", content: `${siteData.base}/og/logo.png` }],
+            ["meta", { property: "og:image", content: `${siteData.base}og/logo.png` }],
         ];
 
         // Twitter Card标签
