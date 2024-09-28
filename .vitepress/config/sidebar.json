@@ -1253,7 +1253,14 @@
                                 },
                                 {
                                     "text": "添加方块示例",
-                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/BlockType/README"
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/BlockType/README",
+                                    "collapsed": true,
+                                    "items": [
+                                        {
+                                            "text": "添加作物",
+                                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/BlockType/CropReg"
+                                        }
+                                    ]
                                 },
                                 {
                                     "text": "添加流体",
@@ -1610,6 +1617,10 @@
                     "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/README",
                     "collapsed": true,
                     "items": [
+                        {
+                            "text": "自定义金属材料集成",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Qi/CMMI"
+                        },
                         {
                             "text": "工作台物品附魔",
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Wolf/EnchantOnTable"
