@@ -12,16 +12,14 @@ authors: ['Qi Month']
 
 矿石注册是单独一张矿石的纹理直接渲染在原版的石头上的模型, 实现也很简单, 就单独一层额外模型比石头大那么一点点(一样大小的话会出渲染的问题), 为了可以正常着色(不渲染给石头只渲染矿石), 要在模型内为矿石模型的纹理设置
 
-![1](/imgs/CustomMetal/1.png)
+<!-- ![1](/imgs/CustomMetal/1.png) -->
 
 为了可以正常着色(不渲染给石头只渲染矿石), 要在模型内为矿石模型的纹理设置
 
-![2](/imgs/CustomMetal/2.png)
+<!-- ![2](/imgs/CustomMetal/2.png) -->
 
 效果展示
-
-![3](/imgs/CustomMetal/3.png)
-
+<!-- ![3](/imgs/CustomMetal/3.png) -->
 ## 粗略讲解
 
 在矿石的模型中, 有一个`tintindex`键, 这个键在[**Minecraft官方wiki**](https://zh.minecraft.wiki/w/Tutorial:制作资源包/模型?variant:=zh-cn)的解释是
@@ -34,7 +32,7 @@ authors: ['Qi Month']
 
 ## 文件下载
 
-[文件下载](/Code/Projects/CMMI)
+<!-- [文件下载](/Code/Projects/CMMI) -->
 
 ## 参考文献
 
