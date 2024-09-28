@@ -3,9 +3,9 @@
 LootJs 是一个`KubeJS`附属模组，它为`KubeJS`对于原版战利品列表修改进行了更方便的操作
 `KubeJS`本身自带的修改 Loot 的方法过于繁琐，若要修改关于:
 
-- 方块
-- 实体
-- 战利品列表
+-   方块
+-   实体
+-   战利品列表
 
 内的 LootTable
 
@@ -33,19 +33,19 @@ addLoot(...items){font-small}
 
 以沙砾展开:
 
-- `addBlockLootModifier`语句对沙砾进行 LootTable 修改
-- `addLoot`对沙砾的 LootTable 进行添加
+-   `addBlockLootModifier`语句对沙砾进行 LootTable 修改
+-   `addLoot`对沙砾的 LootTable 进行添加
 
 对于具体的 LootType，请使用`ProbeJs`来进行补全提示
 
 ```js
 LootJS.modifiers((event) => {
-  // 修改方块
-  event.addBlockLootModifier("minecraft:gravel").addLoot("minecraft:flint");
-  // 修改实体
-  event.addEntityLootModifier("minecraft:pig").addLoot("minecraft:diamond");
-  // 修改原版战利品类型
-  event.addLootTypeModifier("chest").addLoot("minecraft:bedrock");
+    // 修改方块
+    event.addBlockLootModifier("minecraft:gravel").addLoot("minecraft:flint");
+    // 修改实体
+    event.addEntityLootModifier("minecraft:pig").addLoot("minecraft:diamond");
+    // 修改原版战利品类型
+    event.addLootTypeModifier("chest").addLoot("minecraft:bedrock");
 });
 ```
 
@@ -53,16 +53,16 @@ LootJS.modifiers((event) => {
 
 ```js
 LootJS.modifiers((event) => {
-  event.addBlockLootModifier("minecraft:oak_log").addLoot(
-    /**
-     * Creates a LootEntry with 50% chance of dropping a stick.
-     */
-    LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.5)),
-    /**
-     * Creates a LootEntry with 50% chance of dropping a stick.
-     */
-    LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.5))
-  );
+    event.addBlockLootModifier("minecraft:oak_log").addLoot(
+        /**
+         * Creates a LootEntry with 50% chance of dropping a stick.
+         */
+        LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.5)),
+        /**
+         * Creates a LootEntry with 50% chance of dropping a stick.
+         */
+        LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.5))
+    );
 });
 ```
 
@@ -94,22 +94,22 @@ addAlternativesLoot(...items){font-small}
 
 根据 Minecraft Wiki：只会将第一个成功（满足条件）的物品添加到战利品池中。如果没有物品成功，则不会添加任何物品
 
-- `addBlockLootModifier`语句进行对"minecraft:coal_ore"修改
-- `removeLoot`语句内使用`Ingrediten.all`删除"minecraft:coal_ore"的所有 Loot
-- `addAlternativesLoot`进行 LootTable 列表修改
+-   `addBlockLootModifier`语句进行对"minecraft:coal_ore"修改
+-   `removeLoot`语句内使用`Ingrediten.all`删除"minecraft:coal_ore"的所有 Loot
+-   `addAlternativesLoot`进行 LootTable 列表修改
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:coal_ore")
-    .removeLoot(Ingredient.all)
-    .addAlternativesLoot(
-      LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.8)),
-      LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.3)),
-      LootEntry.of("minecraft:diamond").when((c) => c.randomChance(0.7)),
-      LootEntry.of("minecraft:coal").when((c) => c.randomChance(0.99)),
-      LootEntry.of("minecraft:torch").when((c) => c.randomChance(0.2))
-    );
+    event
+        .addBlockLootModifier("minecraft:coal_ore")
+        .removeLoot(Ingredient.all)
+        .addAlternativesLoot(
+            LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.8)),
+            LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.3)),
+            LootEntry.of("minecraft:diamond").when((c) => c.randomChance(0.7)),
+            LootEntry.of("minecraft:coal").when((c) => c.randomChance(0.99)),
+            LootEntry.of("minecraft:torch").when((c) => c.randomChance(0.2))
+        );
 });
 ```
 
@@ -127,23 +127,23 @@ addSequenceLoot(...items){font-small}
 
 相较于`addAlternativesLoot`,`addSequenceLoot`的区别是
 
-- 添加多个战利品列表，所有战利品列表都会生效
-- 若一个 Loot 不触发，则停止该 Loot 往下进行的修改
+-   添加多个战利品列表，所有战利品列表都会生效
+-   若一个 Loot 不触发，则停止该 Loot 往下进行的修改
 
 这里的所有列表都会生效的意思是，当一个条目的战利品列表停止触发后，接下来往下对 LootTable 的修改将不会再进行
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:coal_ore")
-    .removeLoot(Ingredient.all)
-    .addSequenceLoot(
-      LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.8)),
-      LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.3)),
-      LootEntry.of("minecraft:diamond").when((c) => c.randomChance(0.7)),
-      LootEntry.of("minecraft:coal").when((c) => c.randomChance(0.99)),
-      LootEntry.of("minecraft:torch").when((c) => c.randomChance(0.2))
-    );
+    event
+        .addBlockLootModifier("minecraft:coal_ore")
+        .removeLoot(Ingredient.all)
+        .addSequenceLoot(
+            LootEntry.of("minecraft:apple").when((c) => c.randomChance(0.8)),
+            LootEntry.of("minecraft:stick").when((c) => c.randomChance(0.3)),
+            LootEntry.of("minecraft:diamond").when((c) => c.randomChance(0.7)),
+            LootEntry.of("minecraft:coal").when((c) => c.randomChance(0.99)),
+            LootEntry.of("minecraft:torch").when((c) => c.randomChance(0.2))
+        );
 });
 ```
 
@@ -163,45 +163,45 @@ addWeightedLoot(NumberProvider, [...items]){font-small}
 
 以下的示例对`minecraft:creeper`进行展开:
 
-- 使用`removeLoot`来删除原版所有的 Loot.
-- `addWeightedLoot`语句来添加加权战利品
+-   使用`removeLoot`来删除原版所有的 Loot.
+-   `addWeightedLoot`语句来添加加权战利品
 
 ::: code-group
 
 ```js [Example-1]
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .removeLoot(Ingredient.all)
-    .addWeightedLoot(
-      [7, 8],
-      [
-        Item.of("minecraft:gunpowder").withChance(20),
-        Item.of("minecraft:nether_star").withChance(80),
-      ]
-    );
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .removeLoot(Ingredient.all)
+        .addWeightedLoot(
+            [7, 8],
+            [
+                Item.of("minecraft:gunpowder").withChance(20),
+                Item.of("minecraft:nether_star").withChance(80),
+            ]
+        );
 });
 ```
 
 ```js [Example-2]
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .addWeightedLoot(5, [
-      Item.of("minecraft:gunpowder").withChance(50),
-      Item.of("minecraft:nether_star").withChance(50),
-    ]);
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .addWeightedLoot(5, [
+            Item.of("minecraft:gunpowder").withChance(50),
+            Item.of("minecraft:nether_star").withChance(50),
+        ]);
 });
 ```
 
 ```js [Example-3]
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .addWeightedLoot([
-      Item.of("minecraft:gunpowder").withChance(50),
-      Item.of("minecraft:nether_star").withChance(5),
-    ]);
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .addWeightedLoot([
+            Item.of("minecraft:gunpowder").withChance(50),
+            Item.of("minecraft:nether_star").withChance(5),
+        ]);
 });
 ```
 
@@ -225,12 +225,14 @@ removeLoot(ItemFilter){font-small}
 
 例如:
 
-- `removeLoot(ItemID)` 删除对应 LootTable 的 ItemID
-- `removeLoot(Ingredient.all)` 删除对应 LootTable 的所有 Loot
+-   `removeLoot(ItemID)` 删除对应 LootTable 的 ItemID
+-   `removeLoot(Ingredient.all)` 删除对应 LootTable 的所有 Loot
 
 ```js
 LootJS.modifiers((event) => {
-  event.addBlockLootModifier("minecraft:gravel").removeLoot("minecraft:flint");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .removeLoot("minecraft:flint");
 });
 ```
 
@@ -242,8 +244,8 @@ replaceLoot(ItemFilter, item, preserveCount){font-small}
 
 同样的在`replaceLoot`语句中也是一个 ItemFilter
 
-- `replace(originItemID,replaceItemID)`
-- `replace(originItemID,replaceItemID,Boolean)`
+-   `replace(originItemID,replaceItemID)`
+-   `replace(originItemID,replaceItemID,Boolean)`
 
 在这个例子中，我们用钻石代替沙砾 LootTable 中的燧石。
 
@@ -251,17 +253,17 @@ replaceLoot(ItemFilter, item, preserveCount){font-small}
 
 ```js [None]
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .replaceLoot("minecraft:flint", "minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .replaceLoot("minecraft:flint", "minecraft:diamond");
 });
 ```
 
 ```js [Boolean]
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .replaceLoot("minecraft:flint", "minecraft:diamond", true); //flase
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .replaceLoot("minecraft:flint", "minecraft:diamond", true); //flase
 });
 ```
 
@@ -276,19 +278,19 @@ modifyLoot(ItemFilter, callback){font-small}
 修改煤炭矿石的 LootTable
 对于`modifyLoot`语句:
 
-- `Ingredient.all`是个`ItemFilter`，用于指定该物品/生物/战利品列表要修改的物品
-- 回调函数`ItemStack`修改`ItemFilter`的属性
+-   `Ingredient.all`是个`ItemFilter`，用于指定该物品/生物/战利品列表要修改的物品
+-   回调函数`ItemStack`修改`ItemFilter`的属性
 
 下面的示例修改了煤矿所有的战利品列表(`Ingredient.all`)，回调函数 ItemStack 获取战利品列表里面的物品，设置了掉落物数量为 2，返回新的 ItemStack 到煤炭矿石的战利品列表
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:coal_ore")
-    .modifyLoot(Ingredient.all, (itemStack) => {
-      itemStack.setCount(itemStack.getCount() * 2);
-      return itemStack;
-    });
+    event
+        .addBlockLootModifier("minecraft:coal_ore")
+        .modifyLoot(Ingredient.all, (itemStack) => {
+            itemStack.setCount(itemStack.getCount() * 2);
+            return itemStack;
+        });
 });
 ```
 
@@ -304,9 +306,9 @@ triggerExplosion(radius, destroy, fire){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .triggerExplosion(1, false, false);
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .triggerExplosion(1, false, false);
 });
 ```
 
@@ -318,9 +320,9 @@ LootJS.modifiers((event) => {
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:coal_ore")
-    .triggerExplosion(1, "destory", false);
+    event
+        .addBlockLootModifier("minecraft:coal_ore")
+        .triggerExplosion(1, "destory", false);
 });
 ```
 
@@ -334,7 +336,7 @@ triggerLightningStrike(shouldDamage){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event.addBlockLootModifier("minecraft:gravel").triggerLightningStrike(true);
+    event.addBlockLootModifier("minecraft:gravel").triggerLightningStrike(true);
 });
 ```
 
@@ -348,7 +350,7 @@ dropExperience(amount){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event.addBlockLootModifier("minecraft:gravel").dropExperience(10);
+    event.addBlockLootModifier("minecraft:gravel").dropExperience(10);
 });
 ```
 
@@ -360,13 +362,13 @@ pool(callback){font-small}
 
 对`minecraft:creeper`的战利品池进行修改:
 
-- 添加一个新的战利品池`pool`回调函数
-- `rolls()`设置这个池子的掉落次数为 1 到 3 次（随机掉落，在集合[1,3]之间掉落）
-- `randomChance()`设置一个 30% 的概率来触发这个掉落。
-- `or(() => { })`来进行添加额外的条件，下列示例中使用回调函数`or`来进行修改
-- `anyBiome()`满足条件在指定的生物群系中
-- `lightLevel()`满足光照等级在`0-7`之间
-- 若上述所有条件满足，使用`addLoot()`进行战利品池内物品添加
+-   添加一个新的战利品池`pool`回调函数
+-   `rolls()`设置这个池子的掉落次数为 1 到 3 次（随机掉落，在集合[1,3]之间掉落）
+-   `randomChance()`设置一个 30% 的概率来触发这个掉落。
+-   `or(() => { })`来进行添加额外的条件，下列示例中使用回调函数`or`来进行修改
+-   `anyBiome()`满足条件在指定的生物群系中
+-   `lightLevel()`满足光照等级在`0-7`之间
+-   若上述所有条件满足，使用`addLoot()`进行战利品池内物品添加
 
 我们未对原版`minecraft:creeper`的战利品（火药）进行删除
 
@@ -376,16 +378,15 @@ pool(callback){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event.addEntityLootModifier("minecraft:creeper").pool((pool) => {
-    pool.rolls([1, 3]);
-    pool
-      .randomChance(0.3)
-      .or((or) => {
-        or.anyBiome("minecraft:jungle");
-        or.lightLevel(0, 7);
-      })
-      .addLoot("minecraft:diamond");
-  });
+    event.addEntityLootModifier("minecraft:creeper").pool((pool) => {
+        pool.rolls([1, 3]);
+        pool.randomChance(0.3)
+            .or((or) => {
+                or.anyBiome("minecraft:jungle");
+                or.lightLevel(0, 7);
+            })
+            .addLoot("minecraft:diamond");
+    });
 });
 ```
 
@@ -397,19 +398,19 @@ playerAction(callback){font-small}
 
 在进行战利品修改后可以对玩家的`Action`进行一些修改，例如：
 
-- 给予玩家经验值
-- 给予玩家物品
+-   给予玩家经验值
+-   给予玩家物品
 
 这里的回调函数是`LootJs`本身提供针对于`player`的类，而不是`KubeJS`的`player`类
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:diamond_block")
-    .playerAction((player) => {
-      player.giveExperiencePoints(100);
-      player.give("acacia_boat");
-    });
+    event
+        .addBlockLootModifier("minecraft:diamond_block")
+        .playerAction((player) => {
+            player.giveExperiencePoints(100);
+            player.give("acacia_boat");
+        });
 });
 ```
 
@@ -427,10 +428,10 @@ apply(callback){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event.addBlockLootModifier("minecraft:gravel").apply((context) => {
-    let BlockPos = context.getBlockPos();
-    console.log(BlockPos);
-  });
+    event.addBlockLootModifier("minecraft:gravel").apply((context) => {
+        let BlockPos = context.getBlockPos();
+        console.log(BlockPos);
+    });
 });
 ```
 

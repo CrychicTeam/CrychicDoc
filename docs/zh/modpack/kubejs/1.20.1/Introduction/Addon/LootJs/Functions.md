@@ -3,9 +3,9 @@
 LootJs 是一个`KubeJS`附属模组，它为`KubeJS`对于原版战利品列表修改进行了更方便的操作
 `KubeJS`本身自带的修改 Loot 的方法过于繁琐，若要修改关于:
 
-- 方块
-- 实体
-- 战利品列表
+-   方块
+-   实体
+-   战利品列表
 
 内的 LootTable
 
@@ -35,10 +35,10 @@ enchantRandomly()
 
 ```js
 LootJS.modifiers((event) => {
-  event.addBlockLootModifier("minecraft:emerald_block").pool((p) => {
-    p.addLoot("minecraft:diamond_axe");
-    p.enchantRandomly();
-  });
+    event.addBlockLootModifier("minecraft:emerald_block").pool((p) => {
+        p.addLoot("minecraft:diamond_axe");
+        p.enchantRandomly();
+    });
 });
 ```
 
@@ -54,10 +54,10 @@ enchantWithLevels(NumberProvider)
 
 ```js
 LootJS.modifiers((event) => {
-  event.addBlockLootModifier("minecraft:coal_block").pool((p) => {
-    p.addLoot("minecraft:diamond_sword");
-    p.enchantWithLevels([40, 50]);
-  });
+    event.addBlockLootModifier("minecraft:coal_block").pool((p) => {
+        p.addLoot("minecraft:diamond_sword");
+        p.enchantWithLevels([40, 50]);
+    });
 });
 ```
 
@@ -71,10 +71,10 @@ applyLootingBonus(NumberProvider)
 
 ```js
 LootJS.modifiers((event) => {
-  event.addEntityLootModifier("minecraft:creeper").pool((p) => {
-    p.addLoot("minecraft:emerald");
-    p.applyLootingBonus([1, 10]);
-  });
+    event.addEntityLootModifier("minecraft:creeper").pool((p) => {
+        p.addLoot("minecraft:emerald");
+        p.applyLootingBonus([1, 10]);
+    });
 });
 ```
 
@@ -86,9 +86,9 @@ applyLootingBonus(NumberProvider)
 
 ```js
 LootJS.modifiers((event) => {
-  event.addBlockLootModifier("minecraft:emerald_block").pool((p) => {
-    p.addLoot("minecraft:emerald");
-    p.applyBinomialDistributionBonus("minecraft:fortune", 0.2, 3);
-  });
+    event.addBlockLootModifier("minecraft:emerald_block").pool((p) => {
+        p.addLoot("minecraft:emerald");
+        p.applyBinomialDistributionBonus("minecraft:fortune", 0.2, 3);
+    });
 });
 ```

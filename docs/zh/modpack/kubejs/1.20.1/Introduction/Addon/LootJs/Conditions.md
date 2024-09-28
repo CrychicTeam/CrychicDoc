@@ -3,9 +3,9 @@
 LootJs 是一个`KubeJS`附属模组，它为`KubeJS`对于原版战利品列表修改进行了更方便的操作
 `KubeJS`本身自带的修改 Loot 的方法过于繁琐，若要修改关于:
 
-- 方块
-- 实体
-- 战利品列表
+-   方块
+-   实体
+-   战利品列表
 
 内的 LootTable
 
@@ -43,10 +43,10 @@ matchLoot(ItemFilter, exact){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:cow")
-    .matchLoot("minecraft:leather") // true / false
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:cow")
+        .matchLoot("minecraft:leather") // true / false
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -60,10 +60,10 @@ matchMainHand(ItemFilter){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("#forge:ores")
-    .matchMainHand(Item.of("minecraft:netherite_pickaxe").ignoreNBT())
-    .addLoot("minecraft:gravel");
+    event
+        .addBlockLootModifier("#forge:ores")
+        .matchMainHand(Item.of("minecraft:netherite_pickaxe").ignoreNBT())
+        .addLoot("minecraft:gravel");
 });
 ```
 
@@ -75,10 +75,10 @@ matchOffHand(ItemFilter){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("#forge:ores")
-    .matchOffHand(Item.of("minecraft:netherite_pickaxe").ignoreNBT())
-    .addLoot("minecraft:gravel");
+    event
+        .addBlockLootModifier("#forge:ores")
+        .matchOffHand(Item.of("minecraft:netherite_pickaxe").ignoreNBT())
+        .addLoot("minecraft:gravel");
 });
 ```
 
@@ -92,19 +92,22 @@ matchEquip(slot, ItemFilter){font-small}
 
 `slot`对应的属性有：
 
-- `MAINHAND` 主手
-- `OFFHAND` 副手
-- `FEET` 脚
-- `LEGS` 腿部
-- `CHEST` 胸部
-- `HEAD` 头部
+-   `MAINHAND` 主手
+-   `OFFHAND` 副手
+-   `FEET` 脚
+-   `LEGS` 腿部
+-   `CHEST` 胸部
+-   `HEAD` 头部
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("#forge:ores")
-    .matchEquip("MAINHAND", Item.of("minecraft:netherite_pickaxe").ignoreNBT())
-    .addLoot("minecraft:gravel");
+    event
+        .addBlockLootModifier("#forge:ores")
+        .matchEquip(
+            "MAINHAND",
+            Item.of("minecraft:netherite_pickaxe").ignoreNBT()
+        )
+        .addLoot("minecraft:gravel");
 });
 ```
 
@@ -120,12 +123,12 @@ matchEntity(callback)
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .matchEntity((entity) => {
-      entity.isInWater(true);
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchEntity((entity) => {
+            entity.isInWater(true);
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -137,9 +140,9 @@ matchDirectKiller(callback)
 
 直接击杀者以及间接击杀者的关系，例如玩家射箭杀死了一只僵尸：
 
-- 僵尸是被击杀者
-- 箭是直接击杀者
-- 玩家却是间接击杀者
+-   僵尸是被击杀者
+-   箭是直接击杀者
+-   玩家却是间接击杀者
 
 因为是箭杀死的僵尸，而不是玩家杀死的僵尸，但是箭是玩家射出的，所以玩家属于间接击杀者
 
@@ -153,12 +156,12 @@ matchDirectKiller(callback)
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .matchDirectKiller((entity) => {
-      entity.isInWater(true);
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchDirectKiller((entity) => {
+            entity.isInWater(true);
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -179,12 +182,12 @@ matchKiller(callback)
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .matchKiller((entity) => {
-      entity.isInWater(true);
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchKiller((entity) => {
+            entity.isInWater(true);
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -200,12 +203,12 @@ matchPlayer(callback)
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .matchPlayer((player) => {
-      player.isInWater();
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchPlayer((player) => {
+            player.isInWater();
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -225,12 +228,12 @@ matchDamageSource(callback)
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .matchDamageSource((source) => {
-      source.anyType("anvil");
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .matchDamageSource((source) => {
+            source.anyType("anvil");
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -256,10 +259,10 @@ survivesExplosion(){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .survivesExplosion()
-    .addLoot("minecraft:gravel");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .survivesExplosion()
+        .addLoot("minecraft:gravel");
 });
 ```
 
@@ -271,16 +274,16 @@ timeCheck(min, max)
 
 下列示例代码对砂砾添加了一个时间检测：
 
-- `24000` 是周期`period`，对应一个完整的游戏循环，即一天
-- `0` 是最小值（min），表示日出时间
-- `9000` 是最大值（max），大约对应游戏的上午时分
+-   `24000` 是周期`period`，对应一个完整的游戏循环，即一天
+-   `0` 是最小值（min），表示日出时间
+-   `9000` 是最大值（max），大约对应游戏的上午时分
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .timeCheck(24000, 0, 9000)
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .timeCheck(24000, 0, 9000)
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -290,17 +293,17 @@ LootJS.modifiers((event) => {
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .timeCheck(0, 12000)
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .timeCheck(0, 12000)
+        .addLoot("minecraft:diamond");
 });
 ```
 
 添加`period`以及不添加`period`的区别:
 
-- 使用 period 时，检查的是`period`周期内的相对时间
-- 不使用 period 时，检查的是游戏世界从`min`刻到`max`刻的总时间
+-   使用 period 时，检查的是`period`周期内的相对时间
+-   不使用 period 时，检查的是游戏世界从`min`刻到`max`刻的总时间
 
 例如上述代码`period`传参为 24000，即检查一整天的 tick(24000)内对应的 0-9000 tick
 
@@ -312,15 +315,15 @@ weatherCheck(value){font-small}
 
 `weatherCheck()`语句对应传入的参数是:
 
-- raining 雨天
-- thundering 雷雨天
+-   raining 雨天
+-   thundering 雷雨天
 
 注意，要使用`{}`进行包裹
 
 ```json
 {
-  "raining": true, // false
-  "thundering": true // false
+    "raining": true, // false
+    "thundering": true // false
 }
 ```
 
@@ -328,12 +331,12 @@ weatherCheck(value){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .weatherCheck({
-      raining: true,
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .weatherCheck({
+            raining: true,
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -351,10 +354,10 @@ randomChance(value){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .randomChance(0.3) // 30%
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .randomChance(0.3) // 30%
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -371,10 +374,10 @@ randomChanceWithLooting(value, looting){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .randomChanceWithLooting(0.3, 2) // 30%
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .randomChanceWithLooting(0.3, 2) // 30%
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -388,10 +391,10 @@ randomChanceWithEnchantment(enchantment, [chances]){font-small}
 
 值得注意的是`[chances]`的计算是从该物品没有附魔，即 0 等级的附魔开始计算，例如：
 
-- 效率 5 `[0, 0.05, 0.05, 0.1, 0.3, 0.5]`对应的是效率附魔等级 0-1-2-3-4-5 级
-- 0 级为 0%，1 级为 5%，2 级为 5%，3 级为 10%，4 级为 30%，5 级为 50%
-- 时运 3 `[0, 0.1, 0.4, 0.5]`对应的是时运附魔等级的 0-1-2-3 级
-- 0 级为 0%，1 级为 10%，2 级为 40%，3 级为 50%
+-   效率 5 `[0, 0.05, 0.05, 0.1, 0.3, 0.5]`对应的是效率附魔等级 0-1-2-3-4-5 级
+-   0 级为 0%，1 级为 5%，2 级为 5%，3 级为 10%，4 级为 30%，5 级为 50%
+-   时运 3 `[0, 0.1, 0.4, 0.5]`对应的是时运附魔等级的 0-1-2-3 级
+-   0 级为 0%，1 级为 10%，2 级为 40%，3 级为 50%
 
 附魔等级有多少，数组里面的数字就填多少个，如果数组里面的数字数量超出了附魔等级，游戏则会报错
 
@@ -399,12 +402,12 @@ randomChanceWithEnchantment(enchantment, [chances]){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .randomChanceWithEnchantment("minecraft:looting", [0, 0.1, 0.5, 1])
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .randomChanceWithEnchantment("minecraft:looting", [0, 0.1, 0.5, 1])
+        .addLoot("minecraft:diamond");
 
-  /*
+    /*
         [0, 0.1, 0.5, 1]:
           0% for no looting
          10% for looting 1
@@ -426,10 +429,10 @@ biome(...biomes){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .biome("minecraft:jungle")
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .biome("minecraft:jungle")
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -441,17 +444,17 @@ anyBiome(...biomes){font-small}
 
 只是功能上进行了区别：
 
-- `biome()`语句若指定了多个生物群系，则所有的群系条件必须满足，不满足则不会添加战利品
-- `anyBiome()`语句若指定了多个生物群系，则至少有有一个生物群系匹配，才会添加战利品.若一个都不匹配，则不会添加战利品
+-   `biome()`语句若指定了多个生物群系，则所有的群系条件必须满足，不满足则不会添加战利品
+-   `anyBiome()`语句若指定了多个生物群系，则至少有有一个生物群系匹配，才会添加战利品.若一个都不匹配，则不会添加战利品
 
 官方示例：
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .anyBiome("minecraft:jungle", "#minecraft:is_forest")
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .anyBiome("minecraft:jungle", "#minecraft:is_forest")
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -461,9 +464,9 @@ anyDimension(...dimensions){font-small}
 
 `anyDimension()`语句传入的参数为维度 ID
 
-- `minecraft:overworld` 主世界
-- `minecraft:the_nether` 下界
-- `minecraft:the_end`末地
+-   `minecraft:overworld` 主世界
+-   `minecraft:the_nether` 下界
+-   `minecraft:the_end`末地
 
 或者传入玩家的自定义维度`modid:dimensions_name`
 
@@ -473,10 +476,10 @@ anyDimension(...dimensions){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .anyDimension("minecraft:nether")
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .anyDimension("minecraft:nether")
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -492,17 +495,17 @@ anyStructure([structures], exact){font-small}
 
 而`exact`的作用是
 
-- false 只会检查玩家是否在结构边界内
-- true 检查玩家是否在结构内（例如村庄中的房屋）
+-   false 只会检查玩家是否在结构边界内
+-   true 检查玩家是否在结构内（例如村庄中的房屋）
 
 官方示例：
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .anyStructure(["minecraft:stronghold", "minecraft:village"], false)
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .anyStructure(["minecraft:stronghold", "minecraft:village"], false)
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -518,10 +521,10 @@ lightLevel(min, max){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addBlockLootModifier("minecraft:gravel")
-    .lightLevel(0, 15)
-    .addLoot("minecraft:diamond");
+    event
+        .addBlockLootModifier("minecraft:gravel")
+        .lightLevel(0, 15)
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -539,10 +542,10 @@ killedByPlayer(){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .killedByPlayer()
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .killedByPlayer()
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -559,10 +562,10 @@ distanceToKiller(interval){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:villager")
-    .distanceToKiller(3)
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:villager")
+        .distanceToKiller(3)
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -580,10 +583,10 @@ hasAnyStage(...stages){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:pig")
-    .hasAnyStage("diamondsSpawn")
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:pig")
+        .hasAnyStage("diamondsSpawn")
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -597,10 +600,10 @@ playerPredicate(callback){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:pig")
-    .playerPredicate((player) => player.getHealth() > 5)
-    .addLoot("minecraft:emerald");
+    event
+        .addEntityLootModifier("minecraft:pig")
+        .playerPredicate((player) => player.getHealth() > 5)
+        .addLoot("minecraft:emerald");
 });
 ```
 
@@ -614,10 +617,10 @@ entityPredicate(callback){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:pig")
-    .entityPredicate((entity) => entity.isInWater())
-    .addLoot("minecraft:emerald");
+    event
+        .addEntityLootModifier("minecraft:pig")
+        .entityPredicate((entity) => entity.isInWater())
+        .addLoot("minecraft:emerald");
 });
 ```
 
@@ -635,10 +638,10 @@ killerPredicate(callback){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:pig")
-    .killerPredicate((entity) => entity.isInWater())
-    .addLoot("minecraft:feather");
+    event
+        .addEntityLootModifier("minecraft:pig")
+        .killerPredicate((entity) => entity.isInWater())
+        .addLoot("minecraft:feather");
 });
 ```
 
@@ -652,16 +655,16 @@ directKillerPredicate(callback){font-small}
 
 下面的示例代码中，只有直接击杀者在水中击杀了`minecraft:zombie`后才会生成对应的战利品掉落物，例如：
 
-- 玩家在水中使用剑击杀了`minecraft:zombie`
-- 玩家射出的箭在水中击杀了`minecraft:zombie`
-- 玩家抛出的治疗药水在水中击杀了`minecraft:zombie`
+-   玩家在水中使用剑击杀了`minecraft:zombie`
+-   玩家射出的箭在水中击杀了`minecraft:zombie`
+-   玩家抛出的治疗药水在水中击杀了`minecraft:zombie`
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:zombie")
-    .killerPredicate((entity) => entity.isInWater())
-    .addLoot("minecraft:feather");
+    event
+        .addEntityLootModifier("minecraft:zombie")
+        .killerPredicate((entity) => entity.isInWater())
+        .addLoot("minecraft:feather");
 });
 ```
 
@@ -675,12 +678,12 @@ not(callback){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .not((n) => {
-      n.matchMainHand("minecraft:diamond_sword");
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .not((n) => {
+            n.matchMainHand("minecraft:diamond_sword");
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -694,13 +697,13 @@ or(callback){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .or((or) => {
-      or.matchMainHand("minecraft:diamond_sword");
-      or.matchOffHand("minecraft:coal");
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .or((or) => {
+            or.matchMainHand("minecraft:diamond_sword");
+            or.matchOffHand("minecraft:coal");
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -714,13 +717,13 @@ and(callback){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .and((and) => {
-      and.matchMainHand("minecraft:diamond_sword");
-      and.matchOffHand("minecraft:coal");
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .and((and) => {
+            and.matchMainHand("minecraft:diamond_sword");
+            and.matchOffHand("minecraft:coal");
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
 
@@ -736,12 +739,12 @@ customCondition(json){font-small}
 
 ```js
 LootJS.modifiers((event) => {
-  event
-    .addEntityLootModifier("minecraft:creeper")
-    .customCondition({
-      condition: "minecraft:weather_check",
-      raining: true,
-    })
-    .addLoot("minecraft:diamond");
+    event
+        .addEntityLootModifier("minecraft:creeper")
+        .customCondition({
+            condition: "minecraft:weather_check",
+            raining: true,
+        })
+        .addLoot("minecraft:diamond");
 });
 ```
