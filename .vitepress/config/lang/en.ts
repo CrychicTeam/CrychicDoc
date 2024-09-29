@@ -65,6 +65,7 @@ export const en_US = <DefaultTheme.Config>{
                 {text: "Art Resource", link: "/en/doc/guide/resource"},
                 {text: "Community", link: "/en/doc/guide/community"},
             ]},
+            {text: "Discussion", link: "https://github.com/CrychicTeam/CrychicDoc/discussions"},
         ],
         sidebar: sidebars("en"),
         outline: {
