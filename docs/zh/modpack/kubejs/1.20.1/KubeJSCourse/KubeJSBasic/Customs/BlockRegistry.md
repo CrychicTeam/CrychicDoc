@@ -19,7 +19,7 @@ StartupEvents.registry("block", (event) => {
 | :--------------: | :------------------------: | :----: |
 |     `basic`      |          基础方块          | 待更新 |
 |     `carpet`     |            地毯            | 待更新 |
-|      `crop`      |           农作物           | 待更新 |
+|      `crop`      |           农作物           | [作物篇](./BlockType/CropReg.md) |
 |     `fence`      |            栅栏            | 待更新 |
 |   `fence_gate`   |           栅栏门           | 待更新 |
 | `pressure_plate` |           压力板           | 待更新 |

@@ -122,6 +122,7 @@ authors: ['Gu-meng']
   * [玩家禁言](/KubeJSProjects/Meng/NoChat.md)
   * [服务器签到](/KubeJSProjects/Meng/SignIn.md)
   * [注册AE存储元件和对应的组件](/KubeJSProjects/Meng/RegComponent&Storage.md)
+  * [唱片转化为物品](/KubeJSProjects/Meng/JukeboxToItem.md)
   * [孤梦的小项目](/KubeJSProjects/Meng/SmallProject/README.md)
     * [自动适配台阶合成对应块](/KubeJSProjects/Meng/SmallProject/SlabPairBlock.md)
     * [原版修改流体对撞产生块](/KubeJSProjects/Meng/SmallProject/McFluidPlaceBlock.md)
