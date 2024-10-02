@@ -31,9 +31,9 @@ root:
           path: Item
           collapsed: true
           children:
-            - title: 概述
+            - title: 目录
               path: /
-              file: Item
+              file: Catalogue
             - title: 注册
               path: Register
               collapsed: true
@@ -51,9 +51,9 @@ root:
           path: Block
           collapsed: true
           children:
-            - title: 概述
+            - title: 目录
               path: /
-              file: Block
+              file: Catalogue
             - title: 注册方块
               path: Register
               collapsed: true
@@ -65,6 +65,9 @@ root:
           path: Recipe
           collapsed: true
           children:
+            - title: 目录
+              path: /
+              file: Catalogue
             - title: 修改配方
               path: /
               file: ModifyRecipe
@@ -104,14 +107,17 @@ root:
           path: PotionEffect
           collapsed: true
           children:
-            - title: 概述
+            - title: 目录
               path: /
-              file: PotionEffect
+              file: Catalogue
               collapsed: true
         - title: 实体
           path: Entity
           collapsed: true
           children:
+            - title: 目录
+              path: /
+              file: Catalogue
             - title: 生成
               path: /
               file: Spawn
@@ -125,9 +131,12 @@ root:
           path: Tag
           collapsed: true
           children:
-            - title: 概述
+            - title: 目录
               path: /
-              file: Tag
+              file: Catalogue
+            - title: 介绍
+              path: /
+              file: Description
             - title: 原版标签类型
               path: /
               children:
@@ -153,9 +162,12 @@ root:
           path: LootTable
           collapsed: true
           children:
-            - title: 概述
+            - title: 目录
               path: /
-              file: LootTable
+              file: Catalogue
+            - title: 介绍
+              path: /
+              file: Description
             - title: 基础知识
               path: BasicKnowledge
               children:
@@ -273,25 +285,6 @@ root:
           path: MiscellaneousKnowledge
           collapsed: true
           noScan: false
-          # children:
-          #   - title: 杂项知识
-          #     path: /
-          #     file: MiscellaneousKnowledge
-          #   - title: 物品堆 (ItemStack)
-          #     path: /
-          #     file: ItemStack
-          #   - title: 原料 (Ingredient)
-          #     path: /
-          #     file: Ingredient
-          #   - title: 原料动作过滤器 (IngredientActionFilter)
-          #     path: /
-          #     file: IngredientActionFilter
-          #   - title: 文本组件 (Component)
-          #     path: /
-          #     file: Components
-          #   - title: 数值提供器 (NumberProvider)
-          #     path: /
-          #     file: NumberProvider
     - title: 进阶
       path: Upgrade
       collapsed: false
@@ -304,72 +297,6 @@ root:
               path: Classes
               collapsed: true
               noScan: false
-            #   children:
-            #     - title: 目录
-            #       path: /
-            #       file: Catalogue
-            #     - title: 轴对齐包围盒（AABB）
-            #       path: /
-            #       file: AABB
-            #     - title: 方块（Block）
-            #       path: /
-            #       file: Block
-            #     - title: 方块状态谓词（BlockStatePredicate）
-            #       path: /
-            #       file: BlockStatePredicate
-            #     - title: 颜色（Color）
-            #       path: /
-            #       file: Color
-            #     - title: 方向（Direction）
-            #       path: /
-            #       file: Direction
-            #     - title: 面（Facing）
-            #       path: /
-            #       file: Facing
-            #     - title: 流体（Fluid）
-            #       path: /
-            #       file: Fluid
-            #     - title: 原料（Ingredient）
-            #       path: /
-            #       file: Ingredient
-            #     - title: 原料助手（IngredientHelper）
-            #       path: /
-            #       file: IngredientHelper
-            #     - title: 物品（Item）
-            #       path: /
-            #       file: Item
-            #     - title: Json读写（JsonIO）
-            #       path: /
-            #       file: JsonIO
-            #     - title: NBT（NBT）
-            #       path: /
-            #       file: NBT
-            #     - title: NBT读写（NBTIO）
-            #       path: /
-            #       file: NBTIO
-            #     - title: 平台（Platform）
-            #       path: /
-            #       file: Platform
-            #     - title: 资源位置（ResourceLocation）
-            #       path: /
-            #       file: ResourceLocation
-            #     - title: 文本（Text）
-            #       path: /
-            #       file: Text
-            #     - title: 通用唯一标识符（Uuid）
-            #       path: /
-            #       file: Uuid
-            #     - title: 实用工具（Utils）
-            #       path: /
-            #       file: Utils
-            # - title: 常量与对象
-            #   path: ConstantsAndObjects
-            #   collapsed: true
-            #   file: Catalogue
-            # - title: 包装类
-            #   path: WrappedClasses
-            #   collapsed: true
-            #   file: Catalogue
     - title: 代码分享
       path: codeshare
       collapsed: true

@@ -198,8 +198,8 @@
                             "collapsed": true,
                             "items": [
                                 {
-                                    "text": "概述",
-                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Item"
+                                    "text": "目录",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Catalogue"
                                 },
                                 {
                                     "text": "注册",
@@ -226,8 +226,8 @@
                             "collapsed": true,
                             "items": [
                                 {
-                                    "text": "概述",
-                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Block"
+                                    "text": "目录",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Catalogue"
                                 },
                                 {
                                     "text": "注册方块",
@@ -245,6 +245,10 @@
                             "text": "配方",
                             "collapsed": true,
                             "items": [
+                                {
+                                    "text": "目录",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/Catalogue"
+                                },
                                 {
                                     "text": "修改配方",
                                     "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/ModifyRecipe"
@@ -300,8 +304,8 @@
                             "collapsed": true,
                             "items": [
                                 {
-                                    "text": "概述",
-                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/PotionEffect/PotionEffect"
+                                    "text": "目录",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/PotionEffect/Catalogue"
                                 }
                             ]
                         },
@@ -309,6 +313,10 @@
                             "text": "实体",
                             "collapsed": true,
                             "items": [
+                                {
+                                    "text": "目录",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Entity/Catalogue"
+                                },
                                 {
                                     "text": "生成",
                                     "link": "/zh/modpack/kubejs/1.20.1/Introduction/Entity/Spawn"
@@ -328,8 +336,12 @@
                             "collapsed": true,
                             "items": [
                                 {
-                                    "text": "概述",
-                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Tag"
+                                    "text": "目录",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Catalogue"
+                                },
+                                {
+                                    "text": "介绍",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Description"
                                 },
                                 {
                                     "text": "原版标签类型",
@@ -367,8 +379,12 @@
                             "collapsed": true,
                             "items": [
                                 {
-                                    "text": "概述",
-                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/LootTable"
+                                    "text": "目录",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Catalogue"
+                                },
+                                {
+                                    "text": "介绍",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Description"
                                 },
                                 {
                                     "text": "基础知识",
