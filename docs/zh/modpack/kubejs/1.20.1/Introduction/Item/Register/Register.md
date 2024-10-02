@@ -1,32 +1,18 @@
----
-progress: 10
-state: unfinished
----
-# 注册
+# 注册物品
 
 ## 事件监听
 
-::: code-group
+- 事件：StartupEvents.registry('minecraft:item', event => \{ \})
 
-```js [KubeJS]
-StartupEvents.registry('minecraft:item', event => {
+- 语句：create(物品id, 物品类型)
 
-})
-```
-
-:::
-
-## 事件方法
-
-- create('物品注册id');
-
-- create('物品注册id', 物品类型);
+- 示例：注册名为kubejs:demo的物品。
 
 ::: details 物品类型
 
-|   类型    |   描述    |   类型参考    |
+|   类型    |   描述    |   可用函数    |
 |:---------:|:---------:|:---------:|
-|   'basic'    |    基础物品    |   [Internal.BasicItemJS$Builder](../Addon/ProbeJS/ProbeJSClassFlie.md#basicitemjsbuilder)   |
+|   'basic'    |    基础物品    |   -   |
 |   'sword'    |    剑类物品    |   -   |
 |   'pickaxe'    |    镐类物品    |   -   |
 |   'axe'    |    斧类物品    |   -   |
@@ -40,13 +26,15 @@ StartupEvents.registry('minecraft:item', event => {
 
 :::
 
-## 纹理资源
+::: code-group
 
-- 你需要将物品贴图放入kubejs/assets/\<namespace\>/textures/item/\<id\>.png。
+```js [KubeJS]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'basic')
+})
+```
 
-- 如果你的物品注册名是kubejs:demo，那么namespace是kubejs，id是demo。
-
-- 更多详细信息请参阅[Minecraft-wiki/资源包#资源包内容](https://zh.minecraft.wiki/w/%E8%B5%84%E6%BA%90%E5%8C%85#%E8%B5%84%E6%BA%90%E5%8C%85%E5%86%85%E5%AE%B9)。
+:::
 
 ## 常用函数
 
@@ -68,18 +56,5 @@ StartupEvents.registry('minecraft:item', event => {
 |   containerItem(ResourceLocation 物品id)    |    设置物品的容器，例如奶桶的容器是桶。    |   0   |
 |   rarity(Internal.Rarity_)    |    设置物品稀有度。    |   "common"   |
 |   burnTime(number 游戏刻)    |    设置物品在熔炉作为燃料的燃烧时间    |   0   |
-
-:::
-
-## 示例
-
-::: code-group
-
-```js [KubeJS]
-StartupEvents.registry('minecraft:item', event => {
-    event.create('kubejs:item', 'basic')
-        .burnTime(200)
-})
-```
 
 :::

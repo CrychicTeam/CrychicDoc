@@ -190,8 +190,8 @@
                     "collapsed": false,
                     "items": [
                         {
-                            "text": "概述",
-                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Introduction"
+                            "text": "目录",
+                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Catalogue"
                         },
                         {
                             "text": "物品",
@@ -203,7 +203,21 @@
                                 },
                                 {
                                     "text": "注册",
-                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register"
+                                    "collapsed": true,
+                                    "items": [
+                                        {
+                                            "text": "注册物品",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/Register"
+                                        },
+                                        {
+                                            "text": "物品类型",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/ItemType"
+                                        },
+                                        {
+                                            "text": "资源文件",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/Resource"
+                                        }
+                                    ]
                                 }
                             ]
                         },
@@ -216,8 +230,14 @@
                                     "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Block"
                                 },
                                 {
-                                    "text": "注册",
-                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Register"
+                                    "text": "注册方块",
+                                    "collapsed": true,
+                                    "items": [
+                                        {
+                                            "text": "注册方块",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Register/Register"
+                                        }
+                                    ]
                                 }
                             ]
                         },
@@ -1644,6 +1664,10 @@
                         {
                             "text": "注册AE存储元件和对应的组件",
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RegComponent&Storage"
+                        },
+                        {
+                            "text": "唱片转化为物品",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/JukeboxToItem"
                         },
                         {
                             "text": "孤梦的小项目",

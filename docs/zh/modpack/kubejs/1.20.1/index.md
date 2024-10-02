@@ -24,9 +24,9 @@ root:
       path: Introduction
       collapsed: false
       children:
-        - title: 概述
+        - title: 目录
           path: /
-          file: Introduction
+          file: Catalogue
         - title: 物品
           path: Item
           collapsed: true
@@ -35,8 +35,18 @@ root:
               path: /
               file: Item
             - title: 注册
-              path: /
-              file: Register
+              path: Register
+              collapsed: true
+              children:
+                - title: 注册物品
+                  path: /
+                  file: Register
+                - title: 物品类型
+                  path: /
+                  file: ItemType
+                - title: 资源文件
+                  path: /
+                  file: Resource
         - title: 方块
           path: Block
           collapsed: true
@@ -44,9 +54,13 @@ root:
             - title: 概述
               path: /
               file: Block
-            - title: 注册
-              path: /
-              file: Register
+            - title: 注册方块
+              path: Register
+              collapsed: true
+              children:
+                - title: 注册方块
+                  path: /
+                  file: Register
         - title: 配方
           path: Recipe
           collapsed: true
