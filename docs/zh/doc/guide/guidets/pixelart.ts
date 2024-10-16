@@ -10,10 +10,6 @@ export const NAV_DATA: NavData[] = [
                     {
                     text: "推荐",
                     type: "tip"
-                    },
-                    {
-                    type: "info",
-                    text: "可选付费"
                     }
                 ],
                 link: "https://www.aseprite.org/",//官网链接
