@@ -6,12 +6,10 @@ export const NAV_DATA: NavData[] = [
         items: [
             {
                 title: "Aseprite",
-                badge: [
-                    {
-                    text: "推荐",
-                    type: "tip"
-                    }
-                ],
+                badge: {
+                        type: "tip",
+                        text: "推荐"
+                    },
                 link: "https://www.aseprite.org/",//官网链接
                 //可选链接：
                 //    Steam商店页：https://store.steampowered.com/app/431730/Aseprite
