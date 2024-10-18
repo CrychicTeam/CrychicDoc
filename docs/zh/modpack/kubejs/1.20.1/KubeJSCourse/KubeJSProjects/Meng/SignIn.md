@@ -12,6 +12,7 @@ authors: ['Gu-meng']
 5. probejs-7.0.1-forge
 
 ## 完整代码
+这里得提前在对应的游戏文件路径下创建`meng`文件夹，然后创建一个空的`qd.json`
 ```js
 ServerEvents.commandRegistry(event =>{
     const { commands: Commands, arguments: Arguments } = event
