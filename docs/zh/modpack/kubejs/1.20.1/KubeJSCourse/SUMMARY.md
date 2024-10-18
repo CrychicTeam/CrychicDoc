@@ -119,6 +119,7 @@ authors: ['Gu-meng']
   * [工作台物品附魔](/KubeJSProjects/Wolf/EnchantOnTable.md)
   * [祭坛合成](/KubeJSProjects/Meng/AltarComposition.md)
   * [下落合成](/KubeJSProjects/Meng/FallItem.md)
+  * [抽奖券](/KubeJSProjects/Meng/RaffleTicket.md)
   * [玩家禁言](/KubeJSProjects/Meng/NoChat.md)
   * [服务器签到](/KubeJSProjects/Meng/SignIn.md)
   * [注册AE存储元件和对应的组件](/KubeJSProjects/Meng/RegComponent&Storage.md)
@@ -128,3 +129,5 @@ authors: ['Gu-meng']
     * [原版修改流体对撞产生块](/KubeJSProjects/Meng/SmallProject/McFluidPlaceBlock.md)
     * [机械动力修改流体管道流体和流体产生块](/KubeJSProjects/Meng/SmallProject/CreatePipeCollision.md)
     * [禁止实体穿越指定维度](/KubeJSProjects/Meng/SmallProject/EntityTravelToDimension.md)
+    * [物品右键获取该物品的方块tag](/KubeJSProjects/Meng/SmallProject/BlockItemGetBlockTag.md)
+    * [获取所有配方json并保存为文件](/KubeJSProjects/Meng/SmallProject/RecipesJsonInFile.md)
