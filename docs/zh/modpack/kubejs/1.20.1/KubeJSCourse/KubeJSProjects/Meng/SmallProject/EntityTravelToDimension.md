@@ -16,3 +16,25 @@ ForgeEvents.onEvent($EntityTravelToDimensionEvent, event => {
 })
 ```
 以上代码判断了准备穿越维度的实体是否穿越过去的维度为地狱（下界），如果是就取消该事件，让实体无法穿越维度
+
+## 阶段限制
+阶段限制主要是限制玩家，因为只有玩家才有阶段
+```js
+const $EntityTravelToDimensionEvent = Java.loadClass("net.minecraftforge.event.entity.EntityTravelToDimensionEvent")
+const $ServerPlayer = Java.loadClass("net.minecraft.server.level.ServerPlayer")
+
+ForgeEvents.onEvent($EntityTravelToDimensionEvent, event => {
+    let resourceKey = event.dimension;
+    /**
+     * @type {Internal.ServerPlayer}
+     */
+    let player = event.entity;
+    if (resourceKey.getPath() == "the_nether") {
+        if (player instanceof $ServerPlayer){
+            if (!player.stages.has("nether")){
+                event.setCanceled(true)
+            }
+        }
+    }
+})
+```
