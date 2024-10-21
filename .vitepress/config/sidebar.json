@@ -1158,6 +1158,36 @@
             ]
         }
     ],
+    "zh/modpack/kubejs/1.21/": [
+        {
+            "text": "KubeJS",
+            "items": [
+                {
+                    "text": "基础",
+                    "collapsed": false,
+                    "items": [
+                        {
+                            "text": "附属",
+                            "collapsed": true,
+                            "items": [
+                                {
+                                    "text": "LootJs",
+                                    "collapsed": true,
+                                    "items": [
+                                        {
+                                            "text": "LootJs",
+                                            "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootJs"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "collapsed": false
+        }
+    ],
     "zh/modpack/kubejs/1.20.1/KubeJSCourse/": [
         {
             "text": "",
@@ -1674,6 +1704,14 @@
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/FallItem"
                         },
                         {
+                            "text": "抽奖券",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RaffleTicket"
+                        },
+                        {
+                            "text": "自定义传送门",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/CustomPortal"
+                        },
+                        {
                             "text": "玩家禁言",
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/NoChat"
                         },
@@ -1709,6 +1747,25 @@
                                 {
                                     "text": "禁止实体穿越指定维度",
                                     "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/EntityTravelToDimension"
+                                },
+                                {
+                                    "text": "物品右键获取该物品的方块tag",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/BlockItemGetBlockTag"
+                                },
+                                {
+                                    "text": "获取所有配方json并保存为文件",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/RecipesJsonInFile"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "栗子的小项目",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/PrizOwO/SmallProject/README",
+                            "collapsed": true,
+                            "items": [
+                                {
+                                    "text": "玩家对生物造成伤害显示血量",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/PrizOwO/SmallProject/HitHealthShow"
                                 }
                             ]
                         }
