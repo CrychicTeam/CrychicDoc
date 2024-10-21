@@ -120,6 +120,7 @@ authors: ['Gu-meng']
   * [祭坛合成](/KubeJSProjects/Meng/AltarComposition.md)
   * [下落合成](/KubeJSProjects/Meng/FallItem.md)
   * [抽奖券](/KubeJSProjects/Meng/RaffleTicket.md)
+  * [自定义传送门](/KubeJSProjects/Meng/CustomPortal.md)
   * [玩家禁言](/KubeJSProjects/Meng/NoChat.md)
   * [服务器签到](/KubeJSProjects/Meng/SignIn.md)
   * [注册AE存储元件和对应的组件](/KubeJSProjects/Meng/RegComponent&Storage.md)
@@ -131,3 +132,5 @@ authors: ['Gu-meng']
     * [禁止实体穿越指定维度](/KubeJSProjects/Meng/SmallProject/EntityTravelToDimension.md)
     * [物品右键获取该物品的方块tag](/KubeJSProjects/Meng/SmallProject/BlockItemGetBlockTag.md)
     * [获取所有配方json并保存为文件](/KubeJSProjects/Meng/SmallProject/RecipesJsonInFile.md)
+  * [栗子的小项目](/KubeJSProjects/PrizOwO/SmallProject/README.md)
+    * [玩家对生物造成伤害显示血量](/KubeJSProjects/PrizOwO/SmallProject/HitHealthShow.md)
