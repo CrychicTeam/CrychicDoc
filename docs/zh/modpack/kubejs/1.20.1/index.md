@@ -281,6 +281,16 @@ root:
                 - title: ProbeJS类型文件
                   path: /
                   file: ProbeJSClassFlie
+        - title: 网络通信
+          path: Network
+          collapsed: true
+          noScan: false
+          children:
+            - title: 简述
+              path: /
+              file: Catalogue
+              collapsed: true
+              noScan: false
         - title: 杂项知识
           path: MiscellaneousKnowledge
           collapsed: true

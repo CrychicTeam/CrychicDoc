@@ -53,6 +53,9 @@ jobs:
                   if [ -d temp_repo/.github ]; then
                     cp -r temp_repo/.github .
                   fi
+                  if [ -d temp_repo/CNAME ]; then
+                    cp -r temp_repo/CNAME .
+                  fi
                   rm -rf temp_repo
 
                   git add -A
