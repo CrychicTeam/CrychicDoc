@@ -120,6 +120,7 @@ authors: ['Gu-meng']
   * [祭坛合成](/KubeJSProjects/Meng/AltarComposition.md)
   * [下落合成](/KubeJSProjects/Meng/FallItem.md)
   * [抽奖券](/KubeJSProjects/Meng/RaffleTicket.md)
+  * [自定义传送门](/KubeJSProjects/Meng/CustomPortal.md)
   * [玩家禁言](/KubeJSProjects/Meng/NoChat.md)
   * [服务器签到](/KubeJSProjects/Meng/SignIn.md)
   * [注册AE存储元件和对应的组件](/KubeJSProjects/Meng/RegComponent&Storage.md)
