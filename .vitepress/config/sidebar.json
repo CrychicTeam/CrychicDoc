@@ -166,6 +166,10 @@
             "text": "KubeJS",
             "items": [
                 {
+                    "text": "1.21",
+                    "link": "/zh/modpack/kubejs/1.21/index"
+                },
+                {
                     "text": "1.20.1",
                     "link": "/zh/modpack/kubejs/1.20.1/index"
                 },

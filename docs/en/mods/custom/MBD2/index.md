@@ -5,7 +5,13 @@ next: false
 root:
   title: MultiBlocked 2
   children:
-      - title: Catalogue
+      - title: Table of Contents
         path: /
         file: Catalogue
+      - title: Single Block Machine
+        path: /
+        children:
+            - title: Introduction
+              path: /
+              file: SingleBlockBasic
 ---
