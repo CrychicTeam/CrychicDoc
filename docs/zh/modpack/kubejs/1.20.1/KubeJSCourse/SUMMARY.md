@@ -132,3 +132,5 @@ authors: ['Gu-meng']
     * [禁止实体穿越指定维度](/KubeJSProjects/Meng/SmallProject/EntityTravelToDimension.md)
     * [物品右键获取该物品的方块tag](/KubeJSProjects/Meng/SmallProject/BlockItemGetBlockTag.md)
     * [获取所有配方json并保存为文件](/KubeJSProjects/Meng/SmallProject/RecipesJsonInFile.md)
+  * [栗子的小项目](/KubeJSProjects/PrizOwO/SmallProject/README.md)
+    * [玩家对生物造成伤害显示血量](/KubeJSProjects/PrizOwO/SmallProject/HitHealthShow.md)
