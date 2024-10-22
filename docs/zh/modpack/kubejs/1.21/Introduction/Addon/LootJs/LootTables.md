@@ -14,6 +14,8 @@
 
 ## 战利品表
 
+此篇教程是基于`LootJs`新版本添加的`LootJS.lootTables`事件进行的基础教程
+
 ### 获取战利品表 ID
 
 `getLootTableIds`
