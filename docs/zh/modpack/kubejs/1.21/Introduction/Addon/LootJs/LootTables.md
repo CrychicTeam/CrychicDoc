@@ -105,7 +105,7 @@ LootJS.lootTables((event) => {
 });
 ```
 
-下面的示例代码中，指定了史莱姆的战利品表ID，清除了史莱姆的所有战利品
+下面的示例代码中，指定了史莱姆的战利品表 ID，清除了史莱姆的所有战利品
 
 ```js
 LootJS.lootTables((event) => {
@@ -113,7 +113,7 @@ LootJS.lootTables((event) => {
 });
 ```
 
-提示：对于战利品表ID的获取，游戏内可以使用`/loot`指令来进行获取
+提示：对于战利品表 ID 的获取，游戏内可以使用`/loot`指令来进行获取
 
 ### 创建战利品列表
 
@@ -122,21 +122,22 @@ LootJS.lootTables((event) => {
 使用这个语法可以创建一个新的战利品表并应用
 
 语法：
-- create(id: string, type?: LootType)
+
+-   create(id: string, type?: LootType)
 
 如果`LootType`未提供，那么默认为`LootType.CHEST`
 
-
 示例代码：
-```js
-LootJS.lootTables(event => {
-    event.create("lootjs:table1", LootType.ENTITY).createPool(pool => {
-        // 编辑你的战利品表
-    })
 
-    // 使用默认的LootType(CHEST)
-    event.create("lootjs:table2").createPool(pool => {
-        // 编辑你的战利品表
-    })
-})
+```js
+LootJS.lootTables((event) => {
+	event.create("lootjs:table1", LootType.ENTITY).createPool((pool) => {
+		// 编辑你的战利品表
+	});
+
+	// 使用默认的LootType(CHEST)
+	event.create("lootjs:table2").createPool((pool) => {
+		// 编辑你的战利品表
+	});
+});
 ```
