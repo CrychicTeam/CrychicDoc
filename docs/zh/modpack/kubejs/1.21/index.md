@@ -35,6 +35,9 @@ root:
                 - title: LootJs
                   path: /
                   file: LootJs
+                - title: LootTables
+                  path: /
+                  file: LootTables
 prev: false
 next: false
 ---
