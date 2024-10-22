@@ -16,6 +16,8 @@
 
 此篇教程是基于`LootJs`新版本添加的`LootJS.lootTables`事件进行的基础教程
 
+建议搭配`ProbeJs`模组以及插件一起使用，辅助编写
+
 ### 获取战利品表 ID
 
 `getLootTableIds`
