@@ -60,7 +60,9 @@ jobs:
                   if ! grep -q github.com ~/.ssh/known_hosts; then
                       ssh-keyscan github.com >> ~/.ssh/known_hosts
                   fi
-                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocSynchronization.git temp_repo
+                  # 使用 ssh 调试模式 -v 输出调试信息
+                  GIT_SSH_COMMAND='ssh -v -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocSynchronization.git temp_repo
+            
 
             - name: Copy necessary files
               run: |
