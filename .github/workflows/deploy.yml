@@ -14,16 +14,11 @@ jobs:
                   fetch-depth: 0
 
             - name: Pull types from type repo
-              env:
-                  TYPE_REPO_SSH_KEY: ${{ secrets.TYPE_REPO_SSH_KEY }}
               run: |
-                  mkdir -p ~/.ssh
-                  echo "$TYPE_REPO_SSH_KEY" > ~/.ssh/id_rsa
-                  chmod 600 ~/.ssh/id_rsa
                   if ! grep -q github.com ~/.ssh/known_hosts; then
                       ssh-keyscan github.com >> ~/.ssh/known_hosts
                   fi
-                  git clone --depth 1 git@github.com:M1hono/CrychicDocTypes.git type_repo
+                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocTypes.git type_repo
                   cp -r type_repo/typefiles .
                   rm -rf type_repo
                   echo "Types pulled successfully"
@@ -61,16 +56,11 @@ jobs:
                   git config user.email "<>"
 
             - name: Clone private repo
-              env:
-                  PRIVATE_REPO_SSH_KEY: ${{ secrets.PRIVATE_REPO_SSH_KEY }}
               run: |
-                  mkdir -p ~/.ssh
-                  echo "$PRIVATE_REPO_SSH_KEY" > ~/.ssh/id_rsa
-                  chmod 600 ~/.ssh/id_rsa
                   if ! grep -q github.com ~/.ssh/known_hosts; then
                       ssh-keyscan github.com >> ~/.ssh/known_hosts
                   fi
-                  git clone --depth 1 git@github.com:M1hono/CrychicDocSynchronization.git temp_repo
+                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocSynchronization.git temp_repo
 
             - name: Copy necessary files
               run: |
@@ -82,14 +72,12 @@ jobs:
                   fi
 
             - name: Push to private repo
-              env:
-                  PRIVATE_REPO_SSH_KEY: ${{ secrets.PRIVATE_REPO_SSH_KEY }}
               run: |
                   cd .vitepress/dist
                   git init
                   git add -A
                   git commit -m "Update documentation"
-                  git push --force git@github.com:M1hono/CrychicDocSynchronization.git HEAD:main
+                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git push --force git@github.com:M1hono/CrychicDocSynchronization.git HEAD:main
 
     cleanup:
         needs: push-to-private-repo
