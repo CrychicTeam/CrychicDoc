@@ -140,6 +140,10 @@
                         {
                             "text": "介绍",
                             "link": "/zh/mods/custom/MBD2/SingleBlockBasic"
+                        },
+                        {
+                            "text": "基础设置",
+                            "link": "/zh/mods/custom/MBD2/SingleBlockBasicSettings"
                         }
                     ]
                 }
