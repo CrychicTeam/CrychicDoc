@@ -40,29 +40,51 @@ jobs:
                   echo "Building VitePress site..."
                   yarn docs:build
 
+    push-to-private-repo:
+        needs: setup-and-build
+        runs-on: self-hosted
+        steps:
+            - name: Checkout the code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Git
+              run: |
+                  git config user.name "GitHub Actions Bot"
+                  git config user.email "<>"
+
+            - name: Clone private repo
+              env:
+                  PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+              run: |
+                  git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git temp_repo
+
+            - name: Copy necessary files
+              run: |
+                  if [ -d temp_repo/.github ]; then
+                    cp -r temp_repo/.github .vitepress/dist/
+                  fi
+                  if [ -f temp_repo/CNAME ]; then
+                    cp temp_repo/CNAME .vitepress/dist/
+                  fi
+
             - name: Push to private repo
               env:
                   PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
               run: |
                   cd .vitepress/dist
                   git init
-                  git config user.name "GitHub Actions Bot"
-                  git config user.email "<>"
-
-                  git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git temp_repo
-                  if [ -d temp_repo/.github ]; then
-                    cp -r temp_repo/.github .
-                  fi
-                  if [ -d temp_repo/CNAME ]; then
-                    cp -r temp_repo/CNAME .
-                  fi
-                  rm -rf temp_repo
-
                   git add -A
                   git commit -m "Update documentation"
                   git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
 
-            - name: Cleanup
+    cleanup:
+        needs: push-to-private-repo
+        runs-on: self-hosted
+        steps:
+            - name: Remove temporary files
               run: |
                   rm -rf typefiles
                   rm -rf .vitepress/dist
+                  rm -rf temp_repo
