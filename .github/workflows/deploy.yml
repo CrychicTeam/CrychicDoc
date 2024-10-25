@@ -5,7 +5,7 @@ on:
         branches: [main]
 
 jobs:
-    setup-and-build:
+    setup-build-and-push:
         runs-on: self-hosted
         steps:
             - name: Checkout the code
@@ -42,28 +42,7 @@ jobs:
                   yarn docs:build
                   echo "VitePress site build completed"
 
-            # 上传 .vitepress/dist 目录为工件
-            - name: Upload VitePress site as artifact
-              uses: actions/upload-artifact@v3
-              with:
-                name: vitepress-dist
-                path: .vitepress/dist
-
-    push-to-private-repo:
-        needs: setup-and-build
-        runs-on: self-hosted
-        steps:
-            - name: Checkout the code
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-
-            # 下载 .vitepress/dist 目录
-            - name: Download VitePress site artifact
-              uses: actions/download-artifact@v3
-              with:
-                name: vitepress-dist
-
+            # 在合并后的任务中，直接处理推送
             - name: Setup Git
               run: |
                   git config user.name "GitHub Actions Bot"
@@ -92,13 +71,11 @@ jobs:
                   git add -A
                   git commit -m "Update documentation"
                   GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git push --force git@github.com:M1hono/CrychicDocSynchronization.git HEAD:main
+                  echo "Push completed"
 
-    cleanup:
-        needs: push-to-private-repo
-        runs-on: self-hosted
-        steps:
-            - name: Remove temporary files
+            - name: Cleanup
               run: |
                   rm -rf typefiles
                   rm -rf .vitepress/dist
                   rm -rf temp_repo
+                  echo "Cleanup completed"
