@@ -29,7 +29,8 @@ flowchart TB
 
     subgraph Workflow ["Workflow"]
     direction LR
-    C[Working] <--> D[Waiting]
+    C[Working]--> D[Waiting]
+    C -->|per tick ingredient shortage or recipe condition failure| D
     end
 
     subgraph Special States ["Special States"]

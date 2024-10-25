@@ -30,7 +30,9 @@ flowchart TB
 
     subgraph 工作流程 ["工作流程"]
     direction LR
-    C[工作中 Working] <--> D[待机 Waiting]
+    C[工作中 Working] --> D[待机 Waiting]
+    D --> C
+    C -->|每刻的原料消耗不足或配方条件失败| D
     end
 
     subgraph 特殊状态 ["特殊状态"]
@@ -41,7 +43,6 @@ flowchart TB
 
     class C,D working;
     class G,F special;
-```
 
 可以简单地将其理解为这个机器的 **`大脑`**。
 :::
