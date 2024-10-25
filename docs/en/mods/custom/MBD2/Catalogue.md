@@ -32,7 +32,7 @@ At the same time:
 - This interface has rich shortcuts, allowing players to easily use complex functions.
 - It provides detailed guidance, which can be obtained by moving the mouse over the question mark box.
 
-![root](/imgs/mods/custom/mbd2/zh/preview.png)
+![root](/imgs/mods/custom/mbd2/en/preview.png)
 
 @tab Highly Customizable Configuration
 
@@ -44,7 +44,7 @@ Taking the multi-block area as an example:
 - Players don't need to know any complex technical knowledge. If there are any doubts about the configuration, you can move the mouse over the question mark box to get hints.
 - It covers most of the configurations needed for custom machines.
 
-![config](/imgs/mods/custom/mbd2/zh/multi-block-area-basic.png)
+![config](/imgs/mods/custom/mbd2/en/multi-block-area-basic.png)
 
 @tab Convenient Resource Import/Organization
 
@@ -55,7 +55,7 @@ This manager:
 - Supports multiple file formats, see the integration for details.
 - Has built-in color formats for convenient related configurations.
 
-![assets](/imgs/mods/custom/mbd2/zh/assets-add-basic.png)
+![assets](/imgs/mods/custom/mbd2/en/assets-add-basic.png)
 
 @tab Custom Recipes
 
@@ -66,6 +66,6 @@ At the same time:
 - Any recipe-related `UI` can be customized.
 - Recipe-related `resource files` can also be customized, giving them a high degree of freedom.
 
-![alt text](/imgs/mods/custom/mbd2/zh/recipe-root.gif)
+![alt text](/imgs/mods/custom/mbd2/en/recipe-root.gif)
 
 :::
