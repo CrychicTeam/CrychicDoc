@@ -53,16 +53,15 @@ jobs:
                   if ! grep -q github.com ~/.ssh/known_hosts; then
                       ssh-keyscan github.com >> ~/.ssh/known_hosts
                   fi
-                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocSynchronization.git temp_repo
-
-            - name: Copy necessary files
-              run: |
-                  if [ -d temp_repo/.github ]; then
-                    cp -r temp_repo/.github .vitepress/dist/
-                  fi
-                  if [ -f temp_repo/CNAME ]; then
-                    cp temp_repo/CNAME .vitepress/dist/
-                  fi
+                  mkdir temp_repo
+                  cd temp_repo
+                  git init
+                  git remote add -f origin git@github.com:M1hono/CrychicDocSynchronization.git
+                  git config core.sparseCheckout true
+                  echo ".github/workflow/deploy.yaml" >> .git/info/sparse-checkout
+                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git pull origin main --depth 1
+                  cd ..
+                  cp temp_repo/.github/workflow/deploy.yaml .vitepress/dist/.github/workflow/
 
             - name: Push to private repo
               run: |
