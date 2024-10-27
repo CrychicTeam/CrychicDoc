@@ -713,6 +713,10 @@
                         {
                             "text": "死亡扣除生命上限",
                             "link": "/zh/modpack/kubejs/1.20.1/codeshare/LifeValue"
+                        },
+                        {
+                            "text": "反向骨粉",
+                            "link": "/zh/modpack/kubejs/1.20.1/codeshare/InvertedBonemeal"
                         }
                     ]
                 }
@@ -1204,6 +1208,290 @@
                 }
             ],
             "collapsed": false
+        }
+    ],
+    "zh/develop/": [
+        {
+            "text": "模组开发",
+            "items": [
+                {
+                    "text": "模组开发",
+                    "link": "/zh/develop/modding/index"
+                },
+                {
+                    "text": "插件开发",
+                    "link": "/zh/develop/plugin/index"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/develop/modding/": [
+        {
+            "text": "模组开发",
+            "items": [
+                {
+                    "text": "1.21",
+                    "collapsed": false,
+                    "items": []
+                },
+                {
+                    "text": "1.20.4",
+                    "link": "/zh/develop/modding/1.20.4/index"
+                },
+                {
+                    "text": "1.20.1",
+                    "link": "/zh/develop/modding/1.20.1/index"
+                },
+                {
+                    "text": "1.19.2",
+                    "link": "/zh/develop/modding/1.19.2/index"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/develop/modding/1.20.4/": [
+        {
+            "text": "1.20.4",
+            "items": [
+                {
+                    "text": "NeoForge",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/index"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/develop/modding/1.20.4/Neoforge/": [
+        {
+            "text": "NeoForge",
+            "items": [
+                {
+                    "text": "芙兰朵露",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_01_Environment"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/develop/modding/1.20.4/Neoforge/flandre/": [
+        {
+            "text": "",
+            "items": [
+                {
+                    "text": "01 环境配置",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_01_Environment"
+                },
+                {
+                    "text": "02 第一个物品",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_02_FirstItemRegistry"
+                },
+                {
+                    "text": "03 创造模式物品栏",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_03_CreativeModTabs"
+                },
+                {
+                    "text": "04 添加一个方块",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_04_Register_Block"
+                },
+                {
+                    "text": "05 方块状态",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_05_BlockState"
+                },
+                {
+                    "text": "06 物品属性覆盖",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_06_ItemAttributeOveride"
+                },
+                {
+                    "text": "07 数据生成",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_07_Datagen"
+                },
+                {
+                    "text": "08 食物",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_08_Food"
+                },
+                {
+                    "text": "09 武器",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_09_Weapon"
+                },
+                {
+                    "text": "10 工具",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_10_Tool"
+                },
+                {
+                    "text": "11 装备",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_11_Armor"
+                },
+                {
+                    "text": "12 自定义方块模型和非实体方块",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_12_CustomBlockModel_Non_BlockEntityBlock"
+                },
+                {
+                    "text": "13 方块渲染类型",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_13_BlockRenderType"
+                },
+                {
+                    "text": "14 自定义物品模型",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_14_CustomItemModel"
+                },
+                {
+                    "text": "15 合成表",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_15_CraftTable"
+                },
+                {
+                    "text": "16 战利品表",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_16_LootTable"
+                },
+                {
+                    "text": "17 Tag",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_17 Tag"
+                },
+                {
+                    "text": "18 OBJ模型",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_18 OBJ_Model"
+                },
+                {
+                    "text": "19 添加画",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_19_Register_Paint"
+                },
+                {
+                    "text": "20 添加新的村民",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_20_Register_Villager_Type"
+                },
+                {
+                    "text": "21 第一方块实体和数据保存",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_21_FirstBlockEntity_DataStorage"
+                },
+                {
+                    "text": "22  实体方块tick",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_22 _BlockEntityTick"
+                },
+                {
+                    "text": "23 方块实体内置的数据同步",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_23_BlockEntityDataSync"
+                },
+                {
+                    "text": "24 烘焙模型",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_24 BakedModel"
+                },
+                {
+                    "text": "25 方块实体渲染",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_25_BlockEntityRender"
+                },
+                {
+                    "text": "26 物品特殊渲染",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_26_SpecialItemRender"
+                },
+                {
+                    "text": "27 网络",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_27_Networking"
+                },
+                {
+                    "text": "28 便利添加创造模式物品栏【可选】",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_28_EasyToModifyTabs_Optional"
+                },
+                {
+                    "text": "29 第一个实体",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_29_FirstEntity"
+                },
+                {
+                    "text": "30 第一个生物",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_30_FirstMob"
+                },
+                {
+                    "text": "31 附魔",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_31_Enchantment"
+                },
+                {
+                    "text": "32 构建能力",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_32_BuildCapability"
+                },
+                {
+                    "text": "33 原版提供的能力ItemHander物品处理能力",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_33_ItemHander"
+                },
+                {
+                    "text": "34 能力提供附加",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_34_Capability_Extra"
+                },
+                {
+                    "text": "35 LevelSaveData",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_35_LevelSaveData"
+                },
+                {
+                    "text": "36 第一个GUI",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_36_FirstGUI"
+                },
+                {
+                    "text": "37 menu",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_37_Menu"
+                },
+                {
+                    "text": "38 HUD",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_38_HUD"
+                },
+                {
+                    "text": "39 注册热键",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_39_RegisterKey"
+                },
+                {
+                    "text": "40 流体",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_40_Fluid"
+                },
+                {
+                    "text": "41 饥渴值例子",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_41_NutritionSample"
+                },
+                {
+                    "text": "42 矿物生成",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_42_OreGeneration"
+                },
+                {
+                    "text": "43 结构生成",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_43_StructureGeneration"
+                },
+                {
+                    "text": "44 如何添加模组和lib",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_44_Dependencies_LIb"
+                },
+                {
+                    "text": "45 添加生物群系",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_45_RegisterBiome"
+                },
+                {
+                    "text": "46 添加维度",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_46_RegisterDimension"
+                },
+                {
+                    "text": "47 命令",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_47_Command"
+                },
+                {
+                    "text": "48 成就",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_48_Advancement"
+                },
+                {
+                    "text": "49 配置信息设置",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_49_Config"
+                },
+                {
+                    "text": "50 药水效果和药水",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_50_MobEffect_Potion"
+                },
+                {
+                    "text": "51  粒子",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_51_Particle"
+                },
+                {
+                    "text": "52 声音",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_52_Sound"
+                },
+                {
+                    "text": "53 更新到Minecraft 1.20.6版本",
+                    "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_53_Update_1.20.6"
+                }
+            ]
         }
     ],
     "zh/modpack/kubejs/1.20.1/KubeJSCourse/": [

@@ -11,7 +11,12 @@ const dirs = [
     "modpack/kubejs/1.20.1",
     "modpack/kubejs/1.19.2",
     "modpack/kubejs/1.18.2",
-    "modpack/kubejs/1.21"
+    "modpack/kubejs/1.21",
+    "develop",
+    "develop/modding",
+    "develop/modding/1.20.4",
+    "develop/modding/1.20.4/Neoforge",
+    "develop/modding/1.20.4/Neoforge/flandre",
 ];
 
 const summary = [

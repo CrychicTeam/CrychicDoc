@@ -22,8 +22,8 @@ hero:
       text: 整合包
       link: /zh/modpack/
     - theme: brand
-      text: 开发者
-      link: /zh/developers/
+      text: 开发
+      link: /zh/develop/
 features:
   - icon:
       light: /icon/mainindex/material-symbols--markdown-copy-sharp.png
