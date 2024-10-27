@@ -42,33 +42,30 @@ jobs:
                   yarn docs:build
                   echo "VitePress site build completed"
 
-            # 在合并后的任务中，直接处理推送
             - name: Setup Git
               run: |
                   git config user.name "GitHub Actions Bot"
                   git config user.email "<>"
 
-            - name: Clone workflow file
+            # 修改这部分来从新仓库拉取 workflow
+            - name: Copy workflow file
               run: |
-                  # 改进版本
-                  if ! grep -q github.com ~/.ssh/known_hosts; then
-                      ssh-keyscan github.com >> ~/.ssh/known_hosts || exit 1
-                  fi
-
-                  mkdir -p temp_repo || exit 1
-                  cd temp_repo || exit 1
-                  git init || exit 1
-                  git remote add -f origin git@github.com:M1hono/CrychicDocSynchronization.git || exit 1
-                  git config core.sparseCheckout true || exit 1
-                  echo ".github/workflows/deploy.yaml" >> .git/info/sparse-checkout
-                  mkdir -p ../.vitepress/dist/.github/workflows/ || exit 1
-                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git pull origin main --depth 1 || exit 1
-
-                  if [ -f .github/workflows/deploy.yaml ]; then
-                      cp .github/workflows/deploy.yaml ../.vitepress/dist/.github/workflows/ || exit 1
-                      echo "指定文件拉取并复制成功"
+                  # 创建目标目录
+                  mkdir -p .vitepress/dist/.github/workflows/ || exit 1
+                  
+                  # 从新仓库克隆 workflow 文件
+                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocWorkflow.git workflow_repo
+                  
+                  # 复制 workflow 文件
+                  cp workflow_repo/.github/workflows/deploy.yml .vitepress/dist/.github/workflows/ || exit 1
+                  
+                  # 清理临时仓库
+                  rm -rf workflow_repo
+                  
+                  if [ -f .vitepress/dist/.github/workflows/deploy.yml ]; then
+                      echo "Workflow 文件复制成功"
                   else
-                      echo "错误：未找到目标文件"
+                      echo "错误：Workflow 文件复制失败"
                       exit 1
                   fi
 
