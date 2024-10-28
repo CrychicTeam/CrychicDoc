@@ -1213,6 +1213,66 @@
                                                     "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Create"
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "text": "LootModifiers",
+                                            "collapsed": true,
+                                            "items": [
+                                                {
+                                                    "text": "Event",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootModifiers/Event"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "text": "API",
+                                            "collapsed": true,
+                                            "items": [
+                                                {
+                                                    "text": "ItemFilter",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/ItemFilter"
+                                                },
+                                                {
+                                                    "text": "LootTable",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootTable"
+                                                },
+                                                {
+                                                    "text": "LootPool",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootPool"
+                                                },
+                                                {
+                                                    "text": "LootEntry",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntry"
+                                                },
+                                                {
+                                                    "text": "LootEntryTransformer",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntryTransformer"
+                                                },
+                                                {
+                                                    "text": "LootConditions",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootConditions"
+                                                },
+                                                {
+                                                    "text": "LootFunctions",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootFunctions"
+                                                },
+                                                {
+                                                    "text": "LootModifier",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootModifier"
+                                                },
+                                                {
+                                                    "text": "LootContext",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootContext"
+                                                },
+                                                {
+                                                    "text": "NumberProvider",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/NumberProvider"
+                                                },
+                                                {
+                                                    "text": "Range",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/Range"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
