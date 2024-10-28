@@ -233,7 +233,108 @@ enum LootType {
 }
 ```
 
-### 方块战利品列表修改
+## 方块战利品列表
+
+### 获取战利品表
 
 `getBlockTable`
 
+返回给定方块的战利品表，如果没有找到则返回`null`。
+
+使用方法：
+
+-  getBlockTable(block: string | Block)
+
+```js
+LootJS.lootTables(event => {
+    let table = event.getBlockTable("minecraft:diamond_ore")
+})
+```
+
+### 修改方块战利品表
+
+`modifyBlockTables`
+
+该方法允许你一次性修改所有匹配给定方块的战利品表。
+
+::: v-info
+
+在 Minecraft 1.21.1 后，战利品表的加载顺序在标签之前，因此`modifyBlockTables`方法不支持与标签一起使用。如果想使用标签，请考虑使用`loot modifier event`。
+
+:::
+
+使用方法：
+
+::: code-group
+
+```js [单过滤器]
+LootJS.lootTables(event => {
+    event.modifyBlockTables("minecraft:diamond_ore").createPool(pool => {
+        // edit the pool
+    })
+})
+```
+
+```js [多过滤器]
+LootJS.lootTables(event => {
+    event.modifyBlockTables("minecraft:diamond_ore", "minecraft:emerald_ore").createPool(pool => {
+        // edit the pool
+    })
+})
+```
+
+:::
+
+## 实体战利品表
+
+### 获取实体战利品表
+
+`getEntityTable`
+
+返回给定实体的战利品表，如果没有则返回`null`
+
+使用方法：
+
+-  getEntityTable(entity: string | EntityType)
+
+```js
+LootJS.lootTables(event => {
+    let table = event.getEntityTable("minecraft:sheep")
+})
+```
+
+### 修改实体战利品表
+
+`modifyEntityTables`
+
+该方法允许你一次性修改所有匹配给定实体的战利品表。
+
+::: v-info
+
+在 Minecraft 1.21.1 后，战利品表的加载顺序在标签之前，因此`modifyBlockTables`方法不支持与标签一起使用。如果想使用标签，请考虑使用`loot modifier event`。
+
+:::
+
+使用方法：
+
+-  modifyEntityTables(filter: string | string[] | EntityType | EntityType[])
+
+::: code-group
+
+```js [单过滤器]
+LootJS.lootTables(event => {
+    event.modifyEntityTables("minecraft:sheep").createPool(pool => {
+        // edit the pool
+    })
+})
+```
+
+```js [多过滤器]
+LootJS.lootTables(event => {
+    event.modifyEntityTables("minecraft:sheep", "minecraft:pig").createPool(pool => {
+        // edit the pool
+    })
+})
+```
+
+:::
