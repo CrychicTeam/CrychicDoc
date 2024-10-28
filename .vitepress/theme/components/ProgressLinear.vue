@@ -10,7 +10,7 @@
 
     const metadata = {
         "zh-CN": `进度`,
-        "en-US":  `Progress`,
+        "en-US":  `Status`,
     }
 
     const isProgress = computed(() => {

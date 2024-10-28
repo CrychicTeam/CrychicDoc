@@ -23,8 +23,8 @@ hero:
       text: Modpacks
       link: /en/modpack/
     - theme: brand
-      text: Developers
-      link: /en/developers/
+      text: Develop
+      link: /en/develop/
 
 features:
   - icon : 

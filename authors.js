@@ -2,9 +2,9 @@ import fs from 'fs';
 import path from 'path';
 
 // 指定目标目录
-const targetDirectory = './docs/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Wolf/'; // 将此处替换为你的目标目录路径
+const targetDirectory = './docs/zh/develop/modding/1.20.4/Neoforge/flandre/'; // 将此处替换为你的目标目录路径
 // 要添加的作者名
-const authorToAdd = 'LitterWolf-fufu';
+const authorToAdd = 'Flandre923';
 
 function processDirectory(directory) {
     fs.readdir(directory, { withFileTypes: true }, (err, files) => {

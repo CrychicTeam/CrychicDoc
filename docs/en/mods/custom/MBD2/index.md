@@ -14,4 +14,7 @@ root:
             - title: Introduction
               path: /
               file: SingleBlockBasic
+            - title: Basic Settings
+              path: /
+              file: SingleBlockBasicSettings
 ---

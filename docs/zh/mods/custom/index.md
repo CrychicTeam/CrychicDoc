@@ -13,4 +13,3 @@ root:
         path: MBD2
         file: Catalogue
 ---
-## 冒险模组

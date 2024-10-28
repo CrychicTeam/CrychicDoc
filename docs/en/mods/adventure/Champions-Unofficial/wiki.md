@@ -12,7 +12,7 @@ authors:
   - M1hono
 ---
 
-## Introduction to Champions-Unofficial
+# Introduction to Champions-Unofficial
 
 **Champions** is a mod that brings more challenge to gameplay by adding elite mobs with different levels of rarity. Each hostile mob now has a chance to be given a level and become a champion. These champions are tougher, have extra abilities, and drop better loot that matches their increased power.
 

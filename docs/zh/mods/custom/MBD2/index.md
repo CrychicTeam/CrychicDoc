@@ -14,4 +14,7 @@ root:
             - title: 介绍
               path: /
               file: SingleBlockBasic
+            - title: 基础设置
+              path: /
+              file: SingleBlockBasicSettings
 ---

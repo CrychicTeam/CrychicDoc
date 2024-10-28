@@ -5,7 +5,7 @@ on:
         branches: [main]
 
 jobs:
-    setup-and-build:
+    setup-build-and-push:
         runs-on: self-hosted
         steps:
             - name: Checkout the code
@@ -14,10 +14,11 @@ jobs:
                   fetch-depth: 0
 
             - name: Pull types from type repo
-              env:
-                  TYPE_REPO_TOKEN: ${{ secrets.TYPE_REPO_TOKEN }}
               run: |
-                  git clone --depth 1 https://${TYPE_REPO_TOKEN}@github.com/M1hono/CrychicDocTypes.git type_repo
+                  if ! grep -q github.com ~/.ssh/known_hosts; then
+                      ssh-keyscan github.com >> ~/.ssh/known_hosts
+                  fi
+                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocTypes.git type_repo
                   cp -r type_repo/typefiles .
                   rm -rf type_repo
                   echo "Types pulled successfully"
@@ -39,30 +40,47 @@ jobs:
               run: |
                   echo "Building VitePress site..."
                   yarn docs:build
+                  echo "VitePress site build completed"
 
-            - name: Push to private repo
-              env:
-                  PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+            - name: Setup Git
               run: |
-                  cd .vitepress/dist
-                  git init
                   git config user.name "GitHub Actions Bot"
                   git config user.email "<>"
 
-                  git clone --depth 1 https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git temp_repo
-                  if [ -d temp_repo/.github ]; then
-                    cp -r temp_repo/.github .
+            # 修改这部分来从新仓库拉取 workflow
+            - name: Copy workflow file
+              run: |
+                  # 创建目标目录
+                  mkdir -p .vitepress/dist/.github/workflows/ || exit 1
+                  
+                  # 从新仓库克隆 workflow 文件
+                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocWorkflow.git workflow_repo
+                  
+                  # 复制 workflow 文件
+                  cp workflow_repo/.github/workflows/deploy.yml .vitepress/dist/.github/workflows/ || exit 1
+                  
+                  # 清理临时仓库
+                  rm -rf workflow_repo
+                  
+                  if [ -f .vitepress/dist/.github/workflows/deploy.yml ]; then
+                      echo "Workflow 文件复制成功"
+                  else
+                      echo "错误：Workflow 文件复制失败"
+                      exit 1
                   fi
-                  if [ -d temp_repo/CNAME ]; then
-                    cp -r temp_repo/CNAME .
-                  fi
-                  rm -rf temp_repo
 
+            - name: Push to private repo
+              run: |
+                  cd .vitepress/dist
+                  git init
                   git add -A
                   git commit -m "Update documentation"
-                  git push --force https://${PRIVATE_REPO_TOKEN}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
+                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git push --force git@github.com:M1hono/CrychicDocSynchronization.git HEAD:main
+                  echo "Push completed"
 
             - name: Cleanup
               run: |
                   rm -rf typefiles
                   rm -rf .vitepress/dist
+                  rm -rf temp_repo
+                  echo "Cleanup completed"
