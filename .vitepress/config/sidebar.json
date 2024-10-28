@@ -1198,7 +1198,21 @@
                                         },
                                         {
                                             "text": "LootTables",
-                                            "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables"
+                                            "collapsed": true,
+                                            "items": [
+                                                {
+                                                    "text": "Event",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Event"
+                                                },
+                                                {
+                                                    "text": "Modify",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Modify"
+                                                },
+                                                {
+                                                    "text": "Create",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Create"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }

@@ -36,8 +36,18 @@ root:
                   path: /
                   file: LootJs
                 - title: LootTables
-                  path: /
-                  file: LootTables
+                  path: LootTables
+                  collapsed: true
+                  children:
+                    - title: Event
+                      path: /
+                      file: Event
+                    - title: Modify
+                      path: /
+                      file: Modify
+                    - title: Create
+                      path: /
+                      file: Create
 prev: false
 next: false
 ---
