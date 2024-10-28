@@ -551,6 +551,16 @@
                             ]
                         },
                         {
+                            "text": "网络通信",
+                            "collapsed": true,
+                            "items": [
+                                {
+                                    "text": "简述",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Network/Catalogue"
+                                }
+                            ]
+                        },
+                        {
                             "text": "杂项知识",
                             "collapsed": true,
                             "items": [
@@ -1180,7 +1190,21 @@
                                         },
                                         {
                                             "text": "LootTables",
-                                            "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables"
+                                            "collapsed": true,
+                                            "items": [
+                                                {
+                                                    "text": "Event",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Event"
+                                                },
+                                                {
+                                                    "text": "Modify",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Modify"
+                                                },
+                                                {
+                                                    "text": "Create",
+                                                    "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Create"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }

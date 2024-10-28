@@ -80,6 +80,8 @@ LootJS.lootTables((event) => {
 
 如果该战利品列表存在，则返回`true`，否则返回`false`
 
+下面的示例代码中，检测`minecraft:chests/simple_dungeon`这个战利品列表是否存在，最后可以看到`console.log`输出为`true`
+
 ```js
 LootJS.lootTables((event) => {
 	let exists = event.hasLootTable("minecraft:chests/simple_dungeon");
@@ -89,7 +91,7 @@ LootJS.lootTables((event) => {
 
 ### 清除战利品列表
 
-clearLootTables
+`clearLootTables`
 
 清除所有与给定过滤器匹配的战利品表
 
@@ -136,12 +138,102 @@ LootJS.lootTables((event) => {
 ```js
 LootJS.lootTables((event) => {
 	event.create("lootjs:table1", LootType.ENTITY).createPool((pool) => {
-		// 编辑你的战利品表
+		// 修改你的战利品池
 	});
 
 	// 使用默认的LootType(CHEST)
 	event.create("lootjs:table2").createPool((pool) => {
-		// 编辑你的战利品表
+		// 修改你的战利品池
 	});
 });
 ```
+
+### 修改战利品列表
+
+`modifyLootTables`
+
+该方法允许你一次修改所有的战利品表，或者进行筛选，返回后进行对应的战利品表修改
+
+或者，您可以按战利品表类型进行筛选。战利品表类型在表 `JSON` 中的键下定义。例如，下面 `JSON` 中的 `loot` 表在第 2 行中使用 `type` 作为其类型:
+
+`type` `minecraft:blocks/bricks` `block`
+
+```json
+{
+	"type": "minecraft:block",
+	"pools": [
+		{
+			// ...
+		}
+	],
+	"random_sequence": "minecraft:blocks/bricks"
+}
+```
+
+语法：
+
+-   `modifyLootTables(filter: LootTableFilter | LootTableFilter[])`
+
+示例代码:
+
+::: code-group
+
+```js [单项选择器]
+LootJS.lootTables((event) => {
+	event.modifyLootTables(/.*chests\/.*/).createPool((pool) => {
+		// 修改你的战利品池
+	});
+
+	event.modifyLootTables(LootType.CHEST).createPool((pool) => {
+		// 修改你的战利品池
+	});
+});
+```
+
+```js [多选择器]
+LootJS.lootTables((event) => {
+	event
+		.modifyLootTables(LootType.CHEST, "minecraft:gameplay/fishing")
+		.createPool((pool) => {
+			// 修改你的战利品池
+		});
+
+	event
+		.modifyLootTables(LootType.CHEST, LootType.ENTITY)
+		.createPool((pool) => {
+			// 修改你的战利品池
+		});
+});
+```
+
+:::
+
+在`modifyLootTables`中，可以使用多个过滤器来进行战利品表的修改。同样的你也可使用正则表达式来进行过滤选择
+
+同时，选择器支持的类型有：
+
+-   `字符串`
+-   `正则表达式`
+-   `LootTableFilter`
+-   `LootType`
+
+
+```ts
+enum LootType {
+    CHEST,
+    BLOCK,
+    ENTITY,
+    EQUIPMENT,
+    FISHING,
+    ARCHAEOLOGY,
+    GIFT,
+    VAULT,
+    SHEARING,
+    PIGLIN_BARTER,
+}
+```
+
+### 方块战利品列表修改
+
+`getBlockTable`
+

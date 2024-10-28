@@ -48,3 +48,4 @@
 ### 附加信息
 
 NeoForge 提供了 [Global Loot Modifier](https://docs.neoforged.net/docs/resources/server/loottables/glm/) 系统，它允许 Mod 在滚动特定的战利品表时动态添加战利品。此信息不存在于战利品表中，这意味着该事件无法跟踪有关它们的任何信息。相反，它们可以在 NeoForge 钩子之后运行时使用事件进行修改
+
