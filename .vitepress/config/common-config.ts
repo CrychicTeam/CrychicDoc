@@ -170,6 +170,12 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                         mapByNameAliases: ["HaloSense"],
                         avatar: generateAvatarUrl("HaloSense"),
                     },
+                    {
+                        name: "QiHuang02",
+                        username: "QiHuang02",
+                        mapByNameAliases: ["QiHuang02"],
+                        avatar: generateAvatarUrl("QiHuang02"),
+                    },
                 ],
             }),
             GitChangelogMarkdownSection(),
