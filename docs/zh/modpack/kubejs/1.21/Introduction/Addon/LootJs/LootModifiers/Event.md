@@ -1,10 +1,10 @@
 # Loot Modification Event
 
-该事件用于创建战利品修改器，这些修改器用于修改滚动战利品表后直接生成的物品。也就是说他不直接修改战利品表，而是修改战利品表最后生成的物品。
+该事件用于创建战利品修饰器，这些修饰器用于修改滚动战利品表后直接生成的物品。也就是说他不直接修改战利品表，而是修改战利品表最后生成的物品。
 
 ## getGlobalModifiers
 
-返回所有由模组注册的全局战利品修改器列表。
+返回所有由模组注册的全局战利品修饰器列表。
 
 语法：
 
@@ -12,7 +12,7 @@
 
 ## removeGlobalModifiers
 
-删除所有由指定过滤器指定的模组注册的全局战利品修改器。
+删除所有由指定过滤器指定的模组注册的全局战利品修饰器。
 
 语法：
 
@@ -20,7 +20,7 @@
 
 ## addTableModifier
 
-为所有与给指定过滤器匹配的战利品表创建战利品修改器。
+为所有与给指定过滤器匹配的战利品表创建战利品修饰器。
 
 语法：
 
@@ -50,7 +50,7 @@ LootJS.modifiers(event => {
 
 ## addTypeModifier
 
-为给定的战利品类型添加新的类型修改器。有效的战利品表类型有 `chest` 、 `block` 、 `entity` 、 `fishing` 、 `archaeology` 、 `gift` 、 `vault` 、 `shearing` 、 `piglin_barter`
+为给定的战利品类型添加新的类型修饰器。有效的战利品表类型有 `chest` 、 `block` 、 `entity` 、 `fishing` 、 `archaeology` 、 `gift` 、 `vault` 、 `shearing` 、 `piglin_barter`
 
 语法:
 
@@ -78,7 +78,7 @@ LootJS.modifiers(event => {
 
 ## addEntityModifier
 
-为与指定过滤器匹配的所有实体添加新的战利品修改器。
+为与指定过滤器匹配的所有实体添加新的战利品修饰器。
 
 语法：
 
@@ -115,7 +115,7 @@ LootJS.modifiers(event => {
 
 ## addBlockModifier
 
-为与指定过滤器匹配的所有方块添加新的战利品修改器。
+为与指定过滤器匹配的所有方块添加新的战利品修饰器。
 
 语法：
 
