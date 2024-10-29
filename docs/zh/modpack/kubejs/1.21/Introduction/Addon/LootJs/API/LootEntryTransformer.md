@@ -77,3 +77,61 @@ LootJS.lootTables(event => {
          .removeEntry(entry => entry.isReference())
 })
 ```
+
+## replaceItem
+
+替换所有匹配筛选条件的物品为指定物品。通过替换物品，所有战利品谓词和战利品物品函数都将会被保留。如果您不希望这样做，请使用 `modifyItem` 并创建自己的 `LootEntry`。
+
+语法：
+
+- `.replaceItem(filter: ItemFilter, item: Item)` ，查看[物品过滤器](ItemFilter.md)
+- `.replaceItem(filter: ItemFilter, item: Item, deepReplace: boolean)`
+
+```js
+LootJS.lootTables((event) => {
+    event.modifyLootTypeTables("chest").replaceItem(ItemFilter.)
+})
+```
+
+## modifyEntry
+
+修改所有战利品抽取项。必须始终再次返回一个战利品抽取项。
+
+语法：
+
+- `.modifyEntry((entry: LootEntry) => { ... })`
+- `.modifyEntry((entry: LootEntry) => { ... }, deepModify: boolean)`
+
+```js
+LootJS.lootTables(event => {
+    event.getLootTable("minecraft:chests/simple_dungeon").modifyEntry(entry => {
+        if (entry.isItem() && entry.item.id === "minecraft:string") {
+            entry.setCount([5, 12])
+        }
+
+        // 始终记住需要返回一个抽取项!
+        return entry
+    })
+})
+```
+
+## modifyItem
+
+与 m`odifyEntry` 相同，但只会遍历 `LootItemEntry`。
+
+语法：
+
+- `.modifyItem((entry: LootItemEntry) => { ... })`
+
+```js
+LootJS.lootTables(event => {
+    event.getLootTable("minecraft:chests/simple_dungeon").modifyItem(itemEntry => {
+        if (itemEntry.item.id === "minecraft:string") {
+            itemEntry.setCount([5, 12])
+        }
+
+        // 始终记住需要返回一个抽取项!
+        return itemEntry
+    })
+})
+```
