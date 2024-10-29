@@ -19,6 +19,8 @@ import * as config from "./markdown-plugins";
 
 import { search as zhSearch } from "./lang/zh";
 
+import contributors from "../config/contributors.json";
+
 function generateAvatarUrl(username: string) {
     return `https://github.com/${username}.png`;
 }
@@ -108,69 +110,10 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         plugins: [
             GitChangelog({
                 repoURL: () => "https://github.com/CrychicTeam/CrychicDoc",
-                mapAuthors: [
-                    {
-                        name: "M1hono", // The name you want to display
-                        username: "M1hono", // The username of the author which is used to summon github's link. (won't work with links options)
-                        mapByNameAliases: [
-                            "CrychicTeam",
-                            "M1hono",
-                            "m1hono",
-                            "Guda chen",
-                            "Customer service is currently offline.",
-                        ], // Add the name you want to map, these names will be replaced with the name.
-                        avatar: generateAvatarUrl("M1hono"), // The avatar of the author, normally it's the github avatar
-                        // links: "https://gitee.com/CrychicTeam/CrychicDoc" Change to the url You want to link to
-                    },
-                    {
-                        name: "skyraah",
-                        username: "skyraah",
-                        mapByNameAliases: ["cyciling", "skyraah"],
-                        avatar: generateAvatarUrl("skyraah"),
-                    },
-                    {
-                        name: "Eikidona",
-                        username: "Eikidona",
-                        mapByNameAliases: ["Nagasaki Soyo", "Eikidona"],
-                        avatar: generateAvatarUrl("Eikidona"),
-                    },
-                    {
-                        name: "Mango",
-                        username: "EvanHsieh0415",
-                        mapByNameAliases: ["EvanHsieh0415", "Mango"],
-                        avatar: generateAvatarUrl("Mango-Minecraft-Project"),
-                    },
-                    {
-                        name: "Gu-meng",
-                        username: "Gu-meng",
-                        mapByNameAliases: ["Gu-meng", "GuMeng"],
-                        avatar: generateAvatarUrl("Gu-meng"),
-                    },
-                    {
-                        name: "Wudji",
-                        username: "Wudji",
-                        mapByNameAliases: ["Wudji"],
-                        avatar: generateAvatarUrl("Wudji"),
-                    },
-                    {
-                        name: "Qi-Month",
-                        username: "Qi-Month",
-                        mapByNameAliases: ["Qi-Month"],
-                        avatar: generateAvatarUrl("Qi-Month"),
-                    },
-                    {
-                        name: "xiaoliziawa",
-                        username: "xiaoliziawa",
-                        mapByNameAliases: ["xiaoliziawa"],
-                        avatar: generateAvatarUrl("xiaoliziawa"),
-                    },
-                    {
-                        name: "HaloSense",
-                        username: "HaloSense",
-                        mapByNameAliases: ["HaloSense"],
-                        avatar: generateAvatarUrl("HaloSense"),
-                    },
-                ],
+                mapAuthors: contributors.map((author) => ({
+                    ...author,
+                    avatar: generateAvatarUrl(author.avatar),
+                })),
             }),
             GitChangelogMarkdownSection(),
             groupIconVitePlugin({
