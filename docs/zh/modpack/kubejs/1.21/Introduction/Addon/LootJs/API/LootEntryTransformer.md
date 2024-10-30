@@ -4,9 +4,9 @@
 
 每个实现了 `LootEntryTransformer` 接口的类都可以使用本章内容中列出的所有函数。
 
-- `LootTable`
-- `LootPool`
-- `CompositeLootEntry`
+- [`LootTable`](LootTable.md)
+- [`LootPool`](LootPool.md)
+- [`CompositeLootEntry`](LootEntry.md)
 
 因为 `CompositeLootEntry` 支持进行嵌套 `CompositeLootEntry`，因此本章内容中的函数都有一个 `deep` 参数，该参数用于判断是否需要遍历战利品表的所有抽取项，默认值为 true。
 
