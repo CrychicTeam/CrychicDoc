@@ -1568,6 +1568,311 @@
             ]
         }
     ],
+    "zh/info/": [
+        {
+            "text": "文档信息收集处",
+            "items": [
+                {
+                    "text": "KubeJS",
+                    "link": "/zh/info/KubeJS/index"
+                },
+                {
+                    "text": "模块请求",
+                    "link": "/zh/info/doc/module-request/index"
+                },
+                {
+                    "text": "Q&A",
+                    "link": "/zh/info/doc/Q&A/index"
+                },
+                {
+                    "text": "建议",
+                    "link": "/zh/info/doc/suggestion/index"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/info/KubeJS/": [
+        {
+            "text": "文档信息收集处",
+            "items": [
+                {
+                    "text": "留言板",
+                    "link": "/zh/info/KubeJS/borad/index"
+                },
+                {
+                    "text": "代码分享",
+                    "link": "/zh/info/KubeJS/code/index"
+                },
+                {
+                    "text": "Q&A",
+                    "link": "/zh/info/KubeJS/Q&A/index"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/info/KubeJS/borad/": [
+        {
+            "text": "留言板",
+            "items": [
+                {
+                    "text": "代码分享（Doc）",
+                    "link": "/zh/info/KubeJS/borad/./code"
+                },
+                {
+                    "text": "导航栏",
+                    "link": "/zh/info/KubeJS/borad/./navbar"
+                },
+                {
+                    "text": "文档纠错",
+                    "link": "/zh/info/KubeJS/borad/./docError"
+                },
+                {
+                    "text": "模组推荐",
+                    "link": "/zh/info/KubeJS/borad/./modRecommend"
+                },
+                {
+                    "text": "团队招募",
+                    "link": "/zh/info/KubeJS/borad/./teamRecruit"
+                },
+                {
+                    "text": "整合包",
+                    "link": "/zh/info/KubeJS/borad/./modpack"
+                },
+                {
+                    "text": "公益服",
+                    "link": "/zh/info/KubeJS/borad/./publicServer"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/info/KubeJS/code/": [
+        {
+            "text": "代码分享",
+            "items": [
+                {
+                    "text": "注册",
+                    "link": "/zh/info/KubeJS/code/./register"
+                },
+                {
+                    "text": "函数库（Utils API）",
+                    "link": "/zh/info/KubeJS/code/./utils"
+                },
+                {
+                    "text": "事件处理",
+                    "link": "/zh/info/KubeJS/code/./eventHandler"
+                },
+                {
+                    "text": "反射",
+                    "link": "/zh/info/KubeJS/code/./loadClass"
+                },
+                {
+                    "text": "纠错",
+                    "link": "/zh/info/KubeJS/code/./error"
+                },
+                {
+                    "text": "其他",
+                    "link": "/zh/info/KubeJS/code/./other"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/info/KubeJS/Q&A/": [
+        {
+            "text": "提问区",
+            "items": [
+                {
+                    "text": "注册",
+                    "link": "/zh/info/KubeJS/Q&A/./register"
+                },
+                {
+                    "text": "事件与交互",
+                    "link": "/zh/info/KubeJS/Q&A/./event_interaction"
+                },
+                {
+                    "text": "类与方法",
+                    "link": "/zh/info/KubeJS/Q&A/./API"
+                },
+                {
+                    "text": "报错",
+                    "link": "/zh/info/KubeJS/Q&A/./error"
+                },
+                {
+                    "text": "反射",
+                    "link": "/zh/info/KubeJS/Q&A/./loadClass"
+                },
+                {
+                    "text": "Forge Events",
+                    "link": "/zh/info/KubeJS/Q&A/./forgeEvents"
+                },
+                {
+                    "text": "其他",
+                    "link": "/zh/info/KubeJS/Q&A/./other"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/info/doc/": [
+        {
+            "text": "",
+            "items": [
+                {
+                    "text": "module-request",
+                    "collapsed": true,
+                    "items": [
+                        {
+                            "text": "beautify",
+                            "link": "/zh/info/doc/module-request/beautify"
+                        },
+                        {
+                            "text": "codeShare",
+                            "link": "/zh/info/doc/module-request/codeShare"
+                        },
+                        {
+                            "text": "component",
+                            "link": "/zh/info/doc/module-request/component"
+                        },
+                        {
+                            "text": "index",
+                            "link": "/zh/info/doc/module-request/index"
+                        },
+                        {
+                            "text": "kubejs",
+                            "link": "/zh/info/doc/module-request/kubejs"
+                        },
+                        {
+                            "text": "mod",
+                            "link": "/zh/info/doc/module-request/mod"
+                        },
+                        {
+                            "text": "modPlugin",
+                            "link": "/zh/info/doc/module-request/modPlugin"
+                        },
+                        {
+                            "text": "newSection",
+                            "link": "/zh/info/doc/module-request/newSection"
+                        }
+                    ]
+                },
+                {
+                    "text": "Q&A",
+                    "collapsed": true,
+                    "items": [
+                        {
+                            "text": "cooperation",
+                            "link": "/zh/info/doc/Q&A/cooperation"
+                        },
+                        {
+                            "text": "index",
+                            "link": "/zh/info/doc/Q&A/index"
+                        },
+                        {
+                            "text": "other",
+                            "link": "/zh/info/doc/Q&A/other"
+                        },
+                        {
+                            "text": "use",
+                            "link": "/zh/info/doc/Q&A/use"
+                        }
+                    ]
+                },
+                {
+                    "text": "suggestion",
+                    "collapsed": true,
+                    "items": [
+                        {
+                            "text": "doc",
+                            "link": "/zh/info/doc/suggestion/doc"
+                        },
+                        {
+                            "text": "index",
+                            "link": "/zh/info/doc/suggestion/index"
+                        },
+                        {
+                            "text": "writing",
+                            "link": "/zh/info/doc/suggestion/writing"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "zh/info/doc/module-request/": [
+        {
+            "text": "模块请求",
+            "items": [
+                {
+                    "text": "收集处",
+                    "link": "/zh/info/doc/module-request/newSection"
+                },
+                {
+                    "text": "KubeJS",
+                    "link": "/zh/info/doc/module-request/KubeJS/kubejs"
+                },
+                {
+                    "text": "模组开发",
+                    "link": "/zh/info/doc/module-request/mod/mod"
+                },
+                {
+                    "text": "模组插件",
+                    "link": "/zh/info/doc/module-request/mod-plugin/modPlugin"
+                },
+                {
+                    "text": "组件",
+                    "link": "/zh/info/doc/module-request/component"
+                },
+                {
+                    "text": "美化",
+                    "link": "/zh/info/doc/module-request/beautify"
+                },
+                {
+                    "text": "代码分享",
+                    "link": "/zh/info/doc/module-request/codeShare"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/info/doc/Q&A/": [
+        {
+            "text": "提问区",
+            "items": [
+                {
+                    "text": "使用",
+                    "link": "/zh/info/doc/Q&A/use"
+                },
+                {
+                    "text": "合作",
+                    "link": "/zh/info/doc/Q&A/cooperation"
+                },
+                {
+                    "text": "其他",
+                    "link": "/zh/info/doc/Q&A/other"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/info/doc/suggestion/": [
+        {
+            "text": "建议",
+            "items": [
+                {
+                    "text": "运营",
+                    "link": "/zh/info/doc/suggestion/doc"
+                },
+                {
+                    "text": "编写",
+                    "link": "/zh/info/doc/suggestion/writing"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
     "zh/modpack/kubejs/1.20.1/KubeJSCourse/": [
         {
             "text": "",

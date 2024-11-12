@@ -17,6 +17,15 @@ const dirs = [
     "develop/modding/1.20.4",
     "develop/modding/1.20.4/Neoforge",
     "develop/modding/1.20.4/Neoforge/flandre",
+    "info",
+    "info/KubeJS",
+    "info/KubeJS/borad",
+    "info/KubeJS/code",
+    "info/KubeJS/Q&A",
+    "info/doc",
+    "info/doc/module-request",
+    "info/doc/Q&A",
+    "info/doc/suggestion",
 ];
 
 const summary = [

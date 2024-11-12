@@ -156,7 +156,23 @@
 }
 
 * {
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--vp-c-text-2) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--vp-code-block-bg);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-track {
+    background-color: transparent;
 }
 
 .aside-container::-webkit-scrollbar,

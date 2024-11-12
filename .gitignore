@@ -10,3 +10,4 @@ route.bash
 *.temp
 output.html
 .cache
+.vitepress/config/sidebar.json
