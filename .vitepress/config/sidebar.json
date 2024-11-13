@@ -1279,6 +1279,22 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "text": "代码分享",
+                    "collapsed": true,
+                    "items": [
+                        {
+                            "text": "QiHuang02",
+                            "collapsed": true,
+                            "items": [
+                                {
+                                    "text": "EmendatusEnigmaticaJS",
+                                    "link": "/zh/modpack/kubejs/1.21/codeshare/QiHuang02/emendatusenigmaticajs"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
             "collapsed": false
