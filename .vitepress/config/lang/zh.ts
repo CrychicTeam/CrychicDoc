@@ -66,7 +66,7 @@ export const zh_CN = <DefaultTheme.Config>{
                 {text: "美术资源", link: "/zh/doc/guide/resource"},
                 {text: "社区交流", link: "/zh/doc/guide/community"},
             ]},
-            {text: "讨论区", link: "https://github.com/CrychicTeam/CrychicDoc/discussions"},
+            {text: "讨论区", link: "/zh/info"},
         ],
         sidebar: sidebars("zh"),
         outline: {

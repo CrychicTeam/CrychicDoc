@@ -66,9 +66,9 @@ export default {
                 "doc-bottom": () => h(imageViewer),
                 "layout-top": () => h(themeControl),
                 "aside-outline-after": () => h(),
-                "doc-after": () => h(Comment),
+                "doc-after": () =>[ h(buttons) ,  h(Comment)],
                 "layout-bottom": () => h(Footer),
-                "doc-footer-before": () => [ h(buttons) , h(ResponsibleEditor) ],
+                "doc-footer-before": () => h(ResponsibleEditor),
                 "not-found": () => [ h(NotFound)],
                 "nav-bar-content-after": () => h(NolebaseEnhancedReadabilitiesMenu),
                 "nav-screen-content-after": () =>

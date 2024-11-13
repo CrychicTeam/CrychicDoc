@@ -13,7 +13,7 @@ progress: 100
 
 ```js twoslash
 ItemEvents.entityInteracted(event => {
-    const { entity, target, hand, server, level } = event;
+    const { entity, hand } = event;
     if (hand !== 'main_hand') return;
     entity.potionEffects.add('minecraft:night_vision', 200, 0, false, true);
 //                ^?
@@ -36,14 +36,11 @@ ItemEvents.entityInteracted(event => {
 
 ```js twoslash
 ItemEvents.entityInteracted(event => {
-    const { entity, target, hand, server, level } = event;
-    /**
-     * @type {Internal.LivingEntity} 这是一个改变了类型的变量。
-     */
+    const { entity } = event;
+    /** @type {Internal.LivingEntity} */
     let livingentity = entity;
-    entity.potionEffects.add('minecraft:night_vision', 200, 0, false, true);
     livingentity.potionEffects.add('minecraft:night_vision', 200, 0, false, true);
-    //               ^?
+    //           ^?
 })
 ```
 <br>
