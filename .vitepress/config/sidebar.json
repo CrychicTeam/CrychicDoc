@@ -1895,7 +1895,7 @@
             "collapsed": true,
             "items": [
                 {
-                    "text": "KubeJS教程-1.20.1-孤梦版",
+                    "text": "KubeJS教程-1.20.1",
                     "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/README"
                 },
                 {
@@ -1938,6 +1938,10 @@
                         {
                             "text": "文件优先级",
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/FilePriority"
+                        },
+                        {
+                            "text": "ProbeJS的基础使用",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/ProbeJS"
                         },
                         {
                             "text": "ProbeJS查找注册名",
@@ -2078,12 +2082,16 @@
                 },
                 {
                     "text": "kjs进阶",
-                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/README",
+                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubejsAdvanced/README",
                     "collapsed": true,
                     "items": [
                         {
+                            "text": "全局的静态类",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/StaticClsss"
+                        },
+                        {
                             "text": "配方添加进阶",
-                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/AdvancedRecipe"
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubejsAdvanced/RecipeAdvanced"
                         },
                         {
                             "text": "物品配方合成返回物品",
@@ -2145,8 +2153,8 @@
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/RecipesSchemaAdded"
                         },
                         {
-                            "text": "实体持久化数据——待编写",
-                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/EntityPersistentData"
+                            "text": "持久化数据——待编写",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/PersistentData"
                         },
                         {
                             "text": "屏幕“绘画”——待编写",
@@ -2186,8 +2194,27 @@
                             ]
                         },
                         {
+                            "text": "EntityJS",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/README",
+                            "collapsed": true,
+                            "items": [
+                                {
+                                    "text": "关于事件",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/AllEvent"
+                                },
+                                {
+                                    "text": "实体注册",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/CreateEntity"
+                                },
+                                {
+                                    "text": "实体AI",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/EntityAI"
+                                }
+                            ]
+                        },
+                        {
                             "text": "AdvancementJS(进度)",
-                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/AdvancementJs"
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/AdvancementJS"
                         },
                         {
                             "text": "ArsNouveauJS(新生魔艺)",
@@ -2203,7 +2230,7 @@
                         },
                         {
                             "text": "CreateJS(机械动力)",
-                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/Createjs"
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/CreateJS"
                         },
                         {
                             "text": "CreateHeatJS(机械动力热量)",
@@ -2358,7 +2385,7 @@
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/ProtectionEnchantMechanism"
                         },
                         {
-                            "text": "BlockBench基础使用",
+                            "text": "BlockBench基础使用教程",
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/BlockbenchBasic"
                         },
                         {

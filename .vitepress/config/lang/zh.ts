@@ -20,8 +20,8 @@ export const zh_CN = <DefaultTheme.Config>{
                     text: "文档",
                     items: [
                         {
-                            text: "1.21-计划中",
-                            link: "...",
+                            text: "1.21",
+                            link: "/zh/modpack/kubejs/1.21/",
                         },
                         {
                             text: "1.20.1",

@@ -19,8 +19,8 @@ export const en_US = <DefaultTheme.Config>{
                         text: "Docs",
                         items: [
                             {
-                                text: "1.21-Planning",
-                                link: "...",
+                                text: "1.21",
+                                link: "/en/modpack/kubejs/1.21/",
                             },
                             {
                                 text: "1.20.1",
