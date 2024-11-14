@@ -1,6 +1,3 @@
----
-authors: ['Gu-meng']
----
 # 机械动力和KubeJs 
 在本章中将介绍如何使用KubeJs去修改机械动力模组的配方
 
@@ -126,7 +123,7 @@ create.pressing([
 ```js
 // 混合搅拌 - 多个输入
 create.mixing("minecraft:grass_block", [
-	Fluid.of("minecrft:water", 500),
+	Fluid.of("minecraft:water", 500),
 	"minecraft:dirt"
 ])
 
