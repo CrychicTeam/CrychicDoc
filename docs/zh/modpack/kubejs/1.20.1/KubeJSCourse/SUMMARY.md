@@ -47,7 +47,7 @@ authors: ['Gu-meng']
   * [模型](/Resources/Model.md)
 * [kjs进阶](/KubejsAdvanced/README.md)
   * [全局的静态类](/KubeJSAdvanced/StaticClsss.md)
-  * [配方添加进阶](/KubejsAdvanced/RecipeAdvanced.md)
+  * [配方添加进阶](/KubeJSAdvanced/RecipeAdvanced.md)
   * [物品配方合成返回物品](/KubeJSAdvanced/ItemRecipeReturnItem.md)
   * [创造物品栏](/KubeJSAdvanced/CreativeTab.md)
   * [自定义指令](/KubeJSAdvanced/CustomCommandRegistry.md)
