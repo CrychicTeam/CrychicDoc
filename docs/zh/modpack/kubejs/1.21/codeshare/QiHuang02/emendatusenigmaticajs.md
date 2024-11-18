@@ -1,9 +1,3 @@
----
-title: EmendatusEnigmaticaJS
-createTime: 2024/10/01 00:35:39
-permalink: /notes/minecraft/kubejs/project/emendatusenigmaticajs/
----
-
 ::: carousels#{"cycle": false, "interval": 2800, "undelimiters": true}
 @tab
 ![EmendatusEnigmaticaJS](/imgs/EmendatusEnigmaticaJS/eejs_1.png)
