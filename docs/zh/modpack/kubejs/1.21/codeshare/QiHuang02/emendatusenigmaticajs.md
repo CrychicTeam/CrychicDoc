@@ -4,16 +4,14 @@ createTime: 2024/10/01 00:35:39
 permalink: /notes/minecraft/kubejs/project/emendatusenigmaticajs/
 ---
 
-<CardGrid>
-    <ImageCard
-    image='/images/eejs_1.png'
-    title="EmendatusEnigmaticaJS"
-    />
-    <ImageCard
-    image='/images/eejs_2.png'
-    title="EmendatusEnigmaticaJS"
-    />
-</CardGrid>
+::: carousels#{"cycle": false, "interval": 2800, "undelimiters": true}
+@tab
+![EmendatusEnigmaticaJS](/imgs/EmendatusEnigmaticaJS/eejs_1.png)
+@tab
+![EmendatusEnigmaticaJS](/imgs/EmendatusEnigmaticaJS/eejs_2.png)
+:::
+
+[[TOC]]
 
 ## 关于 EmendatusEnigmaticaJS
 
@@ -31,6 +29,7 @@ EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github
 > - [x] 添加自动创建矿物方块类型的LootTable文件集成
 > - [x] 添加锭、宝石、粒、板、棒、齿轮等物品的注册
 > - [x] 添加对Mekanism的集成（仅完成物品的注册，化学品相关暂缓）
+> - [x] 支持使用自定义纹理
 > - [ ] 添加液体类型的集成
 > - [ ] 添加本地化集成
 > - [ ] 添加配方集成
@@ -40,17 +39,44 @@ EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github
 > - [ ] ~~添加矿物生成~~
 > - [ ] 优化代码结构
 
-[[TOC]]
+## 如何使用
+
+在这里可以添加定义材料
+
+### 参数
+
+一些必须的参数: `name`、`type`、`processedTypes`
+
+一些可选的参数: `color`、`texture`、`drop`、`burnTime`、`gemTemplate`、`strata`、`harvestLevel`
+
+### 参数解释
+- `name`: 定义材料的名称
+- `type`: 定义材料的类型,可选的有`metal`,`alloy`,`gem`,`special`
+  - `metal`: 不支持 `gem`
+  - `alloy`: 不支持 `gem`、`ore`、`raw`
+  - `gem`: 不支持 `ingot`, `nugget`
+  - `special`: 都支持，但是纹理需要自己准备
+- `processedTypes`: 定义了材料可以有哪些形态
+  - 全部的可支持的形态有: `ore`, `raw`, `gem`, `ingot`, `nugget`, `dust`, `plate`, `gear`, `rod`, `storage_block`, `mekanism`, `bloodmagic`, `crushed`
+- `color`: 因为是使用的灰度模板纹理、所以需要使用该属性为其上颜色
+- `texture`: 使用自定义的纹理
+- `drop`: 当设置改属性后，会自动生成该材料的矿物方块的战利品表，当加工形态中有`ore`时必须设置
+- `burnTime`: 定义该材料的燃烧值
+- `gemTemplate`: 定义了该材料使用的宝石纹理的模版，当`type`为`gem`时必须设置
+- `strata`: 定义了该材料的容矿物，当加工形态中有`ore`时必须设置
+- `harvestLevel`: 定义了该材料的方块形态的加工形态的挖掘等级
+
+## 源代码
 
 ### Strata.js
 
 这一部分代码主要定义了矿物的地层，也是指容纳矿物的岩石。
 
-```JS :collapsed-lines
+```JS
 // Strata.js
 // priority: 200
 
-global.EE_STRATAS = {
+let EE_STRATAS = {
     stone: {
         name: 'stone',
         texture: 'minecraft:block/stone',
@@ -114,7 +140,7 @@ global.EE_STRATAS = {
 
 这一部分主要用于定义一些全局的设定，例如各种路径、各种Json模板。
 
-```JS :collapsed-lines
+```JS
 // Global.js
 // priority: 199
 
@@ -226,28 +252,62 @@ function createLootOre(name, strata, drop) {
 
 这一部分是EmendatusEnigmaticaJS最主要的一个部分，几乎所有的注册逻辑都在此。
 
-```JS :collapsed-lines
+```JS
 // EmendatusEnigmatica.js
 // priority: 198
 
 /**
+ * @typedef {Object} EEConfig
+ * @property {string} name - The name of the material.
+ * @property {string} type - The type of the material (e.g., 'metal', 'special').
+ * @property {string[]} [processedTypes] - A list of processed types for the material.
+ * @property {string[]} [color] - A list of color codes.
+ * @property {number} [burnTime] - Burn time in ticks, if applicable.
+ * @property {Object} [drop] - Information about drops (optional).
+ * @property {string} [drop.item] - The item dropped by this material.
+ * @property {number} [drop.min] - Minimum amount of items dropped.
+ * @property {number} [drop.max] - Maximum amount of items dropped.
+ * @property {string[]} [strata] - Strata levels applicable to this material.
+ * @property {string} [harvestLevel] - Required harvest tool level.
+ * @property {number} [gemTemplate] - Gem template index (optional).
+ * @property {Object} [texture] - Custom textures (optional).
+ * @property {Object} [texture.item]
+ * @property {string} [texture.item.ingot]
+ * @property {string} [texture.item.nugget]
+ * @property {string} [texture.item.gem]
+ * @property {string} [texture.item.dust]
+ * @property {string} [texture.item.plate]
+ * @property {string} [texture.item.rod]
+ * @property {string} [texture.item.gear]
+ * @property {string} [texture.item.raw]
+ * @property {Object} [texture.block]
+ * @property {string} [texture.block.parent]
+ * @property {string} [texture.block.ore]
+ * @property {string} [texture.block.storage_block]
+ */
+
+/**
+ * Class to handle Emendatus Enigmatica materials.
  * 
- * @param {EEConfig} config
- * @returns
+ * @param {EEConfig} config - Configuration object for the material.
  */
 function EmendatusEnigmaticaJS(config) {
     this.name = config.name;
     this.type = config.type;
-    this.harvestLevel = config.harvestLevel;
-    this.processedTypes = config.processedTypes;
-    this.strata = config.strata;
-    this.color = config.color;
-    this.burnTime = config.burnTime || undefined;
+    this.harvestLevel = config.harvestLevel || null;
+    this.processedTypes = config.processedTypes || [];
+    this.strata = config.strata || [];
+    this.color = config.color || [];
+    this.burnTime = config.burnTime || 0;
     this.gemTemplate = config.gemTemplate || -1;
-    this.drop = config.drop;
+    this.drop = config.drop || null;
+    this.texture = config.texture || {};
 };
 
 EmendatusEnigmaticaJS.prototype = {
+    /**
+     * Registers all processed types for the material.
+     */
     registry() {
         let {
             name,
@@ -258,52 +318,33 @@ EmendatusEnigmaticaJS.prototype = {
             color,
             burnTime,
             gemTemplate,
-            drop
+            drop,
+            texture
         } = this;
 
         // 定义一个映射对象，将每个 processedType 与相应的函数映射起来
         let typeRegistryMap = {
             ore: () => registryOre(name, strata, harvestLevel, color, type, drop),
             raw: () => registryRaw(name, color),
-            storage_block: () => registrySBlock(name, type, burnTime, color),
+            storage_block: () => registrySBlock(name, type, burnTime, color, texture),
             mekanism: () => registryMek(name, color),
             bloodmagic: () => registryBloodMagic(name, color),
-            crush: () => registryCrush(name, color)
+            crush: () => registryCrush(name, color),
+            ingot: () => registryIngot(name, burnTime, color, texture),
+            nugget: () => registryNugget(name, burnTime, color),
+            gem: () => registryGem(name, burnTime, color, gemTemplate),
+            dust: () => registryDust(name, burnTime, color, texture),
+            gear: () => registryGear(name, burnTime, color, texture),
+            plate: () => registryPlate(name, burnTime, color, texture),
+            rod: () => registryRod(name, burnTime, color, texture)
         };
 
-        // 处理默认类型
-        let defaultTypes = [
-            'ingot',
-            'dust',
-            'gear',
-            'nugget',
-            'plate',
-            'rod',
-            'gem'
-        ];
-
         processedTypes.forEach((ptypes) => {
-            if (typeRegistryMap[ptypes]) {
-                // 如果映射对象中存在对应的处理方法，则直接调用
-                typeRegistryMap[ptypes]();
-            } else if (defaultTypes.includes(ptypes)) {
-                // 否则检查是否为默认类型，如果是则调用默认注册方法
-                registryItem(ptypes, name, color, burnTime, gemTemplate);
-            }
+            typeRegistryMap[ptypes]();
         });
     }
 };
 
-/**
- * Description placeholder
- *
- * @param {String} name
- * @param {String} strata
- * @param {String} harvestLevel
- * @param {String[]} color
- * @param {String} type
- * @param {String} drop
- */
 function registryOre(name, strata, harvestLevel, color, type, drop) {
     let layerNames = ['layer0', 'layer1', 'layer2', 'layer3', 'layer4'];
     let texturePaths = layerNames.map((layer, index) => `${global.modid}:block/templates/ore/${type}/0${index}`);
@@ -312,32 +353,38 @@ function registryOre(name, strata, harvestLevel, color, type, drop) {
         StartupEvents.registry('block', (event) => {
             let builder = event.create(`${global.modid}:${name}_ore_${s}`);
 
-            builder.modelGenerator((model) => {
-                model.parent(`${global.EE_STRATAS[s].texture}`);
-
-                model.texture(s, `${global.EE_STRATAS[s].texture}`);
-
-                layerNames.forEach((layer, index) => {
-                    model.texture(layer, texturePaths[index]);
-                });
-
-                model.element((element) => {
-                    element.allFaces((face) => {
-                        face.uv(0, 0, 16, 16).tex(s);
-                    });
-                });
-
-                layerNames.forEach((layer, index) => {
-                    model.element((element) => {
-                        element.allFaces((face) => {
-                            face.uv(0, 0, 16, 16).tex(layer).tintindex(index);
-                        });
-                    });
-                })
-
-            });
+            builder.renderType('cutout')
+                .hardness(EE_STRATAS[s].resistance)
+                .soundType(SoundType.STONE)
+                .requiresTool(true)
+                .tagBoth('c:ores')
+                .tagBoth(`c:ores/${name}`)
+                .tagBoth(`c:ore_rates/singular`)
+                .tagBlock(`minecraft:mineable/${EE_STRATAS[s].tool}`)
+                .tagBlock(`c:mineable/paxel`)
+                .tagBlock(`minecraft:needs_${harvestLevel}_tool`)
 
             if (color) {
+                builder.modelGenerator((model) => {
+                    model.parent(`${EE_STRATAS[s].texture}`);
+                    model.texture(s, `${EE_STRATAS[s].texture}`);
+                    layerNames.forEach((layer, index) => {
+                        model.texture(layer, texturePaths[index]);
+                    });
+                    model.element((element) => {
+                        element.allFaces((face) => {
+                            face.uv(0, 0, 16, 16).tex(s);
+                        });
+                    });
+                    layerNames.forEach((layer, index) => {
+                        model.element((element) => {
+                            element.allFaces((face) => {
+                                face.uv(0, 0, 16, 16).tex(layer).tintindex(index);
+                            });
+                        });
+                    })
+                });
+
                 color.forEach((colorValue, index) => {
                     builder.color(index, colorValue);
                     builder.item((item) => {
@@ -345,28 +392,11 @@ function registryOre(name, strata, harvestLevel, color, type, drop) {
                     });
                 });
             };
-
-            builder.renderType('cutout')
-                .hardness(global.EE_STRATAS[s].resistance)
-                .soundType(SoundType.STONE)
-                .requiresTool(true)
-                .tagBoth('c:ores')
-                .tagBoth(`c:ores/${name}`)
-                .tagBoth(`c:ore_rates/singular`)
-                .tagBlock(`minecraft:mineable/${global.EE_STRATAS[s].tool}`)
-                .tagBlock(`c:mineable/paxel`)
-                .tagBlock(`minecraft:needs_${harvestLevel}_tool`)
         });
-
-        createLootOre(name, s, drop);
+        createLootOreJson(name, s, drop);
     });
 };
 
-/**
- * 
- * @param {String} name Material's name.
- * @param {String[]} color Color array of materials. It can only have 5 colors, likes this: ['#393e46', '#2e2e2e', '#261e24', '#1f1721', '#1c1c1e']
- */
 function registryRaw(name, color) {
     let layerNames = ['layer0', 'layer1', 'layer2', 'layer3', 'layer4'];
     let texturePaths = layerNames.map((layer, index) => `${global.modid}:block/templates/raw_block/0${index}`);
@@ -419,16 +449,6 @@ function registryRaw(name, color) {
     });
 };
 
-
-/**
- * Description placeholder
- *
- * @param {*} name
- * @param {*} type
- * @param {*} ptypes
- * @param {*} burnTime
- * @param {*} color
- */
 function registrySBlock(name, type, burnTime, color) {
     let layerNames = ['layer0', 'layer1', 'layer2', 'layer3', 'layer4'];
     let metalTexturePaths = layerNames.map((layer, index) => `${global.modid}:block/templates/block/metal/0${index}`);
@@ -437,44 +457,13 @@ function registrySBlock(name, type, burnTime, color) {
     StartupEvents.registry('block', (event) => {
         let builder = event.create(`${global.modid}:${name}_block`);
 
-        builder.modelGenerator((model) => {
-            model.parent('minecraft:block/iron_block')
-            if (type === 'metal' | type === 'alloy' | type === 'special') {
-                layerNames.forEach((layer, index) => {
-                    model.texture(layer, metalTexturePaths[index]);
-                });
-            } else if (type === 'gem') {
-                layerNames.forEach((layer, index) => {
-                    model.texture(layer, gemTexturePaths[index]);
-                })
-            }
-
-            layerNames.forEach((layer, index) => {
-                model.element((element) => {
-                    element.allFaces((face) => {
-                        face.uv(0, 0, 16, 16).tex(layer).tintindex(index);
-                    })
-                })
-            });
-        })
-
         builder.renderType('cutout')
             .tagBoth('c:storage_blocks')
             .tagBoth(`c:storage_blocks/${name}`)
             .tagBlock('minecraft:mineable/pickaxe')
-            .soundType(SoundType.METAL)
             .requiresTool(true)
             .hardness(3)
             .resistance(3)
-
-        if (color) {
-            color.forEach((colorValue, index) => {
-                builder.color(index, colorValue);
-                builder.item((item) => {
-                    item.color(index, colorValue);
-                });
-            });
-        }
 
         if (burnTime) {
             builder.item(i => {
@@ -482,52 +471,227 @@ function registrySBlock(name, type, burnTime, color) {
             })
             builder.tagBoth('fuelgoeshere:forced_fuels')
         }
+
+        if (EE_MATERIALS[name].texture?.block?.parent && EE_MATERIALS[name].texture?.block?.storage_block) {
+            builder.modelGenerator((model) => {
+                model.parent(`${EE_MATERIALS[name].texture?.block?.parent}`)
+                model.texture('layer0', `${global.modid}:${EE_MATERIALS[name].texture?.block?.storage_block}`)
+                model.element((element) => {
+                    element.allFaces((face) => {
+                        face.uv(0, 0, 16, 16).tex('layer0')
+                    })
+                })
+            })
+            return
+        }
+
+        if (color) {
+            builder.modelGenerator((model) => {
+                model.parent('minecraft:block/iron_block')
+                if (type === 'metal' | type === 'alloy' | type === 'special') {
+                    layerNames.forEach((layer, index) => {
+                        model.texture(layer, metalTexturePaths[index]);
+                    });
+                } else if (type === 'gem') {
+                    layerNames.forEach((layer, index) => {
+                        model.texture(layer, gemTexturePaths[index]);
+                    })
+                }
+
+                layerNames.forEach((layer, index) => {
+                    model.element((element) => {
+                        element.allFaces((face) => {
+                            face.uv(0, 0, 16, 16).tex(layer).tintindex(index);
+                        })
+                    })
+                });
+            })
+
+            color.forEach((colorValue, index) => {
+                builder.color(index, colorValue);
+                builder.item((item) => {
+                    item.color(index, colorValue);
+                });
+            });
+        }
     });
 }
 
-/**
- * 
- * @param {String} ptypes 
- * @param {String} name Material's name.
- * @param {String[]} color Color array of materials. It can only have 5 colors, likes this: ['#393e46', '#2e2e2e', '#261e24', '#1f1721', '#1c1c1e']
- * @param {Number} burnTime The combustion value of the material.
- * @param {gemTemplate} gemTemplate 
- */
-function registryItem(ptypes, name, color, burnTime, gemTemplate) {
+function registryIngot(name, burnTime, color, texture) {
     StartupEvents.registry('item', (event) => {
-        let builder = event.create(`${global.modid}:${name}_${ptypes}`)
-            .tag(`c:${ptypes}s`)
-            .tag(`c:${ptypes}s/${name}`);
+        let builder = event.create(`${global.modid}:${name}_ingot`)
+            .tag('c:ingots')
+            .tag(`c:ingots/${name}`);
 
-        if (burnTime) {
+        if (builder) {
             builder.burnTime(burnTime)
             builder.tag('fuelgoeshere:forced_fuels')
         };
+
+        if (EE_MATERIALS[name].texture?.item?.ingot) {
+            builder.texture(`${global.modid}:${EE_MATERIALS[name].texture?.item?.ingot}`)
+            return
+        }
+
         if (color) {
             for (let i = 0; i < color.length; i++) {
-                if (ptypes === 'gem') {
-                    if (name === 'coal_coke') {
-                        builder.texture(`${global.modid}:item/coal_coke_gem`)
-                    } else {
-                        builder.texture(`layer${i}`, `${global.modid}:item/templates/gem/template_${gemTemplate}/0${i}`)
-                            .color(i, color[i])
-                    }
-                } else {
-                    builder.texture(`layer${i}`, `${global.modid}:item/templates/${ptypes}/0${i}`)
-                        .color(i, color[i]);
-                }
+                builder.texture(`layer${i}`, `${global.modid}:item/templates/ingot/0${i}`)
+                    .color(i, color[i]);
             }
         }
-    });
+    })
 };
 
+function registryNugget(name, burnTime, color, texture) {
+    StartupEvents.registry('item', (event) => {
+        let builder = event.create(`${global.modid}:${name}_nugget`)
+            .tag('c:nuggets')
+            .tag(`c:nuggets/${name}`);
 
-/**
- * Description placeholder
- *
- * @param {*} name
- * @param {*} color
- */
+        if (builder) {
+            builder.burnTime(burnTime)
+            builder.tag('fuelgoeshere:forced_fuels')
+        };
+
+        if (EE_MATERIALS[name].texture?.item?.nugget) {
+            builder.texture(`${global.modid}:${EE_MATERIALS[name].texture?.item?.nugget}`)
+            return
+        }
+
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                builder.texture(`layer${i}`, `${global.modid}:item/templates/nugget/0${i}`)
+                    .color(i, color[i]);
+            }
+        }
+    })
+};
+
+function registryGem(name, burnTime, color, gemTemplate, texture) {
+    StartupEvents.registry('item', (event) => {
+        let builder = event.create(`${global.modid}:${name}_gem`)
+            .tag('c:gems')
+            .tag(`c:gems/${name}`);
+
+        if (builder) {
+            builder.burnTime(burnTime)
+            builder.tag('fuelgoeshere:forced_fuels')
+        };
+
+        if (EE_MATERIALS[name].texture?.item?.gem) {
+            builder.texture(`${global.modid}:${EE_MATERIALS[name].texture?.item?.gem}`)
+            return
+        };
+
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                builder.texture(`layer${i}`, `${global.modid}:item/templates/gem/template_${gemTemplate}/0${i}`)
+                    .color(i, color[i])
+            }
+        }
+    })
+}
+
+function registryDust(name, burnTime, color, texture) {
+    StartupEvents.registry('item', (event) => {
+        let builder = event.create(`${global.modid}:${name}_dust`)
+            .tag('c:dusts')
+            .tag(`c:dusts/${name}`);
+
+        if (builder) {
+            builder.burnTime(burnTime)
+            builder.tag('fuelgoeshere:forced_fuels')
+        };
+
+        if (EE_MATERIALS[name].texture?.item?.dust) {
+            builder.texture(`${global.modid}:${EE_MATERIALS[name].texture?.item?.dust}`)
+            return
+        };
+
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                builder.texture(`layer${i}`, `${global.modid}:item/templates/dust/0${i}`)
+                    .color(i, color[i])
+            }
+        }
+    })
+}
+
+function registryGear(name, burnTime, color, texture) {
+    StartupEvents.registry('item', (event) => {
+        let builder = event.create(`${global.modid}:${name}_gear`)
+            .tag('c:gears')
+            .tag(`c:gears/${name}`);
+
+        if (builder) {
+            builder.burnTime(burnTime)
+            builder.tag('fuelgoeshere:forced_fuels')
+        };
+
+        if (EE_MATERIALS[name].texture?.item?.gear) {
+            builder.texture(`${global.modid}:${EE_MATERIALS[name].texture?.item?.gear}`)
+            return
+        };
+
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                builder.texture(`layer${i}`, `${global.modid}:item/templates/gear/0${i}`)
+                    .color(i, color[i])
+            }
+        }
+    })
+}
+
+function registryPlate(name, burnTime, color, texture) {
+    StartupEvents.registry('item', (event) => {
+        let builder = event.create(`${global.modid}:${name}_plate`)
+            .tag('c:plates')
+            .tag(`c:plates/${name}`);
+
+        if (builder) {
+            builder.burnTime(burnTime)
+            builder.tag('fuelgoeshere:forced_fuels')
+        };
+
+        if (EE_MATERIALS[name].texture?.item?.plate) {
+            builder.texture(`${global.modid}:${EE_MATERIALS[name].texture?.item?.plate}`)
+            return
+        };
+
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                builder.texture(`layer${i}`, `${global.modid}:item/templates/plate/0${i}`)
+                    .color(i, color[i])
+            }
+        }
+    })
+}
+
+function registryRod(name, burnTime, color) {
+    StartupEvents.registry('item', (event) => {
+        let builder = event.create(`${global.modid}:${name}_rod`)
+            .tag('c:rods')
+            .tag(`c:rods/${name}`);
+
+        if (builder) {
+            builder.burnTime(burnTime)
+            builder.tag('fuelgoeshere:forced_fuels')
+        };
+
+        if (EE_MATERIALS[name].texture?.item?.rod) {
+            builder.texture(`${global.modid}:${EE_MATERIALS[name].texture?.item?.rod}`)
+            return
+        };
+
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                builder.texture(`layer${i}`, `${global.modid}:item/templates/rod/0${i}`)
+                    .color(i, color[i])
+            }
+        }
+    })
+}
+
 function registryMek(name, color) {
     StartupEvents.registry('item', (event) => {
         let crystal = event.create(`${global.modid}:${name}_crystal`).tag('mekanism:crystals').tag(`mekanism:crystals/${name}`)
@@ -550,13 +714,6 @@ function registryMek(name, color) {
     });
 };
 
-
-/**
- * Description placeholder
- *
- * @param {*} name
- * @param {*} color
- */
 function registryBloodMagic(name, color) {
     StartupEvents.registry('item', (event) => {
         let fragment = event.create(`${global.modid}:${name}_fragment`).tag('bloodmagic:fragments').tag(`bloodmagic:fragments/${name}`);
@@ -573,13 +730,6 @@ function registryBloodMagic(name, color) {
     });
 };
 
-
-/**
- * Description placeholder
- *
- * @param {*} name
- * @param {*} color
- */
 function registryCrush(name, color) {
     StartupEvents.registry('item', (event) => {
         let builder = event.create(`${global.modid}:${name}_crushed_ore`)
@@ -600,29 +750,9 @@ function registryCrush(name, color) {
 
 这一部分主要用于材料的定义。
 
-```JS :collapsed-lines
+```JS
 // Material.js
 // priority: 197
-
-// 在这里可以添加定义材料
-// 一些必须的属性: name、type、processedTypes
-// 一些可选的属性: color、texture、drop、burnTime、gemTemplate、strata、harvestLevel
-// 参数解释:
-// `name`: 定义材料的名称，
-// `type`: 定义材料的类型,可选的有`metal`,`alloy`,`gem`,`special`
-// // `metal`: 不支持 `gem`
-// // `alloy`: 不支持 `gem`、`ore`、`raw`
-// // `gem`: 不支持 `ingot`, `nugget`
-// // `special`: 都支持，但是纹理需要自己准备
-// `processedTypes`: 定义了材料可以有哪些形态
-// // 全部的可支持的形态有: `ore`, `raw`, `gem`, `ingot`, `nugget`, `dust`, `plate`, `gear`, `rod`, `storage_block`, `mekanism`, `bloodmagic`, `crushed`
-// `color`: 因为是使用的灰度模板纹理、所以需要使用该属性为其上颜色
-// `texture`: 使用自定义的纹理
-// `drop`: 当设置改属性后，会自动生成该材料的矿物方块的战利品表，当加工形态中有`ore`时必须设置
-// `burnTime`: 定义该材料的燃烧值
-// `gemTemplate`: 定义了该材料使用的宝石纹理的模版，当`type`为`gem`时必须设置
-// `strata`: 定义了该材料的容矿物，当加工形态中有`ore`时必须设置
-// `harvestLevel`: 定义了该材料的方块形态的加工形态的挖掘等级
 
 let commonStratas = ['stone', 'andesite', 'diorite', 'granite', 'deepslate', 'netherrack', 'end_stone'];
 let vanillaComplementStratas = ['netherrack', 'end_stone'];
@@ -630,10 +760,10 @@ let vanillaComplementStratas = ['netherrack', 'end_stone'];
 /**
  * @type {EEConfig[]}
  */
-global.EE_MATERIALS = [
+let EE_MATERIALS = {
     // Vanilla
     // Coal
-    {
+    coal: {
         name: 'coal',
         type: 'special',
         processedTypes: ['dust'],
@@ -641,7 +771,7 @@ global.EE_MATERIALS = [
         burnTime: 1600
     },
     // Iron
-    {
+    iron: {
         name: 'iron',
         type: 'metal',
         processedTypes: ['ore', 'dust', 'gear', 'plate', 'rod'],
@@ -655,7 +785,7 @@ global.EE_MATERIALS = [
         harvestLevel: 'stone'
     },
     // Copper
-    {
+    copper: {
         name: 'copper',
         type: 'metal',
         processedTypes: ['ore', 'dust', 'gear', 'plate', 'rod'],
@@ -669,7 +799,7 @@ global.EE_MATERIALS = [
         harvestLevel: 'stone'
     },
     // Gold
-    {
+    gold: {
         name: 'gold',
         type: 'metal',
         processedTypes: ['ore', 'dust', 'gear', 'plate', 'rod'],
@@ -683,14 +813,14 @@ global.EE_MATERIALS = [
         harvestLevel: 'iron'
     },
     // Netherite
-    {
+    netherite: {
         name: 'netherite',
         type: 'metal',
         processedTypes: ['nugget', 'dust', 'gear', 'plate', 'rod'],
         color: ['#737173', '#4d494d', '#443d3f', '#31292a', '#271c1d']
     },
     // Diamond
-    {
+    diamond: {
         name: 'diamond',
         type: 'gem',
         processedTypes: ['ore', 'dust', 'gear', 'plate', 'rod'],
@@ -704,7 +834,7 @@ global.EE_MATERIALS = [
         harvestLevel: 'iron'
     },
     // Emerald
-    {
+    emerald: {
         name: 'emerald',
         type: 'gem',
         processedTypes: ['ore', 'dust', 'gear', 'plate', 'rod'],
@@ -718,21 +848,21 @@ global.EE_MATERIALS = [
         harvestLevel: 'iron'
     },
     // Amethyst
-    {
+    amethyst: {
         name: 'amethyst',
         type: 'gem',
         processedTypes: ['dust', 'gear', 'plate', 'rod'],
         color: ['#fcfad2', '#fbc9e3', '#b18cf0', '#8b69ca', '#6e4ea9']
     },
     // Quartz
-    {
+    quartz: {
         name: 'quartz',
         type: 'gem',
         processedTypes: ['dust', 'gear', 'plate', 'rod'],
         color: ['#ffffff', '#eae5de', '#d4caba', '#b6a48e', '#897b73']
     },
     // Lapis
-    {
+    lapis: {
         name: 'lapis',
         type: 'gem',
         processedTypes: ['dust', 'gear'],
@@ -740,7 +870,7 @@ global.EE_MATERIALS = [
     },
     // Universal Modded Metals
     // Aluminum
-    {
+    aluminum: {
         name: 'aluminum',
         type: 'metal',
         processedTypes: ['ore', 'raw', 'ingot', 'nugget', 'dust', 'plate', 'gear', 'rod', 'storage_block', 'bloodmagic'],
@@ -755,7 +885,7 @@ global.EE_MATERIALS = [
         }
     },
     // Osmium
-    {
+    osmium: {
         name: 'osmium',
         type: 'metal',
         processedTypes: ['ore', 'raw', 'ingot', 'nugget', 'dust', 'plate', 'gear', 'rod', 'storage_block', 'bloodmagic'],
@@ -770,7 +900,7 @@ global.EE_MATERIALS = [
         }
     },
     // Lead
-    {
+    lead: {
         name: 'lead',
         type: 'metal',
         processedTypes: ['ore', 'raw', 'ingot', 'nugget', 'dust', 'plate', 'gear', 'rod', 'storage_block', 'bloodmagic'],
@@ -785,7 +915,7 @@ global.EE_MATERIALS = [
         }
     },
     // Nickel
-    {
+    nickel: {
         name: 'nickel',
         type: 'metal',
         processedTypes: ['ore', 'raw', 'ingot', 'nugget', 'dust', 'plate', 'gear', 'rod', 'storage_block', 'mekanism', 'bloodmagic'],
@@ -800,7 +930,7 @@ global.EE_MATERIALS = [
         }
     },
     // Silver
-    {
+    silver: {
         name: 'silver',
         type: 'metal',
         processedTypes: ['ore', 'raw', 'ingot', 'nugget', 'dust', 'plate', 'gear', 'rod', 'storage_block', 'mekanism', 'bloodmagic'],
@@ -815,7 +945,7 @@ global.EE_MATERIALS = [
         }
     },
     // Tin
-    {
+    tin: {
         name: 'tin',
         type: 'metal',
         processedTypes: ['ore', 'raw', 'ingot', 'nugget', 'dust', 'plate', 'gear', 'rod', 'storage_block', 'bloodmagic'],
@@ -830,7 +960,7 @@ global.EE_MATERIALS = [
         }
     },
     // Uranium
-    {
+    uranium: {
         name: 'uranium',
         type: 'metal',
         processedTypes: ['ore', 'raw', 'ingot', 'nugget', 'dust', 'plate', 'gear', 'rod', 'storage_block', 'bloodmagic'],
@@ -845,7 +975,7 @@ global.EE_MATERIALS = [
         }
     },
     // Zinc
-    {
+    zinc: {
         name: 'zinc',
         type: 'metal',
         processedTypes: ['ore', 'raw', 'ingot', 'nugget', 'dust', 'plate', 'gear', 'rod', 'storage_block', 'mekanism', 'bloodmagic'],
@@ -861,7 +991,7 @@ global.EE_MATERIALS = [
     },
     // Universal Modded Gems
     // Sulfur
-    {
+    sulfur: {
         name: 'sulfur',
         type: 'gem',
         processedTypes: ['ore', 'gem', 'dust', 'storage_block'],
@@ -876,7 +1006,7 @@ global.EE_MATERIALS = [
         gemTemplate: 8
     },
     // Niter
-    {
+    niter: {
         name: 'niter',
         type: 'gem',
         processedTypes: ['ore', 'gem', 'dust', 'storage_block'],
@@ -891,7 +1021,7 @@ global.EE_MATERIALS = [
         gemTemplate: 8
     },
     // Fluorite
-    {
+    fluorite: {
         name: 'fluorite',
         type: 'gem',
         processedTypes: ['ore', 'gem', 'dust', 'storage_block'],
@@ -899,9 +1029,13 @@ global.EE_MATERIALS = [
         strata: commonStratas,
         texture: {
             item: {
-
+                gem: 'item/fluorite_gem',
+                dust: 'item/fluorite_dust'
             },
-            block: '',
+            block: {
+                parent: 'minecraft:block/iron_block',
+                storage_block: 'block/fluorite_block'
+            }
         },
         drop: {
             item: 'emendatusenigmatica:fluorite_gem',
@@ -910,7 +1044,7 @@ global.EE_MATERIALS = [
         }
     },
     // Ruby
-    {
+    ruby: {
         name: 'ruby',
         type: 'gem',
         baseItem: 'gem',
@@ -919,7 +1053,7 @@ global.EE_MATERIALS = [
         gemTemplate: 1
     },
     // Sapphire
-    {
+    sapphire: {
         name: 'sapphire',
         type: 'gem',
         baseItem: 'gem',
@@ -929,21 +1063,21 @@ global.EE_MATERIALS = [
     },
     // Misc
     // Wood
-    {
+    wood: {
         name: 'wood',
         type: 'special',
         processedTypes: ['dust', 'storage_block'],
         color: ['#b8945f', '#987849', '#745a36', '#5f4a2b', '#4c3d26']
     },
     // Ender Pearl
-    {
+    ender_pearl: {
         name: 'ender_pearl',
         type: 'special',
         processedTypes: ['dust', 'storage_block'],
         color: ['#8cf4e2', '#349988', '#0c3730', '#0b4d42', '#063931']
     },
     // Coal Coke
-    {
+    coal_coke: {
         name: 'coal_coke',
         type: 'special',
         processedTypes: ['gem', 'dust', 'storage_block'],
@@ -952,12 +1086,15 @@ global.EE_MATERIALS = [
             item: {
                 gem: 'item/coal_coke_gem',
             },
-            block: 'block/coal_coke_block'
+            block: {
+                parent: 'minecraft:block/sand',
+                storage_block: 'block/coal_coke_block'
+            }
         },
         burnTime: 3200
     },
     // Silicon
-    {
+    silicon: {
         name: 'silicon',
         type: 'special',
         processedTypes: ['gem'],
@@ -969,76 +1106,72 @@ global.EE_MATERIALS = [
     },
     // Alloys
     // Electrum
-    {
+    electrum: {
         name: 'electrum',
         type: 'alloy',
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#f4f7eb', '#eded91', '#e5b840', '#a85d1b', '#8c3a0e']
     },
     // Invar
-    {
+    invar: {
         name: 'invar',
         type: 'alloy',
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#ffffff', '#b8c4bf', '#8d9f96', '#5b7669', '#495e57']
     },
     // Constantan
-    {
+    constantan: {
         name: 'constantan',
         type: 'alloy',
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#f0e8d8', '#e5c09e', '#d8876b', '#943a38', '#781e24']
     },
     // Bronze
-    {
+    bronze: {
         name: 'bronze',
         type: 'alloy',
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#ebe9be', '#ebd288', '#d38c53', '#ba5b2f', '#9c3a27']
     },
     // Signalum
-    {
+    signalum: {
         name: 'signalum',
         type: 'alloy',
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#ffe4c9', '#fc8638', '#e55c17', '#993d0f', '#82260d']
     },
     // Lumium
-    {
+    lumium: {
         name: 'lumium',
         type: 'alloy',
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#fdfff7', '#e5f3b5', '#dcd56b', '#bf8c39', '#a87132']
     },
     // Enderium
-    {
+    enderium: {
         name: 'enderium',
         type: 'alloy',
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#5de8cc', '#289799', '#1c5961', '#0b2e47', '#0f1e36']
     },
     // Brass
-    {
+    brass: {
         name: 'brass',
         type: 'alloy',
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#dfedcc', '#c7d477', '#b5a642', '#8c6322', '#6b3c0d']
     },
     // Steel
-    {
+    steel: {
         name: 'steel',
         type: 'alloy',
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#e4e6eb', '#9ea0a3', '#818185', '#454552', '#31313b']
     },
-];
+};
 
-global.EE_MATERIALS.forEach(
-    /**
-     * 
-     * @param {EEConfig} material 
-     */
-    material => {
+Object.entries(EE_MATERIALS).forEach(
+    ([key, material]) => {
         new EmendatusEnigmaticaJS(material).registry();
     }
 );
