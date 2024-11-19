@@ -1305,6 +1305,10 @@
             "text": "模组开发",
             "items": [
                 {
+                    "text": "原版",
+                    "link": "/zh/develop/vanilla/index"
+                },
+                {
                     "text": "模组开发",
                     "link": "/zh/develop/modding/index"
                 },
@@ -1582,6 +1586,46 @@
                     "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_53_Update_1.20.6"
                 }
             ]
+        }
+    ],
+    "zh/develop/vanilla/": [
+        {
+            "text": "原版",
+            "items": [
+                {
+                    "text": "数据包",
+                    "link": "/zh/develop/vanilla/datapack/index"
+                },
+                {
+                    "text": "材质包",
+                    "link": "/zh/develop/vanilla/resourcepack/index"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/develop/vanilla/datapack/": [
+        {
+            "text": "数据包",
+            "items": [
+                {
+                    "text": "介绍",
+                    "link": "/zh/develop/vanilla/datapack/introduction"
+                }
+            ],
+            "collapsed": false
+        }
+    ],
+    "zh/develop/vanilla/resourcepack/": [
+        {
+            "text": "材质包",
+            "items": [
+                {
+                    "text": "介绍",
+                    "link": "/zh/develop/vanilla/resourcepack/introduction"
+                }
+            ],
+            "collapsed": false
         }
     ],
     "zh/info/": [
