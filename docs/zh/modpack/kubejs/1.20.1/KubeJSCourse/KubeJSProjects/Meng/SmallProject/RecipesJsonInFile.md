@@ -15,8 +15,8 @@ authors: ['Gu-meng']
 这里得提前在对应的游戏文件路径下创建`recipes`文件夹，不然会报错找不到路径
 ```js
 ServerEvents.recipes(event=>{
-e.forEachRecipe({},recipe=>{
-    JsonIO.write("./recipes/" + String(recipe.getId()).replace(/:|\//g, '_') + ".json",recipe.json)
+    event.forEachRecipe({},recipe=>{
+        JsonIO.write("./recipes/" + String(recipe.getId()).replace(/:|\//g, '_') + ".json",recipe.json)
     })
 })
 ```
