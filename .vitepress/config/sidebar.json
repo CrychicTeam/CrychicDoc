@@ -2135,7 +2135,7 @@
                         },
                         {
                             "text": "配方添加进阶",
-                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubejsAdvanced/RecipeAdvanced"
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/RecipeAdvanced"
                         },
                         {
                             "text": "物品配方合成返回物品",
@@ -2500,10 +2500,18 @@
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/JukeboxToItem"
                         },
                         {
+                            "text": "按键注册和使用",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RegKey"
+                        },
+                        {
                             "text": "孤梦的小项目",
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/README",
                             "collapsed": true,
                             "items": [
+                                {
+                                    "text": "聊天消息+1",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/Message+1"
+                                },
                                 {
                                     "text": "自动适配台阶合成对应块",
                                     "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/SlabPairBlock"
@@ -2523,6 +2531,18 @@
                                 {
                                     "text": "物品右键获取该物品的方块tag",
                                     "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/BlockItemGetBlockTag"
+                                },
+                                {
+                                    "text": "注册门",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/RegDoor"
+                                },
+                                {
+                                    "text": "双开门",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/DoubleDoor"
+                                },
+                                {
+                                    "text": "检测玩家第一次进游戏",
+                                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/playerInGameOne"
                                 },
                                 {
                                     "text": "获取所有配方json并保存为文件",
