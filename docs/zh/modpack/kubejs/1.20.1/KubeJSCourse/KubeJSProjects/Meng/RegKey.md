@@ -13,13 +13,12 @@ const $KeyMappingRegistry = Java.loadClass("dev.architectury.registry.client.key
 const $KeyMapping = Java.loadClass("net.minecraft.client.KeyMapping");
 const $GLFWkey = Java.loadClass("org.lwjgl.glfw.GLFW");
 
-global.regKeyB = new $KeyMapping(
-  "key.meng.packsack", //按键的组名
-  $GLFWkey.GLFW_KEY_B,
-  "key.keybinding.meng.packsack" //按键的名字
-);
- 
 ClientEvents.init(() => {
+    global.regKeyB = new $KeyMapping(
+        "key.meng.packsack", //按键的组名
+        $GLFWkey.GLFW_KEY_B,
+        "key.keybinding.meng.packsack" //按键的名字
+    );
   $KeyMappingRegistry.register(global.regKeyB);
 });
 ```
