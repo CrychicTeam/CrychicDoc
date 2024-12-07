@@ -218,8 +218,8 @@
                                             "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/Register"
                                         },
                                         {
-                                            "text": "物品类型",
-                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/ItemType"
+                                            "text": "物品属性",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/ItemProperty"
                                         },
                                         {
                                             "text": "资源文件",
@@ -2126,7 +2126,7 @@
                 },
                 {
                     "text": "kjs进阶",
-                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubejsAdvanced/README",
+                    "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/README",
                     "collapsed": true,
                     "items": [
                         {
@@ -2500,8 +2500,16 @@
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/JukeboxToItem"
                         },
                         {
+                            "text": "kjs注册背包",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/Backpack"
+                        },
+                        {
                             "text": "按键注册和使用",
                             "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RegKey"
+                        },
+                        {
+                            "text": "TaCZ的无限子弹",
+                            "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/TaCZUnlimitedBullet"
                         },
                         {
                             "text": "孤梦的小项目",

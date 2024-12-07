@@ -41,9 +41,12 @@ root:
                 - title: 注册物品
                   path: /
                   file: Register
-                - title: 物品类型
+                - title: 物品属性
                   path: /
-                  file: ItemType
+                  file: ItemProperty
+                # - title: 物品类型
+                #   path: /
+                #   file: ItemType
                 - title: 资源文件
                   path: /
                   file: Resource

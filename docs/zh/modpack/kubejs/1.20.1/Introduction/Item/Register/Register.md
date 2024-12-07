@@ -1,32 +1,28 @@
 # 注册物品
 
-## 事件监听
-
-- 事件：StartupEvents.registry('minecraft:item', event => \{ \})
-
-- 语句：create(物品id, 物品类型)
-
-- 示例：注册名为kubejs:demo的物品。
+- 在`startup_script`类型脚本中监听事件: StartupEvents.registry('minecraft:item', event=>{})
+- 选择要注册的物品类型，调用事件的create函数
+- 注册完成后，这个物品还不具有任何实际作用，我们需要为他设置[物品属性](ItemProperty.md)
 
 ::: details 物品类型
 
-|   类型    |   描述    |   可用函数    |
-|:---------:|:---------:|:---------:|
-|   'basic'    |    基础物品    |   -   |
-|   'sword'    |    剑类物品    |   -   |
-|   'pickaxe'    |    镐类物品    |   -   |
-|   'axe'    |    斧类物品    |   -   |
-|   'shovel'    |    锹类物品    |   -   |
-|   'hoe'    |    锄类物品    |   -   |
-|   'helmet'    |    头盔类物品    |   -   |
-|   'chestplate'    |    胸甲类物品    |   -   |
-|   'leggings'    |    护腿类物品    |   -   |
-|   'boots'    |    靴子类物品    |   -   |
-|   'music_disc'    |    唱片类物品    |   -   |
+|   描述    |   值    |
+|:---------:|:---------:|
+|   基础物品    |    'basic'    |
+|   剑类物品    |    'sword'    |
+|   镐类物品    |    'pickaxe'    |
+|   斧类物品    |    'axe'    |
+|   锹类物品    |    'shovel'    |
+|   锄类物品    |    'hoe'    |
+|   头盔类物品    |    'helmet'    |
+|   胸甲类物品    |    'chestplate'    |
+|   护腿类物品    |    'leggings'    |
+|   靴子类物品    |    'boots'    |
+|   唱片类物品    |    'music_disc'    |
 
 :::
 
-::: code-group
+## 基础物品
 
 ```js [KubeJS]
 StartupEvents.registry('minecraft:item', event => {
@@ -34,9 +30,87 @@ StartupEvents.registry('minecraft:item', event => {
 })
 ```
 
-:::
+## 剑类物品
 
-## 常用函数
+```js [剑类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'sword')
+})
+```
+
+## 镐类物品
+
+```js [镐类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'pickaxe')
+})
+```
+
+## 斧类物品
+
+```js [斧类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'axe')
+})
+```
+
+## 锹类物品
+
+```js [锹类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'shovel')
+})
+```
+
+## 锄类物品
+
+```js [锄类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'hoe')
+})
+```
+
+## 头盔类物品
+
+```js [头盔类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'helmet')
+})
+```
+
+## 胸甲类物品
+
+```js [胸甲类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'chestplate')
+})
+```
+
+## 护腿类物品
+
+```js [护腿类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'leggings')
+})
+```
+
+## 靴子类物品
+
+```js [靴子类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'boots' )
+})
+```
+
+## 唱片类物品
+
+```js [唱片类物品]
+StartupEvents.registry('minecraft:item', event => {
+    event.create('kubejs:demo', 'music_disc')
+})
+```
+
+<!-- ## 常用函数
 
 ::: details 基础物品
 
@@ -57,4 +131,4 @@ StartupEvents.registry('minecraft:item', event => {
 |   rarity(Internal.Rarity_)    |    设置物品稀有度。    |   "common"   |
 |   burnTime(number 游戏刻)    |    设置物品在熔炉作为燃料的燃烧时间    |   0   |
 
-:::
+::: -->
