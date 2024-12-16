@@ -264,8 +264,8 @@
                             "collapsed": true,
                             "items": [
                                 {
-                                    "text": "Catalogue",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/potionEffect/Catalogue"
+                                    "text": "状态效果",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/potionEffect/PotionEffect"
                                 }
                             ]
                         },
@@ -569,8 +569,20 @@
                             "collapsed": true,
                             "items": [
                                 {
+                                    "text": "Collection",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Collection"
+                                },
+                                {
+                                    "text": "CompletableFuture",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/CompletableFuture"
+                                },
+                                {
                                     "text": "Components",
                                     "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Components"
+                                },
+                                {
+                                    "text": "CountingMap",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/CountingMap"
                                 },
                                 {
                                     "text": "Ingredient",
@@ -585,12 +597,32 @@
                                     "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/ItemStack"
                                 },
                                 {
+                                    "text": "Lazy",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Lazy"
+                                },
+                                {
+                                    "text": "List",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/List"
+                                },
+                                {
+                                    "text": "Map",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Map"
+                                },
+                                {
                                     "text": "MiscellaneousKnowledge",
                                     "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/MiscellaneousKnowledge"
                                 },
                                 {
                                     "text": "NumberProvider",
                                     "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/NumberProvider"
+                                },
+                                {
+                                    "text": "ParticleOptions",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/ParticleOptions"
+                                },
+                                {
+                                    "text": "Pattern",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Pattern"
                                 },
                                 {
                                     "text": "Providers",
@@ -603,6 +635,26 @@
                                 {
                                     "text": "RecipeFilter",
                                     "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/RecipeFilter"
+                                },
+                                {
+                                    "text": "RegistryInfo",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/RegistryInfo"
+                                },
+                                {
+                                    "text": "Runnable",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Runnable"
+                                },
+                                {
+                                    "text": "SoundEvent",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/SoundEvent"
+                                },
+                                {
+                                    "text": "Stat",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Stat"
+                                },
+                                {
+                                    "text": "Supplier",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Supplier"
                                 }
                             ]
                         }

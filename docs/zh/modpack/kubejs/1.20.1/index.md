@@ -84,10 +84,10 @@ root:
           path: potionEffect
           collapsed: true
           children:
-            # - title: 目录
-            #   path: /
-            #   file: Catalogue
-            #   collapsed: true
+            - title: 状态效果
+              path: /
+              file: PotionEffect
+              collapsed: true
         - title: 配方
           path: recipe
           collapsed: true

@@ -41,14 +41,14 @@ let immutableMap = Utils.emptyMap();
 
 ## expiringLazy
 
-- 该函数接受一个Internal.Supplier_<\T>，一个毫秒数number 返回一个惰性值Internal.Lazy<\T>。
+- 该函数接受一个[Internal.Supplier_\<T\>](../miscellaneous/Supplier.md)，一个毫秒数number 返回一个惰性值[Internal.Lazy\<T\>](../miscellaneous/Lazy.md)。
 - 当内部的值被创建后，经过number毫秒该值会被丢弃，下次使用会重新创建该值。
 
 ```js [KubeJS]
 let lazyTime = Utils.expiringLazy(() => Utils.getSystemTime(), 1000);
 ```
 
-- 在这里传递了一个Internal.Supplier_<\number> 当它被创建时会返回一个代表系统时间(总毫秒数)的数字number，并且在该number创建1s后过期，当过期后再次调用值会被重新创建，未过期时调用始终返回相同的值。
+- 在这里传递了一个[Internal.Supplier_\<number\>](../miscellaneous/Supplier.md) 当它被创建时会返回一个代表系统时间(总毫秒数)的数字number，并且在该number创建1s后过期，当过期后再次调用值会被重新创建，未过期时调用始终返回相同的值。
 
 ## findCreativeTab
 
@@ -71,7 +71,7 @@ let random = Utils.getRandom();
 
 ## getRegistry
 
-- 该函数根据传入的ResourceLocation或string返回对应的注册表信息Internal.RegistryInfo<\T>对象。
+- 该函数根据传入的ResourceLocation或string返回对应的注册表信息[Internal.RegistryInfo\<T\>](../miscellaneous/RegistryInfo.md)对象。
 
 ```js [KubeJS]
 let registry = Utils.getRegistry("minecraft:block");
@@ -106,8 +106,8 @@ Utils.getSound("minecraft:entity.player.levelup");
 
 ## getStat
 
-- 该函数根据传递的ResourceLocation或string返回玩家的统计数据Internal.Stat<\ResouceLocation>对象。
-
+- 该函数根据传递的ResourceLocation或string返回玩家的统计数据[Internal.Stat\<ResouceLocation\>](../miscellaneous/Stat.md)对象。
+a
 ```js [KubeJS]
 Utils.getStat("minecraft:broken")
 ```
@@ -176,7 +176,7 @@ let countingMap = Utils.newCountingMap();
 
 ## newList
 
-- 该函数返回一个新的可变列表(mutable list)，Internal.List\<T\>对象。
+- 该函数返回一个新的可变列表(mutable list)，[Internal.List\<T\>](../miscellaneous/List.md)对象。
 
 ```js [KubeJS]
 let list = Utils.newList();
@@ -184,7 +184,7 @@ let list = Utils.newList();
 
 ## newMap
 
-- 该函数返回一个新的可变Map(mutable map)，Internal.Map\<K, V\>对象
+- 该函数返回一个新的可变Map(mutable map)，[Internal.Map\<K, V\>](../miscellaneous/Map.md)对象
 
 ```js [KubeJS]
 let map = Utils.newMap();
@@ -226,7 +226,7 @@ let intNum = Utils.parseInt(0.0, 0);
 
 ## particleOptions
 
-- 意义未明，接受参数any，返回Internal.ParticleOptions对象。
+- 意义未明，接受参数any，返回[Internal.ParticleOptions](../miscellaneous/ParticleOptions.md)对象。
 
 ```js [KubeJS]
 // 暂无可参考示例
