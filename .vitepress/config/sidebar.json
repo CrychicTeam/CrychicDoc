@@ -199,7 +199,7 @@
                     "items": [
                         {
                             "text": "介绍",
-                            "link": "/zh/modpack/kubejs/1.20.1/introduction/Description"
+                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Description"
                         },
                         {
                             "text": "物品",
@@ -211,15 +211,15 @@
                                     "items": [
                                         {
                                             "text": "注册物品",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/item/register/Register"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/Register"
                                         },
                                         {
                                             "text": "物品属性",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/item/register/ItemProperty"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/ItemProperty"
                                         },
                                         {
                                             "text": "资源文件",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/item/register/Resource"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/Resource"
                                         }
                                     ]
                                 }
@@ -235,7 +235,7 @@
                                     "items": [
                                         {
                                             "text": "注册",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/block/register/Register"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Register/Register"
                                         }
                                     ]
                                 }
@@ -247,15 +247,15 @@
                             "items": [
                                 {
                                     "text": "生成",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/entity/Spawn"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Entity/Spawn"
                                 },
                                 {
                                     "text": "状态效果",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/entity/PotionEffects"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Entity/PotionEffects"
                                 },
                                 {
                                     "text": "属性",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/entity/Attribute"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Entity/Attribute"
                                 }
                             ]
                         },
@@ -265,7 +265,7 @@
                             "items": [
                                 {
                                     "text": "状态效果",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/potionEffect/PotionEffect"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/PotionEffect/PotionEffect"
                                 }
                             ]
                         },
@@ -275,11 +275,11 @@
                             "items": [
                                 {
                                     "text": "修改配方",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/recipe/ModifyRecipe"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/ModifyRecipe"
                                 },
                                 {
                                     "text": "删除配方",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/recipe/DeleteRecipe"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/DeleteRecipe"
                                 },
                                 {
                                     "text": "添加配方",
@@ -291,31 +291,31 @@
                                             "items": [
                                                 {
                                                     "text": "工作台",
-                                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/recipe/addRecipe/Vanilla/CraftingTable"
+                                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/CraftingTable"
                                                 },
                                                 {
                                                     "text": "熔炉",
-                                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/recipe/addRecipe/Vanilla/Furnace"
+                                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Furnace"
                                                 },
                                                 {
                                                     "text": "高炉",
-                                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/recipe/addRecipe/Vanilla/BlastFurnace"
+                                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/BlastFurnace"
                                                 },
                                                 {
                                                     "text": "烟熏炉",
-                                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/recipe/addRecipe/Vanilla/Smoker"
+                                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Smoker"
                                                 },
                                                 {
                                                     "text": "营火",
-                                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/recipe/addRecipe/Vanilla/Campfire"
+                                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Campfire"
                                                 },
                                                 {
                                                     "text": "锻造台",
-                                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/recipe/addRecipe/Vanilla/SmithingTable"
+                                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/SmithingTable"
                                                 },
                                                 {
                                                     "text": "切石机",
-                                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/recipe/addRecipe/Vanilla/Stonecutter"
+                                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Stonecutter"
                                                 }
                                             ]
                                         }
@@ -329,30 +329,30 @@
                             "items": [
                                 {
                                     "text": "介绍",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/Description"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Description"
                                 },
                                 {
                                     "text": "基础知识",
                                     "items": [
                                         {
                                             "text": "战利品表类型",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/basicKnowledge/LootType"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/LootType"
                                         },
                                         {
                                             "text": "随机池",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/basicKnowledge/LootPool"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/LootPool"
                                         },
                                         {
                                             "text": "抽取项",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/basicKnowledge/LootEntry"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/LootEntry"
                                         },
                                         {
                                             "text": "谓词",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/basicKnowledge/Predicate"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/Predicate"
                                         },
                                         {
                                             "text": "物品修饰器",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/basicKnowledge/ItemModifier"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/ItemModifier"
                                         }
                                     ]
                                 },
@@ -361,27 +361,27 @@
                                     "items": [
                                         {
                                             "text": "方块战利品表",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/vanilla/Block"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Block"
                                         },
                                         {
                                             "text": "实体战利品表",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/vanilla/Entity"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Entity"
                                         },
                                         {
                                             "text": "钓鱼战利品表",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/vanilla/Fish"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Fish"
                                         },
                                         {
                                             "text": "礼物战利品表",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/vanilla/Gift"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Gift"
                                         },
                                         {
                                             "text": "箱子战利品表",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/vanilla/Chest"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Chest"
                                         },
                                         {
                                             "text": "通用战利品表",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/lootTable/vanilla/Generic"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Generic"
                                         }
                                     ]
                                 }
@@ -393,34 +393,34 @@
                             "items": [
                                 {
                                     "text": "介绍",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/tag/Description"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Description"
                                 },
                                 {
                                     "text": "原版标签类型",
                                     "items": [
                                         {
                                             "text": "物品标签",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/tag/Item"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Item"
                                         },
                                         {
                                             "text": "方块标签",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/tag/Block"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Block"
                                         },
                                         {
                                             "text": "生物类型标签",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/tag/EntityType"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/EntityType"
                                         },
                                         {
                                             "text": "流体标签",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/tag/Fluid"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Fluid"
                                         },
                                         {
                                             "text": "生物群系标签",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/tag/Biome"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Biome"
                                         },
                                         {
                                             "text": "结构标签",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/tag/Structure"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Structure"
                                         }
                                     ]
                                 }
@@ -436,7 +436,7 @@
                                     "items": [
                                         {
                                             "text": "事件列表",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/event/serverScript/EventList"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ServerScript/EventList"
                                         },
                                         {
                                             "text": "事件示例",
@@ -444,11 +444,11 @@
                                             "items": [
                                                 {
                                                     "text": "命令注册事件",
-                                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/event/serverScript/example/CommandRegistry"
+                                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ServerScript/Example/CommandRegistry"
                                                 },
                                                 {
                                                     "text": "实体交互事件",
-                                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/event/serverScript/example/EntityInteracted"
+                                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ServerScript/Example/EntityInteracted"
                                                 }
                                             ]
                                         }
@@ -460,7 +460,7 @@
                                     "items": [
                                         {
                                             "text": "事件列表",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/event/clientScript/EventList"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ClientScript/EventList"
                                         }
                                     ]
                                 },
@@ -470,7 +470,7 @@
                                     "items": [
                                         {
                                             "text": "事件列表",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/event/startupScript/EventList"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/StartupScript/EventList"
                                         }
                                     ]
                                 }
@@ -486,27 +486,27 @@
                                     "items": [
                                         {
                                             "text": "LootJs",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/addon/LootJs/LootJs"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/LootJs"
                                         },
                                         {
                                             "text": "Conditions",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/addon/LootJs/Conditions"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Conditions"
                                         },
                                         {
                                             "text": "LootEntry",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/addon/LootJs/LootEntry"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/LootEntry"
                                         },
                                         {
                                             "text": "Event",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/addon/LootJs/Event"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Event"
                                         },
                                         {
                                             "text": "Functions",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/addon/LootJs/Functions"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Functions"
                                         },
                                         {
                                             "text": "Type",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/addon/LootJs/Type"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Type"
                                         }
                                     ]
                                 },
@@ -516,15 +516,15 @@
                                     "items": [
                                         {
                                             "text": "使用方法",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/addon/ProbeJS/ProbeJS"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/ProbeJS"
                                         },
                                         {
                                             "text": "JSDoc",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/addon/ProbeJS/JSDoc"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/JSDoc"
                                         },
                                         {
                                             "text": "ProbeJS类型文件",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/addon/ProbeJS/ProbeJSClassFlie"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/ProbeJSClassFlie"
                                         }
                                     ]
                                 }
@@ -536,11 +536,11 @@
                             "items": [
                                 {
                                     "text": "简述",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/globalScope/Description"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Description"
                                 },
                                 {
                                     "text": "实用工具",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/globalScope/Utils"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Utils"
                                 },
                                 {
                                     "text": "类",
@@ -548,7 +548,7 @@
                                     "items": [
                                         {
                                             "text": "ResourceLocation",
-                                            "link": "/zh/modpack/kubejs/1.20.1/introduction/globalScope/classes/resourceLocation"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Classes/resourceLocation"
                                         }
                                     ]
                                 }
@@ -560,7 +560,7 @@
                             "items": [
                                 {
                                     "text": "简述",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/network/Description"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Network/Description"
                                 }
                             ]
                         },
@@ -570,87 +570,87 @@
                             "items": [
                                 {
                                     "text": "介绍",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Description"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Description"
                                 },
                                 {
                                     "text": "Collection",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Collection"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Collection"
                                 },
                                 {
                                     "text": "CompletableFuture",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/CompletableFuture"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/CompletableFuture"
                                 },
                                 {
                                     "text": "Components",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Components"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Components"
                                 },
                                 {
                                     "text": "CountingMap",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/CountingMap"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/CountingMap"
                                 },
                                 {
                                     "text": "Ingredient",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Ingredient"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Ingredient"
                                 },
                                 {
                                     "text": "IngredientActionFilter",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/IngredientActionFilter"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/IngredientActionFilter"
                                 },
                                 {
                                     "text": "ItemStack",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/ItemStack"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/ItemStack"
                                 },
                                 {
                                     "text": "Lazy",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Lazy"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Lazy"
                                 },
                                 {
                                     "text": "Map",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Map"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Map"
                                 },
                                 {
                                     "text": "NumberProvider",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/NumberProvider"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/NumberProvider"
                                 },
                                 {
                                     "text": "ParticleOptions",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/ParticleOptions"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/ParticleOptions"
                                 },
                                 {
                                     "text": "Pattern",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Pattern"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Pattern"
                                 },
                                 {
                                     "text": "Providers",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Providers"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Providers"
                                 },
                                 {
                                     "text": "Random",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Random"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Random"
                                 },
                                 {
                                     "text": "RecipeFilter",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/RecipeFilter"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/RecipeFilter"
                                 },
                                 {
                                     "text": "RegistryInfo",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/RegistryInfo"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/RegistryInfo"
                                 },
                                 {
                                     "text": "Runnable",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Runnable"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Runnable"
                                 },
                                 {
                                     "text": "SoundEvent",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/SoundEvent"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/SoundEvent"
                                 },
                                 {
                                     "text": "Stat",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Stat"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Stat"
                                 },
                                 {
                                     "text": "Supplier",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Supplier"
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Supplier"
                                 }
                             ]
                         }
@@ -662,23 +662,23 @@
                     "items": [
                         {
                             "text": "PainterAPI血条",
-                            "link": "/zh/modpack/kubejs/1.20.1/codeshare/Painter"
+                            "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Painter"
                         },
                         {
                             "text": "自定义方块打开工作台界面",
-                            "link": "/zh/modpack/kubejs/1.20.1/codeshare/CraftingTableGUI"
+                            "link": "/zh/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI"
                         },
                         {
                             "text": "死亡扣除生命上限",
-                            "link": "/zh/modpack/kubejs/1.20.1/codeshare/LifeValue"
+                            "link": "/zh/modpack/kubejs/1.20.1/CodeShare/LifeValue"
                         },
                         {
                             "text": "反向骨粉",
-                            "link": "/zh/modpack/kubejs/1.20.1/codeshare/InvertedBonemeal"
+                            "link": "/zh/modpack/kubejs/1.20.1/CodeShare/InvertedBonemeal"
                         },
                         {
                             "text": "饱和修补",
-                            "link": "/zh/modpack/kubejs/1.20.1/codeshare/Dining"
+                            "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Dining"
                         }
                     ]
                 }
