@@ -7,7 +7,6 @@ state: preliminary
 
 >[!TIP] 介绍
 >KubeJS提供的一系列全局函数，可通过Utils.调用。
-
 >[!WARNING] 提示
 > 部分示例参考价值较低，需要更好的示例。
 
@@ -107,7 +106,7 @@ Utils.getSound("minecraft:entity.player.levelup");
 ## getStat
 
 - 该函数根据传递的ResourceLocation或string返回玩家的统计数据[Internal.Stat\<ResouceLocation\>](../miscellaneous/Stat.md)对象。
-a
+
 ```js [KubeJS]
 Utils.getStat("minecraft:broken")
 ```
