@@ -12,12 +12,18 @@
 
 - 示例：numberSupplier = () => 0; 它表示一个Supplier\<number\>
 - 可以看到它只是一个箭头函数，Supplier\<number\>在这里通过一个返回值为number类型的箭头函数表示。
+- 当需要求值时，就像调用普通函数那样。
 
-```js
-let lazyLocation = Utils.lazy(() => new ResourceLocation("kubejs:demo"));
+```js [KubeJS]
+let numberSupplier = () => 666;
+let num = numberSupplier();
 ```
 
 - 以Utils.lazy()函数为例，该函数接受一个Supplier\<any\>，这里传递了一个Supplier\<ResourceLocation\>，只有调用lazyLocation的get()方法时，new ResourceLocation("kubejs:demo")才会真正被执行并返回它的值。
+
+```js [KubeJS]
+let lazyLocation = Utils.lazy(() => new ResourceLocation("kubejs:demo"));
+```
 
 ## 在Java中
 
