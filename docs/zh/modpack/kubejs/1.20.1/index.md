@@ -21,21 +21,21 @@ root:
   collapsed: false
   children:
     - title: 基础
-      path: introduction
+      path: Introduction
       collapsed: false
       children:
         - title: 介绍
           path: /
           file: Description
         - title: 物品
-          path: item
+          path: Item
           collapsed: true
           children:
             # - title: 目录
             #   path: /
             #   file: Catalogue
             - title: 注册
-              path: register
+              path: Register
               collapsed: true
               children:
                 - title: 注册物品
@@ -51,21 +51,21 @@ root:
                   path: /
                   file: Resource
         - title: 方块
-          path: block
+          path: Block
           collapsed: true
           children:
             # - title: 目录
             #   path: /
             #   file: Catalogue
             - title: 注册
-              path: register
+              path: Register
               collapsed: true
               children:
                 - title: 注册
                   path: /
                   file: Register
         - title: 实体
-          path: entity
+          path: Entity
           collapsed: true
           children:
             # - title: 目录
@@ -81,7 +81,7 @@ root:
               path: /
               file: Attribute
         - title: 状态效果
-          path: potionEffect
+          path: PotionEffect
           collapsed: true
           children:
             - title: 状态效果
@@ -89,7 +89,7 @@ root:
               file: PotionEffect
               collapsed: true
         - title: 配方
-          path: recipe
+          path: Recipe
           collapsed: true
           children:
             # - title: 目录
@@ -102,7 +102,7 @@ root:
               path: /
               file: DeleteRecipe
             - title: 添加配方
-              path: addRecipe
+              path: AddRecipe
               collapsed: true
               children:
                 - title: 原版配方
@@ -131,7 +131,7 @@ root:
                       path: /
                       file: Stonecutter
         - title: 战利品表
-          path: lootTable
+          path: LootTable
           collapsed: true
           children:
             # - title: 目录
@@ -141,7 +141,7 @@ root:
               path: /
               file: Description
             - title: 基础知识
-              path: basicKnowledge
+              path: BasicKnowledge
               children:
                 - title: 战利品表类型
                   path: /
@@ -159,7 +159,7 @@ root:
                   path: /
                   file: ItemModifier
             - title: 原版战利品表类型
-              path: vanilla
+              path: Vanilla
               children:
                 - title: 方块战利品表
                   path: /
@@ -180,7 +180,7 @@ root:
                   path: /
                   file: Generic
         - title: 标签
-          path: tag
+          path: Tag
           collapsed: true
           children:
             # - title: 目录
@@ -211,18 +211,18 @@ root:
                   path: /
                   file: Structure
         - title: 事件
-          path: event
+          path: Event
           collapsed: true
           children:
             - title: 服务端脚本
-              path: serverScript
+              path: ServerScript
               collapsed: true
               children:
                 - title: 事件列表
                   path: /
                   file: EventList
                 - title: 事件示例
-                  path: example
+                  path: Example
                   collapsed: true
                   children:
                     - title: 命令注册事件
@@ -232,21 +232,21 @@ root:
                       path: /
                       file: EntityInteracted
             - title: 客户端脚本
-              path: clientScript
+              path: ClientScript
               collapsed: true
               children:
                 - title: 事件列表
                   path: /
                   file: EventList
             - title: 启动脚本
-              path: startupScript
+              path: StartupScript
               collapsed: true
               children:
                 - title: 事件列表
                   path: /
                   file: EventList
         - title: 附属
-          path: addon
+          path: Addon
           collapsed: true
           children:
             - title: LootJs
@@ -285,7 +285,7 @@ root:
                   path: /
                   file: ProbeJSClassFlie
         - title: 全局范围
-          path: globalScope
+          path: GlobalScope
           collapsed: true
           children:
             - title: 简述
@@ -295,14 +295,14 @@ root:
               path: /
               file: Utils
             - title: 类
-              path: classes
+              path: Classes
               collapsed: true
               children:
                 - title: ResourceLocation
                   path: /
                   file: resourceLocation
         - title: 网络通信
-          path: network
+          path: Network
           collapsed: true
           children:
             - title: 简述
@@ -310,72 +310,72 @@ root:
               file: Description
               collapsed: true
         - title: 杂项知识
-          path: miscellaneous
+          path: Miscellaneous
           collapsed: true
           children:
             - title: 介绍
               path: /
-              file:  Description
+              file: Description
             - title: Collection
               path: /
-              file:  Collection
+              file: Collection
             - title: CompletableFuture
               path: /
-              file:  CompletableFuture
+              file: CompletableFuture
             - title: Components
               path: /
-              file:  Components
+              file: Components
             - title: CountingMap
               path: /
-              file:  CountingMap
+              file: CountingMap
             - title: Ingredient
               path: /
-              file:  Ingredient
+              file: Ingredient
             - title: IngredientActionFilter
               path: /
-              file:  IngredientActionFilter
+              file: IngredientActionFilter
             - title: ItemStack
               path: /
-              file:  ItemStack
+              file: ItemStack
             - title: Lazy
               path: /
-              file:  Lazy
+              file: Lazy
             - title: Map
               path: /
-              file:  Map
+              file: Map
             - title: NumberProvider
               path: /
-              file:  NumberProvider
+              file: NumberProvider
             - title: ParticleOptions
               path: /
-              file:  ParticleOptions
+              file: ParticleOptions
             - title: Pattern
               path: /
-              file:  Pattern
+              file: Pattern
             - title: Providers
               path: /
-              file:  Providers  
+              file: Providers  
             - title: Random
               path: /
-              file:  Random
+              file: Random
             - title: RecipeFilter
               path: /
-              file:  RecipeFilter
+              file: RecipeFilter
             - title: RegistryInfo
               path: /
-              file:  RegistryInfo 
+              file: RegistryInfo
             - title: Runnable
               path: /
-              file:  Runnable   
+              file: Runnable
             - title: SoundEvent
               path: /
-              file:  SoundEvent
+              file: SoundEvent
             - title: Stat
               path: /
-              file:  Stat  
+              file: Stat
             - title: Supplier
               path: /
-              file:  Supplier
+              file: Supplier
     # - title: 进阶
     #   path: Upgrade
     #   collapsed: false
@@ -389,7 +389,7 @@ root:
     #           collapsed: true
     #           noScan: false
     - title: 代码分享
-      path: codeshare
+      path: CodeShare
       collapsed: true
       children:
       - title: PainterAPI血条
