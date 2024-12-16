@@ -569,6 +569,10 @@
                             "collapsed": true,
                             "items": [
                                 {
+                                    "text": "介绍",
+                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Description"
+                                },
+                                {
                                     "text": "Collection",
                                     "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Collection"
                                 },
@@ -601,16 +605,8 @@
                                     "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Lazy"
                                 },
                                 {
-                                    "text": "List",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/List"
-                                },
-                                {
                                     "text": "Map",
                                     "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/Map"
-                                },
-                                {
-                                    "text": "MiscellaneousKnowledge",
-                                    "link": "/zh/modpack/kubejs/1.20.1/introduction/miscellaneous/MiscellaneousKnowledge"
                                 },
                                 {
                                     "text": "NumberProvider",

@@ -304,17 +304,78 @@ root:
         - title: 网络通信
           path: network
           collapsed: true
-          noScan: false
           children:
             - title: 简述
               path: /
               file: Description
               collapsed: true
-              noScan: false
         - title: 杂项知识
           path: miscellaneous
           collapsed: true
-          noScan: false
+          children:
+            - title: 介绍
+              path: /
+              file:  Description
+            - title: Collection
+              path: /
+              file:  Collection
+            - title: CompletableFuture
+              path: /
+              file:  CompletableFuture
+            - title: Components
+              path: /
+              file:  Components
+            - title: CountingMap
+              path: /
+              file:  CountingMap
+            - title: Ingredient
+              path: /
+              file:  Ingredient
+            - title: IngredientActionFilter
+              path: /
+              file:  IngredientActionFilter
+            - title: ItemStack
+              path: /
+              file:  ItemStack
+            - title: Lazy
+              path: /
+              file:  Lazy
+            - title: Map
+              path: /
+              file:  Map
+            - title: NumberProvider
+              path: /
+              file:  NumberProvider
+            - title: ParticleOptions
+              path: /
+              file:  ParticleOptions
+            - title: Pattern
+              path: /
+              file:  Pattern
+            - title: Providers
+              path: /
+              file:  Providers  
+            - title: Random
+              path: /
+              file:  Random
+            - title: RecipeFilter
+              path: /
+              file:  RecipeFilter
+            - title: RegistryInfo
+              path: /
+              file:  RegistryInfo 
+            - title: Runnable
+              path: /
+              file:  Runnable   
+            - title: SoundEvent
+              path: /
+              file:  SoundEvent
+            - title: Stat
+              path: /
+              file:  Stat  
+            - title: Supplier
+              path: /
+              file:  Supplier
     # - title: 进阶
     #   path: Upgrade
     #   collapsed: false
