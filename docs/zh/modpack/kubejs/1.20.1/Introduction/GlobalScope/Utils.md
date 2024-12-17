@@ -40,14 +40,14 @@ let immutableMap = Utils.emptyMap();
 
 ## expiringLazy
 
-- 该函数接受一个[Internal.Supplier_\<T\>](../miscellaneous/Supplier.md)，一个毫秒数number 返回一个惰性值[Internal.Lazy\<T\>](../miscellaneous/Lazy.md)。
+- 该函数接受一个[Internal.Supplier_\<T\>](../Miscellaneous/Supplier.md)，一个毫秒数number 返回一个惰性值[Internal.Lazy\<T\>](../Miscellaneous/Lazy.md)。
 - 当内部的值被创建后，经过number毫秒该值会被丢弃，下次使用会重新创建该值。
 
 ```js [KubeJS]
 let lazyTime = Utils.expiringLazy(() => Utils.getSystemTime(), 1000);
 ```
 
-- 在这里传递了一个[Internal.Supplier_\<number\>](../miscellaneous/Supplier.md) 当它被创建时会返回一个代表系统时间(总毫秒数)的数字number，并且在该number创建1s后过期，当过期后再次调用值会被重新创建，未过期时调用始终返回相同的值。
+- 在这里传递了一个[Internal.Supplier_\<number\>](../Miscellaneous/Supplier.md) 当它被创建时会返回一个代表系统时间(总毫秒数)的数字number，并且在该number创建1s后过期，当过期后再次调用值会被重新创建，未过期时调用始终返回相同的值。
 
 ## findCreativeTab
 
@@ -61,7 +61,7 @@ let creativeTab = Utils.findCreativeTab("minecraft:combat");
 
 ## getRandom
 
-- 该函数始终返回同一个[Random](../miscellaneous/Random.md)对象。
+- 该函数始终返回同一个[Random](../Miscellaneous/Random.md)对象。
 - 可以使用该对象来生成随机数。
 
 ```js [KubeJS]
@@ -70,7 +70,7 @@ let random = Utils.getRandom();
 
 ## getRegistry
 
-- 该函数根据传入的ResourceLocation或string返回对应的注册表信息[Internal.RegistryInfo\<T\>](../miscellaneous/RegistryInfo.md)对象。
+- 该函数根据传入的ResourceLocation或string返回对应的注册表信息[Internal.RegistryInfo\<T\>](../Miscellaneous/RegistryInfo.md)对象。
 
 ```js [KubeJS]
 let registry = Utils.getRegistry("minecraft:block");
@@ -95,7 +95,7 @@ let server = Utils.getServer()
 
 ## getSound
 
-- 该函数根据传入的ResourceLocation或string返回对应的声音[Internal.SoundEvent](../miscellaneous/SoundEvent.md)对象。
+- 该函数根据传入的ResourceLocation或string返回对应的声音[Internal.SoundEvent](../Miscellaneous/SoundEvent.md)对象。
 
 ```js [KubeJS]
 Utils.getSound("minecraft:entity.player.levelup");
@@ -105,7 +105,7 @@ Utils.getSound("minecraft:entity.player.levelup");
 
 ## getStat
 
-- 该函数根据传递的ResourceLocation或string返回玩家的统计数据[Internal.Stat\<ResouceLocation\>](../miscellaneous/Stat.md)对象。
+- 该函数根据传递的ResourceLocation或string返回玩家的统计数据[Internal.Stat\<ResouceLocation\>](../Miscellaneous/Stat.md)对象。
 
 ```js [KubeJS]
 Utils.getStat("minecraft:broken")
@@ -158,7 +158,7 @@ let boo = Utils.isWrapped(obj);
 
 ## lazy
 
-- 该函数接受一个[Internal.Supplier_\<T\>](../miscellaneous/Supplier.md) 返回一个惰性值[Internal.Lazy\<T\>](../miscellaneous/Lazy.md)对象。
+- 该函数接受一个[Internal.Supplier_\<T\>](../Miscellaneous/Supplier.md) 返回一个惰性值[Internal.Lazy\<T\>](../Miscellaneous/Lazy.md)对象。
 - 可用于延迟对象的实例化。
 
 ```js [KubeJS]
@@ -167,7 +167,7 @@ let lazyLocation = Utils.lazy(() => new ResourceLocation("kubejs:demo"));
 
 ## newCountingMap
 
-- 该函数返回一个[Internal.CountingMap](../miscellaneous/CountingMap.md)对象。
+- 该函数返回一个[Internal.CountingMap](../Miscellaneous/CountingMap.md)对象。
 
 ```js [KubeJS]
 let countingMap = Utils.newCountingMap();
@@ -175,7 +175,7 @@ let countingMap = Utils.newCountingMap();
 
 ## newList
 
-- 该函数返回一个新的可变列表(mutable list)，[Internal.List\<T\>](../miscellaneous/List.md)对象。
+- 该函数返回一个新的可变列表(mutable list)，[Internal.List\<T\>](../Miscellaneous/List.md)对象。
 
 ```js [KubeJS]
 let list = Utils.newList();
@@ -183,7 +183,7 @@ let list = Utils.newList();
 
 ## newMap
 
-- 该函数返回一个新的可变Map(mutable map)，[Internal.Map\<K, V\>](../miscellaneous/Map.md)对象
+- 该函数返回一个新的可变Map(mutable map)，[Internal.Map\<K, V\>](../Miscellaneous/Map.md)对象
 
 ```js [KubeJS]
 let map = Utils.newMap();
@@ -191,7 +191,7 @@ let map = Utils.newMap();
 
 ## newRandom
 
-- 该函数接受给定的种子number，返回一个新的[Random](../miscellaneous/Random.md)对象
+- 该函数接受给定的种子number，返回一个新的[Random](../Miscellaneous/Random.md)对象
 
 ```js [KubeJS]
 let newRandom = Utils.newRandom(112233445566);
@@ -225,7 +225,7 @@ let intNum = Utils.parseInt(0.0, 0);
 
 ## particleOptions
 
-- 意义未明，接受参数any，返回[Internal.ParticleOptions](../miscellaneous/ParticleOptions.md)对象。
+- 意义未明，接受参数any，返回[Internal.ParticleOptions](../Miscellaneous/ParticleOptions.md)对象。
 
 ```js [KubeJS]
 // 暂无可参考示例
@@ -233,7 +233,7 @@ let intNum = Utils.parseInt(0.0, 0);
 
 ## queueIO
 
-- 立即在try-catch中运行传递的函数[Internal.Runnable_](../miscellaneous/Runnable.md)记录并抛出异常
+- 立即在try-catch中运行传递的函数[Internal.Runnable_](../Miscellaneous/Runnable.md)记录并抛出异常
 
 ```js [KubeJS]
 Utils.queueIO(() => {console.log("message")});
@@ -241,7 +241,7 @@ Utils.queueIO(() => {console.log("message")});
 
 ## randomOf
 
-- 使用传入的第一个参数[Internal.Random_](../miscellaneous/Random.md)在列表[Internal.Collection_\<T\>](../miscellaneous/Collection.md)(第二个参数)中随机获取一个对象
+- 使用传入的第一个参数[Internal.Random_](../Miscellaneous/Random.md)在列表[Internal.Collection_\<T\>](../Miscellaneous/Collection.md)(第二个参数)中随机获取一个对象
 
 ```js [KubeJS]
 let randomElement = Utils.randomOf(Utils.getRandom(), [1, 2, 3, 4]);
@@ -249,7 +249,7 @@ let randomElement = Utils.randomOf(Utils.getRandom(), [1, 2, 3, 4]);
 
 ## regex
 
-- 该函数返回字符串的正则表达式模板[Internal.Pattern](../miscellaneous/Pattern.md)。
+- 该函数返回字符串的正则表达式模板[Internal.Pattern](../Miscellaneous/Pattern.md)。
 
 ::: code-group
 
@@ -268,8 +268,8 @@ let pattern = Utils.regex("hello", 0);
 
 ## rollChestLoot
 
-1. 根据给定的ResourceLocation或string参数触发战利品表，返回物品列表。[Internal.List\<Internal.ItemStack\>](../miscellaneous/List.md)对象。
-2. 根据给定的ResourceLocation或string参数以及一个实体参数触发战利品表，返回物品列表。[Internal.List\<Internal.ItemStack\>](../miscellaneous/List.md)对象。
+1. 根据给定的ResourceLocation或string参数触发战利品表，返回物品列表。[Internal.List\<Internal.ItemStack\>](../Miscellaneous/List.md)对象。
+2. 根据给定的ResourceLocation或string参数以及一个实体参数触发战利品表，返回物品列表。[Internal.List\<Internal.ItemStack\>](../Miscellaneous/List.md)对象。
 
 ::: code-group
 
@@ -286,7 +286,7 @@ let itemList = Utils.rollChestLoot("minecraft:chests/village/village_armorer", p
 
 ## runAsync
 
-- 在KubeJS的后台线程中运行提供的可运行函数，并返回它的[CompletableFuture](../miscellaneous/CompletableFuture.md)对象。
+- 在KubeJS的后台线程中运行提供的可运行函数，并返回它的[CompletableFuture](../Miscellaneous/CompletableFuture.md)对象。
 
 ```js [KubeJS]
 let compleTableFuture = Utils.runAsync(() => console.log("message"));
@@ -310,7 +310,7 @@ let stringName = Utils.snakeCaseToCamelCase("string_name");
 
 ##
 
-- 在KubeJS的后台线程中运行提供的[Internal.Supplier_\<T\>](../miscellaneous/Supplier.md)函数，并返回它的[CompletableFuture\<T\>](../miscellaneous/CompletableFuture.md)
+- 在KubeJS的后台线程中运行提供的[Internal.Supplier_\<T\>](../Miscellaneous/Supplier.md)函数，并返回它的[CompletableFuture\<T\>](../Miscellaneous/CompletableFuture.md)
 
 ```js [KubeJS]
 let compleTableFuture = Utils.supplyAsync(() => 1);
