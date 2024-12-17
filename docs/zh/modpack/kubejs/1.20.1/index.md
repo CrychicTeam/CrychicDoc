@@ -389,7 +389,7 @@ root:
     #           collapsed: true
     #           noScan: false
     - title: 代码分享
-      path: CodeShare
+      path: Codeshare
       collapsed: true
       children:
       - title: PainterAPI血条
