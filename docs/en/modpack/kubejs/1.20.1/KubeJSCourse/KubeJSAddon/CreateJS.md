@@ -1,6 +1,3 @@
----
-authors: ['Gu-meng']
----
 # 机械动力和KubeJs 
 在本章中将介绍如何使用KubeJs去修改机械动力模组的配方
 
@@ -19,7 +16,7 @@ authors: ['Gu-meng']
 
 烘烤和烧炼读取的是原版的配方,因此没有专门的配方类型
 
-`.haetLevel`方法需要额外Mod [**CreateHeatJS**](../KubeJSAddon/CreateHeatJS)的支持
+`.heatLevel`方法需要额外Mod [**CreateHeatJS**](../KubeJSAddon/CreateHeatJS)的支持
 |                                         配方格式                                          |      配方类型       |                     补充说明                      |
 | :---------------------------------------------------------------------------------------: | :-----------------: | :-----------------------------------------------: |
 |                          `create.conversion(output[], input[])`                           |        转换         |              参考两种齿轮箱和信息表               |
@@ -126,7 +123,7 @@ create.pressing([
 ```js
 // 混合搅拌 - 多个输入
 create.mixing("minecraft:grass_block", [
-	Fluid.of("minecrft:water", 500),
+	Fluid.of("minecraft:water", 500),
 	"minecraft:dirt"
 ])
 

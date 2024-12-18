@@ -23,24 +23,21 @@ authors: ['Gu-meng']
 | getServer() |          获取被右键方块的服务端          | MinecraftServer  |   server   |
 
 ## 示例
+下面示例使用方块右键事件，当玩家使用含有斧子tag的物品右键橡木木板时，会使木板掉落木棍8个
 ```js
 BlockEvents.rightClicked('minecraft:oak_planks', event => {
     if (event.hand == "OFF_HAND") return
     let player = event.getPlayer()
     if (player == null) return
     let isBreak = false;
-    event.getItem().getTags().iterator().forEachRemaining(value => {
-        if (isBreak) return
-        if (value.location() == "minecraft:axes") {
-            isBreak = true
-            let spawnItem = event.getLevel().createEntity("item")
-            spawnItem.pos = event.block.pos
-            spawnItem.item = Item.of('minecraft:stick', 8);
-            event.level.destroyBlock(event.block.pos,false)
-            spawnItem.spawn();
-            event.getItem().setDamageValue(event.getItem().getDamageValue() + 2)
-        }
-    })
+    if (event.getItem().hasTag("minecraft:axes")){
+        let spawnItem = event.getLevel().createEntity("item")
+        spawnItem.pos = event.block.pos
+        spawnItem.item = Item.of('minecraft:stick', 8);
+        event.level.destroyBlock(event.block.pos,false)
+        spawnItem.spawn();
+        event.getItem().setDamageValue(event.getItem().getDamageValue() + 2)
+    }
 })
 ```
 方块右键事件会获取玩家两次，第一次为主手第二次为副手
@@ -48,3 +45,7 @@ BlockEvents.rightClicked('minecraft:oak_planks', event => {
 所以需要判断一下`if (event.hand == "OFF_HAND")`是为哪个手点击的物品
 
 这里的`event.getItem()`获取的是`event.hand`的物品
+
+`event.getItem().hasTag("minecraft:axes")` 判断物品是否含有某一个tag标签
+
+`event.level.destroyBlock(event.block.pos,false)` 使用破坏方块方法传入方块坐标和false来代表方块被破坏并且不会进行掉落

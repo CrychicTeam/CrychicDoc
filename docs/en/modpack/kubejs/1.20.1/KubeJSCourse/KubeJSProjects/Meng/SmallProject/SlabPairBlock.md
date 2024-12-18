@@ -12,7 +12,7 @@ ServerEvents.recipes(event => {
         // 寻找物品配方类型为工作台并且输出为台阶的配方并使用forEach遍历出来
         event.findRecipes({ type: "minecraft:crafting_shaped", output: slab }).forEach(value => {
             // 判断配方输入物品个数是否不等于3（一般的台阶合成只有3个物品，避免刷物品）
-            if (value.getOriginalRecipe().getIngredients().size() != 3) return
+            if (value.getOriginalRecipe().getIngredients().size() != 3) return;
             // 获取到第一个物品存入变量
             let item = value.getOriginalRecipe().getIngredients().get(0).getFirst();
             // 遍历配方输入物品
@@ -20,14 +20,11 @@ ServerEvents.recipes(event => {
                 // 判断item遍历是否为null
                 if (item == null) return;
                 // 判断配方内的物品是否相同 如果不同则给item设置为null
-                if (item != inputItem) item = null
+                if (item != inputItem) item = null;
             })
             // 如果循环出来item为null那么就直接结束这次遍历，进入下次遍历
             if (item == null) return;
-            event.shaped(item, [
-                [slab],
-                [slab]
-            ])
+            event.shaped(item, [slab,slab]);
         })
     })
 })

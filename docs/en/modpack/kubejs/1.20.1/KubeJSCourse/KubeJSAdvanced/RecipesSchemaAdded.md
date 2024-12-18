@@ -7,10 +7,10 @@ authors: ['Gu-meng']
 >
 > ![wolf](/imgs/Schema/wolf.png)
 
-在1.20的KubeJS添加了一个`recipeSchemaRegistry`客户端事件, 这个事件可以让你给某些没有适配KubeJS的配方类型添加简单的适配, 例如`createmetallurgy(机械动力: 冶金学)`, 这个Mod没有添加KubeJS适配
+在1.20的KubeJS添加了一个`recipeSchemaRegistry`启动事件`startup`, 这个事件可以让你给某些没有适配KubeJS的配方类型添加简单的适配, 例如`createmetallurgy(机械动力: 冶金学)`, 这个Mod没有添加KubeJS适配
 
 > 我找作者问过了, 他说真的没时间学科比吉斯(KubeJS)了
-
+	
 这个Mod内有个类似于[**匠魂**](https://www.mcmod.cn/class/3725.html)的铸造台配方, 在Json格式下是这样
 
 ```json
