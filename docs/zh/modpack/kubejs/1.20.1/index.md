@@ -376,6 +376,9 @@ root:
             - title: Supplier
               path: /
               file: Supplier
+            - title: RandomGenerator
+              path: /
+              file: RandomGenerator
     # - title: 进阶
     #   path: Upgrade
     #   collapsed: false

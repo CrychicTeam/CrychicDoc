@@ -41,7 +41,7 @@ let numberSupplier = () => 666;
 let lazyLocation = Utils.lazy(() => new ResourceLocation("kubejs:demo"));
 ```
 
-## 使用方法
+## 如何使用
 
 - 就像调用普通函数那样调用即可。
 

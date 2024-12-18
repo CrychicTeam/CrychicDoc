@@ -44,7 +44,7 @@ class Lazy<T> implements Internal.Supplier<T> {
 let lazyNum = Utils.lazy(() => 123);
 ```
 
-## 使用方法
+## 如何使用
 
 ### get
 
