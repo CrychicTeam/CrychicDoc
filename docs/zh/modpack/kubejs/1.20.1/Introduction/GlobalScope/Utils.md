@@ -6,9 +6,8 @@ state: preliminary
 # 实用工具
 
 >[!TIP] 介绍
->KubeJS提供的一系列全局函数，可通过Utils.调用。
->[!WARNING] 提示
-> 部分示例参考价值较低，需要更好的示例。
+>此处介绍KubeJS提供的全局对象Utils。  
+>部分示例参考价值较低，需要更好的示例。
 
 ## copy
 
