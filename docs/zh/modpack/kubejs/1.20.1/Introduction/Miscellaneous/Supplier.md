@@ -5,8 +5,9 @@ state: preliminary
 
 # Supplier
 
->[!TIP] 提示
->此处介绍Internal.Supplier_\<T\>的相关信息。
+::: tip 提示
+此处介绍Internal.Supplier_\<T\>的相关信息。
+:::
 
 ## 文字释义
 
@@ -43,7 +44,7 @@ let lazyLocation = Utils.lazy(() => new ResourceLocation("kubejs:demo"));
 
 ## 如何使用
 
-- 就像调用普通函数那样调用即可。
+- 在KubeJS中，对于我们自己以箭头函数方式声明的Supplier，就像调用普通函数那样调用即可得到结果。
 
 ```js [KubeJS]
 let numberSupplier = () => 666;

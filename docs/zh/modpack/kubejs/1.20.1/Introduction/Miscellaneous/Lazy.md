@@ -4,8 +4,9 @@ state: preliminary
 ---
 # Lazy
 
->[!TIP] 提示
->此处介绍Internal.Lazy\<T\>的相关信息。
+::: tip 提示
+此处介绍Internal.Lazy\<T\>的相关信息。
+:::
 
 ## 文字释义
 
@@ -35,16 +36,7 @@ class Lazy<T> implements Internal.Supplier<T> {
 }    
 ```
 
-## 实例创建
-
-- 可使用[Utils.lazy(param)](../GlobalScope/Utils.md#lazy)函数创建一个lazy对象。
-- 示例：创建了一个延迟提供number类型值的lazy对象。
-
-```js [KubeJS]
-let lazyNum = Utils.lazy(() => 123);
-```
-
-## 如何使用
+## 常用方法
 
 ### get
 
@@ -78,6 +70,15 @@ lazy.get();
 ::: center
 这里第二次调用get时依然会打印"Supplier: Message" 这证明内部原有的值被丢弃了
 :::
+
+## 实例创建
+
+- 可使用[Utils.lazy(param)](../GlobalScope/Utils.md#lazy)函数创建一个lazy对象。
+- 示例：创建了一个延迟提供number类型值的lazy对象。
+
+```js [KubeJS]
+let lazyNum = Utils.lazy(() => 123);
+```
 
 ### 相关信息
 

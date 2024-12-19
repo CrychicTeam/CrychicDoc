@@ -300,7 +300,10 @@ root:
               children:
                 - title: ResourceLocation
                   path: /
-                  file: resourceLocation
+                  file: ResourceLocation
+                - title: Java
+                  path: /
+                  file: Java
         - title: 网络通信
           path: Network
           collapsed: true

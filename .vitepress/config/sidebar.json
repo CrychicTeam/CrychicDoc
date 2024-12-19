@@ -548,7 +548,11 @@
                                     "items": [
                                         {
                                             "text": "ResourceLocation",
-                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Classes/resourceLocation"
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Classes/ResourceLocation"
+                                        },
+                                        {
+                                            "text": "Java",
+                                            "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Classes/Java"
                                         }
                                     ]
                                 }
@@ -651,6 +655,10 @@
                                 {
                                     "text": "Supplier",
                                     "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Supplier"
+                                },
+                                {
+                                    "text": "RandomGenerator",
+                                    "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/RandomGenerator"
                                 }
                             ]
                         }
