@@ -15,13 +15,10 @@ jobs:
 
             - name: Pull types from type repo
               run: |
-                  if ! grep -q github.com ~/.ssh/known_hosts; then
-                      ssh-keyscan github.com >> ~/.ssh/known_hosts
-                  fi
-                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocTypes.git type_repo
-                  cp -r type_repo/typefiles .
-                  rm -rf type_repo
-                  echo "Types pulled successfully"
+                    git clone --depth 1 https://github.com/M1hono/CrychicDocTypes.git type_repo
+                    cp -r type_repo/typefiles .
+                    rm -rf type_repo
+                    echo "Types pulled successfully"
 
             - name: Configure Yarn to use a faster registry
               run: yarn config set registry https://registry.npmmirror.com
