@@ -72,7 +72,7 @@ jobs:
                   git init
                   git add -A
                   git commit -m "Update documentation"
-                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git push --force git@github.com:M1hono/CrychicDocSynchronization.git HEAD:main
+                  git push --force https://github.com/M1hono/CrychicDocSynchronization.git HEAD:main
                   echo "Push completed"
 
             - name: Cleanup
