@@ -49,21 +49,21 @@ jobs:
               run: |
                   # 创建目标目录
                   mkdir -p .vitepress/dist/.github/workflows/ || exit 1
-                  
-                  # 从新仓库克隆 workflow 文件
-                  GIT_SSH_COMMAND='ssh -i /home/mihono/.ssh/id_rsa' git clone --depth 1 git@github.com:M1hono/CrychicDocWorkflow.git workflow_repo
-                  
+
+                  # 克隆 workflow 文件
+                  git clone --depth 1 https://github.com/M1hono/CrychicDocWorkflow.git workflow_repo
+
                   # 复制 workflow 文件
                   cp workflow_repo/.github/workflows/deploy.yml .vitepress/dist/.github/workflows/ || exit 1
-                  
+
                   # 清理临时仓库
                   rm -rf workflow_repo
-                  
+
                   if [ -f .vitepress/dist/.github/workflows/deploy.yml ]; then
-                      echo "Workflow 文件复制成功"
+                    echo "Workflow 文件复制成功"
                   else
-                      echo "错误：Workflow 文件复制失败"
-                      exit 1
+                    echo "错误：Workflow 文件复制失败"
+                    exit 1
                   fi
 
             - name: Push to private repo
