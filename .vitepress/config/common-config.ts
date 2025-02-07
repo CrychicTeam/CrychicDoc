@@ -24,6 +24,7 @@ import contributors from "../config/contributors.json";
 function generateAvatarUrl(username: string) {
     return `https://github.com/${username}.png`;
 }
+import llms from 'vite-plugin-llms'
 
 export const commonConfig: UserConfig<DefaultTheme.Config> = {
     srcDir: "./docs",
@@ -108,6 +109,9 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
             noExternal: ["vuetify", "@nolebase/*"],
         },
         plugins: [
+            llms({
+              llmsDir: 'llms' // optional, defaults to 'llms'
+            }),
             GitChangelog({
                 repoURL: () => "https://github.com/CrychicTeam/CrychicDoc",
                 mapAuthors: contributors.map((author) => ({

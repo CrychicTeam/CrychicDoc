@@ -1,0 +1,22 @@
+# CrychicDoc
+
+> 中文文档索引文件
+
+## 文档路径列表
+
+- [开发者入口](/zh/developers/index.md)：团队开发者目录索引
+- [Crychic内部文档](/zh/developers/Crychic/private/index.md)：团队内部设计文档总览
+- [模组设计文档](/zh/developers/Crychic/private/mods/index.md)：模组开发技术文档
+- [整合包设计](/zh/developers/Crychic/private/modpacks/index.md)：整合包开发文档
+- [KubeJS教程](/zh/modpack/kubejs/1.20.1/KubeJSCourse/README.md)：1.20.1版本KubeJS教程
+- [侧边栏配置指南](/zh/doc/sidebarTutorial.md)：自定义侧边栏生成器使用说明
+- [文档信息中心](/zh/info/index.md)：文档协作相关信息
+- [成员列表](/zh/developers/Crychic/private/members/index.md)：团队内部成员目录
+- [GoCamping团队](/zh/developers/GoCampingTeam/index.md)：合作团队文档
+- [Lightland团队](/zh/developers/Lightland/index.md)：合作团队文档 
+- [MCTeamPotato](/zh/developers/MCTeamPotato/index.md)：合作团队文档
+- [草案文档](/zh/developers/Crychic/private/drafts/index.md)：开发中的草案文件
+
+## 路由说明
+文档路径基于Vitepress默认路由规则生成，所有路径均以`/zh/`开头表示中文内容。实际访问时路径会自动对应到.md文件所在位置，例如：
+`/zh/developers/index.md` → `https://docs.mihono.cn/zh/developers/`
