@@ -14,6 +14,12 @@ root:
       - title: 配置
         path: /
         file: config
+      - title: Affix Setting
+        path: /
+        file: affix_setting
+      - title: Modifier Setting
+        path: /
+        file: modifier_setting
 ---
 
 ## 冠军再续

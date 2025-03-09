@@ -107,6 +107,14 @@
                 {
                     "text": "配置",
                     "link": "/zh/mods/adventure/Champions-Unofficial/config"
+                },
+                {
+                    "text": "Affix Setting",
+                    "link": "/zh/mods/adventure/Champions-Unofficial/affix_setting"
+                },
+                {
+                    "text": "Modifier Setting",
+                    "link": "/zh/mods/adventure/Champions-Unofficial/modifier_setting"
                 }
             ]
         }
