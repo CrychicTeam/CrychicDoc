@@ -1,11 +1,11 @@
-name: Build VitePress, Pull Types, and Push to Private Repo
+name: Build VitePress and Push to Private Repo
 
 on:
     push:
         branches: [main]
 
 jobs:
-    setup-build-and-push:
+    build-and-push:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout the code
@@ -19,7 +19,7 @@ jobs:
                   node-version: "20.17.0"
                   cache: 'yarn'
 
-            - name: Configure Yarn to use a faster registry
+            - name: Configure Yarn
               run: yarn config set registry https://registry.npmmirror.com
 
             - name: Install dependencies
@@ -33,47 +33,35 @@ jobs:
                   yarn docs:build
                   echo "VitePress site build completed"
 
-            - name: Setup Git
-              run: |
-                  git config user.name "GitHub Actions Bot"
-                  git config user.email "<>"
-
-            # 修改这部分来从新仓库拉取 workflow，使用TOKEN访问
-            - name: Copy workflow file
+            # 确保workflow文件存在于构建输出中
+            - name: Copy deployment workflow
               run: |
                   # 创建目标目录
-                  mkdir -p .vitepress/dist/.github/workflows/ || exit 1
-
-                  # 使用带TOKEN的URL克隆workflow文件
+                  mkdir -p .vitepress/dist/.github/workflows/
+                  
+                  # 克隆包含部署workflow的仓库
                   git clone --depth 1 https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/M1hono/CrychicDocWorkflow.git workflow_repo
-
-                  # 复制 workflow 文件
-                  cp workflow_repo/.github/workflows/deploy.yml .vitepress/dist/.github/workflows/ || exit 1
-
-                  # 清理临时仓库
+                  
+                  # 复制部署workflow
+                  cp workflow_repo/.github/workflows/deploy.yml .vitepress/dist/.github/workflows/
+                  
+                  # 清理临时目录
                   rm -rf workflow_repo
+                  
+                  echo "Deployment workflow copied successfully"
 
-                  if [ -f .vitepress/dist/.github/workflows/deploy.yml ]; then
-                    echo "Workflow 文件复制成功"
-                  else
-                    echo "错误：Workflow 文件复制失败"
-                    exit 1
-                  fi
-
+            # 推送到private仓库
             - name: Push to private repo
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                personal_token: ${{ secrets.PRIVATE_REPO_TOKEN }}
-                external_repository: M1hono/CrychicDocSynchronization
-                publish_branch: main
-                publish_dir: .vitepress/dist
-                force_orphan: true
-                user_name: 'github-actions[bot]'
-                user_email: 'github-actions[bot]@users.noreply.github.com'
+              run: |
+                  cd .vitepress/dist
+                  git init
+                  git add -A
+                  git commit -m "Update documentation"
+                  git push --force https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
+                  echo "Push completed"
 
             - name: Cleanup
               run: |
-                  rm -rf typefiles
                   rm -rf .vitepress/dist
-                  rm -rf temp_repo
+                  rm -rf workflow_repo
                   echo "Cleanup completed"
