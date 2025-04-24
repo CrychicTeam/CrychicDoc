@@ -13,13 +13,6 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - name: Pull types from type repo
-              run: |
-                    git clone --depth 1 https://github.com/M1hono/CrychicDocTypes.git type_repo
-                    cp -r type_repo/typefiles .
-                    rm -rf type_repo
-                    echo "Types pulled successfully"
-
             - name: Configure Yarn to use a faster registry
               run: yarn config set registry https://registry.npmmirror.com
 
