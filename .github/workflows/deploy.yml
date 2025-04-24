@@ -12,22 +12,31 @@ jobs:
               uses: actions/checkout@v4
               with:
                   fetch-depth: 0
+            - name: Setup environment
+              run: |
+                export NVM_DIR="$HOME/.nvm"
+                [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+                nvm use 20.17.0 || nvm install 20.17.0
+                npm install -g yarn
 
             - name: Configure Yarn to use a faster registry
-              run: yarn config set registry https://registry.npmmirror.com
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: "20.17.0"
+              run: |
+                export NVM_DIR="$HOME/.nvm"
+                [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+                yarn config set registry https://registry.npmmirror.com
 
             - name: Install dependencies
-              run: yarn install --frozen-lockfile
+              run: |
+                export NVM_DIR="$HOME/.nvm"
+                [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+                yarn install --frozen-lockfile
 
             - name: Build VitePress site
               env:
                 NODE_OPTIONS: --max-old-space-size=8192
               run: |
+                  export NVM_DIR="$HOME/.nvm"
+                  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
                   echo "Building VitePress site..."
                   yarn docs:build
                   echo "VitePress site build completed"
