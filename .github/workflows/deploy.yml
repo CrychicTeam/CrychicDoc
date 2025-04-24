@@ -39,7 +39,7 @@ jobs:
                   mkdir -p .vitepress/dist/.github/workflows/
                   
                   # 克隆包含部署workflow的仓库
-                  git clone --depth 1 https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/M1hono/CrychicDocWorkflow.git workflow_repo
+                  git clone --depth 1 https://${{ secrets.PICKAID_TOKEN }}@github.com/M1hono/CrychicDocWorkflow.git workflow_repo
                   
                   # 复制部署workflow
                   cp workflow_repo/.github/workflows/deploy.yml .vitepress/dist/.github/workflows/
@@ -60,7 +60,7 @@ jobs:
                   
                   git add -A
                   git commit -m "Update documentation"
-                  git push --force https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
+                  git push --force https://${{ secrets.PICKAID_TOKEN }}@github.com/M1hono/CrychicDocSynchronization.git HEAD:main
                   echo "Push completed"
 
             - name: Cleanup
