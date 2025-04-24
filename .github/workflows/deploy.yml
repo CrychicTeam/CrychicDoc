@@ -12,31 +12,23 @@ jobs:
               uses: actions/checkout@v4
               with:
                   fetch-depth: 0
-            - name: Setup environment
-              run: |
-                export NVM_DIR="$HOME/.nvm"
-                [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-                nvm use 20.17.0 || nvm install 20.17.0
-                npm install -g yarn
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "20.17.0"
+                  cache: 'yarn'
 
             - name: Configure Yarn to use a faster registry
-              run: |
-                export NVM_DIR="$HOME/.nvm"
-                [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-                yarn config set registry https://registry.npmmirror.com
+              run: yarn config set registry https://registry.npmmirror.com
 
             - name: Install dependencies
-              run: |
-                export NVM_DIR="$HOME/.nvm"
-                [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-                yarn install --frozen-lockfile
+              run: yarn install --frozen-lockfile
 
             - name: Build VitePress site
               env:
                 NODE_OPTIONS: --max-old-space-size=8192
               run: |
-                  export NVM_DIR="$HOME/.nvm"
-                  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
                   echo "Building VitePress site..."
                   yarn docs:build
                   echo "VitePress site build completed"
@@ -46,14 +38,14 @@ jobs:
                   git config user.name "GitHub Actions Bot"
                   git config user.email "<>"
 
-            # 修改这部分来从新仓库拉取 workflow
+            # 修改这部分来从新仓库拉取 workflow，使用TOKEN访问
             - name: Copy workflow file
               run: |
                   # 创建目标目录
                   mkdir -p .vitepress/dist/.github/workflows/ || exit 1
 
-                  # 克隆 workflow 文件
-                  git clone --depth 1 https://github.com/M1hono/CrychicDocWorkflow.git workflow_repo
+                  # 使用带TOKEN的URL克隆workflow文件
+                  git clone --depth 1 https://${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/M1hono/CrychicDocWorkflow.git workflow_repo
 
                   # 复制 workflow 文件
                   cp workflow_repo/.github/workflows/deploy.yml .vitepress/dist/.github/workflows/ || exit 1
@@ -69,13 +61,15 @@ jobs:
                   fi
 
             - name: Push to private repo
-              run: |
-                  cd .vitepress/dist
-                  git init
-                  git add -A
-                  git commit -m "Update documentation"
-                  git push --force https://github.com/M1hono/CrychicDocSynchronization.git HEAD:main
-                  echo "Push completed"
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                personal_token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+                external_repository: M1hono/CrychicDocSynchronization
+                publish_branch: main
+                publish_dir: .vitepress/dist
+                force_orphan: true
+                user_name: 'github-actions[bot]'
+                user_email: 'github-actions[bot]@users.noreply.github.com'
 
             - name: Cleanup
               run: |

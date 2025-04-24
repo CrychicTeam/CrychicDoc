@@ -1,12 +1,7 @@
 import {
     DefaultTheme,
-    UserConfig,
-    HeadConfig,
-    TransformContext,
+    UserConfig
 } from "vitepress";
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
-import { TDesignResolver } from "unplugin-vue-components/resolvers";
 import {
     groupIconVitePlugin,
     localIconLoader,
@@ -24,13 +19,9 @@ import contributors from "../config/contributors.json";
 function generateAvatarUrl(username: string) {
     return `https://github.com/${username}.png`;
 }
-import llms from 'vite-plugin-llms'
 
 export const commonConfig: UserConfig<DefaultTheme.Config> = {
     srcDir: "./docs",
-    rewrites: {
-        "02_AABB.md": "AABB.md",
-    },
     themeConfig: {
         logo: {
             alt: "CryChicDoc",
@@ -80,7 +71,6 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         ],
         langMenuLabel: "Change Language",
         lastUpdated: {},
-        // 添加以下配置来启用多语言支持
         //@ts-ignore
         locales: {
             root: { label: "简体中文", lang: "zh-CN" },
@@ -96,16 +86,10 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     },
     vue: {},
     vite: {
-        optimizeDeps: {
-            exclude: ["@nolebase/*"],
-        },
         ssr: {
             noExternal: ["vuetify", "@nolebase/*"],
         },
         plugins: [
-            llms({
-              llmsDir: 'llms'
-            }),
             GitChangelog({
                 repoURL: () => "https://github.com/CrychicTeam/CrychicDoc",
                 mapAuthors: contributors.map((author) => ({
@@ -146,21 +130,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                     css: "logos:css-3",
                     git: "logos:git-icon",
                 },
-            }),
-            AutoImport({
-                resolvers: [
-                    TDesignResolver({
-                        library: "vue-next",
-                    }),
-                ],
-            }),
-            Components({
-                resolvers: [
-                    TDesignResolver({
-                        library: "vue-next",
-                    }),
-                ],
-            }),
+            })
         ]
     },
     head: [
