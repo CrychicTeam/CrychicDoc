@@ -171,7 +171,7 @@ console.log(String)
 但如果有了类型补全的话：
 
 ::: demo
-```js twoslash
+```js
 const String = "Twoslash"
 console.log(String)
 //              ^?        

@@ -1,5 +1,5 @@
 import { DefaultTheme } from "vitepress";
-import { sidebars } from "../sidebarControl";
+import { loadSidebar } from "../loadSidebar";
 import { text } from "stream/consumers";
 
 export const zh_CN = <DefaultTheme.Config>{
@@ -68,7 +68,7 @@ export const zh_CN = <DefaultTheme.Config>{
             ]},
             {text: "讨论区", link: "/zh/info"},
         ],
-        sidebar: sidebars("zh"),
+        sidebar: loadSidebar("zh"),
         outline: {
             level: "deep",
             label: "页面导航",

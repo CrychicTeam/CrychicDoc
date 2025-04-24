@@ -11,7 +11,7 @@ progress: 100
 
 例如在[这个文档](../../Entity/PotionEffects.md)中，虽然可以使用 potionEffects 来修改实体的药水效果，但在尝试获取时可能会遇到问题：
 
-```js twoslash
+```js
 ItemEvents.entityInteracted(event => {
     const { entity, hand } = event;
     if (hand !== 'main_hand') return;
@@ -34,7 +34,7 @@ ItemEvents.entityInteracted(event => {
 然而，通过使用 JSDoc 标记变量类型可以缓解这一问题：
 :::
 
-```js twoslash
+```js
 ItemEvents.entityInteracted(event => {
     const { entity } = event;
     /** @type {Internal.LivingEntity} */
@@ -55,7 +55,7 @@ ItemEvents.entityInteracted(event => {
 
 在JavaScript中，由于其动态类型特性，变量的类型并不会在代码中明确声明。但通过`JSDoc`，你可以为变量显式声明类型，从而获得更好的类型提示支持。其基本语法如下：
 
-```js twoslash
+```js
 /**
  * @type {string}
  */
@@ -70,7 +70,7 @@ let myString = 'Hello World';
 
 同样，JSDoc还可以用于为函数的参数和返回值标注类型。例如：
 
-```js twoslash
+```js
 /**
  * 计算两个数的和
  * @param {number} a - 第一个数字
@@ -91,7 +91,7 @@ function add(a, b) {
 如果你在处理泛型类型[^T]时，需要使用JSDoc来描述这些结构。例如，对于一个可以返回T类型的函数，可以这样定义：
 
 
-```js twoslash
+```js
 /**
  * 返回数组中的第一个元素
  * @template T
@@ -109,7 +109,7 @@ function first(arr) {
 
 在某些场景下，尤其是在`面向对象`的编程中，`this`的上下文可能不够明确。通过JSDoc，你可以为`this`标注类型(尽管KubeJS只有阉割的类)：
 
-```js twoslash
+```js
 /**
  * @this {Internal.Player}
  */

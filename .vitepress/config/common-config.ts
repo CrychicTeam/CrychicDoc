@@ -94,13 +94,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         securityLevel: "loose",
         theme: "default",
     },
-    vue: {
-        template: {
-            compilerOptions: {
-                whitespace: "preserve",
-            },
-        },
-    },
+    vue: {},
     vite: {
         optimizeDeps: {
             exclude: ["@nolebase/*"],
@@ -110,7 +104,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         },
         plugins: [
             llms({
-              llmsDir: 'llms' // optional, defaults to 'llms'
+              llmsDir: 'llms'
             }),
             GitChangelog({
                 repoURL: () => "https://github.com/CrychicTeam/CrychicDoc",
@@ -167,65 +161,10 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                     }),
                 ],
             }),
-        ],
-        // define: {
-        // __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: true,
-        // },
+        ]
     },
     head: [
         ["link", { rel: "icon", href: "https://docs.mihono.cn/favicon.ico" }],
     ],
-    ignoreDeadLinks: true,
-    transformHead(context: TransformContext) {
-        const { pageData, siteData, title, description } = context;
-        const assets = context.assets;
-
-        // 现有字体预加载逻辑
-        const fonts = (): string[] => {
-            return [
-                assets.find((file) => /JetBrainsMono-Regular\.\w+\.woff2/),
-                assets.find(
-                    (file) => /ChillRoundGothic_ExtraLight\.\w+\.woff2/
-                ),
-                assets.find((file) => /ChillRoundGothic_Light\.\w+\.woff2/),
-                assets.find((file) => /ChillRoundGothic_Regular\.\w+\.woff2/),
-            ].filter((value): value is string => value !== undefined);
-        };
-
-        const fontConfig = (): HeadConfig[] => {
-            return fonts().map((font) => [
-                "link",
-                {
-                    href: font,
-                    as: "font",
-                    type: "font/woff2",
-                    crossorigin: "",
-                },
-            ]);
-        };
-
-        const siteUrl = new URL(
-            siteData.base,
-            "https://docs.mihono.cn"
-        ).toString();
-
-        const pageUrl = new URL(pageData.relativePath, siteUrl).toString();
-        const imageUrl = new URL("/og/logo.png", siteUrl).toString();
-
-        const ogTags: HeadConfig[] = [
-            ["meta", { property: "og:title", content: title }],
-            ["meta", { property: "og:description", content: description }],
-            ["meta", { property: "og:type", content: "website" }],
-            ["meta", { property: "og:url", content: pageUrl }],
-            ["meta", { property: "og:image", content: imageUrl }],
-            [
-                "meta",
-                { property: "og:image:alt", content: "Crychic Logo" },
-            ],
-            ["meta", { property: "og:site_name", content: siteData.title }],
-            ["meta", { property: "og:locale", content: siteData.lang }],
-        ];
-
-        return [...ogTags, ...fontConfig()];
-    },
-};
+    ignoreDeadLinks: true
+}

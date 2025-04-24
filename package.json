@@ -8,12 +8,13 @@
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.5.0",
     "@nolebase/vitepress-plugin-git-changelog": "^2.5.0",
     "@nolebase/vitepress-plugin-inline-link-preview": "^2.5.0",
-    "@shikijs/vitepress-twoslash": "^1.12.1",
     "@types/node": "^22.1.0",
     "cross-env": "^7.0.3",
     "mermaid": "^10.9.1",
     "postcss": "^8.4.40",
     "sass": "^1.78.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
     "unplugin-auto-import": "^0.18.2",
     "unplugin-vue-components": "^0.27.3",
     "vite-plugin-iconify": "^0.2.0",
@@ -27,8 +28,9 @@
     "vuetify": "^3.6.14"
   },
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vitepress build",
+    "docs:sidebar": "tsx generateSidebar.ts",
+    "docs:dev": "tsx generateSidebar.ts && vitepress dev",
+    "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
@@ -60,7 +62,7 @@
     "marked": "^14.1.0",
     "sharp": "^0.33.5",
     "tdesign-vue-next": "^1.9.8",
-    "typescript": "^5.5.4",
+    "typescript": "^5.8.3",
     "vitepress-markdown-timeline": "^1.2.1",
     "vue-chartjs": "^5.3.1",
     "yarn": "^1.22.22"

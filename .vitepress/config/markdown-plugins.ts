@@ -2,13 +2,11 @@
 import { argv, cwd, env } from 'node:process'
 
 import { MarkdownOptions } from "vitepress";
-import { compilerOptions } from "../twoslashConfig";
 
 import timeline from "vitepress-markdown-timeline";
 import { BiDirectionalLinks } from "@nolebase/markdown-it-bi-directional-links";
 import { InlineLinkPreviewElementTransform } from "@nolebase/vitepress-plugin-inline-link-preview/markdown-it";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
-import { transformerTwoslash } from "@shikijs/vitepress-twoslash";
 import mdFootnote from "markdown-it-footnote";
 import mdTaskLists from "markdown-it-task-lists";
 import mdDeflist from "markdown-it-deflist";
@@ -35,12 +33,6 @@ import ts from 'typescript';
 
 import fs from "fs";
 import path from "path";
-
-function noTwoslash() {
-  // 始终返回 false，以确保 Twoslash 转换总是启用
-  return false;
-}
-
 export const markdown: MarkdownOptions = {
     math: true,
     config: async (md) => {
@@ -80,12 +72,6 @@ export const markdown: MarkdownOptions = {
             return htmlResult;
         };
     },
-
-    codeTransformers: [
-      transformerTwoslash({
-        twoslashOptions: compilerOptions
-      })
-    ],
     image: {
         lazyLoading: true,
     },

@@ -8,8 +8,6 @@ import "vitepress-markdown-timeline/dist/theme/index.css";
 import { useData, useRoute } from "vitepress";
 import "./style.css";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
-import TwoslashFloatingVue from "@shikijs/vitepress-twoslash/client";
-import "@shikijs/vitepress-twoslash/style.css";
 import imageViewer from "./components/imageViewer.vue";
 import vuetify from "./vuetify";
 import { onMounted, watch } from "vue";
@@ -82,7 +80,6 @@ export default {
         vitepressNprogress(ctx);
         enhanceAppWithTabs(ctx.app);
         ctx.app.use(vuetify);
-        ctx.app.use(TwoslashFloatingVue);
         ctx.app.use(Layout);
         ctx.app.use(NolebaseInlineLinkPreviewPlugin);
         ctx.app.use(NolebaseGitChangelogPlugin);

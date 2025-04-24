@@ -1,0 +1,3972 @@
+{
+  "zh/doc/": [
+    {
+      "text": "文档相关",
+      "items": [
+        {
+          "text": "合作规范",
+          "link": "/zh/doc/rules"
+        },
+        {
+          "text": "Git合作教程",
+          "link": "/zh/doc/cooperation"
+        },
+        {
+          "text": "环境配置与预览",
+          "link": "/zh/doc/dev"
+        },
+        {
+          "text": "侧边栏设置教程",
+          "link": "/zh/doc/sidebarTutorial"
+        },
+        {
+          "text": "文档插件示例",
+          "link": "/zh/doc/samples"
+        },
+        {
+          "text": "文档样式一览",
+          "link": "/zh/doc/styleList"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/developers/": [
+    {
+      "text": "开发者",
+      "items": [
+        {
+          "text": "Crychic",
+          "link": "/zh/developers/Crychic/index"
+        }
+      ]
+    }
+  ],
+  "zh/mods/": [
+    {
+      "text": "模组",
+      "items": [
+        {
+          "text": "冒险",
+          "link": "/zh/mods/adventure/index"
+        },
+        {
+          "text": "科技",
+          "link": "/zh/mods/tech/index"
+        },
+        {
+          "text": "盔甲与工具",
+          "link": "/zh/mods/armor_tools/index"
+        },
+        {
+          "text": "装饰",
+          "link": "/zh/mods/cosmetic/index"
+        },
+        {
+          "text": "优化",
+          "link": "/zh/mods/performance/index"
+        },
+        {
+          "text": "服务端",
+          "link": "/zh/mods/server/index"
+        },
+        {
+          "text": "储存",
+          "link": "/zh/mods/storages/index"
+        },
+        {
+          "text": "魔改",
+          "link": "/zh/mods/custom/index"
+        }
+      ]
+    }
+  ],
+  "zh/mods/adventure/": [
+    {
+      "text": "冒险模组",
+      "items": [
+        {
+          "text": "冠军再续",
+          "link": "/zh/mods/adventure/Champions-Unofficial/index"
+        }
+      ]
+    }
+  ],
+  "zh/mods/adventure/Champions-Unofficial/": [
+    {
+      "text": "冠军再续",
+      "items": [
+        {
+          "text": "介绍",
+          "link": "/zh/mods/adventure/Champions-Unofficial/index"
+        },
+        {
+          "text": "wiki",
+          "link": "/zh/mods/adventure/Champions-Unofficial/wiki"
+        },
+        {
+          "text": "配置",
+          "link": "/zh/mods/adventure/Champions-Unofficial/config"
+        },
+        {
+          "text": "Affix Setting",
+          "link": "/zh/mods/adventure/Champions-Unofficial/affix_setting"
+        },
+        {
+          "text": "Modifier Setting",
+          "link": "/zh/mods/adventure/Champions-Unofficial/modifier_setting"
+        }
+      ]
+    }
+  ],
+  "zh/mods/custom/": [
+    {
+      "text": "魔改模组",
+      "items": [
+        {
+          "text": "KubeJS",
+          "link": "/zh/mods/custom/../../modpack/kubejs/index"
+        },
+        {
+          "text": "Multiblocked 2",
+          "link": "/zh/mods/custom/MBD2/Catalogue"
+        }
+      ]
+    }
+  ],
+  "zh/mods/custom/MBD2/": [
+    {
+      "text": "MultiBlocked 2",
+      "items": [
+        {
+          "text": "目录",
+          "link": "/zh/mods/custom/MBD2/Catalogue"
+        },
+        {
+          "text": "单方块机器",
+          "items": [
+            {
+              "text": "介绍",
+              "link": "/zh/mods/custom/MBD2/SingleBlockBasic"
+            },
+            {
+              "text": "基础设置",
+              "link": "/zh/mods/custom/MBD2/SingleBlockBasicSettings"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "zh/modpack/": [
+    {
+      "text": "整合包",
+      "items": [
+        {
+          "text": "kubejs",
+          "link": "/zh/modpack/kubejs/index"
+        },
+        {
+          "text": "整合包推荐",
+          "link": "/zh/modpack/recommendation/index"
+        }
+      ]
+    }
+  ],
+  "zh/modpack/kubejs/": [
+    {
+      "text": "KubeJS",
+      "items": [
+        {
+          "text": "1.21",
+          "link": "/zh/modpack/kubejs/1.21/index"
+        },
+        {
+          "text": "1.20.1",
+          "link": "/zh/modpack/kubejs/1.20.1/index"
+        },
+        {
+          "text": "1.19.2",
+          "link": "/zh/modpack/kubejs/1.19.2/index"
+        },
+        {
+          "text": "1.18.2",
+          "link": "/zh/modpack/kubejs/1.18.2/index"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/modpack/kubejs/1.20.1/": [
+    {
+      "text": "KubeJS",
+      "items": [
+        {
+          "text": "基础",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "介绍",
+              "link": "/zh/modpack/kubejs/1.20.1/Introduction/Description"
+            },
+            {
+              "text": "物品",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "注册",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "注册物品",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/Register"
+                    },
+                    {
+                      "text": "物品属性",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/ItemProperty"
+                    },
+                    {
+                      "text": "资源文件",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/Resource"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "方块",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "注册",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "注册",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Register/Register"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "实体",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "生成",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Entity/Spawn"
+                },
+                {
+                  "text": "状态效果",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Entity/PotionEffects"
+                },
+                {
+                  "text": "属性",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Entity/Attribute"
+                }
+              ]
+            },
+            {
+              "text": "状态效果",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "状态效果",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/PotionEffect/PotionEffect"
+                }
+              ]
+            },
+            {
+              "text": "配方",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "修改配方",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/ModifyRecipe"
+                },
+                {
+                  "text": "删除配方",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/DeleteRecipe"
+                },
+                {
+                  "text": "添加配方",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "原版配方",
+                      "collapsed": true,
+                      "items": [
+                        {
+                          "text": "工作台",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/CraftingTable"
+                        },
+                        {
+                          "text": "熔炉",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Furnace"
+                        },
+                        {
+                          "text": "高炉",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/BlastFurnace"
+                        },
+                        {
+                          "text": "烟熏炉",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Smoker"
+                        },
+                        {
+                          "text": "营火",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Campfire"
+                        },
+                        {
+                          "text": "锻造台",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/SmithingTable"
+                        },
+                        {
+                          "text": "切石机",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Stonecutter"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "战利品表",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "介绍",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Description"
+                },
+                {
+                  "text": "基础知识",
+                  "items": [
+                    {
+                      "text": "战利品表类型",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/LootType"
+                    },
+                    {
+                      "text": "随机池",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/LootPool"
+                    },
+                    {
+                      "text": "抽取项",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/LootEntry"
+                    },
+                    {
+                      "text": "谓词",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/Predicate"
+                    },
+                    {
+                      "text": "物品修饰器",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/ItemModifier"
+                    }
+                  ]
+                },
+                {
+                  "text": "原版战利品表类型",
+                  "items": [
+                    {
+                      "text": "方块战利品表",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Block"
+                    },
+                    {
+                      "text": "实体战利品表",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Entity"
+                    },
+                    {
+                      "text": "钓鱼战利品表",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Fish"
+                    },
+                    {
+                      "text": "礼物战利品表",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Gift"
+                    },
+                    {
+                      "text": "箱子战利品表",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Chest"
+                    },
+                    {
+                      "text": "通用战利品表",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Generic"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "标签",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "介绍",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Description"
+                },
+                {
+                  "text": "原版标签类型",
+                  "items": [
+                    {
+                      "text": "物品标签",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Item"
+                    },
+                    {
+                      "text": "方块标签",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Block"
+                    },
+                    {
+                      "text": "生物类型标签",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/EntityType"
+                    },
+                    {
+                      "text": "流体标签",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Fluid"
+                    },
+                    {
+                      "text": "生物群系标签",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Biome"
+                    },
+                    {
+                      "text": "结构标签",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Tag/Structure"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "事件",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "服务端脚本",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "事件列表",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ServerScript/EventList"
+                    },
+                    {
+                      "text": "事件示例",
+                      "collapsed": true,
+                      "items": [
+                        {
+                          "text": "命令注册事件",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ServerScript/Example/CommandRegistry"
+                        },
+                        {
+                          "text": "实体交互事件",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ServerScript/Example/EntityInteracted"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "text": "客户端脚本",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "事件列表",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ClientScript/EventList"
+                    }
+                  ]
+                },
+                {
+                  "text": "启动脚本",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "事件列表",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/StartupScript/EventList"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "附属",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "LootJs",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "LootJs",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/LootJs"
+                    },
+                    {
+                      "text": "Conditions",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Conditions"
+                    },
+                    {
+                      "text": "LootEntry",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/LootEntry"
+                    },
+                    {
+                      "text": "Event",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Event"
+                    },
+                    {
+                      "text": "Functions",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Functions"
+                    },
+                    {
+                      "text": "Type",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Type"
+                    }
+                  ]
+                },
+                {
+                  "text": "ProbeJS",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "使用方法",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/ProbeJS"
+                    },
+                    {
+                      "text": "JSDoc",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/JSDoc"
+                    },
+                    {
+                      "text": "ProbeJS类型文件",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/ProbeJSClassFlie"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "全局范围",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "简述",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Description"
+                },
+                {
+                  "text": "实用工具",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Utils"
+                },
+                {
+                  "text": "类",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "ResourceLocation",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Classes/ResourceLocation"
+                    },
+                    {
+                      "text": "Java",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Classes/Java"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "网络通信",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "简述",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Network/Description"
+                }
+              ]
+            },
+            {
+              "text": "杂项知识",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "介绍",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Description"
+                },
+                {
+                  "text": "Collection",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Collection"
+                },
+                {
+                  "text": "CompletableFuture",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/CompletableFuture"
+                },
+                {
+                  "text": "Components",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Components"
+                },
+                {
+                  "text": "CountingMap",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/CountingMap"
+                },
+                {
+                  "text": "Ingredient",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Ingredient"
+                },
+                {
+                  "text": "IngredientActionFilter",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/IngredientActionFilter"
+                },
+                {
+                  "text": "ItemStack",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/ItemStack"
+                },
+                {
+                  "text": "Lazy",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Lazy"
+                },
+                {
+                  "text": "Map",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Map"
+                },
+                {
+                  "text": "NumberProvider",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/NumberProvider"
+                },
+                {
+                  "text": "ParticleOptions",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/ParticleOptions"
+                },
+                {
+                  "text": "Pattern",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Pattern"
+                },
+                {
+                  "text": "Providers",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Providers"
+                },
+                {
+                  "text": "Random",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Random"
+                },
+                {
+                  "text": "RecipeFilter",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/RecipeFilter"
+                },
+                {
+                  "text": "RegistryInfo",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/RegistryInfo"
+                },
+                {
+                  "text": "Runnable",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Runnable"
+                },
+                {
+                  "text": "SoundEvent",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/SoundEvent"
+                },
+                {
+                  "text": "Stat",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Stat"
+                },
+                {
+                  "text": "Supplier",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/Supplier"
+                },
+                {
+                  "text": "RandomGenerator",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Miscellaneous/RandomGenerator"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "代码分享",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "PainterAPI血条",
+              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Painter"
+            },
+            {
+              "text": "自定义方块打开工作台界面",
+              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI"
+            },
+            {
+              "text": "死亡扣除生命上限",
+              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/LifeValue"
+            },
+            {
+              "text": "反向骨粉",
+              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/InvertedBonemeal"
+            },
+            {
+              "text": "饱和修补",
+              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Dining"
+            }
+          ]
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/modpack/kubejs/1.19.2/": [
+    {
+      "text": "",
+      "items": [
+        {
+          "text": "XPlusKubeJSTutorial",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "README",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/README"
+            },
+            {
+              "text": "SUMMARY",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/SUMMARY"
+            },
+            {
+              "text": "addons",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "addon-list",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/addon-list"
+                },
+                {
+                  "text": "kubejs-create",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/kubejs-create"
+                },
+                {
+                  "text": "lootjs",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/lootjs"
+                }
+              ]
+            },
+            {
+              "text": "game-contents",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "9.-zhan-li-pin-biao",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/9.-zhan-li-pin-biao"
+                },
+                {
+                  "text": "block",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/block"
+                },
+                {
+                  "text": "enchantments",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/enchantments"
+                },
+                {
+                  "text": "fluid",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/fluid"
+                },
+                {
+                  "text": "item",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/item"
+                },
+                {
+                  "text": "special-blocks-and-items",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "README",
+                      "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/README"
+                    },
+                    {
+                      "text": "blockbench",
+                      "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/blockbench"
+                    },
+                    {
+                      "text": "crops",
+                      "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/crops"
+                    },
+                    {
+                      "text": "food",
+                      "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/food"
+                    }
+                  ]
+                },
+                {
+                  "text": "tags",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/tags"
+                },
+                {
+                  "text": "worldgen",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/worldgen"
+                }
+              ]
+            },
+            {
+              "text": "readme",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "changelog",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/changelog"
+                },
+                {
+                  "text": "event-list",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/event-list"
+                },
+                {
+                  "text": "file-structure",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/file-structure"
+                },
+                {
+                  "text": "probejs-and-commands",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/probejs-and-commands"
+                },
+                {
+                  "text": "script-format",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/script-format"
+                }
+              ]
+            },
+            {
+              "text": "recipe",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "custom-recipes",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/custom-recipes"
+                },
+                {
+                  "text": "itemstacks",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/itemstacks"
+                },
+                {
+                  "text": "modify-recipes",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/modify-recipes"
+                },
+                {
+                  "text": "recipe-id",
+                  "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/recipe-id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "index",
+          "link": "/zh/modpack/kubejs/1.19.2/index"
+        }
+      ]
+    }
+  ],
+  "zh/modpack/kubejs/1.18.2/": [
+    {
+      "text": "",
+      "items": [
+        {
+          "text": "XPlusKubeJSTutorial",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "README",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/README"
+            },
+            {
+              "text": "SUMMARY",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/SUMMARY"
+            },
+            {
+              "text": "addons",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "kubejs-blood-magic",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-blood-magic"
+                },
+                {
+                  "text": "kubejs-create",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-create"
+                },
+                {
+                  "text": "kubejs-mekanism",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-mekanism"
+                },
+                {
+                  "text": "kubejs-ui",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-ui"
+                },
+                {
+                  "text": "lootjs-examples",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs-examples"
+                },
+                {
+                  "text": "lootjs",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs"
+                },
+                {
+                  "text": "termal",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/termal"
+                }
+              ]
+            },
+            {
+              "text": "event1",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "chateventexamples",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/event1/chateventexamples"
+                },
+                {
+                  "text": "server-auto-restart-example",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/event1/server-auto-restart-example"
+                }
+              ]
+            },
+            {
+              "text": "events2",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "block",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/block"
+                },
+                {
+                  "text": "entityjs-raytrace-itemstack",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/entityjs-raytrace-itemstack"
+                },
+                {
+                  "text": "event-list",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/event-list"
+                },
+                {
+                  "text": "examples",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/examples"
+                },
+                {
+                  "text": "playerjs",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/playerjs"
+                },
+                {
+                  "text": "tests",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/tests"
+                },
+                {
+                  "text": "worldjs-serverjs",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/worldjs-serverjs"
+                }
+              ]
+            },
+            {
+              "text": "feature1",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "10-zi-ding-yi-chuang-kou-biao-ti-he-logo",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/10-zi-ding-yi-chuang-kou-biao-ti-he-logo"
+                },
+                {
+                  "text": "add-blocks",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/add-blocks"
+                },
+                {
+                  "text": "fluid",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/fluid"
+                },
+                {
+                  "text": "loottable",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/loottable"
+                },
+                {
+                  "text": "tags",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/tags"
+                },
+                {
+                  "text": "worldgen",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/worldgen"
+                }
+              ]
+            },
+            {
+              "text": "feature2",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "add-items",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/add-items"
+                },
+                {
+                  "text": "modify-items-and-blocks",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/modify-items-and-blocks"
+                }
+              ]
+            },
+            {
+              "text": "index",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/index"
+            },
+            {
+              "text": "intro",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "changelogs",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/intro/changelogs"
+                }
+              ]
+            },
+            {
+              "text": "migrate-to-1182",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "20-1.18.2-zhong-de-bian-hua-he-gong-neng",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20-1.18.2-zhong-de-bian-hua-he-gong-neng"
+                },
+                {
+                  "text": "20.1-probejs",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.1-probejs"
+                },
+                {
+                  "text": "20.2-zu-jian-component-de-shi-yong",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.2-zu-jian-component-de-shi-yong"
+                },
+                {
+                  "text": "20.3-ge-shi-bian-hua",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "20.3.1-shi-jie-sheng-cheng",
+                      "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.1-shi-jie-sheng-cheng"
+                    },
+                    {
+                      "text": "20.3.2-fang-kuai-wu-pin-zhu-ce",
+                      "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.2-fang-kuai-wu-pin-zhu-ce"
+                    },
+                    {
+                      "text": "20.3.3-shi-jian",
+                      "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.3-shi-jian"
+                    },
+                    {
+                      "text": "20.3.4-global-de-shi-yong",
+                      "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.4-global-de-shi-yong"
+                    },
+                    {
+                      "text": "README",
+                      "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/README"
+                    }
+                  ]
+                },
+                {
+                  "text": "20.4-ming-ling-zhu-ce",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.4-ming-ling-zhu-ce"
+                },
+                {
+                  "text": "20.5-fan-she-yu-java-access",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.5-fan-she-yu-java-access"
+                }
+              ]
+            },
+            {
+              "text": "mod-tweaks",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "ftb-quests",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/ftb-quests"
+                },
+                {
+                  "text": "gamestage",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/gamestage"
+                },
+                {
+                  "text": "jei",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/jei"
+                },
+                {
+                  "text": "rei",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/rei"
+                }
+              ]
+            },
+            {
+              "text": "others",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "can",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/can"
+                },
+                {
+                  "text": "forge-events",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/forge-events"
+                },
+                {
+                  "text": "i18n",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/i18n"
+                },
+                {
+                  "text": "network-painterapi",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/network-painterapi"
+                },
+                {
+                  "text": "smelting-pickaxe",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/smelting-pickaxe"
+                }
+              ]
+            },
+            {
+              "text": "recipe",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "create-recipes",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/create-recipes"
+                },
+                {
+                  "text": "custom-recipes",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/custom-recipes"
+                },
+                {
+                  "text": "modify-recipes",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/modify-recipes"
+                }
+              ]
+            },
+            {
+              "text": "the-start",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "commands",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/commands"
+                },
+                {
+                  "text": "event-list",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/event-list"
+                },
+                {
+                  "text": "file-structure",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/file-structure"
+                },
+                {
+                  "text": "script-format",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/script-format"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "index",
+          "link": "/zh/modpack/kubejs/1.18.2/index"
+        }
+      ]
+    }
+  ],
+  "zh/modpack/kubejs/1.21/": [
+    {
+      "text": "KubeJS",
+      "items": [
+        {
+          "text": "基础",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "附属",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "LootJs",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "LootJs",
+                      "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootJs"
+                    },
+                    {
+                      "text": "LootTables",
+                      "collapsed": true,
+                      "items": [
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Event"
+                        },
+                        {
+                          "text": "Modify",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Modify"
+                        },
+                        {
+                          "text": "Create",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Create"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "LootModifiers",
+                      "collapsed": true,
+                      "items": [
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootModifiers/Event"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "API",
+                      "collapsed": true,
+                      "items": [
+                        {
+                          "text": "ItemFilter",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/ItemFilter"
+                        },
+                        {
+                          "text": "LootTable",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootTable"
+                        },
+                        {
+                          "text": "LootPool",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootPool"
+                        },
+                        {
+                          "text": "LootEntry",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntry"
+                        },
+                        {
+                          "text": "LootEntryTransformer",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntryTransformer"
+                        },
+                        {
+                          "text": "LootConditions",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootConditions"
+                        },
+                        {
+                          "text": "LootFunctions",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootFunctions"
+                        },
+                        {
+                          "text": "LootModifier",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootModifier"
+                        },
+                        {
+                          "text": "LootContext",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootContext"
+                        },
+                        {
+                          "text": "NumberProvider",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/NumberProvider"
+                        },
+                        {
+                          "text": "Range",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/Range"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "代码分享",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "QiHuang02",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "EmendatusEnigmaticaJS",
+                  "link": "/zh/modpack/kubejs/1.21/codeshare/QiHuang02/emendatusenigmaticajs"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/develop/": [
+    {
+      "text": "模组开发",
+      "items": [
+        {
+          "text": "原版",
+          "link": "/zh/develop/vanilla/index"
+        },
+        {
+          "text": "模组开发",
+          "link": "/zh/develop/modding/index"
+        },
+        {
+          "text": "插件开发",
+          "link": "/zh/develop/plugin/index"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/develop/modding/": [
+    {
+      "text": "模组开发",
+      "items": [
+        {
+          "text": "1.21",
+          "collapsed": false,
+          "items": []
+        },
+        {
+          "text": "1.20.4",
+          "link": "/zh/develop/modding/1.20.4/index"
+        },
+        {
+          "text": "1.20.1",
+          "link": "/zh/develop/modding/1.20.1/index"
+        },
+        {
+          "text": "1.19.2",
+          "link": "/zh/develop/modding/1.19.2/index"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/develop/modding/1.20.4/": [
+    {
+      "text": "1.20.4",
+      "items": [
+        {
+          "text": "NeoForge",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/index"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/develop/modding/1.20.4/Neoforge/": [
+    {
+      "text": "NeoForge",
+      "items": [
+        {
+          "text": "芙兰朵露",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_01_Environment"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/develop/modding/1.20.4/Neoforge/flandre/": [
+    {
+      "text": "",
+      "items": [
+        {
+          "text": "01 环境配置",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_01_Environment"
+        },
+        {
+          "text": "02 第一个物品",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_02_FirstItemRegistry"
+        },
+        {
+          "text": "03 创造模式物品栏",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_03_CreativeModTabs"
+        },
+        {
+          "text": "04 添加一个方块",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_04_Register_Block"
+        },
+        {
+          "text": "05 方块状态",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_05_BlockState"
+        },
+        {
+          "text": "06 物品属性覆盖",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_06_ItemAttributeOveride"
+        },
+        {
+          "text": "07 数据生成",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_07_Datagen"
+        },
+        {
+          "text": "08 食物",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_08_Food"
+        },
+        {
+          "text": "09 武器",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_09_Weapon"
+        },
+        {
+          "text": "10 工具",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_10_Tool"
+        },
+        {
+          "text": "11 装备",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_11_Armor"
+        },
+        {
+          "text": "12 自定义方块模型和非实体方块",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_12_CustomBlockModel_Non_BlockEntityBlock"
+        },
+        {
+          "text": "13 方块渲染类型",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_13_BlockRenderType"
+        },
+        {
+          "text": "14 自定义物品模型",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_14_CustomItemModel"
+        },
+        {
+          "text": "15 合成表",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_15_CraftTable"
+        },
+        {
+          "text": "16 战利品表",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_16_LootTable"
+        },
+        {
+          "text": "17 Tag",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_17 Tag"
+        },
+        {
+          "text": "18 OBJ模型",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_18 OBJ_Model"
+        },
+        {
+          "text": "19 添加画",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_19_Register_Paint"
+        },
+        {
+          "text": "20 添加新的村民",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_20_Register_Villager_Type"
+        },
+        {
+          "text": "21 第一方块实体和数据保存",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_21_FirstBlockEntity_DataStorage"
+        },
+        {
+          "text": "22  实体方块tick",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_22 _BlockEntityTick"
+        },
+        {
+          "text": "23 方块实体内置的数据同步",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_23_BlockEntityDataSync"
+        },
+        {
+          "text": "24 烘焙模型",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_24 BakedModel"
+        },
+        {
+          "text": "25 方块实体渲染",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_25_BlockEntityRender"
+        },
+        {
+          "text": "26 物品特殊渲染",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_26_SpecialItemRender"
+        },
+        {
+          "text": "27 网络",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_27_Networking"
+        },
+        {
+          "text": "28 便利添加创造模式物品栏【可选】",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_28_EasyToModifyTabs_Optional"
+        },
+        {
+          "text": "29 第一个实体",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_29_FirstEntity"
+        },
+        {
+          "text": "30 第一个生物",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_30_FirstMob"
+        },
+        {
+          "text": "31 附魔",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_31_Enchantment"
+        },
+        {
+          "text": "32 构建能力",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_32_BuildCapability"
+        },
+        {
+          "text": "33 原版提供的能力ItemHander物品处理能力",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_33_ItemHander"
+        },
+        {
+          "text": "34 能力提供附加",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_34_Capability_Extra"
+        },
+        {
+          "text": "35 LevelSaveData",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_35_LevelSaveData"
+        },
+        {
+          "text": "36 第一个GUI",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_36_FirstGUI"
+        },
+        {
+          "text": "37 menu",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_37_Menu"
+        },
+        {
+          "text": "38 HUD",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_38_HUD"
+        },
+        {
+          "text": "39 注册热键",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_39_RegisterKey"
+        },
+        {
+          "text": "40 流体",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_40_Fluid"
+        },
+        {
+          "text": "41 饥渴值例子",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_41_NutritionSample"
+        },
+        {
+          "text": "42 矿物生成",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_42_OreGeneration"
+        },
+        {
+          "text": "43 结构生成",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_43_StructureGeneration"
+        },
+        {
+          "text": "44 如何添加模组和lib",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_44_Dependencies_LIb"
+        },
+        {
+          "text": "45 添加生物群系",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_45_RegisterBiome"
+        },
+        {
+          "text": "46 添加维度",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_46_RegisterDimension"
+        },
+        {
+          "text": "47 命令",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_47_Command"
+        },
+        {
+          "text": "48 成就",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_48_Advancement"
+        },
+        {
+          "text": "49 配置信息设置",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_49_Config"
+        },
+        {
+          "text": "50 药水效果和药水",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_50_MobEffect_Potion"
+        },
+        {
+          "text": "51  粒子",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_51_Particle"
+        },
+        {
+          "text": "52 声音",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_52_Sound"
+        },
+        {
+          "text": "53 更新到Minecraft 1.20.6版本",
+          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_53_Update_1.20.6"
+        }
+      ]
+    }
+  ],
+  "zh/develop/vanilla/": [
+    {
+      "text": "原版",
+      "items": [
+        {
+          "text": "数据包",
+          "link": "/zh/develop/vanilla/datapack/index"
+        },
+        {
+          "text": "材质包",
+          "link": "/zh/develop/vanilla/resourcepack/index"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/develop/vanilla/datapack/": [
+    {
+      "text": "数据包",
+      "items": [
+        {
+          "text": "介绍",
+          "link": "/zh/develop/vanilla/datapack/introduction"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/develop/vanilla/resourcepack/": [
+    {
+      "text": "材质包",
+      "items": [
+        {
+          "text": "介绍",
+          "link": "/zh/develop/vanilla/resourcepack/introduction"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/info/": [
+    {
+      "text": "文档信息收集处",
+      "items": [
+        {
+          "text": "KubeJS",
+          "link": "/zh/info/KubeJS/index"
+        },
+        {
+          "text": "模块请求",
+          "link": "/zh/info/doc/module-request/index"
+        },
+        {
+          "text": "Q&A",
+          "link": "/zh/info/doc/Q&A/index"
+        },
+        {
+          "text": "建议",
+          "link": "/zh/info/doc/suggestion/index"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/info/KubeJS/": [
+    {
+      "text": "文档信息收集处",
+      "items": [
+        {
+          "text": "留言板",
+          "link": "/zh/info/KubeJS/borad/index"
+        },
+        {
+          "text": "代码分享",
+          "link": "/zh/info/KubeJS/code/index"
+        },
+        {
+          "text": "Q&A",
+          "link": "/zh/info/KubeJS/Q&A/index"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/info/KubeJS/borad/": [
+    {
+      "text": "留言板",
+      "items": [
+        {
+          "text": "代码分享（Doc）",
+          "link": "/zh/info/KubeJS/borad/./code"
+        },
+        {
+          "text": "导航栏",
+          "link": "/zh/info/KubeJS/borad/./navbar"
+        },
+        {
+          "text": "文档纠错",
+          "link": "/zh/info/KubeJS/borad/./docError"
+        },
+        {
+          "text": "模组推荐",
+          "link": "/zh/info/KubeJS/borad/./modRecommend"
+        },
+        {
+          "text": "团队招募",
+          "link": "/zh/info/KubeJS/borad/./teamRecruit"
+        },
+        {
+          "text": "整合包",
+          "link": "/zh/info/KubeJS/borad/./modpack"
+        },
+        {
+          "text": "公益服",
+          "link": "/zh/info/KubeJS/borad/./publicServer"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/info/KubeJS/code/": [
+    {
+      "text": "代码分享",
+      "items": [
+        {
+          "text": "注册",
+          "link": "/zh/info/KubeJS/code/./register"
+        },
+        {
+          "text": "函数库（Utils API）",
+          "link": "/zh/info/KubeJS/code/./utils"
+        },
+        {
+          "text": "事件处理",
+          "link": "/zh/info/KubeJS/code/./eventHandler"
+        },
+        {
+          "text": "反射",
+          "link": "/zh/info/KubeJS/code/./loadClass"
+        },
+        {
+          "text": "纠错",
+          "link": "/zh/info/KubeJS/code/./error"
+        },
+        {
+          "text": "其他",
+          "link": "/zh/info/KubeJS/code/./other"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/info/KubeJS/Q&A/": [
+    {
+      "text": "提问区",
+      "items": [
+        {
+          "text": "注册",
+          "link": "/zh/info/KubeJS/Q&A/./register"
+        },
+        {
+          "text": "事件与交互",
+          "link": "/zh/info/KubeJS/Q&A/./event_interaction"
+        },
+        {
+          "text": "类与方法",
+          "link": "/zh/info/KubeJS/Q&A/./API"
+        },
+        {
+          "text": "报错",
+          "link": "/zh/info/KubeJS/Q&A/./error"
+        },
+        {
+          "text": "反射",
+          "link": "/zh/info/KubeJS/Q&A/./loadClass"
+        },
+        {
+          "text": "Forge Events",
+          "link": "/zh/info/KubeJS/Q&A/./forgeEvents"
+        },
+        {
+          "text": "其他",
+          "link": "/zh/info/KubeJS/Q&A/./other"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/info/doc/": [
+    {
+      "text": "",
+      "items": [
+        {
+          "text": "Q&A",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "cooperation",
+              "link": "/zh/info/doc/Q&A/cooperation"
+            },
+            {
+              "text": "index",
+              "link": "/zh/info/doc/Q&A/index"
+            },
+            {
+              "text": "other",
+              "link": "/zh/info/doc/Q&A/other"
+            },
+            {
+              "text": "use",
+              "link": "/zh/info/doc/Q&A/use"
+            }
+          ]
+        },
+        {
+          "text": "module-request",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "beautify",
+              "link": "/zh/info/doc/module-request/beautify"
+            },
+            {
+              "text": "codeShare",
+              "link": "/zh/info/doc/module-request/codeShare"
+            },
+            {
+              "text": "component",
+              "link": "/zh/info/doc/module-request/component"
+            },
+            {
+              "text": "index",
+              "link": "/zh/info/doc/module-request/index"
+            },
+            {
+              "text": "kubejs",
+              "link": "/zh/info/doc/module-request/kubejs"
+            },
+            {
+              "text": "mod",
+              "link": "/zh/info/doc/module-request/mod"
+            },
+            {
+              "text": "modPlugin",
+              "link": "/zh/info/doc/module-request/modPlugin"
+            },
+            {
+              "text": "newSection",
+              "link": "/zh/info/doc/module-request/newSection"
+            }
+          ]
+        },
+        {
+          "text": "suggestion",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "doc",
+              "link": "/zh/info/doc/suggestion/doc"
+            },
+            {
+              "text": "index",
+              "link": "/zh/info/doc/suggestion/index"
+            },
+            {
+              "text": "writing",
+              "link": "/zh/info/doc/suggestion/writing"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "zh/info/doc/module-request/": [
+    {
+      "text": "模块请求",
+      "items": [
+        {
+          "text": "收集处",
+          "link": "/zh/info/doc/module-request/newSection"
+        },
+        {
+          "text": "KubeJS",
+          "link": "/zh/info/doc/module-request/KubeJS/kubejs"
+        },
+        {
+          "text": "模组开发",
+          "link": "/zh/info/doc/module-request/mod/mod"
+        },
+        {
+          "text": "模组插件",
+          "link": "/zh/info/doc/module-request/mod-plugin/modPlugin"
+        },
+        {
+          "text": "组件",
+          "link": "/zh/info/doc/module-request/component"
+        },
+        {
+          "text": "美化",
+          "link": "/zh/info/doc/module-request/beautify"
+        },
+        {
+          "text": "代码分享",
+          "link": "/zh/info/doc/module-request/codeShare"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/info/doc/Q&A/": [
+    {
+      "text": "提问区",
+      "items": [
+        {
+          "text": "使用",
+          "link": "/zh/info/doc/Q&A/use"
+        },
+        {
+          "text": "合作",
+          "link": "/zh/info/doc/Q&A/cooperation"
+        },
+        {
+          "text": "其他",
+          "link": "/zh/info/doc/Q&A/other"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/info/doc/suggestion/": [
+    {
+      "text": "建议",
+      "items": [
+        {
+          "text": "运营",
+          "link": "/zh/info/doc/suggestion/doc"
+        },
+        {
+          "text": "编写",
+          "link": "/zh/info/doc/suggestion/writing"
+        }
+      ],
+      "collapsed": false
+    }
+  ],
+  "zh/modpack/kubejs/1.20.1/KubeJSCourse/": [
+    {
+      "text": "",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "KubeJS教程-1.20.1",
+          "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/README"
+        },
+        {
+          "text": "kjs基础",
+          "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "前言",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Foreword"
+            },
+            {
+              "text": "认识kjs的文件夹",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/FileStructure"
+            },
+            {
+              "text": "所有事件使用",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/AllEvent"
+            },
+            {
+              "text": "基础写法-配方添加",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/BasicSyntax-Add"
+            },
+            {
+              "text": "基础写法-删除和修改",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/BasicSyntax-DeleteAndModify"
+            },
+            {
+              "text": "万用配方修改(添加)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Custom"
+            },
+            {
+              "text": "修改窗口标题和logo",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/ModifyWindowTitleAndLogo"
+            },
+            {
+              "text": "游戏资源调用",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/GameSources"
+            },
+            {
+              "text": "文件优先级",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/FilePriority"
+            },
+            {
+              "text": "ProbeJS的基础使用",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/ProbeJS"
+            },
+            {
+              "text": "ProbeJS查找注册名",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/RegisterType"
+            },
+            {
+              "text": "执行游戏内指令",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/RunCommand"
+            },
+            {
+              "text": "物品提示",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Tooltip"
+            },
+            {
+              "text": "添加和删除tag",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Tags"
+            },
+            {
+              "text": "战利品",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "全局战利品",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/GlobalLootTable"
+                },
+                {
+                  "text": "方块掉落",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/BlockLootTable"
+                },
+                {
+                  "text": "生物掉落",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/EntityLootTable"
+                },
+                {
+                  "text": "礼物战利品",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/GiftLootTable"
+                },
+                {
+                  "text": "钓鱼战利品",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/FishingLootTable"
+                },
+                {
+                  "text": "宝箱战利品",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/ChestLootTable"
+                }
+              ]
+            },
+            {
+              "text": "自定义游戏内容",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "添加物品",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemRegistry"
+                },
+                {
+                  "text": "添加物品示例",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/README",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "唱片添加",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/MusicDisc"
+                    },
+                    {
+                      "text": "食物添加",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/Food"
+                    },
+                    {
+                      "text": "工具添加",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/Tool"
+                    },
+                    {
+                      "text": "右键使用物品",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/ItemUse"
+                    }
+                  ]
+                },
+                {
+                  "text": "添加方块",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/BlockRegistry"
+                },
+                {
+                  "text": "添加方块示例",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/BlockType/README",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "添加作物",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/BlockType/CropReg"
+                    }
+                  ]
+                },
+                {
+                  "text": "添加流体",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/LiquidRegistry"
+                },
+                {
+                  "text": "添加附魔",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/EnchantRegistry"
+                },
+                {
+                  "text": "添加药水",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/PotionEffectsRegistry"
+                },
+                {
+                  "text": "添加药水效果",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/PotionRegistry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "kjs资源路径文件夹",
+          "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Resources/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "lang文件",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Resources/Lang"
+            },
+            {
+              "text": "贴图",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Resources/Texture"
+            },
+            {
+              "text": "音乐",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Resources/Sounds"
+            },
+            {
+              "text": "模型",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Resources/Model"
+            }
+          ]
+        },
+        {
+          "text": "kjs进阶",
+          "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "全局的静态类",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/StaticClsss"
+            },
+            {
+              "text": "配方添加进阶",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/RecipeAdvanced"
+            },
+            {
+              "text": "物品配方合成返回物品",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/ItemRecipeReturnItem"
+            },
+            {
+              "text": "创造物品栏",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/CreativeTab"
+            },
+            {
+              "text": "自定义指令",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/CustomCommandRegistry"
+            },
+            {
+              "text": "定时任务",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/ScheduleInTicks"
+            },
+            {
+              "text": "关于事件",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/Event"
+            },
+            {
+              "text": "事件示例",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/EventExamples/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "方块右键事件",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/EventExamples/BlockRightClickedEvent"
+                },
+                {
+                  "text": "玩家库存改变事件",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/EventExamples/PlayerInventoryChangedEvents"
+                }
+              ]
+            },
+            {
+              "text": "物品属性修改——待编写",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/ItemAttributeModify"
+            },
+            {
+              "text": "世界生成",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/WorldGen"
+            },
+            {
+              "text": "global全局变量",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/GlobalVariable"
+            },
+            {
+              "text": "LoadClass使用",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/JavaLoadClass"
+            },
+            {
+              "text": "ForgeEvent的使用",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/ForgeEvent"
+            },
+            {
+              "text": "RecipesSchema简单教程",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/RecipesSchemaAdded"
+            },
+            {
+              "text": "持久化数据——待编写",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/PersistentData"
+            },
+            {
+              "text": "屏幕“绘画”——待编写",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/Paint"
+            },
+            {
+              "text": "玩家屏幕右上角提示——待编写",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/PlayerNotify"
+            }
+          ]
+        },
+        {
+          "text": "kjs模组",
+          "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "KubeJSAdditions",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/KubeJSAdditions/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "关于事件",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/KubeJSAdditions/Events"
+                }
+              ]
+            },
+            {
+              "text": "MoreJS",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/MoreJS/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "关于事件",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/MoreJS/AllEvent"
+                }
+              ]
+            },
+            {
+              "text": "EntityJS",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "关于事件",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/AllEvent"
+                },
+                {
+                  "text": "实体注册",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/CreateEntity"
+                },
+                {
+                  "text": "实体AI",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/EntityAI"
+                }
+              ]
+            },
+            {
+              "text": "AdvancementJS(进度)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/AdvancementJS"
+            },
+            {
+              "text": "ArsNouveauJS(新生魔艺)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/ArsNouveauJS"
+            },
+            {
+              "text": "BotaniaJS(植物魔法)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/BotaniaJS"
+            },
+            {
+              "text": "BotanyPotsJS",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/BotanyPotsJS"
+            },
+            {
+              "text": "CreateJS(机械动力)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/CreateJS"
+            },
+            {
+              "text": "CreateHeatJS(机械动力热量)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/CreateHeatJS"
+            },
+            {
+              "text": "CreateSifting(机械动力：筛子)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/CreateSifting"
+            },
+            {
+              "text": "DelightJS",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/DelightJS"
+            },
+            {
+              "text": "JEI&REIJS",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/JEIJS"
+            },
+            {
+              "text": "MoreJS",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/MoreJS"
+            },
+            {
+              "text": "PowahJS",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PowahJS"
+            },
+            {
+              "text": "TFCJS(群峦)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/TFCJS"
+            },
+            {
+              "text": "ThermalJS(热力膨胀)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/ThermalJS"
+            },
+            {
+              "text": "LootJS(战利品)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/LootJS"
+            },
+            {
+              "text": "PonderJs(俺寻思)",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "前言",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Foreword"
+                },
+                {
+                  "text": "Ponder",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Ponder"
+                },
+                {
+                  "text": "PonderTag",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Tags"
+                },
+                {
+                  "text": "本地化",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Translate"
+                },
+                {
+                  "text": "基本概念和实用工具",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Utils"
+                },
+                {
+                  "text": "关于实体",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Standard/Enitity"
+                },
+                {
+                  "text": "关于方块",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Standard/Block"
+                },
+                {
+                  "text": "关于显示和隐藏方块",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Standard/ShowAndHide"
+                },
+                {
+                  "text": "进阶内容",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Advanced/README",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "Scene",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Advanced/Scene"
+                    },
+                    {
+                      "text": "Section",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Advanced/Section"
+                    }
+                  ]
+                },
+                {
+                  "text": "函数调用",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/README",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "facing",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/Facing"
+                    },
+                    {
+                      "text": "ponderIcons",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/PonderIcons"
+                    },
+                    {
+                      "text": "sceneFunction",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/SceneFunction"
+                    },
+                    {
+                      "text": "sceneWorldFunction",
+                      "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/SceneWorldFunction"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "题外话",
+          "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "关于配方id",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/RecipeId"
+            },
+            {
+              "text": "权重",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/Weight"
+            },
+            {
+              "text": "战利品上下文",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/LootContext"
+            },
+            {
+              "text": "sounds.json 结构",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/SoundsJson"
+            },
+            {
+              "text": "原版战利品id",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/LootTableId"
+            },
+            {
+              "text": "稀有度",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/Rarity"
+            },
+            {
+              "text": "命名空间",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/NameSpace"
+            },
+            {
+              "text": "附魔保护机制",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/ProtectionEnchantMechanism"
+            },
+            {
+              "text": "BlockBench基础使用教程",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/BlockbenchBasic"
+            },
+            {
+              "text": "Forge端读取obj模型",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/ForgeReadObjModel"
+            },
+            {
+              "text": "lang文件命名对照表",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/LangFileNamingChart"
+            },
+            {
+              "text": "饱食度和饱和度",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/SaturationHunger"
+            },
+            {
+              "text": "tag介绍",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/Tag"
+            },
+            {
+              "text": "VS Code安装",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/Digression/VSCodeInstallation"
+            }
+          ]
+        },
+        {
+          "text": "项目分享",
+          "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "自定义金属材料集成",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Qi/CMMI"
+            },
+            {
+              "text": "工作台物品附魔",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Wolf/EnchantOnTable"
+            },
+            {
+              "text": "祭坛合成",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/AltarComposition"
+            },
+            {
+              "text": "下落合成",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/FallItem"
+            },
+            {
+              "text": "抽奖券",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RaffleTicket"
+            },
+            {
+              "text": "自定义传送门",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/CustomPortal"
+            },
+            {
+              "text": "玩家禁言",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/NoChat"
+            },
+            {
+              "text": "服务器签到",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SignIn"
+            },
+            {
+              "text": "注册AE存储元件和对应的组件",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RegComponent&Storage"
+            },
+            {
+              "text": "唱片转化为物品",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/JukeboxToItem"
+            },
+            {
+              "text": "kjs注册背包",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/Backpack"
+            },
+            {
+              "text": "按键注册和使用",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RegKey"
+            },
+            {
+              "text": "TaCZ的无限子弹",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/TaCZUnlimitedBullet"
+            },
+            {
+              "text": "孤梦的小项目",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "聊天消息+1",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/Message+1"
+                },
+                {
+                  "text": "自动适配台阶合成对应块",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/SlabPairBlock"
+                },
+                {
+                  "text": "原版修改流体对撞产生块",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/McFluidPlaceBlock"
+                },
+                {
+                  "text": "机械动力修改流体管道流体和流体产生块",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/CreatePipeCollision"
+                },
+                {
+                  "text": "禁止实体穿越指定维度",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/EntityTravelToDimension"
+                },
+                {
+                  "text": "物品右键获取该物品的方块tag",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/BlockItemGetBlockTag"
+                },
+                {
+                  "text": "注册门",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/RegDoor"
+                },
+                {
+                  "text": "双开门",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/DoubleDoor"
+                },
+                {
+                  "text": "检测玩家第一次进游戏",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/playerInGameOne"
+                },
+                {
+                  "text": "获取所有配方json并保存为文件",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/RecipesJsonInFile"
+                }
+              ]
+            },
+            {
+              "text": "栗子的小项目",
+              "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/PrizOwO/SmallProject/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "玩家对生物造成伤害显示血量",
+                  "link": "/zh/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/PrizOwO/SmallProject/HitHealthShow"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "en/modpack/kubejs/1.20.1/KubeJSCourse/": [
+    {
+      "text": "",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "KubeJS教程-1.20.1",
+          "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/README"
+        },
+        {
+          "text": "kjs基础",
+          "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "前言",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Foreword"
+            },
+            {
+              "text": "认识kjs的文件夹",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/FileStructure"
+            },
+            {
+              "text": "所有事件使用",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/AllEvent"
+            },
+            {
+              "text": "基础写法-配方添加",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/BasicSyntax-Add"
+            },
+            {
+              "text": "基础写法-删除和修改",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/BasicSyntax-DeleteAndModify"
+            },
+            {
+              "text": "万用配方修改(添加)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Custom"
+            },
+            {
+              "text": "修改窗口标题和logo",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/ModifyWindowTitleAndLogo"
+            },
+            {
+              "text": "游戏资源调用",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/GameSources"
+            },
+            {
+              "text": "文件优先级",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/FilePriority"
+            },
+            {
+              "text": "ProbeJS的基础使用",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/ProbeJS"
+            },
+            {
+              "text": "ProbeJS查找注册名",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/RegisterType"
+            },
+            {
+              "text": "执行游戏内指令",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/RunCommand"
+            },
+            {
+              "text": "物品提示",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Tooltip"
+            },
+            {
+              "text": "添加和删除tag",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Tags"
+            },
+            {
+              "text": "战利品",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "全局战利品",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/GlobalLootTable"
+                },
+                {
+                  "text": "方块掉落",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/BlockLootTable"
+                },
+                {
+                  "text": "生物掉落",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/EntityLootTable"
+                },
+                {
+                  "text": "礼物战利品",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/GiftLootTable"
+                },
+                {
+                  "text": "钓鱼战利品",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/FishingLootTable"
+                },
+                {
+                  "text": "宝箱战利品",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/LootTables/ChestLootTable"
+                }
+              ]
+            },
+            {
+              "text": "自定义游戏内容",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "添加物品",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemRegistry"
+                },
+                {
+                  "text": "添加物品示例",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/README",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "唱片添加",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/MusicDisc"
+                    },
+                    {
+                      "text": "食物添加",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/Food"
+                    },
+                    {
+                      "text": "工具添加",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/Tool"
+                    },
+                    {
+                      "text": "右键使用物品",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/ItemType/ItemUse"
+                    }
+                  ]
+                },
+                {
+                  "text": "添加方块",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/BlockRegistry"
+                },
+                {
+                  "text": "添加方块示例",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/BlockType/README",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "添加作物",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/BlockType/CropReg"
+                    }
+                  ]
+                },
+                {
+                  "text": "添加流体",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/LiquidRegistry"
+                },
+                {
+                  "text": "添加附魔",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/EnchantRegistry"
+                },
+                {
+                  "text": "添加药水",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/PotionEffectsRegistry"
+                },
+                {
+                  "text": "添加药水效果",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSBasic/Customs/PotionRegistry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "kjs资源路径文件夹",
+          "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Resources/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "lang文件",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Resources/Lang"
+            },
+            {
+              "text": "贴图",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Resources/Texture"
+            },
+            {
+              "text": "音乐",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Resources/Sounds"
+            },
+            {
+              "text": "模型",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Resources/Model"
+            }
+          ]
+        },
+        {
+          "text": "kjs进阶",
+          "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "全局的静态类",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/StaticClsss"
+            },
+            {
+              "text": "配方添加进阶",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/RecipeAdvanced"
+            },
+            {
+              "text": "物品配方合成返回物品",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/ItemRecipeReturnItem"
+            },
+            {
+              "text": "创造物品栏",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/CreativeTab"
+            },
+            {
+              "text": "自定义指令",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/CustomCommandRegistry"
+            },
+            {
+              "text": "定时任务",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/ScheduleInTicks"
+            },
+            {
+              "text": "关于事件",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/Event"
+            },
+            {
+              "text": "事件示例",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/EventExamples/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "方块右键事件",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/EventExamples/BlockRightClickedEvent"
+                },
+                {
+                  "text": "玩家库存改变事件",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/EventExamples/PlayerInventoryChangedEvents"
+                }
+              ]
+            },
+            {
+              "text": "物品属性修改——待编写",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/ItemAttributeModify"
+            },
+            {
+              "text": "世界生成",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/WorldGen"
+            },
+            {
+              "text": "global全局变量",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/GlobalVariable"
+            },
+            {
+              "text": "LoadClass使用",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/JavaLoadClass"
+            },
+            {
+              "text": "ForgeEvent的使用",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/ForgeEvent"
+            },
+            {
+              "text": "RecipesSchema简单教程",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/RecipesSchemaAdded"
+            },
+            {
+              "text": "持久化数据——待编写",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/PersistentData"
+            },
+            {
+              "text": "屏幕“绘画”——待编写",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/Paint"
+            },
+            {
+              "text": "玩家屏幕右上角提示——待编写",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAdvanced/PlayerNotify"
+            }
+          ]
+        },
+        {
+          "text": "kjs模组",
+          "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "KubeJSAdditions",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/KubeJSAdditions/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "关于事件",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/KubeJSAdditions/Events"
+                }
+              ]
+            },
+            {
+              "text": "MoreJS",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/MoreJS/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "关于事件",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/MoreJS/AllEvent"
+                }
+              ]
+            },
+            {
+              "text": "EntityJS",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "关于事件",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/AllEvent"
+                },
+                {
+                  "text": "实体注册",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/CreateEntity"
+                },
+                {
+                  "text": "实体AI",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/EntityJS/EntityAI"
+                }
+              ]
+            },
+            {
+              "text": "AdvancementJS(进度)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/AdvancementJS"
+            },
+            {
+              "text": "ArsNouveauJS(新生魔艺)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/ArsNouveauJS"
+            },
+            {
+              "text": "BotaniaJS(植物魔法)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/BotaniaJS"
+            },
+            {
+              "text": "BotanyPotsJS",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/BotanyPotsJS"
+            },
+            {
+              "text": "CreateJS(机械动力)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/CreateJS"
+            },
+            {
+              "text": "CreateHeatJS(机械动力热量)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/CreateHeatJS"
+            },
+            {
+              "text": "CreateSifting(机械动力：筛子)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/CreateSifting"
+            },
+            {
+              "text": "DelightJS",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/DelightJS"
+            },
+            {
+              "text": "JEI&REIJS",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/JEIJS"
+            },
+            {
+              "text": "MoreJS",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/MoreJS"
+            },
+            {
+              "text": "PowahJS",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PowahJS"
+            },
+            {
+              "text": "TFCJS(群峦)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/TFCJS"
+            },
+            {
+              "text": "ThermalJS(热力膨胀)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/ThermalJS"
+            },
+            {
+              "text": "LootJS(战利品)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/LootJS"
+            },
+            {
+              "text": "PonderJs(俺寻思)",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "前言",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Foreword"
+                },
+                {
+                  "text": "Ponder",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Ponder"
+                },
+                {
+                  "text": "PonderTag",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Tags"
+                },
+                {
+                  "text": "本地化",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Translate"
+                },
+                {
+                  "text": "基本概念和实用工具",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Utils"
+                },
+                {
+                  "text": "关于实体",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Standard/Enitity"
+                },
+                {
+                  "text": "关于方块",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Standard/Block"
+                },
+                {
+                  "text": "关于显示和隐藏方块",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Standard/ShowAndHide"
+                },
+                {
+                  "text": "进阶内容",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Advanced/README",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "Scene",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Advanced/Scene"
+                    },
+                    {
+                      "text": "Section",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Advanced/Section"
+                    }
+                  ]
+                },
+                {
+                  "text": "函数调用",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/README",
+                  "collapsed": true,
+                  "items": [
+                    {
+                      "text": "facing",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/Facing"
+                    },
+                    {
+                      "text": "ponderIcons",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/PonderIcons"
+                    },
+                    {
+                      "text": "sceneFunction",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/SceneFunction"
+                    },
+                    {
+                      "text": "sceneWorldFunction",
+                      "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSAddon/PonderJS/Internal/SceneWorldFunction"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "题外话",
+          "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "关于配方id",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/RecipeId"
+            },
+            {
+              "text": "权重",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/Weight"
+            },
+            {
+              "text": "战利品上下文",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/LootContext"
+            },
+            {
+              "text": "sounds.json 结构",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/SoundsJson"
+            },
+            {
+              "text": "原版战利品id",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/LootTableId"
+            },
+            {
+              "text": "稀有度",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/Rarity"
+            },
+            {
+              "text": "命名空间",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/NameSpace"
+            },
+            {
+              "text": "附魔保护机制",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/ProtectionEnchantMechanism"
+            },
+            {
+              "text": "BlockBench基础使用教程",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/BlockbenchBasic"
+            },
+            {
+              "text": "Forge端读取obj模型",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/ForgeReadObjModel"
+            },
+            {
+              "text": "lang文件命名对照表",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/LangFileNamingChart"
+            },
+            {
+              "text": "饱食度和饱和度",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/SaturationHunger"
+            },
+            {
+              "text": "tag介绍",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/Tag"
+            },
+            {
+              "text": "VS Code安装",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/Digression/VSCodeInstallation"
+            }
+          ]
+        },
+        {
+          "text": "项目分享",
+          "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "自定义金属材料集成",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Qi/CMMI"
+            },
+            {
+              "text": "工作台物品附魔",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Wolf/EnchantOnTable"
+            },
+            {
+              "text": "祭坛合成",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/AltarComposition"
+            },
+            {
+              "text": "下落合成",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/FallItem"
+            },
+            {
+              "text": "抽奖券",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RaffleTicket"
+            },
+            {
+              "text": "自定义传送门",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/CustomPortal"
+            },
+            {
+              "text": "玩家禁言",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/NoChat"
+            },
+            {
+              "text": "服务器签到",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SignIn"
+            },
+            {
+              "text": "注册AE存储元件和对应的组件",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RegComponent&Storage"
+            },
+            {
+              "text": "唱片转化为物品",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/JukeboxToItem"
+            },
+            {
+              "text": "kjs注册背包",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/Backpack"
+            },
+            {
+              "text": "按键注册和使用",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/RegKey"
+            },
+            {
+              "text": "TaCZ的无限子弹",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/TaCZUnlimitedBullet"
+            },
+            {
+              "text": "孤梦的小项目",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "聊天消息+1",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/Message+1"
+                },
+                {
+                  "text": "自动适配台阶合成对应块",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/SlabPairBlock"
+                },
+                {
+                  "text": "原版修改流体对撞产生块",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/McFluidPlaceBlock"
+                },
+                {
+                  "text": "机械动力修改流体管道流体和流体产生块",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/CreatePipeCollision"
+                },
+                {
+                  "text": "禁止实体穿越指定维度",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/EntityTravelToDimension"
+                },
+                {
+                  "text": "物品右键获取该物品的方块tag",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/BlockItemGetBlockTag"
+                },
+                {
+                  "text": "注册门",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/RegDoor"
+                },
+                {
+                  "text": "双开门",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/DoubleDoor"
+                },
+                {
+                  "text": "检测玩家第一次进游戏",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/playerInGameOne"
+                },
+                {
+                  "text": "获取所有配方json并保存为文件",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/Meng/SmallProject/RecipesJsonInFile"
+                }
+              ]
+            },
+            {
+              "text": "栗子的小项目",
+              "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/PrizOwO/SmallProject/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "玩家对生物造成伤害显示血量",
+                  "link": "/en/modpack/kubejs/1.20.1/KubeJSCourse/KubeJSProjects/PrizOwO/SmallProject/HitHealthShow"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/": [
+    {
+      "text": "",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "前言",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/README"
+        },
+        {
+          "text": "KubeJS 6 魔改教程更新日志",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/changelog"
+        },
+        {
+          "text": "1. 基础",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/probejs-and-commands",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "1.1 常用游戏内指令与ProbeJS使用",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/probejs-and-commands"
+            },
+            {
+              "text": "1.2 文件结构和脚本类型",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/file-structure"
+            },
+            {
+              "text": "1.3 脚本基础和格式变化",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/script-format"
+            },
+            {
+              "text": "1.4 事件列表",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/event-list"
+            }
+          ]
+        },
+        {
+          "text": "2. 配方相关",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/itemstacks",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "2.1 物品的表示——ItemStack和Ingredient",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/itemstacks"
+            },
+            {
+              "text": "2.2 配方的添加，修改和移除",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/modify-recipes"
+            },
+            {
+              "text": "2.3 非标准配方修改",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/custom-recipes"
+            },
+            {
+              "text": "2.4 配方ID",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/recipe-id"
+            }
+          ]
+        },
+        {
+          "text": "3. 标签",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/tags"
+        },
+        {
+          "text": "4. 方块注册和属性修改",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/block"
+        },
+        {
+          "text": "5. 物品注册和属性修改",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/item"
+        },
+        {
+          "text": "6. 特殊类型方块和物品",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "6.1 作物方块和种子",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/crops"
+            },
+            {
+              "text": "6.2 食物注册",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/food"
+            },
+            {
+              "text": "6.3 BlockBench入门教程",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/blockbench"
+            }
+          ]
+        },
+        {
+          "text": "7. 附魔添加",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/enchantments"
+        },
+        {
+          "text": "8. 流体注册",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/fluid"
+        },
+        {
+          "text": "9. 战利品表",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/9.-zhan-li-pin-biao"
+        },
+        {
+          "text": "10. 世界生成",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/worldgen"
+        },
+        {
+          "text": "11. 常用附属模组清单",
+          "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/addon-list",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "11.1 KubeJS Create",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/kubejs-create"
+            },
+            {
+              "text": "11.2 LootJS —— 便捷战利品表修改",
+              "link": "/zh/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/lootjs"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/": [
+    {
+      "text": "",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "前言",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/README"
+        },
+        {
+          "text": "KubeJS 6 魔改教程更新日志",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/changelog"
+        },
+        {
+          "text": "1. 基础",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/probejs-and-commands",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "1.1 常用游戏内指令与ProbeJS使用",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/probejs-and-commands"
+            },
+            {
+              "text": "1.2 文件结构和脚本类型",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/file-structure"
+            },
+            {
+              "text": "1.3 脚本基础和格式变化",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/script-format"
+            },
+            {
+              "text": "1.4 事件列表",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/event-list"
+            }
+          ]
+        },
+        {
+          "text": "2. 配方相关",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/itemstacks",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "2.1 物品的表示——ItemStack和Ingredient",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/itemstacks"
+            },
+            {
+              "text": "2.2 配方的添加，修改和移除",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/modify-recipes"
+            },
+            {
+              "text": "2.3 非标准配方修改",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/custom-recipes"
+            },
+            {
+              "text": "2.4 配方ID",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/recipe-id"
+            }
+          ]
+        },
+        {
+          "text": "3. 标签",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/tags"
+        },
+        {
+          "text": "4. 方块注册和属性修改",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/block"
+        },
+        {
+          "text": "5. 物品注册和属性修改",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/item"
+        },
+        {
+          "text": "6. 特殊类型方块和物品",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/README",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "6.1 作物方块和种子",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/crops"
+            },
+            {
+              "text": "6.2 食物注册",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/food"
+            },
+            {
+              "text": "6.3 BlockBench入门教程",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/blockbench"
+            }
+          ]
+        },
+        {
+          "text": "7. 附魔添加",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/enchantments"
+        },
+        {
+          "text": "8. 流体注册",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/fluid"
+        },
+        {
+          "text": "9. 战利品表",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/9.-zhan-li-pin-biao"
+        },
+        {
+          "text": "10. 世界生成",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/worldgen"
+        },
+        {
+          "text": "11. 常用附属模组清单",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/addon-list",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "11.1 KubeJS Create",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/kubejs-create"
+            },
+            {
+              "text": "11.2 LootJS —— 便捷战利品表修改",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/lootjs"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/": [
+    {
+      "text": "",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "前言",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/README"
+        },
+        {
+          "text": "本文更新日志",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/intro/changelogs"
+        },
+        {
+          "text": "1. 指令",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/commands",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "1.1 常用指令",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/commands"
+            },
+            {
+              "text": "1.2 文件结构",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/file-structure"
+            },
+            {
+              "text": "1.3 脚本基础",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/script-format"
+            },
+            {
+              "text": "1.4 事件列表",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/event-list"
+            }
+          ]
+        },
+        {
+          "text": "2. 配方",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/create-recipes",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "2.1 新建配方及物品表示",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/create-recipes"
+            },
+            {
+              "text": "2.2 配方的修改和删除",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/modify-recipes"
+            },
+            {
+              "text": "2.3 非标准配方修改",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/custom-recipes"
+            }
+          ]
+        },
+        {
+          "text": "3. 标签",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/tags"
+        },
+        {
+          "text": "4. 自定义Loot Table",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/loottable"
+        },
+        {
+          "text": "5. 自定义流体",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/fluid"
+        },
+        {
+          "text": "6. 自定义世界生成",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/worldgen"
+        },
+        {
+          "text": "7. 添加方块",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/add-blocks"
+        },
+        {
+          "text": "8. 聊天事件",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorialevent1/chateventexamples"
+        },
+        {
+          "text": "9. 计划重启",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorialevent1/server-auto-restart-example"
+        },
+        {
+          "text": "10. 自定义窗口标题和logo",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/10-zi-ding-yi-chuang-kou-biao-ti-he-logo"
+        },
+        {
+          "text": "11. 联动相关",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/jei",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "11.1 JEI信息修改",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/jei"
+            },
+            {
+              "text": "11.2 REI信息修改",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/rei"
+            },
+            {
+              "text": "11.3 FTB Quest相关修改",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/ftb-quests"
+            },
+            {
+              "text": "11.4 KubeJs内置游戏阶段 (类似于GameStage)",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/gamestage"
+            }
+          ]
+        },
+        {
+          "text": "12. KubeJS Addons",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-create",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "12.1 KubeJS Create",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-create"
+            },
+            {
+              "text": "12.2 KubeJS Blood Magic",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-blood-magic"
+            },
+            {
+              "text": "12.3 KubeJS Mekanism",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-mekanism"
+            },
+            {
+              "text": "12.4 KubeJS UI",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-ui"
+            },
+            {
+              "text": "12.5 KubeJS Termal",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/termal"
+            },
+            {
+              "text": "12.7 便捷战利品表修改(LootJS Forge)",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs"
+            },
+            {
+              "text": "12.8 LootJS战利品表修改实例",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs-examples"
+            }
+          ]
+        },
+        {
+          "text": "13. 自定义物品和物品ToolTip",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/add-items"
+        },
+        {
+          "text": "14. 方块和物品属性修改",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/modify-items-and-blocks"
+        },
+        {
+          "text": "15. 事件相关",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/event-list",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "15.0 事件列表",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/event-list"
+            },
+            {
+              "text": "15.1 玩家&实体事件，信息获取及操作",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/playerjs"
+            },
+            {
+              "text": "15.2 实体生成 & RayTraceResultJS & ItemStackJS及其他",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/entityjs-raytrace-itemstack"
+            },
+            {
+              "text": "15.3 方块信息获取及操作",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/block"
+            },
+            {
+              "text": "15.4 WorldJS 和 ServerJS",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/worldjs-serverjs"
+            },
+            {
+              "text": "15.5 本章例子",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/examples"
+            },
+            {
+              "text": "15.6 测试用例",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/tests"
+            }
+          ]
+        },
+        {
+          "text": "16. 网络包和Painter API",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/network-painterapi"
+        },
+        {
+          "text": "17. 本地化相关",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/i18n"
+        },
+        {
+          "text": "18. 示例",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/smelting-pickaxe",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "18.1 熔炼之镐",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/smelting-pickaxe"
+            },
+            {
+              "text": "18.2 罐头示例(包含物品注册, 配方添加, 玩家交互和persistentData的使用)",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/can"
+            }
+          ]
+        },
+        {
+          "text": "19. Forge事件监听",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/forge-events"
+        },
+        {
+          "text": "20. 1.18.2中的变化和功能",
+          "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20-1.18.2-zhong-de-bian-hua-he-gong-neng",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "20.1 ProbeJS",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.1-probejs"
+            },
+            {
+              "text": "20.2 组件（Component）的使用",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.2-zu-jian-component-de-shi-yong"
+            },
+            {
+              "text": "20.3 格式变化",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "20.3.1 世界生成",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.1-shi-jie-sheng-cheng"
+                },
+                {
+                  "text": "20.3.2 方块 / 物品注册",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.2-fang-kuai-wu-pin-zhu-ce"
+                },
+                {
+                  "text": "20.3.3 事件",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.3-shi-jian"
+                },
+                {
+                  "text": "20.3.4 global[] 的使用",
+                  "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.4-global-de-shi-yong"
+                }
+              ]
+            },
+            {
+              "text": "20.4 命令注册",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.4-ming-ling-zhu-ce"
+            },
+            {
+              "text": "20.5 反射与Java access",
+              "link": "/zh/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.5-fan-she-yu-java-access"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/": [
+    {
+      "text": "",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "前言",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/README"
+        },
+        {
+          "text": "本文更新日志",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/intro/changelogs"
+        },
+        {
+          "text": "1. 指令",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/commands",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "1.1 常用指令",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/commands"
+            },
+            {
+              "text": "1.2 文件结构",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/file-structure"
+            },
+            {
+              "text": "1.3 脚本基础",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/script-format"
+            },
+            {
+              "text": "1.4 事件列表",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/event-list"
+            }
+          ]
+        },
+        {
+          "text": "2. 配方",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/create-recipes",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "2.1 新建配方及物品表示",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/create-recipes"
+            },
+            {
+              "text": "2.2 配方的修改和删除",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/modify-recipes"
+            },
+            {
+              "text": "2.3 非标准配方修改",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/custom-recipes"
+            }
+          ]
+        },
+        {
+          "text": "3. 标签",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/tags"
+        },
+        {
+          "text": "4. 自定义Loot Table",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/loottable"
+        },
+        {
+          "text": "5. 自定义流体",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/fluid"
+        },
+        {
+          "text": "6. 自定义世界生成",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/worldgen"
+        },
+        {
+          "text": "7. 添加方块",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/add-blocks"
+        },
+        {
+          "text": "8. 聊天事件",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorialevent1/chateventexamples"
+        },
+        {
+          "text": "9. 计划重启",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorialevent1/server-auto-restart-example"
+        },
+        {
+          "text": "10. 自定义窗口标题和logo",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/10-zi-ding-yi-chuang-kou-biao-ti-he-logo"
+        },
+        {
+          "text": "11. 联动相关",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/jei",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "11.1 JEI信息修改",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/jei"
+            },
+            {
+              "text": "11.2 REI信息修改",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/rei"
+            },
+            {
+              "text": "11.3 FTB Quest相关修改",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/ftb-quests"
+            },
+            {
+              "text": "11.4 KubeJs内置游戏阶段 (类似于GameStage)",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/gamestage"
+            }
+          ]
+        },
+        {
+          "text": "12. KubeJS Addons",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-create",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "12.1 KubeJS Create",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-create"
+            },
+            {
+              "text": "12.2 KubeJS Blood Magic",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-blood-magic"
+            },
+            {
+              "text": "12.3 KubeJS Mekanism",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-mekanism"
+            },
+            {
+              "text": "12.4 KubeJS UI",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-ui"
+            },
+            {
+              "text": "12.5 KubeJS Termal",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/termal"
+            },
+            {
+              "text": "12.7 便捷战利品表修改(LootJS Forge)",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs"
+            },
+            {
+              "text": "12.8 LootJS战利品表修改实例",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs-examples"
+            }
+          ]
+        },
+        {
+          "text": "13. 自定义物品和物品ToolTip",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/add-items"
+        },
+        {
+          "text": "14. 方块和物品属性修改",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/modify-items-and-blocks"
+        },
+        {
+          "text": "15. 事件相关",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/event-list",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "15.0 事件列表",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/event-list"
+            },
+            {
+              "text": "15.1 玩家&实体事件，信息获取及操作",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/playerjs"
+            },
+            {
+              "text": "15.2 实体生成 & RayTraceResultJS & ItemStackJS及其他",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/entityjs-raytrace-itemstack"
+            },
+            {
+              "text": "15.3 方块信息获取及操作",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/block"
+            },
+            {
+              "text": "15.4 WorldJS 和 ServerJS",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/worldjs-serverjs"
+            },
+            {
+              "text": "15.5 本章例子",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/examples"
+            },
+            {
+              "text": "15.6 测试用例",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/tests"
+            }
+          ]
+        },
+        {
+          "text": "16. 网络包和Painter API",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/network-painterapi"
+        },
+        {
+          "text": "17. 本地化相关",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/i18n"
+        },
+        {
+          "text": "18. 示例",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/smelting-pickaxe",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "18.1 熔炼之镐",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/smelting-pickaxe"
+            },
+            {
+              "text": "18.2 罐头示例(包含物品注册, 配方添加, 玩家交互和persistentData的使用)",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/can"
+            }
+          ]
+        },
+        {
+          "text": "19. Forge事件监听",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/forge-events"
+        },
+        {
+          "text": "20. 1.18.2中的变化和功能",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20-1.18.2-zhong-de-bian-hua-he-gong-neng",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "20.1 ProbeJS",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.1-probejs"
+            },
+            {
+              "text": "20.2 组件（Component）的使用",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.2-zu-jian-component-de-shi-yong"
+            },
+            {
+              "text": "20.3 格式变化",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/README",
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "20.3.1 世界生成",
+                  "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.1-shi-jie-sheng-cheng"
+                },
+                {
+                  "text": "20.3.2 方块 / 物品注册",
+                  "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.2-fang-kuai-wu-pin-zhu-ce"
+                },
+                {
+                  "text": "20.3.3 事件",
+                  "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.3-shi-jian"
+                },
+                {
+                  "text": "20.3.4 global[] 的使用",
+                  "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.4-global-de-shi-yong"
+                }
+              ]
+            },
+            {
+              "text": "20.4 命令注册",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.4-ming-ling-zhu-ce"
+            },
+            {
+              "text": "20.5 反射与Java access",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.5-fan-she-yu-java-access"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
