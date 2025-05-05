@@ -23,7 +23,7 @@
     });
 
     const editor = computed(() => {
-        return frontmatter.value?.editor ?? "CrychicTeam";
+        return frontmatter.value?.editor ?? "PickAID";
     });
 
     function getAvatarUrl(name: string) {

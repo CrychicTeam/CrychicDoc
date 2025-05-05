@@ -42,7 +42,7 @@
         const script = document.createElement("script");
         script.src = "https://giscus.app/client.js";
         script.async = true;
-        script.setAttribute("data-repo", "CrychicTeam/CrychicDoc");
+        script.setAttribute("data-repo", "PickAID/CrychicDoc");
         script.setAttribute("data-repo-id", "R_kgDOMnN0IQ");
         script.setAttribute("data-category", "Announcements");
         script.setAttribute("data-category-id", "DIC_kwDOMnN0Ic4Ch3qm");

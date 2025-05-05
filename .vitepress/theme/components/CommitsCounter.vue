@@ -34,7 +34,7 @@
     const props = defineProps({
         username: {
             type: String,
-            default: "CrychicTeam",
+            default: "PickAID",
         },
         repoName: {
             type: String,

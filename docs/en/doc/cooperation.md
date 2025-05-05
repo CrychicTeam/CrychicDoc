@@ -16,7 +16,7 @@ title: Project Collaboration Tutorial
 
 Open the repository of the project you want to make content modifications to. In this example, we will use CrychicDoc.
 
-Open the [CrychicDoc repository](https://github.com/CrychicTeam/CrychicDoc), click on the "Fork" button in the top right corner to fork the project to your GitHub account.
+Open the [CrychicDoc repository](https://github.com/PickAID/CrychicDoc), click on the "Fork" button in the top right corner to fork the project to your GitHub account.
 
 2. **Initialize the repository:**
 
@@ -68,7 +68,7 @@ To keep in sync with the original repository, set up the upstream repository:
 
 ::: code-group
 ```bash [git]
-git remote add upstream https://github.com/CrychicTeam/CrychicDoc.git
+git remote add upstream https://github.com/PickAID/CrychicDoc.git
 ```
 :::
 

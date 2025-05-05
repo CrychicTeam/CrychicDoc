@@ -1,10 +1,10 @@
 <div align="center"><img height="200" src="docs/public/logo.png" width="200"/></div>
 
-![GitHub Release Date](https://img.shields.io/github/created-at/CrychicTeam/CrychicDoc) [![crychicdoc](https://img.shields.io/badge/CrychicDoc-Maintaining-green)](https://docs.mihono.cn)
+![GitHub Release Date](https://img.shields.io/github/created-at/PickAID/CrychicDoc) [![crychicdoc](https://img.shields.io/badge/CrychicDoc-Maintaining-green)](https://docs.mihono.cn)
 
 
- ![GitHub issue custom search in repo](https://img.shields.io/github/issues/CrychicTeam/CrychicDoc.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/CrychicTeam/CrychicDoc) ![Total Commits](https://img.shields.io/github/commit-activity/t/CrychicTeam/CrychicDoc) ![GitHub branch status](https://img.shields.io/github/check-runs/CrychicTeam/CrychicDoc/main)  ![cc-by-sa-shield](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
-![GitHub contributors](https://img.shields.io/github/contributors/CrychicTeam/CrychicDoc)
+ ![GitHub issue custom search in repo](https://img.shields.io/github/issues/PickAID/CrychicDoc.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/PickAID/CrychicDoc) ![Total Commits](https://img.shields.io/github/commit-activity/t/PickAID/CrychicDoc) ![GitHub branch status](https://img.shields.io/github/check-runs/PickAID/CrychicDoc/main)  ![cc-by-sa-shield](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/PickAID/CrychicDoc)
 
 ## 协议
 

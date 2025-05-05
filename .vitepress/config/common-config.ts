@@ -57,13 +57,13 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
             // },
             {
                 icon: "github",
-                link: "https://github.com/CrychicTeam/CrychicDoc",
+                link: "https://github.com/PickAID/CrychicDoc",
             },
             {
                 icon: {
                     svg: '<svg t="1726513713225" viewBox="65 35 950 950" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4974" width="2000" height="2000"><path d="M512 960c-246.4 0-448-201.6-448-448s201.6-448 448-448 448 201.6 448 448-201.6 448-448 448z" fill="#D81E06" p-id="4975"></path><path d="M721.664 467.968h-235.52a22.272 22.272 0 0 0-20.736 20.736v51.776c0 10.368 10.368 20.736 20.736 20.736H628.48c10.368 0 20.736 10.304 20.736 20.672v10.368c0 33.664-28.48 62.08-62.144 62.08H392.896a22.272 22.272 0 0 1-20.672-20.672V436.928c0-33.664 28.48-62.08 62.08-62.08h287.36a22.272 22.272 0 0 0 20.736-20.736v-51.84a22.272 22.272 0 0 0-20.736-20.672h-287.36A152.96 152.96 0 0 0 281.6 434.368v287.36c0 10.304 10.368 20.672 20.736 20.672h302.848c75.072 0 137.216-62.08 137.216-137.216v-116.48a22.272 22.272 0 0 0-20.736-20.736z" fill="#FFFFFF" p-id="4976"></path></svg>',
                 },
-                link: "https://gitee.com/CrychicTeam/CrychicDoc",
+                link: "https://gitee.com/PickAID/CrychicDoc",
             },
             {
                 icon: {

@@ -52,7 +52,7 @@ gitChangelog: false
 ---
 
 <commitsCounter
-  username="CrychicTeam"
+  username="PickAID"
   repoName="CrychicDoc"
   :daysToFetch="60"
 />
