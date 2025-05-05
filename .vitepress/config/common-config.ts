@@ -2,6 +2,9 @@ import {
     DefaultTheme,
     UserConfig
 } from "vitepress";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { TDesignResolver } from "unplugin-vue-components/resolvers";
 import {
     groupIconVitePlugin,
     localIconLoader,
@@ -86,12 +89,15 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     },
     vue: {},
     vite: {
+        optimizeDeps: {
+            exclude: ["@nolebase/*"],
+        },
         ssr: {
             noExternal: ["vuetify", "@nolebase/*"],
         },
         plugins: [
             GitChangelog({
-                repoURL: () => "https://github.com/CrychicTeam/CrychicDoc",
+                repoURL: () => "https://github.com/PickAID/CrychicDoc",
                 mapAuthors: contributors.map((author) => ({
                     ...author,
                     avatar: generateAvatarUrl(author.avatar),
@@ -130,7 +136,21 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                     css: "logos:css-3",
                     git: "logos:git-icon",
                 },
-            })
+            }),
+            AutoImport({
+                resolvers: [
+                    TDesignResolver({
+                        library: "vue-next",
+                    }),
+                ],
+            }),
+            Components({
+                resolvers: [
+                    TDesignResolver({
+                        library: "vue-next",
+                    }),
+                ],
+            }),
         ]
     },
     head: [
