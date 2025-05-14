@@ -12,7 +12,7 @@ This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 
 
 Please include a link to this work when reproducing it: https://docs.mihono.cn
 
-> **The project/team logo is created by [Huan Yue の Yin Yi](https://www.pixiv.net/users/7865026) and is authorized for non-commercial use. Please do not take it for any commercial activities.**
+> **The project/team logo is created by Commercial commission and is authorized for non-commercial use. Please do not take it for any commercial activities.**
 
 # Hello
 
