@@ -683,17 +683,13 @@
       "text": "",
       "items": [
         {
+          "text": "KubeJS 1.19.2",
+          "link": "/en/modpack/kubejs/1.19.2/index"
+        },
+        {
           "text": "XPlusKubeJSTutorial",
           "collapsed": true,
           "items": [
-            {
-              "text": "README",
-              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/README"
-            },
-            {
-              "text": "SUMMARY",
-              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/SUMMARY"
-            },
             {
               "text": "addons",
               "collapsed": true,
@@ -741,10 +737,6 @@
                   "collapsed": true,
                   "items": [
                     {
-                      "text": "README",
-                      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/README"
-                    },
-                    {
                       "text": "blockbench",
                       "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/blockbench"
                     },
@@ -755,6 +747,10 @@
                     {
                       "text": "food",
                       "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/food"
+                    },
+                    {
+                      "text": "README",
+                      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/README"
                     }
                   ]
                 },
@@ -795,6 +791,10 @@
               ]
             },
             {
+              "text": "README",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/README"
+            },
+            {
               "text": "recipe",
               "collapsed": true,
               "items": [
@@ -815,12 +815,12 @@
                   "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/recipe-id"
                 }
               ]
+            },
+            {
+              "text": "SUMMARY",
+              "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/SUMMARY"
             }
           ]
-        },
-        {
-          "text": "KubeJS 1.19.2",
-          "link": "/en/modpack/kubejs/1.19.2/index"
         }
       ]
     }
@@ -830,17 +830,13 @@
       "text": "",
       "items": [
         {
+          "text": "KubeJS 1.18.2",
+          "link": "/en/modpack/kubejs/1.18.2/index"
+        },
+        {
           "text": "XPlusKubeJSTutorial",
           "collapsed": true,
           "items": [
-            {
-              "text": "README",
-              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/README"
-            },
-            {
-              "text": "SUMMARY",
-              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/SUMMARY"
-            },
             {
               "text": "addons",
               "collapsed": true,
@@ -1082,6 +1078,10 @@
               ]
             },
             {
+              "text": "README",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/README"
+            },
+            {
               "text": "recipe",
               "collapsed": true,
               "items": [
@@ -1098,6 +1098,10 @@
                   "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/modify-recipes"
                 }
               ]
+            },
+            {
+              "text": "SUMMARY",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/SUMMARY"
             },
             {
               "text": "the-start",
@@ -1122,10 +1126,6 @@
               ]
             }
           ]
-        },
-        {
-          "text": "KubeJS 1.18.2",
-          "link": "/en/modpack/kubejs/1.18.2/index"
         }
       ]
     }
@@ -1719,28 +1719,6 @@
       "text": "",
       "items": [
         {
-          "text": "Q&A",
-          "collapsed": true,
-          "items": [
-            {
-              "text": "cooperation",
-              "link": "/en/info/doc/Q&A/cooperation"
-            },
-            {
-              "text": "index",
-              "link": "/en/info/doc/Q&A/index"
-            },
-            {
-              "text": "other",
-              "link": "/en/info/doc/Q&A/other"
-            },
-            {
-              "text": "use",
-              "link": "/en/info/doc/Q&A/use"
-            }
-          ]
-        },
-        {
           "text": "module-request",
           "collapsed": true,
           "items": [
@@ -1775,6 +1753,28 @@
             {
               "text": "newSection",
               "link": "/en/info/doc/module-request/newSection"
+            }
+          ]
+        },
+        {
+          "text": "Q&A",
+          "collapsed": true,
+          "items": [
+            {
+              "text": "cooperation",
+              "link": "/en/info/doc/Q&A/cooperation"
+            },
+            {
+              "text": "index",
+              "link": "/en/info/doc/Q&A/index"
+            },
+            {
+              "text": "other",
+              "link": "/en/info/doc/Q&A/other"
+            },
+            {
+              "text": "use",
+              "link": "/en/info/doc/Q&A/use"
             }
           ]
         },

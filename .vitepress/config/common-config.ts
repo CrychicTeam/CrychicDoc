@@ -28,8 +28,8 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     themeConfig: {
         logo: {
             alt: "CryChicDoc",
-            light: "/logo.png",
-            dark: "/logodark.png",
+            light: "/svg/logo.svg",
+            dark: "/svg/logodark.svg",
         },
         search: {
             provider: "algolia",

@@ -6,9 +6,9 @@ hero:
   text: "A doc maintained by Crychic team."
   tagline: Contains documentation and resource indexes related to Minecraft.
   image: 
-    light: /svg/crychic.svg
-    dark: /logodark.png
-    alt: crychic
+    light: /svg/logo-test.svg
+    dark: /svg/logodark.svg
+    alt: PickAID
   actions:
     - theme: alt
       text: Collaboration
