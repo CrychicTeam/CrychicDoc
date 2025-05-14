@@ -14,7 +14,7 @@
             "linear-gradient(-45deg, #1B1B1F 50%, #1B1B1F 50%)";
         const lightGradient =
             "linear-gradient(-45deg, #ffffff 50%, #ffffff 50%)";
-        const darkBlur = "blur(72px)";
+        const darkBlur = "blur(68px)";
         const lightBlur = "blur(68px)";
 
         document.documentElement.style.setProperty(
