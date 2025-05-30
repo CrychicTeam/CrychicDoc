@@ -1,174 +1,416 @@
 {
+    // ========== Basic Utilities ==========
     "Insert Non-breaking Space": {
-        
         "prefix": "#nbsp",
         "body": ["&nbsp;&nbsp;"],
         "description": "Insert two non-breaking spaces in Markdown"
     },
-    "progress": {
-        
-        "prefix": "progress",
-        "body": [
-            "progress: $0"
-        ],
-        "description": "progress"
-    },
-    "description": {
-        
-        "prefix": "description",
-        "body": [
-            "description: $0"
-        ],
-        "description": "description"
-    },
-    "preliminary": {
-        
-        "prefix": "state preliminary",
-        "body": [
-            "state: preliminary"
-        ],
-        "description": "preliminary"
-    },
-    "unfinished": {
-        
-        "prefix": "state unfinished",
-        "body": [
-            "state: unfinished"
-        ],
-        "description": "unfinished"
-    },
-    "outdated": {
-        
-        "prefix": "state outdated",
-        "body": [
-            "state: outdated"
-        ],
-        "description": "outdated"
-    },
-    "renovating": {
-        
-        "prefix": "state renovating",
-        "body": [
-            "state: renovating"
-        ],
-        "description": "renovating"
-    },
-    "nogui": {
-        
-        "prefix": "noguide",
-        "body": [
-            "noguide: $0"
-        ],
-        "description": "nogui"
-    },
-    "root": {
-        
-        "prefix": "@root",
-        "body": [
-            "root:",
-            "  $0"
-        ],
-        "description": "root"
-    },
-    "title": {
-        
-        "prefix": "title",
-        "body": [
-            "title: $0"
-        ],
-        "description": "title"
-    },
-    "subDir": {
-        
-        "prefix": "subDir",
-        "body": [
-            "subDir:",
-            "    $0"
-        ],
-        "description": "subDir"
-    },
-    "path": {
-        
-        "prefix": "path",
-        "body": [
-            "path: $0"
-        ],
-        "description": "path"
-    },
-    "collapsed": {
-        
-        "prefix": "collapsed",
-        "body": [
-            "collapsed: $0"
-        ],
-        "description": "collapsed"
-    },
-    "subdir": {
-        
-        "prefix": "@subdir",
-        "body": [
-            "- title: $1",
-            "  path: $0"
-        ],
-        "description": "subdir"
-    },
-    "authors": {
-        
-        "prefix": "authors",
-        "body": [
-            "authors: ",
-            "  - $0"
-        ],
-        "description": "authors"
-    },
-    "noScan": {
-        
-        "prefix": "noScan",
-        "body": [
-            "noScan:  $0"
-        ],
-        "description": "noScan"
-    },
-    "file": {
-        
-        "prefix": "file",
-        "body": [
-            "file:  $0"
-        ],
-        "description": "file"
-    },
-    "@title": {
-        
+    "Frontmatter Title": {
         "prefix": "@title",
-        "body": [
-            "{{ \\$frontmatter.title }}"
-        ],
-        "description": "title"
+        "body": ["{{ \\$frontmatter.title }}"],
+        "description": "Insert frontmatter title"
     },
-    "demo": {
-        
-        "prefix": "@demo",
+    "Done Checkbox": {
+        "prefix": "@done",
+        "body": ["☑"],
+        "description": "Done Unicode checkbox"
+    },
+    "Pending Checkbox": {
+        "prefix": "@pending",
+        "body": ["☐"],
+        "description": "Pending Unicode checkbox"
+    },
+
+    // ========== Frontmatter Fields ==========
+    "Title Field": {
+        "prefix": "title",
+        "body": ["title: $0"],
+        "description": "Document title"
+    },
+    "Description Field": {
+        "prefix": "description",
+        "body": ["description: $0"],
+        "description": "Document description"
+    },
+    "Progress Field": {
+        "prefix": "progress",
+        "body": ["progress: $0"],
+        "description": "Document progress"
+    },
+    "Authors Field": {
+        "prefix": "authors",
+        "body": ["authors:", "  - $0"],
+        "description": "Document authors"
+    },
+    "NoGuide Field": {
+        "prefix": "noguide",
+        "body": ["noguide: $0"],
+        "description": "No guide flag"
+    },
+    "NoScan Field": {
+        "prefix": "noScan",
+        "body": ["noScan: $0"],
+        "description": "No scan flag"
+    },
+    "File Field": {
+        "prefix": "file",
+        "body": ["file: $0"],
+        "description": "File reference"
+    },
+
+    // ========== Document States ==========
+    "State Preliminary": {
+        "prefix": "state preliminary",
+        "body": ["state: preliminary"],
+        "description": "Set state to preliminary"
+    },
+    "State Unfinished": {
+        "prefix": "state unfinished",
+        "body": ["state: unfinished"],
+        "description": "Set state to unfinished"
+    },
+    "State Outdated": {
+        "prefix": "state outdated",
+        "body": ["state: outdated"],
+        "description": "Set state to outdated"
+    },
+    "State Renovating": {
+        "prefix": "state renovating",
+        "body": ["state: renovating"],
+        "description": "Set state to renovating"
+    },
+
+    // ========== Navigation Structure ==========
+    "Root Config": {
+        "prefix": "@root",
+        "body": ["root:", "  $0"],
+        "description": "Root navigation config"
+    },
+    "SubDir Config": {
+        "prefix": "subDir",
+        "body": ["subDir:", "    $0"],
+        "description": "SubDirectory config"
+    },
+    "Path Field": {
+        "prefix": "path",
+        "body": ["path: $0"],
+        "description": "Path field"
+    },
+    "Collapsed Field": {
+        "prefix": "collapsed",
+        "body": ["collapsed: $0"],
+        "description": "Collapsed navigation"
+    },
+    "SubDir Item": {
+        "prefix": "@subdir",
+        "body": ["- title: $1", "  path: $0"],
+        "description": "SubDirectory item"
+    },
+
+    // ========== Tabs & Containers ==========
+    "Tabs Container": {
+        "prefix": "tabs",
         "body": [
-            "::: demo 示例",
+            ":::tabs${1: key:${2:unique-key}}",
+            "== ${3:Tab 1}",
+            "$4",
+            "== ${5:Tab 2}",
             "$0",
             ":::"
         ],
-        "description": "demo"
+        "description": "Create tabs container"
     },
-    "done": {
-        
-        "prefix": "@done",
+    "Stepper Container": {
+        "prefix": "stepper",
         "body": [
-            "☑"
+            "::: stepper",
+            "@tab ${1:第一步}",
+            "$2",
+            "@tab ${3:第二步}",
+            "$0",
+            ":::"
         ],
-        "description": "done Unicode "
+        "description": "Create stepper container"
     },
-    "pending": {
-        
-        "prefix": "@pending",
+
+    // ========== Alert Containers ==========
+    "Success Alert": {
+        "prefix": "success",
         "body": [
-            "☐"
+            "::: v-success ${1:成功}",
+            "$0",
+            ":::"
         ],
-        "description": "pending Unicode "
+        "description": "Success alert container"
+    },
+    "Info Alert": {
+        "prefix": "info",
+        "body": [
+            "::: v-info ${1:提示}",
+            "$0",
+            ":::"
+        ],
+        "description": "Info alert container"
+    },
+    "Warning Alert": {
+        "prefix": "warning",
+        "body": [
+            "::: v-warning ${1:警告}",
+            "$0",
+            ":::"
+        ],
+        "description": "Warning alert container"
+    },
+    "Error Alert": {
+        "prefix": "error",
+        "body": [
+            "::: v-error ${1:错误}",
+            "$0",
+            ":::"
+        ],
+        "description": "Error alert container"
+    },
+
+    // ========== Card Containers ==========
+    "Text Card": {
+        "prefix": "card-text",
+        "body": [
+            ":::text ${1:标题}${2:#${3:副标题}}",
+            "$0",
+            ":::"
+        ],
+        "description": "Text style card"
+    },
+    "Flat Card": {
+        "prefix": "card-flat",
+        "body": [
+            ":::flat ${1:标题}",
+            "$0",
+            ":::"
+        ],
+        "description": "Flat style card"
+    },
+    "Elevated Card": {
+        "prefix": "card-elevated",
+        "body": [
+            ":::elevated ${1:#${2:副标题}}",
+            "$0",
+            ":::"
+        ],
+        "description": "Elevated style card"
+    },
+    "Tonal Card": {
+        "prefix": "card-tonal",
+        "body": [
+            ":::tonal ${1:标题}${2:#${3:副标题}}",
+            "$0",
+            ":::"
+        ],
+        "description": "Tonal style card"
+    },
+    "Outlined Card": {
+        "prefix": "card-outlined",
+        "body": [
+            ":::outlined",
+            "$0",
+            ":::"
+        ],
+        "description": "Outlined style card"
+    },
+    "Plain Card": {
+        "prefix": "card-plain",
+        "body": [
+            "::::plain ${1:标题}${2:#${3:副标题}}",
+            "$0",
+            "::::"
+        ],
+        "description": "Plain style card (supports nesting)"
+    },
+
+    // ========== Alignment Containers ==========
+    "Left Align": {
+        "prefix": "left",
+        "body": [
+            "::: left",
+            "$0",
+            ":::"
+        ],
+        "description": "Left aligned content"
+    },
+    "Center Align": {
+        "prefix": "center",
+        "body": [
+            "::: center",
+            "$0",
+            ":::"
+        ],
+        "description": "Center aligned content"
+    },
+    "Right Align": {
+        "prefix": "right",
+        "body": [
+            "::: right",
+            "$0",
+            ":::"
+        ],
+        "description": "Right aligned content"
+    },
+    "Justify Align": {
+        "prefix": "justify",
+        "body": [
+            "::: justify",
+            "$0",
+            ":::"
+        ],
+        "description": "Justified content"
+    },
+
+    // ========== Media & Interactive ==========
+    "Carousel": {
+        "prefix": "carousel",
+        "body": [
+            "::: carousels#{\"cycle\": ${1:true}, \"interval\": ${2:2800}, \"undelimiters\": ${3:true}}",
+            "@tab",
+            "![${4:描述1}](${5:图片链接1})",
+            "@tab",
+            "![${6:描述2}](${7:图片链接2})",
+            "$0",
+            ":::"
+        ],
+        "description": "Image carousel container"
+    },
+    "IFrame": {
+        "prefix": "iframe",
+        "body": [
+            ":::iframes#{\"src\": \"${1:https://example.com}\", \"height\": \"${2:400px}\"}",
+            ":::"
+        ],
+        "description": "Embedded iframe"
+    },
+    "Image with Size": {
+        "prefix": "img-size",
+        "body": [
+            "![${1:描述}](${2:图片链接} =${3:200}x${4:200})"
+        ],
+        "description": "Image with specified dimensions"
+    },
+    "Linkcard": {
+        "prefix": "linkcard",
+        "body": [
+            "<Linkcard url=\"${1:https://example.com}\" title=\"${2:标题}\" description=\"${3:描述}\" logo=\"${4:logo链接}\"/>"
+        ],
+        "description": "Link card component"
+    },
+
+    // ========== Demo Container ==========
+    "Demo Container": {
+        "prefix": "@demo",
+        "body": [
+            "::: demo ${1:示例}",
+            "$0",
+            ":::"
+        ],
+        "description": "Demo container"
+    },
+    "Multi-level Demo": {
+        "prefix": "demo-multi",
+        "body": [
+            ":::: demo ${1:示例标题}",
+            "::: demo ${2:内部示例}",
+            "$0",
+            ":::",
+            "::::"
+        ],
+        "description": "Multi-level demo container"
+    },
+
+    // ========== Text Formatting ==========
+    "Spoiler Text": {
+        "prefix": "spoiler",
+        "body": ["!!${1:隐藏内容}!!"],
+        "description": "Spoiler/hidden text"
+    },
+    "Mark Text": {
+        "prefix": "mark",
+        "body": ["==${1:标记文本}=="],
+        "description": "Marked/highlighted text"
+    },
+    "Insert Text": {
+        "prefix": "ins",
+        "body": ["++${1:插入文本}++"],
+        "description": "Inserted text"
+    },
+    "Subscript": {
+        "prefix": "sub",
+        "body": ["~${1:下标}~"],
+        "description": "Subscript text"
+    },
+    "Superscript": {
+        "prefix": "sup",
+        "body": ["^${1:上标}^"],
+        "description": "Superscript text"
+    },
+    "Ruby Annotation": {
+        "prefix": "ruby",
+        "body": ["{${1:汉字}:${2:读音}}"],
+        "description": "Ruby annotation (furigana)"
+    },
+    "Abbreviation": {
+        "prefix": "abbr",
+        "body": [
+            "*[${1:缩写}]: ${2:完整形式}",
+            "$0"
+        ],
+        "description": "Abbreviation definition"
+    },
+
+    // ========== Task Lists ==========
+    "Task List": {
+        "prefix": "task",
+        "body": [
+            "- [ ] ${1:未完成任务}",
+            "- [x] ${2:已完成任务}",
+            "$0"
+        ],
+        "description": "GitHub-style task list"
+    },
+    "Unchecked Task": {
+        "prefix": "todo",
+        "body": ["- [ ] $0"],
+        "description": "Unchecked task item"
+    },
+    "Checked Task": {
+        "prefix": "done-task",
+        "body": ["- [x] $0"],
+        "description": "Checked task item"
+    },
+
+    // ========== Complete Document Templates ==========
+    "Full Document Template": {
+        "prefix": "doc-template",
+        "body": [
+            "---",
+            "title: ${1:文档标题}",
+            "description: ${2:文档描述}",
+            "authors:",
+            "  - ${3:作者}",
+            "progress: ${4:100}",
+            "state: ${5:preliminary}",
+            "---",
+            "",
+            "# {{ \\$frontmatter.title }}",
+            "",
+            "$0"
+        ],
+        "description": "Complete document template with frontmatter"
+    },
+    "Section with Anchor": {
+        "prefix": "section",
+        "body": [
+            "## ${1:标题} {#${2:anchor}}",
+            "",
+            "$0"
+        ],
+        "description": "Section heading with anchor"
     }
 }
