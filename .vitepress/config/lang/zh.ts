@@ -77,7 +77,13 @@ export const zh_CN = <DefaultTheme.Config>{
             prev: "上一页",
             next: "下一页",
         },
-
+        lastUpdated: {
+            text: "最后更新时间",
+            formatOptions: {
+                dateStyle: "full",
+                timeStyle: "medium",
+            },
+        },
         langMenuLabel: "切换语言",
         returnToTopLabel: "回到顶部",
         sidebarMenuLabel: "菜单",

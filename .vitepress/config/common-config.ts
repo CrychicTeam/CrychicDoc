@@ -93,23 +93,29 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                 {
                     find: /^.*\/VPHero\.vue$/,
                     replacement: fileURLToPath(
-                        new URL('../theme/components/VPHero.vue', import.meta.url)
-                    )
+                        new URL(
+                            "../theme/components/VPHero.vue",
+                            import.meta.url
+                        )
+                    ),
                 },
                 {
                     find: /^.*\/VPFeatures\.vue$/,
                     replacement: fileURLToPath(
-                        new URL('../theme/components/VPFeatures.vue', import.meta.url)
-                    )
+                        new URL(
+                            "../theme/components/VPFeatures.vue",
+                            import.meta.url
+                        )
+                    ),
                 },
                 {
                     find: "@utils",
-                    replacement: resolve(__dirname, "../utils")
+                    replacement: resolve(__dirname, "../utils"),
                 },
                 {
                     find: "@components",
-                    replacement: resolve(__dirname, "../theme/components")
-                }
+                    replacement: resolve(__dirname, "../theme/components"),
+                },
             ],
         },
         optimizeDeps: {

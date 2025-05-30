@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "CrychicDoc"
-  text: "A doc maintained by Crychic team."
+  text: "A doc maintained by PickAID team."
   tagline: Contains documentation and resource indexes related to Minecraft.
   image: 
     light: /logo.png
@@ -54,5 +54,5 @@ gitChangelog: false
 <commitsCounter
   username="PickAID"
   repoName="CrychicDoc"
-  :daysToFetch="60"
+  :daysToFetch="120"
 />
