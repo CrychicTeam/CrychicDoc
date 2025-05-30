@@ -7,7 +7,7 @@ import { useData, useRoute } from "vitepress";
 import "./styles/index.css"; // Single CSS entry point
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import vuetify from "./vuetify";
-import { onMounted, watch } from "vue";
+import { onMounted, watch, defineAsyncComponent } from "vue";
 import mermaid from "mermaid";
 import {
     NolebaseEnhancedReadabilitiesMenu,
@@ -16,17 +16,40 @@ import {
 import { NolebaseInlineLinkPreviewPlugin } from "@nolebase/vitepress-plugin-inline-link-preview/client";
 import { NolebaseGitChangelogPlugin } from "@nolebase/vitepress-plugin-git-changelog/client";
 
-import { LiteTree } from '@lite-tree/vue'
+import { LiteTree } from "@lite-tree/vue";
 import Layout from "./Layout.vue";
+
+// Import custom components
+import VPHero from "./components/VPHero.vue";
 
 // Import components using @components system
 import { ImageViewer } from "@components/media";
-import { Comment, MinecraftAdvancedDamageChart, ArticleMetadataCN, Linkcard, CommitsCounter, ResponsibleEditor } from "@components/content";
+import {
+    comment,
+    ArticleMetadataCN,
+    Linkcard,
+    ResponsibleEditor,
+} from "@components/content";
 import { YoutubeVideo, BilibiliVideo, PdfViewer } from "@components/media";
 import { Footer, MNavLinks } from "@components/navigation";
-import { Buttons, Carousels, Animation, Preview, NotFound } from "@components/ui";
+import {
+    Buttons,
+    Carousels,
+    Animation,
+    Preview,
+    NotFound,
+} from "@components/ui";
 
-import { InjectionKey } from '@nolebase/vitepress-plugin-inline-link-preview/client'
+// Define SSR-safe chart components
+const CommitsCounter = defineAsyncComponent(
+    () => import("@components/content/CommitsCounter.vue")
+);
+
+const MinecraftAdvancedDamageChart = defineAsyncComponent(
+    () => import("@components/content/minecraft-advanced-damage-chart.vue")
+);
+
+import { InjectionKey } from "@nolebase/vitepress-plugin-inline-link-preview/client";
 
 export default {
     extends: DefaultTheme,
@@ -37,28 +60,34 @@ export default {
             props.class = frontmatter.value.layoutClass;
         }
         return h(Animation, props, {
-            slot: () => h(DefaultTheme.Layout, null, {
-                "doc-bottom": () => h(ImageViewer),
+            slot: () =>
+                h(DefaultTheme.Layout, null, {
+                    "doc-bottom": () => h(ImageViewer),
                 "aside-outline-after": () => h(),
-                "doc-after": () =>[ h(Buttons) ,  h(Comment)],
+                    "doc-after": () => [h(Buttons), h(comment)],
                 "layout-bottom": () => h(Footer),
                 "doc-footer-before": () => h(ResponsibleEditor),
-                "not-found": () => [ h(NotFound)],
-                "nav-bar-content-after": () => h(NolebaseEnhancedReadabilitiesMenu),
+                    "not-found": () => [h(NotFound)],
+                    "nav-bar-content-after": () =>
+                        h(NolebaseEnhancedReadabilitiesMenu),
                 "nav-screen-content-after": () =>
                     h(NolebaseEnhancedReadabilitiesScreenMenu),
-                "doc-before": () => h(Preview)
-            })
+                    "doc-before": () => h(Preview)
+                }),
         });
     },
-    enhanceApp: (ctx) => {
+    async enhanceApp(ctx) {
         DefaultTheme.enhanceApp(ctx);
         vitepressNprogress(ctx);
         enhanceAppWithTabs(ctx.app);
+
+        // Conditionally import browser-dependent plugins
+        if (!import.meta.env.SSR) {
         ctx.app.use(vuetify);
         ctx.app.use(NolebaseInlineLinkPreviewPlugin);
         ctx.app.use(NolebaseGitChangelogPlugin);
-        
+        }
+
         // Register global components
         ctx.app.component("MdCarousel", Carousels);
         ctx.app.component("YoutubeVideo", YoutubeVideo);
@@ -69,13 +98,14 @@ export default {
         ctx.app.component("commitsCounter", CommitsCounter);
         ctx.app.component("MNavLinks", MNavLinks);
         ctx.app.component("PdfViewer", PdfViewer);
-        ctx.app.component('LiteTree', LiteTree);
+        ctx.app.component("LiteTree", LiteTree);
     },
     setup() {
         const route = useRoute();
         const { frontmatter } = useData();
 
         const initMermaid = () => {
+            if (!import.meta.env.SSR) {
             mermaid.initialize({
                 startOnLoad: true,
                 theme: "default",
@@ -111,9 +141,11 @@ export default {
                     axisFormat: "%Y-%m-%d",
                 },
             });
+            }
         };
 
         onMounted(() => {
+            if (!import.meta.env.SSR) {
             initMermaid();
             mermaid.init(undefined, ".mermaid");
 
@@ -125,6 +157,7 @@ export default {
                     }, 100);
                 }
             );
+            }
         });
     },
 } satisfies Theme;

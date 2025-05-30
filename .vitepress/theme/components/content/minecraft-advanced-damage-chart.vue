@@ -1,16 +1,20 @@
 <script setup lang="ts">
     import { ref, computed, watch } from "vue";
     import { useData } from "vitepress";
-    import VChart from "vue-echarts";
-    import { use } from "echarts/core";
-    import { LineChart } from "echarts/charts";
-    import {
+    import { defineAsyncComponent } from "vue";
+
+    // Async import for vue-echarts to avoid SSR issues
+    const VChart = defineAsyncComponent(async () => {
+        const { default: VChart } = await import("vue-echarts");
+        const { use } = await import("echarts/core");
+        const { LineChart } = await import("echarts/charts");
+        const {
         TitleComponent,
         TooltipComponent,
         LegendComponent,
         GridComponent,
-    } from "echarts/components";
-    import { CanvasRenderer } from "echarts/renderers";
+        } = await import("echarts/components");
+        const { CanvasRenderer } = await import("echarts/renderers");
 
     use([
         LineChart,
@@ -20,6 +24,9 @@
         GridComponent,
         CanvasRenderer,
     ]);
+        
+        return VChart;
+    });
 
     const props = defineProps({
         mode: {
@@ -388,7 +395,9 @@
             </div>
         </div>
         <div class="chart-container">
+            <ClientOnly>
             <v-chart :option="chartOptions" :autoresize="true" class="chart" />
+            </ClientOnly>
         </div>
         <div v-if="mode === 'interactive'" class="debug-info">
             {{ debugInfo }}

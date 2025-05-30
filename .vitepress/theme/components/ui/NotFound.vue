@@ -69,14 +69,18 @@
     };
 
     const refreshPage = () => {
+        if (!import.meta.env.SSR && typeof window !== 'undefined') {
         window.location.reload();
+        }
     };
 
     onMounted(() => {
+        if (!import.meta.env.SSR) {
         const circles = document.querySelectorAll(".circle");
         circles.forEach((circle, index) => {
             circle.style.animationDelay = `${index * 0.2}s`;
         });
+        }
     });
 </script>
 

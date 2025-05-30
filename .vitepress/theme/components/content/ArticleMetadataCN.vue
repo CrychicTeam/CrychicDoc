@@ -24,18 +24,20 @@
     );
 
     function analyze() {
-        utils.vitepress.contentAnalysis.cleanupMetadata();
+        if (!import.meta.env.SSR) {
+            utils.vitepress.contentAnalysis.cleanupMetadata();
 
-        const docDomContainer = window.document.querySelector("#VPContent");
-        const imgs = docDomContainer?.querySelectorAll<HTMLImageElement>(
-            ".content-container .main img"
-        );
-        imageCount.value = imgs?.length || 0;
+            const docDomContainer = window.document.querySelector("#VPContent");
+            const imgs = docDomContainer?.querySelectorAll<HTMLImageElement>(
+                ".content-container .main img"
+            );
+            imageCount.value = imgs?.length || 0;
 
-        const words =
-            docDomContainer?.querySelector(".content-container .main")
-                ?.textContent || "";
-        wordCount.value = utils.content.countWord(words);
+            const words =
+                docDomContainer?.querySelector(".content-container .main")
+                    ?.textContent || "";
+            wordCount.value = utils.content.countWord(words);
+        }
     }
 
     onMounted(() => {

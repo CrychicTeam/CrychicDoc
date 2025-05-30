@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-    import { ref, watch, onMounted, computed } from "vue";
+    import { ref, watch, onMounted, computed, nextTick } from "vue";
     import { useData, useRoute } from "vitepress";
 
     // 从 useData 中获取 frontmatter、isDark 和 lang
@@ -37,36 +37,97 @@
 
     const giscusContainer = ref<HTMLElement | null>(null);
 
-    const loadGiscus = () => {
-        if (!giscusContainer.value) return;
-
-        giscusContainer.value.innerHTML = "";
+    /**
+     * Initialize Giscus comments safely for SSR
+     */
+    const initGiscus = () => {
+        if (!import.meta.env.SSR && showComment.value && giscusContainer.value) {
+            // Clear existing content
+            giscusContainer.value.innerHTML = '';
 
         const script = document.createElement("script");
         script.src = "https://giscus.app/client.js";
         script.async = true;
-        script.setAttribute("data-repo", "PickAID/CrychicDoc");
-        script.setAttribute("data-repo-id", "R_kgDOMnN0IQ");
-        script.setAttribute("data-category", "Announcements");
-        script.setAttribute("data-category-id", "DIC_kwDOMnN0Ic4Ch3qm");
-        script.setAttribute("data-mapping", "specific");
-        script.setAttribute("data-term", extractTerm(route.path)); // 动态提取 term
-        script.setAttribute("data-strict", "1");
-        script.setAttribute("data-reactions-enabled", "1");
-        script.setAttribute("data-emit-metadata", "0");
-        script.setAttribute("data-input-position", "top");
-        script.setAttribute("data-lang", currentLangConfig.value.langCode);
-        script.setAttribute(
-            "data-theme",
-            isDark.value ? "noborder_dark" : "noborder_light"
-        );
-        script.setAttribute("crossorigin", "anonymous");
-        giscusContainer.value.appendChild(script);
+            script.crossOrigin = "anonymous";
+            script.dataset.repo = "Wudji/CrychicDoc";
+            script.dataset.repoId = "R_kgDOKWjvqA";
+            script.dataset.category = "Announcements";
+            script.dataset.categoryId = "DIC_kwDOKWjvqM4CZFXY";
+            script.dataset.mapping = "pathname";
+            script.dataset.strict = "0";
+            script.dataset.reactionsEnabled = "1";
+            script.dataset.emitMetadata = "0";
+            script.dataset.inputPosition = "bottom";
+            script.dataset.lang = lang.value;
+            script.dataset.theme = isDark.value ? "dark" : "light";
+
+            giscusContainer.value.appendChild(script);
+        }
     };
 
+    /**
+     * Update Giscus theme safely
+     */
+    const updateGiscusTheme = () => {
+        if (!import.meta.env.SSR && showComment.value) {
+            const iframe = document.querySelector(
+                ".giscus-frame"
+            ) as HTMLIFrameElement;
+            if (iframe?.contentWindow) {
+                iframe.contentWindow.postMessage(
+                    {
+                        giscus: {
+                            setConfig: {
+                                theme: isDark.value ? "dark" : "light",
+                            },
+                        },
+                    },
+                    "https://giscus.app"
+                );
+            }
+        }
+    };
+
+    /**
+     * Update Giscus language safely
+     */
+    const updateGiscusLang = () => {
+        if (!import.meta.env.SSR && showComment.value) {
+            const iframe = document.querySelector(
+                ".giscus-frame"
+            ) as HTMLIFrameElement;
+            if (iframe?.contentWindow) {
+                iframe.contentWindow.postMessage(
+                    {
+                        giscus: {
+                            setConfig: {
+                                lang: lang.value,
+                            },
+                        },
+                    },
+                    "https://giscus.app"
+                );
+            }
+        }
+    };
+
+    // Watch for theme changes
+    watch(isDark, updateGiscusTheme);
+
+    // Watch for language changes  
+    watch(lang, updateGiscusLang);
+
+    // Watch for comment visibility changes
+    watch(showComment, (newVal) => {
+        if (newVal) {
+            nextTick(initGiscus);
+        }
+    });
+
+    // Initialize on mount
     onMounted(() => {
         if (showComment.value) {
-            loadGiscus();
+            initGiscus();
         }
     });
 
@@ -74,57 +135,7 @@
         () => route.path,
         () => {
             if (showComment.value) {
-                loadGiscus();
-            }
-        }
-    );
-
-    watch(
-        () => isDark.value,
-        () => {
-            if (showComment.value) {
-                const iframe = document.querySelector(
-                    "iframe.giscus-frame"
-                ) as HTMLIFrameElement;
-                if (iframe) {
-                    iframe.contentWindow?.postMessage(
-                        {
-                            giscus: {
-                                setConfig: {
-                                    theme: isDark.value
-                                        ? "noborder_dark"
-                                        : "noborder_light",
-                                },
-                            },
-                        },
-                        "https://giscus.app"
-                    );
-                }
-            }
-        }
-    );
-
-    watch(
-        () => lang.value,
-        () => {
-            if (showComment.value) {
-                const iframe = document.querySelector(
-                    "iframe.giscus-frame"
-                ) as HTMLIFrameElement;
-                if (iframe) {
-                    iframe.contentWindow?.postMessage(
-                        {
-                            giscus: {
-                                setConfig: {
-                                    lang: currentLangConfig.value.langCode,
-                                },
-                            },
-                        },
-                        "https://giscus.app"
-                    );
-                } else {
-                    loadGiscus();
-                }
+                initGiscus();
             }
         }
     );
@@ -133,6 +144,8 @@
 <style>
     .giscus-wrapper {
         margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--vp-c-divider);
     }
 
     main .giscus,

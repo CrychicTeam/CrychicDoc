@@ -106,9 +106,9 @@
                             />
                         </template>
                     </v-tooltip>
-                    <h5 v-if="title" :id="formatTitle" class="m-nav-link-title">
-                        {{ title }}
-                    </h5>
+                <h5 v-if="title" :id="formatTitle" class="m-nav-link-title">
+                    {{ title }}
+                </h5>
                 </div>
                 <p v-if="desc" class="m-nav-link-desc">{{ desc }}</p>
             </div>
@@ -129,23 +129,23 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
     backdrop-filter: blur(8px) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
+    }
 
 /* Dark mode tooltip */
 .dark :deep(.v-tooltip > .v-overlay__content) {
     background: rgba(20, 20, 20, 0.95) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
-}
+    }
 
 /* Tooltip arrow styling */
 :deep(.v-tooltip .v-overlay__content::before) {
     border-top-color: rgba(0, 0, 0, 0.9) !important;
-}
+    }
 
 .dark :deep(.v-tooltip .v-overlay__content::before) {
     border-top-color: rgba(20, 20, 20, 0.95) !important;
-}
+    }
 </style>
 
 <!-- Main styles are handled in nav.css -->

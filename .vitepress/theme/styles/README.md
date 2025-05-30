@@ -1,84 +1,86 @@
-# CryChicDoc Theme Styles Organization
+# CryChicDoc 主题样式系统
 
-This directory contains all CSS styles for the CryChicDoc VitePress theme, organized in a modular and maintainable structure.
+> [English Documentation](./README_EN.md)
 
-## 📁 Directory Structure
+为 CryChicDoc VitePress 主题设计的模块化、可维护的样式组织系统。
+
+## 📁 目录结构
 
 ```
 styles/
-├── config/             # Configuration & Variables
-│   ├── variables.css   # Main entry point for all variables
-│   ├── base-variables.css      # Base theme variables
-│   ├── component-variables.css # Component-specific variables  
-│   └── chart-variables.css     # Chart & data visualization variables
-├── base/               # Foundation styles
-│   ├── colors.css      # VitePress color system
-│   ├── typography.css  # Fonts & text styling
-│   ├── foundation.css  # Global base styles
-│   └── hero.css        # Homepage hero styling
-├── plugins/            # Plugin-specific styles
-│   ├── algolia.css     # Algolia search styling
-│   ├── custom-blocks.css # Custom block containers
-│   ├── code-groups.css # VitePress code group tabs
-│   ├── demo.css        # Demo container styling
-│   └── link-icons.css  # External link favicon icons
-├── components/         # Component-specific styles
-│   ├── stepper.css     # Stepper component styles
-│   └── carousel.css    # Carousel component styles
-└── index.css           # Single entry point
+├── config/             # 配置和变量
+│   ├── variables.css   # 所有变量的主入口文件
+│   ├── base-variables.css      # 基础主题变量
+│   ├── component-variables.css # 组件特定变量  
+│   └── chart-variables.css     # 图表和数据可视化变量
+├── base/               # 基础样式
+│   ├── colors.css      # VitePress 颜色系统
+│   ├── typography.css  # 字体和文本样式
+│   ├── foundation.css  # 全局基础样式
+│   └── hero.css        # 首页 hero 样式
+├── plugins/            # 插件特定样式
+│   ├── algolia.css     # Algolia 搜索样式
+│   ├── custom-blocks.css # 自定义块容器
+│   ├── code-groups.css # VitePress 代码组标签
+│   ├── demo.css        # 演示容器样式
+│   └── link-icons.css  # 外部链接图标
+├── components/         # 组件特定样式
+│   ├── stepper.css     # 步骤器组件样式
+│   └── carousel.css    # 轮播图组件样式
+└── index.css           # 单一入口文件
 ```
 
-## 🎯 Import Strategy
+## 🎯 导入策略
 
-**Single Entry Point**: All styles are imported through `styles/index.css`, which is the only CSS file imported in `theme/index.ts`.
+**单一入口点**: 所有样式通过 `styles/index.css` 导入，这是在 `theme/index.ts` 中导入的唯一 CSS 文件。
 
 ```typescript
 // theme/index.ts
-import "./styles/index.css"; // Single CSS entry point
+import "./styles/index.css"; // 单一 CSS 入口点
 ```
 
-## 🔧 CSS Variables Organization
+## 🔧 CSS 变量组织
 
-### Modular Variable Structure
+### 模块化变量结构
 
-Variables are now organized into separate files for better maintainability:
+变量现在被组织到单独的文件中，以便更好地维护：
 
-#### **config/variables.css** - Main Entry Point
+#### **config/variables.css** - 主入口点
 ```css
-/* Single entry point that imports all variable modules */
+/* 导入所有变量模块的单一入口点 */
 @import './base-variables.css';
 @import './component-variables.css';  
 @import './chart-variables.css';
 ```
 
-#### **config/base-variables.css** - Core Theme Variables
+#### **config/base-variables.css** - 核心主题变量
 ```css
 :root {
-    /* ===== BRAND & THEME COLORS ===== */
+    /* ===== 品牌和主题颜色 ===== */
     --vp-c-brand: #1565c0;
     --vp-c-text-2: #546e7a;
     
-    /* ===== ANIMATION & TRANSITIONS ===== */
+    /* ===== 动画和过渡 ===== */
     --transition-duration: 300ms;
     --transition-easing: ease-in;
     --hover-scale: 1.1;
     --fade-duration: 0.5s;
     
-    /* ===== GLOBAL SPACING ===== */
+    /* ===== 全局间距 ===== */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
     --spacing-xl: 32px;
     
-    /* ===== BORDER RADIUS ===== */
+    /* ===== 边框圆角 ===== */
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --border-radius-lg: 12px;
     --border-radius-xl: 16px;
     --border-radius-round: 50%;
     
-    /* ===== SHADOWS ===== */
+    /* ===== 阴影 ===== */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -86,24 +88,24 @@ Variables are now organized into separate files for better maintainability:
 }
 ```
 
-#### **config/component-variables.css** - Component Variables
+#### **config/component-variables.css** - 组件变量
 ```css
 :root {
-    /* ===== FLOATING BUTTONS ===== */
+    /* ===== 浮动按钮 ===== */
     --button-bg-color: #c5a16b;
     --button-hover-color: #a38348;
     --button-size: 45px;
     --button-border-radius: var(--border-radius-round);
     --button-shadow: var(--shadow-button);
     
-    /* ===== VIDEO COMPONENTS ===== */
+    /* ===== 视频组件 ===== */
     --video-border-color: #ccc;
     --video-border-radius: var(--border-radius-md);
     --video-bg-color: #f9f9f9;
     --video-shadow: var(--shadow-md);
     --video-aspect-ratio: 56.25%; /* 16:9 */
     
-    /* ===== NAVIGATION COMPONENTS ===== */
+    /* ===== 导航组件 ===== */
     --m-nav-icon-box-size: 50px;
     --m-nav-icon-size: 45px;
     --m-nav-box-gap: 12px;
@@ -111,7 +113,7 @@ Variables are now organized into separate files for better maintainability:
 }
 
 .dark {
-    /* Dark theme component overrides */
+    /* 深色主题组件覆盖 */
     --button-bg-color: #2b4796;
     --button-hover-color: #283d83;
     --video-border-color: #555;
@@ -119,35 +121,35 @@ Variables are now organized into separate files for better maintainability:
 }
 ```
 
-#### **config/chart-variables.css** - Chart & Data Visualization
+#### **config/chart-variables.css** - 图表和数据可视化
 ```css
 :root {
-    /* ===== CHART LAYOUT ===== */
+    /* ===== 图表布局 ===== */
     --chart-height: 50vh;
     --chart-min-height: 300px;
     --chart-mobile-height: 40vh;
     --chart-mobile-min-height: 250px;
     
-    /* ===== CHART COLOR THEMES ===== */
+    /* ===== 图表颜色主题 ===== */
     --chart-primary-light: #ff3860;
     --chart-primary-dark: #ff6384;
     --chart-secondary-light: #3273dc;
     --chart-secondary-dark: #36a2eb;
     
-    /* ===== CHART GRADIENTS ===== */
+    /* ===== 图表渐变 ===== */
     --gradient-primary-1: #1565C0;
     --gradient-primary-2: #1976D2;
     --gradient-primary-3: #2196F3;
     
-    /* ===== DATA VISUALIZATION ===== */
+    /* ===== 数据可视化 ===== */
     --data-grid-color: rgba(128, 128, 128, 0.2);
     --data-axis-color: var(--vp-c-text-2);
     --data-tooltip-bg: var(--vp-c-bg-soft);
 }
 ```
 
-### Component Usage
-Components use these variables with semantic references:
+### 组件使用
+组件通过语义引用使用这些变量：
 
 ```vue
 <style scoped>
@@ -175,27 +177,27 @@ Components use these variables with semantic references:
 </style>
 ```
 
-## 📝 Style Organization Rules
+## 📝 样式组织规则
 
-### Variables That Should Be Configurable
-- **Theme colors** (brand colors, backgrounds)
-- **Component dimensions** (heights, widths, spacing)
-- **Interactive states** (hover, active, focus colors)  
-- **Typography scaling** (font sizes for responsive design)
-- **External resource URLs** (icons, images that change with theme)
-- **Animation properties** (durations, easing functions)
-- **Global design tokens** (spacing scale, border radius scale, shadow scale)
+### 应该可配置的变量
+- **主题颜色** (品牌颜色、背景色)
+- **组件尺寸** (高度、宽度、间距)
+- **交互状态** (悬停、激活、焦点颜色)  
+- **排版缩放** (响应式设计的字体大小)
+- **外部资源 URL** (随主题变化的图标、图片)
+- **动画属性** (持续时间、缓动函数)
+- **全局设计令牌** (间距比例、边框圆角比例、阴影比例)
 
-### Styles That Stay in Components
-- **Layout-specific styles** (flexbox, grid configurations)
-- **Component-specific positioning** (unique to that component)
-- **Animation definitions** (component-specific transitions)
-- **Structural styles** (display, position values)
+### 保留在组件中的样式
+- **布局特定样式** (flexbox、grid 配置)
+- **组件特定定位** (该组件独有的)
+- **动画定义** (组件特定的过渡)
+- **结构样式** (display、position 值)
 
-## 🚀 Adding New Styles
+## 🚀 添加新样式
 
-### 1. For New Components
-Add variables to appropriate variable file:
+### 1. 新组件
+将变量添加到适当的变量文件：
 ```css
 /* config/component-variables.css */
 :root {
@@ -205,7 +207,7 @@ Add variables to appropriate variable file:
 }
 ```
 
-Use in component:
+在组件中使用：
 ```vue
 <style scoped>
 .new-component {
@@ -216,14 +218,14 @@ Use in component:
 </style>
 ```
 
-### 2. For New Variables
-Choose the appropriate variable file:
-- **Base variables**: Theme colors, global spacing, design tokens
-- **Component variables**: Component-specific styling
-- **Chart variables**: Data visualization and chart styling
+### 2. 新变量
+选择适当的变量文件：
+- **基础变量**: 主题颜色、全局间距、设计令牌
+- **组件变量**: 组件特定样式
+- **图表变量**: 数据可视化和图表样式
 
-### 3. For Global Design Tokens
-Add to `base-variables.css`:
+### 3. 全局设计令牌
+添加到 `base-variables.css`：
 ```css
 :root {
     --new-spacing-token: 20px;
@@ -232,10 +234,10 @@ Add to `base-variables.css`:
 }
 ```
 
-## 🎨 Theme System
+## 🎨 主题系统
 
-### Automatic Light/Dark Theme Support
-All components automatically inherit theme values through CSS variables:
+### 自动亮色/暗色主题支持
+所有组件通过 CSS 变量自动继承主题值：
 
 ```css
 :root {
@@ -249,96 +251,96 @@ All components automatically inherit theme values through CSS variables:
 }
 ```
 
-No JavaScript theme switching required - everything is handled by CSS!
+无需 JavaScript 主题切换 - 一切都由 CSS 处理！
 
-## 📋 Component Styles Overview
+## 📋 组件样式概述
 
-### **Fully Organized Components**
-All components have been updated to use centralized CSS variables:
+### **完全组织化的组件**
+所有组件都已更新为使用集中式 CSS 变量：
 
-- ✅ **Buttons.vue**: Floating action buttons with configurable colors, sizes, animations
-- ✅ **BilibiliVideo.vue** & **YoutubeVideo.vue**: Video containers with responsive design  
-- ✅ **ArticleMetadataCN.vue**: Article metadata display with configurable typography
-- ✅ **ProgressLinear.vue**: Progress indicators with theme-aware colors
-- ✅ **MNavLink.vue** & **MNavLinks.vue**: Navigation components with responsive sizing
-- ✅ **Linkcard.vue**: Link preview cards with hover effects
-- ✅ **Footer.vue**: Site footer with theme-aware text colors
-- ✅ **PdfViewer.vue**: PDF display component with consistent styling
-- ✅ **minecraft-advanced-damage-chart.vue**: Chart component with variable-based styling
-- ✅ **CommitsCounter.vue**: Sparkline charts with theme integration
-- ✅ **ResponsibleEditor.vue**: Editor info with consistent styling
+- ✅ **Buttons.vue**: 可配置颜色、尺寸、动画的浮动操作按钮
+- ✅ **BilibiliVideo.vue** & **YoutubeVideo.vue**: 响应式视频容器  
+- ✅ **ArticleMetadataCN.vue**: 可配置排版的文章元数据显示
+- ✅ **ProgressLinear.vue**: 主题感知颜色的进度指示器
+- ✅ **MNavLink.vue** & **MNavLinks.vue**: 响应式尺寸的导航组件
+- ✅ **Linkcard.vue**: 带悬停效果的链接预览卡片
+- ✅ **Footer.vue**: 主题感知文本颜色的网站页脚
+- ✅ **PdfViewer.vue**: 一致样式的 PDF 显示组件
+- ✅ **minecraft-advanced-damage-chart.vue**: 基于变量的图表组件
+- ✅ **CommitsCounter.vue**: 主题集成的折线图
+- ✅ **ResponsibleEditor.vue**: 一致样式的编辑器信息
 
-### **Key Improvements**
-- ✅ **Modular variables**: Organized into logical, maintainable files
-- ✅ **Global design tokens**: Consistent spacing, borders, shadows across all components
-- ✅ **Semantic variable names**: Clear, descriptive names for easy understanding
-- ✅ **Eliminated hardcoded values**: All colors, sizes, spacing use variables
-- ✅ **Eliminated JavaScript theme switching**: Pure CSS theme handling
-- ✅ **Responsive design**: Mobile/desktop variants through CSS variables
-- ✅ **Consistent animations**: Standardized transition durations and easing
-- ✅ **Cross-component consistency**: Shared design tokens ensure visual harmony
+### **关键改进**
+- ✅ **模块化变量**: 组织成逻辑、可维护的文件
+- ✅ **全局设计令牌**: 所有组件间一致的间距、边框、阴影
+- ✅ **语义变量名**: 清晰、描述性的名称便于理解
+- ✅ **消除硬编码值**: 所有颜色、尺寸、间距都使用变量
+- ✅ **消除 JavaScript 主题切换**: 纯 CSS 主题处理
+- ✅ **响应式设计**: 通过 CSS 变量实现移动端/桌面端变体
+- ✅ **一致动画**: 标准化过渡持续时间和缓动
+- ✅ **跨组件一致性**: 共享设计令牌确保视觉和谐
 
-## ✅ Benefits of This Organization
+## ✅ 这种组织的好处
 
-1. **Single Import**: Only one CSS import needed in theme setup
-2. **Modular Variables**: Easy to find and modify specific variable categories
-3. **Maintainable**: Clear separation of concerns and logical organization
-4. **Configurable**: Easy to customize through semantic CSS variables
-5. **Performance**: Optimized loading and minimal duplication
-6. **Scalable**: Easy to add new components and design tokens
-7. **Type-Safe**: Works with VitePress TypeScript configuration
-8. **Theme Consistent**: Automatic light/dark theme support
-9. **No JavaScript Dependencies**: Theme switching handled purely by CSS
-10. **Design System**: Consistent design tokens across all components
+1. **单一导入**: 主题设置只需一个 CSS 导入
+2. **模块化变量**: 易于查找和修改特定变量类别
+3. **可维护**: 清晰的关注点分离和逻辑组织
+4. **可配置**: 通过语义 CSS 变量易于自定义
+5. **性能**: 优化加载和最小重复
+6. **可扩展**: 易于添加新组件和设计令牌
+7. **类型安全**: 与 VitePress TypeScript 配置兼容
+8. **主题一致**: 自动亮色/暗色主题支持
+9. **无 JavaScript 依赖**: 主题切换完全由 CSS 处理
+10. **设计系统**: 所有组件间一致的设计令牌
 
-## 🔄 Migration Notes
+## 🔄 迁移说明
 
-- ❌ **Removed**: Dynamic CSS variable setting in JavaScript
-- ❌ **Removed**: Hardcoded colors, dimensions, and spacing in components
-- ❌ **Removed**: Component-specific theme switching logic
-- ❌ **Removed**: Monolithic variables.css file
-- ✅ **Added**: Modular variable organization (base, component, chart)
-- ✅ **Added**: Global design token system
-- ✅ **Added**: Semantic variable naming conventions
-- ✅ **Added**: Responsive design variables
-- ✅ **Added**: Animation and transition standardization
-- ✅ **Simplified**: Pure CSS theme switching
-- ✅ **Improved**: Component maintainability and consistency
+- ❌ **已移除**: JavaScript 中的动态 CSS 变量设置
+- ❌ **已移除**: 组件中的硬编码颜色、尺寸和间距
+- ❌ **已移除**: 组件特定的主题切换逻辑
+- ❌ **已移除**: 单一的 variables.css 文件
+- ✅ **已添加**: 模块化变量组织（基础、组件、图表）
+- ✅ **已添加**: 全局设计令牌系统
+- ✅ **已添加**: 语义变量命名约定
+- ✅ **已添加**: 响应式设计变量
+- ✅ **已添加**: 动画和过渡标准化
+- ✅ **简化**: 纯 CSS 主题切换
+- ✅ **改进**: 组件可维护性和一致性
 
-## 🛠️ Troubleshooting
+## 🛠️ 故障排除
 
-### Missing Styles
-If styles appear missing after reorganization:
-1. Check that CSS variables are defined in appropriate variable files
-2. Verify `config/variables.css` imports all variable modules
-3. Ensure components use CSS variables instead of hardcoded values
-4. Confirm theme-specific variables are defined for both light and dark modes
+### 样式缺失
+如果重组后样式显示缺失：
+1. 检查 CSS 变量是否在适当的变量文件中定义
+2. 验证 `config/variables.css` 导入所有变量模块
+3. 确保组件使用 CSS 变量而不是硬编码值
+4. 确认为亮色和暗色模式都定义了主题特定变量
 
-### Variable Import Issues
-If variables are not loading:
-1. Check import paths in `config/variables.css`
-2. Verify all variable files exist in the `config/` directory
-3. Ensure `styles/index.css` imports `config/variables.css`
+### 变量导入问题
+如果变量未加载：
+1. 检查 `config/variables.css` 中的导入路径
+2. 验证所有变量文件存在于 `config/` 目录中
+3. 确保 `styles/index.css` 导入 `config/variables.css`
 
-### Theme Switching Issues
-If theme switching doesn't work properly:
-1. Verify CSS variables are defined in both `:root` and `.dark` selectors
-2. Check that components use CSS variables instead of computed values
-3. Ensure no JavaScript is overriding CSS variable values
+### 主题切换问题
+如果主题切换不正常工作：
+1. 验证 CSS 变量在 `:root` 和 `.dark` 选择器中都有定义
+2. 检查组件使用 CSS 变量而不是计算值
+3. 确保没有 JavaScript 覆盖 CSS 变量值
 
-### Performance Issues
-If styles are loading slowly:
-1. Check that only `styles/index.css` is imported in theme setup
-2. Verify no duplicate CSS imports in components
-3. Ensure CSS variables are not being computed unnecessarily in JavaScript
-4. Check that variable files are properly optimized
+### 性能问题
+如果样式加载缓慢：
+1. 检查主题设置中只导入了 `styles/index.css`
+2. 验证组件中没有重复的 CSS 导入
+3. 确保 CSS 变量没有在 JavaScript 中不必要地计算
+4. 检查变量文件是否正确优化
 
-## 📊 Variable Organization Summary
+## 📊 变量组织摘要
 
-| File | Purpose | Examples |
-|------|---------|----------|
-| `base-variables.css` | Core theme & design tokens | Colors, spacing, borders, shadows, animations |
-| `component-variables.css` | Component-specific styling | Button sizes, video aspect ratios, navigation dimensions |
-| `chart-variables.css` | Data visualization | Chart dimensions, colors, gradients, tooltips |
+| 文件 | 用途 | 示例 |
+|------|------|------|
+| `base-variables.css` | 核心主题和设计令牌 | 颜色、间距、边框、阴影、动画 |
+| `component-variables.css` | 组件特定样式 | 按钮尺寸、视频纵横比、导航尺寸 |
+| `chart-variables.css` | 数据可视化 | 图表尺寸、颜色、渐变、工具提示 |
 
-This organization provides a scalable, maintainable foundation for the CryChicDoc theme that can easily grow and adapt to future needs. 
+这种组织为 CryChicDoc 主题提供了可扩展、可维护的基础，可以轻松成长并适应未来的需求。 

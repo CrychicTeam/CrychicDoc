@@ -1,5 +1,6 @@
 import { DefaultTheme, UserConfig } from "vitepress";
 import { resolve } from "path";
+import { fileURLToPath } from "node:url";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { TDesignResolver } from "unplugin-vue-components/resolvers";
@@ -88,10 +89,28 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     vue: {},
     vite: {
         resolve: {
-            alias: {
-                "@utils": resolve(__dirname, "../utils"),
-                "@components": resolve(__dirname, "../theme/components"),
-            },
+            alias: [
+                {
+                    find: /^.*\/VPHero\.vue$/,
+                    replacement: fileURLToPath(
+                        new URL('../theme/components/VPHero.vue', import.meta.url)
+                    )
+                },
+                {
+                    find: /^.*\/VPFeatures\.vue$/,
+                    replacement: fileURLToPath(
+                        new URL('../theme/components/VPFeatures.vue', import.meta.url)
+                    )
+                },
+                {
+                    find: "@utils",
+                    replacement: resolve(__dirname, "../utils")
+                },
+                {
+                    find: "@components",
+                    replacement: resolve(__dirname, "../theme/components")
+                }
+            ],
         },
         optimizeDeps: {
             exclude: ["@nolebase/*"],

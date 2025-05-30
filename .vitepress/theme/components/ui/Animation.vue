@@ -3,14 +3,22 @@
 <script setup lang="ts">
     import { useData } from "vitepress";
     import DefaultTheme from "vitepress/theme";
-    import { nextTick, provide, h } from "vue";
+    import { nextTick, provide, h, onMounted, ref } from "vue";
 
     const { Layout } = DefaultTheme;
     const { isDark } = useData();
+    const isClient = ref(false);
 
-    const enableTransitions = () =>
-        "startViewTransition" in document &&
+    // Check if browser supports view transitions
+    const enableTransitions = () => {
+        if (!isClient.value) return false;
+        return "startViewTransition" in document &&
         window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+    };
+
+    onMounted(() => {
+        isClient.value = true;
+    });
 
     provide(
         "toggle-appearance",
