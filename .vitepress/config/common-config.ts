@@ -1,7 +1,5 @@
-import {
-    DefaultTheme,
-    UserConfig
-} from "vitepress";
+import { DefaultTheme, UserConfig } from "vitepress";
+import { resolve } from "path";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { TDesignResolver } from "unplugin-vue-components/resolvers";
@@ -89,6 +87,12 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     },
     vue: {},
     vite: {
+        resolve: {
+            alias: {
+                "@utils": resolve(__dirname, "../utils"),
+                "@components": resolve(__dirname, "../theme/components"),
+            },
+        },
         optimizeDeps: {
             exclude: ["@nolebase/*"],
         },
@@ -151,10 +155,10 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                     }),
                 ],
             }),
-        ]
+        ],
     },
     head: [
         ["link", { rel: "icon", href: "https://docs.mihono.cn/favicon.ico" }],
     ],
-    ignoreDeadLinks: true
-}
+    ignoreDeadLinks: true,
+};

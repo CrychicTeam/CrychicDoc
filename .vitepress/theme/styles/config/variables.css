@@ -1,0 +1,18 @@
+/**
+ * CSS Custom Properties Configuration
+ * Single entry point for all configurable variables
+ * 
+ * This file imports all variable modules in the correct order:
+ * 1. Base variables (theme colors, typography, fundamental styling)
+ * 2. Component variables (component-specific styling)
+ * 3. Chart variables (data visualization and charts)
+ */
+
+/* ===== BASE THEME VARIABLES ===== */
+@import "./base-variables.css";
+
+/* ===== COMPONENT VARIABLES ===== */
+@import "./component-variables.css";
+
+/* ===== CHART & DATA VISUALIZATION VARIABLES ===== */
+@import "./chart-variables.css";

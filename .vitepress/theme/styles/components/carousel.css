@@ -1,0 +1,28 @@
+/**
+ * Carousel Component Styles
+ * Vuetify carousel customization for VitePress theme
+ */
+
+:root {
+    --vp-carousel-overlay: #00000073;
+}
+
+.carousel .v-btn--variant-elevated {
+    background: var(--vp-carousel-overlay);
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+}
+
+.carousel .mdi-chevron-right,
+.carousel .mdi-chevron-left {
+    color: #ffffffa6;
+}
+
+.carousel .v-carousel {
+    border-radius: 8px;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

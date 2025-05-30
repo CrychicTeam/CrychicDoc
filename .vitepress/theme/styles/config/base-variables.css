@@ -1,0 +1,78 @@
+/**
+ * Base Theme Variables
+ * Core theme colors, typography, and fundamental styling variables
+ */
+
+:root {
+    /* ===== BRAND & THEME COLORS ===== */
+    --vp-c-brand: #1565c0;
+    --vp-c-text-2: #546e7a;
+
+    /* ===== HERO SECTION ===== */
+    --vp-home-hero-image-background-image: linear-gradient(
+        -45deg,
+        #ffffff 50%,
+        #ffffff 50%
+    );
+    --vp-home-hero-image-filter: blur(68px);
+
+    /* ===== CODE HIGHLIGHTING ===== */
+    --code-bg-color: var(--vp-c-brand-light);
+    --code-group-border-color: #cccac0;
+
+    /* ===== ICONS & IMAGES ===== */
+    --github-bg-image: url("/icon/github.png");
+
+    /* ===== ANIMATION & TRANSITIONS ===== */
+    --transition-duration: 300ms;
+    --transition-easing: ease-in;
+    --hover-scale: 1.1;
+    --fade-duration: 0.5s;
+
+    /* ===== GLOBAL SPACING ===== */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* ===== BORDER RADIUS ===== */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    --border-radius-round: 50%;
+
+    /* ===== SHADOWS ===== */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --shadow-button: 2px 2px 10px 4px rgba(0, 0, 0, 0.15);
+}
+
+.dark {
+    /* ===== DARK THEME OVERRIDES ===== */
+    --vp-c-brand: #6e7aad;
+    --vp-c-text-2: #b0bec5;
+
+    /* ===== HERO SECTION (DARK) ===== */
+    --vp-home-hero-image-background-image: linear-gradient(
+        -45deg,
+        #1b1b1f 50%,
+        #1b1b1f 50%
+    );
+    --vp-home-hero-image-filter: blur(72px);
+
+    /* ===== CODE HIGHLIGHTING (DARK) ===== */
+    --code-bg-color: var(--vp-c-brand-dark);
+    --code-group-border-color: #242631;
+
+    /* ===== ICONS & IMAGES (DARK) ===== */
+    --github-bg-image: url("/icon/github_dark.png");
+
+    /* ===== SHADOWS (DARK) ===== */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.4);
+    --shadow-button: 2px 2px 10px 4px rgba(0, 0, 0, 0.3);
+}

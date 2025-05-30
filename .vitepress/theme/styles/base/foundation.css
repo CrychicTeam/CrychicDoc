@@ -1,0 +1,115 @@
+/**
+ * Foundation Styles
+ * Global base styles, scrollbars, utilities, and basic typography
+ */
+
+/* ===== GLOBAL SCROLLBAR STYLES ===== */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--vp-c-text-2) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--vp-code-block-bg);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Hide scrollbars for specific VitePress components */
+.aside-container::-webkit-scrollbar,
+.VPmenu::-webkit-scrollbar,
+.VPSidebar::-webkit-scrollbar,
+.v-main::-webkit-scrollbar,
+.VPContent::-webkit-scrollbar {
+    width: 0px;
+}
+
+.aside-container,
+.VPmenu,
+.VPSidebar,
+.v-main,
+.VPContent {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* ===== TYPOGRAPHY UTILITIES ===== */
+.justified-text {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Font Size Utilities */
+.font-small {
+    font-size: 13px;
+}
+
+.font-medium {
+    font-size: 18px;
+}
+
+.font-large {
+    font-size: 23px;
+}
+
+.font-xlarge {
+    font-size: 30px;
+}
+
+/* Color Utilities */
+.text-red {
+    color: red;
+}
+
+.text-green {
+    color: green;
+}
+
+.text-blue {
+    color: blue;
+}
+
+.text-yellow {
+    color: yellow;
+}
+
+/* ===== SPECIAL COMPONENTS ===== */
+/* Spoiler styling */
+.spoiler {
+    background-color: black !important;
+    color: transparent !important;
+    position: relative !important;
+}
+
+.dark .spoiler {
+    background-color: white !important;
+    color: transparent !important;
+}
+
+.spoiler:hover {
+    color: inherit !important;
+    background-color: transparent !important;
+}
+
+/* VitePress Navigation fixes */
+.VPSocialLinks.VPNavBarSocialLinks.social-links {
+    margin-right: 0;
+}
+
+/* Lite Tree component styling */
+.lite-tree {
+    border: none !important;
+}
+
+.lite-tree .icon {
+    color: var(--vp-c-text-1) !important;
+}

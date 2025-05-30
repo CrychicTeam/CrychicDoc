@@ -1,0 +1,81 @@
+/**
+ * Chart & Data Visualization Variables
+ * Variables for charts, graphs, and data visualization components
+ */
+
+:root {
+    /* ===== CHART LAYOUT ===== */
+    --chart-height: 50vh;
+    --chart-min-height: 300px;
+    --chart-mobile-height: 40vh;
+    --chart-mobile-min-height: 250px;
+    --chart-border-radius: var(--border-radius-md);
+    --chart-padding: var(--spacing-md);
+
+    /* ===== CHART BUTTONS ===== */
+    --chart-button-bg: #f6f6f7;
+    --chart-button-color: #333;
+    --chart-button-hover-bg: #e0e0e0;
+    --chart-button-border-radius: var(--border-radius-sm);
+    --chart-button-padding: var(--spacing-xs) var(--spacing-sm);
+    --chart-button-font-size: 14px;
+
+    /* ===== CHART COLOR THEMES ===== */
+    --chart-primary-light: #ff3860;
+    --chart-primary-dark: #ff6384;
+    --chart-secondary-light: #3273dc;
+    --chart-secondary-dark: #36a2eb;
+    --chart-accent-light: #23d160;
+    --chart-accent-dark: #4bc0c0;
+
+    /* ===== CHART GRADIENTS ===== */
+    --gradient-primary-1: #1565c0;
+    --gradient-primary-2: #1976d2;
+    --gradient-primary-3: #2196f3;
+    --gradient-secondary-1: #673ab7;
+    --gradient-secondary-2: #9c27b0;
+    --gradient-secondary-3: #e91e63;
+
+    /* ===== COMMITS COUNTER ===== */
+    --commits-icon-color: var(--vp-c-brand, #1976d2);
+    --commits-text-color: var(--vp-c-text-1);
+    --commits-bg-color: transparent;
+    --commits-border-radius: var(--border-radius-sm);
+    --commits-padding: var(--spacing-sm);
+
+    /* ===== DATA VISUALIZATION ===== */
+    --data-grid-color: rgba(128, 128, 128, 0.2);
+    --data-axis-color: var(--vp-c-text-2);
+    --data-tooltip-bg: var(--vp-c-bg-soft);
+    --data-tooltip-border: 1px solid var(--vp-c-border);
+    --data-tooltip-shadow: var(--shadow-md);
+    --data-tooltip-border-radius: var(--border-radius-sm);
+
+    /* ===== LEGEND ===== */
+    --legend-font-size: 12px;
+    --legend-color: var(--vp-c-text-2);
+    --legend-spacing: var(--spacing-sm);
+    --legend-marker-size: 8px;
+}
+
+.dark {
+    /* ===== CHART BUTTONS (DARK) ===== */
+    --chart-button-bg: #333333;
+    --chart-button-color: #fff;
+    --chart-button-hover-bg: #5a5a5a;
+
+    /* ===== CHART GRADIENTS (DARK) ===== */
+    --gradient-primary-1: #4a148c;
+    --gradient-primary-2: #6a1b9a;
+    --gradient-primary-3: #8e24aa;
+    --gradient-secondary-1: #1a237e;
+    --gradient-secondary-2: #283593;
+    --gradient-secondary-3: #3f51b5;
+
+    /* ===== COMMITS COUNTER (DARK) ===== */
+    --commits-icon-color: var(--vp-c-text-1, #b0bec5);
+
+    /* ===== DATA VISUALIZATION (DARK) ===== */
+    --data-grid-color: rgba(255, 255, 255, 0.1);
+    --data-tooltip-bg: var(--vp-c-bg-soft-up);
+}

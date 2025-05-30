@@ -1,0 +1,8 @@
+/**
+ * Algolia Search Plugin Styles
+ * Custom styling for VitePress Algolia search integration
+ */
+
+.DocSearch {
+    --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}

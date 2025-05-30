@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from "vitepress-plugin-mermaid";
 
-import {en_US} from "./config/lang/en.ts"
-import {zh_CN} from "./config/lang/zh.ts"
-import {commonConfig} from "./config/common-config.ts"
+import {en_US} from "./config/lang/en"
+import {zh_CN} from "./config/lang/zh"
+import {commonConfig} from "./config/common-config"
 
 
 export default withMermaid(

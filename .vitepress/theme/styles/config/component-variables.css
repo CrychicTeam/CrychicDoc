@@ -1,0 +1,103 @@
+/**
+ * Component Variables
+ * Variables specific to individual components
+ */
+
+:root {
+    /* ===== FLOATING BUTTONS ===== */
+    --button-bg-color: #c5a16b;
+    --button-hover-color: #a38348;
+    --button-copied-color: #4caf50;
+    --button-size: 45px;
+    --button-border-radius: var(--border-radius-round);
+    --button-shadow: var(--shadow-button);
+    --button-right-offset: 20px;
+
+    /* ===== NAVIGATION COMPONENTS ===== */
+    --m-nav-icon-box-size: 50px;
+    --m-nav-icon-size: 45px;
+    --m-nav-box-gap: 12px;
+    --m-nav-gap: 10px;
+    --m-nav-border-radius: var(--border-radius-lg);
+
+    /* ===== VIDEO COMPONENTS ===== */
+    --video-border-color: #ccc;
+    --video-border-radius: var(--border-radius-md);
+    --video-bg-color: #f9f9f9;
+    --video-shadow: var(--shadow-md);
+    --video-aspect-ratio: 56.25%; /* 16:9 */
+    --video-border-width: 2px;
+
+    /* ===== ARTICLE METADATA ===== */
+    --metadata-text-color: var(--vp-c-text-2);
+    --metadata-font-size: 15px;
+    --metadata-icon-opacity: 85%;
+    --metadata-padding: var(--spacing-sm) var(--spacing-md);
+
+    /* ===== PROGRESS LINEAR ===== */
+    --progress-height: 7px;
+    --progress-color: var(--vp-c-brand);
+    --progress-text-color: var(--vp-c-text-2);
+    --progress-border-radius: var(--border-radius-sm);
+
+    /* ===== LINKCARD ===== */
+    --linkcard-bg: var(--vp-c-bg-soft);
+    --linkcard-border-radius: var(--border-radius-md);
+    --linkcard-padding: var(--spacing-sm) var(--spacing-md);
+    --linkcard-hover-bg: var(--vp-c-yellow-soft);
+    --linkcard-margin-top: 15px;
+
+    /* ===== FOOTER ===== */
+    --footer-bg: transparent;
+    --footer-text-color: var(--vp-c-text-2);
+    --footer-font-size: 14px;
+    --footer-font-weight: 400;
+
+    /* ===== PDF VIEWER ===== */
+    --pdf-bg-color: #ffffff;
+    --pdf-text-color: #000000;
+    --pdf-border-color: #ddd;
+    --pdf-border-radius: var(--border-radius-md);
+    --pdf-border-width: 1px;
+
+    /* ===== STATE COMPONENT ===== */
+    --state-border-radius: var(--border-radius-md);
+    --state-padding: var(--spacing-md);
+    --state-margin: var(--spacing-md) 0;
+
+    /* ===== CAROUSEL ===== */
+    --carousel-border-radius: var(--border-radius-md);
+    --carousel-bg: var(--vp-c-bg);
+    --carousel-shadow: var(--shadow-sm);
+}
+
+.dark {
+    /* ===== FLOATING BUTTONS (DARK) ===== */
+    --button-bg-color: #2b4796;
+    --button-hover-color: #283d83;
+    --button-copied-color: #45a049;
+
+    /* ===== NAVIGATION COMPONENTS (DARK) ===== */
+    --m-nav-icon-box-size: 36px;
+    --m-nav-icon-size: 20px;
+    --m-nav-box-gap: 8px;
+    --m-nav-gap: 20px;
+
+    /* ===== VIDEO COMPONENTS (DARK) ===== */
+    --video-border-color: #555;
+    --video-bg-color: #333;
+
+    /* ===== PROGRESS LINEAR (DARK) ===== */
+    --progress-color: var(--vp-c-text-2);
+
+    /* ===== FOOTER (DARK) ===== */
+    --footer-text-color: var(--vp-c-brand);
+
+    /* ===== PDF VIEWER (DARK) ===== */
+    --pdf-bg-color: #1e1e1e;
+    --pdf-text-color: #ffffff;
+    --pdf-border-color: #333;
+
+    /* ===== CAROUSEL (DARK) ===== */
+    --carousel-bg: var(--vp-c-bg-soft);
+}

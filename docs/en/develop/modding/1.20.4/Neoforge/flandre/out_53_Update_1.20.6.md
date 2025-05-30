@@ -129,7 +129,7 @@ description='''${mod_description}'''
 
 修改插件中的neoforge.gradle 的版本
 
-```gradle
+```
 plugins {
     id 'java-library'
     id 'eclipse'
@@ -150,7 +150,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 文件最下方写上这个。
 
-```gradle
+```
 
 idea {
     module {

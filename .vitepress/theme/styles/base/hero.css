@@ -1,0 +1,43 @@
+/**
+ * Hero Section Styles
+ * Homepage hero animations and styling
+ */
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+:root {
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: -webkit-linear-gradient(
+        120deg,
+        #93f5fc 30%,
+        #cadfd9
+    );
+
+    --vp-home-hero-image-filter: blur(40px);
+
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+/* Responsive hero filter adjustments */
+@media (min-width: 640px) {
+    :root {
+        --vp-home-hero-image-filter: blur(50px);
+    }
+}
+
+@media (min-width: 960px) {
+    :root {
+        --vp-home-hero-image-filter: blur(60px);
+    }
+}

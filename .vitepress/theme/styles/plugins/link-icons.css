@@ -1,0 +1,154 @@
+/**
+ * Link Icons Plugin Styles
+ * Automatic favicon icons for external links
+ */
+
+/* MCMod */
+.vp-doc
+    a[href*=".mcmod.cn/"]:not(.m-nav-link):not(.VPSocialLink):not(
+        .no-icon
+    ):before {
+    content: "";
+    background-image: url(https://www.mcmod.cn/static/public/images/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -1.25px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+/* CurseForge */
+.vp-doc a[href^="https://www.curseforge.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before
+{
+    content: "";
+    background-image: url(https://www.curseforge.com/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+/* Modrinth */
+.vp-doc a[href^="https://modrinth.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before
+{
+    content: "";
+    background-image: url(https://modrinth.com/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -1.25px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+/* Minecraft Wiki (Chinese) */
+.vp-doc a[href^="https://zh.minecraft.wiki/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before
+{
+    content: "";
+    background-image: url(https://zh.minecraft.wiki/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -1.25px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+/* Minecraft Wiki (English) */
+.vp-doc a[href^="https://minecraft.wiki/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before
+{
+    content: "";
+    background-image: url(https://minecraft.wiki/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -1.25px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+/* GitHub */
+.vp-doc a[href^="https://github.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before
+{
+    content: "";
+    background-image: var(--github-bg-image);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -1.25px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+/* Gitee */
+.vp-doc a[href^="https://gitee.com/"]:not(.m-nav-link):not(.VPSocialLink):not(.no-icon):before
+{
+    content: "";
+    background-image: url(https://gitee.com/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -0.5px;
+    right: -0.6;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+/* Bilibili */
+.vp-doc
+    a[href*=".bilibili.com/"]:not(.m-nav-link):not(.VPSocialLink):not(
+        .no-icon
+    ):before {
+    content: "";
+    background-image: url(https://www.bilibili.com/favicon.ico);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -1.25px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+/* GitBook */
+.vp-doc
+    a[href*=".gitbook.io"]:not(.m-nav-link):not(.VPSocialLink):not(
+        .no-icon
+    ):before {
+    content: "";
+    background-image: url(https://framerusercontent.com/assets/93a6peqhbHQaWP67zttmrKDazq4.png);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -1.25px;
+    margin-right: 2px;
+    margin-left: 2px;
+}

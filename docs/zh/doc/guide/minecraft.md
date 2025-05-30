@@ -13,7 +13,6 @@ showComment: false
 metadata: false
 outline: [2,2]
 ---
-<style src="../../../../.vitepress/theme/style/nav.scss"></style>
 
 <script setup>
 import { ref } from "vue";

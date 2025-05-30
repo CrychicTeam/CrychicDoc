@@ -6,7 +6,7 @@ NetworkEvent 用于在服务器与客户端之间发送和接收数据。这在�
 
 要发送数据,请使用 `sendData` 方法:
 
-```d.ts
+```
 sendData(channel: string, data: Internal.CompoundTag_): void;
 ```
 
