@@ -86,7 +86,13 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         securityLevel: "loose",
         theme: "default",
     },
-    vue: {},
+    vue: {
+        template: {
+            compilerOptions: {
+                whitespace: "preserve",
+            },
+        },
+    },
     vite: {
         resolve: {
             alias: [
