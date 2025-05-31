@@ -2,7 +2,7 @@
     <div class="not-found">
         <h1 class="glitch" data-text="404">404</h1>
         <button
-            @click="refreshPage"
+            @click="handleRefresh"
             class="floating-button refresh-button"
             :title="messages.tip[lang]"
         >
@@ -68,18 +68,18 @@
         },
     };
 
-    const refreshPage = () => {
-        if (!import.meta.env.SSR && typeof window !== 'undefined') {
-        window.location.reload();
+    const handleRefresh = () => {
+        if (typeof window !== 'undefined') {
+            window.location.reload();
         }
     };
 
     onMounted(() => {
-        if (!import.meta.env.SSR) {
-        const circles = document.querySelectorAll(".circle");
-        circles.forEach((circle, index) => {
-            circle.style.animationDelay = `${index * 0.2}s`;
-        });
+        if (typeof document !== 'undefined') {
+            const circles = document.querySelectorAll(".circle");
+            circles.forEach((circle, index) => {
+                circle.style.animationDelay = `${index * 0.2}s`;
+            });
         }
     });
 </script>

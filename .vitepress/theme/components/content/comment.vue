@@ -21,7 +21,10 @@
     } as const;
 
     const currentLangConfig = computed(() => {
-        return translations[lang.value as keyof typeof translations] || translations["en-US"];
+        return (
+            translations[lang.value as keyof typeof translations] ||
+            translations["en-US"]
+        );
     });
 
     const extractTerm = (path: string) => {
@@ -33,12 +36,16 @@
     const isLoading = ref(false);
 
     const loadGiscus = async () => {
-        if (typeof window === "undefined" || !giscusContainer.value || isLoading.value) {
+        if (
+            typeof window === "undefined" ||
+            !giscusContainer.value ||
+            isLoading.value
+        ) {
             return;
         }
 
         isLoading.value = true;
-        
+
         try {
             giscusContainer.value.innerHTML = "";
             await nextTick();
@@ -47,7 +54,7 @@
             script.src = "https://giscus.app/client.js";
             script.async = true;
             script.crossOrigin = "anonymous";
-            
+
             script.dataset.repo = "PickAID/CrychicDoc";
             script.dataset.repoId = "R_kgDOMnN0IQ";
             script.dataset.category = "Announcements";
@@ -59,7 +66,9 @@
             script.dataset.emitMetadata = "0";
             script.dataset.inputPosition = "top";
             script.dataset.lang = currentLangConfig.value.langCode;
-            script.dataset.theme = isDark.value ? "noborder_dark" : "noborder_light";
+            script.dataset.theme = isDark.value
+                ? "noborder_dark"
+                : "noborder_light";
 
             script.onerror = () => {
                 console.error("Failed to load Giscus script");
@@ -80,7 +89,9 @@
     const updateGiscusConfig = (config: Record<string, any>) => {
         if (typeof window === "undefined" || !showComment.value) return;
 
-        const iframe = document.querySelector("iframe.giscus-frame") as HTMLIFrameElement;
+        const iframe = document.querySelector(
+            "iframe.giscus-frame"
+        ) as HTMLIFrameElement;
         if (iframe?.contentWindow) {
             iframe.contentWindow.postMessage(
                 {
@@ -122,7 +133,9 @@
 
     watch(currentLangConfig, (newConfig) => {
         if (showComment.value) {
-            const iframe = document.querySelector("iframe.giscus-frame") as HTMLIFrameElement;
+            const iframe = document.querySelector(
+                "iframe.giscus-frame"
+            ) as HTMLIFrameElement;
             if (iframe?.contentWindow) {
                 updateGiscusConfig({
                     lang: newConfig.langCode,

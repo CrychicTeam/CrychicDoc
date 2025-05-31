@@ -2,8 +2,7 @@
 
 ![GitHub Release Date](https://img.shields.io/github/created-at/PickAID/CrychicDoc) [![crychicdoc](https://img.shields.io/badge/CrychicDoc-Maintaining-green)](https://docs.mihono.cn)
 
-
- ![GitHub issue custom search in repo](https://img.shields.io/github/issues/PickAID/CrychicDoc.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/PickAID/CrychicDoc) ![Total Commits](https://img.shields.io/github/commit-activity/t/PickAID/CrychicDoc) ![GitHub branch status](https://img.shields.io/github/check-runs/PickAID/CrychicDoc/main)  ![cc-by-sa-shield](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
+![GitHub issue custom search in repo](https://img.shields.io/github/issues/PickAID/CrychicDoc.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/PickAID/CrychicDoc) ![Total Commits](https://img.shields.io/github/commit-activity/t/PickAID/CrychicDoc) ![GitHub branch status](https://img.shields.io/github/check-runs/PickAID/CrychicDoc/main) ![cc-by-sa-shield](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
 ![GitHub contributors](https://img.shields.io/github/contributors/PickAID/CrychicDoc)
 
 ## License
@@ -16,7 +15,7 @@ Please include a link to this work when reproducing it: https://docs.mihono.cn
 
 # Hello
 
-你可以在[这里](/README.md)查看中文的README.
+你可以在[这里](/README.md)查看中文的 README.
 
 This is the source code repository for Cryhic documentation.
 
@@ -25,24 +24,24 @@ I have always believed that the most effective way to foster a creative communit
 ## Directory Structure
 
 ```markdown
-- crychicdoc
-    - .github/    Auto build scripts
-    - .vitepress/
-        - config/ Localization configuration files
-        - plugins/ Location for mdit plugins
-        - theme/ Custom themes and components
-        - config.mts Vitepress configuration file
-        - index.ts Sidebar configuration file
-    - .vscode/ md-snippets
-    - docs
-        - public Directory for storing static files
-        - zh Simplified Chinese content
-        - en English content
-    - README.md This file
-    - .gitignore gitignore file
-    - ExtractClassScript.js Please ignore
-    - extracted_classes.md Please ignore
-    - LICENSE CC BY-SA 4.0
+-   crychicdoc
+    -   .github/ Auto build scripts
+    -   .vitepress/
+        -   config/ Localization configuration files
+        -   plugins/ Location for mdit plugins
+        -   theme/ Custom themes and components
+        -   config.mts Vitepress configuration file
+        -   index.ts Sidebar configuration file
+    -   .vscode/ md-snippets
+    -   docs
+        -   public Directory for storing static files
+        -   zh Simplified Chinese content
+        -   en English content
+    -   README.md This file
+    -   .gitignore gitignore file
+    -   ExtractClassScript.js Please ignore
+    -   extracted_classes.md Please ignore
+    -   LICENSE CC BY-SA 4.0
 ```
 
 ## Collaboration
@@ -68,6 +67,7 @@ Git case sensitivity configuration happens **automatically** when you clone the 
 This will configure Git to properly handle filename case sensitivity, preventing conflicts between different operating systems. For detailed information, see `.git-setup/README.md`.
 
 This documentation uses a secure and stable deployment solution that ensures long-term stability and access for players in different regions:
+
 1. Use [github action](.github/workflows/build.yaml) to build the static files of the website and upload them to a private repository, then forward them to a physical server.
 2. Use Aliyun Cloud's GeoDNS to distribute traffic between domestic and international visitors. When international players access the website, the data will be automatically accelerated by [CloudFlare](https://cloudflare.com/).
 

@@ -16,7 +16,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@utils": [".vitepress/utils"],
+      "@utils": [".vitepress/utils/index.ts"],
       "@utils/*": [".vitepress/utils/*"],
       "@components": [".vitepress/theme/components"],
       "@components/*": [".vitepress/theme/components/*"]
@@ -25,7 +25,8 @@
   },
   "include": [
     "docs/**/*",
-    ".vitepress/**/*"
+    ".vitepress/**/*",
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules",

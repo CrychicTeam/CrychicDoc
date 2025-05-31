@@ -21,15 +21,13 @@
     const containerRef = ref<HTMLElement>();
     const scrollRef = ref<HTMLElement>();
     const isPaused = ref(false);
-
-    // Duplicate features to create seamless loop effect
+    
     const extendedFeatures = computed(() => {
         if (props.features.length < 8) {
-            // Repeat features to have at least 12 items for smooth scrolling
             const repeatCount = Math.ceil(12 / props.features.length);
             return Array(repeatCount).fill(props.features).flat();
         }
-        return [...props.features, ...props.features]; // Double for seamless loop
+        return [...props.features, ...props.features];
     });
 
     const grid = computed(() => {
@@ -105,10 +103,10 @@
 
         const animate = () => {
             if (!isPaused.value) {
-                currentTranslate -= 0.5; // Scroll speed
+                currentTranslate -= 0.5;
 
                 if (Math.abs(currentTranslate) >= scrollDistance) {
-                    currentTranslate = 0; // Reset to create seamless loop
+                    currentTranslate = 0;
                 }
 
                 scrollElement.style.transform = `translateX(${currentTranslate}px)`;

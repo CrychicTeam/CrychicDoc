@@ -20,7 +20,12 @@
     {
         "name": "Forget-Melody",
         "username": "Forget-Melody",
-        "mapByNameAliases": ["Forget-Melody", "Eikidonay", "Nagasaki Soyo", "Eikidona"],
+        "mapByNameAliases": [
+            "Forget-Melody",
+            "Eikidonay",
+            "Nagasaki Soyo",
+            "Eikidona"
+        ],
         "avatar": "Forget-Melody"
     },
     {
@@ -38,7 +43,7 @@
     {
         "name": "Wudji",
         "username": "Wudji",
-        "mapByNameAliases": ["Wudji"],
+        "mapByNameAliases": ["Wudji", "wudji"],
         "avatar": "Wudji"
     },
     {

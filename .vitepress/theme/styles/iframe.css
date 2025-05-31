@@ -1,0 +1,21 @@
+.iframe-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    width: 100% !important;
+    border: none;
+    overflow: hidden;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.iframe-container iframe::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.iframe-container iframe {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+} 

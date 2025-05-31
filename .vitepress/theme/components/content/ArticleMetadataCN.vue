@@ -24,7 +24,7 @@
     );
 
     function analyze() {
-        if (!import.meta.env.SSR) {
+        if (typeof window !== 'undefined' && typeof document !== 'undefined') {
             utils.vitepress.contentAnalysis.cleanupMetadata();
 
             const docDomContainer = window.document.querySelector("#VPContent");
@@ -61,7 +61,7 @@
         return utils.vitepress.getMetadataText(lang.value);
     });
 
-    const metadataKeys = ["update", "wordCount", "readTime"];
+    const metadataKeys = ["update", "wordCount", "readTime"] as const;
 </script>
 
 <template>
@@ -76,7 +76,7 @@
                         density="comfortable"
                         :prepend-icon="icon(key)"
                     >
-                        {{ metadataText[key](data[index].value) }}
+                        {{ (metadataText as any)[key]?.(data[index].value) }}
                     </v-btn>
                 </v-col>
             </v-row>

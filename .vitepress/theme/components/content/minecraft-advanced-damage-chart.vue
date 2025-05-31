@@ -9,22 +9,22 @@
         const { use } = await import("echarts/core");
         const { LineChart } = await import("echarts/charts");
         const {
-        TitleComponent,
-        TooltipComponent,
-        LegendComponent,
-        GridComponent,
+            TitleComponent,
+            TooltipComponent,
+            LegendComponent,
+            GridComponent,
         } = await import("echarts/components");
         const { CanvasRenderer } = await import("echarts/renderers");
 
-    use([
-        LineChart,
-        TitleComponent,
-        TooltipComponent,
-        LegendComponent,
-        GridComponent,
-        CanvasRenderer,
-    ]);
-        
+        use([
+            LineChart,
+            TitleComponent,
+            TooltipComponent,
+            LegendComponent,
+            GridComponent,
+            CanvasRenderer,
+        ]);
+
         return VChart;
     });
 
@@ -396,7 +396,11 @@
         </div>
         <div class="chart-container">
             <ClientOnly>
-            <v-chart :option="chartOptions" :autoresize="true" class="chart" />
+                <v-chart
+                    :option="chartOptions"
+                    :autoresize="true"
+                    class="chart"
+                />
             </ClientOnly>
         </div>
         <div v-if="mode === 'interactive'" class="debug-info">

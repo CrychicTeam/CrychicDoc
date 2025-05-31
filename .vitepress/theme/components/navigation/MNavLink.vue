@@ -20,7 +20,6 @@
         if (typeof icon === "object" && "dark" in icon && "light" in icon) {
             return isDark.value ? icon.dark : icon.light;
         }
-        // 如果是 NavIcon，直接返回
         return icon;
     };
 
@@ -62,7 +61,7 @@
      * Simple tooltip text - just show badge content
      */
     const tooltipText = computed(() => {
-        if (!formatBadge.value) return '';
+        if (!formatBadge.value) return "";
         return formatBadge.value.text;
     });
 </script>
@@ -106,9 +105,9 @@
                             />
                         </template>
                     </v-tooltip>
-                <h5 v-if="title" :id="formatTitle" class="m-nav-link-title">
-                    {{ title }}
-                </h5>
+                    <h5 v-if="title" :id="formatTitle" class="m-nav-link-title">
+                        {{ title }}
+                    </h5>
                 </div>
                 <p v-if="desc" class="m-nav-link-desc">{{ desc }}</p>
             </div>
@@ -117,34 +116,34 @@
 </template>
 
 <style scoped>
-/* Custom Vuetify tooltip styling */
-:deep(.v-tooltip > .v-overlay__content) {
-    background: rgba(0, 0, 0, 0.9) !important;
-    color: white !important;
-    border-radius: 8px !important;
-    padding: 8px 12px !important;
-    font-size: 12px !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.5px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-    backdrop-filter: blur(8px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    /* Custom Vuetify tooltip styling */
+    :deep(.v-tooltip > .v-overlay__content) {
+        background: rgba(0, 0, 0, 0.9) !important;
+        color: white !important;
+        border-radius: 8px !important;
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.5px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        backdrop-filter: blur(8px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
-/* Dark mode tooltip */
-.dark :deep(.v-tooltip > .v-overlay__content) {
-    background: rgba(20, 20, 20, 0.95) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+    /* Dark mode tooltip */
+    .dark :deep(.v-tooltip > .v-overlay__content) {
+        background: rgba(20, 20, 20, 0.95) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
     }
 
-/* Tooltip arrow styling */
-:deep(.v-tooltip .v-overlay__content::before) {
-    border-top-color: rgba(0, 0, 0, 0.9) !important;
+    /* Tooltip arrow styling */
+    :deep(.v-tooltip .v-overlay__content::before) {
+        border-top-color: rgba(0, 0, 0, 0.9) !important;
     }
 
-.dark :deep(.v-tooltip .v-overlay__content::before) {
-    border-top-color: rgba(20, 20, 20, 0.95) !important;
+    .dark :deep(.v-tooltip .v-overlay__content::before) {
+        border-top-color: rgba(20, 20, 20, 0.95) !important;
     }
 </style>
 

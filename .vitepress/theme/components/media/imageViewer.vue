@@ -33,10 +33,12 @@
     watch(
         isDark,
         () => {
-            if (isDark.value) {
-                document.documentElement.setAttribute("theme-mode", "dark");
-            } else {
-                document.documentElement.removeAttribute("theme-mode");
+            if (typeof document !== 'undefined') {
+                if (isDark.value) {
+                    document.documentElement.setAttribute("theme-mode", "dark");
+                } else {
+                    document.documentElement.removeAttribute("theme-mode");
+                }
             }
         },
         {
@@ -111,11 +113,13 @@
 
     onMounted(() => {
         isMounted.value = true;
-        docDomContainer = document.querySelector("#VPContent");
-        if (docDomContainer) {
-            docDomContainer.addEventListener("click", previewImage);
-        } else {
-            console.error("#VPContent 元素未找到，无法绑定事件");
+        if (typeof document !== 'undefined') {
+            docDomContainer = document.querySelector("#VPContent");
+            if (docDomContainer) {
+                docDomContainer.addEventListener("click", previewImage);
+            } else {
+                console.error("#VPContent 元素未找到，无法绑定事件");
+            }
         }
     });
 

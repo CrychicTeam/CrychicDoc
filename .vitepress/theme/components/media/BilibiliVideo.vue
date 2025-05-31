@@ -51,11 +51,15 @@
     };
 
     onMounted(() => {
-        window.addEventListener("message", handleMessage);
+        if (typeof window !== 'undefined') {
+            window.addEventListener("message", handleMessage);
+        }
     });
 
     onUnmounted(() => {
-        window.removeEventListener("message", handleMessage);
+        if (typeof window !== 'undefined') {
+            window.removeEventListener("message", handleMessage);
+        }
     });
 </script>
 

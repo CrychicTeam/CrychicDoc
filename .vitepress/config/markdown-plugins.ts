@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { argv, cwd, env } from 'node:process'
+import { argv, cwd, env } from "node:process";
 
 import { MarkdownOptions } from "vitepress";
 
@@ -29,7 +29,7 @@ import { carousels } from "../plugins/carousels";
 import { iframes } from "../plugins/iframe";
 import { card } from "../plugins/card";
 import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
-import ts from 'typescript';
+import ts from "typescript";
 
 import fs from "fs";
 import path from "path";
@@ -57,15 +57,15 @@ export const markdown: MarkdownOptions = {
         md.use(v_alert);
         md.use(mark);
         md.use(ins);
-        //md.use(container, stepper);
-        //md.use(container, template);
+
+        // Register tab-based plugins individually
         md.use(tab, stepper);
-        md.use(carousels);
-        md.use(iframes);
+        md.use(tab, carousels);
+        md.use(tab, iframes);
+
+        // Non-tab plugins
         md.use(card);
-        // const test = md.render("::: carousels#{\"test\": 123}\n123546\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/1.png\n\n@tab https://docs.mihono.cn/mods/adventure/champions-unofficial/2.png\n\n:::\n", {})
-        // const test = md.render(fs.readFileSync(path.join("docs","zh","modpack","kubejs","KubeJSCourse","KubeJSBasic","FileStructure.md")).toString())
-        // fs.writeFileSync('output.html', test);
+
         md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
             let htmlResult = slf.renderToken(tokens, idx, options);
             if (tokens[idx].tag === "h1") htmlResult += `<ArticleMetadata />`;

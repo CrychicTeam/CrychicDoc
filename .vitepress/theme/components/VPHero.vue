@@ -790,40 +790,10 @@
         }
     }
 
-    .image-glow {
-        /* position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 120%;
-        height: 120%;
-        background: radial-gradient(
-            circle,
-            rgba(var(--vp-c-brand-rgb), 0.15) 0%,
-            rgba(var(--vp-c-brand-rgb), 0.08) 30%,
-            transparent 60%
-        );
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        animation: pulse 4s ease-in-out infinite; */
-        /* No blur at all */
-    }
-
-    .dark .image-glow {
-        /* background: radial-gradient(
-            circle,
-            rgba(var(--vp-c-brand-rgb), 0.25) 0%,
-            rgba(var(--vp-c-brand-rgb), 0.15) 30%,
-            transparent 60%
-        ); */
-    }
-
     .image-bg {
         position: absolute;
         inset: 0;
         border-radius: 20px;
-    }
-
-    .dark .image-bg {
     }
 
     .image-src {

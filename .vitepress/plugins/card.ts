@@ -10,7 +10,10 @@ export const card: PluginSimple = (md) => {
             container(md, {
                 name,
                 openRender: (tokens, index, _options) => {
-                    const info: string = tokens[index].info.trim().slice(name.length).trim();
+                    const info: string = tokens[index].info
+                        .trim()
+                        .slice(name.length)
+                        .trim();
                     const titles = info.split("#");
                     let title = "";
                     let subTitle = "";
@@ -31,27 +34,41 @@ export const card: PluginSimple = (md) => {
         );
     }
 
-    // 设置每种类型的卡片容器
     type.forEach(setupCardContainer);
 
-    // 重写段落规则
-    const originalParagraphOpen = md.renderer.rules.paragraph_open || function(tokens, idx, options, env, self) {
-        return self.renderToken(tokens, idx, options);
-    };
-    const originalParagraphClose = md.renderer.rules.paragraph_close || function(tokens, idx, options, env, self) {
-        return self.renderToken(tokens, idx, options);
-    };
+    const originalParagraphOpen =
+        md.renderer.rules.paragraph_open ||
+        function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+    const originalParagraphClose =
+        md.renderer.rules.paragraph_close ||
+        function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
 
-    md.renderer.rules.paragraph_open = function(tokens, idx, options, env, self) {
+    md.renderer.rules.paragraph_open = function (
+        tokens,
+        idx,
+        options,
+        env,
+        self
+    ) {
         if (nestingLevel > 0) {
-            return '';
+            return "";
         }
         return originalParagraphOpen(tokens, idx, options, env, self);
     };
 
-    md.renderer.rules.paragraph_close = function(tokens, idx, options, env, self) {
+    md.renderer.rules.paragraph_close = function (
+        tokens,
+        idx,
+        options,
+        env,
+        self
+    ) {
         if (nestingLevel > 0) {
-            return '';
+            return "";
         }
         return originalParagraphClose(tokens, idx, options, env, self);
     };

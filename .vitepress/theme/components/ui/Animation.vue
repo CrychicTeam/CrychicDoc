@@ -11,9 +11,11 @@
 
     // Check if browser supports view transitions
     const enableTransitions = () => {
-        if (!isClient.value) return false;
-        return "startViewTransition" in document &&
-        window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+        if (!isClient.value || typeof document === 'undefined' || typeof window === 'undefined') return false;
+        return (
+            "startViewTransition" in document &&
+            window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+        );
     };
 
     onMounted(() => {

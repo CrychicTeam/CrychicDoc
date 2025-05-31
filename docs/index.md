@@ -54,5 +54,5 @@ gitChangelog: false
 <commitsCounter
   username="PickAID"
   repoName="CrychicDoc"
-  :daysToFetch="120"
+  :daysToFetch="14"
 />

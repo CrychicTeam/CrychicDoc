@@ -4,7 +4,7 @@
 
     const { frontmatter, lang } = useData();
 
-    type StateType = 'preliminary' | 'unfinished' | 'outdated' | 'renovating';
+    type StateType = "preliminary" | "unfinished" | "outdated" | "renovating";
 
     const state = computed(
         () => switchState(frontmatter.value?.state) ?? false
@@ -65,7 +65,10 @@
     });
 
     const i18nText = computed(() => {
-        return text.value[lang.value as keyof typeof text.value] || text.value["en-US"];
+        return (
+            text.value[lang.value as keyof typeof text.value] ||
+            text.value["en-US"]
+        );
     });
 
     const colorControl = computed(() =>
@@ -76,7 +79,9 @@
 </script>
 <template>
     <div v-if="state" class="state custom-block">
-        <p class="custom-block-title">{{ i18nText[state as StateType].title }}</p>
+        <p class="custom-block-title">
+            {{ i18nText[state as StateType].title }}
+        </p>
         <p>{{ i18nText[state as StateType].text }}</p>
     </div>
 </template>

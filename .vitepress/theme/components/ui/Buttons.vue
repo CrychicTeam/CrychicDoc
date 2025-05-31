@@ -3,7 +3,7 @@
         <div
             v-show="showBackTop"
             class="floating-button top-button"
-            :title="translations.backToTop[lang]"
+            :title="translations.backToTop[lang as 'en-US' | 'zh-CN']"
             @click="scrollToTop"
         >
             <svg
@@ -23,7 +23,7 @@
     <button
         @click="refreshPage"
         class="floating-button refresh-button"
-        :title="translations.refresh[lang]"
+        :title="translations.refresh[lang as 'en-US' | 'zh-CN']"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@
         @click="copyLink"
         class="floating-button copy-button"
         :class="{ copied }"
-        :title="translations.copyLink[lang]"
+        :title="translations.copyLink[lang as 'en-US' | 'zh-CN']"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@
     <button
         @click="openForum"
         class="floating-button forum-button"
-        :title="translations.forum[lang]"
+        :title="translations.forum[lang as 'en-US' | 'zh-CN']"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@
     <button
         @click="goBack"
         class="floating-button back-button"
-        :title="translations.back[lang]"
+        :title="translations.back[lang as 'en-US' | 'zh-CN']"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +126,7 @@
     <button
         @click="scrollToBottom"
         class="floating-button comment-button"
-        :title="translations.comment[lang]"
+        :title="translations.comment[lang as 'en-US' | 'zh-CN']"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +144,7 @@
     <button
         @click="openLink('https://qm.qq.com/q/CsR20JGLAc')"
         class="floating-button qq-button"
-        :title="translations.qq[lang]"
+        :title="translations.qq[lang as 'en-US' | 'zh-CN']"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +162,7 @@
     <button
         @click="openLink('https://discord.gg/uPJHxU46td')"
         class="floating-button discord-button"
-        :title="translations.discord[lang]"
+        :title="translations.discord[lang as 'en-US' | 'zh-CN']"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -204,73 +204,89 @@
     const specialPaths = [
         {
             regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/KubeJSCourse\//,
-            getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
+            getTargetPath: (match: string[]) =>
+                `/${match[1]}/modpack/kubejs/1.20.1/`,
         },
         {
             regex: /^\/(zh|en|jp)\/modpack\/kubejs\/?$/,
-            getTargetPath: (match) => `/${match[1]}/`,
+            getTargetPath: (match: string[]) => `/${match[1]}/`,
         },
         {
             regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/Introduction\/Catalogue$/,
-            getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
+            getTargetPath: (match: string[]) =>
+                `/${match[1]}/modpack/kubejs/1.20.1/`,
         },
         {
             regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/(?!KubeJSCourse)/,
-            getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
+            getTargetPath: (match: string[]) =>
+                `/${match[1]}/modpack/kubejs/1.20.1/`,
         },
     ];
 
-    const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+    const scrollToTop = () => {
+        if (typeof window !== 'undefined') {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
+
     const onScroll = () => {
-        showBackTop.value = window.scrollY > 100;
+        if (typeof window !== 'undefined') {
+            showBackTop.value = window.scrollY > 100;
+        }
     };
 
     const copyLink = () => {
-        let currentUrl = window.location.href;
-        let modifiedUrl = currentUrl.replace(/\/[a-z]{2}\//, "/");
-        navigator.clipboard.writeText(modifiedUrl).then(() => {
-            copied.value = true;
-            setTimeout(() => (copied.value = false), 2000);
-        });
+        if (typeof window !== 'undefined') {
+            let currentUrl = window.location.href;
+            let modifiedUrl = currentUrl.replace(/\/[a-z]{2}\//, "/");
+            navigator.clipboard.writeText(modifiedUrl).then(() => {
+                copied.value = true;
+                setTimeout(() => (copied.value = false), 2000);
+            });
+        }
     };
 
     const scrollToBottom = () => {
-        window.scrollTo({
-            top: document.documentElement.scrollHeight,
-            behavior: "smooth",
-        });
+        if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: "smooth",
+            });
+        }
     };
 
     const openLink = (link: string) => {
-        if (link) {
+        if (typeof window !== 'undefined') {
             window.open(link, "_blank");
-        } else {
-            alert("Please provide a valid link!");
         }
     };
 
     const openForum = () => openLink("https://forum.mihono.cn");
 
     const updateTheme = (isDarkMode: boolean) => {
-        document.documentElement.classList.toggle("dark-theme", isDarkMode);
-        document.documentElement.classList.toggle("light-theme", !isDarkMode);
+        if (typeof document !== 'undefined') {
+            document.documentElement.classList.toggle("dark-theme", isDarkMode);
+            document.documentElement.classList.toggle("light-theme", !isDarkMode);
 
-        document.documentElement.style.setProperty(
-            "--button-bg-color",
-            isDarkMode ? "#2b4796" : "#c5a16b"
-        );
-        document.documentElement.style.setProperty(
-            "--button-hover-color",
-            isDarkMode ? "#283d83" : "#a38348"
-        );
-        document.documentElement.style.setProperty(
-            "--button-copied-color",
-            isDarkMode ? "#45a049" : "#4caf50"
-        );
+            document.documentElement.style.setProperty(
+                "--button-bg-color",
+                isDarkMode ? "#2b4796" : "#c5a16b"
+            );
+            document.documentElement.style.setProperty(
+                "--button-hover-color",
+                isDarkMode ? "#283d83" : "#a38348"
+            );
+            document.documentElement.style.setProperty(
+                "--button-copied-color",
+                isDarkMode ? "#45a049" : "#4caf50"
+            );
+        }
     };
 
     onMounted(() => {
-        window.addEventListener("scroll", onScroll);
+        if (typeof window !== 'undefined') {
+            window.addEventListener("scroll", onScroll);
+        }
         updateTheme(isDark.value);
 
         watch(isDark, (newVal) => {
@@ -279,53 +295,59 @@
     });
 
     const refreshPage = () => {
-        window.location.reload();
+        if (typeof window !== 'undefined') {
+            window.location.reload();
+        }
     };
 
-    const normalizePath = (path) => {
+    const normalizePath = (path: string) => {
         return path.endsWith("/") || path === "/" ? path : `${path}/`;
     };
 
     const goBack = () => {
-        const path = normalizePath(currentPath.value);
+        if (typeof window !== 'undefined') {
+            const path = normalizePath(currentPath.value);
 
-        if (frontmatter.value.backPath) {
-            let backPath = frontmatter.value.backPath;
-            const baseUrl = window.location.origin + router.route.path;
-            backPath = new URL(backPath, baseUrl).pathname;
+            if (frontmatter.value.backPath) {
+                let backPath = frontmatter.value.backPath;
+                const baseUrl = window.location.origin + router.route.path;
+                backPath = new URL(backPath, baseUrl).pathname;
 
-            router.go(backPath);
-            return;
-        }
+                router.go(backPath);
+                return;
+            }
 
-        for (const { regex, getTargetPath } of specialPaths) {
-            const match = path.match(regex);
-            if (match) {
-                const targetPath = normalizePath(getTargetPath(match));
-                if (targetPath !== path) {
-                    router.go(targetPath);
-                    return;
+            for (const { regex, getTargetPath } of specialPaths) {
+                const match = path.match(regex);
+                if (match) {
+                    const targetPath = normalizePath(getTargetPath(match));
+                    if (targetPath !== path) {
+                        router.go(targetPath);
+                        return;
+                    }
                 }
             }
-        }
 
-        const segments = path.split("/").filter((segment) => segment !== "");
-        if (segments.length <= 1) {
-            router.go("/");
-            return;
-        }
-        segments.pop();
-        const newPath = normalizePath(`/${segments.join("/")}`);
-        if (newPath === path) {
+            const segments = path.split("/").filter((segment) => segment !== "");
+            if (segments.length <= 1) {
+                router.go("/");
+                return;
+            }
             segments.pop();
-            router.go(normalizePath(`/${segments.join("/")}`));
-        } else {
-            router.go(newPath);
+            const newPath = normalizePath(`/${segments.join("/")}`);
+            if (newPath === path) {
+                segments.pop();
+                router.go(normalizePath(`/${segments.join("/")}`));
+            } else {
+                router.go(newPath);
+            }
         }
     };
 
     onBeforeUnmount(() => {
-        window.removeEventListener("scroll", onScroll);
+        if (typeof window !== 'undefined') {
+            window.removeEventListener("scroll", onScroll);
+        }
     });
 </script>
 

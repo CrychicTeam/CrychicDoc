@@ -60,28 +60,27 @@
     const debouncedUpdateHeight = debounce(updateCarouselHeight, 100);
 
     let resizeObserver = null;
-    if (typeof ResizeObserver !== "undefined") {
+    if (typeof ResizeObserver !== "undefined" && typeof window !== 'undefined') {
         resizeObserver = new ResizeObserver(debouncedUpdateHeight);
     }
 
     onMounted(() => {
-        nextTick(() => {
-            if (carouselContainer.value && resizeObserver) {
-                resizeObserver.observe(carouselContainer.value);
-            }
+        updateCarouselHeight();
+        if (resizeObserver && carouselContainer.value) {
+            resizeObserver.observe(carouselContainer.value);
+        }
+        if (typeof window !== 'undefined') {
             window.addEventListener("resize", debouncedUpdateHeight);
-            updateCarouselHeight();
-        });
+        }
     });
 
     onUnmounted(() => {
-        if (carouselContainer.value && resizeObserver) {
-            resizeObserver.unobserve(carouselContainer.value);
-        }
         if (resizeObserver) {
             resizeObserver.disconnect();
         }
-        window.removeEventListener("resize", debouncedUpdateHeight);
+        if (typeof window !== 'undefined') {
+            window.removeEventListener("resize", debouncedUpdateHeight);
+        }
     });
 
     watch(

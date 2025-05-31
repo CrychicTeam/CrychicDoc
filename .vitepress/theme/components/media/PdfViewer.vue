@@ -61,9 +61,11 @@
             if (pdfContainer.value && resizeObserver) {
                 resizeObserver.observe(pdfContainer.value);
             }
-            window.addEventListener("resize", debouncedUpdateDimensions);
             updateViewerDimensions();
         });
+        if (typeof window !== 'undefined') {
+            window.addEventListener("resize", debouncedUpdateDimensions);
+        }
     });
 
     onUnmounted(() => {
@@ -73,7 +75,9 @@
         if (resizeObserver) {
             resizeObserver.disconnect();
         }
-        window.removeEventListener("resize", debouncedUpdateDimensions);
+        if (typeof window !== 'undefined') {
+            window.removeEventListener("resize", debouncedUpdateDimensions);
+        }
     });
 </script>
 

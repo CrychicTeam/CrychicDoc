@@ -6,15 +6,12 @@ import vitepressNprogress from "vitepress-plugin-nprogress";
 import { useData, useRoute } from "vitepress";
 import "./styles/index.css"; // Single CSS entry point
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
-import vuetify from "./vuetify";
-import { onMounted, watch, defineAsyncComponent } from "vue";
+import { onMounted, watch, defineAsyncComponent, nextTick } from "vue";
 import mermaid from "mermaid";
 import {
     NolebaseEnhancedReadabilitiesMenu,
     NolebaseEnhancedReadabilitiesScreenMenu,
 } from "@nolebase/vitepress-plugin-enhanced-readabilities/client";
-import { NolebaseInlineLinkPreviewPlugin } from "@nolebase/vitepress-plugin-inline-link-preview/client";
-import { NolebaseGitChangelogPlugin } from "@nolebase/vitepress-plugin-git-changelog/client";
 
 import { LiteTree } from "@lite-tree/vue";
 import Layout from "./Layout.vue";
@@ -49,8 +46,6 @@ const MinecraftAdvancedDamageChart = defineAsyncComponent(
     () => import("@components/content/minecraft-advanced-damage-chart.vue")
 );
 
-import { InjectionKey } from "@nolebase/vitepress-plugin-inline-link-preview/client";
-
 export default {
     extends: DefaultTheme,
     Layout: () => {
@@ -63,15 +58,15 @@ export default {
             slot: () =>
                 h(DefaultTheme.Layout, null, {
                     "doc-bottom": () => h(ImageViewer),
-                "aside-outline-after": () => h(),
+                    "aside-outline-after": () => h(),
                     "doc-after": () => [h(Buttons), h(comment)],
-                "layout-bottom": () => h(Footer),
-                "doc-footer-before": () => h(ResponsibleEditor),
+                    "layout-bottom": () => h(Footer),
+                    "doc-footer-before": () => h(ResponsibleEditor),
                     "not-found": () => [h(NotFound)],
                     "nav-bar-content-after": () =>
                         h(NolebaseEnhancedReadabilitiesMenu),
-                "nav-screen-content-after": () =>
-                    h(NolebaseEnhancedReadabilitiesScreenMenu),
+                    "nav-screen-content-after": () =>
+                        h(NolebaseEnhancedReadabilitiesScreenMenu),
                     "doc-before": () => h(Preview)
                 }),
         });
@@ -83,9 +78,19 @@ export default {
 
         // Conditionally import browser-dependent plugins
         if (!import.meta.env.SSR) {
-        ctx.app.use(vuetify);
-        ctx.app.use(NolebaseInlineLinkPreviewPlugin);
-        ctx.app.use(NolebaseGitChangelogPlugin);
+            try {
+                const [vuetify, { NolebaseInlineLinkPreviewPlugin }, { NolebaseGitChangelogPlugin }] = await Promise.all([
+                    import("./vuetify").then(m => m.default),
+                    import("@nolebase/vitepress-plugin-inline-link-preview/client"),
+                    import("@nolebase/vitepress-plugin-git-changelog/client")
+                ]);
+                
+                ctx.app.use(vuetify);
+                ctx.app.use(NolebaseInlineLinkPreviewPlugin);
+                ctx.app.use(NolebaseGitChangelogPlugin);
+            } catch (error) {
+                console.warn("Failed to load client-side plugins:", error);
+            }
         }
 
         // Register global components
@@ -106,57 +111,59 @@ export default {
 
         const initMermaid = () => {
             if (!import.meta.env.SSR) {
-            mermaid.initialize({
-                startOnLoad: true,
-                theme: "default",
-                securityLevel: "loose",
-                flowchart: {
-                    useMaxWidth: true,
-                    htmlLabels: true,
-                    curve: "cardinal",
-                },
-                sequence: {
-                    diagramMarginX: 50,
-                    diagramMarginY: 10,
-                    actorMargin: 50,
-                    width: 150,
-                    height: 65,
-                    boxMargin: 10,
-                    boxTextMargin: 5,
-                    noteMargin: 10,
-                    messageMargin: 35,
-                    mirrorActors: true,
-                },
-                gantt: {
-                    titleTopMargin: 25,
-                    barHeight: 20,
-                    barGap: 4,
-                    topPadding: 50,
-                    leftPadding: 75,
-                    gridLineStartPadding: 35,
-                    fontSize: 11,
-                    //@ts-expect-error
-                    fontFamily: '"Open-Sans", "sans-serif"',
-                    numberSectionStyles: 4,
-                    axisFormat: "%Y-%m-%d",
-                },
-            });
+                mermaid.initialize({
+                    startOnLoad: true,
+                    theme: "default",
+                    securityLevel: "loose",
+                    flowchart: {
+                        useMaxWidth: true,
+                        htmlLabels: true,
+                        curve: "cardinal",
+                    },
+                    sequence: {
+                        diagramMarginX: 50,
+                        diagramMarginY: 10,
+                        actorMargin: 50,
+                        width: 150,
+                        height: 65,
+                        boxMargin: 10,
+                        boxTextMargin: 5,
+                        noteMargin: 10,
+                        messageMargin: 35,
+                        mirrorActors: true,
+                    },
+                    gantt: {
+                        titleTopMargin: 25,
+                        barHeight: 20,
+                        barGap: 4,
+                        topPadding: 50,
+                        leftPadding: 75,
+                        gridLineStartPadding: 35,
+                        fontSize: 11,
+                        //@ts-expect-error
+                        fontFamily: '"Open-Sans", "sans-serif"',
+                        numberSectionStyles: 4,
+                        axisFormat: "%Y-%m-%d",
+                    },
+                });
             }
         };
 
         onMounted(() => {
             if (!import.meta.env.SSR) {
-            initMermaid();
-            mermaid.init(undefined, ".mermaid");
+                initMermaid();
+                nextTick(() => {
+                    mermaid.init(undefined, ".mermaid");
+                });
 
-            watch(
-                () => route.path,
-                () => {
-                    setTimeout(() => {
-                        mermaid.init(undefined, ".mermaid");
-                    }, 100);
-                }
-            );
+                watch(
+                    () => route.path,
+                    () => {
+                        nextTick(() => {
+                            mermaid.init(undefined, ".mermaid");
+                        });
+                    }
+                );
             }
         });
     },

@@ -1,19 +1,16 @@
-import type { MarkdownItTabOptions } from "@mdit/plugin-tab";
+import { createTabPlugin } from "./tab-plugin-factory";
 
-export const stepper: MarkdownItTabOptions = {
-  name: "stepper",
-  tabsOpenRenderer(info) {
-    const { data } = info;
-    const items = data.map(tab => `'${tab.title}'`);
-    return `\n<v-stepper :items="[${items}]" class="theme-stepper">`;
-  },
-  tabsCloseRenderer() {
-    return `\n</v-stepper>\n`;
-  },
-  tabOpenRenderer(data) {
-    return `\n<template v-slot:item.${data.index + 1}>\n`;
-  },
-  tabCloseRenderer() {
-    return `</template> `;
-  },
-};
+export const stepper = createTabPlugin({
+    name: "stepper",
+    containerComponent: "v-stepper",
+    tabComponent: "template",
+    useSlots: true,
+
+    containerRenderer: (info) => {
+        const { data } = info;
+        const items = data.map((tab) => `'${tab.title}'`).join(", ");
+        return `<v-stepper :items="[${items}]" class="theme-stepper">`;
+    },
+
+    slotPattern: (data) => `<template v-slot:item.${data.index + 1}>`,
+});

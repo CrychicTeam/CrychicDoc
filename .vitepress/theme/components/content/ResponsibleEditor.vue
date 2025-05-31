@@ -3,8 +3,7 @@
     import { computed } from "vue";
 
     const { isDark, lang, frontmatter } = useData();
-
-    // 定义翻译的内容
+    
     const translations = {
         "en-US": {
             editorLabel: "Responsible Editor:",
@@ -13,8 +12,7 @@
             editorLabel: "本文责任编辑:",
         },
     };
-
-    // 根据当前语言获取对应的文本
+    
     const editorLabel = computed(() => {
         return (
             translations[lang.value as keyof typeof translations]
