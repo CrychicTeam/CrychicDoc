@@ -1,0 +1,186 @@
+/**
+ * Beautiful VitePress Sidebar Design
+ * Based on original VitePress component structure
+ */
+
+/* Clean up group separators */
+.VPSidebarGroup .group + .group {
+    border-top: none !important;
+    margin-top: 6px;
+    padding-top: 0;
+}
+
+/* Remove default indicator lines */
+.VPSidebarItem .indicator {
+    display: none !important;
+}
+
+/* Remove nested item borders */
+.VPSidebarItem.level-1 .items,
+.VPSidebarItem.level-2 .items,
+.VPSidebarItem.level-3 .items,
+.VPSidebarItem.level-4 .items,
+.VPSidebarItem.level-5 .items {
+    border-left: none !important;
+    padding-left: 16px;
+}
+
+/* Beautiful item styling - thinner vertically */
+.VPSidebarItem .item {
+    padding: 6px 8px;
+    margin: 1px 4px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 8px);
+    min-height: 32px;
+}
+
+/* Hover effects */
+.VPSidebarItem .item:hover {
+    background-color: var(--vp-c-default-soft);
+}
+
+/* Active state styling */
+.VPSidebarItem.is-active .item {
+    background-color: var(--vp-c-brand-soft);
+    border-left: 3px solid var(--vp-c-brand-1);
+    padding-left: 5px;
+}
+
+/* Text improvements - bold and thinner */
+.VPSidebarItem .text {
+    font-size: 16px;
+    line-height: 1.3;
+    padding: 0;
+    transition: color 0.2s ease;
+    font-weight: 700 !important;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.VPSidebarItem.level-0 .text {
+    font-weight: 700 !important;
+    font-size: 17px;
+    color: var(--vp-c-text-1);
+}
+
+.VPSidebarItem.level-1 .text,
+.VPSidebarItem.level-2 .text,
+.VPSidebarItem.level-3 .text,
+.VPSidebarItem.level-4 .text,
+.VPSidebarItem.level-5 .text {
+    font-weight: 700 !important;
+    color: var(--vp-c-text-2);
+    font-size: 15px;
+}
+
+/* Enhanced hover text effects */
+.VPSidebarItem.level-0.is-link > .item > .link:hover .text,
+.VPSidebarItem.level-1.is-link > .item > .link:hover .text,
+.VPSidebarItem.level-2.is-link > .item > .link:hover .text,
+.VPSidebarItem.level-3.is-link > .item > .link:hover .text,
+.VPSidebarItem.level-4.is-link > .item > .link:hover .text,
+.VPSidebarItem.level-5.is-link > .item > .link:hover .text {
+    color: var(--vp-c-brand-1);
+}
+
+/* Active text styling */
+.VPSidebarItem.level-0.is-active > .item .link > .text,
+.VPSidebarItem.level-1.is-active > .item .link > .text,
+.VPSidebarItem.level-2.is-active > .item .link > .text,
+.VPSidebarItem.level-3.is-active > .item .link > .text,
+.VPSidebarItem.level-4.is-active > .item .link > .text,
+.VPSidebarItem.level-5.is-active > .item .link > .text {
+    color: var(--vp-c-brand-1);
+    font-weight: 700 !important;
+}
+
+/* Improved caret styling - thinner */
+.VPSidebarItem .caret {
+    color: var(--vp-c-text-3);
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    margin-right: 0;
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.VPSidebarItem .item:hover .caret {
+    color: var(--vp-c-text-2);
+    background-color: var(--vp-c-default-soft);
+}
+
+.VPSidebarItem.is-active .caret {
+    color: var(--vp-c-brand-1);
+}
+
+/* Smooth caret icon rotation */
+.VPSidebarItem .caret-icon {
+    font-size: 14px;
+    transition: transform 0.25s ease;
+}
+
+.VPSidebarItem.collapsed .caret-icon {
+    transform: rotate(0deg);
+}
+
+/* Better nested spacing - tighter */
+.VPSidebarItem.level-1 {
+    margin-left: 2px;
+}
+
+.VPSidebarItem.level-2 {
+    margin-left: 4px;
+}
+
+.VPSidebarItem.level-3 {
+    margin-left: 6px;
+}
+
+.VPSidebarItem.level-4 {
+    margin-left: 8px;
+}
+
+.VPSidebarItem.level-5 {
+    margin-left: 10px;
+}
+
+/* Improved spacing for level-0 items - thinner */
+.VPSidebarItem.level-0 {
+    padding-bottom: 4px;
+}
+
+.VPSidebarItem.collapsed.level-0 {
+    padding-bottom: 2px;
+}
+
+/* Link styling improvements - better alignment */
+.VPSidebarItem .link {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+/* Focus states for accessibility */
+.VPSidebarItem .item:focus-visible {
+    outline: 2px solid var(--vp-c-brand-1);
+    outline-offset: 1px;
+}
+
+/* Tighter group width */
+.VPSidebarGroup .group {
+    max-width: calc(100% - 16px);
+    margin: 0 8px;
+}

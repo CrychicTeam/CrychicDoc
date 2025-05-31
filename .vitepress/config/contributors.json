@@ -20,7 +20,7 @@
     {
         "name": "Forget-Melody",
         "username": "Forget-Melody",
-        "mapByNameAliases": ["Forget-Melody", "Eikidonay", "Nagasaki Soyo"],
+        "mapByNameAliases": ["Forget-Melody", "Eikidonay", "Nagasaki Soyo", "Eikidona"],
         "avatar": "Forget-Melody"
     },
     {
@@ -64,5 +64,11 @@
         "username": "QiHuang02",
         "mapByNameAliases": ["QiHuang02"],
         "avatar": "QiHuang02"
+    },
+    {
+        "name": "PickAID",
+        "username": "PickAID",
+        "mapByNameAliases": ["CrychicTeam", "PickAID"],
+        "avatar": "PickAID"
     }
 ]

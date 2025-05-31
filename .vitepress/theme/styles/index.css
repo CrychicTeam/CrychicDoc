@@ -19,6 +19,7 @@
 @import "./base/foundation.css";
 @import "./base/hero.css";
 @import "./base/nav.css";
+@import "./base/sidebar.css";
 
 /* ===== PLUGIN STYLES ===== */
 @import "./plugins/algolia.css";

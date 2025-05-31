@@ -11,7 +11,6 @@
             >
             </t-image-viewer>
         </client-only>
-        <tdesign-dark></tdesign-dark>
     </div>
 </template>
 
@@ -34,12 +33,10 @@
     watch(
         isDark,
         () => {
-            if (!import.meta.env.SSR) {
             if (isDark.value) {
                 document.documentElement.setAttribute("theme-mode", "dark");
             } else {
                 document.documentElement.removeAttribute("theme-mode");
-                }
             }
         },
         {
@@ -113,14 +110,12 @@
     });
 
     onMounted(() => {
-        if (!import.meta.env.SSR) {
         isMounted.value = true;
         docDomContainer = document.querySelector("#VPContent");
         if (docDomContainer) {
             docDomContainer.addEventListener("click", previewImage);
         } else {
             console.error("#VPContent 元素未找到，无法绑定事件");
-            }
         }
     });
 

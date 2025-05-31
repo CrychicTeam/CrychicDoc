@@ -3,7 +3,7 @@
         <div
             v-show="showBackTop"
             class="floating-button top-button"
-            :title="getTranslation('backToTop')"
+            :title="translations.backToTop[lang]"
             @click="scrollToTop"
         >
             <svg
@@ -23,7 +23,7 @@
     <button
         @click="refreshPage"
         class="floating-button refresh-button"
-        :title="getTranslation('refresh')"
+        :title="translations.refresh[lang]"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@
         @click="copyLink"
         class="floating-button copy-button"
         :class="{ copied }"
-        :title="getTranslation('copyLink')"
+        :title="translations.copyLink[lang]"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,10 +81,29 @@
         </svg>
     </button>
 
+    <!-- Forum Button -->
+    <button
+        @click="openForum"
+        class="floating-button forum-button"
+        :title="translations.forum[lang]"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+        >
+            <path
+                fill="#ffffff"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+        </svg>
+    </button>
+
     <button
         @click="goBack"
         class="floating-button back-button"
-        :title="getTranslation('back')"
+        :title="translations.back[lang]"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +126,7 @@
     <button
         @click="scrollToBottom"
         class="floating-button comment-button"
-        :title="getTranslation('comment')"
+        :title="translations.comment[lang]"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +144,7 @@
     <button
         @click="openLink('https://qm.qq.com/q/CsR20JGLAc')"
         class="floating-button qq-button"
-        :title="getTranslation('qq')"
+        :title="translations.qq[lang]"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +162,7 @@
     <button
         @click="openLink('https://discord.gg/uPJHxU46td')"
         class="floating-button discord-button"
-        :title="getTranslation('discord')"
+        :title="translations.discord[lang]"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -160,68 +179,150 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+    import { ref, onMounted, onBeforeUnmount, watch, computed } from "vue";
     import { useData, useRouter } from "vitepress";
-    import utils from "@utils";
 
-    const { lang, frontmatter } = useData();
+    const { isDark, lang, page, frontmatter } = useData();
     const router = useRouter();
 
     const showBackTop = ref(false);
     const copied = ref(false);
 
-    const scrollToTop = () => utils.vitepress.scroll.toTop();
-    const scrollToBottom = () => utils.vitepress.scroll.toBottom();
-    const copyLink = async () => {
-        const success = await utils.vitepress.browser.copyCurrentUrl();
-        if (success) {
+    const translations = {
+        backToTop: { "en-US": "Back to Top", "zh-CN": "返回顶部" },
+        copyLink: { "en-US": "Copy Link", "zh-CN": "复制链接" },
+        refresh: { "en-US": "Refresh", "zh-CN": "刷新" },
+        back: { "en-US": "Back", "zh-CN": "返回" },
+        comment: { "en-US": "Comment", "zh-CN": "评论" },
+        qq: { "en-US": "QQ", "zh-CN": "QQ" },
+        discord: { "en-US": "Discord", "zh-CN": "Discord" },
+        forum: { "en-US": "Forum", "zh-CN": "论坛" },
+    };
+
+    const currentPath = computed(() => router.route.path);
+
+    const specialPaths = [
+        {
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/KubeJSCourse\//,
+            getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
+        },
+        {
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/?$/,
+            getTargetPath: (match) => `/${match[1]}/`,
+        },
+        {
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/Introduction\/Catalogue$/,
+            getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
+        },
+        {
+            regex: /^\/(zh|en|jp)\/modpack\/kubejs\/1\.20\.1\/(?!KubeJSCourse)/,
+            getTargetPath: (match) => `/${match[1]}/modpack/kubejs/1.20.1/`,
+        },
+    ];
+
+    const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+    const onScroll = () => {
+        showBackTop.value = window.scrollY > 100;
+    };
+
+    const copyLink = () => {
+        let currentUrl = window.location.href;
+        let modifiedUrl = currentUrl.replace(/\/[a-z]{2}\//, "/");
+        navigator.clipboard.writeText(modifiedUrl).then(() => {
             copied.value = true;
             setTimeout(() => (copied.value = false), 2000);
+        });
+    };
+
+    const scrollToBottom = () => {
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: "smooth",
+        });
+    };
+
+    const openLink = (link: string) => {
+        if (link) {
+            window.open(link, "_blank");
+        } else {
+            alert("Please provide a valid link!");
         }
     };
-    const refreshPage = () => utils.vitepress.browser.refresh();
-    const openLink = (url: string) => utils.vitepress.browser.openInNewTab(url);
 
-    const onScroll = () => {
-        showBackTop.value = utils.vitepress.scroll.shouldShowBackTop(100);
+    const openForum = () => openLink("https://forum.mihono.cn");
+
+    const updateTheme = (isDarkMode: boolean) => {
+        document.documentElement.classList.toggle("dark-theme", isDarkMode);
+        document.documentElement.classList.toggle("light-theme", !isDarkMode);
+
+        document.documentElement.style.setProperty(
+            "--button-bg-color",
+            isDarkMode ? "#2b4796" : "#c5a16b"
+        );
+        document.documentElement.style.setProperty(
+            "--button-hover-color",
+            isDarkMode ? "#283d83" : "#a38348"
+        );
+        document.documentElement.style.setProperty(
+            "--button-copied-color",
+            isDarkMode ? "#45a049" : "#4caf50"
+        );
+    };
+
+    onMounted(() => {
+        window.addEventListener("scroll", onScroll);
+        updateTheme(isDark.value);
+
+        watch(isDark, (newVal) => {
+            updateTheme(newVal);
+        });
+    });
+
+    const refreshPage = () => {
+        window.location.reload();
+    };
+
+    const normalizePath = (path) => {
+        return path.endsWith("/") || path === "/" ? path : `${path}/`;
     };
 
     const goBack = () => {
-        const currentPath = router.route.path;
+        const path = normalizePath(currentPath.value);
 
         if (frontmatter.value.backPath) {
             let backPath = frontmatter.value.backPath;
             const baseUrl = window.location.origin + router.route.path;
             backPath = new URL(backPath, baseUrl).pathname;
+
             router.go(backPath);
             return;
         }
 
-        const targetPath =
-            utils.vitepress.pathNavigation.getTargetPath(currentPath);
-        if (targetPath && targetPath !== currentPath) {
-            router.go(targetPath);
-            return;
+        for (const { regex, getTargetPath } of specialPaths) {
+            const match = path.match(regex);
+            if (match) {
+                const targetPath = normalizePath(getTargetPath(match));
+                if (targetPath !== path) {
+                    router.go(targetPath);
+                    return;
+                }
+            }
         }
 
-        const segments = currentPath
-            .split("/")
-            .filter((segment) => segment !== "");
+        const segments = path.split("/").filter((segment) => segment !== "");
         if (segments.length <= 1) {
             router.go("/");
             return;
         }
         segments.pop();
-        const newPath = `/${segments.join("/")}/`;
-        router.go(newPath);
+        const newPath = normalizePath(`/${segments.join("/")}`);
+        if (newPath === path) {
+            segments.pop();
+            router.go(normalizePath(`/${segments.join("/")}`));
+        } else {
+            router.go(newPath);
+        }
     };
-
-    const getTranslation = (key: string) =>
-        utils.vitepress.getNavigationText(key, lang.value);
-
-    onMounted(() => {
-        window.addEventListener("scroll", onScroll);
-    });
 
     onBeforeUnmount(() => {
         window.removeEventListener("scroll", onScroll);
@@ -229,20 +330,31 @@
 </script>
 
 <style>
+    :root {
+        --button-bg-color: #c5a16b;
+        --button-hover-color: #a38348;
+        --button-copied-color: #4caf50;
+    }
+
+    .dark-theme {
+        --button-bg-color: #2b4796;
+        --button-hover-color: #283d83;
+        --button-copied-color: #45a049;
+    }
+
     .floating-button {
         z-index: 999;
         position: fixed;
-        right: var(--button-right-offset);
+        right: 20px;
         cursor: pointer;
-        width: var(--button-size);
-        height: var(--button-size);
-        border-radius: var(--button-border-radius);
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
         background-color: var(--button-bg-color);
         border: none;
         padding: 10px;
-        box-shadow: var(--button-shadow);
-        transition: background-color var(--transition-duration),
-            transform var(--transition-duration);
+        box-shadow: 2px 2px 10px 4px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.3s, transform 0.3s;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -250,7 +362,12 @@
 
     .floating-button:hover {
         background-color: var(--button-hover-color);
-        transform: scale(var(--hover-scale));
+        transform: scale(1.1);
+    }
+
+    .floating-button:focus {
+        outline: none;
+        background-color: var(--button-hover-color);
     }
 
     .top-button {
@@ -269,19 +386,28 @@
         bottom: 20px;
     }
 
+    .forum-button {
+        bottom: 190px;
+        left: 10px !important;
+        right: auto !important;
+    }
+
     .qq-button {
         bottom: 140px;
         left: 10px !important;
+        right: auto !important;
     }
 
     .discord-button {
         bottom: 90px;
         left: 10px !important;
+        right: auto !important;
     }
 
     .back-button {
         bottom: 40px;
         left: 10px !important;
+        right: auto !important;
     }
 
     .fade-enter-active,
@@ -292,5 +418,13 @@
     .fade-enter,
     .fade-leave-to {
         opacity: 0;
+    }
+
+    /* Better visual feedback for mobile */
+    @media (max-width: 768px) {
+        .floating-button {
+            width: 48px;
+            height: 48px;
+        }
     }
 </style>
