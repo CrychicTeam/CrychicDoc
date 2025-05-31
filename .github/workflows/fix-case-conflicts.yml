@@ -197,6 +197,9 @@ jobs:
         
         # Run the Python script
         python3 fix_conflicts.py
+        
+        # Clean up the temporary Python script
+        rm fix_conflicts.py
 
     - name: Commit changes
       run: |
