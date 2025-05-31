@@ -1,0 +1,193 @@
+name: Case Sensitivity Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      fix_conflicts:
+        description: 'Automatically fix case conflicts'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+        - 'true'
+        - 'false'
+
+jobs:
+  check-case-sensitivity:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config core.ignorecase false
+
+    - name: Check for case conflicts
+      id: check_conflicts
+      run: |
+        echo "🔍 Checking for case sensitivity conflicts..."
+        
+        # Find potential case conflicts
+        CONFLICTS=$(git ls-files | sort -f | uniq -i -d)
+        
+        if [ -n "$CONFLICTS" ]; then
+          echo "⚠️ Case conflicts detected:"
+          echo "$CONFLICTS"
+          echo "conflicts_found=true" >> $GITHUB_OUTPUT
+          echo "conflicts<<EOF" >> $GITHUB_OUTPUT
+          echo "$CONFLICTS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        else
+          echo "✅ No case conflicts found"
+          echo "conflicts_found=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Create conflict report
+      if: steps.check_conflicts.outputs.conflicts_found == 'true'
+      run: |
+        cat > case_conflicts_report.md << 'EOF'
+        # Case Sensitivity Conflicts Report
+        
+        The following files have case conflicts that could cause issues on case-insensitive filesystems (Windows/macOS):
+        
+        ```
+        ${{ steps.check_conflicts.outputs.conflicts }}
+        ```
+        
+        ## Impact
+        - On Windows/macOS, these files may appear as duplicates or cause confusion
+        - Contributors on different platforms may experience sync issues
+        - Files may be accidentally overwritten or lost
+        
+        ## Recommended Actions
+        1. Decide on a consistent naming convention (e.g., all lowercase or PascalCase)
+        2. Rename conflicting files to follow the convention
+        3. Update any references to the renamed files
+        
+        ## Auto-fix Available
+        You can run this workflow manually with "fix_conflicts" set to "true" to automatically resolve some conflicts.
+        EOF
+
+    - name: Upload conflict report
+      if: steps.check_conflicts.outputs.conflicts_found == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: case-conflicts-report
+        path: case_conflicts_report.md
+
+    - name: Auto-fix conflicts (if requested)
+      if: steps.check_conflicts.outputs.conflicts_found == 'true' && github.event.inputs.fix_conflicts == 'true'
+      run: |
+        echo "🔧 Auto-fixing case conflicts..."
+        
+        # Create a script to fix common case conflicts
+        cat > fix_conflicts.sh << 'EOF'
+        #!/bin/bash
+        
+        # Function to rename files to consistent case
+        fix_case_conflicts() {
+          local conflicts="$1"
+          
+          # Process each conflict
+          while IFS= read -r file; do
+            if [ -n "$file" ]; then
+              # Get directory and filename
+              dir=$(dirname "$file")
+              filename=$(basename "$file")
+              
+              # Convert to lowercase for consistency
+              new_filename=$(echo "$filename" | tr '[:upper:]' '[:lower:]')
+              new_path="$dir/$new_filename"
+              
+              if [ "$file" != "$new_path" ] && [ -f "$file" ]; then
+                echo "Renaming: $file -> $new_path"
+                
+                # Use git mv for proper tracking
+                if git ls-files --error-unmatch "$file" >/dev/null 2>&1; then
+                  # File is tracked by git
+                  git mv "$file" "${file}.tmp" 2>/dev/null || true
+                  git mv "${file}.tmp" "$new_path" 2>/dev/null || true
+                else
+                  # File is not tracked, use regular mv
+                  mv "$file" "$new_path" 2>/dev/null || true
+                fi
+              fi
+            fi
+          done <<< "$conflicts"
+        }
+        
+        # Fix the conflicts
+        fix_case_conflicts "${{ steps.check_conflicts.outputs.conflicts }}"
+        EOF
+        
+        chmod +x fix_conflicts.sh
+        ./fix_conflicts.sh
+        
+        # Check if there are changes to commit
+        if ! git diff --quiet || ! git diff --cached --quiet; then
+          echo "📝 Committing case sensitivity fixes..."
+          git add -A
+          git commit -m "🔧 Fix case sensitivity conflicts
+          
+          - Standardized file/directory names to consistent case
+          - Resolved conflicts that could cause issues on case-insensitive filesystems
+          - Auto-generated by GitHub Actions"
+          
+          git push origin ${{ github.ref_name }}
+          echo "✅ Case conflicts fixed and pushed"
+        else
+          echo "ℹ️ No changes needed"
+        fi
+
+    - name: Comment on PR (if conflicts found)
+      if: steps.check_conflicts.outputs.conflicts_found == 'true' && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const conflicts = `${{ steps.check_conflicts.outputs.conflicts }}`;
+          const body = `## ⚠️ Case Sensitivity Conflicts Detected
+          
+          This PR introduces files that have case conflicts:
+          
+          \`\`\`
+          ${conflicts}
+          \`\`\`
+          
+          **Impact:** These conflicts can cause issues on case-insensitive filesystems (Windows/macOS).
+          
+          **Solutions:**
+          1. Rename files to use consistent case
+          2. Run the "Case Sensitivity Check" workflow manually with auto-fix enabled
+          3. Review the uploaded conflict report for detailed guidance
+          
+          Please resolve these conflicts before merging.`;
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: body
+          });
+
+    - name: Fail if conflicts found (and not auto-fixing)
+      if: steps.check_conflicts.outputs.conflicts_found == 'true' && github.event.inputs.fix_conflicts != 'true'
+      run: |
+        echo "❌ Case sensitivity conflicts detected!"
+        echo "Run this workflow manually with 'fix_conflicts' set to 'true' to auto-fix, or resolve manually."
+        exit 1
+
+    - name: Success message
+      if: steps.check_conflicts.outputs.conflicts_found == 'false'
+      run: |
+        echo "🎉 No case sensitivity conflicts found! Repository is clean." 

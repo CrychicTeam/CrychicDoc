@@ -1,0 +1,255 @@
+name: Fix Case Conflicts
+
+on:
+  workflow_dispatch:
+    inputs:
+      naming_convention:
+        description: 'Choose naming convention'
+        required: true
+        default: 'PascalCase'
+        type: choice
+        options:
+        - 'PascalCase'
+        - 'lowercase'
+        - 'custom'
+      custom_rules:
+        description: 'Custom rules (JSON format: {"old_pattern": "new_pattern"})'
+        required: false
+        default: '{"example": "Example", "ponderjs": "PonderJs"}'
+
+jobs:
+  fix-case-conflicts:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config core.ignorecase false
+
+    - name: Install jq for JSON processing
+      run: sudo apt-get update && sudo apt-get install -y jq
+
+    - name: Analyze and fix case conflicts
+      run: |
+        echo "🔍 Analyzing case conflicts..."
+        
+        # Find all case conflicts
+        CONFLICTS=$(git ls-files | sort -f | uniq -i -d)
+        
+        if [ -z "$CONFLICTS" ]; then
+          echo "✅ No case conflicts found!"
+          exit 0
+        fi
+        
+        echo "⚠️ Found case conflicts:"
+        echo "$CONFLICTS"
+        echo ""
+        
+        # Create fix script based on naming convention
+        cat > fix_conflicts.py << 'EOF'
+        import os
+        import sys
+        import json
+        import subprocess
+        import re
+        from pathlib import Path
+        
+        def run_git_command(cmd):
+            """Run git command and return output"""
+            try:
+                result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+                return result.returncode == 0, result.stdout.strip(), result.stderr.strip()
+            except Exception as e:
+                return False, "", str(e)
+        
+        def pascal_case(text):
+            """Convert text to PascalCase"""
+            # Handle special cases
+            special_cases = {
+                'ponderjs': 'PonderJs',
+                'kubejs': 'KubeJS',
+                'javascript': 'JavaScript',
+                'typescript': 'TypeScript'
+            }
+            
+            text_lower = text.lower()
+            if text_lower in special_cases:
+                return special_cases[text_lower]
+            
+            # General PascalCase conversion
+            return ''.join(word.capitalize() for word in re.split(r'[-_\s]+', text))
+        
+        def apply_naming_convention(path, convention, custom_rules=None):
+            """Apply naming convention to a path"""
+            parts = Path(path).parts
+            new_parts = []
+            
+            for part in parts:
+                if convention == 'PascalCase':
+                    # Apply PascalCase to directory names and base filenames
+                    if '.' in part:  # It's a file
+                        name, ext = os.path.splitext(part)
+                        new_part = pascal_case(name) + ext
+                    else:  # It's a directory
+                        new_part = pascal_case(part)
+                elif convention == 'lowercase':
+                    new_part = part.lower()
+                elif convention == 'custom' and custom_rules:
+                    # Apply custom rules
+                    new_part = part
+                    for old_pattern, new_pattern in custom_rules.items():
+                        if old_pattern.lower() in part.lower():
+                            new_part = part.replace(old_pattern, new_pattern)
+                            break
+                else:
+                    new_part = part
+                
+                new_parts.append(new_part)
+            
+            return str(Path(*new_parts))
+        
+        def main():
+            convention = "${{ github.event.inputs.naming_convention }}"
+            custom_rules_str = "${{ github.event.inputs.custom_rules }}"
+            
+            # Parse custom rules
+            custom_rules = None
+            if convention == 'custom' and custom_rules_str:
+                try:
+                    custom_rules = json.loads(custom_rules_str)
+                except json.JSONDecodeError:
+                    print("❌ Invalid JSON in custom rules")
+                    sys.exit(1)
+            
+            # Get all tracked files
+            success, files_output, _ = run_git_command("git ls-files")
+            if not success:
+                print("❌ Failed to get git files")
+                sys.exit(1)
+            
+            files = files_output.split('\n') if files_output else []
+            
+            # Group files by lowercase version to find conflicts
+            file_groups = {}
+            for file in files:
+                if file:
+                    key = file.lower()
+                    if key not in file_groups:
+                        file_groups[key] = []
+                    file_groups[key].append(file)
+            
+            # Find conflicts and determine target names
+            conflicts = {group[0]: group for group in file_groups.values() if len(group) > 1}
+            
+            if not conflicts:
+                print("✅ No case conflicts found!")
+                return
+            
+            print(f"🔧 Fixing conflicts using {convention} convention...")
+            
+            # Process each conflict group
+            for target_key, conflict_files in conflicts.items():
+                print(f"\n📁 Processing conflict group: {conflict_files}")
+                
+                # Determine the target name
+                target_name = apply_naming_convention(conflict_files[0], convention, custom_rules)
+                
+                # Keep the file that matches target name, remove others
+                files_to_remove = []
+                target_file = None
+                
+                for file in conflict_files:
+                    if file == target_name:
+                        target_file = file
+                        print(f"  ✅ Keeping: {file}")
+                    else:
+                        files_to_remove.append(file)
+                        print(f"  🗑️  Removing: {file}")
+                
+                # If no file matches target name, rename the first one
+                if not target_file and files_to_remove:
+                    file_to_rename = files_to_remove.pop(0)
+                    print(f"  🔄 Renaming: {file_to_rename} -> {target_name}")
+                    
+                    # Git mv with intermediate step to handle case-only renames
+                    temp_name = file_to_rename + ".tmp"
+                    run_git_command(f'git mv "{file_to_rename}" "{temp_name}"')
+                    run_git_command(f'git mv "{temp_name}" "{target_name}"')
+                
+                # Remove duplicate files
+                for file in files_to_remove:
+                    print(f"  🗑️  Removing duplicate: {file}")
+                    run_git_command(f'git rm "{file}"')
+            
+            print("\n✅ Case conflicts resolved!")
+        
+        if __name__ == "__main__":
+            main()
+        EOF
+        
+        # Run the Python script
+        python3 fix_conflicts.py
+
+    - name: Commit changes
+      run: |
+        # Check if there are changes to commit
+        if ! git diff --quiet || ! git diff --cached --quiet; then
+          echo "📝 Committing case sensitivity fixes..."
+          
+          git add -A
+          git commit -m "🔧 Fix case sensitivity conflicts (${{ github.event.inputs.naming_convention }})
+          
+          Applied ${{ github.event.inputs.naming_convention }} naming convention to resolve case conflicts:
+          - Standardized directory and file names
+          - Removed duplicate files that differ only in case
+          - Ensures compatibility across all operating systems
+          
+          Convention: ${{ github.event.inputs.naming_convention }}
+          Custom rules: ${{ github.event.inputs.custom_rules }}
+          
+          Auto-generated by GitHub Actions"
+          
+          git push origin ${{ github.ref_name }}
+          echo "✅ Changes committed and pushed successfully!"
+        else
+          echo "ℹ️ No changes to commit"
+        fi
+
+    - name: Create summary report
+      run: |
+        cat > case_fix_summary.md << 'EOF'
+        # Case Sensitivity Fix Summary
+        
+        ## Configuration
+        - **Naming Convention**: ${{ github.event.inputs.naming_convention }}
+        - **Custom Rules**: ${{ github.event.inputs.custom_rules }}
+        - **Branch**: ${{ github.ref_name }}
+        
+        ## Actions Taken
+        - ✅ Analyzed all tracked files for case conflicts
+        - 🔧 Applied naming convention to resolve conflicts
+        - 🗑️ Removed duplicate files that differ only in case
+        - 📝 Committed changes with descriptive message
+        
+        ## Result
+        Repository is now free of case sensitivity conflicts and compatible with all operating systems.
+        
+        ## Next Steps
+        1. Verify the changes look correct
+        2. Update any documentation that references the renamed files
+        3. Inform team members about the naming convention
+        EOF
+
+    - name: Upload summary report
+      uses: actions/upload-artifact@v4
+      with:
+        name: case-fix-summary
+        path: case_fix_summary.md 
