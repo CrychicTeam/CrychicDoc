@@ -80,13 +80,25 @@ The HTML specification is maintained by the W3C.
 
 由`@mdit/plugin-img-size`插件提供，支持插入图片时设置图片尺寸。
 
-你可以在图片链接末尾使用`=widthxheight`来指定图片尺寸。
+在图片替代文字后面添加 =widthxheight，并用空格分隔。
 
-`width`和`height`都应该为数字并意味着像素单位的尺寸，并且它们两者都是可选的。整个标记应该通过空格与图片链接相分割。
+width 和 height 都应该是数字，单位为像素，并且都是可选的。
+
+```md
+![替代文字 =200x300](/example.png)
+![替代文字 =200x](/example.jpg "标题")
+![替代文字 =x300](/example.bmp)
+```
+
+```html
+<img src="/example.png" alt="替代文字" width="200" height="300" />
+<img src="/example.jpg" alt="替代文字" title="标题" width="200" />
+<img src="/example.bmp" alt="替代文字" height="300" />
+```
 
 ::: demo 示例
-![Logo](/logo.png =200x200)
-![Logo](/logo.png =150x)
+![Logo =200x200](/logo.png)
+![Logo =150x](/logo.png)
 :::
 
 ## 对齐 {#align}

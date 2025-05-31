@@ -88,18 +88,6 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
     },
     vue: {},
     vite: {
-        define: {
-            __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "false",
-        },
-        ssr: {
-            noExternal: ["vuetify", "@nolebase/*", "vitepress-plugin-tabs", "vue-demi"],
-        },
-        build: {
-            chunkSizeWarningLimit: 1600,
-            rollupOptions: {
-                external: ["fs", "path", "node:fs", "node:path"],
-            },
-        },
         resolve: {
             alias: [
                 {
@@ -131,8 +119,10 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
             ],
         },
         optimizeDeps: {
-            exclude: ["@nolebase/*", "vitepress"],
-            include: ["vue", "vue-demi"],
+            exclude: ["@nolebase/*"],
+        },
+        ssr: {
+            noExternal: ["vuetify", "@nolebase/*"],
         },
         plugins: [
             GitChangelog({

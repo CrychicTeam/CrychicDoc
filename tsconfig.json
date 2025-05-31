@@ -6,7 +6,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -16,10 +16,10 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@utils": [".vitepress/utils/index.ts"],
-      "@utils/*": [".vitepress/utils/*"],
-      "@components": [".vitepress/theme/components"],
-      "@components/*": [".vitepress/theme/components/*"]
+      "@utils": ["./.vitepress/utils/index.ts"],
+      "@utils/*": ["./.vitepress/utils/*"],
+      "@components": ["./.vitepress/theme/components/index.ts"],
+      "@components/*": ["./.vitepress/theme/components/*"]
     },
     "types": ["vite/client", "node"]
   },

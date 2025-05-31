@@ -79,36 +79,28 @@ do some thing4
 
 <!-- :::demo -->
 <LiteTree>
-#error=color:red;border: 1px solid red;background:#ffd2d2;padding:2px;
-#blue=color:red;border: 1px solid blue;background:#e6e6ff;padding:2px;
-airplane=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0yMC41NiAzLjkxYy41OS41OS41OSAxLjU0IDAgMi4xMmwtMy44OSAzLjg5bDIuMTIgOS4xOWwtMS40MSAxLjQybC0zLjg4LTcuNDNMOS42IDE3bC4zNiAyLjQ3bC0xLjA3IDEuMDZsLTEuNzYtMy4xOGwtMy4xOS0xLjc3TDUgMTQuNWwyLjUuMzdMMTEuMzcgMTFMMy45NCA3LjA5bDEuNDItMS40MWw5LjE5IDIuMTJsMy44OS0zLjg5Yy41Ni0uNTggMS41Ni0uNTggMi4xMiAwIi8+PC9zdmc+
-ts=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMTUgMTUiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBkPSJNMTIuNSA4di0uMTY3YzAtLjczNi0uNTk3LTEuMzMzLTEuMzMzLTEuMzMzSDEwYTEuNSAxLjUgMCAxIDAgMCAzaDFhMS41IDEuNSAwIDAgMSAwIDNoLTFBMS41IDEuNSAwIDAgMSA4LjUgMTFNOCA2LjVIM20yLjUgMFYxM00uNS41aDE0djE0SC41eiIvPjwvc3ZnPg==
----
-- [airplane]A公司({color:red;}重点,{#blue}紧急)          //   企业名称
+A公司
     行政中心
-        {color:red;font-weight:bold;background:#ffeaea}总裁办
-        [checked]人力资源部
-        [unchecked]{.blue}财务部
-        行政部        //+  负责行政管理
-        法务部        //+  打官司等
-        [airplane]审计部        //+  审计财务[保存:tag](sss) [连接](sss)
-        信息中心      // 重点[保存](www.baidu.com)[tag][连接:tag](https://www.baidu.com)
-        [star]安[star]全[star]保[star]卫[star]部[star]    //{color:red}   保密工作
-    + 市场中心    
-        市场部({#error}出错,"{#warning}警告")
-        销售部            //-
-        客服部            //-
-        {#blue}品牌部            //   this is cool
-        市场策划部    //!  重点
-        市场营销部        // {.blue}this is cool
+        总裁办
+        人力资源部      //+         增加标识     
+        财务部          //+         增加标识
+        行政部          //+         增加标识
+        法务部
+        审计部          //x         错误标识
+        信息中心        //v         成功标识
+    市场中心
+        市场部
+        销售部          //-         删除标识
+        客服部          //-         删除标识
+        品牌部          //-         删除标识
+        市场策划部
+        市场营销部      //!        代表强调
     研发中心
-        移动研发部      //!
-        平台研发部({success}Java,{error}Go)
-        {.success}测试部
-        运维部
-        产品部            //*
-        设计部            //*
-        项目管理部        //*
-        
+        移动研发部
+        平台研发部      //*        修改标识
+        测试部          //*        修改标识
+        运维部          //*        修改标识
+        产品部
+        设计部
 </LiteTree>
 <!-- ::: -->

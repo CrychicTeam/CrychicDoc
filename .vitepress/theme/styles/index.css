@@ -46,3 +46,41 @@
 
 /* Other plugin styles */
 @import "@mdit/plugin-spoiler/style";
+
+/* ===== SSR SUPPORT STYLES ===== */
+.ssr-placeholder {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--vp-c-bg-soft);
+    border: 1px dashed var(--vp-c-border);
+    border-radius: 8px;
+    color: var(--vp-c-text-2);
+    font-size: 14px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.ssr-placeholder:empty {
+    min-height: 20px;
+    background: transparent;
+    border: none;
+}
+
+/* Loading animation for SSR placeholders */
+.ssr-placeholder:not(:empty)::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border: 2px solid var(--vp-c-text-3);
+    border-top: 2px solid var(--vp-c-brand);
+    border-radius: 50%;
+    animation: ssr-loading-spin 1s linear infinite;
+}
+
+@keyframes ssr-loading-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -6,12 +6,15 @@ import vitepressNprogress from "vitepress-plugin-nprogress";
 import { useData, useRoute } from "vitepress";
 import "./styles/index.css"; // Single CSS entry point
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
-import { onMounted, watch, defineAsyncComponent, nextTick } from "vue";
+import vuetify from "./vuetify";
+import { onMounted, watch, defineAsyncComponent } from "vue";
 import mermaid from "mermaid";
 import {
     NolebaseEnhancedReadabilitiesMenu,
     NolebaseEnhancedReadabilitiesScreenMenu,
 } from "@nolebase/vitepress-plugin-enhanced-readabilities/client";
+import { NolebaseInlineLinkPreviewPlugin } from "@nolebase/vitepress-plugin-inline-link-preview/client";
+import { NolebaseGitChangelogPlugin } from "@nolebase/vitepress-plugin-git-changelog/client";
 
 import { LiteTree } from "@lite-tree/vue";
 import Layout from "./Layout.vue";
@@ -46,6 +49,8 @@ const MinecraftAdvancedDamageChart = defineAsyncComponent(
     () => import("@components/content/minecraft-advanced-damage-chart.vue")
 );
 
+import { InjectionKey } from "@nolebase/vitepress-plugin-inline-link-preview/client";
+
 export default {
     extends: DefaultTheme,
     Layout: () => {
@@ -67,7 +72,7 @@ export default {
                         h(NolebaseEnhancedReadabilitiesMenu),
                     "nav-screen-content-after": () =>
                         h(NolebaseEnhancedReadabilitiesScreenMenu),
-                    "doc-before": () => h(Preview)
+                    "doc-before": () => h(Preview),
                 }),
         });
     },
@@ -78,19 +83,9 @@ export default {
 
         // Conditionally import browser-dependent plugins
         if (!import.meta.env.SSR) {
-            try {
-                const [vuetify, { NolebaseInlineLinkPreviewPlugin }, { NolebaseGitChangelogPlugin }] = await Promise.all([
-                    import("./vuetify").then(m => m.default),
-                    import("@nolebase/vitepress-plugin-inline-link-preview/client"),
-                    import("@nolebase/vitepress-plugin-git-changelog/client")
-                ]);
-                
-                ctx.app.use(vuetify);
-                ctx.app.use(NolebaseInlineLinkPreviewPlugin);
-                ctx.app.use(NolebaseGitChangelogPlugin);
-            } catch (error) {
-                console.warn("Failed to load client-side plugins:", error);
-            }
+            ctx.app.use(vuetify);
+            ctx.app.use(NolebaseInlineLinkPreviewPlugin);
+            ctx.app.use(NolebaseGitChangelogPlugin);
         }
 
         // Register global components
@@ -152,16 +147,14 @@ export default {
         onMounted(() => {
             if (!import.meta.env.SSR) {
                 initMermaid();
-                nextTick(() => {
-                    mermaid.init(undefined, ".mermaid");
-                });
+                mermaid.init(undefined, ".mermaid");
 
                 watch(
                     () => route.path,
                     () => {
-                        nextTick(() => {
+                        setTimeout(() => {
                             mermaid.init(undefined, ".mermaid");
-                        });
+                        }, 100);
                     }
                 );
             }
