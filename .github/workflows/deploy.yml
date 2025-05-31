@@ -3,22 +3,12 @@ name: Build VitePress and Push to Private Repo
 on:
     push:
         branches: [main]
-    workflow_run:
-        workflows: ["Case Sensitivity Check"]
-        types:
-            - completed
-        branches: [main]
 
 jobs:
     build-and-push:
         runs-on: ubuntu-latest
-        # Only skip if workflow_run event and the case check failed
-        if: |
-            github.event_name == 'push' || 
-            (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
         steps:
-            - name: Wait for case sensitivity check (push events only)
-              if: github.event_name == 'push'
+            - name: Wait for case sensitivity check
               run: |
                 echo "⏳ Waiting for case sensitivity check to complete..."
                 
@@ -71,7 +61,6 @@ jobs:
             - name: Verify repository state
               run: |
                 echo "🔍 Verifying repository state after case sensitivity fixes..."
-                echo "📊 Event: ${{ github.event_name }}"
                 
                 # Check for any remaining case conflicts
                 CONFLICTS=$(git ls-files | sort -f | uniq -i -d || true)
