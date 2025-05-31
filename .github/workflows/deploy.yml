@@ -10,15 +10,15 @@ on:
         branches: [main]
 
 jobs:
-    # Wait for case sensitivity check to complete successfully
-    wait-for-case-check:
+    build-and-push:
         runs-on: ubuntu-latest
-        if: github.event_name == 'push'
-        outputs:
-            case-check-status: ${{ steps.check-status.outputs.status }}
+        # Only skip if workflow_run event and the case check failed
+        if: |
+            github.event_name == 'push' || 
+            (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
         steps:
-            - name: Wait for case sensitivity check
-              id: check-status
+            - name: Wait for case sensitivity check (push events only)
+              if: github.event_name == 'push'
               run: |
                 echo "⏳ Waiting for case sensitivity check to complete..."
                 
@@ -29,9 +29,10 @@ jobs:
                 
                 if [ "$WORKFLOW_ID" = "null" ] || [ -z "$WORKFLOW_ID" ]; then
                   echo "⚠️ Case sensitivity workflow not found, proceeding with build"
-                  echo "status=success" >> $GITHUB_OUTPUT
                   exit 0
                 fi
+                
+                echo "🔍 Found case sensitivity workflow ID: $WORKFLOW_ID"
                 
                 # Wait for the workflow to complete (max 10 minutes)
                 for i in {1..60}; do
@@ -46,11 +47,9 @@ jobs:
                   if [ "$STATUS" = "completed" ]; then
                     if [ "$CONCLUSION" = "success" ]; then
                       echo "✅ Case sensitivity check completed successfully"
-                      echo "status=success" >> $GITHUB_OUTPUT
                       exit 0
                     else
                       echo "❌ Case sensitivity check failed with conclusion: $CONCLUSION"
-                      echo "status=failed" >> $GITHUB_OUTPUT
                       exit 1
                     fi
                   fi
@@ -60,16 +59,8 @@ jobs:
                 done
                 
                 echo "⏰ Timeout waiting for case sensitivity check"
-                echo "status=timeout" >> $GITHUB_OUTPUT
                 exit 1
 
-    build-and-push:
-        runs-on: ubuntu-latest
-        needs: [wait-for-case-check]
-        if: |
-            (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') ||
-            (github.event_name == 'push' && needs.wait-for-case-check.outputs.case-check-status == 'success')
-        steps:
             - name: Checkout the code
               uses: actions/checkout@v4
               with:
@@ -80,6 +71,7 @@ jobs:
             - name: Verify repository state
               run: |
                 echo "🔍 Verifying repository state after case sensitivity fixes..."
+                echo "📊 Event: ${{ github.event_name }}"
                 
                 # Check for any remaining case conflicts
                 CONFLICTS=$(git ls-files | sort -f | uniq -i -d || true)
