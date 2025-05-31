@@ -72,16 +72,30 @@ git remote add upstream https://github.com/PickAID/CrychicDoc.git
 ```
 :::
 
-By the way, don't forget to disable ignorecase to make Git case-sensitive.
+4. **Configure Git case sensitivity (IMPORTANT):**
+
+To ensure consistent behavior across all platforms, run the appropriate setup script:
+
 ::: code-group
-```bash [git]
-Git config core.ignorecase false
+```bash [Linux/macOS/Git Bash]
+./.git-setup/setup-git-case-sensitivity.sh
+```
+
+```cmd [Windows Command Prompt]
+.git-setup\setup-git-case-sensitivity.bat
+```
+
+```powershell [Windows PowerShell]
+.\.git-setup\setup-git-case-sensitivity.ps1
 ```
 :::
 
+> [!IMPORTANT] Important
+> This step is crucial for cross-platform collaboration. It ensures that Git tracks case changes in filenames, preventing conflicts between different operating systems. For more details, see `.git-setup/README.md`.
+
 ## Collaboration Workflow
 
-4. **Create and switch to a new branch:**
+5. **Create and switch to a new branch:**
 
 First, it is recommended to create a new feature branch from the main branch:
 
@@ -91,11 +105,11 @@ git checkout -b feature-branch
 ```
 :::
 
-5. **Modify the code:**
+6. **Modify the code:**
 
 In your Minecraft instance folder, edit the project's code, resource files, or configuration files and make the necessary modifications and adjustments according to your needs.
 
-6. **Commit the changes:**
+7. **Commit the changes:**
 
 After saving the modifications, use the following command to commit the changes to your local repository:
 
@@ -107,7 +121,7 @@ git commit -m "Describe your modifications"
 ```
 :::
 
-7. **Push to the remote repository:**
+8. **Push to the remote repository:**
 
 If you are ready to merge your changes into the main branch, push your local branch to the remote repository:
 
@@ -119,17 +133,17 @@ git push
 
 ## Submitting a Pull Request (PR)
 
-8. **Create a Pull Request:**
+9. **Create a Pull Request:**
 
 Open your forked GitHub repository page, select the feature branch you just pushed, click on "Compare & pull request", fill in the relevant information, and submit the PR.
 
-9. **Wait for review and merge:**
+10. **Wait for review and merge:**
 
 It is recommended to inform the developers in advance before submitting.
 
 ## Ending Collaboration
 
-10. **Delete local and remote branches:**
+11. **Delete local and remote branches:**
 
 Once your PR is merged, you can safely delete the feature branch you created:
 

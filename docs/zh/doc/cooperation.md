@@ -72,16 +72,30 @@ git remote add upstream https://github.com/PickAID/CrychicDoc.git
 ```
 :::
 
-同时，出于谨慎请不要忘记关闭ignorecase来使Git大小写敏感。
+4. **配置Git大小写敏感（重要）：**
+
+为了确保跨平台协作的一致性，请运行相应的设置脚本：
+
 ::: code-group
-```bash [git]
-Git config core.ignorecase false
+```bash [Linux/macOS/Git Bash]
+./.git-setup/setup-git-case-sensitivity.sh
+```
+
+```cmd [Windows 命令提示符]
+.git-setup\setup-git-case-sensitivity.bat
+```
+
+```powershell [Windows PowerShell]
+.\.git-setup\setup-git-case-sensitivity.ps1
 ```
 :::
 
+> [!IMPORTANT] 重要
+> 此步骤对于跨平台协作至关重要。它确保Git跟踪文件名的大小写变化，防止不同操作系统之间的冲突。更多详情请参见 `.git-setup/README.md`。
+
 ## 合作流程
 
-4. **创建并切换到新分支：**
+5. **创建并切换到新分支：**
 
 首先，建议从主分支创建一个新的特性分支：
 
@@ -91,11 +105,11 @@ git checkout -b feature-branch
 ```
 ::: 
 
-5. **修改代码：**
+6. **修改代码：**
 
 在你的Minecraft实例文件夹中，编辑项目的代码、资源文件或配置文件，根据你的需求进行修改和调整。
 
-6. **提交更改：**
+7. **提交更改：**
 
 保存修改后，使用以下命令将更改提交到你的本地仓库：
 
@@ -107,7 +121,7 @@ git commit -m "描述你的修改内容"
 ```
 :::
 
-7. **推送到远程仓库：**
+8. **推送到远程仓库：**
 
 如果你准备将你的更改合并到主分支中，将你的本地分支推送到远程仓库：
 
@@ -120,17 +134,17 @@ git push
 
 ## 提交 Pull Request (PR)
 
-8. **创建 Pull Request：**
+9. **创建 Pull Request：**
 
-打开你 Fork 的 GitHub 仓库页面，选择你刚刚推送的特性分支，点击“Compare & pull request”，填写相关信息并提交PR。
+打开你 Fork 的 GitHub 仓库页面，选择你刚刚推送的特性分支，点击"Compare & pull request"，填写相关信息并提交PR。
 
-9.  **等待审查和合并：**
+10.  **等待审查和合并：**
 
 最好能在提交前提前告知开发者。
 
 ## 结束合作
 
-10. **删除本地和远程分支：**
+11. **删除本地和远程分支：**
 
 一旦你的PR被合并，你可以安全地删除新建的特性分支：
 

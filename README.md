@@ -53,10 +53,20 @@ You may find English version of readme on [here](/READMEEN.md).
 1. 安装环境[Node.js](https://nodejs.org/zh-cn/download/prebuilt-installer)
 2. 下载安装[yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)(你需要确保自己确实有着安装yarn的权限，mac/linux应使用sudo -s而Windows用户需要以管理员身份运行命令提示符（cmd）或 PowerShell后再npm install -g yarn)
 3. 克隆仓库到本地
-4. 在终端输入`yarn install`安装依赖
-5. 在终端输入`npm run dev`启动本地服务，可在浏览器预览
-6. 剩下的可以查看该[文档](https://vitepress.yiov.top/preface.html)与[官方文档](https://vitepress.dev/zh/)来获得更详细具体的教程。
+4. **Git配置会自动完成** - 如果需要手动配置，运行 `./setup-git.sh`
+5. 在终端输入`yarn install`安装依赖
+6. 在终端输入`npm run dev`启动本地服务，可在浏览器预览
+7. 剩下的可以查看该[文档](https://vitepress.yiov.top/preface.html)与[官方文档](https://vitepress.dev/zh/)来获得更详细具体的教程。
 
+### Git配置
+
+Git大小写敏感配置会在克隆仓库时**自动完成**。如果自动配置失败，请运行：
+
+```bash
+./setup-git.sh
+```
+
+这将配置Git以正确处理文件名大小写，防止不同操作系统间的冲突。详细信息请参见 `.git-setup/README.md`。
 
 本文档使用安全稳定的的部署方案，可长期稳定运行并保证不同地区玩家的访问：
 1. 使用[github action](.github/workflows/build.yaml)构建好网页的静态文件后上传至private仓库并转发至物理服务器。

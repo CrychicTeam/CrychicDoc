@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# Post-checkout hook to ensure case sensitivity
+# This hook runs after git checkout and git clone
+# Compatible with Linux, macOS, and Windows (Git Bash/WSL)
+
+# Get the parameters passed to the hook
+prev_head=$1
+new_head=$2
+branch_checkout=$3
+
+# Detect if this is an initial clone (when prev_head is all zeros)
+if [ "$prev_head" = "0000000000000000000000000000000000000000" ]; then
+    echo "🎉 Welcome to CrychicDoc! Setting up your development environment..."
+    echo ""
+    
+    # Run the full setup script for initial clone
+    if [ -f "./setup-git.sh" ]; then
+        echo "🚀 Running automatic Git setup for new clone..."
+        ./setup-git.sh
+    else
+        echo "⚠️  setup-git.sh not found, running basic configuration..."
+        # Fallback to basic configuration
+        git config core.ignorecase false
+        git config core.hooksPath .githooks
+        echo "✓ Basic Git case sensitivity configured"
+    fi
+    
+    echo ""
+    echo "📚 Next steps:"
+    echo "   1. Install dependencies: yarn install"
+    echo "   2. Start development server: npm run dev"
+    echo "   3. Read the documentation in docs/ directory"
+    echo ""
+else
+    # This is a regular checkout, just ensure case sensitivity is set
+    # Detect the operating system
+    OS="unknown"
+    case "$(uname -s 2>/dev/null || echo unknown)" in
+        Linux*)     OS="Linux";;
+        Darwin*)    OS="macOS";;
+        CYGWIN*|MINGW*|MSYS*) OS="Windows";;
+        *)          OS="unknown";;
+    esac
+
+    # Set core.ignorecase to false to ensure case sensitivity
+    git config core.ignorecase false
+
+    echo "✓ Git configured for case sensitivity (core.ignorecase = false) on $OS"
+
+    # Check if the configuration was set successfully
+    IGNORECASE_VALUE=$(git config --get core.ignorecase 2>/dev/null)
+    if [ "$IGNORECASE_VALUE" = "false" ]; then
+        echo "✓ Case sensitivity is now enabled for this repository"
+        
+        # Platform-specific advice (only show on first checkout after clone)
+        if [ "$branch_checkout" = "1" ]; then
+            case "$OS" in
+                "Windows")
+                    echo "ℹ️  Note: Windows filesystems are case-insensitive, but Git will track case changes"
+                    ;;
+                "macOS")
+                    echo "ℹ️  Note: macOS filesystems are case-insensitive by default, but Git will track case changes"
+                    ;;
+                "Linux")
+                    echo "ℹ️  Note: Linux filesystems are case-sensitive, Git configuration matches filesystem"
+                    ;;
+            esac
+        fi
+    else
+        echo "⚠ Warning: Failed to set case sensitivity. Please run: git config core.ignorecase false"
+    fi
+fi 
