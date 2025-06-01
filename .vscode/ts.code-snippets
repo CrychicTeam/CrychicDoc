@@ -1,4 +1,5 @@
 {
+    // ========== Navigation Configs ==========
     "NavLink": {
         "scope": "typescript",
         "prefix": "@navlink",
@@ -9,14 +10,243 @@
             "    icon: \"$0\"",
             "},"
         ],
-        "description": "NavLink"
+        "description": "NavLink object for navigation"
+    },
+    "Navigation Item with Children": {
+        "scope": "typescript",
+        "prefix": "@navitem",
+        "body": [
+            "{",
+            "    text: \"$1\",",
+            "    items: [",
+            "        {",
+            "            text: \"$2\",",
+            "            link: \"$3\"",
+            "        },$0",
+            "    ]",
+            "},"
+        ],
+        "description": "Navigation item with children"
     },
     "desc": {
         "scope": "typescript",
         "prefix": "desc",
         "body": [
-            "desc: \"$0\",",
+            "desc: \"$0\","
         ],
-        "description": "desc"
+        "description": "Description field"
     },
+
+    // ========== JSDoc Snippets ==========
+    "JSDoc Function": {
+        "scope": "typescript,javascript",
+        "prefix": "jsdoc",
+        "body": [
+            "/**",
+            " * ${1:Function description}",
+            " * @param {${2:type}} ${3:param} - ${4:Parameter description}",
+            " * @returns {${5:type}} ${6:Return description}",
+            " */"
+        ],
+        "description": "JSDoc function documentation"
+    },
+    "JSDoc Interface": {
+        "scope": "typescript",
+        "prefix": "jsdoc-interface",
+        "body": [
+            "/**",
+            " * ${1:Interface description}",
+            " * @interface ${2:InterfaceName}",
+            " */"
+        ],
+        "description": "JSDoc interface documentation"
+    },
+    "JSDoc Class": {
+        "scope": "typescript,javascript",
+        "prefix": "jsdoc-class",
+        "body": [
+            "/**",
+            " * ${1:Class description}",
+            " * @class ${2:ClassName}",
+            " */"
+        ],
+        "description": "JSDoc class documentation"
+    },
+    "JSDoc Property": {
+        "scope": "typescript,javascript",
+        "prefix": "jsdoc-prop",
+        "body": [
+            "/**",
+            " * ${1:Property description}",
+            " * @type {${2:type}}",
+            " */"
+        ],
+        "description": "JSDoc property documentation"
+    },
+    "JSDoc Method": {
+        "scope": "typescript,javascript",
+        "prefix": "jsdoc-method",
+        "body": [
+            "/**",
+            " * ${1:Method description}",
+            " * @param {${2:type}} ${3:param} - ${4:Parameter description}",
+            " * @returns {${5:type}} ${6:Return description}",
+            " * @memberof ${7:ClassName}",
+            " */"
+        ],
+        "description": "JSDoc method documentation"
+    },
+    "JSDoc Component": {
+        "scope": "typescript,vue",
+        "prefix": "jsdoc-component",
+        "body": [
+            "/**",
+            " * ${1:Component description}",
+            " * @component",
+            " * @example",
+            " * <${2:ComponentName} ${3:prop}=\"${4:value}\" />",
+            " */"
+        ],
+        "description": "JSDoc Vue component documentation"
+    },
+
+    // ========== Vue Component Patterns ==========
+    "Vue Props Interface": {
+        "scope": "typescript",
+        "prefix": "vue-props",
+        "body": [
+            "/**",
+            " * ${1:Component} props interface",
+            " */",
+            "interface ${2:ComponentName}Props {",
+            "  ${3:prop}: ${4:string}$0",
+            "}"
+        ],
+        "description": "Vue component props interface with JSDoc"
+    },
+    "Vue Composable": {
+        "scope": "typescript",
+        "prefix": "vue-composable",
+        "body": [
+            "/**",
+            " * ${1:Composable description}",
+            " * @param {${2:type}} ${3:param} - ${4:Parameter description}",
+            " * @returns {${5:type}} ${6:Return description}",
+            " */",
+            "export function use${7:ComposableName}(${8:params}) {",
+            "  $0",
+            "  return {",
+            "    ",
+            "  }",
+            "}"
+        ],
+        "description": "Vue composable function with JSDoc"
+    },
+    "Component Config": {
+        "scope": "typescript",
+        "prefix": "component-config",
+        "body": [
+            "/**",
+            " * ${1:Component} configuration",
+            " */",
+            "export const ${2:componentName}Config = {",
+            "  name: '${3:component-name}',",
+            "  props: {",
+            "    ${4:propName}: {",
+            "      type: ${5:String},",
+            "      default: '${6:defaultValue}'",
+            "    }$0",
+            "  }",
+            "}"
+        ],
+        "description": "Component configuration object"
+    },
+
+    // ========== Type Definitions ==========
+    "Type Alias": {
+        "scope": "typescript",
+        "prefix": "type-alias",
+        "body": [
+            "/**",
+            " * ${1:Type description}",
+            " */",
+            "export type ${2:TypeName} = ${3:string}$0"
+        ],
+        "description": "Type alias with JSDoc"
+    },
+    "Enum Definition": {
+        "scope": "typescript",
+        "prefix": "enum",
+        "body": [
+            "/**",
+            " * ${1:Enum description}",
+            " */",
+            "export enum ${2:EnumName} {",
+            "  ${3:VALUE1} = '${4:value1}',$0",
+            "}"
+        ],
+        "description": "Enum definition with JSDoc"
+    },
+    "Const Assertion": {
+        "scope": "typescript",
+        "prefix": "const-assert",
+        "body": [
+            "/**",
+            " * ${1:Constant description}",
+            " */",
+            "export const ${2:constantName} = ${3:value} as const$0"
+        ],
+        "description": "Const assertion with JSDoc"
+    },
+
+    // ========== Plugin/Component Specific ==========
+    "Markdown Component Props": {
+        "scope": "typescript",
+        "prefix": "md-component-props",
+        "body": [
+            "/**",
+            " * ${1:Component} props for markdown rendering",
+            " */",
+            "interface ${2:ComponentName}Props {",
+            "  /**",
+            "   * ${3:Content description}",
+            "   */",
+            "  content?: string",
+            "  /**",
+            "   * ${4:Mode description}",
+            "   */",
+            "  mode?: '${5:static}' | '${6:dynamic}'$0",
+            "}"
+        ],
+        "description": "Markdown component props interface"
+    },
+    "Plugin Config": {
+        "scope": "typescript",
+        "prefix": "plugin-config",
+        "body": [
+            "/**",
+            " * ${1:Plugin} configuration options",
+            " */",
+            "export interface ${2:PluginName}Options {",
+            "  /**",
+            "   * ${3:Option description}",
+            "   */",
+            "  ${4:optionName}?: ${5:boolean}$0",
+            "}"
+        ],
+        "description": "Plugin configuration interface"
+    },
+    "VitePress Config": {
+        "scope": "typescript",
+        "prefix": "vp-config",
+        "body": [
+            "/**",
+            " * ${1:Config description}",
+            " */",
+            "export const ${2:configName} = defineConfig({",
+            "  ${3:option}: ${4:value},$0",
+            "})"
+        ],
+        "description": "VitePress configuration object"
+    }
 }
