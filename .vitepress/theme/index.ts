@@ -4,7 +4,7 @@ import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import vitepressNprogress from "vitepress-plugin-nprogress";
 import { useData, useRoute } from "vitepress";
-import "./styles/index.css"; // Single CSS entry point
+import "./styles/index.css";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import vuetify from "./vuetify";
 import { onMounted, watch, defineAsyncComponent } from "vue";
@@ -39,6 +39,7 @@ import {
     Preview,
     NotFound,
 } from "@components/ui";
+import MagicMoveContainer from "@components/ui/MagicMoveContainer.vue";
 
 // Define SSR-safe chart components
 const CommitsCounter = defineAsyncComponent(
@@ -72,7 +73,7 @@ export default {
                         h(NolebaseEnhancedReadabilitiesMenu),
                     "nav-screen-content-after": () =>
                         h(NolebaseEnhancedReadabilitiesScreenMenu),
-                    "doc-before": () => h(Preview),
+                    "doc-before": () => [h(Preview)],
                 }),
         });
     },
@@ -99,6 +100,7 @@ export default {
         ctx.app.component("MNavLinks", MNavLinks);
         ctx.app.component("PdfViewer", PdfViewer);
         ctx.app.component("LiteTree", LiteTree);
+        ctx.app.component("MagicMoveContainer", MagicMoveContainer);
     },
     setup() {
         const route = useRoute();

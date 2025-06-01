@@ -29,12 +29,19 @@ import { carousels } from "../plugins/carousels";
 import { iframes } from "../plugins/iframe";
 import { card } from "../plugins/card";
 import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
+import MagicMovePlugin from "../plugins/magic-move";
 import ts from "typescript";
 
 import fs from "fs";
 import path from "path";
+
+let magicMoveShiki: any = null;
+
 export const markdown: MarkdownOptions = {
     math: true,
+    shikiSetup: (shiki) => {
+        magicMoveShiki = shiki;
+    },
     config: async (md) => {
         md.use(InlineLinkPreviewElementTransform);
         md.use(BiDirectionalLinks());
@@ -65,6 +72,11 @@ export const markdown: MarkdownOptions = {
 
         // Non-tab plugins
         md.use(card);
+        
+        // Magic move plugin with shiki integration
+        if (magicMoveShiki) {
+            md.use(MagicMovePlugin, magicMoveShiki);
+        }
 
         md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
             let htmlResult = slf.renderToken(tokens, idx, options);

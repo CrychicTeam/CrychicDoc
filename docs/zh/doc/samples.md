@@ -28,8 +28,36 @@ journey
       Sit down: 5: Me
 ```
 
+:::
+
+## Magic Move
+
+::::demo
+
+:::magic-move
+
+```js
+BlockEvents.rightClicked("minecraft:oak_planks", (event) => {
+    let player = event.getPlayer();
+    if (event.getBlock().is("stone")) {
+        let spawnItem = event.getLevel().createEntity("item");
+        player.give("diamond");
+    }
+});
+```
+
+```java
+@SubscribeEvent
+public void onBlockRightClick(PlayerInteractEvent.RightClickBlock event) {
+  if (event.getWorld().getBlockState(event.getPos()).getBlock() == Blocks.STONE) {
+    event.getPlayer().addItemStackToInventory(new ItemStack(Items.DIAMOND));
+  }
+}
+```
 
 :::
+
+::::
 
 ## 时间线插件示例
 
