@@ -235,57 +235,6 @@
               "_isRoot": false
             },
             {
-              "text": "guidets",
-              "items": [
-                {
-                  "text": "community.ts",
-                  "link": "/en/doc/guide/guidets/community.ts",
-                  "_relativePathKey": "guide/guidets/community.ts",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "KubeJS.ts",
-                  "link": "/en/doc/guide/guidets/KubeJS.ts",
-                  "_relativePathKey": "guide/guidets/KubeJS.ts",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "minecraft.ts",
-                  "link": "/en/doc/guide/guidets/minecraft.ts",
-                  "_relativePathKey": "guide/guidets/minecraft.ts",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "pixelart.ts",
-                  "link": "/en/doc/guide/guidets/pixelart.ts",
-                  "_relativePathKey": "guide/guidets/pixelart.ts",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "resource.ts",
-                  "link": "/en/doc/guide/guidets/resource.ts",
-                  "_relativePathKey": "guide/guidets/resource.ts",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "guide/guidets/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
               "text": "KubeJS",
               "link": "/en/doc/guide/KubeJS.html",
               "_relativePathKey": "guide/KubeJS.md",
@@ -1126,178 +1075,6 @@
       "_hidden": false
     }
   ],
-  "/en/modpack/kubejs/": [
-    {
-      "text": "KubeJS",
-      "items": [
-        {
-          "text": "KubeJS 1.18.2",
-          "link": "/en/modpack/kubejs/1.18.2/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.18.2/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
-        },
-        {
-          "text": "KubeJS 1.19.2",
-          "link": "/en/modpack/kubejs/1.19.2/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.19.2/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
-        },
-        {
-          "text": "KubeJS",
-          "link": "/en/modpack/kubejs/1.20.1/",
-          "items": [
-            {
-              "text": "CodeShare",
-              "items": [
-                {
-                  "text": "CraftingTableGUI",
-                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI.html",
-                  "_relativePathKey": "1.20.1/CodeShare/CraftingTableGUI.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "Dining",
-                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/Dining.html",
-                  "_relativePathKey": "1.20.1/CodeShare/Dining.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "InvertedBonemeal",
-                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/InvertedBonemeal.html",
-                  "_relativePathKey": "1.20.1/CodeShare/InvertedBonemeal.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "LifeValue",
-                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/LifeValue.html",
-                  "_relativePathKey": "1.20.1/CodeShare/LifeValue.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "Painter",
-                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/Painter.html",
-                  "_relativePathKey": "1.20.1/CodeShare/Painter.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.20.1/CodeShare/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "Introduction",
-              "items": [
-                {
-                  "text": "Description",
-                  "link": "/en/modpack/kubejs/1.20.1/Introduction/Description.html",
-                  "_relativePathKey": "1.20.1/Introduction/Description.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.20.1/Introduction/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "Upgrade",
-              "items": [
-                {
-                  "text": "数据类型",
-                  "link": "/en/modpack/kubejs/1.20.1/Upgrade/DataType.html",
-                  "_relativePathKey": "1.20.1/Upgrade/DataType.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "GlobalScope",
-                  "link": "/en/modpack/kubejs/1.20.1/Upgrade/GlobalScope/",
-                  "collapsed": false,
-                  "_priority": 9007199254740991,
-                  "_relativePathKey": "1.20.1/Upgrade/GlobalScope/",
-                  "_isDirectory": true,
-                  "_isRoot": false,
-                  "_hidden": false
-                },
-                {
-                  "text": "JavaScript相关概念",
-                  "link": "/en/modpack/kubejs/1.20.1/Upgrade/JavaScript/",
-                  "collapsed": false,
-                  "_priority": 9007199254740991,
-                  "_relativePathKey": "1.20.1/Upgrade/JavaScript/",
-                  "_isDirectory": true,
-                  "_isRoot": false,
-                  "_hidden": false
-                },
-                {
-                  "text": "基本类型",
-                  "link": "/en/modpack/kubejs/1.20.1/Upgrade/VariableType.html",
-                  "_relativePathKey": "1.20.1/Upgrade/VariableType.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.20.1/Upgrade/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.20.1/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        },
-        {
-          "text": "KubeJS",
-          "link": "/en/modpack/kubejs/1.21/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.21/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
   "/en/info/KubeJS/": [
     {
       "text": "KubeJS",
@@ -1494,6 +1271,178 @@
           "collapsed": false,
           "_priority": 9007199254740991,
           "_relativePathKey": "Q&A/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/en/modpack/kubejs/": [
+    {
+      "text": "KubeJS",
+      "items": [
+        {
+          "text": "KubeJS 1.18.2",
+          "link": "/en/modpack/kubejs/1.18.2/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.18.2/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        },
+        {
+          "text": "KubeJS 1.19.2",
+          "link": "/en/modpack/kubejs/1.19.2/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.19.2/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        },
+        {
+          "text": "KubeJS",
+          "link": "/en/modpack/kubejs/1.20.1/",
+          "items": [
+            {
+              "text": "CodeShare",
+              "items": [
+                {
+                  "text": "CraftingTableGUI",
+                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI.html",
+                  "_relativePathKey": "1.20.1/CodeShare/CraftingTableGUI.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "Dining",
+                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/Dining.html",
+                  "_relativePathKey": "1.20.1/CodeShare/Dining.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "InvertedBonemeal",
+                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/InvertedBonemeal.html",
+                  "_relativePathKey": "1.20.1/CodeShare/InvertedBonemeal.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "LifeValue",
+                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/LifeValue.html",
+                  "_relativePathKey": "1.20.1/CodeShare/LifeValue.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "Painter",
+                  "link": "/en/modpack/kubejs/1.20.1/CodeShare/Painter.html",
+                  "_relativePathKey": "1.20.1/CodeShare/Painter.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "1.20.1/CodeShare/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            },
+            {
+              "text": "Introduction",
+              "items": [
+                {
+                  "text": "Description",
+                  "link": "/en/modpack/kubejs/1.20.1/Introduction/Description.html",
+                  "_relativePathKey": "1.20.1/Introduction/Description.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "1.20.1/Introduction/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            },
+            {
+              "text": "Upgrade",
+              "items": [
+                {
+                  "text": "数据类型",
+                  "link": "/en/modpack/kubejs/1.20.1/Upgrade/DataType.html",
+                  "_relativePathKey": "1.20.1/Upgrade/DataType.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "GlobalScope",
+                  "link": "/en/modpack/kubejs/1.20.1/Upgrade/GlobalScope/",
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "1.20.1/Upgrade/GlobalScope/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
+                {
+                  "text": "JavaScript相关概念",
+                  "link": "/en/modpack/kubejs/1.20.1/Upgrade/JavaScript/",
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "1.20.1/Upgrade/JavaScript/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
+                {
+                  "text": "基本类型",
+                  "link": "/en/modpack/kubejs/1.20.1/Upgrade/VariableType.html",
+                  "_relativePathKey": "1.20.1/Upgrade/VariableType.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "1.20.1/Upgrade/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.20.1/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        },
+        {
+          "text": "KubeJS",
+          "link": "/en/modpack/kubejs/1.21/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.21/",
           "_isDirectory": true,
           "_isRoot": true,
           "_hidden": false
@@ -2032,70 +1981,6 @@
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false
-                },
-                {
-                  "text": "image-1.png",
-                  "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image-1.png",
-                  "_relativePathKey": "Neoforge/flandre/image-1.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "image-2.png",
-                  "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image-2.png",
-                  "_relativePathKey": "Neoforge/flandre/image-2.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "image-3.png",
-                  "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image-3.png",
-                  "_relativePathKey": "Neoforge/flandre/image-3.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "image.png",
-                  "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image.png",
-                  "_relativePathKey": "Neoforge/flandre/image.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "ruby_apple.png",
-                  "link": "/en/develop/modding/1.20.4/Neoforge/flandre/ruby_apple.png",
-                  "_relativePathKey": "Neoforge/flandre/ruby_apple.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "ruby.png",
-                  "link": "/en/develop/modding/1.20.4/Neoforge/flandre/ruby.png",
-                  "_relativePathKey": "Neoforge/flandre/ruby.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "zircon_lamp_off.png",
-                  "link": "/en/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_off.png",
-                  "_relativePathKey": "Neoforge/flandre/zircon_lamp_off.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "zircon_lamp_on.png",
-                  "link": "/en/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_on.png",
-                  "_relativePathKey": "Neoforge/flandre/zircon_lamp_on.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
                 }
               ],
               "collapsed": false,
@@ -2286,6 +2171,205 @@
           "text": "writing",
           "link": "/en/info/doc/suggestion/writing.html",
           "_relativePathKey": "writing.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/en/info/KubeJS/borad/": [
+    {
+      "text": "borad",
+      "items": [
+        {
+          "text": "code",
+          "link": "/en/info/KubeJS/borad/code.html",
+          "_relativePathKey": "code.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "docError",
+          "link": "/en/info/KubeJS/borad/docError.html",
+          "_relativePathKey": "docError.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "modpack",
+          "link": "/en/info/KubeJS/borad/modpack.html",
+          "_relativePathKey": "modpack.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "modRecommend",
+          "link": "/en/info/KubeJS/borad/modRecommend.html",
+          "_relativePathKey": "modRecommend.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "navbar",
+          "link": "/en/info/KubeJS/borad/navbar.html",
+          "_relativePathKey": "navbar.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "publicServer",
+          "link": "/en/info/KubeJS/borad/publicServer.html",
+          "_relativePathKey": "publicServer.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "teamRecruit",
+          "link": "/en/info/KubeJS/borad/teamRecruit.html",
+          "_relativePathKey": "teamRecruit.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/en/info/KubeJS/code/": [
+    {
+      "text": "code",
+      "items": [
+        {
+          "text": "error",
+          "link": "/en/info/KubeJS/code/error.html",
+          "_relativePathKey": "error.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "eventHandler",
+          "link": "/en/info/KubeJS/code/eventHandler.html",
+          "_relativePathKey": "eventHandler.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "loadClass",
+          "link": "/en/info/KubeJS/code/loadClass.html",
+          "_relativePathKey": "loadClass.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "other",
+          "link": "/en/info/KubeJS/code/other.html",
+          "_relativePathKey": "other.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "register",
+          "link": "/en/info/KubeJS/code/register.html",
+          "_relativePathKey": "register.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "utils",
+          "link": "/en/info/KubeJS/code/utils.html",
+          "_relativePathKey": "utils.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/en/info/KubeJS/Q&A/": [
+    {
+      "text": "Q&A",
+      "items": [
+        {
+          "text": "API",
+          "link": "/en/info/KubeJS/Q&A/API.html",
+          "_relativePathKey": "API.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "error",
+          "link": "/en/info/KubeJS/Q&A/error.html",
+          "_relativePathKey": "error.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "event_interaction",
+          "link": "/en/info/KubeJS/Q&A/event_interaction.html",
+          "_relativePathKey": "event_interaction.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "forgeEvents",
+          "link": "/en/info/KubeJS/Q&A/forgeEvents.html",
+          "_relativePathKey": "forgeEvents.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "loadClass",
+          "link": "/en/info/KubeJS/Q&A/loadClass.html",
+          "_relativePathKey": "loadClass.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "other",
+          "link": "/en/info/KubeJS/Q&A/other.html",
+          "_relativePathKey": "other.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "register",
+          "link": "/en/info/KubeJS/Q&A/register.html",
+          "_relativePathKey": "register.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
@@ -2973,140 +3057,10 @@
       "_hidden": false
     }
   ],
-  "/en/info/KubeJS/borad/": [
-    {
-      "text": "borad",
-      "items": [
-        {
-          "text": "code",
-          "link": "/en/info/KubeJS/borad/code.html",
-          "_relativePathKey": "code.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "docError",
-          "link": "/en/info/KubeJS/borad/docError.html",
-          "_relativePathKey": "docError.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "modpack",
-          "link": "/en/info/KubeJS/borad/modpack.html",
-          "_relativePathKey": "modpack.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "modRecommend",
-          "link": "/en/info/KubeJS/borad/modRecommend.html",
-          "_relativePathKey": "modRecommend.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "navbar",
-          "link": "/en/info/KubeJS/borad/navbar.html",
-          "_relativePathKey": "navbar.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "publicServer",
-          "link": "/en/info/KubeJS/borad/publicServer.html",
-          "_relativePathKey": "publicServer.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "teamRecruit",
-          "link": "/en/info/KubeJS/borad/teamRecruit.html",
-          "_relativePathKey": "teamRecruit.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
   "/en/modpack/kubejs/1.21/": [
     {
       "text": "KubeJS",
       "items": [],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/en/info/KubeJS/code/": [
-    {
-      "text": "code",
-      "items": [
-        {
-          "text": "error",
-          "link": "/en/info/KubeJS/code/error.html",
-          "_relativePathKey": "error.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "eventHandler",
-          "link": "/en/info/KubeJS/code/eventHandler.html",
-          "_relativePathKey": "eventHandler.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "loadClass",
-          "link": "/en/info/KubeJS/code/loadClass.html",
-          "_relativePathKey": "loadClass.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "other",
-          "link": "/en/info/KubeJS/code/other.html",
-          "_relativePathKey": "other.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "register",
-          "link": "/en/info/KubeJS/code/register.html",
-          "_relativePathKey": "register.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "utils",
-          "link": "/en/info/KubeJS/code/utils.html",
-          "_relativePathKey": "utils.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
       "collapsed": false,
       "_priority": 9007199254740991,
       "_relativePathKey": "",
@@ -3131,75 +3085,6 @@
           "text": "Wiki",
           "link": "/en/mods/adventure/Champions-Unofficial/wiki.html",
           "_relativePathKey": "wiki.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/en/info/KubeJS/Q&A/": [
-    {
-      "text": "Q&A",
-      "items": [
-        {
-          "text": "API",
-          "link": "/en/info/KubeJS/Q&A/API.html",
-          "_relativePathKey": "API.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "error",
-          "link": "/en/info/KubeJS/Q&A/error.html",
-          "_relativePathKey": "error.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "event_interaction",
-          "link": "/en/info/KubeJS/Q&A/event_interaction.html",
-          "_relativePathKey": "event_interaction.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "forgeEvents",
-          "link": "/en/info/KubeJS/Q&A/forgeEvents.html",
-          "_relativePathKey": "forgeEvents.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "loadClass",
-          "link": "/en/info/KubeJS/Q&A/loadClass.html",
-          "_relativePathKey": "loadClass.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "other",
-          "link": "/en/info/KubeJS/Q&A/other.html",
-          "_relativePathKey": "other.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "register",
-          "link": "/en/info/KubeJS/Q&A/register.html",
-          "_relativePathKey": "register.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
@@ -3258,38 +3143,6 @@
           "text": "flandre",
           "link": "/en/develop/modding/1.20.4/Neoforge/flandre/",
           "items": [
-            {
-              "text": "image-1.png",
-              "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image-1.png",
-              "_relativePathKey": "flandre/image-1.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "image-2.png",
-              "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image-2.png",
-              "_relativePathKey": "flandre/image-2.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "image-3.png",
-              "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image-3.png",
-              "_relativePathKey": "flandre/image-3.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "image.png",
-              "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image.png",
-              "_relativePathKey": "flandre/image.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
             {
               "text": "01 环境配置",
               "link": "/en/develop/modding/1.20.4/Neoforge/flandre/out_01_Environment.html",
@@ -3713,38 +3566,6 @@
               "_hidden": false,
               "_isDirectory": false,
               "_isRoot": false
-            },
-            {
-              "text": "ruby_apple.png",
-              "link": "/en/develop/modding/1.20.4/Neoforge/flandre/ruby_apple.png",
-              "_relativePathKey": "flandre/ruby_apple.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "ruby.png",
-              "link": "/en/develop/modding/1.20.4/Neoforge/flandre/ruby.png",
-              "_relativePathKey": "flandre/ruby.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "zircon_lamp_off.png",
-              "link": "/en/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_off.png",
-              "_relativePathKey": "flandre/zircon_lamp_off.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "zircon_lamp_on.png",
-              "link": "/en/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_on.png",
-              "_relativePathKey": "flandre/zircon_lamp_on.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
             }
           ],
           "collapsed": false,
@@ -3767,38 +3588,6 @@
     {
       "text": "flandre",
       "items": [
-        {
-          "text": "image-1.png",
-          "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image-1.png",
-          "_relativePathKey": "image-1.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "image-2.png",
-          "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image-2.png",
-          "_relativePathKey": "image-2.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "image-3.png",
-          "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image-3.png",
-          "_relativePathKey": "image-3.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "image.png",
-          "link": "/en/develop/modding/1.20.4/Neoforge/flandre/image.png",
-          "_relativePathKey": "image.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
         {
           "text": "01 环境配置",
           "link": "/en/develop/modding/1.20.4/Neoforge/flandre/out_01_Environment.html",
@@ -4219,38 +4008,6 @@
           "text": "53 更新到Minecraft 1.20.6版本",
           "link": "/en/develop/modding/1.20.4/Neoforge/flandre/out_53_Update_1.20.6.html",
           "_relativePathKey": "out_53_Update_1.20.6.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "ruby.png",
-          "link": "/en/develop/modding/1.20.4/Neoforge/flandre/ruby.png",
-          "_relativePathKey": "ruby.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "ruby_apple.png",
-          "link": "/en/develop/modding/1.20.4/Neoforge/flandre/ruby_apple.png",
-          "_relativePathKey": "ruby_apple.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "zircon_lamp_off.png",
-          "link": "/en/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_off.png",
-          "_relativePathKey": "zircon_lamp_off.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "zircon_lamp_on.png",
-          "link": "/en/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_on.png",
-          "_relativePathKey": "zircon_lamp_on.png",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false

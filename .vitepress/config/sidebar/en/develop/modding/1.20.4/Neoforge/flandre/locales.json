@@ -1,8 +1,4 @@
 {
-  "image-1.png": "image-1.png",
-  "image-2.png": "image-2.png",
-  "image-3.png": "image-3.png",
-  "image.png": "image.png",
   "out_01_Environment.md": "01 环境配置",
   "out_02_FirstItemRegistry.md": "02 第一个物品",
   "out_03_CreativeModTabs.md": "03 创造模式物品栏",
@@ -56,9 +52,5 @@
   "out_51_Particle.md": "51  粒子",
   "out_52_Sound.md": "52 声音",
   "out_53_Update_1.20.6.md": "53 更新到Minecraft 1.20.6版本",
-  "ruby.png": "ruby.png",
-  "ruby_apple.png": "ruby_apple.png",
-  "zircon_lamp_off.png": "zircon_lamp_off.png",
-  "zircon_lamp_on.png": "zircon_lamp_on.png",
   "_self_": "flandre"
 }

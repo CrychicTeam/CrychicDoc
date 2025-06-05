@@ -46,6 +46,11 @@ async function processFileEntry(
     lang: string,
     fs: FileSystem
 ): Promise<SidebarItem | null> {
+    // Skip non-markdown files
+    if (!entryName.toLowerCase().endsWith('.md')) {
+        return null;
+    }
+
     if (entryName.toLowerCase() === "index.md") {
         return null;
     }

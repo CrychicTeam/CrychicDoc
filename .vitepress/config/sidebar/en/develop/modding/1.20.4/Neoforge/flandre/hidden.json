@@ -1,8 +1,4 @@
 {
-  "image-1.png": false,
-  "image-2.png": false,
-  "image-3.png": false,
-  "image.png": false,
   "out_01_Environment.md": false,
   "out_02_FirstItemRegistry.md": false,
   "out_03_CreativeModTabs.md": false,
@@ -56,9 +52,5 @@
   "out_51_Particle.md": false,
   "out_52_Sound.md": false,
   "out_53_Update_1.20.6.md": false,
-  "ruby.png": false,
-  "ruby_apple.png": false,
-  "zircon_lamp_off.png": false,
-  "zircon_lamp_on.png": false,
   "_self_": false
 }

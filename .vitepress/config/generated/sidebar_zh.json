@@ -1984,70 +1984,6 @@
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false
-                },
-                {
-                  "text": "image-1.png",
-                  "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image-1.png",
-                  "_relativePathKey": "Neoforge/flandre/image-1.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "image-2.png",
-                  "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image-2.png",
-                  "_relativePathKey": "Neoforge/flandre/image-2.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "image-3.png",
-                  "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image-3.png",
-                  "_relativePathKey": "Neoforge/flandre/image-3.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "image.png",
-                  "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image.png",
-                  "_relativePathKey": "Neoforge/flandre/image.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "ruby_apple.png",
-                  "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/ruby_apple.png",
-                  "_relativePathKey": "Neoforge/flandre/ruby_apple.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "ruby.png",
-                  "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/ruby.png",
-                  "_relativePathKey": "Neoforge/flandre/ruby.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "zircon_lamp_off.png",
-                  "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_off.png",
-                  "_relativePathKey": "Neoforge/flandre/zircon_lamp_off.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "zircon_lamp_on.png",
-                  "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_on.png",
-                  "_relativePathKey": "Neoforge/flandre/zircon_lamp_on.png",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
                 }
               ],
               "collapsed": false,
@@ -3256,38 +3192,6 @@
           "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/",
           "items": [
             {
-              "text": "image-1.png",
-              "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image-1.png",
-              "_relativePathKey": "flandre/image-1.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "image-2.png",
-              "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image-2.png",
-              "_relativePathKey": "flandre/image-2.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "image-3.png",
-              "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image-3.png",
-              "_relativePathKey": "flandre/image-3.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "image.png",
-              "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image.png",
-              "_relativePathKey": "flandre/image.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
               "text": "01 环境配置",
               "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_01_Environment.html",
               "_relativePathKey": "flandre/out_01_Environment.md",
@@ -3710,38 +3614,6 @@
               "_hidden": false,
               "_isDirectory": false,
               "_isRoot": false
-            },
-            {
-              "text": "ruby_apple.png",
-              "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/ruby_apple.png",
-              "_relativePathKey": "flandre/ruby_apple.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "ruby.png",
-              "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/ruby.png",
-              "_relativePathKey": "flandre/ruby.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "zircon_lamp_off.png",
-              "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_off.png",
-              "_relativePathKey": "flandre/zircon_lamp_off.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "zircon_lamp_on.png",
-              "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_on.png",
-              "_relativePathKey": "flandre/zircon_lamp_on.png",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
             }
           ],
           "collapsed": false,
@@ -3764,38 +3636,6 @@
     {
       "text": "flandre",
       "items": [
-        {
-          "text": "image-1.png",
-          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image-1.png",
-          "_relativePathKey": "image-1.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "image-2.png",
-          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image-2.png",
-          "_relativePathKey": "image-2.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "image-3.png",
-          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image-3.png",
-          "_relativePathKey": "image-3.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "image.png",
-          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/image.png",
-          "_relativePathKey": "image.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
         {
           "text": "01 环境配置",
           "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_01_Environment.html",
@@ -4216,38 +4056,6 @@
           "text": "53 更新到Minecraft 1.20.6版本",
           "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/out_53_Update_1.20.6.html",
           "_relativePathKey": "out_53_Update_1.20.6.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "ruby.png",
-          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/ruby.png",
-          "_relativePathKey": "ruby.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "ruby_apple.png",
-          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/ruby_apple.png",
-          "_relativePathKey": "ruby_apple.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "zircon_lamp_off.png",
-          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_off.png",
-          "_relativePathKey": "zircon_lamp_off.png",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "zircon_lamp_on.png",
-          "link": "/zh/develop/modding/1.20.4/Neoforge/flandre/zircon_lamp_on.png",
-          "_relativePathKey": "zircon_lamp_on.png",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
