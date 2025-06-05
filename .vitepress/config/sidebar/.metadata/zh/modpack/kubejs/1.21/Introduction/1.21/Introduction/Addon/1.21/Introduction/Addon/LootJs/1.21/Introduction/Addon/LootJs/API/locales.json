@@ -1,0 +1,74 @@
+{
+  "1.21/Introduction/Addon/LootJs/API/ItemFilter.md": {
+    "valueHash": "dac3033fcad88d2005cf71ea54c3e04a",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/LootConditions.md": {
+    "valueHash": "b68605136facd53fbaf36d5e20df3f01",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/LootContext.md": {
+    "valueHash": "b9465a556a5a4c1c651224b69f3a762f",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/LootEntry.md": {
+    "valueHash": "79f552e0b636dea68f8d795ef2345a13",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/LootEntryTransformer.md": {
+    "valueHash": "c3b4c478ab2c9c7689826e49581be205",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/LootFunctions.md": {
+    "valueHash": "bac21bb1aac26d61bd3947b8644d11d2",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/LootModifier.md": {
+    "valueHash": "7725b68c647112754fa737b935f8c569",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/LootPool.md": {
+    "valueHash": "bb56e3cd61b7d5c5867357e436e644d4",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/LootTable.md": {
+    "valueHash": "cb0accb44044808bdfd2d47da458b0e7",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/NumberProvider.md": {
+    "valueHash": "1ecd48b18c98e342014ac37b96064af0",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "1.21/Introduction/Addon/LootJs/API/Range.md": {
+    "valueHash": "87ba2ecc8b6915e8bd6f5089918229fd",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498353
+  },
+  "_self_": {
+    "valueHash": "db974238714ca8de634a7ce1d083a14f",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091498353
+  }
+}

@@ -266,6 +266,15 @@
           "_isRoot": false
         },
         {
+          "text": "guide",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "guide/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        },
+        {
           "text": "rules",
           "link": "/zh/doc/rules.html",
           "_relativePathKey": "rules.md",
@@ -678,93 +687,6 @@
       "_hidden": false
     }
   ],
-  "/zh/modpack/": [
-    {
-      "text": "整合包",
-      "items": [
-        {
-          "text": "整合包",
-          "link": "/zh/modpack/kubejs/",
-          "items": [
-            {
-              "text": "1.18.2",
-              "link": "/zh/modpack/kubejs/1.18.2/",
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "kubejs/1.18.2/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "1.19.2",
-              "link": "/zh/modpack/kubejs/1.19.2/",
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "kubejs/1.19.2/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "KubeJS",
-              "link": "/zh/modpack/kubejs/1.20.1/",
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "kubejs/1.20.1/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "KubeJS",
-              "link": "/zh/modpack/kubejs/1.21/",
-              "items": [
-                {
-                  "text": "介绍",
-                  "link": "/zh/modpack/kubejs/1.21/Introduction/",
-                  "collapsed": false,
-                  "_priority": 9007199254740991,
-                  "_relativePathKey": "kubejs/1.21/Introduction/",
-                  "_isDirectory": true,
-                  "_isRoot": false,
-                  "_hidden": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "kubejs/1.21/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": true,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "kubejs/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        },
-        {
-          "text": "推荐",
-          "link": "/zh/modpack/recommendation/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "recommendation/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
   "/zh/mods/": [
     {
       "text": "模组",
@@ -951,6 +873,40 @@
           "collapsed": false,
           "_priority": 9007199254740991,
           "_relativePathKey": "tech/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/modpack/": [
+    {
+      "text": "整合包",
+      "items": [
+        {
+          "text": "KubeJS",
+          "link": "/zh/modpack/kubejs/",
+          "items": [],
+          "collapsed": true,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "kubejs/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        },
+        {
+          "text": "推荐",
+          "link": "/zh/modpack/recommendation/",
+          "collapsed": true,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "recommendation/",
           "_isDirectory": true,
           "_isRoot": false,
           "_hidden": false
@@ -1293,180 +1249,6 @@
       "_hidden": false
     }
   ],
-  "/zh/modpack/kubejs/": [
-    {
-      "text": "整合包",
-      "items": [
-        {
-          "text": "1.18.2",
-          "link": "/zh/modpack/kubejs/1.18.2/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.18.2/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
-        },
-        {
-          "text": "1.19.2",
-          "link": "/zh/modpack/kubejs/1.19.2/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.19.2/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
-        },
-        {
-          "text": "KubeJS",
-          "link": "/zh/modpack/kubejs/1.20.1/",
-          "items": [
-            {
-              "text": "CodeShare",
-              "items": [
-                {
-                  "text": "CraftingTableGUI",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI.html",
-                  "_relativePathKey": "1.20.1/CodeShare/CraftingTableGUI.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "Dining",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Dining.html",
-                  "_relativePathKey": "1.20.1/CodeShare/Dining.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "InvertedBonemeal",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/InvertedBonemeal.html",
-                  "_relativePathKey": "1.20.1/CodeShare/InvertedBonemeal.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "LifeValue",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/LifeValue.html",
-                  "_relativePathKey": "1.20.1/CodeShare/LifeValue.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "Painter",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Painter.html",
-                  "_relativePathKey": "1.20.1/CodeShare/Painter.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.20.1/CodeShare/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "Introduction",
-              "items": [
-                {
-                  "text": "Description",
-                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Description.html",
-                  "_relativePathKey": "1.20.1/Introduction/Description.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.20.1/Introduction/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "Upgrade",
-              "items": [
-                {
-                  "text": "数据类型",
-                  "link": "/zh/modpack/kubejs/1.20.1/Upgrade/DataType.html",
-                  "_relativePathKey": "1.20.1/Upgrade/DataType.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "JavaScript相关概念",
-                  "link": "/zh/modpack/kubejs/1.20.1/Upgrade/JavaScript/",
-                  "collapsed": false,
-                  "_priority": 9007199254740991,
-                  "_relativePathKey": "1.20.1/Upgrade/JavaScript/",
-                  "_isDirectory": true,
-                  "_isRoot": false,
-                  "_hidden": false
-                },
-                {
-                  "text": "基本类型",
-                  "link": "/zh/modpack/kubejs/1.20.1/Upgrade/VariableType.html",
-                  "_relativePathKey": "1.20.1/Upgrade/VariableType.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.20.1/Upgrade/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.20.1/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        },
-        {
-          "text": "KubeJS",
-          "link": "/zh/modpack/kubejs/1.21/",
-          "items": [
-            {
-              "text": "介绍",
-              "link": "/zh/modpack/kubejs/1.21/Introduction/",
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.21/Introduction/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.21/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
   "/zh/mods/adventure/": [
     {
       "text": "目录",
@@ -1560,6 +1342,61 @@
           "collapsed": false,
           "_priority": 9007199254740991,
           "_relativePathKey": "MBD2/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/modpack/kubejs/": [
+    {
+      "text": "整合包",
+      "items": [
+        {
+          "text": "1.18.2",
+          "link": "/zh/modpack/kubejs/1.18.2/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.18.2/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        },
+        {
+          "text": "1.19.2",
+          "link": "/zh/modpack/kubejs/1.19.2/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.19.2/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        },
+        {
+          "text": "KubeJS",
+          "link": "/zh/modpack/kubejs/1.20.1/",
+          "items": [],
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.20.1/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        },
+        {
+          "text": "KubeJS",
+          "link": "/zh/modpack/kubejs/1.21/",
+          "items": [],
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.21/",
           "_isDirectory": true,
           "_isRoot": true,
           "_hidden": false
@@ -2211,6 +2048,67 @@
       "_hidden": false
     }
   ],
+  "/zh/info/KubeJS/code/": [
+    {
+      "text": "code",
+      "items": [
+        {
+          "text": "error",
+          "link": "/zh/info/KubeJS/code/error.html",
+          "_relativePathKey": "error.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "eventHandler",
+          "link": "/zh/info/KubeJS/code/eventHandler.html",
+          "_relativePathKey": "eventHandler.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "loadClass",
+          "link": "/zh/info/KubeJS/code/loadClass.html",
+          "_relativePathKey": "loadClass.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "other",
+          "link": "/zh/info/KubeJS/code/other.html",
+          "_relativePathKey": "other.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "register",
+          "link": "/zh/info/KubeJS/code/register.html",
+          "_relativePathKey": "register.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "utils",
+          "link": "/zh/info/KubeJS/code/utils.html",
+          "_relativePathKey": "utils.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/zh/info/KubeJS/borad/": [
     {
       "text": "borad",
@@ -2267,67 +2165,6 @@
           "text": "teamRecruit",
           "link": "/zh/info/KubeJS/borad/teamRecruit.html",
           "_relativePathKey": "teamRecruit.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/KubeJS/code/": [
-    {
-      "text": "code",
-      "items": [
-        {
-          "text": "error",
-          "link": "/zh/info/KubeJS/code/error.html",
-          "_relativePathKey": "error.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "eventHandler",
-          "link": "/zh/info/KubeJS/code/eventHandler.html",
-          "_relativePathKey": "eventHandler.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "loadClass",
-          "link": "/zh/info/KubeJS/code/loadClass.html",
-          "_relativePathKey": "loadClass.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "other",
-          "link": "/zh/info/KubeJS/code/other.html",
-          "_relativePathKey": "other.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "register",
-          "link": "/zh/info/KubeJS/code/register.html",
-          "_relativePathKey": "register.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "utils",
-          "link": "/zh/info/KubeJS/code/utils.html",
-          "_relativePathKey": "utils.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
@@ -2410,13 +2247,202 @@
       "_hidden": false
     }
   ],
+  "/zh/mods/adventure/Champions-Unofficial/": [
+    {
+      "text": "冠军再续",
+      "items": [
+        {
+          "text": "affix_setting",
+          "link": "/zh/mods/adventure/Champions-Unofficial/affix_setting.html",
+          "_relativePathKey": "affix_setting.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "配置",
+          "link": "/zh/mods/adventure/Champions-Unofficial/config.html",
+          "_relativePathKey": "config.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "modifier_setting",
+          "link": "/zh/mods/adventure/Champions-Unofficial/modifier_setting.html",
+          "_relativePathKey": "modifier_setting.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "Wiki",
+          "link": "/zh/mods/adventure/Champions-Unofficial/wiki.html",
+          "_relativePathKey": "wiki.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/mods/custom/MBD2/": [
+    {
+      "text": "MBD2",
+      "items": [
+        {
+          "text": "Multiblock2",
+          "link": "/zh/mods/custom/MBD2/Catalogue.html",
+          "_relativePathKey": "Catalogue.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "SingleBlockBasic",
+          "link": "/zh/mods/custom/MBD2/SingleBlockBasic.html",
+          "_relativePathKey": "SingleBlockBasic.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "SingleBlockBasicSettings",
+          "link": "/zh/mods/custom/MBD2/SingleBlockBasicSettings.html",
+          "_relativePathKey": "SingleBlockBasicSettings.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/zh/modpack/kubejs/1.20.1/": [
     {
       "text": "KubeJS",
       "items": [
         {
-          "text": "介绍",
+          "text": "Introduction",
           "items": [
+            {
+              "text": "Addon",
+              "items": [
+                {
+                  "text": "LootJS",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/",
+                  "items": [
+                    {
+                      "text": "Conditions",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Conditions.html",
+                      "_relativePathKey": "Introduction/Addon/LootJs/Conditions.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Event",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Event.html",
+                      "_relativePathKey": "Introduction/Addon/LootJs/Event.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Functions",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Functions.html",
+                      "_relativePathKey": "Introduction/Addon/LootJs/Functions.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "LootEntry",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/LootEntry.html",
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootEntry.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "LootJs",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/LootJs.html",
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootJs.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Type",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/LootJs/Type.html",
+                      "_relativePathKey": "Introduction/Addon/LootJs/Type.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/Addon/LootJs/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
+                {
+                  "text": "ProbeJS",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/",
+                  "items": [
+                    {
+                      "text": "JSDoc",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/JSDoc.html",
+                      "_relativePathKey": "Introduction/Addon/ProbeJS/JSDoc.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "ProbeJS",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/ProbeJS.html",
+                      "_relativePathKey": "Introduction/Addon/ProbeJS/ProbeJS.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "ProbeJSClassFlie",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Addon/ProbeJS/ProbeJSClassFlie.html",
+                      "_relativePathKey": "Introduction/Addon/ProbeJS/ProbeJSClassFlie.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/Addon/ProbeJS/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "Introduction/Addon/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            },
             {
               "text": "Block",
               "items": [
@@ -2427,6 +2453,25 @@
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false
+                },
+                {
+                  "text": "Register",
+                  "items": [
+                    {
+                      "text": "Register",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Block/Register/Register.html",
+                      "_relativePathKey": "Introduction/Block/Register/Register.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/Block/Register/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
                 }
               ],
               "collapsed": false,
@@ -2488,8 +2533,103 @@
               "_hidden": false
             },
             {
+              "text": "Event",
+              "items": [
+                {
+                  "text": "ClientScript",
+                  "items": [
+                    {
+                      "text": "EventList",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ClientScript/EventList.html",
+                      "_relativePathKey": "Introduction/Event/ClientScript/EventList.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/Event/ClientScript/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
+                {
+                  "text": "ServerScript",
+                  "items": [
+                    {
+                      "text": "EventList",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/ServerScript/EventList.html",
+                      "_relativePathKey": "Introduction/Event/ServerScript/EventList.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/Event/ServerScript/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
+                {
+                  "text": "StartupScript",
+                  "items": [
+                    {
+                      "text": "EventList",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Event/StartupScript/EventList.html",
+                      "_relativePathKey": "Introduction/Event/StartupScript/EventList.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/Event/StartupScript/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "Introduction/Event/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            },
+            {
               "text": "GlobalScope",
               "items": [
+                {
+                  "text": "Classes",
+                  "items": [
+                    {
+                      "text": "Java",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Classes/Java.html",
+                      "_relativePathKey": "Introduction/GlobalScope/Classes/Java.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "ResourceLocation",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Classes/ResourceLocation.html",
+                      "_relativePathKey": "Introduction/GlobalScope/Classes/ResourceLocation.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/GlobalScope/Classes/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
                 {
                   "text": "Description",
                   "link": "/zh/modpack/kubejs/1.20.1/Introduction/GlobalScope/Description.html",
@@ -2524,6 +2664,49 @@
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false
+                },
+                {
+                  "text": "Register",
+                  "items": [
+                    {
+                      "text": "ItemProperty",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/ItemProperty.html",
+                      "_relativePathKey": "Introduction/Item/Register/ItemProperty.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "ItemType",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/ItemType.html",
+                      "_relativePathKey": "Introduction/Item/Register/ItemType.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Register",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/Register.html",
+                      "_relativePathKey": "Introduction/Item/Register/Register.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Resource",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/Item/Register/Resource.html",
+                      "_relativePathKey": "Introduction/Item/Register/Resource.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/Item/Register/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
                 }
               ],
               "collapsed": false,
@@ -2536,6 +2719,57 @@
             {
               "text": "LootTable",
               "items": [
+                {
+                  "text": "BasicKnowledge",
+                  "items": [
+                    {
+                      "text": "ItemModifier",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/ItemModifier.html",
+                      "_relativePathKey": "Introduction/LootTable/BasicKnowledge/ItemModifier.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "LootEntry",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/LootEntry.html",
+                      "_relativePathKey": "Introduction/LootTable/BasicKnowledge/LootEntry.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "LootPool",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/LootPool.html",
+                      "_relativePathKey": "Introduction/LootTable/BasicKnowledge/LootPool.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "LootType",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/LootType.html",
+                      "_relativePathKey": "Introduction/LootTable/BasicKnowledge/LootType.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Predicate",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/BasicKnowledge/Predicate.html",
+                      "_relativePathKey": "Introduction/LootTable/BasicKnowledge/Predicate.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/LootTable/BasicKnowledge/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
                 {
                   "text": "Catalogue",
                   "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Catalogue.html",
@@ -2551,6 +2785,65 @@
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false
+                },
+                {
+                  "text": "Vanilla",
+                  "items": [
+                    {
+                      "text": "Block",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Block.html",
+                      "_relativePathKey": "Introduction/LootTable/Vanilla/Block.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Chest",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Chest.html",
+                      "_relativePathKey": "Introduction/LootTable/Vanilla/Chest.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Entity",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Entity.html",
+                      "_relativePathKey": "Introduction/LootTable/Vanilla/Entity.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Fish",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Fish.html",
+                      "_relativePathKey": "Introduction/LootTable/Vanilla/Fish.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Generic",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Generic.html",
+                      "_relativePathKey": "Introduction/LootTable/Vanilla/Generic.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Gift",
+                      "link": "/zh/modpack/kubejs/1.20.1/Introduction/LootTable/Vanilla/Gift.html",
+                      "_relativePathKey": "Introduction/LootTable/Vanilla/Gift.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/LootTable/Vanilla/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
                 }
               ],
               "collapsed": false,
@@ -2805,6 +3098,84 @@
               "text": "Recipe",
               "items": [
                 {
+                  "text": "AddRecipe",
+                  "items": [
+                    {
+                      "text": "Vanilla",
+                      "items": [
+                        {
+                          "text": "BlastFurnace",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/BlastFurnace.html",
+                          "_relativePathKey": "Introduction/Recipe/AddRecipe/Vanilla/BlastFurnace.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "Campfire",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Campfire.html",
+                          "_relativePathKey": "Introduction/Recipe/AddRecipe/Vanilla/Campfire.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "CraftingTable",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/CraftingTable.html",
+                          "_relativePathKey": "Introduction/Recipe/AddRecipe/Vanilla/CraftingTable.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "Furnace",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Furnace.html",
+                          "_relativePathKey": "Introduction/Recipe/AddRecipe/Vanilla/Furnace.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "SmithingTable",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/SmithingTable.html",
+                          "_relativePathKey": "Introduction/Recipe/AddRecipe/Vanilla/SmithingTable.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "Smoker",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Smoker.html",
+                          "_relativePathKey": "Introduction/Recipe/AddRecipe/Vanilla/Smoker.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "Stonecutter",
+                          "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/AddRecipe/Vanilla/Stonecutter.html",
+                          "_relativePathKey": "Introduction/Recipe/AddRecipe/Vanilla/Stonecutter.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        }
+                      ],
+                      "collapsed": false,
+                      "_priority": 9007199254740991,
+                      "_relativePathKey": "Introduction/Recipe/AddRecipe/Vanilla/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/Recipe/AddRecipe/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
+                {
                   "text": "Catalogue",
                   "link": "/zh/modpack/kubejs/1.20.1/Introduction/Recipe/Catalogue.html",
                   "_relativePathKey": "Introduction/Recipe/Catalogue.md",
@@ -2936,7 +3307,7 @@
               "_hidden": false
             }
           ],
-          "collapsed": true,
+          "collapsed": false,
           "_priority": 9007199254740991,
           "_relativePathKey": "Introduction/",
           "_isDirectory": true,
@@ -3004,6 +3375,218 @@
               "_hidden": false,
               "_isDirectory": false,
               "_isRoot": false
+            },
+            {
+              "text": "GlobalScope",
+              "items": [
+                {
+                  "text": "Classes",
+                  "items": [
+                    {
+                      "text": "AABB",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/AABB.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/AABB.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "方块类（Block）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Block.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Block.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "方块状态谓词类（BlockStatePredicate）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/BlockStatePredicate.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/BlockStatePredicate.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "全局类",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Catalogue.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Catalogue.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "颜色类（Color）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Color.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Color.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "方向类（Direction）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Direction.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Direction.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "面类（Facing）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Facing.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Facing.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "流体类（Fluid）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Fluid.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Fluid.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "原料类（Ingredient）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Ingredient.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Ingredient.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "原料助手类（IngredientHelper）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/IngredientHelper.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/IngredientHelper.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "物品类(Item)",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Item.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Item.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "Json读写类（JsonIO）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/JsonIO.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/JsonIO.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "NBT类（NBT）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/NBT.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/NBT.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "NBT读写类（NBTIO）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/NBTIO.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/NBTIO.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "平台类（Platform）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Platform.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Platform.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "资源位置类（ResourceLocation）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/ResourceLocation.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/ResourceLocation.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "文本类（Text）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Text.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Text.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "实用工具类（Utils）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Utils.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Utils.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "通用唯一标识符类（UUID）",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/Classes/Uuid.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/Classes/Uuid.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Upgrade/GlobalScope/Classes/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
+                {
+                  "text": "ConstantsAndObjects",
+                  "items": [
+                    {
+                      "text": "常量与对象",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/ConstantsAndObjects/Catalogue.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/ConstantsAndObjects/Catalogue.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Upgrade/GlobalScope/ConstantsAndObjects/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
+                {
+                  "text": "WrappedClasses",
+                  "items": [
+                    {
+                      "text": "包装类",
+                      "link": "/zh/modpack/kubejs/1.20.1/Upgrade/GlobalScope/WrappedClasses/Catalogue.html",
+                      "_relativePathKey": "Upgrade/GlobalScope/WrappedClasses/Catalogue.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Upgrade/GlobalScope/WrappedClasses/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "Upgrade/GlobalScope/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
             },
             {
               "text": "JavaScript相关概念",
@@ -3119,94 +3702,216 @@
         {
           "text": "介绍",
           "link": "/zh/modpack/kubejs/1.21/Introduction/",
+          "items": [
+            {
+              "text": "Addon",
+              "items": [
+                {
+                  "text": "LootJs",
+                  "items": [
+                    {
+                      "text": "API",
+                      "items": [
+                        {
+                          "text": "ItemFilter",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/ItemFilter.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/ItemFilter.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "LootConditions",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootConditions.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootConditions.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "LootContext",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootContext.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootContext.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "LootEntry",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntry.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntry.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "LootEntryTransformer",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntryTransformer.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntryTransformer.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "LootFunctions",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootFunctions.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootFunctions.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "LootModifier",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootModifier.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootModifier.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "LootPool",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootPool.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootPool.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "LootTable",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootTable.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootTable.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "NumberProvider",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/NumberProvider.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/NumberProvider.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "Range",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/Range.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/Range.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        }
+                      ],
+                      "collapsed": false,
+                      "_priority": 9007199254740991,
+                      "_relativePathKey": "Introduction/Addon/LootJs/API/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    },
+                    {
+                      "text": "Loot Modifiers",
+                      "items": [
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/Loot Modifiers/Event.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/Event.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        }
+                      ],
+                      "collapsed": false,
+                      "_priority": 9007199254740991,
+                      "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    },
+                    {
+                      "text": "LootJs",
+                      "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootJs.html",
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootJs.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false
+                    },
+                    {
+                      "text": "LootModifiers",
+                      "items": [
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootModifiers/Event.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/Event.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        }
+                      ],
+                      "collapsed": false,
+                      "_priority": 9007199254740991,
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    },
+                    {
+                      "text": "LootTables",
+                      "items": [
+                        {
+                          "text": "Create",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Create.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Create.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Event.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Event.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        },
+                        {
+                          "text": "Modify",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Modify.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Modify.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false
+                        }
+                      ],
+                      "collapsed": false,
+                      "_priority": 9007199254740991,
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootTables/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    }
+                  ],
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "Introduction/Addon/LootJs/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "Introduction/Addon/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
           "collapsed": false,
           "_priority": 9007199254740991,
           "_relativePathKey": "Introduction/",
           "_isDirectory": true,
           "_isRoot": false,
           "_hidden": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/mods/adventure/Champions-Unofficial/": [
-    {
-      "text": "冠军再续",
-      "items": [
-        {
-          "text": "affix_setting",
-          "link": "/zh/mods/adventure/Champions-Unofficial/affix_setting.html",
-          "_relativePathKey": "affix_setting.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "配置",
-          "link": "/zh/mods/adventure/Champions-Unofficial/config.html",
-          "_relativePathKey": "config.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "modifier_setting",
-          "link": "/zh/mods/adventure/Champions-Unofficial/modifier_setting.html",
-          "_relativePathKey": "modifier_setting.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "Wiki",
-          "link": "/zh/mods/adventure/Champions-Unofficial/wiki.html",
-          "_relativePathKey": "wiki.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/mods/custom/MBD2/": [
-    {
-      "text": "MBD2",
-      "items": [
-        {
-          "text": "Multiblock2",
-          "link": "/zh/mods/custom/MBD2/Catalogue.html",
-          "_relativePathKey": "Catalogue.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "SingleBlockBasic",
-          "link": "/zh/mods/custom/MBD2/SingleBlockBasic.html",
-          "_relativePathKey": "SingleBlockBasic.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "SingleBlockBasicSettings",
-          "link": "/zh/mods/custom/MBD2/SingleBlockBasicSettings.html",
-          "_relativePathKey": "SingleBlockBasicSettings.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
         }
       ],
       "collapsed": false,

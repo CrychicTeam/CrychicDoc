@@ -1,8 +1,14 @@
 {
+  "Addon/": {
+    "valueHash": "304cb904a1f04e9ae0b7cc5c2c02f7a6",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563489
+  },
   "_self_": {
     "valueHash": "61a3ec6656837d917b6f69525a262eec",
     "isUserSet": true,
     "isActiveInStructure": false,
-    "lastSeen": 1749088110852
+    "lastSeen": 1749091563489
   }
 }

@@ -1,0 +1,146 @@
+{
+  "kubejs/1.20.1/Introduction/Miscellaneous/Collection.md": {
+    "valueHash": "d15b505cce09406de9f918cb1f8c641c",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/CompletableFuture.md": {
+    "valueHash": "64aa2a5f909a022cd0525173328a9c6e",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Components.md": {
+    "valueHash": "05bbb43b3d923283e0b6ffafd088f41f",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/CountingMap.md": {
+    "valueHash": "99930f59074c77105b9357ea91b3d51f",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Description.md": {
+    "valueHash": "b5a7adde1af5c87d7fd797b6245c2a39",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Ingredient.md": {
+    "valueHash": "59198347aa8a409ad9e4f0ccd56950eb",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/IngredientActionFilter.md": {
+    "valueHash": "d54b2e135b967d70abc849e1dc5515a9",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/ItemStack.md": {
+    "valueHash": "81f76f1b1d9595a3673d7a34a1177414",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Lazy.md": {
+    "valueHash": "46a9ebdb80117bfa1f0cdea65438290a",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/List.md": {
+    "valueHash": "4ee29ca12c7d126654bd0e5275de6135",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Map.md": {
+    "valueHash": "46f3ea056caa3126b91f3f70beea068c",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/NumberProvider.md": {
+    "valueHash": "1ecd48b18c98e342014ac37b96064af0",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/ParticleOptions.md": {
+    "valueHash": "97d9485c593652225cfba6d73a698fbd",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Pattern.md": {
+    "valueHash": "57391192dfa1f247ad015a0fe2eca48e",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Providers.md": {
+    "valueHash": "ebb4c7315a13fbb6d59f702992052318",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Random.md": {
+    "valueHash": "64663f4646781c9c0110838b905daa23",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/RandomGenerator.md": {
+    "valueHash": "1d0e61fd9bf1809eecfa8259d2cef896",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/RecipeFilter.md": {
+    "valueHash": "80149cba920280d5119f862ca45634af",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/RegistryInfo.md": {
+    "valueHash": "fc0f6848bf3176bafe39b2ebac9b6beb",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Runnable.md": {
+    "valueHash": "ea52882b4555d68253c21906fed1a7f9",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/SoundEvent.md": {
+    "valueHash": "0d67ee51ade0489c136d9d4ac9d13ab0",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Stat.md": {
+    "valueHash": "2fdf18bfff0b453fa66b1995c7d7aeed",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "kubejs/1.20.1/Introduction/Miscellaneous/Supplier.md": {
+    "valueHash": "ec136b444eede3bc85639fac0dd06229",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497540
+  },
+  "_self_": {
+    "valueHash": "387baf0199e7c9cc944fae94e96448fa",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091497540
+  }
+}

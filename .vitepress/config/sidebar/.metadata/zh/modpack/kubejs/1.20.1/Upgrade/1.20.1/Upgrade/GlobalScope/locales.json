@@ -1,0 +1,26 @@
+{
+  "1.20.1/Upgrade/GlobalScope/Classes/": {
+    "valueHash": "e9878b4854d29907146149f695cb1cfb",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498237
+  },
+  "1.20.1/Upgrade/GlobalScope/ConstantsAndObjects/": {
+    "valueHash": "5575337e7e9158fd2486015f71c05642",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498237
+  },
+  "1.20.1/Upgrade/GlobalScope/WrappedClasses/": {
+    "valueHash": "829fd190e95be24f77c3b64ac29365e0",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498237
+  },
+  "_self_": {
+    "valueHash": "ae3328c7aacb68ab81fa83e18fbd48e3",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091498237
+  }
+}

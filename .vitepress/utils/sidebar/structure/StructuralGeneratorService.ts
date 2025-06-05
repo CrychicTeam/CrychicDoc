@@ -322,8 +322,6 @@ export class StructuralGeneratorService {
         
         if (isRootDirectoryProcessing) {
             // Use flattening mode for root directories
-
-            
             const rootSection = await this.generateRootSectionWithFlattenedContent(
                 normalizedCurrentContentPath,
                 effectiveConfigForThisView,

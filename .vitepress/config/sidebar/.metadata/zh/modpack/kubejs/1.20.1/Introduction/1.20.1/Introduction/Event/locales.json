@@ -1,0 +1,26 @@
+{
+  "1.20.1/Introduction/Event/ClientScript/": {
+    "valueHash": "498ae52ca76151a8cb17287a523e02ae",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498022
+  },
+  "1.20.1/Introduction/Event/ServerScript/": {
+    "valueHash": "d1798778d58ef90a448712a72443559b",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498022
+  },
+  "1.20.1/Introduction/Event/StartupScript/": {
+    "valueHash": "fea0c9ff577643ab0be047d80a7f95c2",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498022
+  },
+  "_self_": {
+    "valueHash": "a4ecfc70574394990cf17bd83df499f7",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091498022
+  }
+}

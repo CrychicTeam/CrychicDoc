@@ -1,8 +1,38 @@
 {
-  "_self_": {
+  "1.20.1/Upgrade/JavaScript/array.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": true,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110457
+    "lastSeen": 1749091498290
+  },
+  "1.20.1/Upgrade/JavaScript/basic.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498290
+  },
+  "1.20.1/Upgrade/JavaScript/map.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498290
+  },
+  "1.20.1/Upgrade/JavaScript/object.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498290
+  },
+  "1.20.1/Upgrade/JavaScript/set.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498290
+  },
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091498290
   }
 }

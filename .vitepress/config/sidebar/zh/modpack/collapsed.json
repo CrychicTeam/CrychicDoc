@@ -1,5 +1,5 @@
 {
   "kubejs/": true,
-  "recommendation/": false,
+  "recommendation/": true,
   "_self_": false
 }

@@ -1,0 +1,50 @@
+{
+  "Introduction/Recipe/AddRecipe/Vanilla/BlastFurnace.md": {
+    "valueHash": "cef16e217d26d844981df9c598984d6e",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563329
+  },
+  "Introduction/Recipe/AddRecipe/Vanilla/Campfire.md": {
+    "valueHash": "a73d89f7c1eda031f0f76c0217ac8330",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563329
+  },
+  "Introduction/Recipe/AddRecipe/Vanilla/CraftingTable.md": {
+    "valueHash": "3bd79ec7bf83d8e433739068b2381abd",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563329
+  },
+  "Introduction/Recipe/AddRecipe/Vanilla/Furnace.md": {
+    "valueHash": "7399ee9906df06fdd5fb9b75294f2e4b",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563329
+  },
+  "Introduction/Recipe/AddRecipe/Vanilla/SmithingTable.md": {
+    "valueHash": "92705dbaf436086b4a4e8b10847f8eb4",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563329
+  },
+  "Introduction/Recipe/AddRecipe/Vanilla/Smoker.md": {
+    "valueHash": "8678df5263057d6cafbd62b1770ad466",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563329
+  },
+  "Introduction/Recipe/AddRecipe/Vanilla/Stonecutter.md": {
+    "valueHash": "c605bed9ef45002d475d8fc9a71618bd",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563329
+  },
+  "_self_": {
+    "valueHash": "7d3cf600bf044a1aaf9324807bd8d13e",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091563329
+  }
+}

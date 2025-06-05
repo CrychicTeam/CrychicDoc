@@ -136,6 +136,46 @@ async function createRootLinkItem(
 }
 
 /**
+ * Recursively checks if a directory contains any markdown files at any depth.
+ * @param dirPath Absolute path to the directory
+ * @param fs FileSystem instance
+ * @param maxDepth Maximum depth to search (prevents infinite recursion)
+ * @returns True if any .md files are found at any depth
+ */
+async function hasNestedMarkdownContent(
+    dirPath: string,
+    fs: FileSystem,
+    maxDepth: number = 5
+): Promise<boolean> {
+    if (maxDepth <= 0) {
+        return false;
+    }
+
+    try {
+        const entries = await fs.readDir(dirPath);
+        
+        for (const entry of entries) {
+            const entryPath = path.join(dirPath, entry.name);
+            
+            if (entry.isFile() && entry.name.toLowerCase().endsWith('.md') && entry.name.toLowerCase() !== 'index.md') {
+                return true;
+            }
+            
+            if (entry.isDirectory()) {
+                const hasNestedContent = await hasNestedMarkdownContent(entryPath, fs, maxDepth - 1);
+                if (hasNestedContent) {
+                    return true;
+                }
+            }
+        }
+    } catch (e: any) {
+        // If we can't read the directory, assume no content
+    }
+    
+    return false;
+}
+
+/**
  * Processes a directory entry and creates a SidebarItem with children.
  * @param entryName The directory name
  * @param normalizedItemAbsPath Normalized absolute path to the directory
@@ -176,6 +216,7 @@ async function processDirectoryEntry(
             ...dirEffectiveConfig,
             _baseRelativePathForChildren: itemRelativePathKey,
         };
+        
         subItems = await recursiveGenerator(
             normalizedItemAbsPath,
             subDirContextConfig,
@@ -194,8 +235,12 @@ async function processDirectoryEntry(
         fs
     );
 
+    // If no immediate content and no link, check for nested markdown content
     if (subItems.length === 0 && !linkToDir) {
-        return null;
+        const hasNestedContent = await hasNestedMarkdownContent(normalizedItemAbsPath, fs);
+        if (!hasNestedContent) {
+            return null;
+        }
     }
 
     const directoryTitle = await getDirectoryTitle(

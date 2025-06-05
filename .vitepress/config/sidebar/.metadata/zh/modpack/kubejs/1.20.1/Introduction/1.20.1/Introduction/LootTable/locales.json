@@ -1,0 +1,32 @@
+{
+  "1.20.1/Introduction/LootTable/BasicKnowledge/": {
+    "valueHash": "d5b4ad9785feb5ce42b103fa7aea4100",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498123
+  },
+  "1.20.1/Introduction/LootTable/Catalogue.md": {
+    "valueHash": "a8567ec8887eb41c7870b3a624524a46",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498123
+  },
+  "1.20.1/Introduction/LootTable/Description.md": {
+    "valueHash": "b5a7adde1af5c87d7fd797b6245c2a39",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498123
+  },
+  "1.20.1/Introduction/LootTable/Vanilla/": {
+    "valueHash": "7d3cf600bf044a1aaf9324807bd8d13e",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498123
+  },
+  "_self_": {
+    "valueHash": "cb0accb44044808bdfd2d47da458b0e7",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091498123
+  }
+}

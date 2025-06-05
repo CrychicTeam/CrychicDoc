@@ -1,0 +1,15 @@
+{
+  "kubejs/1.20.1/Introduction/Addon/": 0,
+  "kubejs/1.20.1/Introduction/Block/": 1,
+  "kubejs/1.20.1/Introduction/Description.md": 2,
+  "kubejs/1.20.1/Introduction/Entity/": 3,
+  "kubejs/1.20.1/Introduction/Event/": 4,
+  "kubejs/1.20.1/Introduction/GlobalScope/": 5,
+  "kubejs/1.20.1/Introduction/Item/": 6,
+  "kubejs/1.20.1/Introduction/LootTable/": 7,
+  "kubejs/1.20.1/Introduction/Miscellaneous/": 8,
+  "kubejs/1.20.1/Introduction/Network/": 9,
+  "kubejs/1.20.1/Introduction/PotionEffect/": 10,
+  "kubejs/1.20.1/Introduction/Recipe/": 11,
+  "kubejs/1.20.1/Introduction/Tag/": 12
+}

@@ -1,4 +1,5 @@
 {
+  "Introduction/GlobalScope/Classes/": "Classes",
   "Introduction/GlobalScope/Description.md": "Description",
   "Introduction/GlobalScope/Utils.md": "Utils",
   "_self_": "GlobalScope"

@@ -1,0 +1,6 @@
+{
+  "Upgrade/GlobalScope/Classes/": "Classes",
+  "Upgrade/GlobalScope/ConstantsAndObjects/": "ConstantsAndObjects",
+  "Upgrade/GlobalScope/WrappedClasses/": "WrappedClasses",
+  "_self_": "GlobalScope"
+}

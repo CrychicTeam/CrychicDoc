@@ -1,0 +1,38 @@
+{
+  "kubejs/1.21/Introduction/Addon/LootJs/API/": {
+    "valueHash": "db974238714ca8de634a7ce1d083a14f",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497683
+  },
+  "kubejs/1.21/Introduction/Addon/LootJs/Loot Modifiers/": {
+    "valueHash": "2c62bb220922a62e4022e055ee7deee1",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497683
+  },
+  "kubejs/1.21/Introduction/Addon/LootJs/LootJs.md": {
+    "valueHash": "9929d9a7142ef9fae2c524f764290fa2",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497683
+  },
+  "kubejs/1.21/Introduction/Addon/LootJs/LootModifiers/": {
+    "valueHash": "4aafc556898e38ed9f60a687347c360a",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497683
+  },
+  "kubejs/1.21/Introduction/Addon/LootJs/LootTables/": {
+    "valueHash": "de2b978d2d955d214200dc41c2ac021a",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497683
+  },
+  "_self_": {
+    "valueHash": "9929d9a7142ef9fae2c524f764290fa2",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091497683
+  }
+}

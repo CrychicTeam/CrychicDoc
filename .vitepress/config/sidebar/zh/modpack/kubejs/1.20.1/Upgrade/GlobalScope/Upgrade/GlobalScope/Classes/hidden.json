@@ -1,0 +1,22 @@
+{
+  "Upgrade/GlobalScope/Classes/AABB.md": false,
+  "Upgrade/GlobalScope/Classes/Block.md": false,
+  "Upgrade/GlobalScope/Classes/BlockStatePredicate.md": false,
+  "Upgrade/GlobalScope/Classes/Catalogue.md": false,
+  "Upgrade/GlobalScope/Classes/Color.md": false,
+  "Upgrade/GlobalScope/Classes/Direction.md": false,
+  "Upgrade/GlobalScope/Classes/Facing.md": false,
+  "Upgrade/GlobalScope/Classes/Fluid.md": false,
+  "Upgrade/GlobalScope/Classes/Ingredient.md": false,
+  "Upgrade/GlobalScope/Classes/IngredientHelper.md": false,
+  "Upgrade/GlobalScope/Classes/Item.md": false,
+  "Upgrade/GlobalScope/Classes/JsonIO.md": false,
+  "Upgrade/GlobalScope/Classes/NBT.md": false,
+  "Upgrade/GlobalScope/Classes/NBTIO.md": false,
+  "Upgrade/GlobalScope/Classes/Platform.md": false,
+  "Upgrade/GlobalScope/Classes/ResourceLocation.md": false,
+  "Upgrade/GlobalScope/Classes/Text.md": false,
+  "Upgrade/GlobalScope/Classes/Utils.md": false,
+  "Upgrade/GlobalScope/Classes/Uuid.md": false,
+  "_self_": false
+}

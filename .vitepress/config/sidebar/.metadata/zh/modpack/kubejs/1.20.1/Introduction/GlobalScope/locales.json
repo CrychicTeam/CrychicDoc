@@ -1,20 +1,26 @@
 {
+  "Introduction/GlobalScope/Classes/": {
+    "valueHash": "e9878b4854d29907146149f695cb1cfb",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563187
+  },
   "Introduction/GlobalScope/Description.md": {
     "valueHash": "b5a7adde1af5c87d7fd797b6245c2a39",
     "isUserSet": true,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110712
+    "lastSeen": 1749091563187
   },
   "Introduction/GlobalScope/Utils.md": {
     "valueHash": "a470a23326b3831dd974dfc1116119c2",
     "isUserSet": true,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110712
+    "lastSeen": 1749091563187
   },
   "_self_": {
     "valueHash": "ae3328c7aacb68ab81fa83e18fbd48e3",
     "isUserSet": true,
     "isActiveInStructure": false,
-    "lastSeen": 1749088110712
+    "lastSeen": 1749091563187
   }
 }

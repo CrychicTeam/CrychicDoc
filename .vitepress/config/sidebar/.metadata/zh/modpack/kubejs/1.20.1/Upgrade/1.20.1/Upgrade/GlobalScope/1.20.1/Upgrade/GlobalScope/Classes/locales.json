@@ -1,0 +1,122 @@
+{
+  "1.20.1/Upgrade/GlobalScope/Classes/AABB.md": {
+    "valueHash": "4276d50f05d2cac4c98c17337ac30c99",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Block.md": {
+    "valueHash": "f3ff7f8aacaf0f86da236e04040e4ff1",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/BlockStatePredicate.md": {
+    "valueHash": "df2cccdc6f9f9ebd52eb7456889afae3",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Catalogue.md": {
+    "valueHash": "5202b885749572c56a1566a7b970b17f",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Color.md": {
+    "valueHash": "0600f71d2e94aace7f2b77e866e0b3e4",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Direction.md": {
+    "valueHash": "f977d57b05960f2b58f7cd838c26adc3",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Facing.md": {
+    "valueHash": "d5c1863b3f81be96e8c71d0f3feeed1c",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Fluid.md": {
+    "valueHash": "06e44c0205e16e2f5088d81e112ffe4b",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Ingredient.md": {
+    "valueHash": "cdf94c4b9f977d08d2fe60c76492caa9",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/IngredientHelper.md": {
+    "valueHash": "f0285c3330be3a2542a4a84d98d73eb6",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Item.md": {
+    "valueHash": "9b895e45c5d7d7d4f933a387eef6b651",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/JsonIO.md": {
+    "valueHash": "31f23949831414ae8c7ef290f35f10d2",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/NBT.md": {
+    "valueHash": "6cb13775078ca20619aabfd7bd2de226",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/NBTIO.md": {
+    "valueHash": "9d3b5314700ca47f552b81193e69aa79",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Platform.md": {
+    "valueHash": "8ff120874eee002e316c24a3e30de77e",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/ResourceLocation.md": {
+    "valueHash": "d51ad1665070afa31a43344eeee23280",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Text.md": {
+    "valueHash": "47b6f2555ea4eeac0295de89a44cdba4",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Utils.md": {
+    "valueHash": "eae738ee9bc73b76dcc485ae80dd7e33",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "1.20.1/Upgrade/GlobalScope/Classes/Uuid.md": {
+    "valueHash": "68788a4340934da831429b05d2ba94ad",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498246
+  },
+  "_self_": {
+    "valueHash": "e9878b4854d29907146149f695cb1cfb",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091498246
+  }
+}

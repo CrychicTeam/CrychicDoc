@@ -1,13 +1,15 @@
 {
-  "Block/": 0,
-  "Description.md": 1,
-  "Entity/": 2,
-  "GlobalScope/": 3,
-  "Item/": 4,
-  "LootTable/": 5,
-  "Miscellaneous/": 6,
-  "Network/": 7,
-  "PotionEffect/": 8,
-  "Recipe/": 9,
-  "Tag/": 10
+  "Addon/": 0,
+  "Block/": 1,
+  "Description.md": 2,
+  "Entity/": 3,
+  "Event/": 4,
+  "GlobalScope/": 5,
+  "Item/": 6,
+  "LootTable/": 7,
+  "Miscellaneous/": 8,
+  "Network/": 9,
+  "PotionEffect/": 10,
+  "Recipe/": 11,
+  "Tag/": 12
 }

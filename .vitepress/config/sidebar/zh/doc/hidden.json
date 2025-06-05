@@ -1,6 +1,7 @@
 {
   "cooperation.md": false,
   "dev.md": false,
+  "guide/": false,
   "rules.md": false,
   "samples.md": false,
   "sidebarTutorial.md": false,

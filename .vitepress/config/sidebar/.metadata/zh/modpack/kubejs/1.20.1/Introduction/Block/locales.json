@@ -3,12 +3,18 @@
     "valueHash": "a8567ec8887eb41c7870b3a624524a46",
     "isUserSet": true,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110686
+    "lastSeen": 1749091563092
+  },
+  "Introduction/Block/Register/": {
+    "valueHash": "0ba7583639a274c434bbe6ef797115a4",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563092
   },
   "_self_": {
     "valueHash": "e1e4c8c9ccd9fc39c391da4bcd093fb2",
     "isUserSet": true,
     "isActiveInStructure": false,
-    "lastSeen": 1749088110686
+    "lastSeen": 1749091563092
   }
 }

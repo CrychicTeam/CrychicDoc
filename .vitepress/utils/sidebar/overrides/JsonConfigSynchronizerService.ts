@@ -52,7 +52,7 @@ export class JsonConfigSynchronizerService {
         // Initialize core services
         this.jsonFileHandler = new JsonFileHandler(fs, baseOverridesPath);
         this.metadataManager = new MetadataManager(fs, metadataStorageBasePath);
-        this.syncEngine = new SyncEngine();
+        this.syncEngine = new SyncEngine(); 
         this.jsonItemSorter = new JsonItemSorter();
 
         // Initialize specialized services
@@ -75,14 +75,14 @@ export class JsonConfigSynchronizerService {
      */
     public async synchronize(
         rootPathKey: string,
-        sidebarTreeInput: SidebarItem[],
-        lang: string,
+        sidebarTreeInput: SidebarItem[], 
+        lang: string, 
         isDevMode: boolean,
         langGitbookPaths: string[]
     ): Promise<SidebarItem[]> {
         if (!Array.isArray(sidebarTreeInput)) {
 
-            return [];
+            return []; 
         }
 
         // Get root directory signature
@@ -121,7 +121,7 @@ export class JsonConfigSynchronizerService {
 
         // Clean up old metadata entries that are no longer needed
         await this.keyMigrationService.cleanupOldMetadata(processedTree, rootConfigDirectorySignature, lang);
-
+        
         // Collect all active directory signatures for cleanup
         const activeDirectorySignatures = new Set<string>();
         this.directorySignatureManager.collectActiveDirectorySignatures(
@@ -157,7 +157,7 @@ export class JsonConfigSynchronizerService {
 
         // Clean up remaining outdated directories
         await this.cleanupService.cleanupOutdatedDirectories(outdatedDirs, lang);
-
+        
         // Synchronize items recursively
         await this.recursiveSynchronizer.synchronizeItemsRecursively(
             processedTree, 
@@ -175,7 +175,7 @@ export class JsonConfigSynchronizerService {
             lang, 
             normalizedGitbookPaths
         );
-
+        
         return processedTree;
     }
 } 

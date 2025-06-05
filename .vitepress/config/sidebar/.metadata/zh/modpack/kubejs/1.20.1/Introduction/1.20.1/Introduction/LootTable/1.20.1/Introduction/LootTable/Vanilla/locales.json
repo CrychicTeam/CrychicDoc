@@ -1,0 +1,44 @@
+{
+  "1.20.1/Introduction/LootTable/Vanilla/Block.md": {
+    "valueHash": "e1e4c8c9ccd9fc39c391da4bcd093fb2",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498145
+  },
+  "1.20.1/Introduction/LootTable/Vanilla/Chest.md": {
+    "valueHash": "080a546abcbea74459f27ba33313993d",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498145
+  },
+  "1.20.1/Introduction/LootTable/Vanilla/Entity.md": {
+    "valueHash": "1a434befae3f49ae09347ded52032f6f",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498145
+  },
+  "1.20.1/Introduction/LootTable/Vanilla/Fish.md": {
+    "valueHash": "071642fa72ba780ee90ed36350d82745",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498145
+  },
+  "1.20.1/Introduction/LootTable/Vanilla/Generic.md": {
+    "valueHash": "8045a0a6c688b0635e3caccc408a1446",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498145
+  },
+  "1.20.1/Introduction/LootTable/Vanilla/Gift.md": {
+    "valueHash": "0d9175fe89fb80d815e7d03698b6e83a",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091498145
+  },
+  "_self_": {
+    "valueHash": "7d3cf600bf044a1aaf9324807bd8d13e",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091498145
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "1.20.1/Upgrade/GlobalScope/Classes/AABB.md": 0,
+  "1.20.1/Upgrade/GlobalScope/Classes/Block.md": 1,
+  "1.20.1/Upgrade/GlobalScope/Classes/BlockStatePredicate.md": 2,
+  "1.20.1/Upgrade/GlobalScope/Classes/Catalogue.md": 3,
+  "1.20.1/Upgrade/GlobalScope/Classes/Color.md": 4,
+  "1.20.1/Upgrade/GlobalScope/Classes/Direction.md": 5,
+  "1.20.1/Upgrade/GlobalScope/Classes/Facing.md": 6,
+  "1.20.1/Upgrade/GlobalScope/Classes/Fluid.md": 7,
+  "1.20.1/Upgrade/GlobalScope/Classes/Ingredient.md": 8,
+  "1.20.1/Upgrade/GlobalScope/Classes/IngredientHelper.md": 9,
+  "1.20.1/Upgrade/GlobalScope/Classes/Item.md": 10,
+  "1.20.1/Upgrade/GlobalScope/Classes/JsonIO.md": 11,
+  "1.20.1/Upgrade/GlobalScope/Classes/NBT.md": 12,
+  "1.20.1/Upgrade/GlobalScope/Classes/NBTIO.md": 13,
+  "1.20.1/Upgrade/GlobalScope/Classes/Platform.md": 14,
+  "1.20.1/Upgrade/GlobalScope/Classes/ResourceLocation.md": 15,
+  "1.20.1/Upgrade/GlobalScope/Classes/Text.md": 16,
+  "1.20.1/Upgrade/GlobalScope/Classes/Utils.md": 17,
+  "1.20.1/Upgrade/GlobalScope/Classes/Uuid.md": 18
+}

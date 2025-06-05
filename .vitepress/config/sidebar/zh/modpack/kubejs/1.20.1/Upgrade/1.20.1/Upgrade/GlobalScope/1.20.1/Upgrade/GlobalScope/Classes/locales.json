@@ -1,0 +1,22 @@
+{
+  "1.20.1/Upgrade/GlobalScope/Classes/AABB.md": "AABB",
+  "1.20.1/Upgrade/GlobalScope/Classes/Block.md": "方块类（Block）",
+  "1.20.1/Upgrade/GlobalScope/Classes/BlockStatePredicate.md": "方块状态谓词类（BlockStatePredicate）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Catalogue.md": "全局类",
+  "1.20.1/Upgrade/GlobalScope/Classes/Color.md": "颜色类（Color）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Direction.md": "方向类（Direction）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Facing.md": "面类（Facing）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Fluid.md": "流体类（Fluid）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Ingredient.md": "原料类（Ingredient）",
+  "1.20.1/Upgrade/GlobalScope/Classes/IngredientHelper.md": "原料助手类（IngredientHelper）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Item.md": "物品类(Item)",
+  "1.20.1/Upgrade/GlobalScope/Classes/JsonIO.md": "Json读写类（JsonIO）",
+  "1.20.1/Upgrade/GlobalScope/Classes/NBT.md": "NBT类（NBT）",
+  "1.20.1/Upgrade/GlobalScope/Classes/NBTIO.md": "NBT读写类（NBTIO）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Platform.md": "平台类（Platform）",
+  "1.20.1/Upgrade/GlobalScope/Classes/ResourceLocation.md": "资源位置类（ResourceLocation）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Text.md": "文本类（Text）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Utils.md": "实用工具类（Utils）",
+  "1.20.1/Upgrade/GlobalScope/Classes/Uuid.md": "通用唯一标识符类（UUID）",
+  "_self_": "Classes"
+}

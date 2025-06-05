@@ -1,4 +1,5 @@
 {
+  "Introduction/Recipe/AddRecipe/": "AddRecipe",
   "Introduction/Recipe/Catalogue.md": "Catalogue",
   "Introduction/Recipe/DeleteRecipe.md": "DeleteRecipe",
   "Introduction/Recipe/ItemAndIngredient.md": "ItemAndIngredient",

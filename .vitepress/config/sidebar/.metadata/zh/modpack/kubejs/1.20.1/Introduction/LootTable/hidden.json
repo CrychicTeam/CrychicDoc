@@ -1,20 +1,32 @@
 {
+  "Introduction/LootTable/BasicKnowledge/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563235
+  },
   "Introduction/LootTable/Catalogue.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": true,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110738
+    "lastSeen": 1749091563235
   },
   "Introduction/LootTable/Description.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": true,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110738
+    "lastSeen": 1749091563235
+  },
+  "Introduction/LootTable/Vanilla/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563235
   },
   "_self_": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": true,
     "isActiveInStructure": false,
-    "lastSeen": 1749088110738
+    "lastSeen": 1749091563235
   }
 }

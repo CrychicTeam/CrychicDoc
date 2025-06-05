@@ -1,7 +1,9 @@
 {
+  "Addon/": false,
   "Block/": false,
   "Description.md": false,
   "Entity/": false,
+  "Event/": false,
   "GlobalScope/": false,
   "Item/": false,
   "LootTable/": false,

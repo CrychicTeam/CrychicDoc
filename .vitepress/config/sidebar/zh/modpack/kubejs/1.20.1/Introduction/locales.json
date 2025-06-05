@@ -1,7 +1,9 @@
 {
+  "Addon/": "Addon",
   "Block/": "Block",
   "Description.md": "Description",
   "Entity/": "Entity",
+  "Event/": "Event",
   "GlobalScope/": "GlobalScope",
   "Item/": "Item",
   "LootTable/": "LootTable",

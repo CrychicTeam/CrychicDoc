@@ -1,0 +1,32 @@
+{
+  "kubejs/1.20.1/Upgrade/VariableType.md": {
+    "valueHash": "5d961e79ff18fdef3bc41f6484391a84",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497615
+  },
+  "kubejs/1.20.1/Upgrade/DataType.md": {
+    "valueHash": "185f7bf647514a447138bf1e3ad11775",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497615
+  },
+  "kubejs/1.20.1/Upgrade/GlobalScope/": {
+    "valueHash": "ae3328c7aacb68ab81fa83e18fbd48e3",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497615
+  },
+  "kubejs/1.20.1/Upgrade/JavaScript/": {
+    "valueHash": "df8b489861e1f791b9ce4e8c5bd7e779",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497615
+  },
+  "_self_": {
+    "valueHash": "f683581d3e75f05f9d9215f9b4696cef",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091497615
+  }
+}

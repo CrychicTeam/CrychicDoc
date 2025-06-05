@@ -1,0 +1,14 @@
+{
+  "Introduction/Addon/LootJs/API/ItemFilter.md": "ItemFilter",
+  "Introduction/Addon/LootJs/API/LootConditions.md": "LootConditions",
+  "Introduction/Addon/LootJs/API/LootContext.md": "LootContext",
+  "Introduction/Addon/LootJs/API/LootEntry.md": "LootEntry",
+  "Introduction/Addon/LootJs/API/LootEntryTransformer.md": "LootEntryTransformer",
+  "Introduction/Addon/LootJs/API/LootFunctions.md": "LootFunctions",
+  "Introduction/Addon/LootJs/API/LootModifier.md": "LootModifier",
+  "Introduction/Addon/LootJs/API/LootPool.md": "LootPool",
+  "Introduction/Addon/LootJs/API/LootTable.md": "LootTable",
+  "Introduction/Addon/LootJs/API/NumberProvider.md": "NumberProvider",
+  "Introduction/Addon/LootJs/API/Range.md": "Range",
+  "_self_": "API"
+}

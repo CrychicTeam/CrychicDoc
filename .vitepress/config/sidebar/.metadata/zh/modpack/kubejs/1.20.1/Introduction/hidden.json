@@ -1,80 +1,92 @@
 {
+  "Addon/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563037
+  },
   "Block/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "Description.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "Entity/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
+  },
+  "Event/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091563037
   },
   "GlobalScope/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "Item/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "LootTable/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "Miscellaneous/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "Network/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "PotionEffect/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "Recipe/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "Tag/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "1.20.1/Introduction/Description.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": true,
     "isActiveInStructure": false,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   },
   "_self_": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": true,
     "isActiveInStructure": false,
-    "lastSeen": 1749088110679
+    "lastSeen": 1749091563037
   }
 }

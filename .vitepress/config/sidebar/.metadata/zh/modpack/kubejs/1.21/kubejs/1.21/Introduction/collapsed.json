@@ -1,8 +1,14 @@
 {
-  "_self_": {
+  "kubejs/1.21/Introduction/Addon/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": true,
     "isActiveInStructure": true,
-    "lastSeen": 1749088110237
+    "lastSeen": 1749091497667
+  },
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091497667
   }
 }

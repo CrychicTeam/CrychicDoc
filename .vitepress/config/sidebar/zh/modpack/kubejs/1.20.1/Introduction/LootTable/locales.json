@@ -1,5 +1,7 @@
 {
+  "Introduction/LootTable/BasicKnowledge/": "BasicKnowledge",
   "Introduction/LootTable/Catalogue.md": "Catalogue",
   "Introduction/LootTable/Description.md": "Description",
+  "Introduction/LootTable/Vanilla/": "Vanilla",
   "_self_": "LootTable"
 }

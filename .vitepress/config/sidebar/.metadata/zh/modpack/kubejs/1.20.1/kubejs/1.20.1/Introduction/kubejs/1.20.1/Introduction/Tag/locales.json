@@ -1,0 +1,56 @@
+{
+  "kubejs/1.20.1/Introduction/Tag/Biome.md": {
+    "valueHash": "c25aed4fa74840ff799f0641f0eb57ce",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497598
+  },
+  "kubejs/1.20.1/Introduction/Tag/Block.md": {
+    "valueHash": "e1e4c8c9ccd9fc39c391da4bcd093fb2",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497598
+  },
+  "kubejs/1.20.1/Introduction/Tag/Catalogue.md": {
+    "valueHash": "a8567ec8887eb41c7870b3a624524a46",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497598
+  },
+  "kubejs/1.20.1/Introduction/Tag/Description.md": {
+    "valueHash": "b5a7adde1af5c87d7fd797b6245c2a39",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497598
+  },
+  "kubejs/1.20.1/Introduction/Tag/EntityType.md": {
+    "valueHash": "a28411defe338dd0b29e8400b1c5c53c",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497598
+  },
+  "kubejs/1.20.1/Introduction/Tag/Fluid.md": {
+    "valueHash": "c2e7db5ac7ab74ea4bb9a7a89d251f3a",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497598
+  },
+  "kubejs/1.20.1/Introduction/Tag/Item.md": {
+    "valueHash": "7d74f3b92b19da5e606d737d339a9679",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497598
+  },
+  "kubejs/1.20.1/Introduction/Tag/Structure.md": {
+    "valueHash": "dc4c71563b9bc39a65be853457e6b7b6",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749091497598
+  },
+  "_self_": {
+    "valueHash": "c101058e7ea21bbbf2a5ac893088e90b",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749091497598
+  }
+}
