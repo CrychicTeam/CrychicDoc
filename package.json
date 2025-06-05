@@ -31,7 +31,7 @@
     },
     "scripts": {
         "docs:dev": "vitepress dev",
-        "docs:build": "vitepress build",
+        "docs:build": "tsx .vitepress/scripts/build-sidebar.mjs && vitepress build",
         "docs:preview": "vitepress preview",
         "update-titles": "node .vitepress/scripts/update-index-titles.mjs"
     },
