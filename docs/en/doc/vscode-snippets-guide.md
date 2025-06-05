@@ -28,11 +28,11 @@ Use these to rapidly scaffold standard page structures or root sections for your
 | Prefix           | Description                                      |
 | ---------------- | ------------------------------------------------ |
 | `front`          | Basic Frontmatter block                          |
-| `page`           | Complete page template                           |
-| `section`        | Complete root section template for sidebar       |
-| `sidebar-root`   | (Same as above) Complete root section template |
-| `sidebar-page`   | Complete page template within a sidebar        |
+| `sidebar-page`   | Complete page template (for pages in sidebar)  |
+| `sidebar-root`   | Complete root section template for sidebar       |
 | `front-complete` | Complete frontmatter with all common fields    |
+
+*Note: `page` and `section` are older templates, prefer `sidebar-page` and `sidebar-root` for more complete structures.*
 
 ### Core Frontmatter Fields
 
@@ -73,9 +73,9 @@ Define specific behaviors and attributes for sidebar items.
 | `hidden-false`    | Show in sidebar                           | `hidden: false`                |
 | `priority-val`    | Set ordering priority                     | `priority: 1`                  |
 | `maxdepth-val`    | Maximum nesting depth                     | `maxDepth: 3`                  |
-| `layout-doc`      | Document layout (VitePress)               | `layout: doc`                  |
-| `layout-home`     | Home page layout (VitePress)              | `layout: home`                 |
-| `layout-page`     | Custom page layout (VitePress)            | `layout: page`                 |
+| `layout-doc`      | Document layout (VitePress value)         | `layout: doc`                  |
+| `layout-home`     | Home page layout (VitePress value)        | `layout: home`                 |
+| `layout-page`     | Custom page layout (VitePress value)      | `layout: page`                 |
 | `prev`            | Add `prev` navigation field               | `prev: false`                  |
 | `prev-true`       | Enable previous navigation                | `prev: true`                   |
 | `prev-false`      | Disable previous navigation               | `prev: false`                  |
@@ -97,10 +97,8 @@ Mark the current status of a document.
 | `state-unfinished` | Unfinished state     | `state: unfinished`  |
 | `state-outdated`   | Outdated state       | `state: outdated`    |
 | `state-renovating` | Renovating state     | `state: renovating`  |
-| `state preliminary`| (Same) Preliminary   | `state: preliminary` |
-| `state unfinished` | (Same) Unfinished    | `state: unfinished`  |
-| `state outdated`   | (Same) Outdated      | `state: outdated`    |
-| `state renovating` | (Same) Renovating    | `state: renovating`  |
+
+*Note: Older prefixes like `state preliminary` (with a space) also exist and produce the same output.*
 
 ---
 
@@ -117,14 +115,14 @@ Quickly use Markdown extensions provided by VitePress.
 | `warning`        | VitePress warning container     |
 | `danger`         | VitePress danger/error container|
 | `details`        | VitePress details container     |
-| `custom-container`| Custom type container           |
+| `custom-container`| Custom type container (uses `:::` syntax) |
 
 ### Code Features
 
-| Prefix           | Description              |
-| ---------------- | ------------------------ |
-| `code-group`     | VitePress code group     |
-| `code-lines`     | Code block with line numbers |
+| Prefix           | Description                       |
+| ---------------- | --------------------------------- |
+| `code-group`     | VitePress code group              |
+| `code-lines`     | Code block with line numbers      |
 | `code-highlight` | Code block with line highlighting |
 
 ### Math Formulas
@@ -142,30 +140,30 @@ Enhance content presentation using custom Vue components or special Markdown syn
 
 ### Content Organization
 
-| Prefix    | Description       |
-| --------- | ----------------- |
-| `tabs`    | Tab container     |
-| `stepper` | Stepper/progress indicator |
-| `timeline`| Timeline plugin   |
+| Prefix    | Description                 |
+| --------- | --------------------------- |
+| `tabs`    | Tab container               |
+| `stepper` | Stepper/progress indicator  |
+| `timeline`| Timeline plugin             |
 
 ### Media & Interaction
 
-| Prefix       | Description             |
-| ------------ | ----------------------- |
-| `carousel`   | Image carousel          |
-| `iframe`     | Embedded iframe         |
-| `img-size`   | Image with specific size|
-| `linkcard`   | Link card component     |
-| `bilibili`   | Bilibili video component|
-| `pdf-viewer` | PDF viewer component    |
+| Prefix       | Description               |
+| ------------ | ------------------------- |
+| `carousel`   | Image carousel            |
+| `iframe`     | Embedded iframe           |
+| `img-size`   | Image with specific size  |
+| `linkcard`   | Link card component       |
+| `bilibili`   | Bilibili video component  |
+| `pdf-viewer` | PDF viewer component      |
 
 ### Diagrams & Visualization
 
-| Prefix         | Description            |
-| -------------- | ---------------------- |
-| `mermaid`      | Mermaid diagram        |
-| `damage-chart` | Damage chart component |
-| `lite-tree`    | File tree structure    |
+| Prefix         | Description              |
+| -------------- | ------------------------ |
+| `mermaid`      | Mermaid diagram          |
+| `damage-chart` | Damage chart component   |
+| `lite-tree`    | File tree structure      |
 
 ### Card Styles
 
@@ -188,25 +186,25 @@ Enhance content presentation using custom Vue components or special Markdown syn
 
 ### Alignment & Layout
 
-| Prefix          | Description         |
-| --------------- | ------------------- |
-| `align-left`    | Left-aligned content|
+| Prefix          | Description           |
+| --------------- | --------------------- |
+| `align-left`    | Left-aligned content  |
 | `align-center`  | Center-aligned content|
-| `align-right`   | Right-aligned content|
-| `align-justify` | Justified content   |
-| `demo`          | Demo block container|
+| `align-right`   | Right-aligned content |
+| `align-justify` | Justified content     |
+| `demo`          | Demo block container  |
 
 ### Special Effects
 
-| Prefix       | Description            |
-| ------------ | ---------------------- |
+| Prefix       | Description              |
+| ------------ | ------------------------ |
 | `magic-move` | Magic Move code transition |
 
 ---
 
 ## Utilities & Text Formatting
 
-### Markdown Extensions
+### Markdown Extensions (Text Formatting)
 
 | Prefix    | Description                      | Example Output           |
 | --------- | -------------------------------- | ------------------------ |
@@ -225,14 +223,14 @@ Enhance content presentation using custom Vue components or special Markdown syn
 
 ### Common Utilities
 
-| Prefix     | Description                        | Output                     |
-| ---------- | ---------------------------------- | -------------------------- |
-| `#nbsp`    | Insert two non-breaking spaces     | `&nbsp;&nbsp;`             |
-| `nbsp`     | Insert one non-breaking space      | `&nbsp;`                   |
-| `@title`   | Frontmatter title variable reference| `{{ $frontmatter.title }}` |
-| `fm-title` | (Same) Frontmatter title           | `{{ $frontmatter.title }}` |
-| `@done`    | Done Unicode checkbox              | `☑`                        |
-| `@pending` | Pending Unicode checkbox           | `☐`                        |
+| Prefix     | Description                             | Output                     |
+| ---------- | --------------------------------------- | -------------------------- |
+| `#nbsp`    | Insert two non-breaking spaces          | `&nbsp;&nbsp;`             |
+| `nbsp`     | Insert one non-breaking space           | `&nbsp;`                   |
+| `@title`   | Frontmatter title variable reference    | `{{ $frontmatter.title }}` |
+| `fm-title` | (Alias for @title) Frontmatter title    | `{{ $frontmatter.title }}` |
+| `@done`    | Done Unicode checkbox                   | `☑`                        |
+| `@pending` | Pending Unicode checkbox                | `☐`                        |
 
 ---
 
@@ -255,7 +253,7 @@ Enhance content presentation using custom Vue components or special Markdown syn
 Most container-type snippets support nesting. For example, you can mark text within an info container:
 
 ```markdown
-::: info Tip
+:::info Tip
 This is ==marked text== and !!spoiler content!!.
 :::
 ```
@@ -266,7 +264,7 @@ To modify or add your own snippets, edit the `.vscode/md.code-snippets` file in 
 
 ## Suggested Keyboard Shortcuts
 
-For even greater efficiency, you can assign custom keyboard shortcuts to frequently used snippets. Edit your `keybindings.json` file (accessible via `File > Preferences > Keyboard Shortcuts > User > keybindings.json`):
+For even greater efficiency, you can assign custom keyboard shortcuts to frequently used snippets. Edit your `keybindings.json` file (accessible via `File > Preferences > Keyboard Shortcuts > User > keybindings.json` or by searching "Preferences: Open User Keyboard Shortcuts (JSON)" in the command palette):
 
 ```json
 // keybindings.json
@@ -275,8 +273,8 @@ For even greater efficiency, you can assign custom keyboard shortcuts to frequen
         "key": "ctrl+shift+d", // Example shortcut
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == markdown",
-        "args": { 
-            // "name": "Demo Block" // Use the snippet's name (key from JSON)
+        "args": {
+            // "name": "Demo Block" // Use the snippet's name (key from JSON file)
             "snippet": "::: demo ${1:Demo Title}\n${2:Demo content}\n:::" // Or provide the body directly
         }
     },
@@ -284,8 +282,8 @@ For even greater efficiency, you can assign custom keyboard shortcuts to frequen
         "key": "ctrl+shift+t", // Example shortcut
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == markdown",
-        "args": { 
-            // "name": "Tabs" 
+        "args": {
+            // "name": "Tabs"
             "snippet": ":::tabs${1: key:example}\n== ${2:Tab 1}\n${3:Content 1}\n== ${4:Tab 2}\n${5:Content 2}\n:::"
         }
     }
@@ -308,7 +306,7 @@ A:
 
 A:
 1.  Open the `.vscode/md.code-snippets` file in your project.
-2.  Add a new entry following the JSON format of existing snippets. Each snippet is a key-value pair: the key is the snippet's name (displayed in VSCode command palette), and the value is an object containing `prefix`, `body`, and `description`.
+2.  Add a new entry following the JSON format of existing snippets. Each snippet is a key-value pair: the key is the snippet's name (displayed in VSCode command palette), and the value is an object containing `prefix`, `body` (an array of strings), and `description`.
     ```json
     "My New Snippet": {
         "prefix": "mynew",
@@ -324,12 +322,12 @@ A:
 ### Q: What do parameter placeholders (`${1:text}`) and final cursor position (`$0`) mean?
 
 A:
--   `${1:text}`: This is a parameter placeholder. `1` is the order of the parameter (navigate with `Tab`), and `text` is the default placeholder text displayed. You can have `${2:another}`, `${3:more}`, etc.
--   `$0`: This marks the final position of the cursor after the user has filled in all parameters and exited snippet editing mode.
+-   `${1:text}`: This is a parameter placeholder (also known as a "tab stop"). `1` is the order of the tab stop (navigate with `Tab`), and `text` is the default placeholder text displayed. You can have `${2:another}`, `${3:more}`, etc.
+-   `$0`: This marks the final position of the cursor after the user has filled in all placeholders (or pressed `Esc`).
 
 ## Example Workflow
 
-1.  **Create New Document**: Type `sidebar-page` (or `page`) to quickly generate a document framework with basic frontmatter and a title.
+1.  **Create New Document**: Type `sidebar-page` to quickly generate a document framework with basic frontmatter and a title.
 2.  **Define Section**: If it's a new sidebar root, use `sidebar-root` to initialize its `index.md`.
 3.  **Add Content**:
     *   Use `tabs` or `stepper` to organize step-by-step content.
@@ -338,6 +336,6 @@ A:
 4.  **Format Text**: Use `mark`, `spoiler`, `ruby`, etc., snippets to enrich text presentation.
 5.  **Insert Media & Diagrams**: Use `carousel`, `mermaid`, `bilibili`, etc., to add rich media content.
 6.  **Showcase Code**: Use `code-group`, `code-lines`, `magic-move` for clear code presentations.
-7.  **Refine Document**: Add `todo` task lists, use `@title` to dynamically reference the page title.
+7.  **Refine Document**: Add `todo` task lists, use `@title` or `fm-title` to dynamically reference the page title.
 
 By mastering these code snippets, you can significantly improve the efficiency and consistency of your Markdown document writing!
