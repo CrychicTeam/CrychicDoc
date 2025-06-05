@@ -314,81 +314,6 @@
       "_hidden": false
     }
   ],
-  "/zh/modpack/": [
-    {
-      "text": "整合包",
-      "items": [
-        {
-          "text": "整合包",
-          "link": "/zh/modpack/kubejs/",
-          "items": [
-            {
-              "text": "1.18.2",
-              "link": "/zh/modpack/kubejs/1.18.2/",
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "kubejs/1.18.2/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "1.19.2",
-              "link": "/zh/modpack/kubejs/1.19.2/",
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "kubejs/1.19.2/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "KubeJS",
-              "link": "/zh/modpack/kubejs/1.20.1/",
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "kubejs/1.20.1/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "KubeJS",
-              "link": "/zh/modpack/kubejs/1.21/",
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "kubejs/1.21/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": true,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "kubejs/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        },
-        {
-          "text": "推荐",
-          "link": "/zh/modpack/recommendation/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "recommendation/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
   "/zh/info/": [
     {
       "text": "Info",
@@ -753,6 +678,81 @@
       "_hidden": false
     }
   ],
+  "/zh/modpack/": [
+    {
+      "text": "整合包",
+      "items": [
+        {
+          "text": "整合包",
+          "link": "/zh/modpack/kubejs/",
+          "items": [
+            {
+              "text": "1.18.2",
+              "link": "/zh/modpack/kubejs/1.18.2/",
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "kubejs/1.18.2/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            },
+            {
+              "text": "1.19.2",
+              "link": "/zh/modpack/kubejs/1.19.2/",
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "kubejs/1.19.2/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            },
+            {
+              "text": "KubeJS",
+              "link": "/zh/modpack/kubejs/1.20.1/",
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "kubejs/1.20.1/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            },
+            {
+              "text": "KubeJS",
+              "link": "/zh/modpack/kubejs/1.21/",
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "kubejs/1.21/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
+          "collapsed": true,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "kubejs/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        },
+        {
+          "text": "推荐",
+          "link": "/zh/modpack/recommendation/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "recommendation/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/zh/mods/": [
     {
       "text": "模组",
@@ -1072,168 +1072,6 @@
       "_hidden": false
     }
   ],
-  "/zh/modpack/kubejs/": [
-    {
-      "text": "整合包",
-      "items": [
-        {
-          "text": "1.18.2",
-          "link": "/zh/modpack/kubejs/1.18.2/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.18.2/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
-        },
-        {
-          "text": "1.19.2",
-          "link": "/zh/modpack/kubejs/1.19.2/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.19.2/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
-        },
-        {
-          "text": "KubeJS",
-          "link": "/zh/modpack/kubejs/1.20.1/",
-          "items": [
-            {
-              "text": "CodeShare",
-              "items": [
-                {
-                  "text": "CraftingTableGUI",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI.html",
-                  "_relativePathKey": "1.20.1/CodeShare/CraftingTableGUI.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "Dining",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Dining.html",
-                  "_relativePathKey": "1.20.1/CodeShare/Dining.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "InvertedBonemeal",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/InvertedBonemeal.html",
-                  "_relativePathKey": "1.20.1/CodeShare/InvertedBonemeal.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "LifeValue",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/LifeValue.html",
-                  "_relativePathKey": "1.20.1/CodeShare/LifeValue.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "Painter",
-                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Painter.html",
-                  "_relativePathKey": "1.20.1/CodeShare/Painter.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.20.1/CodeShare/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "Introduction",
-              "items": [
-                {
-                  "text": "Description",
-                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Description.html",
-                  "_relativePathKey": "1.20.1/Introduction/Description.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.20.1/Introduction/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            },
-            {
-              "text": "Upgrade",
-              "items": [
-                {
-                  "text": "数据类型",
-                  "link": "/zh/modpack/kubejs/1.20.1/Upgrade/DataType.html",
-                  "_relativePathKey": "1.20.1/Upgrade/DataType.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                },
-                {
-                  "text": "JavaScript相关概念",
-                  "link": "/zh/modpack/kubejs/1.20.1/Upgrade/JavaScript/",
-                  "collapsed": false,
-                  "_priority": 9007199254740991,
-                  "_relativePathKey": "1.20.1/Upgrade/JavaScript/",
-                  "_isDirectory": true,
-                  "_isRoot": false,
-                  "_hidden": false
-                },
-                {
-                  "text": "基本类型",
-                  "link": "/zh/modpack/kubejs/1.20.1/Upgrade/VariableType.html",
-                  "_relativePathKey": "1.20.1/Upgrade/VariableType.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "1.20.1/Upgrade/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.20.1/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        },
-        {
-          "text": "KubeJS",
-          "link": "/zh/modpack/kubejs/1.21/",
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "1.21/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
   "/zh/info/KubeJS/": [
     {
       "text": "KubeJS",
@@ -1430,6 +1268,168 @@
           "collapsed": false,
           "_priority": 9007199254740991,
           "_relativePathKey": "Q&A/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/modpack/kubejs/": [
+    {
+      "text": "整合包",
+      "items": [
+        {
+          "text": "1.18.2",
+          "link": "/zh/modpack/kubejs/1.18.2/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.18.2/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        },
+        {
+          "text": "1.19.2",
+          "link": "/zh/modpack/kubejs/1.19.2/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.19.2/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        },
+        {
+          "text": "KubeJS",
+          "link": "/zh/modpack/kubejs/1.20.1/",
+          "items": [
+            {
+              "text": "CodeShare",
+              "items": [
+                {
+                  "text": "CraftingTableGUI",
+                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI.html",
+                  "_relativePathKey": "1.20.1/CodeShare/CraftingTableGUI.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "Dining",
+                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Dining.html",
+                  "_relativePathKey": "1.20.1/CodeShare/Dining.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "InvertedBonemeal",
+                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/InvertedBonemeal.html",
+                  "_relativePathKey": "1.20.1/CodeShare/InvertedBonemeal.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "LifeValue",
+                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/LifeValue.html",
+                  "_relativePathKey": "1.20.1/CodeShare/LifeValue.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "Painter",
+                  "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Painter.html",
+                  "_relativePathKey": "1.20.1/CodeShare/Painter.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "1.20.1/CodeShare/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            },
+            {
+              "text": "Introduction",
+              "items": [
+                {
+                  "text": "Description",
+                  "link": "/zh/modpack/kubejs/1.20.1/Introduction/Description.html",
+                  "_relativePathKey": "1.20.1/Introduction/Description.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "1.20.1/Introduction/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            },
+            {
+              "text": "Upgrade",
+              "items": [
+                {
+                  "text": "数据类型",
+                  "link": "/zh/modpack/kubejs/1.20.1/Upgrade/DataType.html",
+                  "_relativePathKey": "1.20.1/Upgrade/DataType.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                },
+                {
+                  "text": "JavaScript相关概念",
+                  "link": "/zh/modpack/kubejs/1.20.1/Upgrade/JavaScript/",
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "1.20.1/Upgrade/JavaScript/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                },
+                {
+                  "text": "基本类型",
+                  "link": "/zh/modpack/kubejs/1.20.1/Upgrade/VariableType.html",
+                  "_relativePathKey": "1.20.1/Upgrade/VariableType.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "1.20.1/Upgrade/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.20.1/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        },
+        {
+          "text": "KubeJS",
+          "link": "/zh/modpack/kubejs/1.21/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "1.21/",
           "_isDirectory": true,
           "_isRoot": true,
           "_hidden": false
@@ -2116,39 +2116,131 @@
       "_hidden": false
     }
   ],
-  "/zh/modpack/kubejs/1.21/": [
+  "/zh/info/doc/module-request/": [
     {
-      "text": "KubeJS",
+      "text": "module-request",
       "items": [
         {
-          "text": "codeshare",
-          "items": [
-            {
-              "text": "QiHuang02",
-              "items": [
-                {
-                  "text": "emendatusenigmaticajs",
-                  "link": "/zh/modpack/kubejs/1.21/codeshare/QiHuang02/emendatusenigmaticajs.html",
-                  "_relativePathKey": "codeshare/QiHuang02/emendatusenigmaticajs.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false
-                }
-              ],
-              "collapsed": false,
-              "_priority": 9007199254740991,
-              "_relativePathKey": "codeshare/QiHuang02/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": false,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "codeshare/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
+          "text": "beautify",
+          "link": "/zh/info/doc/module-request/beautify.html",
+          "_relativePathKey": "beautify.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "codeShare",
+          "link": "/zh/info/doc/module-request/codeShare.html",
+          "_relativePathKey": "codeShare.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "component",
+          "link": "/zh/info/doc/module-request/component.html",
+          "_relativePathKey": "component.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "kubejs",
+          "link": "/zh/info/doc/module-request/kubejs.html",
+          "_relativePathKey": "kubejs.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "mod",
+          "link": "/zh/info/doc/module-request/mod.html",
+          "_relativePathKey": "mod.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "modPlugin",
+          "link": "/zh/info/doc/module-request/modPlugin.html",
+          "_relativePathKey": "modPlugin.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "newSection",
+          "link": "/zh/info/doc/module-request/newSection.html",
+          "_relativePathKey": "newSection.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/info/doc/Q&A/": [
+    {
+      "text": "Q&A",
+      "items": [
+        {
+          "text": "cooperation",
+          "link": "/zh/info/doc/Q&A/cooperation.html",
+          "_relativePathKey": "cooperation.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "other",
+          "link": "/zh/info/doc/Q&A/other.html",
+          "_relativePathKey": "other.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "use",
+          "link": "/zh/info/doc/Q&A/use.html",
+          "_relativePathKey": "use.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/info/doc/suggestion/": [
+    {
+      "text": "suggestion",
+      "items": [
+        {
+          "text": "doc",
+          "link": "/zh/info/doc/suggestion/doc.html",
+          "_relativePathKey": "doc.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "writing",
+          "link": "/zh/info/doc/suggestion/writing.html",
+          "_relativePathKey": "writing.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
         }
       ],
       "collapsed": false,
@@ -2276,6 +2368,75 @@
           "text": "utils",
           "link": "/zh/info/KubeJS/code/utils.html",
           "_relativePathKey": "utils.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/info/KubeJS/Q&A/": [
+    {
+      "text": "Q&A",
+      "items": [
+        {
+          "text": "API",
+          "link": "/zh/info/KubeJS/Q&A/API.html",
+          "_relativePathKey": "API.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "error",
+          "link": "/zh/info/KubeJS/Q&A/error.html",
+          "_relativePathKey": "error.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "event_interaction",
+          "link": "/zh/info/KubeJS/Q&A/event_interaction.html",
+          "_relativePathKey": "event_interaction.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "forgeEvents",
+          "link": "/zh/info/KubeJS/Q&A/forgeEvents.html",
+          "_relativePathKey": "forgeEvents.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "loadClass",
+          "link": "/zh/info/KubeJS/Q&A/loadClass.html",
+          "_relativePathKey": "loadClass.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "other",
+          "link": "/zh/info/KubeJS/Q&A/other.html",
+          "_relativePathKey": "other.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "register",
+          "link": "/zh/info/KubeJS/Q&A/register.html",
+          "_relativePathKey": "register.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
@@ -2961,6 +3122,49 @@
       "_hidden": false
     }
   ],
+  "/zh/modpack/kubejs/1.21/": [
+    {
+      "text": "KubeJS",
+      "items": [
+        {
+          "text": "codeshare",
+          "items": [
+            {
+              "text": "QiHuang02",
+              "items": [
+                {
+                  "text": "emendatusenigmaticajs",
+                  "link": "/zh/modpack/kubejs/1.21/codeshare/QiHuang02/emendatusenigmaticajs.html",
+                  "_relativePathKey": "codeshare/QiHuang02/emendatusenigmaticajs.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false
+                }
+              ],
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "codeshare/QiHuang02/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "codeshare/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/zh/mods/adventure/Champions-Unofficial/": [
     {
       "text": "冠军再续",
@@ -2993,210 +3197,6 @@
           "text": "Wiki",
           "link": "/zh/mods/adventure/Champions-Unofficial/wiki.html",
           "_relativePathKey": "wiki.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/doc/module-request/": [
-    {
-      "text": "module-request",
-      "items": [
-        {
-          "text": "beautify",
-          "link": "/zh/info/doc/module-request/beautify.html",
-          "_relativePathKey": "beautify.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "codeShare",
-          "link": "/zh/info/doc/module-request/codeShare.html",
-          "_relativePathKey": "codeShare.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "component",
-          "link": "/zh/info/doc/module-request/component.html",
-          "_relativePathKey": "component.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "kubejs",
-          "link": "/zh/info/doc/module-request/kubejs.html",
-          "_relativePathKey": "kubejs.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "mod",
-          "link": "/zh/info/doc/module-request/mod.html",
-          "_relativePathKey": "mod.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "modPlugin",
-          "link": "/zh/info/doc/module-request/modPlugin.html",
-          "_relativePathKey": "modPlugin.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "newSection",
-          "link": "/zh/info/doc/module-request/newSection.html",
-          "_relativePathKey": "newSection.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/doc/Q&A/": [
-    {
-      "text": "Q&A",
-      "items": [
-        {
-          "text": "cooperation",
-          "link": "/zh/info/doc/Q&A/cooperation.html",
-          "_relativePathKey": "cooperation.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "other",
-          "link": "/zh/info/doc/Q&A/other.html",
-          "_relativePathKey": "other.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "use",
-          "link": "/zh/info/doc/Q&A/use.html",
-          "_relativePathKey": "use.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/KubeJS/Q&A/": [
-    {
-      "text": "Q&A",
-      "items": [
-        {
-          "text": "API",
-          "link": "/zh/info/KubeJS/Q&A/API.html",
-          "_relativePathKey": "API.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "error",
-          "link": "/zh/info/KubeJS/Q&A/error.html",
-          "_relativePathKey": "error.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "event_interaction",
-          "link": "/zh/info/KubeJS/Q&A/event_interaction.html",
-          "_relativePathKey": "event_interaction.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "forgeEvents",
-          "link": "/zh/info/KubeJS/Q&A/forgeEvents.html",
-          "_relativePathKey": "forgeEvents.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "loadClass",
-          "link": "/zh/info/KubeJS/Q&A/loadClass.html",
-          "_relativePathKey": "loadClass.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "other",
-          "link": "/zh/info/KubeJS/Q&A/other.html",
-          "_relativePathKey": "other.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "register",
-          "link": "/zh/info/KubeJS/Q&A/register.html",
-          "_relativePathKey": "register.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/doc/suggestion/": [
-    {
-      "text": "suggestion",
-      "items": [
-        {
-          "text": "doc",
-          "link": "/zh/info/doc/suggestion/doc.html",
-          "_relativePathKey": "doc.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "writing",
-          "link": "/zh/info/doc/suggestion/writing.html",
-          "_relativePathKey": "writing.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false

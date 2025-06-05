@@ -1,3 +1,2 @@
-export { GitBookService } from './GitBookService'; 
-
+export { GitBookService } from './GitBookService'; 
 

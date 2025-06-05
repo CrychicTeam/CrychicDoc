@@ -1,4 +1,3 @@
-export { UpdateTrackingService } from './UpdateTrackingService';
-export { FileHasher } from './FileHasher'; 
-
+export { UpdateTrackingService } from './UpdateTrackingService';
+export { FileHasher } from './FileHasher'; 
 
