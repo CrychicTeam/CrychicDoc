@@ -1,8 +1,20 @@
 {
+  "Introduction/LootTable/Catalogue.md": {
+    "valueHash": "a8567ec8887eb41c7870b3a624524a46",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749088110736
+  },
+  "Introduction/LootTable/Description.md": {
+    "valueHash": "b5a7adde1af5c87d7fd797b6245c2a39",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749088110736
+  },
   "_self_": {
     "valueHash": "cb0accb44044808bdfd2d47da458b0e7",
     "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749087803610
+    "isActiveInStructure": false,
+    "lastSeen": 1749088110736
   }
 }

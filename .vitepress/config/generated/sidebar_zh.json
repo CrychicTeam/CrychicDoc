@@ -719,6 +719,18 @@
             {
               "text": "KubeJS",
               "link": "/zh/modpack/kubejs/1.21/",
+              "items": [
+                {
+                  "text": "介绍",
+                  "link": "/zh/modpack/kubejs/1.21/Introduction/",
+                  "collapsed": false,
+                  "_priority": 9007199254740991,
+                  "_relativePathKey": "kubejs/1.21/Introduction/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                }
+              ],
               "collapsed": false,
               "_priority": 9007199254740991,
               "_relativePathKey": "kubejs/1.21/",
@@ -1427,6 +1439,18 @@
         {
           "text": "KubeJS",
           "link": "/zh/modpack/kubejs/1.21/",
+          "items": [
+            {
+              "text": "介绍",
+              "link": "/zh/modpack/kubejs/1.21/Introduction/",
+              "collapsed": false,
+              "_priority": 9007199254740991,
+              "_relativePathKey": "1.21/Introduction/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
           "collapsed": false,
           "_priority": 9007199254740991,
           "_relativePathKey": "1.21/",
@@ -3088,6 +3112,16 @@
           "collapsed": false,
           "_priority": 9007199254740991,
           "_relativePathKey": "codeshare/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        },
+        {
+          "text": "介绍",
+          "link": "/zh/modpack/kubejs/1.21/Introduction/",
+          "collapsed": false,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "Introduction/",
           "_isDirectory": true,
           "_isRoot": false,
           "_hidden": false
