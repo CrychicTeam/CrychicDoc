@@ -1,4 +1,5 @@
 ---
 root: true
-authors: ['Flandre923']
+authors:
+  - Flandre923
 ---
