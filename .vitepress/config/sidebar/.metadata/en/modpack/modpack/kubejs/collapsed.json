@@ -1,0 +1,62 @@
+{
+  "1.18.2/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749083784626
+  },
+  "1.19.2/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749083784626
+  },
+  "1.20.1/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749083784626
+  },
+  "1.21/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749083784626
+  },
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749082463455
+  },
+  "1.20.1/CodeShare/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749083785066
+  },
+  "1.20.1/Introduction/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749083785066
+  },
+  "1.20.1/Upgrade/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749083785066
+  },
+  "1.20.1/Upgrade/GlobalScope/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749083785066
+  },
+  "1.20.1/Upgrade/JavaScript/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749083785066
+  }
+}

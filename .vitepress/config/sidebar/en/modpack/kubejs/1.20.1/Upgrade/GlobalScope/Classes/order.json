@@ -1,0 +1,21 @@
+{
+  "AABB.md": 0,
+  "Block.md": 1,
+  "BlockStatePredicate.md": 2,
+  "Catalogue.md": 3,
+  "Color.md": 4,
+  "Direction.md": 5,
+  "Facing.md": 6,
+  "Fluid.md": 7,
+  "Ingredient.md": 8,
+  "IngredientHelper.md": 9,
+  "Item.md": 10,
+  "JsonIO.md": 11,
+  "NBT.md": 12,
+  "NBTIO.md": 13,
+  "Platform.md": 14,
+  "ResourceLocation.md": 15,
+  "Text.md": 16,
+  "Utils.md": 17,
+  "Uuid.md": 18
+}

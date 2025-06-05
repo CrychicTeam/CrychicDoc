@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: 留言板
   collapsed: false

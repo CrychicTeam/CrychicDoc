@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: 模块请求
   collapsed: false

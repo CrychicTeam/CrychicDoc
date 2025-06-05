@@ -1,0 +1,10 @@
+{
+  "adventure/": 0,
+  "armor_tools/": 1,
+  "cosmetic/": 2,
+  "custom/": 3,
+  "performance/": 4,
+  "server/": 5,
+  "storages/": 6,
+  "tech/": 7
+}

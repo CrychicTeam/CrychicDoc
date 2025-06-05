@@ -1,0 +1,7 @@
+{
+  "datapack/": "datapack",
+  "resourcepack/": "resourcepack",
+  "_self_": "Vanilla",
+  "datapack/introduction.md": "introduction",
+  "resourcepack/introduction.md": "introduction"
+}

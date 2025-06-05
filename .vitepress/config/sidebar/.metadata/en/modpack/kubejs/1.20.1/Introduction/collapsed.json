@@ -1,0 +1,68 @@
+{
+  "Block/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "Entity/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "GlobalScope/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "Item/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "LootTable/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "Miscellaneous/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "Network/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "PotionEffect/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "Recipe/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "Tag/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085064264
+  },
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749085064264
+  }
+}

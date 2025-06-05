@@ -1,0 +1,44 @@
+{
+  "error.md": {
+    "valueHash": "cb5e100e5a9a3e7f6d1fd97512215282",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085066967
+  },
+  "eventHandler.md": {
+    "valueHash": "be78ad206372ecafd187d0904b84accf",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085066967
+  },
+  "loadClass.md": {
+    "valueHash": "df9e1f96a6c8d807f7b00176ac2390f0",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085066967
+  },
+  "other.md": {
+    "valueHash": "795f3202b17cb6bc3d4b771d8c6c9eaf",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085066967
+  },
+  "register.md": {
+    "valueHash": "9de4a97425678c5b1288aa70c1669a64",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085066967
+  },
+  "utils.md": {
+    "valueHash": "2b3583e6e17721c54496bd04e57a0c15",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085066967
+  },
+  "_self_": {
+    "valueHash": "c13367945d5d4c91047b3b50234aa7ab",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749085066967
+  }
+}

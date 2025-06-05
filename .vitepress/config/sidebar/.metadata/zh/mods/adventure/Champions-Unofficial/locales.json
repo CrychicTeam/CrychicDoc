@@ -1,0 +1,32 @@
+{
+  "affix_setting.md": {
+    "valueHash": "d792f83db4d9af5139a867a8d4be2ac9",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085067202
+  },
+  "config.md": {
+    "valueHash": "224e2ccda861c2514faa683b3683c361",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085067202
+  },
+  "modifier_setting.md": {
+    "valueHash": "22256797b777978dfa14e612daef99d3",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085067202
+  },
+  "wiki.md": {
+    "valueHash": "bf111e3622a72a3b5dc784b5903983ca",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085067202
+  },
+  "_self_": {
+    "valueHash": "1b6cffe9b974636f1d06bea49d14d3e3",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749085067202
+  }
+}

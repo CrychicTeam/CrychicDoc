@@ -1,18 +1,7 @@
 ---
-Layout: doc
-title: Introduction
-root:
-  title: 冠军再续
-  children:
-      - title: Intro
-        path: /
-        file: index
-      - title: wiki
-        path: /
-        file: wiki
-      - title: Config
-        path: /
-        file: config
+root: true
+title: Champions-Unofficial
+layout: doc
 ---
 
 ## Champions-Unofficial

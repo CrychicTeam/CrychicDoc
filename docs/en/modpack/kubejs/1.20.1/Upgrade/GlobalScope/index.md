@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 layout: doc
 
 root:

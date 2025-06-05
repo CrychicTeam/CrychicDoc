@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 authors: ['Flandre923']
 root:
   title: example

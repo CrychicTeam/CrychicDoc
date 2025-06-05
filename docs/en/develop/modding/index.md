@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: 模组开发
   collapsed: false

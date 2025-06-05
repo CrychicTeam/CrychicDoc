@@ -1,0 +1,11 @@
+{
+  "adventure/": "目录",
+  "armor_tools/": "armor_tools",
+  "cosmetic/": "cosmetic",
+  "custom/": "模组",
+  "performance/": "优化模组",
+  "server/": "server",
+  "storages/": "storages",
+  "tech/": "tech",
+  "_self_": "模组"
+}

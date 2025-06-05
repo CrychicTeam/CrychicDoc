@@ -1,0 +1,14 @@
+{
+  "Block/": "Block",
+  "Description.md": "Description",
+  "Entity/": "Entity",
+  "GlobalScope/": "GlobalScope",
+  "Item/": "Item",
+  "LootTable/": "LootTable",
+  "Miscellaneous/": "Miscellaneous",
+  "Network/": "Network",
+  "PotionEffect/": "PotionEffect",
+  "Recipe/": "Recipe",
+  "Tag/": "Tag",
+  "_self_": "Introduction"
+}

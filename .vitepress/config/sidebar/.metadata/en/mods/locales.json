@@ -1,0 +1,56 @@
+{
+  "adventure/": {
+    "valueHash": "3895b6254d65e627e76a0dec52aab404",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063786
+  },
+  "armor_tools/": {
+    "valueHash": "68b8f3f33d56774b438e4a794ac3c4d9",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063786
+  },
+  "cosmetic/": {
+    "valueHash": "e9827b74700e5eae6c124f2dd4e1a16d",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063786
+  },
+  "custom/": {
+    "valueHash": "1671dcdc65411f7141187602e197c77a",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063786
+  },
+  "performance/": {
+    "valueHash": "48670ac7410993195ad3954b06451d2a",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063786
+  },
+  "server/": {
+    "valueHash": "cf1e8c14e54505f60aa10ceb8d5d8ab3",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063786
+  },
+  "storages/": {
+    "valueHash": "e532ddb3fc8bd39b23b2e034c87180b1",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063786
+  },
+  "tech/": {
+    "valueHash": "d9f9133fb120cd6096870bc2b496805b",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063786
+  },
+  "_self_": {
+    "valueHash": "7aeb0277500c86e4aa6bd23f9a737942",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749085063786
+  }
+}

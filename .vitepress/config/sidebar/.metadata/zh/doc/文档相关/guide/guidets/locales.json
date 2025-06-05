@@ -1,0 +1,38 @@
+{
+  "guide/guidets/community.ts": {
+    "valueHash": "7bcc35a1560f013600438cf52cba4be7",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152174
+  },
+  "guide/guidets/KubeJS.ts": {
+    "valueHash": "f9e3d364ce7dfe65127b08ce586a9b0a",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152174
+  },
+  "guide/guidets/minecraft.ts": {
+    "valueHash": "bb9852bf2c64d0af8ea37b438164e37e",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152174
+  },
+  "guide/guidets/pixelart.ts": {
+    "valueHash": "53a932b035f134e069429809cd5c84c2",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152174
+  },
+  "guide/guidets/resource.ts": {
+    "valueHash": "0530eb63e82c3a0cc0cd5019915367bc",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152174
+  },
+  "_self_": {
+    "valueHash": "c3c2049a0c154fa68e076aed8dddacee",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749066152174
+  }
+}

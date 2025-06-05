@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 
 root:
   title: KubeJS

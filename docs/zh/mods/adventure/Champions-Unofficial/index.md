@@ -1,25 +1,8 @@
 ---
+root: true
+title: 冠军再续
 Layout: doc
-title: 介绍
 backPath: ../
-root:
-  title: 冠军再续
-  children:
-      - title: 介绍
-        path: /
-        file: index
-      - title: wiki
-        path: /
-        file: wiki
-      - title: 配置
-        path: /
-        file: config
-      - title: Affix Setting
-        path: /
-        file: affix_setting
-      - title: Modifier Setting
-        path: /
-        file: modifier_setting
 ---
 
 ## 冠军再续

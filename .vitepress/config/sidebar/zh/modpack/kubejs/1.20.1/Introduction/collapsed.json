@@ -1,0 +1,13 @@
+{
+  "Block/": false,
+  "Entity/": false,
+  "GlobalScope/": false,
+  "Item/": false,
+  "LootTable/": false,
+  "Miscellaneous/": false,
+  "Network/": false,
+  "PotionEffect/": false,
+  "Recipe/": false,
+  "Tag/": false,
+  "_self_": false
+}

@@ -1,0 +1,11 @@
+{
+  "adventure/": "Adventure Mods",
+  "armor_tools/": "armor_tools",
+  "cosmetic/": "cosmetic",
+  "custom/": "Custom Test",
+  "performance/": "Performance mod",
+  "server/": "server",
+  "storages/": "storages",
+  "tech/": "tech",
+  "_self_": "Mod"
+}

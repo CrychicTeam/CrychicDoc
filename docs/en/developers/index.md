@@ -1,11 +1,6 @@
 ---
-root:
-  title: Developers
-  children:
-      - title: Crychic
-        path: Crychic
-        collapsed: true
-        file: index
+root: true
+title: Developers
 prev: false
 next: false
 ---

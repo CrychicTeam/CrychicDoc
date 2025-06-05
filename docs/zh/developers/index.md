@@ -1,11 +1,6 @@
 ---
-root:
-  title: 开发者
-  children:
-      - title: Crychic
-        path: Crychic
-        collapsed: true
-        file: index
+root: true
+title: 开发者
 prev: false
 next: false
 ---

@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: NeoForge
   collapsed: false

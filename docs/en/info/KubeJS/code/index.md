@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: 代码分享
   collapsed: false
