@@ -1,0 +1,38 @@
+{
+  "Upgrade/JavaScript/array.md": {
+    "valueHash": "27f3cbc87557887466706b2350b2005b",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839351
+  },
+  "Upgrade/JavaScript/basic.md": {
+    "valueHash": "0796ba76b4b553687e5ffaeb78512ccb",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839351
+  },
+  "Upgrade/JavaScript/map.md": {
+    "valueHash": "b9e5da6a10b0c635074ecd6368e1dec0",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839351
+  },
+  "Upgrade/JavaScript/object.md": {
+    "valueHash": "5fbdef644bbd932714e00fafd2624315",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839351
+  },
+  "Upgrade/JavaScript/set.md": {
+    "valueHash": "a84057375a4f40418c75d5026807cb72",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839351
+  },
+  "_self_": {
+    "valueHash": "df8b489861e1f791b9ce4e8c5bd7e779",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749085839351
+  }
+}

@@ -1,5 +1,5 @@
-import { DefaultTheme } from "vitepress";
-import { loadSidebar } from "../loadSidebar";
+import type { DefaultTheme } from 'vitepress';
+import { sidebarForLanguage } from '../loadSidebar';
 
 export const en_US = <DefaultTheme.Config>{
     lang: "en-US",
@@ -67,7 +67,7 @@ export const en_US = <DefaultTheme.Config>{
             ]},
             {text: "Discussion", link: "/en/info"},
         ],
-        sidebar: loadSidebar("en"),
+        sidebar: sidebarForLanguage("en"),
         outline: {
             level: "deep",
             label: "Page Content",
@@ -76,9 +76,14 @@ export const en_US = <DefaultTheme.Config>{
             prev: "Previous Page",
             next: "Next Page",
         },
+        lastUpdated: {
+            text: "Last Updated"
+        },
         langMenuLabel: "Change Language",
         darkModeSwitchLabel: "Switch Theme",
         lightModeSwitchTitle: "Switch to light mode",
         darkModeSwitchTitle: "Switch to dark mode",
+        returnToTopLabel: "Return to top",
+        sidebarMenuLabel: "Menu",
     },
 };

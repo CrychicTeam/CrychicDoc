@@ -1,4 +1,137 @@
 {
+    // ========== ESSENTIAL SIDEBAR CONFIGURATION SNIPPETS ==========
+    
+    // Root configuration (creates separate sidebar section)
+    "Root Sidebar": {
+        "prefix": "root",
+        "body": [
+            "---",
+            "root: true",
+            "title: ${1:Section Title}",
+            "---"
+        ],
+        "description": "Root sidebar configuration"
+    },
+    
+    "Root with Layout": {
+        "prefix": "root-layout",
+        "body": [
+            "---",
+            "root: true",
+            "title: ${1:Section Title}",
+            "layout: doc", 
+            "prev: false",
+            "next: false",
+            "---"
+        ],
+        "description": "Root with VitePress layout"
+    },
+    
+    // Directory configuration
+    "Directory Config": {
+        "prefix": "dir",
+        "body": [
+            "---",
+            "title: ${1:Directory Title}",
+            "---"
+        ],
+        "description": "Basic directory configuration"
+    },
+    
+    
+    // Individual config generators
+    "Add Title": {
+        "prefix": "title",
+        "body": ["title: ${1:Title}"],
+        "description": "Add title field"
+    },
+    
+    "Add Root": {
+        "prefix": "root-field",
+        "body": ["root: ${1|true,false|}"],
+        "description": "Add root field"
+    },
+    
+    "Add Collapsed": {
+        "prefix": "collapsed",
+        "body": ["collapsed: ${1|true,false|}"],
+        "description": "Add collapsed field"
+    },
+    
+    "Add Hidden": {
+        "prefix": "hidden",
+        "body": ["hidden: ${1|true,false|}"],
+        "description": "Add hidden field"
+    },
+    
+    "Add Layout": {
+        "prefix": "layout",
+        "body": ["layout: ${1|doc,home,page|}"],
+        "description": "Add layout field"
+    },
+    
+    "Add Prev": {
+        "prefix": "prev",
+        "body": ["prev: ${1|false,true|}"],
+        "description": "Add prev navigation"
+    },
+    
+    "Add Next": {
+        "prefix": "next", 
+        "body": ["next: ${1|false,true|}"],
+        "description": "Add next navigation"
+    },
+    
+    // Quick frontmatter blocks
+    "Frontmatter Block": {
+        "prefix": "front",
+        "body": [
+            "---",
+            "${1:config}",
+            "---",
+            "",
+            "# ${2:Title}",
+            "",
+            "$0"
+        ],
+        "description": "Basic frontmatter block"
+    },
+    
+    // Complete templates
+    "Page Template": {
+        "prefix": "page",
+        "body": [
+            "---",
+            "title: ${1:Page Title}",
+            "layout: doc",
+            "---",
+            "",
+            "# ${1:Page Title}",
+            "",
+            "$0"
+        ],
+        "description": "Complete page template"
+    },
+    
+    "Root Section Template": {
+        "prefix": "section",
+        "body": [
+            "---",
+            "root: true",
+            "title: ${1:Section Title}",
+            "collapsed: ${2|true,false|}",
+            "layout: doc",
+            "prev: false",
+            "next: false", 
+            "---",
+            "",
+            "# ${1:Section Title}",
+            "",
+            "$0"
+        ],
+        "description": "Complete root section template"
+    },
+
     // ========== Basic Utilities ==========
     "Insert Non-breaking Space": {
         "prefix": "#nbsp",
@@ -47,16 +180,6 @@
         "body": ["noguide: $0"],
         "description": "No guide flag"
     },
-    "NoScan Field": {
-        "prefix": "noScan",
-        "body": ["noScan: $0"],
-        "description": "No scan flag"
-    },
-    "File Field": {
-        "prefix": "file",
-        "body": ["file: $0"],
-        "description": "File reference"
-    },
     "Tags Field": {
         "prefix": "tags",
         "body": ["tags:", "  - $0"],
@@ -90,250 +213,539 @@
         "description": "Set state to renovating"
     },
 
-    // ========== Navigation Structure ==========
-    "Root Config": {
-        "prefix": "@root",
-        "body": ["root:", "  $0"],
-        "description": "Root navigation config"
+    // ========== SIDEBAR CONFIGURATION VALUE SNIPPETS ==========
+    
+    // Core sidebar values
+    "Root True": {
+        "prefix": "root-true",
+        "body": ["root: true"],
+        "description": "Set as sidebar root section"
     },
-    "SubDir Config": {
-        "prefix": "subDir",
-        "body": ["subDir:", "    $0"],
-        "description": "SubDirectory config"
+    
+    "Root False": {
+        "prefix": "root-false", 
+        "body": ["root: false"],
+        "description": "Not a sidebar root section"
     },
-    "Path Field": {
-        "prefix": "path",
-        "body": ["path: $0"],
-        "description": "Path field"
+    
+    "Title Value": {
+        "prefix": "title-val",
+        "body": ["title: ${1:Title}"],
+        "description": "Set document/section title"
     },
-    "Collapsed Field": {
-        "prefix": "collapsed",
-        "body": ["collapsed: $0"],
-        "description": "Collapsed navigation"
+    
+    "Collapsed True": {
+        "prefix": "collapsed-true",
+        "body": ["collapsed: true"],
+        "description": "Collapsed by default"
     },
-    "SubDir Item": {
-        "prefix": "@subdir",
-        "body": ["- title: $1", "  path: $0"],
-        "description": "SubDirectory item"
+    
+    "Collapsed False": {
+        "prefix": "collapsed-false",
+        "body": ["collapsed: false"],
+        "description": "Expanded by default"
     },
-
-    // ========== Tabs & Containers ==========
-    "Tabs Container": {
-        "prefix": "tabs",
-        "body": [
-            ":::tabs${1: key:${2:unique-key}}",
-            "== ${3:Tab 1}",
-            "$4",
-            "== ${5:Tab 2}",
-            "$0",
-            ":::"
-        ],
-        "description": "Create tabs container"
+    
+    "Hidden True": {
+        "prefix": "hidden-true", 
+        "body": ["hidden: true"],
+        "description": "Hide from sidebar"
     },
-    "Stepper Container": {
-        "prefix": "stepper",
-        "body": [
-            "::: stepper",
-            "@tab ${1:第一步}",
-            "$2",
-            "@tab ${3:第二步}",
-            "$0",
-            ":::"
-        ],
-        "description": "Create stepper container"
+    
+    "Hidden False": {
+        "prefix": "hidden-false",
+        "body": ["hidden: false"],
+        "description": "Show in sidebar"
     },
-
-    // ========== Alert Containers ==========
-    "Success Alert": {
-        "prefix": "success",
-        "body": [
-            "::: v-success ${1:成功}",
-            "$0",
-            ":::"
-        ],
-        "description": "Success alert container"
+    
+    "Priority Value": {
+        "prefix": "priority-val",
+        "body": ["priority: ${1:1}"],
+        "description": "Set ordering priority"
     },
-    "Info Alert": {
-        "prefix": "info",
-        "body": [
-            "::: v-info ${1:提示}",
-            "$0",
-            ":::"
-        ],
-        "description": "Info alert container"
-    },
-    "Warning Alert": {
-        "prefix": "warning",
-        "body": [
-            "::: v-warning ${1:警告}",
-            "$0",
-            ":::"
-        ],
-        "description": "Warning alert container"
-    },
-    "Error Alert": {
-        "prefix": "error",
-        "body": [
-            "::: v-error ${1:错误}",
-            "$0",
-            ":::"
-        ],
-        "description": "Error alert container"
+    
+    "Max Depth": {
+        "prefix": "maxdepth-val",
+        "body": ["maxDepth: ${1:3}"],
+        "description": "Maximum nesting depth"
     },
 
-    // ========== Card Containers ==========
-    "Text Card": {
-        "prefix": "card-text",
+    // VitePress layout values
+    "Layout Doc": {
+        "prefix": "layout-doc",
+        "body": ["layout: doc"],
+        "description": "Document layout"
+    },
+    
+    "Layout Home": {
+        "prefix": "layout-home",
+        "body": ["layout: home"],
+        "description": "Home page layout"
+    },
+    
+    "Layout Page": {
+        "prefix": "layout-page",
+        "body": ["layout: page"],
+        "description": "Custom page layout"
+    },
+    
+    "Prev True": {
+        "prefix": "prev-true",
+        "body": ["prev: true"],
+        "description": "Enable previous navigation"
+    },
+    
+    "Prev False": {
+        "prefix": "prev-false",
+        "body": ["prev: false"],
+        "description": "Disable previous navigation"
+    },
+    
+    "Next True": {
+        "prefix": "next-true",
+        "body": ["next: true"],
+        "description": "Enable next navigation"
+    },
+    
+    "Next False": {
+        "prefix": "next-false",
+        "body": ["next: false"],
+        "description": "Disable next navigation"
+    },
+
+    // Meta configuration values
+    "Description Value": {
+        "prefix": "description-val",
+        "body": ["description: ${1:Page description}"],
+        "description": "Set page description"
+    },
+    
+    "Authors Array": {
+        "prefix": "authors-val",
         "body": [
-            ":::text ${1:标题}${2:#${3:副标题}}",
-            "$0",
+            "authors:",
+            "  - ${1:username1}",
+            "  - ${2:username2}"
+        ],
+        "description": "Set page authors"
+    },
+    
+    "Tags Array": {
+        "prefix": "tags-val", 
+        "body": [
+            "tags:",
+            "  - ${1:tag1}",
+            "  - ${2:tag2}"
+        ],
+        "description": "Set page tags"
+    },
+    
+    "Progress Value": {
+        "prefix": "progress-val",
+        "body": ["progress: ${1:100}"],
+        "description": "Set completion progress"
+    },
+    
+    "Show Comment True": {
+        "prefix": "comment-true",
+        "body": ["showComment: true"],
+        "description": "Enable comments"
+    },
+    
+    "Show Comment False": {
+        "prefix": "comment-false", 
+        "body": ["showComment: false"],
+        "description": "Disable comments"
+    },
+    
+    "Git Changelog True": {
+        "prefix": "changelog-true",
+        "body": ["gitChangelog: true"],
+        "description": "Show git changelog"
+    },
+    
+    "Git Changelog False": {
+        "prefix": "changelog-false",
+        "body": ["gitChangelog: false"],
+        "description": "Hide git changelog"
+    },
+
+    // Document states
+    "State Preliminary": {
+        "prefix": "state-preliminary",
+        "body": ["state: preliminary"],
+        "description": "Preliminary state"
+    },
+    
+    "State Unfinished": {
+        "prefix": "state-unfinished",
+        "body": ["state: unfinished"],
+        "description": "Unfinished state"
+    },
+    
+    "State Outdated": {
+        "prefix": "state-outdated",
+        "body": ["state: outdated"],
+        "description": "Outdated state"
+    },
+    
+    "State Renovating": {
+        "prefix": "state-renovating",
+        "body": ["state: renovating"],
+        "description": "Renovating state"
+    },
+
+    // Complete templates
+    "Sidebar Root Template": {
+        "prefix": "sidebar-root",
+        "body": [
+            "---",
+            "root: true",
+            "title: ${1:Section Title}",
+            "collapsed: ${2|true,false|}",
+            "layout: doc",
+            "prev: false",
+            "next: false",
+            "---",
+            "",
+            "# ${1:Section Title}",
+            "",
+            "$0"
+        ],
+        "description": "Complete sidebar root template"
+    },
+    
+    "Sidebar Page Template": {
+        "prefix": "sidebar-page",
+        "body": [
+            "---",
+            "title: ${1:Page Title}",
+            "description: ${2:Page description}",
+            "layout: doc",
+            "---",
+            "",
+            "# ${1:Page Title}",
+            "",
+            "$0"
+        ],
+        "description": "Complete page template"
+    },
+
+    // ========== STYLE PLUGINS & CUSTOM COMPONENTS ==========
+    
+    // Mermaid
+    "Mermaid Diagram": {
+        "prefix": "mermaid",
+        "body": [
+            ":::demo",
+            "",
+            "```mermaid",
+            "${1|graph TD,flowchart TD,graph LR,sequence,gantt,journey,pie|}",
+            "    ${2:A --> B}",
+            "```",
+            "",
             ":::"
         ],
-        "description": "Text style card"
+        "description": "Mermaid diagram"
     },
-    "Flat Card": {
-        "prefix": "card-flat",
+    
+    // Magic Move
+    "Magic Move": {
+        "prefix": "magic-move",
         "body": [
-            ":::flat ${1:标题}",
-            "$0",
-            ":::"
-        ],
-        "description": "Flat style card"
-    },
-    "Elevated Card": {
-        "prefix": "card-elevated",
-        "body": [
-            ":::elevated ${1:#${2:副标题}}",
-            "$0",
-            ":::"
-        ],
-        "description": "Elevated style card"
-    },
-    "Tonal Card": {
-        "prefix": "card-tonal",
-        "body": [
-            ":::tonal ${1:标题}${2:#${3:副标题}}",
-            "$0",
-            ":::"
-        ],
-        "description": "Tonal style card"
-    },
-    "Outlined Card": {
-        "prefix": "card-outlined",
-        "body": [
-            ":::outlined",
-            "$0",
-            ":::"
-        ],
-        "description": "Outlined style card"
-    },
-    "Plain Card": {
-        "prefix": "card-plain",
-        "body": [
-            "::::plain ${1:标题}${2:#${3:副标题}}",
-            "$0",
+            "::::demo",
+            "",
+            ":::magic-move",
+            "",
+            "```${1:js}",
+            "${2:// First code block}",
+            "```",
+            "",
+            "```${1:js}",
+            "${3:// Second code block}",
+            "```",
+            "",
+            ":::",
+            "",
             "::::"
         ],
-        "description": "Plain style card (supports nesting)"
+        "description": "Magic Move code transition"
     },
-
-    // ========== Alignment Containers ==========
-    "Left Align": {
-        "prefix": "left",
+    
+    // Timeline
+    "Timeline": {
+        "prefix": "timeline",
+        "body": [
+            ":::: demo ${1:Timeline Example}",
+            "::: timeline ${2:2023-05-24}",
+            "- **${3:Event 1}**",
+            "- ${4:Event 2}",
+            ":::",
+            "",
+            "::: timeline ${5:2023-05-23}",
+            "${6:Event 3}",
+            "${7:Event 4}",
+            ":::",
+            "::::"
+        ],
+        "description": "Timeline plugin"
+    },
+    
+    // Bilibili Video
+    "Bilibili Video": {
+        "prefix": "bilibili",
+        "body": [
+            ":::demo",
+            "<BilibiliVideo bvid=\"${1:BV1rC4y1C7z2}\" />",
+            ":::"
+        ],
+        "description": "Bilibili video component"
+    },
+    
+    // Damage Chart
+    "Damage Chart": {
+        "prefix": "damage-chart",
+        "body": [
+            ":::demo",
+            "",
+            "<DamageChart",
+            "  mode=\"${1|static,interactive|}\"",
+            "  :incomingDamage=\"${2:20}\"",
+            "  :armorToughness=\"${3:5}\"",
+            "  :minDamage=\"${4:4}\"",
+            "  :maxDamage=\"${5:20}\"",
+            "  :maxArmorPoints=\"${6:20}\"",
+            "  :isJavaEdition=\"${7|true,false|}\"",
+            "/>",
+            "",
+            ":::"
+        ],
+        "description": "Damage chart component"
+    },
+    
+    // PDF Viewer
+    "PDF Viewer": {
+        "prefix": "pdf-viewer",
+        "body": [
+            ":::demo",
+            "<PdfViewer pdfSource=\"${1:/pdf/example.pdf}\"/>",
+            ":::"
+        ],
+        "description": "PDF viewer component"
+    },
+    
+    // LiteTree
+    "File Tree": {
+        "prefix": "lite-tree",
+        "body": [
+            "<LiteTree>",
+            "${1:Root Folder}",
+            "    ${2:Subfolder}",
+            "        ${3:file.txt}      //+         ${4:Add marker}",
+            "        ${5:file2.txt}     //x         ${6:Error marker}",
+            "    ${7:Another Folder}",
+            "        ${8:file3.txt}     //v         ${9:Success marker}",
+            "</LiteTree>"
+        ],
+        "description": "File tree structure"
+    },
+    
+    // Tabs
+    "Tabs": {
+        "prefix": "tabs",
+        "body": [
+            ":::tabs${1: key:example}",
+            "== ${2:Tab 1}",
+            "${3:Content 1}",
+            "== ${4:Tab 2}",
+            "${5:Content 2}",
+            ":::"
+        ],
+        "description": "Tab container"
+    },
+    
+    // Todo Lists
+    "Todo List": {
+        "prefix": "todo",
+        "body": [
+            "- [ ] ${1:Uncompleted task}",
+            "- [x] ${2:Completed task}"
+        ],
+        "description": "Todo list items"
+    },
+    
+    // Image with Size
+    "Image with Size": {
+        "prefix": "img-size",
+        "body": ["![${1:Alt text} =${2:200}x${3:300}](${4:/path/to/image.png})"],
+        "description": "Image with size specification"
+    },
+    
+    // Alignment
+    "Align Left": {
+        "prefix": "align-left",
         "body": [
             "::: left",
-            "$0",
+            "${1:Left aligned content}",
             ":::"
         ],
         "description": "Left aligned content"
     },
-    "Center Align": {
-        "prefix": "center",
+    
+    "Align Center": {
+        "prefix": "align-center",
         "body": [
             "::: center",
-            "$0",
+            "${1:Centered content}",
             ":::"
         ],
-        "description": "Center aligned content"
+        "description": "Centered content"
     },
-    "Right Align": {
-        "prefix": "right",
+    
+    "Align Right": {
+        "prefix": "align-right",
         "body": [
-            "::: right",
-            "$0",
+            "::: right", 
+            "${1:Right aligned content}",
             ":::"
         ],
         "description": "Right aligned content"
     },
-    "Justify Align": {
-        "prefix": "justify",
+    
+    "Align Justify": {
+        "prefix": "align-justify",
         "body": [
             "::: justify",
-            "$0",
+            "${1:Justified content}",
             ":::"
         ],
         "description": "Justified content"
     },
-
-    // ========== Image Utilities (Enhanced) ==========
-    "Image with Size": {
-        "prefix": "img-size",
-        "body": [
-            "![${1:Alt text}](${2:image-path} =${3:200}x${4:200})"
-        ],
-        "description": "Image with specified width and height"
+    
+    // Spoiler
+    "Spoiler": {
+        "prefix": "spoiler",
+        "body": ["!!${1:hidden content}!!"],
+        "description": "Hidden/spoiler text"
     },
-    "Image with Width Only": {
-        "prefix": "img-width",
-        "body": [
-            "![${1:Alt text}](${2:image-path} =${3:200}x)"
-        ],
-        "description": "Image with specified width only"
+    
+    // Sub/Superscript
+    "Subscript": {
+        "prefix": "sub",
+        "body": ["${1:text}~${2:subscript}~"],
+        "description": "Subscript text"
     },
-    "Image with Height Only": {
-        "prefix": "img-height",
-        "body": [
-            "![${1:Alt text}](${2:image-path} =x${3:200})"
-        ],
-        "description": "Image with specified height only"
+    
+    "Superscript": {
+        "prefix": "sup",
+        "body": ["${1:text}^${2:superscript}^"],
+        "description": "Superscript text"
     },
-    "Image with Title and Size": {
-        "prefix": "img-title-size",
-        "body": [
-            "![${1:Alt text}](${2:image-path} =${3:200}x${4:200} \"${5:Title}\")"
-        ],
-        "description": "Image with title and dimensions"
+    
+    // Ruby
+    "Ruby Annotation": {
+        "prefix": "ruby",
+        "body": ["{${1:中国}:${2:zhōng}|${3:guó}}"],
+        "description": "Ruby annotation (phonetic guide)"
     },
-    "Logo Image": {
-        "prefix": "img-logo",
+    
+    // Demo
+    "Demo Block": {
+        "prefix": "demo",
         "body": [
-            "![Logo =150x150](${1:/logo.png})"
+            "::: demo ${1:Demo Title}",
+            "${2:Demo content}",
+            ":::"
         ],
-        "description": "Standard logo image with fixed size"
+        "description": "Demo block container"
     },
-    "Responsive Image": {
-        "prefix": "img-responsive",
+    
+    // Stepper
+    "Stepper": {
+        "prefix": "stepper",
         "body": [
-            "![${1:Alt text} =100%x](${2:image-path})"
+            "::: stepper",
+            "@tab ${1:Step 1}",
+            "${2:First step content}",
+            "@tab ${3:Step 2}",
+            "${4:Second step content}",
+            "@tab ${5:Step 3}",
+            "${6:Third step content}",
+            ":::"
         ],
-        "description": "Responsive width image"
+        "description": "Step-by-step guide"
     },
-
-    // ========== Media & Interactive ==========
+    
+    // Mark and Insert
+    "Highlight": {
+        "prefix": "mark",
+        "body": ["==${1:highlighted text}=="],
+        "description": "Highlighted text"
+    },
+    
+    "Insert": {
+        "prefix": "insert",
+        "body": ["++${1:inserted text}++"],
+        "description": "Inserted text"
+    },
+    
+    // Alert Cards
+    "Alert Success": {
+        "prefix": "alert-success",
+        "body": [
+            "::: v-success ${1:Success}",
+            "${2:Success message}",
+            ":::"
+        ],
+        "description": "Success alert"
+    },
+    
+    "Alert Info": {
+        "prefix": "alert-info",
+        "body": [
+            "::: v-info ${1:Information}",
+            "${2:Info message}",
+            ":::"
+        ],
+        "description": "Info alert"
+    },
+    
+    "Alert Warning": {
+        "prefix": "alert-warning",
+        "body": [
+            "::: v-warning ${1:Warning}",
+            "${2:Warning message}",
+            ":::"
+        ],
+        "description": "Warning alert"
+    },
+    
+    "Alert Error": {
+        "prefix": "alert-error",
+        "body": [
+            "::: v-error ${1:Error}",
+            "${2:Error message}",
+            ":::"
+        ],
+        "description": "Error alert"
+    },
+    
+    // Carousels
     "Carousel": {
         "prefix": "carousel",
         "body": [
-            "::: carousels#{\"cycle\": ${1:true}, \"interval\": ${2:2800}, \"undelimiters\": ${3:true}}",
+            "::: carousels#{\"cycle\": ${1|true,false|}, \"interval\": ${2:2800}, \"undelimiters\": ${3|true,false|}}",
             "@tab",
-            "![${4:描述1}](${5:图片链接1})",
-            "@tab",
-            "![${6:描述2}](${7:图片链接2})",
-            "$0",
+            "![${4:Image 1}](${5:/path/to/image1.png})",
+            "@tab", 
+            "![${6:Image 2}](${7:/path/to/image2.png})",
             ":::"
         ],
-        "description": "Image carousel container"
+        "description": "Image carousel"
     },
-    "IFrame": {
+    
+    // Iframe
+    "Iframe": {
         "prefix": "iframe",
         "body": [
             ":::iframes#{\"src\": \"${1:https://example.com}\", \"height\": \"${2:400px}\"}",
@@ -341,259 +753,225 @@
         ],
         "description": "Embedded iframe"
     },
-    "Linkcard": {
+    
+    // Cards
+    "Card Text": {
+        "prefix": "card-text",
+        "body": [
+            ":::text ${1:Title}#${2:Subtitle}",
+            "${3:Card content}",
+            ":::"
+        ],
+        "description": "Text card"
+    },
+    
+    "Card Flat": {
+        "prefix": "card-flat",
+        "body": [
+            ":::flat ${1:Title}",
+            "${2:Card content}",
+            ":::"
+        ],
+        "description": "Flat card"
+    },
+    
+    "Card Elevated": {
+        "prefix": "card-elevated",
+        "body": [
+            ":::elevated #${1:Subtitle}",
+            "${2:Card content}",
+            ":::"
+        ],
+        "description": "Elevated card"
+    },
+    
+    "Card Tonal": {
+        "prefix": "card-tonal",
+        "body": [
+            ":::tonal ${1:Title}#${2:Subtitle}",
+            "${3:Card content}",
+            ":::"
+        ],
+        "description": "Tonal card"
+    },
+    
+    "Card Outlined": {
+        "prefix": "card-outlined",
+        "body": [
+            ":::outlined",
+            "${1:Card content}",
+            ":::"
+        ],
+        "description": "Outlined card"
+    },
+
+    // ========== VITEPRESS BUILT-IN FEATURES ==========
+    
+    // Containers
+    "Info Container": {
+        "prefix": "info",
+        "body": [
+            "::: info ${1:Info Title}",
+            "${2:Info content}",
+            ":::"
+        ],
+        "description": "VitePress info container"
+    },
+    
+    "Tip Container": {
+        "prefix": "tip",
+        "body": [
+            "::: tip ${1:Tip Title}",
+            "${2:Tip content}",
+            ":::"
+        ],
+        "description": "VitePress tip container"
+    },
+    
+    "Warning Container": {
+        "prefix": "warning",
+        "body": [
+            "::: warning ${1:Warning Title}",
+            "${2:Warning content}",
+            ":::"
+        ],
+        "description": "VitePress warning container"
+    },
+    
+    "Danger Container": {
+        "prefix": "danger",
+        "body": [
+            "::: danger ${1:Danger Title}",
+            "${2:Danger content}",
+            ":::"
+        ],
+        "description": "VitePress danger container"
+    },
+    
+    "Details Container": {
+        "prefix": "details",
+        "body": [
+            "::: details ${1:Click to expand}",
+            "${2:Hidden content}",
+            ":::"
+        ],
+        "description": "VitePress details container"
+    },
+    
+    // Code Groups
+    "Code Group": {
+        "prefix": "code-group",
+        "body": [
+            "::: code-group",
+            "",
+            "```${1:js} [${2:JavaScript}]",
+            "${3:// JavaScript code}",
+            "```",
+            "",
+            "```${4:ts} [${5:TypeScript}]",
+            "${6:// TypeScript code}",
+            "```",
+            "",
+            ":::"
+        ],
+        "description": "VitePress code group"
+    },
+    
+    // Math
+    "Math Inline": {
+        "prefix": "math-inline",
+        "body": ["$${1:x^2 + y^2 = z^2}$"],
+        "description": "Inline math formula"
+    },
+    
+    "Math Block": {
+        "prefix": "math-block",
+        "body": [
+            "$$",
+            "${1:x^2 + y^2 = z^2}",
+            "$$"
+        ],
+        "description": "Block math formula"
+    },
+    
+    // Links
+    "Link Card": {
         "prefix": "linkcard",
         "body": [
-            "<Linkcard url=\"${1:https://example.com}\" title=\"${2:标题}\" description=\"${3:描述}\" logo=\"${4:logo链接}\"/>"
+            "<Linkcard url=\"${1:https://example.com}\" title=\"${2:Title}\" description=\"${3:Description}\" logo=\"${4:/logo.png}\"/>"
         ],
         "description": "Link card component"
     },
-
-    // ========== Component Snippets (From Samples) ==========
-    "Mermaid Diagram": {
-        "prefix": "mermaid",
+    
+    // Custom Blocks
+    "Custom Container": {
+        "prefix": "custom-container",
         "body": [
-            "```mermaid",
-            "${1:graph TD}",
-            "    ${2:A --> B}",
-            "    ${3:B --> C}",
-            "$0",
+            "::: ${1:custom-type} ${2:Title}",
+            "${3:Content}",
+            ":::"
+        ],
+        "description": "Custom container"
+    },
+    
+    // Code with Line Numbers
+    "Code with Line Numbers": {
+        "prefix": "code-lines",
+        "body": [
+            "```${1:js}:line-numbers",
+            "${2:// Code with line numbers}",
             "```"
         ],
-        "description": "Mermaid diagram code block"
+        "description": "Code block with line numbers"
     },
-    "Mermaid Journey": {
-        "prefix": "mermaid-journey",
+    
+    // Code with Highlighting
+    "Code with Highlighting": {
+        "prefix": "code-highlight",
         "body": [
-            "```mermaid",
-            "journey",
-            "    title ${1:My journey title}",
-            "    section ${2:Section 1}",
-            "      ${3:Step 1}: ${4:5}: ${5:Me}",
-            "      ${6:Step 2}: ${7:3}: ${8:Me}",
-            "    section ${9:Section 2}",
-            "      ${10:Step 3}: ${11:5}: ${12:Me}",
-            "$0",
+            "```${1:js}{${2:2-4,6}}",
+            "${3:// Highlighted lines}",
             "```"
         ],
-        "description": "Mermaid journey diagram"
+        "description": "Code block with line highlighting"
     },
-    "Timeline": {
-        "prefix": "timeline",
-        "body": [
-            "::: timeline ${1:2023-05-24}",
-            "- **${2:do some thing1}**",
-            "- ${3:do some thing2}",
-            "$0",
-            ":::"
-        ],
-        "description": "Timeline container"
-    },
-    "Multiple Timeline": {
-        "prefix": "timeline-multi",
-        "body": [
-            ":::: demo ${1:示例}",
-            "::: timeline ${2:2023-05-24}",
-            "- **${3:do some thing1}**",
-            "- ${4:do some thing2}",
-            ":::",
-            "",
-            "::: timeline ${5:2023-05-23}",
-            "${6:do some thing3}",
-            "${7:do some thing4}",
-            ":::",
-            "$0",
-            "::::"
-        ],
-        "description": "Multiple timeline entries"
-    },
-    "Bilibili Video": {
-        "prefix": "bilibili",
-        "body": [
-            "<BilibiliVideo bvid=\"${1:BV1rC4y1C7z2}\" />"
-        ],
-        "description": "Bilibili video component"
-    },
-    "Damage Chart": {
-        "prefix": "damage-chart",
-        "body": [
-            "<DamageChart",
-            "  mode=\"${1:static}\"",
-            "  :incomingDamage=\"${2:20}\"",
-            "  :armorToughness=\"${3:5}\"",
-            "  :minDamage=\"${4:4}\"",
-            "  :maxDamage=\"${5:20}\"",
-            "  :maxArmorPoints=\"${6:20}\"",
-            "  :isJavaEdition=\"${7:true}\"",
-            "/>"
-        ],
-        "description": "Damage chart component"
-    },
-    "PDF Viewer": {
-        "prefix": "pdf-viewer",
-        "body": [
-            "<PdfViewer pdfSource=\"${1:/pdf/modding/java/test.pdf}\"/>"
-        ],
-        "description": "PDF viewer component"
-    },
-    "Lite Tree": {
-        "prefix": "lite-tree",
-        "body": [
-            "<LiteTree>",
-            "${1:Root Node}",
-            "    ${2:Child Node 1}",
-            "        ${3:Grandchild 1}      ${4://+}         ${5:增加标识}",
-            "        ${6:Grandchild 2}      ${7://v}         ${8:成功标识}",
-            "    ${9:Child Node 2}",
-            "        ${10:Grandchild 3}      ${11://x}         ${12:错误标识}",
-            "        ${13:Grandchild 4}      ${14://-}         ${15:删除标识}",
-            "$0",
-            "</LiteTree>"
-        ],
-        "description": "Lite tree component with status indicators"
-    },
-
-    // ========== Demo Container ==========
-    "Demo Container": {
-        "prefix": "@demo",
-        "body": [
-            "::: demo ${1:示例}",
-            "$0",
-            ":::"
-        ],
-        "description": "Demo container"
-    },
-    "Multi-level Demo": {
-        "prefix": "demo-multi",
-        "body": [
-            ":::: demo ${1:示例标题}",
-            "::: demo ${2:内部示例}",
-            "$0",
-            ":::",
-            "::::"
-        ],
-        "description": "Multi-level demo container"
-    },
-    "Demo with Component": {
-        "prefix": "demo-component",
-        "body": [
-            ":::demo",
-            "${1:<Component prop=\"value\" />}",
-            "$0",
-            ":::"
-        ],
-        "description": "Demo container with component"
-    },
-
-    // ========== Text Formatting ==========
-    "Spoiler Text": {
-        "prefix": "spoiler",
-        "body": ["!!${1:隐藏内容}!!"],
-        "description": "Spoiler/hidden text"
-    },
-    "Mark Text": {
-        "prefix": "mark",
-        "body": ["==${1:标记文本}=="],
-        "description": "Marked/highlighted text"
-    },
-    "Insert Text": {
-        "prefix": "ins",
-        "body": ["++${1:插入文本}++"],
-        "description": "Inserted text"
-    },
-    "Subscript": {
-        "prefix": "sub",
-        "body": ["~${1:下标}~"],
-        "description": "Subscript text"
-    },
-    "Superscript": {
-        "prefix": "sup",
-        "body": ["^${1:上标}^"],
-        "description": "Superscript text"
-    },
-    "Ruby Annotation": {
-        "prefix": "ruby",
-        "body": ["{${1:汉字}:${2:读音}}"],
-        "description": "Ruby annotation (furigana)"
-    },
-    "Abbreviation": {
-        "prefix": "abbr",
-        "body": [
-            "*[${1:缩写}]: ${2:完整形式}",
-            "$0"
-        ],
-        "description": "Abbreviation definition"
-    },
-
-    // ========== Task Lists ==========
-    "Task List": {
-        "prefix": "task",
-        "body": [
-            "- [ ] ${1:未完成任务}",
-            "- [x] ${2:已完成任务}",
-            "$0"
-        ],
-        "description": "GitHub-style task list"
-    },
-    "Unchecked Task": {
-        "prefix": "todo",
-        "body": ["- [ ] $0"],
-        "description": "Unchecked task item"
-    },
-    "Checked Task": {
-        "prefix": "done-task",
-        "body": ["- [x] $0"],
-        "description": "Checked task item"
-    },
-
-    // ========== Complete Document Templates ==========
-    "Full Document Template": {
-        "prefix": "doc-template",
+    
+    // Frontmatter Template
+    "Frontmatter Complete": {
+        "prefix": "front-complete",
         "body": [
             "---",
-            "layout: doc",
-            "title: ${1:文档标题}",
-            "description: ${2:文档描述}",
+            "title: ${1:Page Title}",
+            "description: ${2:Page description}",
+            "layout: ${3:doc}",
+            "prev: ${4|false,true|}",
+            "next: ${5|false,true|}",
             "authors:",
-            "  - ${3:作者}",
+            "  - ${6:author1}",
             "tags:",
-            "  - ${4:标签}",
-            "progress: ${5:100}",
-            "state: ${6:preliminary}",
+            "  - ${7:tag1}",
+            "progress: ${8:100}",
+            "state: ${9|published,preliminary,unfinished,outdated,renovating|}",
             "---",
             "",
-            "# {{ \\$frontmatter.title }}",
+            "# ${1:Page Title}",
             "",
             "$0"
         ],
-        "description": "Complete document template with frontmatter"
+        "description": "Complete frontmatter template"
     },
-    "Sample Document Template": {
-        "prefix": "sample-template",
-        "body": [
-            "---",
-            "layout: doc",
-            "title: ${1:文档插件示例}",
-            "",
-            "authors:",
-            "  - ${2:作者名}",
-            "tags:",
-            "  - sample",
-            "---",
-            "",
-            "# ${3:文档插件示例}",
-            "",
-            "$0"
-        ],
-        "description": "Sample document template based on samples.md"
+
+    // ========== UTILITIES ==========
+    
+    "Non-breaking Space": {
+        "prefix": "nbsp",
+        "body": ["&nbsp;"],
+        "description": "Non-breaking space"
     },
-    "Section with Anchor": {
-        "prefix": "section",
-        "body": [
-            "## ${1:标题} {#${2:anchor}}",
-            "",
-            "$0"
-        ],
-        "description": "Section heading with anchor"
-    }
+    
+    "Frontmatter Title Variable": {
+        "prefix": "fm-title",
+        "body": ["{{ $frontmatter.title }}"],
+        "description": "Frontmatter title variable"
+    },
 }

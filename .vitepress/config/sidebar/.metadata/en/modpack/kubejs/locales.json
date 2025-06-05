@@ -1,0 +1,32 @@
+{
+  "1.18.2/": {
+    "valueHash": "9a590eaf7b4a05ff2b9db10dbb52e2b0",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063968
+  },
+  "1.19.2/": {
+    "valueHash": "d1351bc4f56a39e9321b9ebbb85981da",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063968
+  },
+  "1.20.1/": {
+    "valueHash": "a5b10124c73efb47be9e6410796d1e42",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063968
+  },
+  "1.21/": {
+    "valueHash": "a5b10124c73efb47be9e6410796d1e42",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085063968
+  },
+  "_self_": {
+    "valueHash": "a5b10124c73efb47be9e6410796d1e42",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749085063968
+  }
+}

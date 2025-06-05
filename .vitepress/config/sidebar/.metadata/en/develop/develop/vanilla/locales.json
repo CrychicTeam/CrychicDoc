@@ -1,0 +1,32 @@
+{
+  "datapack/": {
+    "valueHash": "f1dde262df1071a57908b6d9bccf0e02",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749083784451
+  },
+  "resourcepack/": {
+    "valueHash": "ade172137348da0156470fc67c7dbc18",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749083784451
+  },
+  "_self_": {
+    "valueHash": "7d3cf600bf044a1aaf9324807bd8d13e",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749082463385
+  },
+  "datapack/introduction.md": {
+    "valueHash": "8800e1c9b3e22c44ba59a34db3fe4841",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749083784451
+  },
+  "resourcepack/introduction.md": {
+    "valueHash": "8800e1c9b3e22c44ba59a34db3fe4841",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749083784451
+  }
+}

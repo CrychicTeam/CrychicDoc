@@ -1,0 +1,17 @@
+{
+  "module-request/": false,
+  "Q&A/": false,
+  "suggestion/": false,
+  "module-request/beautify.md": false,
+  "module-request/codeShare.md": false,
+  "module-request/component.md": false,
+  "module-request/kubejs.md": false,
+  "module-request/mod.md": false,
+  "module-request/modPlugin.md": false,
+  "module-request/newSection.md": false,
+  "Q&A/cooperation.md": false,
+  "Q&A/other.md": false,
+  "Q&A/use.md": false,
+  "suggestion/doc.md": false,
+  "suggestion/writing.md": false
+}

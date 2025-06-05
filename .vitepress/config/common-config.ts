@@ -13,6 +13,7 @@ import {
     GitChangelogMarkdownSection,
 } from "@nolebase/vitepress-plugin-git-changelog/vite";
 import * as config from "./markdown-plugins";
+import { sidebarPlugin } from '../plugins/sidebar-plugin'
 
 import { search as zhSearch } from "./lang/zh";
 
@@ -131,6 +132,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
             noExternal: ["vuetify", "@nolebase/*"],
         },
         plugins: [
+            sidebarPlugin(),
             GitChangelog({
                 repoURL: () => "https://github.com/PickAID/CrychicDoc",
                 mapAuthors: contributors.map((author) => ({

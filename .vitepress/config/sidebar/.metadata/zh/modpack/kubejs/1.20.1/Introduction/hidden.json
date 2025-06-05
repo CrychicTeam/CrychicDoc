@@ -1,0 +1,80 @@
+{
+  "Block/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "Description.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "Entity/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "GlobalScope/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "Item/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "LootTable/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "Miscellaneous/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "Network/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "PotionEffect/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "Recipe/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "Tag/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749085839213
+  },
+  "1.20.1/Introduction/Description.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749085839213
+  },
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749085839213
+  }
+}

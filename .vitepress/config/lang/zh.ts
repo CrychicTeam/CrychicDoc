@@ -1,12 +1,12 @@
-import { DefaultTheme } from "vitepress";
-import { loadSidebar } from "../loadSidebar";
-import { text } from "stream/consumers";
+import type { DefaultTheme } from 'vitepress';
+import { sidebarForLanguage } from '../loadSidebar';
 
 export const zh_CN = <DefaultTheme.Config>{
-    lang: "zh-CN",
-    link: "/zh/",
-    title: "CryChic文档",
-    description: "一个包含 Minecraft 开发文档的网站。",
+    label: '简体中文',
+    lang: 'zh-CN',
+    link: '/zh/',
+    title: 'CryChic文档',
+    description: '一个包含 Minecraft 开发文档的网站。',
     themeConfig: {
         nav: [
             {
@@ -68,11 +68,12 @@ export const zh_CN = <DefaultTheme.Config>{
             ]},
             {text: "讨论区", link: "/zh/info"},
         ],
-        sidebar: loadSidebar("zh"),
+        sidebar: sidebarForLanguage("zh"),
         outline: {
             level: "deep",
             label: "页面导航",
         },
+        outlineTitle: '本页目录',
         docFooter: {
             prev: "上一页",
             next: "下一页",

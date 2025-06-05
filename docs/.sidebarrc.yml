@@ -1,0 +1,20 @@
+defaults:
+  maxDepth: 2 # 1-based. 0 = current items only, 1 = current + direct children, 2 = current + direct children + their direct children.
+  collapsed: false # Roots and their top-level groups/directories expand by default
+  itemOrder:
+    "introduction.md": 1
+    "feature-a.md": 5
+    "concepts/": 10
+    "Advanced Group": 15 # Ordering a group by its title
+    # feature-b-draft.md will appear after explicitly ordered items, sorted alphanumerically
+    "tools/": 100 # This is a link to a nested root, its order in parent sidebar
+    "no-index-folder/": 101
+    "gitbook-sim/": 200 # Should be excluded by GitBookService anyway
+  sortBy: priority # priority | alphabetical | filename
+  showHidden: false
+  collapsedStrategy: smart # smart | depth-based | content-based | manual
+  smartRules:
+    expandCurrentVersion: true
+    expandImportantCategories: true
+    collapseDeepLevels: true
+    maxExpandedChildren: 5

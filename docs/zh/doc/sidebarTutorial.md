@@ -6,220 +6,476 @@ layout: doc
 
 ## 简述 {#info}
 
-基于多方原因考虑，本站中所有侧边栏均由开发组自行编写的侧边栏生成器生成。并未使用Vitepress提供的侧边栏插件。下文对于侧边栏生成器配置提供了详尽的解析。
+本站使用自研的智能侧边栏生成系统，支持自动发现、配置继承、JSON 覆盖和智能迁移等高级特性。本文档将详解系统架构和配置方法。
 
-## 结构与原理 {#principle}
+## 系统架构 {#architecture}
 
-侧边栏生成器的入口由`index.ts`文件构成，其完整路径为：`CrychicDoc/.vitepress/index.ts`。
+### 核心服务组件
 
-其代码结构如下：
+```mermaid
+graph TD
+    A[main.ts 主调度器] --> B[ConfigReaderService 配置读取]
+    A --> C[StructuralGeneratorService 结构生成]
+    A --> D[JsonConfigSynchronizerService JSON同步]
+    A --> E[GitBookParserService GitBook解析]
 
-::: code-group
+    B --> F[全局配置 .sidebarrc.yml]
+    B --> G[frontmatter 层级合并]
 
-```ts [核心代码]
-const dirs = [
-    "modpack/kubejs"
+    D --> H[JSON覆盖文件]
+    D --> I[元数据跟踪]
+    D --> J[智能迁移]
+```
+
+### 自动根节点发现
+
+当目录中的 `index.md` 包含以下配置时：
+
+```yaml
+---
+root: true # 启用根节点模式
+title: 开发指南 # 侧边栏分组标题
+---
+```
+
+系统会自动：
+
+1. 🔍 **扫描发现**：通过 `findAllRootIndexMdPaths()` 发现所有根节点
+2. 📂 **创建分组**：为每个根节点生成独立的侧边栏分组
+3. ⚙️ **配置合并**：应用全局配置、层级 frontmatter 和 JSON 覆盖
+4. 🗂️ **结构扁平化**：子目录内容直接展示，避免深层嵌套
+
+### 文件扫描规则 {#scan-rules}
+
+基于 `main.ts` 中 `findAllRootIndexMdPaths()` 的实际实现：
+
+#### ✅ 包含的文件
+
+-   所有 `.md` 文件（除系统保留文件）
+-   子目录中的 `index.md`
+-   GitBook 项目的 `SUMMARY.md`
+
+#### 🚫 自动忽略项
+
+```typescript
+// 基于实际实现的忽略规则
+const ignorePatterns = [
+    "**/.vitepress/**", // VitePress系统目录
+    "**/node_modules/**", // Node模块
+    "**/_*/**", // 下划线开头的私有目录
+    langGitbookPaths, // GitBook目录（单独处理）
 ];
 ```
 
-```ts{6-8} [完整代码]
-import sidebar from "./utils/sidebarGenerator"
-import md from "./utils/mdParser"
-import Path from "path";
-import fs from "fs";
+#### 🎯 深度嵌套过滤
 
-const dirs = [// [!code focus:3]
-    "modpack/kubejs"
-];
+系统会自动过滤过深的嵌套根节点：
 
-export default function sidebars(lang: string): {} {
-    let ISidebar = {};
-    dirs.forEach(dir => {
-        const generator = new sidebar(`docs/${lang}/${dir}`, true);
-        ISidebar[`${lang}/${dir}/`] = [generator.sidebar]
-    })
-    return ISidebar;
-}
-function logger(string: string, name: string): void {
-    fs.writeFileSync(Path.join(__dirname, name), `${string}\n`, { flag: 'w+' });
+```typescript
+// 防止过深嵌套的根节点冲突
+const isMuchDeeper = depthFromLang > otherDepthFromLang + 2;
+if (isWithinOther && isMuchDeeper) {
+    // 过滤掉深层嵌套的根节点
 }
 ```
 
-:::
+## 配置系统 {#config-system}
 
-当您需要增加一个新的自动扫描目录时，您应在该数组中添加新的路径字符串。您新增的路径经过扫描会自动生成侧边栏，并在对应的子域名中显示。
+### 配置优先级（实际合并顺序）
 
-::: info 示例
+```mermaid
+graph LR
+    A[全局配置 .sidebarrc.yml] --> B[父级 index.md frontmatter]
+    B --> C[当前 index.md frontmatter]
+    C --> D[JSON覆盖文件]
+    D --> E[系统默认值]
+```
 
-`modpack/kubejs`所生成的侧边栏将会在`https://docs.mihono.cn/<lang>/modpack/kubejs`中出现。
+### frontmatter 配置 {#frontmatter}
 
-:::
+基于 `types.ts` 中 `DirectoryConfig` 接口的完整配置选项：
 
-::: warning 注意
+| 配置字段    | 用途                 | 类型                                      | 默认值      | 实现位置               |
+| ----------- | -------------------- | ----------------------------------------- | ----------- | ---------------------- |
+| `root`      | 创建独立侧边栏根节点 | boolean                                   | `false`     | main.ts                |
+| `title`     | 设置显示标题         | string                                    | 目录名      | ConfigReaderService    |
+| `status`    | 内容状态             | 'published'\|'draft'\|'hidden'\|'noguide' | 'published' | EffectiveDirConfig     |
+| `priority`  | 排序优先级           | number                                    | 0           | configDefaultsProvider |
+| `maxDepth`  | 最大扫描深度         | number                                    | 3           | 全局配置               |
+| `collapsed` | 默认折叠状态         | boolean                                   | `false`     | JSON 覆盖              |
+| `itemOrder` | 子项排序规则         | Record<string,number>                     | `{}`        | 配置合并               |
+| `groups`    | 分组配置             | GroupConfig[]                             | `[]`        | StructuralGenerator    |
 
-路径字符串不应包含`docs/<lang>`目录  
-在您添加路径之前，请确保您的路径是真实存在的。
+#### 配置继承规则
 
-:::
-
-### 文件扫描 {#file-scan}
-
-目标目录的文件将会自动被生成器扫描，并生成相应的侧边栏，每个文件的frontmatter配置字段详见[此处](./rules.md#doc-config)。
-
-
-
-### 目录扫描 {#dir-scan}
-
-在本站生成器中，目录不会被自动递归扫描，您需要在目录目录上级创建`index.md`并对其[frontmatter](#frontmatter)进行配置，手动指定需要进入并扫描的目录。
-
-#### 解析 {#index}
-
-`index.md`中的frontmatter除了支持常规的文件配置格式，还会额外读取一项名为`root`的`<Object>`对象，其配置字段及代码声明如下。
-
-:::: details 代码声明
-
-::: code-group
-
-```ts [root对象]
-interface Index {
-    root: {
-        title: string,
-        collapsed?: boolean; 
-        children: SubDir[]
-    }
+```typescript
+// 基于 ConfigReaderService.ts 的实际实现
+for (const hIndexMdPath of hierarchyIndexMdPaths) {
+    const frontmatter = await this.getFrontmatter(hIndexMdPath);
+    const { root: _, ...frontmatterWithoutRoot } = frontmatter; // 排除root继承
+    mergedConfig = deepMerge(mergedConfig, frontmatterWithoutRoot);
 }
 ```
 
-```ts [SubDir对象]
-interface SubDir {
-    title: string;
-    path: string;
-    noScan?: boolean;
-    collapsed?: boolean;
-    file?: string;
-    children?: SubDir[];
+**注意**：`root` 属性不会被子目录继承，只在声明的目录生效。
+
+
+
+### JSON 覆盖系统 {#json-overrides}
+
+#### 覆盖文件类型
+
+| 文件名           | 作用         | 数据结构                        | 处理服务              |
+| ---------------- | ------------ | ------------------------------- | --------------------- |
+| `locales.json`   | 显示标题覆盖 | `{"file.md": "自定义标题"}`     | JsonFileHandler       |
+| `order.json`     | 排序控制     | `{"file.md": 1, "other.md": 2}` | JsonItemSorter        |
+| `collapsed.json` | 折叠状态     | `{"dir/": true}`                | SyncEngine            |
+| `hidden.json`    | 可见性控制   | `{"file.md": true}`             | RecursiveSynchronizer |
+
+#### 配置路径映射
+
+```bash
+# 文档路径 → 配置路径转换规则（基于实际代码实现）
+docs/zh/guide/index.md → .vitepress/config/sidebar/zh/guide/
+docs/en/api/reference.md → .vitepress/config/sidebar/en/api/
+```
+
+#### 元数据跟踪机制
+
+基于 `MetadataManager` 的实际实现，系统跟踪每个配置项：
+
+```typescript
+interface MetadataEntry {
+    valueHash: string; // 配置值的MD5哈希
+    isUserSet: boolean; // 用户自定义标记
+    isActiveInStructure: boolean; // 在当前结构中是否活跃
+    lastSeen?: number; // 最后更新时间戳
 }
 ```
 
-:::
+### 调试技巧 {#debugging}
 
-::::
+#### 1. 查看配置合并过程
 
-::: tabs
+```bash
+# 开启详细日志模式
+DEBUG=sidebar:* npm run docs:dev
+```
 
-== root
+#### 2. 检查生成缓存
 
-| 配置字段        | 用途                          | 类型      | 省缺值   |
-|-------------|-----------------------------|---------|-------|
-| `title`     | 设置该侧边栏的名称，非必填字段             | string  | `N/A` |
-| `collapsed` | 设置该侧边栏默认展开/收缩，非必填字段，留空以禁用展开 | boolean | `N/A` |
-| `children`  | 设置该目录下哪些子目录应被递归，在root为必填字段        | SubDir  | `N/A` |
-  
-== SubDir
+```bash
+# 查看最终生成的侧边栏配置
+cat .vitepress/config/generated/sidebars.json | jq '.'
+```
 
-| 配置字段        | 用途                              | 类型      | 省缺值     |
-|-------------|---------------------------------|---------|---------|
-| `title`     | 设置该子侧边栏的名称，必填字段                 | string  | `N/A`   |
-| `collapsed` | 设置该子侧边栏默认展开/收缩，非必填字段，留空以禁用展开    | boolean | `N/A`   |
-| `path`      | 设置该子侧边栏的目录路径，必填字段               | string  | `N/A`   |
-| `noScan`    | 设置是否应自动扫描该目录内的所有文件              | boolean | `false` |
-| `file`      | 设置该子侧边栏名称连接的文件，非必填字段，文件需处于该子目录内 | string  | `N/A`   |
-| `children`  | 设置该目录下哪些子目录应被递归                   | SubDir  | `N/A` | 
+#### 3. 元数据检查
 
-:::
+```bash
+# 查看特定目录的元数据
+cat .vitepress/config/sidebar/.metadata/zh/guide/locales.meta.json
+```
 
-::: details 示例
+#### 4. 强制重建
 
+```bash
+# 清除缓存并重建
+rm -rf .vitepress/cache && npm run docs:build
+```
+
+## 标题同步工具 {#title-sync}
+
+### 🛠️ 实用工具说明
+
+我们提供了强大的标题同步工具，可以自动将 `index.md` 文件中的 `title` 配置同步到对应的 `locales.json` 文件中：
+
+#### 📦 命令使用
+
+```bash
+# 🎯 快速使用 - 更新所有语言
+npm run update-titles
+
+# 🎯 单一语言 - 只更新中文
+npm run update-titles zh
+
+# 🎯 多语言 - 更新指定语言
+npm run update-titles en zh
+
+# 🎯 查看帮助
+npm run update-titles -- --help
+
+# 🎯 直接使用脚本
+node .vitepress/scripts/update-index-titles.mjs
+```
+
+#### 💡 工作原理
+
+```mermaid
+flowchart TD
+    A[扫描docs目录] --> B{检测index.md}
+    B -->|有title| C[解析frontmatter]
+    B -->|无title| D[跳过文件]
+    C --> E[计算配置路径]
+    E --> F[读取现有locales.json]
+    F --> G[合并_self_键]
+    G --> H[保存更新]
+    H --> I[输出报告]
+```
+
+#### 🔧 实际示例
+
+**处理前**：
 ```yaml
+# docs/zh/guide/advanced/index.md
 ---
-
-root:
-  title: example
-  collapsed: true
-  children:
-      - title: subDir a
-        path: test
-        collapsed: true  
-        children:
-            - title: subDir back
-              path: test
-              children:
-                  - title: subDir back
-                    path: test
-                    file: README
-      - title: subDir back
-        path: test
-        noScan: true
-        file: README
+title: 高级指南
+root: true
 ---
 ```
+
+**自动同步后**：
+```json
+// .vitepress/config/sidebar/zh/guide/advanced/locales.json
+{
+  "_self_": "高级指南",
+  "setup.md": "环境配置",
+  "troubleshooting.md": "故障排除"
+}
+```
+
+#### ✅ 智能特性
+
+- **🎯 选择性处理**：只处理包含 `title` frontmatter 的 index.md 文件
+- **🔒 数据保护**：完全保留 locales.json 中的其他配置项
+- **📁 自动创建**：不存在的 locales.json 文件会自动创建
+- **⚡ 增量更新**：只更新实际发生变化的文件
+- **🛡️ 错误恢复**：单个文件出错不影响整体处理
+
+#### 📊 执行报告示例
+
+```bash
+🔍 Scanning for index.md files with title configuration...
+
+📁 Processing language: zh
+==================================================
+✓ Found index.md with title: zh/guide/advanced -> "高级指南"
+✓ Found index.md with title: zh/api/reference -> "API参考"
+
+Found 2 index.md files with titles
+------------------------------
+✓ Updated locales.json: .vitepress/config/sidebar/zh/guide/advanced/locales.json
+  _self_: "高级指南"
+- No change needed for: .vitepress/config/sidebar/zh/api/reference/locales.json
+
+============================================================
+📊 Summary:
+   Scanned: 2 index.md files
+   Updated: 1 locales.json files
+✅ Index title update completed!
+```
+
+## GitBook 集成系统 {#gitbook}
+
+### GitBook 自动检测
+
+基于 `GitBookService` 的实现，系统会自动：
+
+1. **检测 SUMMARY.md**：识别 GitBook 项目根目录
+2. **排除冲突**：GitBook 目录不参与常规根节点扫描
+3. **独立处理**：使用 `GitBookParserService` 专门解析
+4. **路径清理**：自动处理 README.md 链接格式
+
+#### GitBook vs 常规根节点
+
+```typescript
+// 基于main.ts的实际逻辑
+const langGitbookPaths = await gitbookService.findGitBookDirectoriesInPath(
+    currentLanguagePath
+);
+
+// GitBook路径会被排除在常规根节点扫描之外
+const normalRootIndexMdPaths = await findAllRootIndexMdPaths(
+    currentLanguagePath,
+    nodeFs,
+    langGitbookPaths // 传递GitBook路径进行排除
+);
+```
+
+## 智能迁移系统 {#migration}
+
+### 迁移架构
+
+```mermaid
+sequenceDiagram
+    用户->>系统: 修改配置/重命名目录
+    系统->>KeyMigrationService: 检测键格式变更
+    KeyMigrationService->>MetadataManager: 读取元数据
+    MetadataManager->>DirectoryMigrationService: 处理目录迁移
+    DirectoryMigrationService->>DirectoryCleanupService: 清理过时数据
+    DirectoryCleanupService->>用户: 输出迁移报告
+```
+
+### 迁移服务组件
+
+基于实际的迁移服务实现：
+
+#### 1. KeyMigrationService
+
+```typescript
+// 键格式迁移：完整路径 → 相对路径
+async migrateKeysRecursively(
+    sidebarItems: SidebarItem[],
+    rootSignature: string,
+    lang: string,
+    gitbookPaths: string[],
+    docsPath: string
+): Promise<boolean>
+```
+
+#### 2. DirectoryMigrationService
+
+```typescript
+// 处理目录重命名的数据迁移
+async handleDirectoryMigrations(
+    rootSignature: string,
+    lang: string,
+    activeSignatures: Set<string>,
+    outdatedDirs: string[]
+): Promise<boolean>
+```
+
+#### 3. DirectoryCleanupService
+
+```typescript
+// 清理不再使用的配置目录
+async cleanupOutdatedDirectories(
+    outdatedDirs: string[],
+    lang: string
+): Promise<void>
+```
+
+### 用户数据保护机制
+
+```typescript
+// 基于MetadataEntry的保护逻辑
+if (metadata.isUserSet) {
+    // 用户自定义配置永远被保护
+    await migrateUserSetting(oldPath, newPath);
+} else if (!metadata.isActiveInStructure) {
+    // 只清理确认安全的系统生成数据
+    await cleanupSystemData(oldPath);
+}
+```
+
+### 迁移触发条件
+
+1. **键格式升级**：检测到旧的完整路径键格式
+2. **目录重命名**：对比目录签名识别重命名
+3. **结构变更**：活跃目录集合发生变化
+4. **清理请求**：过时元数据累积到阈值
+
+## 性能优化 {#performance}
+
+### 缓存策略
+
+基于实际实现的缓存机制：
+
+```typescript
+// ConfigReaderService的缓存实现
+private globalConfigCache: GlobalSidebarConfig | null | undefined = undefined;
+private frontmatterCache: Map<string, Partial<DirectoryConfig>> = new Map();
+
+public clearCache(): void {
+    this.globalConfigCache = undefined;
+    this.frontmatterCache.clear();
+}
+```
+
+### 增量更新
+
+```typescript
+// UpdateTrackingService (计划中的优化)
+if (
+    !isDevMode &&
+    !(await updateTracker.needsRegeneration([...allSourceFilePaths]))
+) {
+    return previouslyGeneratedSidebars; // 跳过不必要的重建
+}
+```
+
+### 并行处理
+
+```typescript
+// 并行处理多个根节点
+for (const rootIndexMdPath of normalRootIndexMdPaths) {
+    // 每个根节点独立处理，可以并行化
+    const structuralItems =
+        await structuralGenerator.generateSidebarView(/*...*/);
+    const finalItems = await jsonSynchronizer.synchronize(/*...*/);
+}
+```
+
+## 最佳实践 {#best-practices}
+
+### 1. 目录结构设计
+
+```
+docs/
+├── zh/
+│   ├── guide/
+│   │   ├── index.md (root: true)
+│   │   ├── getting-started.md
+│   │   └── advanced/
+│   │       ├── index.md (子级配置)
+│   │       └── concepts.md
+│   └── api/
+│       └── index.md (root: true)
+└── en/ (相同结构)
+```
+
+### 2. 配置策略
+
+-   **优先使用 frontmatter**：简单配置写在 index.md 中
+-   **JSON 用于细粒度控制**：复杂标题翻译使用 locales.json
+-   **避免深层嵌套**：建议侧边栏深度 ≤3 层
+-   **保持路径简洁**：利用扁平化特性减少目录层级
+
+### 3. 迁移策略
+
+-   **渐进式迁移**：分批次迁移配置，避免大规模变更
+-   **备份元数据**：重要变更前备份.metadata 目录
+-   **验证迁移结果**：使用调试命令确认迁移正确性
+
+### 4. 调试工作流
+
+```bash
+# 1. 清除缓存
+rm -rf .vitepress/cache
+
+# 2. 检查配置合并
+DEBUG=sidebar:config npm run docs:dev
+
+# 3. 验证JSON覆盖
+cat .vitepress/config/sidebar/zh/guide/locales.json
+
+# 4. 检查元数据状态
+find .vitepress/config/sidebar/.metadata -name "*.meta.json" -exec echo {} \; -exec cat {} \;
+```
+
+::: tip 开发技巧
+
+1. **热重载限制**：JSON 配置文件修改需要手动重启开发服务器
+2. **配置验证**：使用 TypeScript 接口确保配置类型正确
+3. **路径规范化**：系统自动处理路径分隔符差异（Windows/Unix）
+4. **错误恢复**：迁移失败时，系统会保守地保留原有配置
 
 :::
 
-::: tip 提示
+::: warning 注意事项
 
-如果您使用VSCode编辑器参与本站的编撰工作，您可以调用我们预设的代码片段，对于类型为非对象的配置字段，您可以直接输入其名称唤起补全。对于`root`对象以及`SubDir`对象，您分别可以使用`@root`以及`@subdir`来唤出相应的片段。
+-   **避免循环引用**：不要在嵌套目录中都设置 root: true
+-   **GitBook 优先级**：GitBook 目录会跳过常规的 JSON 覆盖处理
+-   **元数据一致性**：不要手动编辑.metadata 目录下的文件
+-   **路径大小写**：确保文件路径大小写在不同操作系统间一致
 
 :::
-
-<!-- ## 基本配置
-
-在每个 Markdown 文件的开头，使用 `---` 来分隔前置配置部分：
-
-```yaml
----
-# 在这里添加您的前置配置
----
-```
-
-# 文档内容从这里开始
-
-可用的前置配置字段
-
-| 配置字段       | 目的                                  | 类型     | 示例 |
-| ------------- | ----------------------------------- | ------ | ---- |
-| `title`       | 设置文档的标题                          | 字符串    | `title: 入门指南` |
-| `sidetitle`   | 设置侧边栏中显示的标题（如果未设置，则使用标题） | 字符串    | `sidetitle: 快速入门` |
-| `sidebarorder`| 自定义当前目录中文档和子目录的顺序       | 对象      | `sidebarorder: \n    index: -1 \n    introduction: 1 \n    advanced: 2` |
-| `tagDisplay`  | 启用标签分组显示                        | 布尔值    | `tagDisplay: true` |
-| `back`        | 自定义返回到父目录的路径                 | 字符串    | `back: /guide/` |
-| `autoPN`      | 自动生成上一篇/下一篇导航                | 布尔值    | `autoPN: true` |
-| `tagorder`    | 自定义标签的顺序                        | 对象      | `tagorder: \n    Basics: 1 \n    Advanced: 2` |
-| `folderBlackList` | 指定要在侧边栏中排除的文件夹列表        | 数组      | `folderBlackList: \n    - private \n    - drafts` |
-| `generateSidebar` | 在侧边栏中包含当前的 `index.md` 文件    | 布尔值    | `generateSidebar: true` |
-| `tag`         | 为文档指定标签（用于标签分组显示）         | 字符串    | `tag: 基础知识` |
-
-完整示例
-以下是一个包含所有可用配置的 index.md 文件的前置配置示例：
-
-```yaml
----
-title: VitePress 指南
-sidetitle: 用户指南
-sidebarorder:
-    index: -1
-    quickstart: 1
-    configuration: 2
-    advanced: 3
-tagDisplay: true
-back: /documentation/
-autoPN: true
-tagorder:
-    Basics: 1
-    Configuration: 2
-    Advanced: 3
-folderBlackList:
-    - private
-    - drafts
-generateSidebar: true
-tag: 文档
----
-```
-
-```md
-# VitePress 指南
-
-本文档将帮助您入门 VitePress...
-使用这些前置配置，您可以精确控制文档在侧边栏中的显示方式，包括顺序，启用标签分组和自动生成导航等高级功能。
-此 Markdown 文件重点介绍如何使用前置配置来配置侧边栏生成器。它提供了关于每个可用前置配置字段的详细信息。
-``` -->

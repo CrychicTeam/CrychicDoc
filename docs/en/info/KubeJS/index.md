@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: 文档信息收集处
   collapsed: false

@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: 建议
   collapsed: false

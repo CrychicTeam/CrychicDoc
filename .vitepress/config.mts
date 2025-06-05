@@ -15,6 +15,7 @@ export default withMermaid(
         locales: {
             root: { label: '简体中文', ...zh_CN },
             en: { label: 'English', ...en_US }
-        },
+            // Add other locales here
+        }
     })
 );

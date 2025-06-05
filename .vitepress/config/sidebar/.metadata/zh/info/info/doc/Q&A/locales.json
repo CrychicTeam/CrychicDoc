@@ -1,0 +1,26 @@
+{
+  "doc/Q&A/cooperation.md": {
+    "valueHash": "21bd0eb929c79556e66c465d65ea56b6",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152316
+  },
+  "doc/Q&A/other.md": {
+    "valueHash": "795f3202b17cb6bc3d4b771d8c6c9eaf",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152316
+  },
+  "doc/Q&A/use.md": {
+    "valueHash": "5ef76d30bf9232902687324b5bfa0bd2",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152316
+  },
+  "_self_": {
+    "valueHash": "bcd92bcee57648f2bd4480c4a1193ac0",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749066152316
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "community.md": {
+    "valueHash": "5ad978a0ef455b191d1167852d173748",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152163
+  },
+  "guidets/": {
+    "valueHash": "c3c2049a0c154fa68e076aed8dddacee",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152163
+  },
+  "KubeJS.md": {
+    "valueHash": "a5b10124c73efb47be9e6410796d1e42",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152163
+  },
+  "minecraft.md": {
+    "valueHash": "575d0689b7dbbc83301b774b07d337ed",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152163
+  },
+  "pixelart.md": {
+    "valueHash": "f36f172c935591badfbac9c45b103c87",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152163
+  },
+  "resource.md": {
+    "valueHash": "c41332befa1a468999c9dd6c55a9c7ec",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152163
+  },
+  "_self_": {
+    "valueHash": "a0c391dc49c440fc9962168353cedde3",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749066152163
+  }
+}

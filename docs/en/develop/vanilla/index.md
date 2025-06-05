@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: 原版
   collapsed: false

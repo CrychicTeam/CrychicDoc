@@ -1,0 +1,13 @@
+{
+  "community.md": false,
+  "guidets/": false,
+  "KubeJS.md": false,
+  "minecraft.md": false,
+  "pixelart.md": false,
+  "resource.md": false,
+  "guidets/community.ts": false,
+  "guidets/KubeJS.ts": false,
+  "guidets/minecraft.ts": false,
+  "guidets/pixelart.ts": false,
+  "guidets/resource.ts": false
+}

@@ -1,0 +1,13 @@
+{
+  "Block/": 0,
+  "Description.md": 1,
+  "Entity/": 2,
+  "GlobalScope/": 3,
+  "Item/": 4,
+  "LootTable/": 5,
+  "Miscellaneous/": 6,
+  "Network/": 7,
+  "PotionEffect/": 8,
+  "Recipe/": 9,
+  "Tag/": 10
+}

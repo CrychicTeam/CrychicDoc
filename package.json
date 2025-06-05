@@ -31,8 +31,9 @@
     },
     "scripts": {
         "docs:dev": "vitepress dev",
-        "docs:build": "vitepress build",
-        "docs:preview": "vitepress preview"
+        "docs:build": "tsx .vitepress/scripts/build-sidebar.mjs && vitepress build",
+        "docs:preview": "vitepress preview",
+        "update-titles": "node .vitepress/scripts/update-index-titles.mjs"
     },
     "dependencies": {
         "@lite-tree/vue": "^1.1.6",
@@ -51,12 +52,14 @@
         "@mdit/plugin-sup": "^0.20.0",
         "@mdit/plugin-tab": "^0.20.0",
         "@shikijs/markdown-it": "^3.4.2",
+        "@types/js-yaml": "^4.0.9",
         "add": "^2.0.6",
         "axios": "^1.9.0",
         "blueimp-md5": "^2.19.0",
         "echarts": "^5.6.0",
         "fast-glob": "^3.3.3",
         "gray-matter": "^4.0.3",
+        "js-yaml": "^4.1.0",
         "markdown-it": "^14.1.0",
         "markdown-it-abbr": "^2.0.0",
         "markdown-it-container": "^4.0.0",

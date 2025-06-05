@@ -1,0 +1,10 @@
+{
+  "doc/module-request/beautify.md": "beautify",
+  "doc/module-request/codeShare.md": "codeShare",
+  "doc/module-request/component.md": "component",
+  "doc/module-request/kubejs.md": "kubejs",
+  "doc/module-request/mod.md": "mod",
+  "doc/module-request/modPlugin.md": "modPlugin",
+  "doc/module-request/newSection.md": "newSection",
+  "_self_": "module-request"
+}

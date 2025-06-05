@@ -1,206 +1,341 @@
 ---
 title: VSCode Snippets Guide
-description: Complete guide for using VSCode Markdown snippets in the CrychicDoc project
+description: A comprehensive guide to using VSCode Markdown snippets in the CrychicDoc project.
 ---
 
 # VSCode Snippets Guide
 
-This guide covers how to use the enhanced VSCode snippets in the CrychicDoc project for more efficient Markdown writing.
+This guide explains how to use the enhanced VSCode code snippets in the CrychicDoc project to write Markdown documents more efficiently.
 
 ## Quick Start
 
-When editing `.md` files in VSCode, type the prefixes below and press `Tab` to expand the code snippets.
+When editing `.md` files in VSCode, type the **prefix** of a snippet and press `Tab` (or `Enter`, depending on your settings) to expand it.
 
-## Basic Utilities
+## Snippet Categories
 
-| Prefix     | Description                 | Output                     |
-| ---------- | --------------------------- | -------------------------- |
-| `#nbsp`    | Insert non-breaking spaces  | `&nbsp;&nbsp;`             |
-| `@title`   | Frontmatter title reference | `{{ $frontmatter.title }}` |
-| `@done`    | Done checkbox               | `☑`                        |
-| `@pending` | Pending checkbox            | `☐`                        |
+All snippets are categorized by their functionality for easier discovery and use.
 
-## Frontmatter Configuration
+---
 
-### Basic Fields
+## Sidebar, Page, & Frontmatter Configuration
 
-| Prefix        | Description          |
-| ------------- | -------------------- |
-| `title`       | Document title       |
-| `description` | Document description |
-| `progress`    | Progress percentage  |
-| `authors`     | Authors list         |
-| `noguide`     | No guide flag        |
-| `noScan`      | Disable scanning     |
-| `file`        | File reference       |
+These snippets help you quickly generate and configure page frontmatter, as well as the structure and behavior of your sidebars.
+
+### Page & Section Templates
+
+Use these to rapidly scaffold standard page structures or root sections for your sidebar.
+
+| Prefix           | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| `front`          | Basic Frontmatter block                          |
+| `sidebar-page`   | Complete page template (for pages in sidebar)  |
+| `sidebar-root`   | Complete root section template for sidebar       |
+| `front-complete` | Complete frontmatter with all common fields    |
+
+*Note: `page` and `section` are older templates, prefer `sidebar-page` and `sidebar-root` for more complete structures.*
+
+### Core Frontmatter Fields
+
+For adding or modifying common frontmatter fields.
+
+| Prefix            | Description                       | Example Output (Illustrative) |
+| ----------------- | --------------------------------- | ----------------------------- |
+| `title`           | Document title (field generation) | `title: Your Title`           |
+| `description`     | Document description (field gen.) | `description: Your Desc`      |
+| `layout`          | Document layout (field gen.)      | `layout: doc`                 |
+| `tags`            | Document tags (field gen.)        | `tags:\n  - tag1`            |
+| `authors`         | Document authors (field gen.)     | `authors:\n  - author1`       |
+| `progress`        | Document progress (field gen.)    | `progress: 100`               |
+| `noguide`         | No guide flag (field gen.)        | `noguide: true`               |
+| `title-val`       | Set document/section title        | `title: Your Title`           |
+| `description-val` | Set page description              | `description: Your Desc`      |
+| `authors-val`     | Set page authors (array)          | `authors:\n  - user1`         |
+| `tags-val`        | Set page tags (array)             | `tags:\n  - tag1`            |
+| `progress-val`    | Set completion progress           | `progress: 100`               |
+
+### Sidebar-specific Configuration
+
+Define specific behaviors and attributes for sidebar items.
+
+| Prefix            | Description                               | Example Output                 |
+| ----------------- | ----------------------------------------- | ------------------------------ |
+| `root`            | Root sidebar config (creates new section) | `root: true...`                |
+| `root-layout`     | Root sidebar config with VitePress layout | `root: true...layout: doc`     |
+| `dir`             | Basic directory config (for `index.md`)   | `title: Dir Title...`          |
+| `root-field`      | Add `root` field                          | `root: true`                   |
+| `root-true`       | Set as sidebar root section               | `root: true`                   |
+| `root-false`      | Not a sidebar root section                | `root: false`                  |
+| `collapsed`       | Add `collapsed` field                     | `collapsed: true`              |
+| `collapsed-true`  | Collapsed by default                      | `collapsed: true`              |
+| `collapsed-false` | Expanded by default                       | `collapsed: false`             |
+| `hidden`          | Add `hidden` field                        | `hidden: true`                 |
+| `hidden-true`     | Hide from sidebar                         | `hidden: true`                 |
+| `hidden-false`    | Show in sidebar                           | `hidden: false`                |
+| `priority-val`    | Set ordering priority                     | `priority: 1`                  |
+| `maxdepth-val`    | Maximum nesting depth                     | `maxDepth: 3`                  |
+| `layout-doc`      | Document layout (VitePress value)         | `layout: doc`                  |
+| `layout-home`     | Home page layout (VitePress value)        | `layout: home`                 |
+| `layout-page`     | Custom page layout (VitePress value)      | `layout: page`                 |
+| `prev`            | Add `prev` navigation field               | `prev: false`                  |
+| `prev-true`       | Enable previous navigation                | `prev: true`                   |
+| `prev-false`      | Disable previous navigation               | `prev: false`                  |
+| `next`            | Add `next` navigation field               | `next: false`                  |
+| `next-true`       | Enable next navigation                    | `next: true`                   |
+| `next-false`      | Disable next navigation                   | `next: false`                  |
+| `comment-true`    | Enable comments                           | `showComment: true`            |
+| `comment-false`   | Disable comments                          | `showComment: false`           |
+| `changelog-true`  | Show git changelog                        | `gitChangelog: true`           |
+| `changelog-false` | Hide git changelog                        | `gitChangelog: false`          |
 
 ### Document States
 
-| Prefix              | Output               |
-| ------------------- | -------------------- |
-| `state preliminary` | `state: preliminary` |
-| `state unfinished`  | `state: unfinished`  |
-| `state outdated`    | `state: outdated`    |
-| `state renovating`  | `state: renovating`  |
+Mark the current status of a document.
 
-## Navigation Structure
+| Prefix             | Description          | Output                 |
+| ------------------ | -------------------- | -------------------- |
+| `state-preliminary`| Preliminary state    | `state: preliminary` |
+| `state-unfinished` | Unfinished state     | `state: unfinished`  |
+| `state-outdated`   | Outdated state       | `state: outdated`    |
+| `state-renovating` | Renovating state     | `state: renovating`  |
 
-| Prefix      | Description            |
-| ----------- | ---------------------- |
-| `@root`     | Root navigation config |
-| `subDir`    | Subdirectory config    |
-| `path`      | Path field             |
-| `collapsed` | Collapsed navigation   |
-| `@subdir`   | Subdirectory item      |
+*Note: Older prefixes like `state preliminary` (with a space) also exist and produce the same output.*
 
-## Containers and Components
+---
 
-### Tabs and Steps
+## VitePress Built-in Feature Enhancements
 
-| Prefix    | Description    | Example                |
-| --------- | -------------- | ---------------------- |
-| `tabs`    | Tab container  | Supports key binding   |
-| `stepper` | Step container | Step-by-step tutorials |
+Quickly use Markdown extensions provided by VitePress.
 
-### Alert Boxes
+### Admonition Containers
 
-| Prefix    | Type        | Style  |
-| --------- | ----------- | ------ |
-| `success` | Success     | Green  |
-| `info`    | Information | Blue   |
-| `warning` | Warning     | Orange |
-| `error`   | Error       | Red    |
+| Prefix           | Description                     |
+| ---------------- | ------------------------------- |
+| `info`           | VitePress info container        |
+| `tip`            | VitePress tip container         |
+| `warning`        | VitePress warning container     |
+| `danger`         | VitePress danger/error container|
+| `details`        | VitePress details container     |
+| `custom-container`| Custom type container (uses `:::` syntax) |
 
-### Card Components
+### Code Features
 
-| Prefix          | Description   | Features           |
-| --------------- | ------------- | ------------------ |
-| `card-text`     | Text card     | Standard style     |
-| `card-flat`     | Flat card     | No shadow          |
-| `card-elevated` | Elevated card | With shadow        |
-| `card-tonal`    | Tonal card    | Colored background |
-| `card-outlined` | Outlined card | Border only        |
-| `card-plain`    | Plain card    | Supports nesting   |
+| Prefix           | Description                       |
+| ---------------- | --------------------------------- |
+| `code-group`     | VitePress code group              |
+| `code-lines`     | Code block with line numbers      |
+| `code-highlight` | Code block with line highlighting |
 
-## Text Alignment
+### Math Formulas
 
-| Prefix    | Alignment    |
-| --------- | ------------ |
-| `left`    | Left align   |
-| `center`  | Center align |
-| `right`   | Right align  |
-| `justify` | Justify      |
+| Prefix        | Description       | Example Output            |
+| ------------- | ----------------- | ------------------------- |
+| `math-inline` | Inline math formula | `$x^2 + y^2 = z^2$`       |
+| `math-block`  | Block math formula  | `$$\nx^2 + y^2 = z^2\n$$` |
 
-## Media and Interactive
+---
 
-| Prefix     | Description      | Configuration Options         |
-| ---------- | ---------------- | ----------------------------- |
-| `carousel` | Image carousel   | Cycle, interval, delimiters   |
-| `iframe`   | Embedded webpage | URL, height                   |
-| `img-size` | Sized image      | Width x Height                |
-| `linkcard` | Link card        | URL, title, description, icon |
+## Extended Components & Styling
 
-## Demo Containers
+Enhance content presentation using custom Vue components or special Markdown syntax.
 
-| Prefix       | Description                |
-| ------------ | -------------------------- |
-| `@demo`      | Basic demo container       |
-| `demo-multi` | Multi-level demo container |
+### Content Organization
 
-## Text Formatting
+| Prefix    | Description                 |
+| --------- | --------------------------- |
+| `tabs`    | Tab container               |
+| `stepper` | Stepper/progress indicator  |
+| `timeline`| Timeline plugin             |
 
-| Prefix    | Effect          | Syntax               |
-| --------- | --------------- | -------------------- |
-| `spoiler` | Spoiler text    | `!!text!!`           |
-| `mark`    | Marked text     | `==text==`           |
-| `ins`     | Inserted text   | `++text++`           |
-| `sub`     | Subscript       | `~text~`             |
-| `sup`     | Superscript     | `^text^`             |
-| `ruby`    | Ruby annotation | `{Chinese:pinyin}`   |
-| `abbr`    | Abbreviation    | `*[ABBR]: Full Form` |
+### Media & Interaction
 
-## Task Lists
+| Prefix       | Description               |
+| ------------ | ------------------------- |
+| `carousel`   | Image carousel            |
+| `iframe`     | Embedded iframe           |
+| `img-size`   | Image with specific size  |
+| `linkcard`   | Link card component       |
+| `bilibili`   | Bilibili video component  |
+| `pdf-viewer` | PDF viewer component      |
 
-| Prefix      | Description        |
-| ----------- | ------------------ |
-| `task`      | Complete task list |
-| `todo`      | Unchecked task     |
-| `done-task` | Checked task       |
+### Diagrams & Visualization
 
-## Templates
+| Prefix         | Description              |
+| -------------- | ------------------------ |
+| `mermaid`      | Mermaid diagram          |
+| `damage-chart` | Damage chart component   |
+| `lite-tree`    | File tree structure      |
 
-| Prefix         | Description                |
-| -------------- | -------------------------- |
-| `doc-template` | Complete document template |
-| `section`      | Section with anchor        |
+### Card Styles
+
+| Prefix          | Description   |
+| --------------- | ------------- |
+| `card-text`     | Text card     |
+| `card-flat`     | Flat card     |
+| `card-elevated` | Elevated card |
+| `card-tonal`    | Tonal card    |
+| `card-outlined` | Outlined card |
+
+### Custom Alerts (v-style)
+
+| Prefix          | Description    |
+| --------------- | -------------- |
+| `alert-success` | Success alert  |
+| `alert-info`    | Info alert     |
+| `alert-warning` | Warning alert  |
+| `alert-error`   | Error alert    |
+
+### Alignment & Layout
+
+| Prefix          | Description           |
+| --------------- | --------------------- |
+| `align-left`    | Left-aligned content  |
+| `align-center`  | Center-aligned content|
+| `align-right`   | Right-aligned content |
+| `align-justify` | Justified content     |
+| `demo`          | Demo block container  |
+
+### Special Effects
+
+| Prefix       | Description              |
+| ------------ | ------------------------ |
+| `magic-move` | Magic Move code transition |
+
+---
+
+## Utilities & Text Formatting
+
+### Markdown Extensions (Text Formatting)
+
+| Prefix    | Description                      | Example Output           |
+| --------- | -------------------------------- | ------------------------ |
+| `spoiler` | Spoiler/hidden text              | `!!hidden content!!`     |
+| `mark`    | Highlighted/marked text          | `==highlighted text==`   |
+| `insert`  | Inserted text                    | `++inserted text++`      |
+| `sub`     | Subscript text                   | `text~subscript~`        |
+| `sup`     | Superscript text                 | `text^superscript^`      |
+| `ruby`    | Ruby annotation (phonetic guide) | `{中国:zhōng\|guó}`     |
+
+### Task Lists
+
+| Prefix | Description      | Example Output                |
+| ------ | ---------------- | ----------------------------- |
+| `todo` | To-do list items | `- [ ] Task\n- [x] Completed` |
+
+### Common Utilities
+
+| Prefix     | Description                             | Output                     |
+| ---------- | --------------------------------------- | -------------------------- |
+| `#nbsp`    | Insert two non-breaking spaces          | `&nbsp;&nbsp;`             |
+| `nbsp`     | Insert one non-breaking space           | `&nbsp;`                   |
+| `@title`   | Frontmatter title variable reference    | `{{ $frontmatter.title }}` |
+| `fm-title` | (Alias for @title) Frontmatter title    | `{{ $frontmatter.title }}` |
+| `@done`    | Done Unicode checkbox                   | `☑`                        |
+| `@pending` | Pending Unicode checkbox                | `☐`                        |
+
+---
 
 ## Usage Tips
 
 ### 1. Quick Access
 
--   Press `Ctrl+Space` to open IntelliSense
--   Type partial letters of prefix, VSCode will auto-filter
+-   Press `Ctrl+Space` (Windows/Linux) or `Cmd+Space` (macOS) to open IntelliSense; snippets are usually prioritized.
+-   Type partial letters of the prefix; VSCode will filter and show matching snippets.
 
 ### 2. Parameter Navigation
 
--   After snippet expansion, press `Tab` to jump between parameters
--   Press `Shift+Tab` to go back to previous parameter
--   Press `Esc` to exit snippet mode
+-   Many snippets include placeholders (e.g., `${1:Placeholder}`). When a snippet expands, the cursor automatically focuses on the first placeholder.
+-   Press `Tab` to navigate to the next placeholder.
+-   Press `Shift+Tab` to go back to the previous placeholder.
+-   Press `Esc` to exit snippet editing mode when all placeholders are filled or if you want to finish early.
 
 ### 3. Nested Usage
 
+Most container-type snippets support nesting. For example, you can mark text within an info container:
+
 ```markdown
-::: v-info Info
-You can use ==marked text== and !!spoiler content!! here
+:::info Tip
+This is ==marked text== and !!spoiler content!!.
 :::
 ```
 
 ### 4. Custom Modifications
 
-To modify snippets, edit the `.vscode/md.code-snippets` file.
+To modify or add your own snippets, edit the `.vscode/md.code-snippets` file in the project root. The file format is JSON.
 
 ## Suggested Keyboard Shortcuts
 
-Recommended keyboard shortcuts for improved efficiency:
+For even greater efficiency, you can assign custom keyboard shortcuts to frequently used snippets. Edit your `keybindings.json` file (accessible via `File > Preferences > Keyboard Shortcuts > User > keybindings.json` or by searching "Preferences: Open User Keyboard Shortcuts (JSON)" in the command palette):
 
 ```json
 // keybindings.json
 [
     {
-        "key": "ctrl+shift+d",
+        "key": "ctrl+shift+d", // Example shortcut
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == markdown",
-        "args": { "name": "Demo Container" }
+        "args": {
+            // "name": "Demo Block" // Use the snippet's name (key from JSON file)
+            "snippet": "::: demo ${1:Demo Title}\n${2:Demo content}\n:::" // Or provide the body directly
+        }
     },
     {
-        "key": "ctrl+shift+t",
+        "key": "ctrl+shift+t", // Example shortcut
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && editorLangId == markdown",
-        "args": { "name": "Tabs Container" }
+        "args": {
+            // "name": "Tabs"
+            "snippet": ":::tabs${1: key:example}\n== ${2:Tab 1}\n${3:Content 1}\n== ${4:Tab 2}\n${5:Content 2}\n:::"
+        }
     }
+    // You can add more shortcuts for other frequently used snippets
 ]
 ```
+**Note**: When using `"name": "Snippet Name"`, ensure the name matches exactly with the snippet name defined in `.vscode/md.code-snippets` (the key in the JSON object, e.g., "Demo Block", "Tabs"). If providing the snippet body directly via the `snippet` argument, the `name` is not needed.
 
 ## Troubleshooting
 
-### Q: Snippets not showing?
+### Q: Snippets are not showing up or expanding?
 
-A: Ensure you're in a Markdown file and check that `editor.suggest.showSnippets` is `true` in VSCode settings.
+A:
+1.  Ensure you are editing a Markdown (`.md`) file.
+2.  Check your VSCode settings (`File > Preferences > Settings`), search for `editor.suggest.showSnippets`, and ensure it is enabled (`true`).
+3.  Confirm you are typing the correct snippet prefix and pressing the correct expansion key (usually `Tab` or `Enter`, depending on your `editor.tabCompletion` and `editor.suggest.insertMode` settings).
+4.  Verify that the `.vscode/md.code-snippets` file exists in your project root and that its JSON format is valid.
 
-### Q: How to add custom snippets?
+### Q: How do I add new custom snippets?
 
-A: Edit the `.vscode/md.code-snippets` file and add new snippets following the existing format.
+A:
+1.  Open the `.vscode/md.code-snippets` file in your project.
+2.  Add a new entry following the JSON format of existing snippets. Each snippet is a key-value pair: the key is the snippet's name (displayed in VSCode command palette), and the value is an object containing `prefix`, `body` (an array of strings), and `description`.
+    ```json
+    "My New Snippet": {
+        "prefix": "mynew",
+        "body": [
+            "This is my new snippet with a ${1:placeholder}.",
+            "$0" // $0 indicates the final cursor position after snippet expansion
+        ],
+        "description": "A brief description of my new snippet."
+    }
+    ```
+3.  Save the file. The new snippet should be available immediately.
 
-### Q: Parameter jumping not working?
+### Q: What do parameter placeholders (`${1:text}`) and final cursor position (`$0`) mean?
 
-A: Make sure to use the `Tab` key rather than arrow keys for parameter navigation.
+A:
+-   `${1:text}`: This is a parameter placeholder (also known as a "tab stop"). `1` is the order of the tab stop (navigate with `Tab`), and `text` is the default placeholder text displayed. You can have `${2:another}`, `${3:more}`, etc.
+-   `$0`: This marks the final position of the cursor after the user has filled in all placeholders (or pressed `Esc`).
 
 ## Example Workflow
 
-1. **Create new document**: Use `doc-template` to quickly generate document framework
-2. **Add content**: Use various container snippets to organize content
-3. **Format text**: Use text formatting snippets to highlight key points
-4. **Insert media**: Use `carousel` or `iframe` to add rich media content
-5. **Enhance document**: Add task lists, alert boxes, etc. for better readability
+1.  **Create New Document**: Type `sidebar-page` to quickly generate a document framework with basic frontmatter and a title.
+2.  **Define Section**: If it's a new sidebar root, use `sidebar-root` to initialize its `index.md`.
+3.  **Add Content**:
+    *   Use `tabs` or `stepper` to organize step-by-step content.
+    *   Use `info`, `warning`, `alert-success`, etc., containers to emphasize key points.
+    *   Use `card-text` and other card components to enhance links or small sections.
+4.  **Format Text**: Use `mark`, `spoiler`, `ruby`, etc., snippets to enrich text presentation.
+5.  **Insert Media & Diagrams**: Use `carousel`, `mermaid`, `bilibili`, etc., to add rich media content.
+6.  **Showcase Code**: Use `code-group`, `code-lines`, `magic-move` for clear code presentations.
+7.  **Refine Document**: Add `todo` task lists, use `@title` or `fm-title` to dynamically reference the page title.
 
-By mastering these code snippets, you can significantly improve your Markdown writing efficiency!
+By mastering these code snippets, you can significantly improve the efficiency and consistency of your Markdown document writing!

@@ -1,0 +1,2 @@
+export { GitBookService } from './GitBookService'; 
+

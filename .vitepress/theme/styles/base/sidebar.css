@@ -44,11 +44,11 @@
 }
 
 /* Active state styling */
-.VPSidebarItem.is-active .item {
+/* .VPSidebarItem.is-active .item {
     background-color: var(--vp-c-brand-soft);
     border-left: 3px solid var(--vp-c-brand-1);
     padding-left: 5px;
-}
+} */
 
 /* Text improvements - bold and thinner */
 .VPSidebarItem .text {

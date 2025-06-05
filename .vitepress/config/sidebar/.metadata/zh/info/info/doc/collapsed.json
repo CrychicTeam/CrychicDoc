@@ -1,0 +1,26 @@
+{
+  "module-request/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152295
+  },
+  "Q&A/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152295
+  },
+  "suggestion/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": true,
+    "lastSeen": 1749066152295
+  },
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": true,
+    "isActiveInStructure": false,
+    "lastSeen": 1749066152295
+  }
+}

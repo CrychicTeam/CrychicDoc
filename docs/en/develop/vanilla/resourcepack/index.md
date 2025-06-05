@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: 材质包
   collapsed: false

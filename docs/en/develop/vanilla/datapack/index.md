@@ -1,4 +1,8 @@
 ---
+root: true
+---
+
+---
 root:
   title: 数据包
   collapsed: false
