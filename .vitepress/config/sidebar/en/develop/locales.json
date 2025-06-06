@@ -1,6 +1,6 @@
 {
+  "_self_": "Develop",
   "modding/": "Modding",
   "plugin/": "plugin",
-  "vanilla/": "Vanilla",
-  "_self_": "Develop"
+  "vanilla/": "Vanilla"
 }

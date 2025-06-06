@@ -1,14 +1,14 @@
 {
-  "Champions-Unofficial/": {
-    "valueHash": "a516bd1828d49ea00c811b337450e9c9",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749087714082
-  },
   "_self_": {
     "valueHash": "3895b6254d65e627e76a0dec52aab404",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749087714082
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247314872
+  },
+  "Champions-Unofficial/": {
+    "valueHash": "3895b6254d65e627e76a0dec52aab404",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253126782
   }
 }

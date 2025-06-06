@@ -1,11 +1,11 @@
 {
-  "Introduction/Tag/Biome.md": "Biome",
-  "Introduction/Tag/Block.md": "Block",
-  "Introduction/Tag/Catalogue.md": "Catalogue",
-  "Introduction/Tag/Description.md": "Description",
-  "Introduction/Tag/EntityType.md": "EntityType",
-  "Introduction/Tag/Fluid.md": "Fluid",
-  "Introduction/Tag/Item.md": "Item",
-  "Introduction/Tag/Structure.md": "Structure",
-  "_self_": "Tag"
+  "_self_": "Tag",
+  "Biome.md": "生物群系",
+  "Block.md": "方块",
+  "Catalogue.md": "目录",
+  "Description.md": "描述",
+  "EntityType.md": "实体类型",
+  "Fluid.md": "流体",
+  "Item.md": "物品",
+  "Structure.md": "结构"
 }

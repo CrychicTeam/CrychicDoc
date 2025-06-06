@@ -1,6 +1,6 @@
 {
-  "Introduction/LootTable/BasicKnowledge/": 0,
-  "Introduction/LootTable/Catalogue.md": 1,
-  "Introduction/LootTable/Description.md": 2,
-  "Introduction/LootTable/Vanilla/": 3
+  "BasicKnowledge/": 300,
+  "Catalogue.md": -1000000,
+  "Description.md": 100,
+  "Vanilla/": 200
 }

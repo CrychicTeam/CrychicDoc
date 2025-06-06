@@ -1,14 +1,8 @@
 {
-  "Introduction/Block/Catalogue.md": {
-    "valueHash": "a8567ec8887eb41c7870b3a624524a46",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749087714335
-  },
   "_self_": {
     "valueHash": "e1e4c8c9ccd9fc39c391da4bcd093fb2",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749087714335
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749252345312
   }
 }

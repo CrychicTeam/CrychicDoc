@@ -1,6 +1,7 @@
 {
-  "community.md": "Community Link",
+  "_self_": "guide",
   "KubeJS.md": "KubeJS",
+  "community.md": "Community Link",
   "minecraft.md": "Minecraft",
   "pixelart.md": "Pixel Art",
   "resource.md": "Art resources"

@@ -1,5 +1,6 @@
 {
-  "module-request/": false,
-  "Q&A/": false,
-  "suggestion/": false
+  "_self_": true,
+  "Q&A/": true,
+  "module-request/": true,
+  "suggestion/": true
 }

@@ -1,10 +1,10 @@
 {
-  "Introduction/Recipe/AddRecipe/": false,
-  "Introduction/Recipe/Catalogue.md": false,
-  "Introduction/Recipe/DeleteRecipe.md": false,
-  "Introduction/Recipe/ItemAndIngredient.md": false,
-  "Introduction/Recipe/ModifyRecipe.md": false,
-  "Introduction/Recipe/RecipeFilter.md": false,
-  "Introduction/Recipe/Vanilla.md": false,
-  "_self_": false
+  "_self_": false,
+  "AddRecipe/": false,
+  "Catalogue.md": false,
+  "DeleteRecipe.md": false,
+  "ItemAndIngredient.md": false,
+  "ModifyRecipe.md": false,
+  "RecipeFilter.md": false,
+  "Vanilla.md": false
 }

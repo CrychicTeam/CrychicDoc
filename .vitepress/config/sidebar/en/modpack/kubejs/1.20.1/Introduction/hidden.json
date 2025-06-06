@@ -1,7 +1,10 @@
 {
+  "_self_": false,
+  "Addon/": false,
   "Block/": false,
   "Description.md": false,
   "Entity/": false,
+  "Event/": false,
   "GlobalScope/": false,
   "Item/": false,
   "LootTable/": false,
@@ -9,6 +12,5 @@
   "Network/": false,
   "PotionEffect/": false,
   "Recipe/": false,
-  "Tag/": false,
-  "_self_": false
+  "Tag/": false
 }

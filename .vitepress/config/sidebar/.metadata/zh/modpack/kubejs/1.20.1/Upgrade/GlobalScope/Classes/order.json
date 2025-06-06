@@ -1,0 +1,116 @@
+{
+  "AABB.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Block.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "BlockStatePredicate.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Catalogue.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Color.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Direction.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Facing.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Fluid.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Ingredient.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "IngredientHelper.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Item.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "JsonIO.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "NBT.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "NBTIO.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Platform.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "ResourceLocation.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Text.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Utils.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  },
+  "Uuid.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198945
+  }
+}

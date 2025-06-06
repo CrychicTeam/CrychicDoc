@@ -1,6 +1,6 @@
 {
-  "Introduction/GlobalScope/Classes/": false,
-  "Introduction/GlobalScope/Description.md": false,
-  "Introduction/GlobalScope/Utils.md": false,
-  "_self_": false
+  "_self_": false,
+  "Classes/": false,
+  "Description.md": false,
+  "Utils.md": false
 }

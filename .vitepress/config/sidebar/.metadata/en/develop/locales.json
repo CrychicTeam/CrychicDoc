@@ -1,26 +1,26 @@
 {
+  "_self_": {
+    "valueHash": "1bedc6fb14c15b2e99872ebdbc317bf2",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247314756
+  },
   "modding/": {
     "valueHash": "fa00e202a8924be29b0d5d0b6569e5e5",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087713617
+    "lastSeen": 1749253126426
   },
   "plugin/": {
     "valueHash": "a24bcf2198b1b13ad985304483f7f324",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087713617
+    "lastSeen": 1749253126426
   },
   "vanilla/": {
     "valueHash": "7d3cf600bf044a1aaf9324807bd8d13e",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087713617
-  },
-  "_self_": {
-    "valueHash": "1bedc6fb14c15b2e99872ebdbc317bf2",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749087713617
+    "lastSeen": 1749253126426
   }
 }

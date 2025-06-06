@@ -1,32 +1,38 @@
 {
-  "community.md": {
-    "valueHash": "82eb863d237591e6e66a66dac105900f",
+  "_self_": {
+    "valueHash": "a0c391dc49c440fc9962168353cedde3",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087713726
+    "lastSeen": 1749249393629
   },
   "KubeJS.md": {
     "valueHash": "a5b10124c73efb47be9e6410796d1e42",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087713726
+    "lastSeen": 1749252345472
+  },
+  "community.md": {
+    "valueHash": "82eb863d237591e6e66a66dac105900f",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749252345472
   },
   "minecraft.md": {
     "valueHash": "e3416675e3a20772d0b78f45f4ce995d",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087713726
+    "lastSeen": 1749252345472
   },
   "pixelart.md": {
     "valueHash": "3f6df9cfc93a1e39c0657ec3096c0179",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087713726
+    "lastSeen": 1749252345472
   },
   "resource.md": {
     "valueHash": "2ba65365de97d6d102e63c2d2a944f9b",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087713726
+    "lastSeen": 1749252345472
   }
 }

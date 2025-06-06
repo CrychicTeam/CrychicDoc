@@ -1,6 +1,6 @@
 {
-  "Introduction/Event/ClientScript/": "ClientScript",
-  "Introduction/Event/ServerScript/": "ServerScript",
-  "Introduction/Event/StartupScript/": "StartupScript",
-  "_self_": "Event"
+  "_self_": "Event",
+  "ClientScript/": "客户端脚本",
+  "ServerScript/": "服务器脚本",
+  "StartupScript/": "启动脚本"
 }

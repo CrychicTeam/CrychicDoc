@@ -1,7 +1,7 @@
 {
-  "Introduction/LootTable/BasicKnowledge/": "BasicKnowledge",
-  "Introduction/LootTable/Catalogue.md": "Catalogue",
-  "Introduction/LootTable/Description.md": "Description",
-  "Introduction/LootTable/Vanilla/": "Vanilla",
-  "_self_": "LootTable"
+  "_self_": "LootTable",
+  "BasicKnowledge/": "基础知识",
+  "Catalogue.md": "目录",
+  "Description.md": "序言",
+  "Vanilla/": "原版"
 }

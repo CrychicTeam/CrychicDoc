@@ -1,10 +1,10 @@
 {
+  "_self_": "文档相关",
   "cooperation.md": "Project Collaboration Tutorial",
   "guide/": "guide",
   "rules.md": "rules",
   "samples.md": "Samples for coding CrychicDoc",
   "sidebarTutorial.md": "Sidebar Configuration Tutorial",
   "styleList.md": "Document Style Overview",
-  "vscode-snippets-guide.md": "VSCode Snippets Guide",
-  "_self_": "文档相关"
+  "vscode-snippets-guide.md": "VSCode Snippets Guide"
 }

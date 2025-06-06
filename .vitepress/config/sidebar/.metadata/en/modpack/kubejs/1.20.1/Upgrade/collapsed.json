@@ -1,20 +1,20 @@
 {
-  "GlobalScope/": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
+  "_self_": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714459
+    "lastSeen": 1749249393897
+  },
+  "GlobalScope/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749252345926
   },
   "JavaScript/": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714459
-  },
-  "_self_": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749087714459
+    "lastSeen": 1749252345926
   }
 }

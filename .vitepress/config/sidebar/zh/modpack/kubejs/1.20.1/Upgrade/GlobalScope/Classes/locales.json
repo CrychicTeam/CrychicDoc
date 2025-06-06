@@ -1,0 +1,22 @@
+{
+  "_self_": "Classes",
+  "AABB.md": "AABB",
+  "Block.md": "方块类（Block）",
+  "BlockStatePredicate.md": "方块状态谓词类（BlockStatePredicate）",
+  "Catalogue.md": "全局类",
+  "Color.md": "颜色类（Color）",
+  "Direction.md": "方向类（Direction）",
+  "Facing.md": "面类（Facing）",
+  "Fluid.md": "流体类（Fluid）",
+  "Ingredient.md": "原料类（Ingredient）",
+  "IngredientHelper.md": "原料助手类（IngredientHelper）",
+  "Item.md": "物品类(Item)",
+  "JsonIO.md": "Json读写类（JsonIO）",
+  "NBT.md": "NBT类（NBT）",
+  "NBTIO.md": "NBT读写类（NBTIO）",
+  "Platform.md": "平台类（Platform）",
+  "ResourceLocation.md": "资源位置类（ResourceLocation）",
+  "Text.md": "文本类（Text）",
+  "Utils.md": "实用工具类（Utils）",
+  "Uuid.md": "通用唯一标识符类（UUID）"
+}

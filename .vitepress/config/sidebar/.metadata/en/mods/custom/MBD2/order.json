@@ -1,20 +1,20 @@
 {
   "Catalogue.md": {
     "valueHash": "cfcd208495d565ef66e7dff9f98764da",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714510
+    "lastSeen": 1749253127090
   },
   "SingleBlockBasic.md": {
-    "valueHash": "c4ca4238a0b923820dcc509a6f75849b",
-    "isUserSet": true,
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714510
+    "lastSeen": 1749253127090
   },
   "SingleBlockBasicSettings.md": {
-    "valueHash": "c81e728d9d4c2f636f067f89cc14862c",
-    "isUserSet": true,
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714510
+    "lastSeen": 1749253127090
   }
 }

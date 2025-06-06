@@ -1,5 +1,5 @@
 {
-  "Introduction/LootTable/BasicKnowledge/": false,
-  "Introduction/LootTable/Vanilla/": false,
-  "_self_": false
+  "_self_": true,
+  "BasicKnowledge/": true,
+  "Vanilla/": true
 }

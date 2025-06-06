@@ -1,20 +1,20 @@
 {
-  "datapack/": {
-    "valueHash": "f1dde262df1071a57908b6d9bccf0e02",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091562636
-  },
-  "resourcepack/": {
-    "valueHash": "ade172137348da0156470fc67c7dbc18",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091562636
-  },
   "_self_": {
     "valueHash": "7d3cf600bf044a1aaf9324807bd8d13e",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749091562636
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247315671
+  },
+  "datapack/": {
+    "valueHash": "6a01c565da6473d8e2badeb5e9b3d029",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198331
+  },
+  "resourcepack/": {
+    "valueHash": "380c02a0c5a779d07f0f9b65987fba01",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198331
   }
 }

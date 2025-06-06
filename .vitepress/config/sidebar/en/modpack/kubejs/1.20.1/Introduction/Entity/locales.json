@@ -1,7 +1,7 @@
 {
-  "Introduction/Entity/Attribute.md": "Attribute",
-  "Introduction/Entity/Catalogue.md": "Catalogue",
-  "Introduction/Entity/PotionEffects.md": "PotionEffects",
-  "Introduction/Entity/Spawn.md": "Spawn",
-  "_self_": "Entity"
+  "_self_": "Entity",
+  "Attribute.md": "Attribute",
+  "Catalogue.md": "Catalogue",
+  "PotionEffects.md": "PotionEffects",
+  "Spawn.md": "Spawn"
 }

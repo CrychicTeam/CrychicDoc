@@ -1,4 +1,5 @@
 {
+  "_self_": "Mod",
   "adventure/": "Adventure Mods",
   "armor_tools/": "armor_tools",
   "cosmetic/": "cosmetic",
@@ -6,6 +7,5 @@
   "performance/": "Performance mod",
   "server/": "server",
   "storages/": "storages",
-  "tech/": "tech",
-  "_self_": "Mod"
+  "tech/": "tech"
 }

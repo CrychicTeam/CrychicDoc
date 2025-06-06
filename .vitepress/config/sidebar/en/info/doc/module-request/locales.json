@@ -1,10 +1,10 @@
 {
+  "_self_": "Module request",
   "beautify.md": "beautify",
   "codeShare.md": "codeShare",
   "component.md": "component",
   "kubejs.md": "kubejs",
   "mod.md": "mod",
   "modPlugin.md": "modPlugin",
-  "newSection.md": "newSection",
-  "_self_": "module-request"
+  "newSection.md": "newSection"
 }

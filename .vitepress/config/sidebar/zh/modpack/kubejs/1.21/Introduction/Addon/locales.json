@@ -1,4 +1,4 @@
 {
-  "Introduction/Addon/LootJs/": "LootJs",
-  "_self_": "Addon"
+  "_self_": "Addon",
+  "LootJs/": "LootJs"
 }

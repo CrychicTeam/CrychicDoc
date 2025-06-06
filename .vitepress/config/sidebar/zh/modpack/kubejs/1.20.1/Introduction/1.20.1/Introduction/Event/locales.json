@@ -1,6 +1,0 @@
-{
-  "1.20.1/Introduction/Event/ClientScript/": "ClientScript",
-  "1.20.1/Introduction/Event/ServerScript/": "ServerScript",
-  "1.20.1/Introduction/Event/StartupScript/": "StartupScript",
-  "_self_": "Event"
-}

@@ -1,0 +1,32 @@
+{
+  "_self_": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247316167
+  },
+  "API/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199054
+  },
+  "Loot Modifiers/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199054
+  },
+  "LootModifiers/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199054
+  },
+  "LootTables/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199054
+  }
+}

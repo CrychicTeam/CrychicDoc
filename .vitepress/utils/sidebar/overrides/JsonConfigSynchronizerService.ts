@@ -15,10 +15,9 @@ import { SyncEngine } from './SyncEngine';
 import { JsonItemSorter } from './JsonItemSorter';
 import { PathKeyProcessor } from './PathKeyProcessor';
 import { DirectorySignatureManager } from './DirectorySignatureManager';
-import { DirectoryMigrationService } from './DirectoryMigrationService';
+import { DirectoryArchiveService } from './DirectoryArchiveService';
 import { DirectoryCleanupService } from './DirectoryCleanupService';
 import { RecursiveSynchronizer } from './RecursiveSynchronizer';
-import { KeyMigrationService } from './KeyMigrationService';
 
 /**
  * @file JsonConfigSynchronizerService.ts
@@ -37,10 +36,9 @@ export class JsonConfigSynchronizerService {
     // Specialized services
     private pathProcessor: PathKeyProcessor;
     private directorySignatureManager: DirectorySignatureManager;
-    private migrationService: DirectoryMigrationService;
+    private archiveService: DirectoryArchiveService;
     private cleanupService: DirectoryCleanupService;
     private recursiveSynchronizer: RecursiveSynchronizer;
-    private keyMigrationService: KeyMigrationService;
 
     constructor(docsPath: string, fs: FileSystem /*, configReader: ConfigReaderService */) {
         this.absDocsPath = normalizePathSeparators(docsPath);
@@ -58,7 +56,7 @@ export class JsonConfigSynchronizerService {
         // Initialize specialized services
         this.pathProcessor = new PathKeyProcessor();
         this.directorySignatureManager = new DirectorySignatureManager(fs, this.docsPath);
-        this.migrationService = new DirectoryMigrationService(this.jsonFileHandler, this.metadataManager, fs, this.docsPath);
+        this.archiveService = new DirectoryArchiveService(this.jsonFileHandler, this.metadataManager, fs, this.docsPath);
         this.cleanupService = new DirectoryCleanupService(this.jsonFileHandler, this.metadataManager, fs, this.docsPath);
         this.recursiveSynchronizer = new RecursiveSynchronizer(
             this.jsonFileHandler,
@@ -67,7 +65,6 @@ export class JsonConfigSynchronizerService {
             this.jsonItemSorter,
             this.absDocsPath
         );
-        this.keyMigrationService = new KeyMigrationService(this.jsonFileHandler, this.metadataManager);
     }
 
     /**
@@ -80,47 +77,28 @@ export class JsonConfigSynchronizerService {
         isDevMode: boolean,
         langGitbookPaths: string[]
     ): Promise<SidebarItem[]> {
+        console.log(`DEBUG: JsonConfigSynchronizerService.synchronize called for ${rootPathKey} (${lang})`);
+        
         if (!Array.isArray(sidebarTreeInput)) {
-
+            console.log(`DEBUG: sidebarTreeInput is not an array, returning empty array`);
             return []; 
         }
 
         // Get root directory signature
         const rootConfigDirectorySignature = this.pathProcessor.getSignatureForRootView(rootPathKey, lang);
+        console.log(`DEBUG: Root config directory signature: ${rootConfigDirectorySignature}`);
+        
         const normalizedGitbookPaths = langGitbookPaths.map(p => normalizePathSeparators(p));
 
         // Early check: If this root view itself is a GitBook root, skip all JSON processing
-
-
         const isGitBook = this.pathProcessor.isGitBookRoot(rootConfigDirectorySignature, lang, normalizedGitbookPaths, this.absDocsPath);
-
         
         if (isGitBook) {
-
+            console.log(`DEBUG: ${rootConfigDirectorySignature} is a GitBook root, skipping JSON processing`);
             return sidebarTreeInput;
         }
 
         const processedTree = sidebarTreeInput.map(item => JSON.parse(JSON.stringify(item))) as SidebarItem[];
-
-        // MIGRATION PHASE: Transform old data format to new format
-
-        const keyMigrationOccurred = await this.keyMigrationService.migrateKeysRecursively(
-            processedTree,
-            rootConfigDirectorySignature,
-            lang,
-            normalizedGitbookPaths,
-            this.absDocsPath
-        );
-
-        if (keyMigrationOccurred) {
-
-        }
-
-        // Clean up duplicate directories from old system
-        await this.keyMigrationService.cleanupDuplicateDirectories(rootConfigDirectorySignature, lang);
-
-        // Clean up old metadata entries that are no longer needed
-        await this.keyMigrationService.cleanupOldMetadata(processedTree, rootConfigDirectorySignature, lang);
         
         // Collect all active directory signatures for cleanup
         const activeDirectorySignatures = new Set<string>();
@@ -140,20 +118,8 @@ export class JsonConfigSynchronizerService {
             activeDirectorySignatures
         );
 
-        // Handle directory migrations
-        const migrationOccurred = await this.migrationService.handleDirectoryMigrations(
-            rootConfigDirectorySignature, 
-            lang, 
-            activeDirectorySignatures, 
-            outdatedDirs
-        );
-
-        // Clean up metadata from renamed directories AFTER migration (e.g., tool �?tools)
-        await this.keyMigrationService.cleanupRenamedDirectoryMetadata(
-            rootConfigDirectorySignature,
-            lang,
-            activeDirectorySignatures
-        );
+        // Archive outdated directories that have user modifications
+        await this.archiveService.archiveOutdatedDirectories(outdatedDirs, lang);
 
         // Clean up remaining outdated directories
         await this.cleanupService.cleanupOutdatedDirectories(outdatedDirs, lang);

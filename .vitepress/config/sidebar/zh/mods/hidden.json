@@ -1,4 +1,5 @@
 {
+  "_self_": false,
   "adventure/": false,
   "armor_tools/": false,
   "cosmetic/": false,
@@ -6,6 +7,5 @@
   "performance/": false,
   "server/": false,
   "storages/": false,
-  "tech/": false,
-  "_self_": false
+  "tech/": false
 }

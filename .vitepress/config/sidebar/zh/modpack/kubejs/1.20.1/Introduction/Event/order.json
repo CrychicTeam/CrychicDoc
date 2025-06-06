@@ -1,5 +1,5 @@
 {
-  "Introduction/Event/ClientScript/": 0,
-  "Introduction/Event/ServerScript/": 1,
-  "Introduction/Event/StartupScript/": 2
+  "ClientScript/": 300,
+  "ServerScript/": 200,
+  "StartupScript/": 100
 }

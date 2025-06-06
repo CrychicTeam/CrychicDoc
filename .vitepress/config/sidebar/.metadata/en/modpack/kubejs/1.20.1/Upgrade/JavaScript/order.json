@@ -1,32 +1,32 @@
 {
-  "Upgrade/JavaScript/array.md": {
+  "array.md": {
     "valueHash": "cfcd208495d565ef66e7dff9f98764da",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714480
+    "lastSeen": 1749252345930
   },
-  "Upgrade/JavaScript/basic.md": {
-    "valueHash": "c4ca4238a0b923820dcc509a6f75849b",
+  "basic.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714480
+    "lastSeen": 1749252345930
   },
-  "Upgrade/JavaScript/map.md": {
-    "valueHash": "c81e728d9d4c2f636f067f89cc14862c",
+  "map.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714480
+    "lastSeen": 1749252345930
   },
-  "Upgrade/JavaScript/object.md": {
-    "valueHash": "eccbc87e4b5ce2fe28308fd9f2a7baf3",
+  "object.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714480
+    "lastSeen": 1749252345930
   },
-  "Upgrade/JavaScript/set.md": {
-    "valueHash": "a87ff679a2f3e71d9181a67b7542122c",
+  "set.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714480
+    "lastSeen": 1749252345930
   }
 }

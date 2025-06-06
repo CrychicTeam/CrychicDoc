@@ -1,10 +1,10 @@
 {
+  "_self_": false,
   "API.md": false,
   "error.md": false,
   "event_interaction.md": false,
   "forgeEvents.md": false,
   "loadClass.md": false,
   "other.md": false,
-  "register.md": false,
-  "_self_": false
+  "register.md": false
 }

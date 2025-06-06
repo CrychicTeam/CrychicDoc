@@ -1,11 +1,11 @@
 {
+  "_self_": false,
   "cooperation.md": false,
   "dev.md": false,
-  "guide/": false,
+  "guide/": true,
   "rules.md": false,
   "samples.md": false,
   "sidebarTutorial.md": false,
   "styleList.md": false,
-  "vscode-snippets-guide.md": false,
-  "_self_": false
+  "vscode-snippets-guide.md": false
 }

@@ -1,0 +1,68 @@
+{
+  "ItemFilter.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "LootConditions.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "LootContext.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "LootEntry.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "LootEntryTransformer.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "LootFunctions.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "LootModifier.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "LootPool.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "LootTable.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "NumberProvider.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  },
+  "Range.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199059
+  }
+}

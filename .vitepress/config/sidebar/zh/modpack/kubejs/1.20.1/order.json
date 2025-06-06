@@ -1,5 +1,5 @@
 {
-  "Introduction/": -10,
-  "CodeShare/": 10,
-  "Upgrade/": 20
+  "CodeShare/": 100000000,
+  "Introduction/": -100000000,
+  "Upgrade/": 500000
 }

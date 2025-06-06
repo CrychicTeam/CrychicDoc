@@ -1,7 +1,10 @@
 {
+  "_self_": "Introduction",
+  "Addon/": "Addon",
   "Block/": "Block",
   "Description.md": "Description",
   "Entity/": "Entity",
+  "Event/": "Event",
   "GlobalScope/": "GlobalScope",
   "Item/": "Item",
   "LootTable/": "LootTable",
@@ -9,6 +12,5 @@
   "Network/": "Network",
   "PotionEffect/": "PotionEffect",
   "Recipe/": "Recipe",
-  "Tag/": "Tag",
-  "_self_": "Introduction"
+  "Tag/": "Tag"
 }

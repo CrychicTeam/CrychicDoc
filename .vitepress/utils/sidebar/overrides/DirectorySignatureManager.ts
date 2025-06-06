@@ -74,6 +74,8 @@ export class DirectorySignatureManager {
 
     /**
      * Identifies outdated directories that are no longer active in the current structure.
+     * This method is CONSERVATIVE - it only marks directories as outdated if the corresponding
+     * physical directory no longer exists in the file system.
      */
     public async identifyOutdatedDirectories(
         rootDirSignature: string,
@@ -82,27 +84,103 @@ export class DirectorySignatureManager {
     ): Promise<string[]> {
         try {
             const langConfigPath = path.join(this.docsPath, '..', '.vitepress', 'config', 'sidebar', lang);
-            const rootDirPath = rootDirSignature === '_root' ? langConfigPath : path.join(langConfigPath, rootDirSignature);
-            
-            const existingDirs = await this.getAllJsonDirectories(rootDirPath);
             const outdatedDirs: string[] = [];
             
-            // Collect outdated directories
-            for (const existingDir of existingDirs) {
-                const relativeDirSignature = rootDirSignature === '_root' 
-                    ? existingDir
-                    : normalizePathSeparators(path.join(rootDirSignature, existingDir));
+            // Recursively find all config directories
+            const allConfigDirs = await this.findAllConfigDirectories(langConfigPath, rootDirSignature);
+            
+            for (const configDir of allConfigDirs) {
+                // Check if the physical directory still exists
+                const physicalDirPath = this.getPhysicalDirPath(configDir, lang);
+                const physicalExists = await this.fs.exists(physicalDirPath);
                 
-                if (!activeDirectorySignatures.has(relativeDirSignature) && !activeDirectorySignatures.has(relativeDirSignature + '/')) {
-                    outdatedDirs.push(relativeDirSignature);
+                // Only mark as outdated if the physical directory is gone
+                if (!physicalExists) {
+                    outdatedDirs.push(configDir);
                 }
             }
             
             return outdatedDirs;
         } catch (error) {
-
+            console.error('Error identifying outdated directories:', error);
             return [];
         }
+    }
+
+    /**
+     * Recursively finds all directories that have config files.
+     */
+    private async findAllConfigDirectories(basePath: string, rootSignature: string): Promise<string[]> {
+        const configDirs: string[] = [];
+        
+        try {
+            await this.findConfigDirectoriesRecursive(basePath, rootSignature, configDirs);
+        } catch (error) {
+            // Directory might not exist
+        }
+        
+        return configDirs;
+    }
+
+    /**
+     * Recursively searches for directories with config files.
+     */
+    private async findConfigDirectoriesRecursive(
+        currentPath: string,
+        currentSignature: string,
+        results: string[]
+    ): Promise<void> {
+        try {
+            // Check if this directory has any config files
+            if (await this.hasConfigFiles(currentPath)) {
+                results.push(currentSignature);
+            }
+            
+            const entries = await this.fs.readDir(currentPath);
+            
+            for (const entry of entries) {
+                if (entry.isDirectory() && !entry.name.startsWith('.')) {
+                    const childPath = path.join(currentPath, entry.name);
+                    const childSignature = currentSignature === '_root' 
+                        ? entry.name 
+                        : normalizePathSeparators(path.join(currentSignature, entry.name));
+                    
+                    await this.findConfigDirectoriesRecursive(childPath, childSignature, results);
+                }
+            }
+        } catch (error) {
+            // Directory might not exist or be readable
+        }
+    }
+
+    /**
+     * Checks if a directory has any config files.
+     */
+    private async hasConfigFiles(dirPath: string): Promise<boolean> {
+        const configFiles = ['locales.json', 'order.json', 'collapsed.json', 'hidden.json'];
+        
+        for (const configFile of configFiles) {
+            try {
+                const filePath = path.join(dirPath, configFile);
+                if (await this.fs.exists(filePath)) {
+                    return true;
+                }
+            } catch (error) {
+                // File doesn't exist, continue
+            }
+        }
+        
+        return false;
+    }
+
+    /**
+     * Gets the physical directory path from a directory signature.
+     */
+    private getPhysicalDirPath(dirSignature: string, lang: string): string {
+        if (dirSignature === '_root') {
+            return normalizePathSeparators(path.join(this.docsPath, lang));
+        }
+        return normalizePathSeparators(path.join(this.docsPath, lang, dirSignature));
     }
 } 
 

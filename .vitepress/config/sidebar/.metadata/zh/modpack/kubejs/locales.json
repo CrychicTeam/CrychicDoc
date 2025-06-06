@@ -1,32 +1,32 @@
 {
+  "_self_": {
+    "valueHash": "df1e605e0816bd3a06728055b25d8f03",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247315686
+  },
   "1.18.2/": {
     "valueHash": "4724f024b9aee4a28b8bf438357422ef",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562767
+    "lastSeen": 1749253198394
   },
   "1.19.2/": {
     "valueHash": "243d0cf5b92827a0d98bde20c2d907d7",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562767
+    "lastSeen": 1749253198394
   },
   "1.20.1/": {
     "valueHash": "a5b10124c73efb47be9e6410796d1e42",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562767
+    "lastSeen": 1749253198394
   },
   "1.21/": {
     "valueHash": "a5b10124c73efb47be9e6410796d1e42",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562767
-  },
-  "_self_": {
-    "valueHash": "df1e605e0816bd3a06728055b25d8f03",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749091562767
+    "lastSeen": 1749253198394
   }
 }

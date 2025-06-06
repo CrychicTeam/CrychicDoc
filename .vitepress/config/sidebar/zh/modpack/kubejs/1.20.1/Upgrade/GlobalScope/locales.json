@@ -1,6 +1,6 @@
 {
-  "Upgrade/GlobalScope/Classes/": "Classes",
-  "Upgrade/GlobalScope/ConstantsAndObjects/": "ConstantsAndObjects",
-  "Upgrade/GlobalScope/WrappedClasses/": "WrappedClasses",
-  "_self_": "GlobalScope"
+  "_self_": "GlobalScope",
+  "Classes/": "类",
+  "ConstantsAndObjects/": "常量和对象",
+  "WrappedClasses/": "包装类"
 }

@@ -1,6 +1,6 @@
 {
-  "Introduction/": false,
-  "CodeShare/": false,
-  "Upgrade/": false,
-  "_self_": false
+  "_self_": false,
+  "CodeShare/": true,
+  "Introduction/": true,
+  "Upgrade/": true
 }

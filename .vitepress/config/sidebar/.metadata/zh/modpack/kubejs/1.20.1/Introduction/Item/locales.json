@@ -1,20 +1,20 @@
 {
-  "Introduction/Item/Catalogue.md": {
-    "valueHash": "a8567ec8887eb41c7870b3a624524a46",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563209
-  },
-  "Introduction/Item/Register/": {
-    "valueHash": "0ba7583639a274c434bbe6ef797115a4",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563209
-  },
   "_self_": {
     "valueHash": "7d74f3b92b19da5e606d737d339a9679",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749091563209
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247315908
+  },
+  "Catalogue.md": {
+    "valueHash": "a8567ec8887eb41c7870b3a624524a46",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198892
+  },
+  "Register/": {
+    "valueHash": "0ba7583639a274c434bbe6ef797115a4",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198892
   }
 }

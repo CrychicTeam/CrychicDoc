@@ -1,14 +1,14 @@
 {
-  "Introduction/PotionEffect/Catalogue.md": {
+  "Catalogue.md": {
     "valueHash": "cfcd208495d565ef66e7dff9f98764da",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714428
+    "lastSeen": 1749252345918
   },
-  "Introduction/PotionEffect/PotionEffect.md": {
-    "valueHash": "c4ca4238a0b923820dcc509a6f75849b",
+  "PotionEffect.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714428
+    "lastSeen": 1749252345918
   }
 }

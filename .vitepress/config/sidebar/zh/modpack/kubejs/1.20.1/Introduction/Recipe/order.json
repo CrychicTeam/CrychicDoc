@@ -1,9 +1,9 @@
 {
-  "Introduction/Recipe/AddRecipe/": 0,
-  "Introduction/Recipe/Catalogue.md": 1,
-  "Introduction/Recipe/DeleteRecipe.md": 2,
-  "Introduction/Recipe/ItemAndIngredient.md": 3,
-  "Introduction/Recipe/ModifyRecipe.md": 4,
-  "Introduction/Recipe/RecipeFilter.md": 5,
-  "Introduction/Recipe/Vanilla.md": 6
+  "AddRecipe/": 0,
+  "Catalogue.md": -1000000,
+  "DeleteRecipe.md": 100,
+  "ItemAndIngredient.md": 400,
+  "ModifyRecipe.md": 200,
+  "RecipeFilter.md":500,
+  "Vanilla.md": 300
 }

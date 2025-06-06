@@ -1,20 +1,20 @@
 {
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247316109
+  },
   "doc.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562900
+    "lastSeen": 1749253198790
   },
   "writing.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562900
-  },
-  "_self_": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749091562900
+    "lastSeen": 1749253198790
   }
 }

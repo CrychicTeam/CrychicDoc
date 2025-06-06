@@ -1,56 +1,74 @@
 {
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253127404
+  },
   "cooperation.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562361
+    "lastSeen": 1749253198211
   },
   "dev.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562361
+    "lastSeen": 1749253198211
   },
   "guide/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562361
+    "lastSeen": 1749253198211
   },
   "rules.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562361
+    "lastSeen": 1749253198211
   },
   "samples.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562361
+    "lastSeen": 1749253198211
   },
   "sidebarTutorial.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562361
+    "lastSeen": 1749253198211
   },
   "styleList.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562361
+    "lastSeen": 1749253198211
   },
   "vscode-snippets-guide.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562361
+    "lastSeen": 1749253198211
   },
-  "_self_": {
+  "doc/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": false,
-    "lastSeen": 1749091562361
+    "lastSeen": 1749253198211
+  },
+  "dev copy.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749253198211
+  },
+  "dev Test.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749253198211
   }
 }

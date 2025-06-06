@@ -1,26 +1,26 @@
 {
-  "Introduction/GlobalScope/Classes/": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563189
-  },
-  "Introduction/GlobalScope/Description.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563189
-  },
-  "Introduction/GlobalScope/Utils.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563189
-  },
   "_self_": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749091563189
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247315900
+  },
+  "Classes/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198888
+  },
+  "Description.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198888
+  },
+  "Utils.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198888
   }
 }

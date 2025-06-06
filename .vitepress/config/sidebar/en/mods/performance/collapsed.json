@@ -1,3 +1,4 @@
 {
-  "server/": false
+  "_self_": true,
+  "server/": true
 }

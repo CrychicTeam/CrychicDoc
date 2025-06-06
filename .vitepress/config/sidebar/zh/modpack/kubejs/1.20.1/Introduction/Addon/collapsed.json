@@ -1,5 +1,5 @@
 {
-  "Introduction/Addon/LootJs/": false,
-  "Introduction/Addon/ProbeJS/": false,
-  "_self_": false
+  "_self_": true,
+  "LootJs/": true,
+  "ProbeJS/": true
 }

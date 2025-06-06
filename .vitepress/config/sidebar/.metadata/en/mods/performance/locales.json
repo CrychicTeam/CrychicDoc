@@ -1,8 +1,14 @@
 {
+  "_self_": {
+    "valueHash": "48670ac7410993195ad3954b06451d2a",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749249393671
+  },
   "server/": {
     "valueHash": "cf1e8c14e54505f60aa10ceb8d5d8ab3",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087713911
+    "lastSeen": 1749252345553
   }
 }

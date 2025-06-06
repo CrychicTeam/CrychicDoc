@@ -1,14 +1,14 @@
 {
   "config.md": {
     "valueHash": "cfcd208495d565ef66e7dff9f98764da",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714496
+    "lastSeen": 1749253127061
   },
   "wiki.md": {
-    "valueHash": "c4ca4238a0b923820dcc509a6f75849b",
-    "isUserSet": true,
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714496
+    "lastSeen": 1749253127061
   }
 }

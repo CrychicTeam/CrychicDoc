@@ -81,6 +81,44 @@ export class JsonFileHandler {
     }
 
     /**
+     * Writes data to a specific JSON override file in an archive location.
+     */
+    public async writeJsonFileToArchive(
+        type: JsonOverrideFileType,
+        lang: string,
+        itemDirectoryPathSignature: string,
+        data: Record<string, any>,
+        archiveBasePath: string
+    ): Promise<void> {
+        const fileName = `${type}.json`;
+        const filePath = normalizePathSeparators(path.join(archiveBasePath, lang, itemDirectoryPathSignature, fileName));
+        try {
+            await this.fs.ensureDir(path.dirname(filePath));
+            await this.fs.writeFile(filePath, JSON.stringify(data, null, 2));
+        } catch (error: any) {
+            console.error(`Failed to write archive file to ${filePath}`, error);
+        }
+    }
+
+    /**
+     * Deletes a specific JSON override file.
+     */
+    public async deleteJsonFile(
+        type: JsonOverrideFileType,
+        lang: string,
+        itemDirectoryPathSignature: string
+    ): Promise<void> {
+        const filePath = this.getJsonFilePath(type, lang, itemDirectoryPathSignature);
+        try {
+            if (await this.fs.exists(filePath)) {
+                await this.fs.deleteFile(filePath);
+            }
+        } catch (error: any) {
+            console.error(`Failed to delete file ${filePath}`, error);
+        }
+    }
+
+    /**
      * Gets the FileSystem instance for direct access by other services.
      */
     public getFileSystem(): FileSystem {

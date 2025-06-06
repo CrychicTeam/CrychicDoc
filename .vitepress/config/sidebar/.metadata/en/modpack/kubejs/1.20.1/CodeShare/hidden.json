@@ -1,38 +1,38 @@
 {
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749249393895
+  },
   "CraftingTableGUI.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714325
+    "lastSeen": 1749253127027
   },
   "Dining.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714325
+    "lastSeen": 1749253127027
   },
   "InvertedBonemeal.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714325
+    "lastSeen": 1749253127027
   },
   "LifeValue.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714325
+    "lastSeen": 1749253127027
   },
   "Painter.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714325
-  },
-  "_self_": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749087714325
+    "lastSeen": 1749253127027
   }
 }

@@ -1,0 +1,14 @@
+{
+  "_self_": "API",
+  "ItemFilter.md": "ItemFilter",
+  "LootConditions.md": "LootConditions",
+  "LootContext.md": "LootContext",
+  "LootEntry.md": "LootEntry",
+  "LootEntryTransformer.md": "LootEntryTransformer",
+  "LootFunctions.md": "LootFunctions",
+  "LootModifier.md": "LootModifier",
+  "LootPool.md": "LootPool",
+  "LootTable.md": "LootTable",
+  "NumberProvider.md": "NumberProvider",
+  "Range.md": "Range"
+}

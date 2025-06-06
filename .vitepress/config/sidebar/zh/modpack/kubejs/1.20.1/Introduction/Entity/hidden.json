@@ -1,7 +1,7 @@
 {
-  "Introduction/Entity/Attribute.md": false,
-  "Introduction/Entity/Catalogue.md": false,
-  "Introduction/Entity/PotionEffects.md": false,
-  "Introduction/Entity/Spawn.md": false,
-  "_self_": false
+  "_self_": false,
+  "Attribute.md": false,
+  "Catalogue.md": false,
+  "PotionEffects.md": false,
+  "Spawn.md": false
 }

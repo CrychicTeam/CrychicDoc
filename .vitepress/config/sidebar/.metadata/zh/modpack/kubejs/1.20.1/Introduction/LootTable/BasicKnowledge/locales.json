@@ -1,0 +1,38 @@
+{
+  "_self_": {
+    "valueHash": "d5b4ad9785feb5ce42b103fa7aea4100",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247315924
+  },
+  "ItemModifier.md": {
+    "valueHash": "972435142b531858deb403cccf78698c",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198899
+  },
+  "LootEntry.md": {
+    "valueHash": "79f552e0b636dea68f8d795ef2345a13",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198899
+  },
+  "LootPool.md": {
+    "valueHash": "bb56e3cd61b7d5c5867357e436e644d4",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198899
+  },
+  "LootType.md": {
+    "valueHash": "6916c31192de1f49cfdd8f3ae05ad0b5",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198899
+  },
+  "Predicate.md": {
+    "valueHash": "3b1b1a93a9b97ec3c8f2636fc6d54d0f",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198899
+  }
+}

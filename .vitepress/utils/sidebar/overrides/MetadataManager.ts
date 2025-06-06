@@ -73,6 +73,46 @@ export class MetadataManager {
     }
 
     /**
+     * Writes metadata to a specific file in an archive location.
+     */
+    public async writeMetadataToArchive(
+        type: JsonOverrideFileType,
+        lang: string,
+        itemDirectoryPathSignature: string,
+        metadata: JsonFileMetadata,
+        archiveBasePath: string
+    ): Promise<void> {
+        const fileName = `${type}.json`;
+        // Note: The archiveBasePath for metadata should point to the .metadata folder inside the general archive.
+        const metadataArchivePath = normalizePathSeparators(path.join(archiveBasePath, '.metadata'));
+        const filePath = normalizePathSeparators(path.join(metadataArchivePath, lang, itemDirectoryPathSignature, fileName));
+        try {
+            await this.fs.ensureDir(path.dirname(filePath));
+            await this.fs.writeFile(filePath, JSON.stringify(metadata, null, 2));
+        } catch (error: any) {
+            console.error(`Failed to write archive metadata to ${filePath}`, error);
+        }
+    }
+
+    /**
+     * Deletes a specific metadata file.
+     */
+    public async deleteMetadata(
+        type: JsonOverrideFileType,
+        lang: string,
+        itemDirectoryPathSignature: string
+    ): Promise<void> {
+        const filePath = this.getMetadataFilePath(type, lang, itemDirectoryPathSignature);
+        try {
+            if (await this.fs.exists(filePath)) {
+                await this.fs.deleteFile(filePath);
+            }
+        } catch (error: any) {
+            console.error(`Failed to delete metadata file ${filePath}`, error);
+        }
+    }
+
+    /**
      * Generates a hash for a given value (typically a string from a JSON override file).
      */
     public generateValueHash(value: any): string {
@@ -102,11 +142,16 @@ export class MetadataManager {
      */
     public isEntryUserModified(currentJsonValue: any, metadataEntry?: MetadataEntry): boolean {
         if (!metadataEntry) {
-            return true; 
+            // If there's no metadata, it's a new or untracked item. Treat as a system-generated stub.
+            return false;
         }
         if (metadataEntry.isUserSet) {
+            // If it was explicitly marked as user-set, it remains so.
             return true;
         }
+        
+        // If not explicitly user-set, check if the value has changed from what we last recorded.
+        // A change in value implies a user modification.
         const currentHash = this.generateValueHash(currentJsonValue);
         return currentHash !== metadataEntry.valueHash;
     }

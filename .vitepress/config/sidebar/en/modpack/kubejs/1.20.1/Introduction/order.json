@@ -1,13 +1,15 @@
 {
-  "Block/": 0,
-  "Description.md": 1,
-  "Entity/": 2,
-  "GlobalScope/": 3,
-  "Item/": 4,
-  "LootTable/": 5,
-  "Miscellaneous/": 6,
-  "Network/": 7,
-  "PotionEffect/": 8,
-  "Recipe/": 9,
-  "Tag/": 10
+  "Addon/": 9007199254740991,
+  "Block/": 9007199254740991,
+  "Description.md": 0,
+  "Entity/": 9007199254740991,
+  "Event/": 9007199254740991,
+  "GlobalScope/": 9007199254740991,
+  "Item/": 9007199254740991,
+  "LootTable/": 9007199254740991,
+  "Miscellaneous/": 9007199254740991,
+  "Network/": 9007199254740991,
+  "PotionEffect/": 9007199254740991,
+  "Recipe/": 9007199254740991,
+  "Tag/": 9007199254740991
 }

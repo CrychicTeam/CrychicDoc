@@ -1,10 +1,10 @@
 {
+  "_self_": false,
   "code.md": false,
   "docError.md": false,
-  "modpack.md": false,
   "modRecommend.md": false,
+  "modpack.md": false,
   "navbar.md": false,
   "publicServer.md": false,
-  "teamRecruit.md": false,
-  "_self_": false
+  "teamRecruit.md": false
 }

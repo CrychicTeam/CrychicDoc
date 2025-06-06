@@ -1,11 +1,11 @@
 {
-  "Introduction/Tag/Biome.md": false,
-  "Introduction/Tag/Block.md": false,
-  "Introduction/Tag/Catalogue.md": false,
-  "Introduction/Tag/Description.md": false,
-  "Introduction/Tag/EntityType.md": false,
-  "Introduction/Tag/Fluid.md": false,
-  "Introduction/Tag/Item.md": false,
-  "Introduction/Tag/Structure.md": false,
-  "_self_": false
+  "_self_": false,
+  "Biome.md": false,
+  "Block.md": false,
+  "Catalogue.md": false,
+  "Description.md": false,
+  "EntityType.md": false,
+  "Fluid.md": false,
+  "Item.md": false,
+  "Structure.md": false
 }

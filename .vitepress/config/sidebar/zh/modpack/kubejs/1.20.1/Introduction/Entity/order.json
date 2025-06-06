@@ -1,6 +1,6 @@
 {
-  "Introduction/Entity/Attribute.md": 0,
-  "Introduction/Entity/Catalogue.md": 1,
-  "Introduction/Entity/PotionEffects.md": 2,
-  "Introduction/Entity/Spawn.md": 3
+  "Attribute.md": 100,
+  "Catalogue.md": -1000000,
+  "PotionEffects.md": 200,
+  "Spawn.md": 50
 }

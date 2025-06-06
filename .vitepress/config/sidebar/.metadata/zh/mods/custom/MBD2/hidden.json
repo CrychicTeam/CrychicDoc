@@ -1,26 +1,26 @@
 {
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247316302
+  },
   "Catalogue.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562985
+    "lastSeen": 1749253199182
   },
   "SingleBlockBasic.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562985
+    "lastSeen": 1749253199182
   },
   "SingleBlockBasicSettings.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562985
-  },
-  "_self_": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749091562985
+    "lastSeen": 1749253199182
   }
 }

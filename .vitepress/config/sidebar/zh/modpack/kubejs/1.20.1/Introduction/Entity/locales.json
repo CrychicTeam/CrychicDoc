@@ -1,7 +1,7 @@
 {
-  "Introduction/Entity/Attribute.md": "Attribute",
-  "Introduction/Entity/Catalogue.md": "Catalogue",
-  "Introduction/Entity/PotionEffects.md": "PotionEffects",
-  "Introduction/Entity/Spawn.md": "Spawn",
-  "_self_": "Entity"
+  "_self_": "Entity",
+  "Attribute.md": "属性",
+  "Catalogue.md": "目录",
+  "PotionEffects.md": "药水效果",
+  "Spawn.md": "生成"
 }

@@ -1,146 +1,146 @@
 {
-  "Introduction/Miscellaneous/Collection.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/CompletableFuture.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Components.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/CountingMap.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Description.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Ingredient.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/IngredientActionFilter.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/ItemStack.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Lazy.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/List.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Map.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/NumberProvider.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/ParticleOptions.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Pattern.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Providers.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Random.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/RandomGenerator.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/RecipeFilter.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/RegistryInfo.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Runnable.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/SoundEvent.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Stat.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
-  "Introduction/Miscellaneous/Supplier.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563272
-  },
   "_self_": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749091563272
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247315937
+  },
+  "Collection.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "CompletableFuture.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Components.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "CountingMap.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Description.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Ingredient.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "IngredientActionFilter.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "ItemStack.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Lazy.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "List.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Map.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "NumberProvider.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "ParticleOptions.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Pattern.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Providers.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Random.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "RandomGenerator.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "RecipeFilter.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "RegistryInfo.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Runnable.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "SoundEvent.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Stat.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
+  },
+  "Supplier.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198909
   }
 }

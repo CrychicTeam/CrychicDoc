@@ -1,4 +1,5 @@
 {
-  "drafts/": false,
-  "private/": false
+  "_self_": true,
+  "drafts/": true,
+  "private/": true
 }

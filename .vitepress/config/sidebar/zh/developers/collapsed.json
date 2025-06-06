@@ -1,7 +1,7 @@
 {
-  "Crychic/": false,
-  "GoCampingTeam/": false,
-  "Lightland/": false,
-  "MCTeamPotato/": false,
-  "_self_": false
+  "_self_": true,
+  "Crychic/": true,
+  "GoCampingTeam/": true,
+  "Lightland/": true,
+  "MCTeamPotato/": true
 }

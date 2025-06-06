@@ -1,4 +1,5 @@
 {
+  "_self_": false,
   "out_01_Environment.md": false,
   "out_02_FirstItemRegistry.md": false,
   "out_03_CreativeModTabs.md": false,
@@ -51,6 +52,5 @@
   "out_50_MobEffect_Potion.md": false,
   "out_51_Particle.md": false,
   "out_52_Sound.md": false,
-  "out_53_Update_1.20.6.md": false,
-  "_self_": false
+  "out_53_Update_1.20.6.md": false
 }

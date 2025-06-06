@@ -1,10 +1,10 @@
 {
-  "cooperation.md": 0,
-  "dev.md": 1,
-  "guide/": 2,
-  "rules.md": 2,
-  "samples.md": 3,
-  "sidebarTutorial.md": 4,
-  "styleList.md": 5,
-  "vscode-snippets-guide.md": 6
+  "cooperation.md": 200,
+  "dev.md": 100,
+  "guide/": 9007199254740991,
+  "rules.md": -1000,
+  "samples.md": 300,
+  "sidebarTutorial.md": 500,
+  "styleList.md": 400,
+  "vscode-snippets-guide.md": 600
 }

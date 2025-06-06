@@ -1,14 +1,14 @@
 {
-  "Introduction/Addon/LootJs/": {
-    "valueHash": "9929d9a7142ef9fae2c524f764290fa2",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563498
-  },
   "_self_": {
     "valueHash": "304cb904a1f04e9ae0b7cc5c2c02f7a6",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749091563498
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247316163
+  },
+  "LootJs/": {
+    "valueHash": "9929d9a7142ef9fae2c524f764290fa2",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253199051
   }
 }

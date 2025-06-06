@@ -1,14 +1,20 @@
 {
-  "client/": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
+  "_self_": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562532
+    "lastSeen": 1749249338250
+  },
+  "client/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749252347132
   },
   "server/": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562532
+    "lastSeen": 1749252347132
   }
 }

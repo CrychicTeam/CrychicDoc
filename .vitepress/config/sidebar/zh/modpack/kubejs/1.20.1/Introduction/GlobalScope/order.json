@@ -1,5 +1,5 @@
 {
-  "Introduction/GlobalScope/Classes/": 0,
-  "Introduction/GlobalScope/Description.md": 1,
-  "Introduction/GlobalScope/Utils.md": 2
+  "Classes/": 100,
+  "Description.md": -100000,
+  "Utils.md": 300
 }

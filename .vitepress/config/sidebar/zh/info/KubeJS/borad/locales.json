@@ -1,10 +1,10 @@
 {
+  "_self_": "Borad",
   "code.md": "code",
   "docError.md": "docError",
-  "modpack.md": "modpack",
   "modRecommend.md": "modRecommend",
+  "modpack.md": "modpack",
   "navbar.md": "navbar",
   "publicServer.md": "publicServer",
-  "teamRecruit.md": "teamRecruit",
-  "_self_": "borad"
+  "teamRecruit.md": "teamRecruit"
 }

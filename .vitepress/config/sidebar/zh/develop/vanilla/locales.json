@@ -1,5 +1,5 @@
 {
-  "datapack/": "datapack",
-  "resourcepack/": "resourcepack",
-  "_self_": "Vanilla"
+  "_self_": "Vanilla",
+  "datapack/": "Datapack",
+  "resourcepack/": "Resourcepack"
 }

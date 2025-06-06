@@ -1,6 +1,6 @@
 {
-  "Upgrade/GlobalScope/Classes/": false,
-  "Upgrade/GlobalScope/ConstantsAndObjects/": false,
-  "Upgrade/GlobalScope/WrappedClasses/": false,
-  "_self_": false
+  "_self_": true,
+  "Classes/": true,
+  "ConstantsAndObjects/": true,
+  "WrappedClasses/": true
 }

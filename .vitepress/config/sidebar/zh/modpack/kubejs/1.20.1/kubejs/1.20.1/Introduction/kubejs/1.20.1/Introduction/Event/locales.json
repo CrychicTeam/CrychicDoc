@@ -1,6 +1,0 @@
-{
-  "kubejs/1.20.1/Introduction/Event/ClientScript/": "ClientScript",
-  "kubejs/1.20.1/Introduction/Event/ServerScript/": "ServerScript",
-  "kubejs/1.20.1/Introduction/Event/StartupScript/": "StartupScript",
-  "_self_": "Event"
-}

@@ -1,11 +1,11 @@
 {
-  "Introduction/Tag/Biome.md": "Biome",
-  "Introduction/Tag/Block.md": "Block",
-  "Introduction/Tag/Catalogue.md": "Catalogue",
-  "Introduction/Tag/Description.md": "Description",
-  "Introduction/Tag/EntityType.md": "EntityType",
-  "Introduction/Tag/Fluid.md": "Fluid",
-  "Introduction/Tag/Item.md": "Item",
-  "Introduction/Tag/Structure.md": "Structure",
-  "_self_": "Tag"
+  "_self_": "Tag",
+  "Biome.md": "Biome",
+  "Block.md": "Block",
+  "Catalogue.md": "Catalogue",
+  "Description.md": "Description",
+  "EntityType.md": "EntityType",
+  "Fluid.md": "Fluid",
+  "Item.md": "Item",
+  "Structure.md": "Structure"
 }

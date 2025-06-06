@@ -1,11 +1,11 @@
 {
-  "adventure/": false,
-  "armor_tools/": false,
-  "cosmetic/": false,
-  "custom/": false,
-  "performance/": false,
-  "server/": false,
-  "storages/": false,
-  "tech/": false,
-  "_self_": false
+  "_self_": true,
+  "adventure/": true,
+  "armor_tools/": true,
+  "cosmetic/": true,
+  "custom/": true,
+  "performance/": true,
+  "server/": true,
+  "storages/": true,
+  "tech/": true
 }

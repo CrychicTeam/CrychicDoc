@@ -1,5 +1,5 @@
 {
-  "codeshare/": "codeshare",
+  "_self_": "KubeJS",
   "Introduction/": "介绍",
-  "_self_": "KubeJS"
+  "codeshare/": "代码分享"
 }

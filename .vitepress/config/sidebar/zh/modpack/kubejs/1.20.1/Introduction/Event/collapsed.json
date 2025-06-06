@@ -1,6 +1,6 @@
 {
-  "Introduction/Event/ClientScript/": false,
-  "Introduction/Event/ServerScript/": false,
-  "Introduction/Event/StartupScript/": false,
-  "_self_": false
+  "_self_": true,
+  "ClientScript/": true,
+  "ServerScript/": true,
+  "StartupScript/": true
 }

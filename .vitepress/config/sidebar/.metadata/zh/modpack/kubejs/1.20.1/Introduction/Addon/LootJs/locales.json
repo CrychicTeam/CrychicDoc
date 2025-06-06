@@ -1,0 +1,44 @@
+{
+  "_self_": {
+    "valueHash": "3d3a7527c1734a9fff662cbe9dfc42dd",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247315849
+  },
+  "Conditions.md": {
+    "valueHash": "229eb04083e06f419f9ac494329f957d",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198862
+  },
+  "Event.md": {
+    "valueHash": "a4ecfc70574394990cf17bd83df499f7",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198862
+  },
+  "Functions.md": {
+    "valueHash": "e93acb146e114b5dfa6ce2d12dcb96e4",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198862
+  },
+  "LootEntry.md": {
+    "valueHash": "79f552e0b636dea68f8d795ef2345a13",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198862
+  },
+  "LootJs.md": {
+    "valueHash": "9929d9a7142ef9fae2c524f764290fa2",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198862
+  },
+  "Type.md": {
+    "valueHash": "a1fa27779242b4902f7ae3bdd5c6d508",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198862
+  }
+}

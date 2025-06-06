@@ -1,56 +1,74 @@
 {
+  "_self_": {
+    "valueHash": "b1bae588280bf11b0c60282ce060ae1c",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253127402
+  },
   "cooperation.md": {
     "valueHash": "b7615c47bd9e4dc840dbf5d8053b0e4b",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562360
+    "lastSeen": 1749253198209
   },
   "dev.md": {
     "valueHash": "b532a256dbcd3266fa562e3cf0813ba0",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562360
+    "lastSeen": 1749253198209
   },
   "guide/": {
     "valueHash": "a0c391dc49c440fc9962168353cedde3",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562360
+    "lastSeen": 1749253198209
   },
   "rules.md": {
     "valueHash": "a4f86f7bfc24194b276c22e0ef158197",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562360
+    "lastSeen": 1749253198209
   },
   "samples.md": {
     "valueHash": "7243595b75f3eda293a000832dcfa5e5",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562360
+    "lastSeen": 1749253198209
   },
   "sidebarTutorial.md": {
     "valueHash": "6c4eb422e55337fdf4c159037d7f543d",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562360
+    "lastSeen": 1749253198209
   },
   "styleList.md": {
     "valueHash": "cf2f9c2b6039f25a11ba537c4982f362",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562360
+    "lastSeen": 1749253198209
   },
   "vscode-snippets-guide.md": {
     "valueHash": "7b05d38f32413c414c6daf098464464c",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749091562360
+    "lastSeen": 1749253198209
   },
-  "_self_": {
-    "valueHash": "b1bae588280bf11b0c60282ce060ae1c",
-    "isUserSet": true,
+  "doc/": {
+    "valueHash": "9a09b4dfda82e3e665e31092d1c3ec8d",
+    "isUserSet": false,
     "isActiveInStructure": false,
-    "lastSeen": 1749091562360
+    "lastSeen": 1749253198209
+  },
+  "dev copy.md": {
+    "valueHash": "b532a256dbcd3266fa562e3cf0813ba0",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749253198209
+  },
+  "dev Test.md": {
+    "valueHash": "b532a256dbcd3266fa562e3cf0813ba0",
+    "isUserSet": false,
+    "isActiveInStructure": false,
+    "lastSeen": 1749253198209
   }
 }

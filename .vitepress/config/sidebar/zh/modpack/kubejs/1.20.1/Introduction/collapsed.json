@@ -1,15 +1,15 @@
 {
-  "Addon/": false,
-  "Block/": false,
-  "Entity/": false,
-  "Event/": false,
-  "GlobalScope/": false,
-  "Item/": false,
-  "LootTable/": false,
-  "Miscellaneous/": false,
-  "Network/": false,
-  "PotionEffect/": false,
-  "Recipe/": false,
-  "Tag/": false,
-  "_self_": false
+  "_self_": true,
+  "Addon/": true,
+  "Block/": true,
+  "Entity/": true,
+  "Event/": true,
+  "GlobalScope/": true,
+  "Item/": true,
+  "LootTable/": true,
+  "Miscellaneous/": true,
+  "Network/": true,
+  "PotionEffect/": true,
+  "Recipe/": true,
+  "Tag/": true
 }

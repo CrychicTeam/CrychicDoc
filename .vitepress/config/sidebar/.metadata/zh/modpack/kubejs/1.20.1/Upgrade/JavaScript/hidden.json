@@ -1,38 +1,38 @@
 {
-  "Upgrade/JavaScript/array.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563433
-  },
-  "Upgrade/JavaScript/basic.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563433
-  },
-  "Upgrade/JavaScript/map.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563433
-  },
-  "Upgrade/JavaScript/object.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563433
-  },
-  "Upgrade/JavaScript/set.md": {
-    "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": true,
-    "lastSeen": 1749091563433
-  },
   "_self_": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749091563433
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247316020
+  },
+  "array.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198955
+  },
+  "basic.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198955
+  },
+  "map.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198955
+  },
+  "object.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198955
+  },
+  "set.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749253198955
   }
 }

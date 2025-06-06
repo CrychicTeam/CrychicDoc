@@ -1,6 +1,6 @@
 {
-  "Introduction/GlobalScope/Classes/": "Classes",
-  "Introduction/GlobalScope/Description.md": "Description",
-  "Introduction/GlobalScope/Utils.md": "Utils",
-  "_self_": "GlobalScope"
+  "_self_": "GlobalScope",
+  "Classes/": "类",
+  "Description.md": "序言",
+  "Utils.md": "工具"
 }

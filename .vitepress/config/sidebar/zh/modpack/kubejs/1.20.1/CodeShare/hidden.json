@@ -1,13 +1,8 @@
 {
+  "_self_": false,
   "CraftingTableGUI.md": false,
   "Dining.md": false,
   "InvertedBonemeal.md": false,
   "LifeValue.md": false,
-  "Painter.md": false,
-  "1.20.1/CodeShare/CraftingTableGUI.md": false,
-  "1.20.1/CodeShare/Dining.md": false,
-  "1.20.1/CodeShare/InvertedBonemeal.md": false,
-  "1.20.1/CodeShare/LifeValue.md": false,
-  "1.20.1/CodeShare/Painter.md": false,
-  "_self_": false
+  "Painter.md": false
 }

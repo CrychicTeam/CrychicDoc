@@ -1,6 +1,6 @@
 {
-  "borad/": "borad",
-  "code/": "code",
+  "_self_": "KubeJS",
   "Q&A/": "Q&A",
-  "_self_": "KubeJS"
+  "borad/": "Borad",
+  "code/": "Code"
 }

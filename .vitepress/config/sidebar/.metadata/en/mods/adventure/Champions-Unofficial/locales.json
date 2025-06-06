@@ -1,20 +1,20 @@
 {
+  "_self_": {
+    "valueHash": "a516bd1828d49ea00c811b337450e9c9",
+    "isUserSet": false,
+    "isActiveInStructure": true,
+    "lastSeen": 1749247315244
+  },
   "config.md": {
     "valueHash": "fa535ffb25e1fd20341652f9be21e06e",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714494
+    "lastSeen": 1749253127060
   },
   "wiki.md": {
     "valueHash": "bf111e3622a72a3b5dc784b5903983ca",
-    "isUserSet": true,
+    "isUserSet": false,
     "isActiveInStructure": true,
-    "lastSeen": 1749087714494
-  },
-  "_self_": {
-    "valueHash": "a516bd1828d49ea00c811b337450e9c9",
-    "isUserSet": true,
-    "isActiveInStructure": false,
-    "lastSeen": 1749087714494
+    "lastSeen": 1749253127060
   }
 }

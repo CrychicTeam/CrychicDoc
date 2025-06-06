@@ -166,7 +166,7 @@ export class StructuralGeneratorService {
                 if (fileItem) {
                     flattenedItems.push(fileItem);
                 }
-            } else if (entry.isDirectory()) {
+            } else {
                 // For directories, check if they are nested roots first
                 const dirIndexPath = path.join(itemAbsPath, "index.md");
                 const dirEffectiveConfig = await this.configReader.getEffectiveConfig(
@@ -203,26 +203,114 @@ export class StructuralGeneratorService {
                     continue;
                 }
 
-                // For regular directories (non-roots), recursively flatten their content
-                // Check if we should continue based on maxDepth
-                if (currentDepth < parentConfig.maxDepth) {
-                    // Get subdirectory entries
+                // Get subdirectory entries to check content
                     let subEntries: { name: string; path: string; isDirectory(): boolean; isFile(): boolean; }[] = [];
+                let hasMarkdownFiles = false;
+                let hasSubdirectories = false;
+                
+                console.log(`🔍 FLATTEN DEBUG: Attempting to read directory: ${itemAbsPath}`);
+                console.log(`🔍 FLATTEN DEBUG: Entry name: ${entry.name}, isDirectory: ${entry.isDirectory()}`);
+                
                     try {
                         const subDirents = await this.fs.readDir(itemAbsPath);
+                        console.log(`🔍 FLATTEN DEBUG: Successfully read ${subDirents.length} entries from ${itemAbsPath}`);
+                        console.log(`🔍 FLATTEN DEBUG: Raw dirents:`, subDirents.map(d => ({ name: d.name, isDir: d.isDirectory(), isFile: d.isFile() })));
+                        
                         subEntries = subDirents.map(d => ({
                             name: d.name,
                             path: path.join(itemAbsPath, d.name),
                             isDirectory: () => d.isDirectory(),
                             isFile: () => d.isFile()
                         }));
-                    } catch (error: any) {
-                        if (error.code !== 'ENOENT') {
 
+                    // Check what type of content this directory has
+                    for (const subEntry of subEntries) {
+                        if (subEntry.isFile() && subEntry.name.toLowerCase().endsWith('.md') && subEntry.name.toLowerCase() !== 'index.md') {
+                            hasMarkdownFiles = true;
+                            console.log(`🔍 FLATTEN DEBUG: Found markdown file: ${subEntry.name}`);
+                        }
+                        if (subEntry.isDirectory()) {
+                            hasSubdirectories = true;
+                            console.log(`🔍 FLATTEN DEBUG: Found subdirectory: ${subEntry.name}`);
+                        }
+                    }
+                    
+                    console.log(`🔍 FLATTEN DEBUG: Analysis results - hasMarkdownFiles: ${hasMarkdownFiles}, hasSubdirectories: ${hasSubdirectories}`);
+                    } catch (error: any) {
+                        console.error(`🔍 FLATTEN DEBUG: Error reading directory ${itemAbsPath}:`, error);
+                        if (error.code !== 'ENOENT') {
+                        console.warn(`Could not read directory ${itemAbsPath}:`, error.message);
                         }
                         continue;
                     }
 
+                // For file-only directories (like flandre/), always create a directory item
+                // This ensures RecursiveSynchronizer can generate JSON configs for them
+                if (hasMarkdownFiles && !hasSubdirectories) {
+                    console.log(`DEBUG: Creating directory item for file-only directory: ${entry.name}`);
+                    
+                    // Process all markdown files in this directory
+                    const dirRelativeKey = baseRelativePathKey ? `${baseRelativePathKey}${entry.name}/` : `${entry.name}/`;
+                    const dirConfigForFiles = {
+                        ...dirEffectiveConfig,
+                        _baseRelativePathForChildren: dirRelativeKey
+                    };
+
+                    const fileItems: SidebarItem[] = [];
+                    for (const subEntry of subEntries) {
+                        if (subEntry.isFile() && subEntry.name.toLowerCase().endsWith('.md') && subEntry.name.toLowerCase() !== 'index.md') {
+                            const fileItem = await processItem(
+                                subEntry.name,
+                                subEntry.path,
+                                false, // isDir
+                                dirConfigForFiles,
+                                lang,
+                                currentDepth + 1,
+                                isDevMode,
+                                this.configReader,
+                                this.fs,
+                                this.generateSidebarView.bind(this) as RecursiveViewGeneratorFunction,
+                                this.globalGitBookExclusionList,
+                                this.docsPath
+                            );
+                            if (fileItem) {
+                                fileItems.push(fileItem);
+                            }
+                        }
+                    }
+
+                    // Create the directory item with the files as children
+                    const directoryItem = await processItem(
+                        entry.name,
+                        itemAbsPath,
+                        true, // isDir
+                        parentConfig,
+                        lang,
+                        currentDepth,
+                        isDevMode,
+                        this.configReader,
+                        this.fs,
+                        this.generateSidebarView.bind(this) as RecursiveViewGeneratorFunction,
+                        this.globalGitBookExclusionList,
+                        this.docsPath
+                    );
+
+                    if (directoryItem) {
+                        directoryItem.items = fileItems.length > 0 ? fileItems : undefined;
+                        flattenedItems.push(directoryItem);
+                        console.log(`DEBUG: Added directory item "${entry.name}" with ${fileItems.length} file children`);
+                    }
+                    continue;
+                }
+
+                // For regular directories (with subdirectories), check if we should continue based on maxDepth
+                // dirEffectiveConfig.maxDepth already includes proper inheritance:
+                // - If directory has own maxDepth config, uses that
+                // - If directory doesn't have own config, inherits from parent/global
+                if (currentDepth < dirEffectiveConfig.maxDepth) {
+                    console.log(`🔍 FLATTEN DEBUG: Processing regular directory "${entry.name}" with subdirectories at depth ${currentDepth}`);
+                    console.log(`🔍 FLATTEN DEBUG: Using dirEffectiveConfig.maxDepth: ${dirEffectiveConfig.maxDepth}`);
+                    
                     // Create directory config for flattening
                     const dirRelativeKey = baseRelativePathKey ? `${baseRelativePathKey}${entry.name}/` : `${entry.name}/`;
                     const dirConfigForFlattening = {
@@ -230,7 +318,8 @@ export class StructuralGeneratorService {
                         _baseRelativePathForChildren: dirRelativeKey
                     };
 
-                    // Recursively flatten subdirectory content
+                    // Recursively process subdirectory content
+                    console.log(`🔍 FLATTEN DEBUG: About to recursively process ${subEntries.length} entries in "${entry.name}"`);
                     const subContent = await this.flattenDirectoryContent(
                         subEntries,
                         itemAbsPath,
@@ -239,34 +328,40 @@ export class StructuralGeneratorService {
                         currentDepth + 1,
                         isDevMode
                     );
+                    console.log(`🔍 FLATTEN DEBUG: Recursive processing of "${entry.name}" returned ${subContent.length} items`);
+                    subContent.forEach((item, idx) => {
+                        console.log(`🔍 FLATTEN DEBUG: - Item ${idx}: "${item.text}" (isDir: ${item._isDirectory})`);
+                    });
 
-                    // Add directory as a navigation item if it has content or is linkable
-                    if (subContent.length > 0 || await this.fs.exists(dirIndexPath)) {
-                        const directoryItem = await processItem(
-                            entry.name,
-                            itemAbsPath,
-                            true, // isDir
-                            parentConfig,
-                            lang,
-                            currentDepth,
-                            isDevMode,
-                            this.configReader,
-                            this.fs,
-                            this.generateSidebarView.bind(this) as RecursiveViewGeneratorFunction,
-                            this.globalGitBookExclusionList,
-                            this.docsPath
-                        );
+                    // Create directory item - ALWAYS create it for directories with subdirectories
+                    // This ensures proper hierarchical structure even if subdirectories return no visible items
+                    console.log(`🔍 FLATTEN DEBUG: Creating directory item for "${entry.name}" (hasSubdirectories: ${hasSubdirectories})`);
+                    
+                    const directoryItem = await processItem(
+                        entry.name,
+                        itemAbsPath,
+                        true, // isDir
+                        parentConfig,
+                        lang,
+                        currentDepth,
+                        isDevMode,
+                        this.configReader,
+                        this.fs,
+                        this.generateSidebarView.bind(this) as RecursiveViewGeneratorFunction,
+                        this.globalGitBookExclusionList,
+                        this.docsPath
+                    );
 
-                        if (directoryItem) {
-                            // Override the items with flattened content
-                            directoryItem.items = subContent.length > 0 ? subContent : undefined;
-                            flattenedItems.push(directoryItem);
-                        }
+                    if (directoryItem) {
+                        // Set nested content as children - this creates proper hierarchy
+                        directoryItem.items = subContent.length > 0 ? subContent : undefined;
+                        flattenedItems.push(directoryItem);
+                        console.log(`🔍 FLATTEN DEBUG: Added directory item "${entry.name}" with ${subContent.length} children`);
                     } else {
-                        // Directory has no content and no index.md, add flattened content directly
-                        flattenedItems.push(...subContent);
+                        console.log(`🔍 FLATTEN DEBUG: processItem returned null for directory "${entry.name}"`);
                     }
                 } else {
+                    console.log(`🔍 FLATTEN DEBUG: At max depth for "${entry.name}", creating link-only item (currentDepth: ${currentDepth}, maxDepth: ${dirEffectiveConfig.maxDepth})`);
                     // At max depth, just add the directory as a link-only item if linkable
                     const directoryItem = await processItem(
                         entry.name,
@@ -285,6 +380,7 @@ export class StructuralGeneratorService {
 
                     if (directoryItem) {
                         flattenedItems.push(directoryItem);
+                        console.log(`🔍 FLATTEN DEBUG: Added max-depth directory item "${entry.name}"`);
                     }
                 }
             }
@@ -376,8 +472,14 @@ export class StructuralGeneratorService {
 
         // 2. Ungrouped Entry Processing
         let entries: { name: string; path: string; dirent?: any; isDirectory(): boolean; isFile(): boolean; }[] = [];
+        console.log(`🔍 REGULAR DEBUG: About to read directory entries from: ${normalizedCurrentContentPath}`);
+        console.log(`🔍 REGULAR DEBUG: Current level depth: ${currentLevelDepth}, isRootDirectoryProcessing: ${isRootDirectoryProcessing}`);
+        
         try {
             const dirents = await this.fs.readDir(normalizedCurrentContentPath); 
+            console.log(`🔍 REGULAR DEBUG: Successfully read ${dirents.length} entries from ${normalizedCurrentContentPath}`);
+            console.log(`🔍 REGULAR DEBUG: Raw dirents:`, dirents.map(d => ({ name: d.name, isDir: d.isDirectory(), isFile: d.isFile() })));
+            
             entries = dirents.map(d => ({ 
                 name: d.name, 
                 path: path.join(normalizedCurrentContentPath, d.name),
@@ -386,6 +488,7 @@ export class StructuralGeneratorService {
                 isFile: () => d.isFile()
             }));
         } catch (error: any) {
+            console.error(`🔍 REGULAR DEBUG: Error reading directory ${normalizedCurrentContentPath}:`, error);
             if (error.code !== 'ENOENT') {
 
             }

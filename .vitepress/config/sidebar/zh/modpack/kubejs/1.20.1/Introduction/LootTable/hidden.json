@@ -1,7 +1,7 @@
 {
-  "Introduction/LootTable/BasicKnowledge/": false,
-  "Introduction/LootTable/Catalogue.md": false,
-  "Introduction/LootTable/Description.md": false,
-  "Introduction/LootTable/Vanilla/": false,
-  "_self_": false
+  "_self_": false,
+  "BasicKnowledge/": false,
+  "Catalogue.md": false,
+  "Description.md": false,
+  "Vanilla/": false
 }

@@ -1,10 +1,10 @@
 {
-  "Introduction/Recipe/AddRecipe/": "AddRecipe",
-  "Introduction/Recipe/Catalogue.md": "Catalogue",
-  "Introduction/Recipe/DeleteRecipe.md": "DeleteRecipe",
-  "Introduction/Recipe/ItemAndIngredient.md": "ItemAndIngredient",
-  "Introduction/Recipe/ModifyRecipe.md": "ModifyRecipe",
-  "Introduction/Recipe/RecipeFilter.md": "RecipeFilter",
-  "Introduction/Recipe/Vanilla.md": "Vanilla",
-  "_self_": "Recipe"
+  "_self_": "Recipe",
+  "AddRecipe/": "添加配方",
+  "Catalogue.md": "目录",
+  "DeleteRecipe.md": "删除配方",
+  "ItemAndIngredient.md": "物品和原料",
+  "ModifyRecipe.md": "修改配方",
+  "RecipeFilter.md": "配方过滤器",
+  "Vanilla.md": "原版"
 }

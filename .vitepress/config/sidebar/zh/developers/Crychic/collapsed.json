@@ -1,3 +1,4 @@
 {
-  "private/": false
+  "_self_": true,
+  "private/": true
 }

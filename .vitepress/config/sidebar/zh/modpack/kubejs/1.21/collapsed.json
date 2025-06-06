@@ -1,5 +1,5 @@
 {
-  "codeshare/": false,
-  "Introduction/": false,
-  "_self_": false
+  "_self_": false,
+  "Introduction/": true,
+  "codeshare/": true
 }
