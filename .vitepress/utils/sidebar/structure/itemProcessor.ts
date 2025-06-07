@@ -36,6 +36,7 @@ function isGitBookExcluded(absPath: string, exclusionList: string[]): boolean {
  * @param docsAbsPath Absolute path to the /docs directory
  * @param lang Current language code
  * @param fs FileSystem instance
+ * @param parentViewEffectiveConfig Config of the parent directory providing context
  * @returns A SidebarItem for the file or null if it should be excluded
  */
 async function processFileEntry(
@@ -44,7 +45,8 @@ async function processFileEntry(
     itemRelativePathKey: string,
     docsAbsPath: string,
     lang: string,
-    fs: FileSystem
+    fs: FileSystem,
+    parentViewEffectiveConfig: EffectiveDirConfig
 ): Promise<SidebarItem | null> {
     // Skip non-markdown files
     if (!entryName.toLowerCase().endsWith('.md')) {
@@ -78,10 +80,19 @@ async function processFileEntry(
     let link = `/${lang}/${relativeToLangRoot.replace(/\.md$/i, ".html")}`.replace(/\/+/g, "/");
     if (link.startsWith("//")) link = link.substring(1);
 
+    // Get priority from frontmatter or itemOrder
+    let priority = fileFrontmatter.priority;
+    if (priority === undefined && parentViewEffectiveConfig.itemOrder) {
+        const fileKey = entryName.replace(/\.md$/i, "");
+        if (parentViewEffectiveConfig.itemOrder.hasOwnProperty(fileKey)) {
+            priority = parentViewEffectiveConfig.itemOrder[fileKey];
+        }
+    }
+
     return {
         text: title,
         link: link,
-        _priority: fileFrontmatter.priority,
+        _priority: priority,
         _relativePathKey: itemRelativePathKey,
         _hidden: hidden,
         _isDirectory: false,
@@ -351,7 +362,8 @@ export async function processItem(
             itemRelativePathKey,
             docsAbsPath,
             lang,
-            fs
+            fs,
+            parentViewEffectiveConfig
         );
     }
 

@@ -33,7 +33,9 @@
         "docs:dev": "vitepress dev",
         "docs:build": "tsx .vitepress/scripts/build-sidebar.mjs && vitepress build",
         "docs:preview": "vitepress preview",
-        "update-titles": "node .vitepress/scripts/update-index-titles.mjs"
+        "title": "node .vitepress/scripts/update-index-titles.mjs",
+        "frontmatter": "node .vitepress/scripts/update-frontmatter.mjs",
+        "index": "node .vitepress/scripts/create-indexes.mjs"
     },
     "dependencies": {
         "@lite-tree/vue": "^1.1.6",

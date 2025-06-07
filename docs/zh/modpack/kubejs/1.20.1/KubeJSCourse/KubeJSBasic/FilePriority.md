@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 文件优先级
 代码执行是从上至下，文件加载默认是从a到z

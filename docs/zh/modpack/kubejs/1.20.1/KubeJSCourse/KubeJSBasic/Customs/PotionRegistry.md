@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 注册药水效果
 如果原版目前提供的药水效果并不能满足你的需求，你现在想写一些自己的特殊药水效果，本章内容在startup_scripts文件夹下创建

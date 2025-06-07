@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # BlockBench基础使用
 ## 一、关于Blockbench

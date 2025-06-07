@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # LoadClass使用
 > 孤梦注：千万不要玩Java.loadClass啊，这东西比较废人

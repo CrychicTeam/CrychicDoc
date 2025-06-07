@@ -1,5 +1,8 @@
 ---
-authors: ['Gu-meng', 'LitterWolf-fufu']
+authors:
+  - Gu-meng
+  - LitterWolf-fufu
+editor: Gu-meng
 ---
 # 工作台物品附魔
 

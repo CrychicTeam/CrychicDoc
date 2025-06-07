@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 玩家禁言
 本章涉及内容：玩家聊天事件、指令注册、JsonIO，本章所有代码部分都在`server_scripts`里

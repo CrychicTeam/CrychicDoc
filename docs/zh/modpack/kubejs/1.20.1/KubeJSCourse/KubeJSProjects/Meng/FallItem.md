@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 下落合成
 本章涉及内容：配方检测、物品实体、实体生成事件、世界tick事件

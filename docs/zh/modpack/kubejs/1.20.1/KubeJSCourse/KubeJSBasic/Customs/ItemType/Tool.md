@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 工具类
 在本章节中将会提供简单的工具类型的写法和可调用的方法

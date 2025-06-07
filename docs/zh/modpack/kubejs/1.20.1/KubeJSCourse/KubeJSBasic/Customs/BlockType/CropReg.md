@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 农作物注册
 在kubejs当中是可以直接来进行农作物注册的，所提供的方法也是非常的多，下面就是全部方法和使用示例

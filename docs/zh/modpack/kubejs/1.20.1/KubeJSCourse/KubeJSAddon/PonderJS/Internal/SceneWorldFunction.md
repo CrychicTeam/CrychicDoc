@@ -1,5 +1,8 @@
 ---
-authors: ['Gu-meng', 'Qi-Month']
+authors:
+  - Gu-meng
+  - Qi-Month
+editor: Gu-meng
 ---
 > 调用函数使用 `scene.world.你要的函数` 即可
 >

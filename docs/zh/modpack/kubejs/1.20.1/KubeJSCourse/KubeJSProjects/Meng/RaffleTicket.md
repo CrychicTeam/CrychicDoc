@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 抽奖券
 本章涉及内容：AttachedData、物品注册、自定义战利品、自定义战利品生成、运用nbt，本章代码除了注册在`startup_scripts`其他都在`server_scripts`内

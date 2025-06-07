@@ -8,56 +8,47 @@
   "cooperation.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "dev.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "guide/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "rules.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "samples.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "sidebarTutorial.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "styleList.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "vscode-snippets-guide.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "doc/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": false,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": false
   },
   "dev copy.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
@@ -70,5 +61,10 @@
     "isUserSet": false,
     "isActiveInStructure": false,
     "lastSeen": 1749254446626
+  },
+  "scripts.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
   }
 }

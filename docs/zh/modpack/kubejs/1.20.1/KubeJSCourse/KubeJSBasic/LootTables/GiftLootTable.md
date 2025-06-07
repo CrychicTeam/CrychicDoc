@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 村民礼物战利品
 这里的村民礼物是在玩家获得村庄英雄时，[不同村民](../../Digression/LootTableId.md/#村民礼物战利品)会赠送礼物给玩家

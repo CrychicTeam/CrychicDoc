@@ -1,3 +1,6 @@
+---
+editor: Gu-meng
+---
 # TaCZ的无限子弹
 本章涉及内容：按键注册和使用、forgeevent、loadclass、paint、玩家数据
 涉及模组及版本:

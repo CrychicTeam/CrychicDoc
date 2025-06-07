@@ -11,7 +11,16 @@ function convertItemOrderToRecord(itemOrder?: string[] | Record<string, number>)
         return recordOrder;
     }
     if (typeof itemOrder === 'object' && itemOrder !== null) {
-        return itemOrder as Record<string, number>;
+        // Convert order.json values to priority values
+        const recordOrder: Record<string, number> = {};
+        for (const [key, value] of Object.entries(itemOrder)) {
+            // Ensure the value is a number
+            const numValue = typeof value === 'number' ? value : parseInt(value as string, 10);
+            if (!isNaN(numValue)) {
+                recordOrder[key] = numValue;
+            }
+        }
+        return recordOrder;
     }
     return {};
 }
@@ -52,6 +61,17 @@ export function applyConfigDefaults(
         ? mergedConfig.title 
         : (dirName.charAt(0).toUpperCase() + dirName.slice(1).replace(/-/g, ' '));
 
+    // If priority is not explicitly set, try to get it from itemOrder
+    let priority = mergedConfig.priority;
+    if (priority === undefined) {
+        const dirKey = path.basename(directoryPath);
+        if (resolvedItemOrder.hasOwnProperty(dirKey)) {
+            priority = resolvedItemOrder[dirKey];
+        } else {
+            priority = Number.MAX_SAFE_INTEGER; // Default priority if not found in itemOrder
+        }
+    }
+
     // Constructing the object with all required fields of EffectiveDirConfig first,
     // then spreading the remaining/custom fields from mergedConfig.
     const baseConfig: Omit<EffectiveDirConfig, keyof Partial<DirectoryConfig>> & Required<Pick<EffectiveDirConfig, 'path' | 'lang' | 'isDevMode' | 'root' | 'title' | 'hidden' | 'priority' | 'maxDepth' | 'collapsed' | 'itemOrder' | 'groups'>> = {
@@ -61,7 +81,7 @@ export function applyConfigDefaults(
         root: mergedConfig.root ?? false,
         title: title,
         hidden: hidden, 
-        priority: mergedConfig.priority ?? Number.MAX_SAFE_INTEGER,
+        priority: priority,
         maxDepth: maxDepth, 
         collapsed: collapsed,
         itemOrder: resolvedItemOrder, 

@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 禁止实体穿越到指定维度
 本章主要涉及内容：ForgeEvents、forge事件里的`EntityTravelToDimensionEvent`，本章所有代码部分都在`startup_scripts`里

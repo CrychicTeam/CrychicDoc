@@ -1,5 +1,12 @@
 <script setup lang="ts">
-    import { type Ref, inject } from "vue";
+    import {
+        type Ref,
+        inject,
+        onMounted,
+        onUnmounted,
+        ref,
+        nextTick,
+    } from "vue";
     import type { DefaultTheme } from "vitepress/theme";
     import VPButton from "vitepress/dist/client/theme-default/components/VPButton.vue";
     import VPImage from "vitepress/dist/client/theme-default/components/VPImage.vue";
@@ -39,9 +46,6 @@
                 "BlockEvents.broken(event => {})",
                 'StartupEvents.registry("item", event => {})',
                 "ServerEvents.loaded(event => {})",
-                "PlayerEvents.chat(event => {})",
-                "EntityEvents.spawned(event => {})",
-                "ClientEvents.init(event => {})",
             ],
             "kubejs-recipes": [
                 'event.shaped("item", ["ABC", "DEF"])',
@@ -50,69 +54,24 @@
                 'event.remove({id: "minecraft:stick"})',
                 'event.replaceInput({}, "old", "new")',
                 'event.stonecutting("output", "input")',
-                'event.campfireCooking("output", "input")',
-                'event.smoking("output", "input")',
-                'event.blasting("output", "input")',
             ],
             "minecraft-api": [
                 "Level level = player.level()",
                 "BlockPos pos = new BlockPos(x, y, z)",
                 "ItemStack stack = new ItemStack(Items.DIAMOND)",
                 "BlockState state = level.getBlockState(pos)",
-                "Entity entity = level.getEntity(uuid)",
-                'Component.literal("Hello World")',
-                'ResourceLocation.fromNamespaceAndPath("mod", "item")',
-                "GameProfile profile = player.getGameProfile()",
             ],
             "forge-modding": [
                 '@Mod("modid")',
                 '@EventBusSubscriber(modid = "modid")',
                 "@SubscribeEvent",
                 'ForgeRegistries.ITEMS.register("item", item)',
-                "FMLJavaModLoadingContext.get().getModEventBus()",
-                "ModLoadingContext.get().registerConfig()",
-                "DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> {})",
-                "IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus()",
-            ],
-            "neoforge-api": [
-                'NeoForgeRegistries.BLOCKS.register("block", block)',
-                "NeoForgeEventBus.EVENT_BUS.addListener()",
-                "ModContainer container = ModLoadingContext.get().getActiveContainer()",
-                "NeoForge.EVENT_BUS.register(this)",
-                "@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)",
-                "IModBus modBus = NeoForgeEventBus.NEOFORGE",
-                "CapabilityManager.get().register()",
-                "ModConfigEvent.Loading event",
             ],
             "minecraft-commands": [
                 "/give @p minecraft:diamond 64",
                 "/tp @a 0 100 0",
                 "/gamemode creative @s",
                 "/effect give @p minecraft:speed 60 2",
-                "/summon minecraft:zombie ~ ~ ~",
-                "/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 minecraft:stone",
-                "/setblock ~ ~ ~ minecraft:chest{Items:[]}",
-                "/scoreboard players set @p score 100",
-            ],
-            "data-generation": [
-                "DataGenerator generator = event.getGenerator()",
-                "generator.addProvider(new RecipeProvider())",
-                "generator.addProvider(new LootTableProvider())",
-                "generator.addProvider(new BlockStateProvider())",
-                "generator.addProvider(new ItemModelProvider())",
-                "generator.addProvider(new LanguageProvider())",
-                "PackOutput packOutput = generator.getPackOutput()",
-                "ExistingFileHelper fileHelper = event.getExistingFileHelper()",
-            ],
-            "capabilities-api": [
-                "IItemHandler itemHandler = stack.getCapability()",
-                "IEnergyStorage energy = blockEntity.getCapability()",
-                "IFluidHandler fluidHandler = tank.getCapability()",
-                "LazyOptional<IItemHandler> optional = LazyOptional.of()",
-                "CapabilityProvider.create()",
-                "BlockCapabilityCache.create()",
-                "ItemCapabilityCache.create()",
-                "capability.orElse(null)",
             ],
         };
 
@@ -121,55 +80,81 @@
         return categorySnippets[index % categorySnippets.length];
     };
 
-    // Enhanced animation variants for bigger, more impressive design
+
+
+    // Slice-by-slice reveal animations
     const heroContainerVariants = {
-        hidden: {
-            opacity: 0,
-            y: 40,
-        },
+        hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            y: 0,
             transition: {
-                duration: 1.2,
+                duration: 0.6,
                 ease: "easeOut",
-                when: "beforeChildren",
-                staggerChildren: 0.2,
+                staggerChildren: 0.1,
             },
         },
     };
 
-    const titleVariants = {
+    // Slice reveal effect for letters - like cutting through
+    const letterVariants = {
         hidden: {
             opacity: 0,
-            y: 60,
-            scale: 0.9,
+            y: 50,
+            scaleY: 0,
+            transformOrigin: "bottom",
         },
-        visible: {
+        visible: (i: unknown) => ({
             opacity: 1,
             y: 0,
-            scale: 1,
+            scaleY: 1,
+            transformOrigin: "bottom",
             transition: {
                 type: "spring",
-                stiffness: 100,
-                damping: 25,
-                duration: 1.5,
+                damping: 18,
+                stiffness: 120,
+                delay: (i as number) * 0.03,
+                duration: 0.8,
             },
+        }),
+    };
+
+    // Word slice animation - reveals like unfolding
+    const wordVariants = {
+        hidden: {
+            opacity: 0,
+            y: 30,
+            scaleX: 0.3,
+            transformOrigin: "left",
         },
+        visible: (i: unknown) => ({
+            opacity: 1,
+            y: 0,
+            scaleX: 1,
+            transformOrigin: "left",
+            transition: {
+                type: "spring",
+                damping: 20,
+                stiffness: 100,
+                delay: (i as number) * 0.08,
+                duration: 1.0,
+            },
+        }),
     };
 
     const subtitleVariants = {
         hidden: {
             opacity: 0,
             y: 40,
+            clipPath: "inset(0 100% 0 0)",
         },
         visible: {
             opacity: 1,
             y: 0,
+            clipPath: "inset(0 0% 0 0)",
             transition: {
-                duration: 1,
-                ease: [0.25, 0.46, 0.45, 0.94],
-                delay: 0.3,
+                duration: 1.0,
+                ease: "easeOut",
+                delay: 0.6,
             },
         },
     };
@@ -178,32 +163,30 @@
         hidden: {
             opacity: 0,
             y: 30,
+            clipPath: "inset(0 100% 0 0)",
         },
         visible: {
             opacity: 1,
             y: 0,
+            clipPath: "inset(0 0% 0 0)",
             transition: {
                 duration: 0.8,
                 ease: "easeOut",
-                delay: 0.5,
+                delay: 0.8,
             },
         },
     };
 
     const actionsVariants = {
-        hidden: {
-            opacity: 0,
-            y: 40,
-        },
+        hidden: { opacity: 0, y: 40 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
                 duration: 0.8,
                 ease: "easeOut",
-                delay: 0.7,
-                when: "beforeChildren",
-                staggerChildren: 0.08,
+                delay: 1.0,
+                staggerChildren: 0.1,
             },
         },
     };
@@ -220,43 +203,45 @@
             y: 0,
             transition: {
                 type: "spring",
-                stiffness: 200,
-                damping: 20,
+                stiffness: 150,
+                damping: 15,
+                duration: 0.6,
             },
         },
     };
 
     const buttonHover = {
         scale: 1.05,
-        y: -3,
+        y: -2,
+        transition: {
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            duration: 0.2,
+        },
+    };
+
+    const buttonTap = {
+        scale: 0.95,
         transition: {
             type: "spring",
             stiffness: 400,
             damping: 25,
+            duration: 0.1,
         },
     };
 
-    const buttonPress = {
-        scale: 0.98,
-        transition: {
-            type: "spring",
-            stiffness: 500,
-            damping: 30,
-        },
-    };
-
+    // Image slice reveal - appears in slices from top to bottom
     const imageVariants = {
         hidden: {
             opacity: 0,
-            scale: 0.7,
-            rotate: -10,
+            clipPath: "inset(100% 0 0 0)",
         },
         visible: {
             opacity: 1,
-            scale: 1,
-            rotate: 0,
+            clipPath: "inset(0% 0 0 0)",
             transition: {
-                duration: 1.5,
+                duration: 1.2,
                 ease: "easeOut",
                 delay: 0.4,
             },
@@ -264,14 +249,57 @@
     };
 
     const imageHover = {
-        scale: 1.05,
-        rotate: 5,
+        scale: 1.02,
         transition: {
             type: "spring",
-            stiffness: 300,
+            stiffness: 200,
             damping: 20,
+            duration: 0.3,
         },
     };
+
+    // Simple parallax for floating words
+    const parallaxContainer = ref<HTMLElement | null>(null);
+    const floatingWords = ref<HTMLElement[]>([]);
+
+    const handleMouseMove = (event: MouseEvent) => {
+        if (!parallaxContainer.value || window.innerWidth < 768) return;
+
+        const { clientX, clientY } = event;
+        const { offsetWidth, offsetHeight } = parallaxContainer.value;
+        const xPercent = (clientX / offsetWidth - 0.5) * 2;
+        const yPercent = (clientY / offsetHeight - 0.5) * 2;
+
+        floatingWords.value.forEach((word, index) => {
+            const intensity = parseFloat(word.dataset.intensity || "3");
+            const strength = ((index % 6) + 1) * intensity;
+            const x = xPercent * strength * 0.5;
+            const y = yPercent * strength * 0.5;
+
+            word.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        });
+    };
+
+    onMounted(() => {
+        nextTick(() => {
+            parallaxContainer.value = document.querySelector(".hero-bg");
+            floatingWords.value = Array.from(
+                document.querySelectorAll(".floating-word")
+            );
+
+            if (typeof window !== "undefined") {
+                window.addEventListener("mousemove", handleMouseMove, {
+                    passive: true,
+                });
+            }
+        });
+    });
+
+    onUnmounted(() => {
+        if (typeof window !== "undefined") {
+            window.removeEventListener("mousemove", handleMouseMove);
+        }
+    });
 </script>
 
 <template>
@@ -279,105 +307,36 @@
         class="VPHero hero-enhanced"
         :class="{ 'has-image': image || heroImageSlotExists }"
     >
-        <!-- Enhanced background decorations with floating text -->
-        <div class="hero-bg">
+        <!-- Fantasy background with floating code snippets -->
+        <div class="hero-bg" ref="parallaxContainer">
             <div class="bg-gradient"></div>
-            <div class="bg-pattern"></div>
+
+            <!-- Fantasy floating code snippets -->
             <div class="floating-words">
                 <div
-                    class="word-group kubejs-events"
-                    v-for="i in 5"
-                    :key="`kubejs-events-${i}`"
+                    v-for="(category, catIndex) in [
+                        'kubejs-events',
+                        'kubejs-recipes',
+                        'minecraft-api',
+                        'forge-modding',
+                        'minecraft-commands',
+                    ]"
+                    :key="category"
+                    class="word-group"
+                    :class="category"
                 >
                     <span
+                        v-for="i in 2"
+                        :key="`${category}-${i}`"
                         class="floating-word"
-                        :style="{ '--delay': `${i * 1.5}s` }"
+                        :data-intensity="3 + (i % 2)"
+                        :style="{
+                            animationDelay: `${catIndex * 3 + i * 1.5}s`,
+                            '--float-duration': `${20 + i * 6}s`,
+                            '--hue-offset': `${catIndex * 72}deg`,
+                        }"
                     >
-                        {{ getCodeSnippet("kubejs-events", i - 1) }}
-                    </span>
-                </div>
-                <div
-                    class="word-group kubejs-recipes"
-                    v-for="i in 5"
-                    :key="`kubejs-recipes-${i}`"
-                >
-                    <span
-                        class="floating-word"
-                        :style="{ '--delay': `${i * 2}s` }"
-                    >
-                        {{ getCodeSnippet("kubejs-recipes", i - 1) }}
-                    </span>
-                </div>
-                <div
-                    class="word-group minecraft-api"
-                    v-for="i in 4"
-                    :key="`minecraft-api-${i}`"
-                >
-                    <span
-                        class="floating-word"
-                        :style="{ '--delay': `${i * 2.5}s` }"
-                    >
-                        {{ getCodeSnippet("minecraft-api", i - 1) }}
-                    </span>
-                </div>
-                <div
-                    class="word-group forge-modding"
-                    v-for="i in 4"
-                    :key="`forge-modding-${i}`"
-                >
-                    <span
-                        class="floating-word"
-                        :style="{ '--delay': `${i * 3}s` }"
-                    >
-                        {{ getCodeSnippet("forge-modding", i - 1) }}
-                    </span>
-                </div>
-                <div
-                    class="word-group neoforge-api"
-                    v-for="i in 4"
-                    :key="`neoforge-api-${i}`"
-                >
-                    <span
-                        class="floating-word"
-                        :style="{ '--delay': `${i * 3.5}s` }"
-                    >
-                        {{ getCodeSnippet("neoforge-api", i - 1) }}
-                    </span>
-                </div>
-                <div
-                    class="word-group minecraft-commands"
-                    v-for="i in 4"
-                    :key="`minecraft-commands-${i}`"
-                >
-                    <span
-                        class="floating-word"
-                        :style="{ '--delay': `${i * 4}s` }"
-                    >
-                        {{ getCodeSnippet("minecraft-commands", i - 1) }}
-                    </span>
-                </div>
-                <div
-                    class="word-group data-generation"
-                    v-for="i in 3"
-                    :key="`data-generation-${i}`"
-                >
-                    <span
-                        class="floating-word"
-                        :style="{ '--delay': `${i * 4.5}s` }"
-                    >
-                        {{ getCodeSnippet("data-generation", i - 1) }}
-                    </span>
-                </div>
-                <div
-                    class="word-group capabilities-api"
-                    v-for="i in 3"
-                    :key="`capabilities-api-${i}`"
-                >
-                    <span
-                        class="floating-word"
-                        :style="{ '--delay': `${i * 5}s` }"
-                    >
-                        {{ getCodeSnippet("capabilities-api", i - 1) }}
+                        {{ getCodeSnippet(category, i - 1) }}
                     </span>
                 </div>
             </div>
@@ -389,32 +348,60 @@
                 :variants="heroContainerVariants"
                 initial="hidden"
                 :whileInView="'visible'"
-                :viewport="{ once: true, margin: '-100px' }"
+                :viewport="{ once: true, margin: '-50px' }"
             >
                 <slot name="home-hero-info-before" />
                 <slot name="home-hero-info">
-                    <motion.div class="heading" :variants="titleVariants">
-                        <motion.span
-                            v-if="name"
-                            v-html="name"
-                            class="name clip"
-                            :whileHover="{
-                                scale: 1.02,
-                                transition: { duration: 0.3 },
-                            }"
-                        />
-                        <motion.span
+                    <div class="heading">
+                        <!-- Slice reveal title -->
+                        <h1 v-if="name" class="name">
+                            <motion.span
+                                v-for="(word, wordIndex) in name.split(' ')"
+                                :key="`word-${wordIndex}`"
+                                class="word-wrapper"
+                                :variants="wordVariants"
+                                :custom="wordIndex"
+                                initial="hidden"
+                                :whileInView="'visible'"
+                                :viewport="{ once: true, margin: '-100px' }"
+                            >
+                                <motion.span
+                                    v-for="(letter, letterIndex) in word.split(
+                                        ''
+                                    )"
+                                    :key="`letter-${wordIndex}-${letterIndex}`"
+                                    class="letter"
+                                    :variants="letterVariants"
+                                    :custom="wordIndex * 5 + letterIndex"
+                                    initial="hidden"
+                                    :whileInView="'visible'"
+                                    :viewport="{ once: true, margin: '-100px' }"
+                                >
+                                    {{ letter }}
+                                </motion.span>
+                                <span class="word-space">&nbsp;</span>
+                            </motion.span>
+                        </h1>
+
+                        <motion.h2
                             v-if="text"
-                            v-html="text"
                             class="text"
                             :variants="subtitleVariants"
+                            initial="hidden"
+                            :whileInView="'visible'"
+                            :viewport="{ once: true, margin: '-100px' }"
+                            v-html="text"
                         />
-                    </motion.div>
+                    </div>
+
                     <motion.p
                         v-if="tagline"
-                        v-html="tagline"
                         class="tagline"
                         :variants="taglineVariants"
+                        initial="hidden"
+                        :whileInView="'visible'"
+                        :viewport="{ once: true, margin: '-100px' }"
+                        v-html="tagline"
                     />
                 </slot>
                 <slot name="home-hero-info-after" />
@@ -423,6 +410,9 @@
                     v-if="actions"
                     class="actions"
                     :variants="actionsVariants"
+                    initial="hidden"
+                    :whileInView="'visible'"
+                    :viewport="{ once: true, margin: '-100px' }"
                 >
                     <motion.div
                         v-for="action in actions"
@@ -430,7 +420,7 @@
                         class="action"
                         :variants="buttonVariants"
                         :whileHover="buttonHover"
-                        :whilePress="buttonPress"
+                        :whileTap="buttonTap"
                     >
                         <VPButton
                             tag="a"
@@ -456,8 +446,6 @@
                 :viewport="{ once: true, margin: '-200px' }"
             >
                 <div class="image-container">
-                    <div class="image-glow"></div>
-                    <div class="image-bg"></div>
                     <slot name="home-hero-image">
                         <VPImage v-if="image" class="image-src" :image />
                     </slot>
@@ -465,7 +453,7 @@
             </motion.div>
         </div>
 
-        <!-- Bottom wave for seamless transition -->
+        <!-- Multi-layered bottom wave -->
         <div class="hero-wave">
             <svg
                 viewBox="0 0 1200 120"
@@ -492,7 +480,6 @@
 </template>
 
 <style scoped>
-    /* Use VitePress default structure with enhanced animations */
     .VPHero.hero-enhanced {
         position: relative;
         margin-top: calc(
@@ -506,33 +493,7 @@
         display: flex;
         align-items: center;
         overflow: hidden;
-        /* White background for light mode */
-        background: #ffffff;
-    }
-
-    /* Dark mode background */
-    .dark .VPHero.hero-enhanced {
         background: var(--vp-c-bg);
-    }
-
-    @media (min-width: 640px) {
-        .VPHero.hero-enhanced {
-            padding: calc(
-                    var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
-                        120px
-                )
-                48px 160px;
-        }
-    }
-
-    @media (min-width: 960px) {
-        .VPHero.hero-enhanced {
-            padding: calc(
-                    var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
-                        140px
-                )
-                64px 180px;
-        }
     }
 
     .container {
@@ -568,9 +529,7 @@
         .VPHero.has-image .container {
             text-align: left;
         }
-    }
 
-    @media (min-width: 960px) {
         .main {
             order: 1;
             width: calc((100% / 5) * 3);
@@ -588,116 +547,103 @@
         margin-bottom: 32px;
     }
 
-    .name,
-    .text {
-        width: fit-content;
-        max-width: 100%;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-        font-size: 48px;
-        font-weight: 900;
-        white-space: pre-wrap;
-        overflow: visible !important;
-        text-overflow: unset !important;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    .VPHero.has-image .name,
-    .VPHero.has-image .text {
-        margin: 0 auto;
-    }
-
     .name {
-        color: var(--vp-home-hero-name-color);
-        margin-bottom: 16px;
-    }
-
-    /* Fixed brand text styling for both light and dark modes */
-    .clip {
+        margin: 0 0 24px 0;
+        font-size: clamp(40px, 8vw, 80px);
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-family: "Inter", "SF Pro Display", -apple-system,
+            BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
         background: linear-gradient(
             135deg,
             var(--vp-c-brand-1) 0%,
-            var(--vp-c-brand-2) 50%,
-            var(--vp-c-brand-3) 100%
-        ) !important;
-        -webkit-background-clip: text !important;
-        background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        filter: drop-shadow(0 4px 8px rgba(var(--vp-c-brand-rgb), 0.3));
+            var(--vp-c-brand-2) 30%,
+            var(--vp-c-brand-3) 60%,
+            var(--vp-c-brand-1) 100%
+        );
+        background-size: 300% 300%;
+        animation: gradient-flow 6s ease-in-out infinite;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
-    /* Ensure name is visible in light mode */
-    .name:not(.clip) {
-        color: var(--vp-c-text-1) !important;
-    }
-
-    @media (min-width: 640px) {
-        .name,
-        .text {
-            font-size: 64px;
-            line-height: 1.1;
+    @keyframes gradient-flow {
+        0%,
+        100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
         }
     }
 
-    @media (min-width: 960px) {
-        .name,
-        .text {
-            font-size: 72px;
-            line-height: 1.1;
-        }
+    .word-wrapper {
+        display: inline-block;
+    }
 
-        .VPHero.has-image .name,
-        .VPHero.has-image .text {
-            margin: 0;
-        }
+    .letter {
+        display: inline-block;
+        transform-origin: bottom;
+    }
+
+    .word-space {
+        display: inline-block;
+        width: 0.3em;
+    }
+
+    .text {
+        margin: 0 0 16px 0;
+        font-size: clamp(24px, 4vw, 42px);
+        font-weight: 700;
+        line-height: 1.2;
+        font-family: "Inter", "SF Pro Display", -apple-system,
+            BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+        color: var(--vp-c-text-1);
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.08));
     }
 
     .tagline {
-        padding-top: 16px;
-        max-width: 100%;
-        line-height: 1.6;
-        font-size: 20px;
+        margin: 0 0 48px 0;
+        font-size: clamp(18px, 2.5vw, 28px);
         font-weight: 500;
-        white-space: pre-wrap;
+        line-height: 1.6;
         color: var(--vp-c-text-2);
-        overflow: visible !important;
-        text-overflow: unset !important;
+        max-width: 600px;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        margin-bottom: 48px;
+        position: relative;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
     }
+
+    
 
     .VPHero.has-image .tagline {
-        margin: 16px auto 48px;
-    }
-
-    @media (min-width: 640px) {
-        .tagline {
-            font-size: 24px;
-            line-height: 1.6;
-            margin-bottom: 56px;
-        }
+        margin-left: auto;
+        margin-right: auto;
     }
 
     @media (min-width: 960px) {
-        .tagline {
-            font-size: 28px;
-            line-height: 1.6;
-        }
-
         .VPHero.has-image .tagline {
-            margin: 16px 0 56px;
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 
-    /* Enhanced Actions with better button sizing */
     .actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 16px;
         margin-top: 8px;
     }
 
@@ -715,42 +661,177 @@
         flex-shrink: 0;
     }
 
-    /* Better button styling - more curved borders */
     :deep(.VPButton) {
-        padding: 12px 24px !important;
+        padding: 14px 32px !important;
         font-size: 16px !important;
         font-weight: 600 !important;
-        border-radius: 20px !important;
+        border-radius: 12px !important;
+        min-width: 140px !important;
+        color: var(--vp-c-text-1) !important;
+        background: linear-gradient(
+            135deg,
+            rgba(var(--vp-c-bg-soft-rgb), 0.9),
+            rgba(var(--vp-c-bg-alt-rgb), 0.95)
+        ) !important;
+        border: 2px solid rgba(var(--vp-c-divider-rgb), 0.8) !important;
+        backdrop-filter: blur(12px) !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        backdrop-filter: blur(10px) !important;
-        min-width: 120px !important;
-        border: 1px solid rgba(var(--vp-c-brand-rgb), 0.2) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        box-shadow: 
+            0 2px 8px rgba(0, 0, 0, 0.12),
+            0 1px 3px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    :deep(.VPButton::after) {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        right: 1px;
+        bottom: 1px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    :deep(.VPButton::before) {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+        );
+        transition: left 0.5s ease;
+    }
+
+    :deep(.VPButton:hover::before) {
+        left: 100%;
     }
 
     :deep(.VPButton:hover) {
+        background: linear-gradient(
+            135deg,
+            rgba(var(--vp-c-bg-alt-rgb), 0.95),
+            rgba(var(--vp-c-brand-rgb), 0.15)
+        ) !important;
+        border-color: var(--vp-c-brand-1) !important;
+        color: var(--vp-c-brand-1) !important;
+        box-shadow: 
+            0 4px 16px rgba(var(--vp-c-brand-rgb), 0.15),
+            0 2px 8px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
         transform: translateY(-1px) !important;
-        box-shadow: 0 8px 20px rgba(var(--vp-c-brand-rgb), 0.3) !important;
     }
 
-    @media (min-width: 640px) {
-        :deep(.VPButton) {
-            padding: 14px 28px !important;
-            font-size: 17px !important;
-            min-width: 140px !important;
-        }
+    :deep(.VPButton:hover::after) {
+        border-color: rgba(var(--vp-c-brand-rgb), 0.5);
     }
 
-    /* Enhanced image styling with better effects - fixed blur issues */
+    :deep(.VPButton.brand) {
+        background: linear-gradient(
+            135deg,
+            var(--vp-c-brand-1),
+            var(--vp-c-brand-2)
+        ) !important;
+        border-color: var(--vp-c-brand-1) !important;
+        color: var(--vp-c-white) !important;
+        box-shadow: 
+            0 4px 12px rgba(var(--vp-c-brand-rgb), 0.4),
+            0 2px 6px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    :deep(.VPButton.brand::after) {
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    :deep(.VPButton.brand:hover) {
+        background: linear-gradient(
+            135deg,
+            var(--vp-c-brand-2),
+            var(--vp-c-brand-3)
+        ) !important;
+        border-color: var(--vp-c-brand-2) !important;
+        color: var(--vp-c-white) !important;
+    }
+
+    :deep(.VPButton.brand:hover::after) {
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    :deep(.VPButton.alt) {
+        background: linear-gradient(
+            135deg,
+            rgba(var(--vp-c-bg-soft-rgb), 0.7),
+            rgba(var(--vp-c-bg-alt-rgb), 0.8)
+        ) !important;
+        border-color: rgba(var(--vp-c-divider-rgb), 0.5) !important;
+        color: var(--vp-c-text-1) !important;
+    }
+
+    .dark :deep(.VPButton) {
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 2px solid rgba(255, 255, 255, 0.4) !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(8px) !important;
+        box-shadow: 
+            0 2px 8px rgba(0, 0, 0, 0.4),
+            0 1px 3px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .dark :deep(.VPButton::after) {
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .dark :deep(.VPButton:hover) {
+        background: rgba(var(--vp-c-brand-rgb), 0.15) !important;
+        border-color: var(--vp-c-brand-1) !important;
+        color: var(--vp-c-brand-1) !important;
+    }
+
+    .dark :deep(.VPButton:hover::after) {
+        border-color: rgba(var(--vp-c-brand-rgb), 0.6);
+    }
+
+    .dark :deep(.VPButton.alt) {
+        background: rgba(255, 255, 255, 0.06) !important;
+        border-color: rgba(255, 255, 255, 0.35) !important;
+        color: rgba(255, 255, 255, 0.85) !important;
+    }
+
+    .dark :deep(.VPButton.alt::after) {
+        border-color: rgba(255, 255, 255, 0.45);
+    }
+
+    .dark :deep(.VPButton.alt:hover) {
+        background: rgba(255, 255, 255, 0.12) !important;
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        color: var(--vp-c-white) !important;
+    }
+
+    .dark :deep(.VPButton.alt:hover::after) {
+        border-color: rgba(255, 255, 255, 0.7);
+    }
+
+
+
     .image {
         order: 1;
         margin: -40px -24px 40px;
         position: relative;
-    }
-
-    @media (min-width: 640px) {
-        .image {
-            margin: -60px -24px 60px;
-        }
     }
 
     @media (min-width: 960px) {
@@ -786,14 +867,7 @@
             height: 100%;
             max-width: 600px;
             max-height: 600px;
-            transform: none;
         }
-    }
-
-    .image-bg {
-        position: absolute;
-        inset: 0;
-        border-radius: 20px;
     }
 
     .image-src {
@@ -802,57 +876,131 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        /* Completely clear image with no blur or filters */
         border-radius: 16px;
         transition: all 0.3s ease;
     }
 
-    .image-container:hover .image-src {
-        transform: scale(1.02);
-        /* Still no filters on hover */
-    }
-
-    @keyframes pulse {
-        0%,
-        100% {
-            opacity: 0.8;
-            transform: translate(-50%, -50%) scale(1);
-        }
-        50% {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.02);
-        }
-    }
-
-    /* Enhanced floating background elements with bigger, clearer code snippets */
     .hero-bg {
         position: absolute;
         inset: 0;
         overflow: hidden;
         z-index: 1;
-        /* Fixed background colors */
-        background: #ffffff;
-    }
-
-    .dark .hero-bg {
-        background: #1b1b1f;
     }
 
     .bg-gradient {
         position: absolute;
         inset: 0;
+        background: radial-gradient(
+                circle at 30% 20%,
+                rgba(var(--vp-c-brand-rgb), 0.25) 0%,
+                transparent 60%
+            ),
+            radial-gradient(
+                circle at 70% 80%,
+                rgba(var(--vp-c-brand-2-rgb), 0.2) 0%,
+                transparent 60%
+            ),
+            radial-gradient(
+                circle at 50% 50%,
+                rgba(var(--vp-c-brand-3-rgb), 0.15) 0%,
+                transparent 70%
+            ),
+            linear-gradient(
+                135deg,
+                rgba(var(--vp-c-brand-rgb), 0.1) 0%,
+                rgba(var(--vp-c-brand-2-rgb), 0.08) 50%,
+                transparent 100%
+            );
+        animation: bg-shift 15s ease-in-out infinite;
     }
 
-    .bg-pattern {
+    /* Sunshine light ray effects */
+    .bg-gradient::before {
+        content: "";
         position: absolute;
         inset: 0;
-        opacity: 0.8;
+        background: linear-gradient(
+                45deg,
+                transparent 25%,
+                rgba(255, 255, 255, 0.15) 50%,
+                transparent 75%
+            ),
+            linear-gradient(
+                -45deg,
+                transparent 25%,
+                rgba(255, 255, 255, 0.12) 50%,
+                transparent 75%
+            ),
+            linear-gradient(
+                135deg,
+                transparent 35%,
+                rgba(var(--vp-c-brand-rgb), 0.1) 50%,
+                transparent 65%
+            );
+        animation: sunshine-rays 20s ease-in-out infinite;
+        pointer-events: none;
     }
+
+    .dark .bg-gradient::before {
+        background: linear-gradient(
+                45deg,
+                transparent 25%,
+                rgba(255, 255, 255, 0.08) 50%,
+                transparent 75%
+            ),
+            linear-gradient(
+                -45deg,
+                transparent 25%,
+                rgba(255, 255, 255, 0.06) 50%,
+                transparent 75%
+            ),
+            linear-gradient(
+                135deg,
+                transparent 35%,
+                rgba(var(--vp-c-brand-rgb), 0.12) 50%,
+                transparent 65%
+            );
+    }
+
+    @keyframes bg-shift {
+        0%,
+        100% {
+            background-position: 0% 0%, 100% 100%, 0% 50%;
+            opacity: 1;
+        }
+        50% {
+            background-position: 100% 100%, 0% 0%, 100% 50%;
+            opacity: 0.8;
+        }
+    }
+
+    @keyframes sunshine-rays {
+        0%,
+        100% {
+            transform: rotate(0deg) scale(1);
+            opacity: 0.6;
+        }
+        25% {
+            transform: rotate(2deg) scale(1.02);
+            opacity: 0.8;
+        }
+        50% {
+            transform: rotate(-1deg) scale(1.01);
+            opacity: 1;
+        }
+        75% {
+            transform: rotate(1deg) scale(1.02);
+            opacity: 0.7;
+        }
+    }
+
+
 
     .floating-words {
         position: absolute;
         inset: 0;
         pointer-events: none;
+        overflow: hidden;
     }
 
     .word-group {
@@ -863,203 +1011,223 @@
 
     .floating-word {
         position: absolute;
-        font-family: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
-        font-weight: 700;
+        font-family: "Fira Code", "JetBrains Mono", "SF Mono", "Consolas",
+            monospace;
+        font-weight: 500;
+        font-size: 14px;
+        opacity: 0;
+        color: var(--vp-c-text-3);
         pointer-events: none;
-        opacity: 0; /* Start completely invisible */
-        animation: float-diagonal 20s linear infinite;
-        animation-delay: var(--delay);
-        animation-fill-mode: forwards; /* Keep final state */
-        white-space: nowrap;
         user-select: none;
-        font-size: 32px;
-        visibility: hidden; /* Additional layer of hiding */
-        animation-play-state: paused; /* Pause until ready */
-    }
-
-    /* Only show and start animations when component is mounted and ready */
-    .VPHero.hero-enhanced .floating-word {
-        visibility: visible;
-        animation-play-state: running;
+        white-space: nowrap;
+        transform-origin: center;
+        animation: float-curve var(--float-duration, 20s) ease-in-out infinite;
+        transition: all 0.3s ease;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        backdrop-filter: blur(1px);
     }
 
     .dark .floating-word {
-        animation-name: float-diagonal-dark;
+        opacity: 0;
+        color: var(--vp-c-text-2);
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
     }
 
-    @keyframes float-diagonal-dark {
-        0% {
-            transform: translate(-200px, 150px) rotate(-8deg);
-            opacity: 0;
-        }
-        5% {
-            opacity: 0.8; /* Slightly less opacity in dark mode */
-        }
-        10% {
-            opacity: 0.8;
-        }
-        90% {
-            opacity: 0.8;
-        }
-        95% {
-            opacity: 0;
-        }
-        100% {
-            transform: translate(calc(100vw + 200px), -150px) rotate(8deg);
-            opacity: 0;
-        }
-    }
-
+    /* Light theme colors - proper visibility */
     .word-group.kubejs-events .floating-word {
-        color: #c186e6; /* KubeJS purple */
-        top: 8%;
-        left: 3%;
-        animation-duration: 25s;
-        font-size: 18px;
-        font-weight: 600;
-        padding: 6px 12px;
-        border-radius: 8px;
-        backdrop-filter: blur(4px);
+        color: #7c3aed;
     }
-
     .word-group.kubejs-recipes .floating-word {
-        color: #c186e6; /* KubeJS purple */
-        top: 75%;
-        left: 85%;
-        animation-duration: 28s;
-        animation-direction: reverse;
-        font-size: 17px;
-        font-weight: 600;
-        padding: 6px 12px;
-        border-radius: 8px;
-        backdrop-filter: blur(4px);
+        color: #059669;
     }
-
     .word-group.minecraft-api .floating-word {
-        color: #259925; /* Minecraft green */
-        top: 35%;
-        left: 92%;
-        animation-duration: 32s;
-        font-size: 16px;
-        font-weight: 500;
-        padding: 5px 10px;
-        border-radius: 6px;
-        backdrop-filter: blur(4px);
+        color: #d97706;
     }
-
     .word-group.forge-modding .floating-word {
-        color: #dfa86a; /* Forge orange */
-        top: 55%;
-        left: 12%;
-        animation-duration: 26s;
-        animation-direction: reverse;
-        font-size: 19px;
-        font-weight: 600;
-        padding: 7px 14px;
-        border-radius: 8px;
-        backdrop-filter: blur(4px);
+        color: #dc2626;
     }
-
-    .word-group.neoforge-api .floating-word {
-        color: #e68c37; /* NeoForge darker orange */
-        top: 18%;
-        left: 65%;
-        animation-duration: 30s;
-        font-size: 17px;
-        font-weight: 600;
-        padding: 6px 12px;
-        border-radius: 8px;
-        backdrop-filter: blur(4px);
-    }
-
     .word-group.minecraft-commands .floating-word {
-        color: #101b81; /* Command blue */
-        top: 88%;
-        left: 42%;
-        animation-duration: 23s;
-        animation-direction: reverse;
-        font-size: 18px;
-        font-weight: 600;
-        padding: 6px 12px;
-        border-radius: 8px;
-        backdrop-filter: blur(4px);
+        color: #2563eb;
     }
 
-    .word-group.data-generation .floating-word {
-        color: #101b81; /* Data generation blue */
-        top: 2%;
-        left: 28%;
-        animation-duration: 34s;
-        font-size: 16px;
-        font-weight: 500;
-        padding: 5px 10px;
-        border-radius: 6px;
-        backdrop-filter: blur(4px);
+    /* Different colors for different categories in dark theme */
+    .dark .word-group.kubejs-events .floating-word {
+        color: #a78bfa;
+    }
+    .dark .word-group.kubejs-recipes .floating-word {
+        color: #34d399;
+    }
+    .dark .word-group.minecraft-api .floating-word {
+        color: #fbbf24;
+    }
+    .dark .word-group.forge-modding .floating-word {
+        color: #f87171;
+    }
+    .dark .word-group.minecraft-commands .floating-word {
+        color: #60a5fa;
     }
 
-    .word-group.capabilities-api .floating-word {
-        color: #a73232; /* Advanced red */
-        top: 68%;
-        left: 8%;
-        animation-duration: 27s;
-        animation-direction: reverse;
-        font-size: 17px;
-        font-weight: 600;
-        padding: 6px 12px;
-        border-radius: 8px;
-        backdrop-filter: blur(4px);
+    /* Alternate curved paths for visual variety */
+    .word-group.kubejs-events .floating-word:nth-child(odd) {
+        animation-name: float-curve;
+    }
+    .word-group.kubejs-events .floating-word:nth-child(even) {
+        animation-name: float-curve-bottom;
     }
 
-    /* Enhanced spacing and staggered positioning to prevent overlap */
-    .word-group:nth-child(1) .floating-word {
-        animation-delay: calc(var(--delay) + 1s); /* Add base delay */
+    .word-group.kubejs-recipes .floating-word:nth-child(odd) {
+        animation-name: float-curve-bottom;
     }
-    .word-group:nth-child(2) .floating-word {
-        animation-delay: calc(var(--delay) + 4s);
-    }
-    .word-group:nth-child(3) .floating-word {
-        animation-delay: calc(var(--delay) + 7s);
-    }
-    .word-group:nth-child(4) .floating-word {
-        animation-delay: calc(var(--delay) + 10s);
-    }
-    .word-group:nth-child(5) .floating-word {
-        animation-delay: calc(var(--delay) + 13s);
-    }
-    .word-group:nth-child(6) .floating-word {
-        animation-delay: calc(var(--delay) + 16s);
-    }
-    .word-group:nth-child(7) .floating-word {
-        animation-delay: calc(var(--delay) + 19s);
-    }
-    .word-group:nth-child(8) .floating-word {
-        animation-delay: calc(var(--delay) + 22s);
+    .word-group.kubejs-recipes .floating-word:nth-child(even) {
+        animation-name: float-curve;
     }
 
-    @keyframes float-diagonal {
+    .word-group.minecraft-api .floating-word:nth-child(odd) {
+        animation-name: float-curve;
+    }
+    .word-group.minecraft-api .floating-word:nth-child(even) {
+        animation-name: float-curve-bottom;
+    }
+
+    .word-group.forge-modding .floating-word:nth-child(odd) {
+        animation-name: float-curve-bottom;
+    }
+    .word-group.forge-modding .floating-word:nth-child(even) {
+        animation-name: float-curve;
+    }
+
+    .word-group.minecraft-commands .floating-word:nth-child(odd) {
+        animation-name: float-curve;
+    }
+    .word-group.minecraft-commands .floating-word:nth-child(even) {
+        animation-name: float-curve-bottom;
+    }
+
+    @keyframes float-curve {
         0% {
-            transform: translate(-200px, 150px) rotate(-8deg);
+            transform: translateX(-150px) translateY(20px) rotate(-5deg)
+                scale(0.7);
             opacity: 0;
         }
-        5% {
-            opacity: 0.9; /* Fade in gradually after movement starts */
+        8% {
+            opacity: 0.4;
         }
-        10% {
+        20% {
+            transform: translateX(-80px) translateY(-25px) rotate(3deg)
+                scale(0.85);
+            opacity: 0.7;
+        }
+        40% {
+            transform: translateX(-20px) translateY(-45px) rotate(0deg) scale(1);
             opacity: 0.9;
         }
-        90% {
-            opacity: 0.9;
+        60% {
+            transform: translateX(40px) translateY(-35px) rotate(-2deg) scale(1);
+            opacity: 1;
         }
-        95% {
-            opacity: 0; /* Fade out before disappearing */
+        80% {
+            transform: translateX(100px) translateY(-15px) rotate(2deg)
+                scale(0.9);
+            opacity: 0.6;
+        }
+        92% {
+            opacity: 0.3;
         }
         100% {
-            transform: translate(calc(100vw + 200px), -150px) rotate(8deg);
+            transform: translateX(150px) translateY(10px) rotate(5deg)
+                scale(0.8);
             opacity: 0;
         }
     }
 
-    /* Enhanced wave transition with clear patterns */
+
+
+    /* Bottom curved path animation for variety */
+    @keyframes float-curve-bottom {
+        0% {
+            transform: translateX(-150px) translateY(-20px) rotate(5deg)
+                scale(0.7);
+            opacity: 0;
+        }
+        8% {
+            opacity: 0.4;
+        }
+        20% {
+            transform: translateX(-80px) translateY(25px) rotate(-3deg)
+                scale(0.85);
+            opacity: 0.7;
+        }
+        40% {
+            transform: translateX(-20px) translateY(45px) rotate(0deg) scale(1);
+            opacity: 0.9;
+        }
+        60% {
+            transform: translateX(40px) translateY(35px) rotate(2deg) scale(1);
+            opacity: 1;
+        }
+        80% {
+            transform: translateX(100px) translateY(15px) rotate(-2deg)
+                scale(0.9);
+            opacity: 0.6;
+        }
+        92% {
+            opacity: 0.3;
+        }
+        100% {
+            transform: translateX(150px) translateY(-10px) rotate(-5deg)
+                scale(0.8);
+            opacity: 0;
+        }
+    }
+
+    /* Clear positioning for different code categories */
+    .word-group.kubejs-events .floating-word:nth-child(1) {
+        top: 15%;
+        left: 8%;
+    }
+    .word-group.kubejs-events .floating-word:nth-child(2) {
+        top: 60%;
+        left: 85%;
+    }
+
+    .word-group.kubejs-recipes .floating-word:nth-child(1) {
+        top: 25%;
+        left: 75%;
+    }
+    .word-group.kubejs-recipes .floating-word:nth-child(2) {
+        top: 70%;
+        left: 12%;
+    }
+
+    .word-group.minecraft-api .floating-word:nth-child(1) {
+        top: 35%;
+        left: 50%;
+    }
+    .word-group.minecraft-api .floating-word:nth-child(2) {
+        top: 80%;
+        left: 40%;
+    }
+
+    .word-group.forge-modding .floating-word:nth-child(1) {
+        top: 10%;
+        left: 30%;
+    }
+    .word-group.forge-modding .floating-word:nth-child(2) {
+        top: 75%;
+        left: 70%;
+    }
+
+    .word-group.minecraft-commands .floating-word:nth-child(1) {
+        top: 45%;
+        left: 85%;
+    }
+    .word-group.minecraft-commands .floating-word:nth-child(2) {
+        top: 85%;
+        left: 15%;
+    }
+
     .hero-wave {
         position: absolute;
         bottom: 0;
@@ -1084,152 +1252,129 @@
     }
 
     .dark .shape-fill {
-        fill: var(--vp-c-bg-soft);
+        fill: #1B1B1F;
         filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.3));
     }
 
-    /* Accessibility improvements */
-    @media (prefers-reduced-motion: reduce) {
-        .VPHero *,
+    .dark .name {
+        filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+    }
+
+    .dark .text {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+    }
+
+    .dark .tagline {
+        text-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .VPHero.hero-enhanced {
+            min-height: 90vh;
+            padding: calc(
+                    var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
+                        40px
+                )
+                16px 80px;
+        }
+
         .floating-word {
+            font-size: 11px !important;
+            opacity: 0.1 !important;
+        }
+
+        .dark .floating-word {
+            opacity: 0.2 !important;
+        }
+
+        .main {
+            text-align: center;
+        }
+
+        .name {
+            font-size: clamp(32px, 10vw, 60px) !important;
+        }
+
+        .text {
+            font-size: clamp(20px, 6vw, 32px) !important;
+        }
+
+        .tagline {
+            font-size: clamp(16px, 4vw, 22px) !important;
+            margin-bottom: 32px !important;
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 10px;
+            max-width: 320px;
+            margin: 0 auto;
+            justify-items: center;
+        }
+
+        .action {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        :deep(.VPButton) {
+            width: 100% !important;
+            min-width: unset !important;
+            max-width: 140px !important;
+            padding: 8px 14px !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            min-height: 36px !important;
+            border-radius: 14px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .name {
+            font-size: clamp(28px, 12vw, 48px) !important;
+            margin-bottom: 16px !important;
+        }
+
+        .text {
+            font-size: clamp(18px, 8vw, 28px) !important;
+            margin-bottom: 12px !important;
+        }
+
+        .tagline {
+            font-size: clamp(14px, 5vw, 20px) !important;
+            margin-bottom: 24px !important;
+        }
+
+        .actions {
+            grid-template-columns: 1fr 1fr !important;
+            max-width: 280px !important;
+            gap: 10px 8px !important;
+        }
+
+        :deep(.VPButton) {
+            max-width: 125px !important;
+            padding: 6px 10px !important;
+            font-size: 13px !important;
+            min-height: 32px !important;
+            border-radius: 12px !important;
+        }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        * {
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
             transition-duration: 0.01ms !important;
-            transform: none !important;
-        }
-    }
-
-    /* Enhanced mobile and tablet optimizations */
-    @media (max-width: 768px) {
-        .VPHero.hero-enhanced {
-            min-height: 90vh !important;
-            padding: calc(
-                    var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
-                        35px
-                )
-                16px 50px;
         }
 
         .floating-word {
-            font-size: 12px !important;
-            opacity: 0.05 !important;
-        }
-
-        /* Center hero name and content on mobile */
-        .main {
-            text-align: center !important;
-        }
-
-        .heading {
-            align-items: center !important;
-        }
-
-        .name,
-        .text {
-            margin: 0 auto !important;
-            width: fit-content !important;
-        }
-
-        .tagline {
-            margin-left: auto !important;
-            margin-right: auto !important;
-        }
-
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 28px;
-            width: 100%;
-            max-width: 320px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        :deep(.VPButton) {
-            width: auto !important;
-            min-width: 80px !important;
-            max-width: 140px !important;
-            padding: 8px 16px !important;
-            font-size: 15px !important;
-            font-weight: 600 !important;
-            min-height: 36px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            border-radius: 16px !important;
-            flex-shrink: 0 !important;
-        }
-    }
-
-    /* Tablet optimizations - refined flex layout */
-    @media (min-width: 480px) and (max-width: 768px) {
-        .actions {
-            max-width: 380px !important;
-            gap: 18px !important;
-            margin-top: 32px !important;
-        }
-
-        :deep(.VPButton) {
-            min-width: 90px !important;
-            max-width: 160px !important;
-            padding: 9px 18px !important;
-            font-size: 16px !important;
-            min-height: 38px !important;
-            border-radius: 18px !important;
-        }
-    }
-
-    /* Small mobile phones - flex layout for better content fitting */
-    @media (max-width: 480px) {
-        .VPHero.hero-enhanced {
-            padding: calc(
-                    var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
-                        25px
-                )
-                12px 35px;
-        }
-
-        /* Center hero name on small screens with higher specificity */
-        .main {
-            text-align: center !important;
-        }
-
-        .heading {
-            align-items: center !important;
-        }
-
-        .name,
-        .text {
-            font-size: 30px !important;
-            line-height: 1.1 !important;
-            margin: 0 auto !important;
-            width: fit-content !important;
-        }
-
-        .tagline {
-            font-size: 16px !important;
-            line-height: 1.4 !important;
-            margin-bottom: 24px !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
-        }
-
-        .actions {
-            gap: 14px !important;
-            margin-top: 24px !important;
-            max-width: 300px !important;
-        }
-
-        :deep(.VPButton) {
-            min-width: 70px !important;
-            max-width: 120px !important;
-            padding: 7px 14px !important;
-            font-size: 15px !important;
-            font-weight: 700 !important;
-            min-height: 34px !important;
-            border-radius: 14px !important;
+            animation: none !important;
         }
     }
 </style>

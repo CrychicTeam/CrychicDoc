@@ -1,25 +1,27 @@
 {
   "1.20.1/": {
-    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
-    "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446717
-  },
-  "1.20.4/": {
-    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
-    "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446717
-  },
-  "1.21/": {
-    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
-    "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446717
-  },
-  "Mixin/": {
-    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
+    "valueHash": "18d8042386b79e2c279fd162df0205c8",
     "isUserSet": false,
     "isActiveInStructure": true
+  },
+  "1.20.4/": {
+    "valueHash": "cee631121c2ec9232f3a2f028ad5c89b",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "1.21/": {
+    "valueHash": "a9b7ba70783b617e9998dc4dd82eb3c5",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Mixin/": {
+    "valueHash": "d1ca3aaf52b41acd68ebb3bf69079bd1",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "modding/": {
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }

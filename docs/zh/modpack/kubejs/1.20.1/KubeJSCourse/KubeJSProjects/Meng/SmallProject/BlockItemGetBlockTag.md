@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 物品右键获取该物品的方块tag
 本章主要涉及内容：物品右键事件、方块物品，本章所有代码部分都在`server_scripts`里

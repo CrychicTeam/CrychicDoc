@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 宝箱战利品
 在下面会使用原生kubeJs实现对宝箱战利品生成做出修改

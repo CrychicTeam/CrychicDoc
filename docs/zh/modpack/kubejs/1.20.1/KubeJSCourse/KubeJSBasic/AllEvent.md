@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 所有事件
 本章中将会列举出所有事件和对应的示例，其中包括kubejs提供的和模组提供的

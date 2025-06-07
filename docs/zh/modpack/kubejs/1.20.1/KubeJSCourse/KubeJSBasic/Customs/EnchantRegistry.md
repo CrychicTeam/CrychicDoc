@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 添加附魔
 在kubejs中可以非常轻松的添加附魔，一定要注意，写在startup_scripts文件夹里

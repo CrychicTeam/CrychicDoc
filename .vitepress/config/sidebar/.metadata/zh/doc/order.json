@@ -1,57 +1,48 @@
 {
   "cooperation.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "dev.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "guide/": {
     "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "rules.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "samples.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "sidebarTutorial.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "styleList.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "vscode-snippets-guide.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": true
   },
   "doc/": {
     "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": false,
-    "lastSeen": 1749254446626
+    "isActiveInStructure": false
   },
   "dev copy.md": {
     "valueHash": "cfcd208495d565ef66e7dff9f98764da",
@@ -64,5 +55,10 @@
     "isUserSet": false,
     "isActiveInStructure": false,
     "lastSeen": 1749254446626
+  },
+  "scripts.md": {
+    "valueHash": "d1ca3aaf52b41acd68ebb3bf69079bd1",
+    "isUserSet": false,
+    "isActiveInStructure": true
   }
 }

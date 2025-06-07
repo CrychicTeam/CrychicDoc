@@ -95,7 +95,7 @@ export class RecursiveSynchronizer {
 
         // CRUCIAL: Clean up orphaned configurations after processing
         await this.cleanupOrphanedConfigurations(currentConfigDirSignature, lang, items);
-            }
+    }
 
     /**
      * Recursively processes subdirectories, creating their _self_ properties and processing their children.
@@ -146,10 +146,10 @@ export class RecursiveSynchronizer {
                 }
 
                 // Skip GitBook directories
-                    if (this.pathProcessor.isGitBookRoot(nextConfigDirSignature, lang, langGitbookPaths, this.absDocsPath)) {
+                if (this.pathProcessor.isGitBookRoot(nextConfigDirSignature, lang, langGitbookPaths, this.absDocsPath)) {
                     console.log(`DEBUG: Skipping GitBook directory: ${nextConfigDirSignature}`);
-                        continue; 
-                    }
+                    continue; 
+                }
 
                 // ALWAYS process _self_ properties for ALL directories (file-only or not)
                 await this.processSelfProperties(item, nextConfigDirSignature, lang, isDevMode);
@@ -166,8 +166,13 @@ export class RecursiveSynchronizer {
                         link: child.link
                     }));
                     console.log(`DEBUG: Children details:`, JSON.stringify(childrenDetails, null, 2));
+
+                    // First process order for the current directory's items
+                    const orderData = await this.jsonFileHandler.readJsonFile('order', lang, nextConfigDirSignature);
+                    const sortedItems = this.jsonItemSorter.sortItems(item.items, orderData);
+                    item.items = sortedItems;
                     
-                    // This call will handle both direct children processing AND recursive subdirectory processing
+                    // Then recursively process the sorted items
                     await this.synchronizeItemsRecursively(item.items, nextConfigDirSignature, lang, isDevMode, langGitbookPaths, false);
                 } else {
                     console.log(`DEBUG: Directory "${item.text}" has no children - file-only directory, _self_ properties processed`);
@@ -176,7 +181,7 @@ export class RecursiveSynchronizer {
                 console.log(`DEBUG: Finished processing directory: ${nextConfigDirSignature}`);
             }
         }
-                    }
+    }
 
     /**
      * Processes direct children of a directory for JSON config synchronization.

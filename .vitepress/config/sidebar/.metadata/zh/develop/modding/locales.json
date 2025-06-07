@@ -8,24 +8,26 @@
   "1.20.1/": {
     "valueHash": "17b1d146f4eac0481f692f4815e455b0",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446716
+    "isActiveInStructure": true
   },
   "1.20.4/": {
     "valueHash": "359c6316e3a7877cd6571b2ae509338c",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446716
+    "isActiveInStructure": true
   },
   "1.21/": {
     "valueHash": "71093a343822d554c7a4b8bd3b46549e",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446716
+    "isActiveInStructure": true
   },
   "Mixin/": {
-    "valueHash": "6a8e2dc558da1b3972a4fcfba70dfc7b",
+    "valueHash": "767fa455bb6826f4b550c21a6bca7182",
     "isUserSet": false,
     "isActiveInStructure": true
+  },
+  "modding/": {
+    "valueHash": "fa00e202a8924be29b0d5d0b6569e5e5",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }

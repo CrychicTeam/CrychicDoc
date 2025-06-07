@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 修改窗口标题和logo
 在本章中会教大家如何去修改游戏窗口的标题和左上角的图标logo

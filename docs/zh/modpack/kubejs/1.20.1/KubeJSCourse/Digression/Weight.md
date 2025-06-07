@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 权重占比
 权重和概率挂钩，权重给的越多出现的概率则越大

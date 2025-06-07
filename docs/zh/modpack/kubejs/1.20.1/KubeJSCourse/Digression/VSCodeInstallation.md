@@ -1,5 +1,7 @@
 ---
-authors: ['Qi-Month']
+authors:
+  - Qi-Month
+editor: Gu-meng
 ---
 # VS Code安装
 这篇文档很短, 主要是讲一下VS Code在安装时的一些注意事项, 例如最重要的把VS Code打入注册表

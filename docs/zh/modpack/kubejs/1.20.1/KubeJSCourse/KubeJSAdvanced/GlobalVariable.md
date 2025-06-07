@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # global全局变量
 在KubeJS中，提供了一个可以在`server`、`startup`、`client`三端调用的一个全局变量->`global`

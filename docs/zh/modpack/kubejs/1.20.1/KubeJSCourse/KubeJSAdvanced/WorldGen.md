@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 世界生成(WorldGen)(非常不建议在1.20使用!1.20建议使用数据包)
 

@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 钓鱼战利品
 本章中将会举例简单的钓鱼战利品原生kubejs写法

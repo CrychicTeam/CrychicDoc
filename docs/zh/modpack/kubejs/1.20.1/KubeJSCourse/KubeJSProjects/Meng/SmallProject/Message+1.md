@@ -1,3 +1,6 @@
+---
+editor: Gu-meng
+---
 # 聊天消息+1
 本章主要涉及内容：Component，聊天事件，本章所有代码部分都在`server_scripts`里
 

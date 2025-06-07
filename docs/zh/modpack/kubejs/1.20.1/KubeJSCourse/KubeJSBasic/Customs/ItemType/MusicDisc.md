@@ -1,5 +1,8 @@
 ---
-authors: ['Gu-meng','QiHuang02']
+authors:
+  - Gu-meng
+  - QiHuang02
+editor: Gu-meng
 ---
 # 添加唱片
 

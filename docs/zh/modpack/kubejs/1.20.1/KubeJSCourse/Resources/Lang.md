@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 本地化lang(语言文件)
 这章主要是教会大家如何添加以及修改别的Mod的本地化文件(语言文件)

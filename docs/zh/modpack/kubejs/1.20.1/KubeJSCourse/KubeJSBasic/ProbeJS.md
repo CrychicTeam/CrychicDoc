@@ -1,3 +1,6 @@
+---
+editor: Gu-meng
+---
 # ProbeJS的基础使用
 > 孤梦注：本篇不包含vscode的使用教程，如不会使用vscode请自行百度
 

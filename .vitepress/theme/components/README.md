@@ -38,6 +38,7 @@ components/
 | **CommitsCounter**                  | GitHub 提交可视化  | 显示仓库提交活动图表               | ⚠️ ClientOnly |
 | **ResponsibleEditor**               | 内容编辑器组件     | 负责人编辑功能                     | ✅            |
 | **Linkcard**                        | 链接卡片预览       | 美化的链接预览卡片                 | ✅            |
+| **Contributors**                    | 项目贡献者展示     | 显示所有项目贡献者，支持头像缓存   | ⚠️ ClientOnly |
 | **minecraft-advanced-damage-chart** | Minecraft 伤害图表 | 交互式伤害计算和可视化             | ⚠️ ClientOnly |
 
 ### 媒体组件 (`./media/`)
@@ -70,6 +71,7 @@ import {
     ArticleMetadataCN,
     comment,
     CommitsCounter,
+    Contributors,
 } from "@components/content";
 
 // 媒体组件
@@ -295,13 +297,22 @@ interface MediaComponentProps {
             :days-to-fetch="30"
         />
 
+        <!-- 项目贡献者 -->
+        <Contributors
+            owner="PickAID"
+            repo="CrychicDoc"
+            :max-count="20"
+            :show-contributions="true"
+            :enable-cache="true"
+        />
+
         <!-- 导航链接 -->
         <MNavLinks title="相关链接" :items="navItems" />
     </div>
 </template>
 
 <script setup lang="ts">
-    import { ArticleMetadataCN, CommitsCounter } from "@components/content";
+    import { ArticleMetadataCN, CommitsCounter, Contributors } from "@components/content";
     import { Buttons } from "@components/ui";
     import { MNavLinks } from "@components/navigation";
 
@@ -337,6 +348,64 @@ registerComponents(app, {
 registerComponents(app);
 ```
 
+### Contributors 组件高级用法
+
+```vue
+<template>
+  <div class="contributors-section">
+    <!-- 基础用法 -->
+    <Contributors />
+
+    <!-- 自定义配置 -->
+    <Contributors
+      owner="vuejs"
+      repo="vue"
+      :max-count="12"
+      :show-contributions="false"
+      :enable-cache="false"
+      title="Vue.js Core Team"
+      locale="en-US"
+    />
+
+    <!-- 多个项目对比 -->
+    <div class="projects-comparison">
+      <Contributors
+        v-for="project in projects"
+        :key="`${project.owner}/${project.repo}`"
+        :owner="project.owner"
+        :repo="project.repo"
+        :title="project.title"
+        :max-count="6"
+        class="project-contributors"
+      />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { Contributors } from "@components/content";
+
+const projects = [
+  { owner: 'vuejs', repo: 'vue', title: 'Vue.js' },
+  { owner: 'vitejs', repo: 'vite', title: 'Vite' },
+  { owner: 'vuejs', repo: 'vitepress', title: 'VitePress' }
+];
+</script>
+
+<style scoped>
+.projects-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.project-contributors {
+  max-width: none;
+}
+</style>
+```
+
 ### 动态组件加载
 
 ```vue
@@ -359,6 +428,7 @@ registerComponents(app);
 <template>
     <div>
         <button @click="switchComponent('CommitsCounter')">显示提交统计</button>
+        <button @click="switchComponent('Contributors')">显示贡献者</button>
         <button @click="switchComponent('ArticleMetadataCN')">
             显示文章信息
         </button>
@@ -436,6 +506,82 @@ if (inBrowser) {
     // 浏览器环境代码
 }
 ```
+
+### Contributors 组件特殊说明
+
+Contributors 组件支持头像缓存功能，需要在 `docs/public/contributors/` 目录下预存头像文件：
+
+```bash
+docs/public/contributors/
+├── username1.png
+├── username2.png
+└── username3.png
+```
+
+#### 头像缓存策略
+
+1. **优先级顺序**：
+   - 首先尝试获取 GitHub 实时头像
+   - 如果失败，尝试使用缓存的头像
+   - 最后回退到 GitHub 默认 identicon
+
+2. **缓存文件命名**：
+   - 文件名：`{username}.png`
+   - 推荐尺寸：100x100px
+   - 支持格式：PNG（推荐）、JPG
+
+3. **手动生成缓存**：
+   ```bash
+   # 下载所有贡献者头像到缓存目录
+   mkdir -p docs/public/contributors
+   
+   # 示例：下载特定用户头像
+   curl "https://github.com/username.png?s=100" \
+     -o docs/public/contributors/username.png
+   ```
+
+#### 组件属性配置
+
+```typescript
+interface ContributorsProps {
+  owner?: string          // GitHub 仓库所有者，默认: 'PickAID'
+  repo?: string          // GitHub 仓库名称，默认: 'CrychicDoc'
+  maxCount?: number      // 显示的最大贡献者数量，默认: 50
+  showContributions?: boolean  // 是否显示贡献次数，默认: true
+  enableCache?: boolean  // 是否启用头像缓存，默认: true
+  title?: string         // 自定义标题，留空使用国际化文本
+  locale?: string        // 语言区域设置，默认: 'zh-CN'
+}
+```
+
+#### 国际化支持
+
+Contributors 组件支持多语言，目前支持的语言：
+
+- **中文 (zh-CN)**: 默认语言
+- **英文 (en-US, en)**: 英语支持
+
+```vue
+<!-- 中文版本 -->
+<Contributors locale="zh-CN" />
+
+<!-- 英文版本 -->
+<Contributors locale="en-US" />
+
+<!-- 自动检测语言（推荐） -->
+<Contributors />
+```
+
+**支持的翻译文本**：
+- 组件标题、统计信息
+- 加载状态、错误信息
+- 按钮文本、提示信息
+
+**语言检测优先级**：
+1. 组件 `locale` 属性
+2. VitePress 站点语言配置
+3. 浏览器语言设置
+4. 默认中文 (zh-CN)
 
 ### 条件插件注册
 

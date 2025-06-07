@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 基础写法
 在这一章会教会大家如何去魔改基础配方，比如工作台、熔炉等,如需请点=>[配方合成进阶](../KubeJSAdvanced/AdvancedRecipe)

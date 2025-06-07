@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 执行游戏内指令
 在kubejs当中提供了一个服务端方法，可以直接调用到mc里的指令

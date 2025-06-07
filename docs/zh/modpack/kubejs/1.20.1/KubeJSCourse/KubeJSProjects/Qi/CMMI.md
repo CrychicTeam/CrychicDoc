@@ -1,5 +1,7 @@
 ---
-authors: ['Qi Month']
+authors:
+  - Qi Month
+editor: Gu-meng
 ---
 
 # 自定义金属材料集成(Custom Metal Materials Integration)

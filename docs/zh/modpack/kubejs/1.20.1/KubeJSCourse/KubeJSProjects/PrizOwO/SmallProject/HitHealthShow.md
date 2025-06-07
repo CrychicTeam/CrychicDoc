@@ -1,3 +1,6 @@
+---
+editor: Gu-meng
+---
 # 玩家对生物造成伤害显示血量
 
 项目由孤梦从[https://github.com/xiaoliziawa/Create-Skyline/blob/main/kubejs/server_scripts/TriggerEvents/global.hitHealthShow.js](https://github.com/xiaoliziawa/Create-Skyline/blob/main/kubejs/server_scripts/TriggerEvents/global.hitHealthShow.js)搬运

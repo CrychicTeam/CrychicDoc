@@ -8,7 +8,11 @@
   "Champions-Unofficial/": {
     "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447042
+    "isActiveInStructure": true
+  },
+  "adventure/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }

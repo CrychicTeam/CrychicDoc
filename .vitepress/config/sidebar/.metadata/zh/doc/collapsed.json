@@ -8,13 +8,11 @@
   "guide/": {
     "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446625
+    "isActiveInStructure": true
   },
   "doc/": {
     "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
-    "isActiveInStructure": false,
-    "lastSeen": 1749254446625
+    "isActiveInStructure": false
   }
 }

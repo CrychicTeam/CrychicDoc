@@ -38,11 +38,41 @@ export class JsonItemSorter {
                 const orderVal = orderJsonData[orderKey];
                 if (typeof orderVal === 'number' && !isNaN(orderVal)) {
                     order = orderVal;
+                    // Set the priority from order.json value
+                    item._priority = order;
+                } else if (typeof orderVal === 'string') {
+                    // Try to parse string values as numbers
+                    const parsedOrder = parseFloat(orderVal);
+                    if (!isNaN(parsedOrder)) {
+                        order = parsedOrder;
+                        // Set the priority from parsed order value
+                        item._priority = order;
+                    }
                 }
             }
+
+            // If this is a directory, also process its items recursively
+            if (item._isDirectory && item.items && item.items.length > 0) {
+                // Pass down the same order data to maintain consistent priorities
+                item.items = this.sortItems(item.items, orderJsonData);
+                
+                // If directory has no explicit order, use the minimum priority of its children
+                if (item._priority === Number.MAX_SAFE_INTEGER) {
+                    const childPriorities = item.items
+                        .map(child => typeof child._priority === 'number' ? child._priority : Number.MAX_SAFE_INTEGER)
+                        .filter(p => p !== Number.MAX_SAFE_INTEGER);
+                    if (childPriorities.length > 0) {
+                        const minChildPriority = Math.min(...childPriorities);
+                        item._priority = minChildPriority;
+                        order = minChildPriority;
+                    }
+                }
+            }
+
             return { 
                 item, 
-                order, 
+                // Use _priority for sorting instead of order.json value
+                order: typeof item._priority === 'number' ? item._priority : Number.MAX_SAFE_INTEGER,
                 // Use _relativePathKey for more stable alphanumeric sort if text is the same or missing
                 sortKey: item._relativePathKey || item.text || '' 
             };
@@ -50,7 +80,7 @@ export class JsonItemSorter {
 
         itemsWithSortInfo.sort((a, b) => {
             if (a.order !== b.order) {
-                return a.order - b.order; // Primary sort by explicit order number
+                return a.order - b.order; // Primary sort by priority
             }
             // Secondary sort alphanumerically by sortKey (which prefers _relativePathKey over text)
             return a.sortKey.localeCompare(b.sortKey);

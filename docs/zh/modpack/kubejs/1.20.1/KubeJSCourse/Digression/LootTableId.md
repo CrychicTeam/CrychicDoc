@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 宝箱战利品id
 下面是1.20原版能够列举出来的宝箱战利品id和生成位置

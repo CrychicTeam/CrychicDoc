@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 自定义传送门
 该项目使用[Custom Portal API [Forge]](https://www.mcmod.cn/class/10354.html)作为前置，在使用时需要安装该模组

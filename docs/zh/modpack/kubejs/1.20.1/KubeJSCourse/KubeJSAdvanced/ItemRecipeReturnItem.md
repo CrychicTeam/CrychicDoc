@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 物品配方合成返回物品
 这一章理论来说应该在物品属性里，但是可修改的物品属性太多了，所以把这一个单独拿出来

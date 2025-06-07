@@ -7,5 +7,6 @@
   "samples.md": false,
   "sidebarTutorial.md": false,
   "styleList.md": false,
-  "vscode-snippets-guide.md": false
+  "vscode-snippets-guide.md": false,
+  "scripts.md": false
 }

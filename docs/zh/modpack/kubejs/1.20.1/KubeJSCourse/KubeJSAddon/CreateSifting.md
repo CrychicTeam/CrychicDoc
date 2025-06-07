@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 机械动力：筛子
 本章将会介绍如何使用kubejs来修改机械动力的筛子

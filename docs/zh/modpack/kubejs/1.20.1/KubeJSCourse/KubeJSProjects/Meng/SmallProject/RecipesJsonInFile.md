@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 获取所有配方json并保存为文件
 本章主要涉及内容：获取所有配方、JsonIO，本章所有代码部分都在`server_scripts`里

@@ -69,9 +69,12 @@ export class SyncEngine {
                 updatedMetadata[itemKey] = {
                     ...existingEntry,
                     isActiveInStructure: true,
-                    // lastSeen: currentTimestamp  // Removed to prevent heavy git commits
-                    // KEEP existing valueHash and isUserSet unchanged
                 };
+
+                // For order type, update the item's priority from the existing value
+                if (overrideType === 'order' && typeof existingJsonValue === 'number') {
+                    item._priority = existingJsonValue;
+                }
                 
                 console.log(`DEBUG: SyncEngine - Preserved existing entry: "${itemKey}" = "${existingJsonValue}"`);
                 existingEntriesUpdated++;
@@ -85,22 +88,22 @@ export class SyncEngine {
                 } else if (overrideType === 'hidden') {
                     defaultValue = false; // Default to not hidden
                 } else if (overrideType === 'order') {
-                    defaultValue = item._priority !== undefined ? item._priority : 0;
-                    } else {
+                    // For order type, use the item's priority if set, otherwise use Number.MAX_SAFE_INTEGER
+                    defaultValue = typeof item._priority === 'number' ? item._priority : Number.MAX_SAFE_INTEGER;
+                } else {
                     continue;
-            }
+                }
 
                 // Add new JSON entry
                 updatedJsonData[itemKey] = defaultValue;
 
                 // Add new metadata entry (marked as system-generated, not user-set)
                 updatedMetadata[itemKey] = metadataManager.createNewMetadataEntry(defaultValue, false, true);
-                // updatedMetadata[itemKey].lastSeen = currentTimestamp;  // Removed to prevent heavy git commits
                 
                 console.log(`DEBUG: SyncEngine - Added new entry: "${itemKey}" = "${defaultValue}"`);
                 newEntriesAdded++;
             }
-            }
+        }
 
         // Mark inactive entries and remove them from JSON (but preserve in metadata for restoration)
         let inactiveEntriesMarked = 0;
@@ -116,10 +119,9 @@ export class SyncEngine {
             // If this key is not in the current active structure, it's orphaned
             if (!currentItemKeys.has(existingKey)) {
                 // Mark as inactive in metadata (for potential restoration)
-                    updatedMetadata[existingKey] = {
+                updatedMetadata[existingKey] = {
                     ...existingEntry,
                     isActiveInStructure: false,
-                    // lastSeen: currentTimestamp  // Removed to prevent heavy git commits
                 };
                 
                 // REMOVE from JSON data - orphaned entries should not clutter the config

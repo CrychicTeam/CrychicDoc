@@ -46,6 +46,10 @@ const CommitsCounter = defineAsyncComponent(
     () => import("@components/content/CommitsCounter.vue")
 );
 
+const Contributors = defineAsyncComponent(
+    () => import("@components/content/Contributors.vue")
+);
+
 const MinecraftAdvancedDamageChart = defineAsyncComponent(
     () => import("@components/content/minecraft-advanced-damage-chart.vue")
 );
@@ -101,6 +105,7 @@ export default {
         ctx.app.component("PdfViewer", PdfViewer);
         ctx.app.component("LiteTree", LiteTree);
         ctx.app.component("MagicMoveContainer", MagicMoveContainer);
+        ctx.app.component("Contributors", Contributors);
     },
     setup() {
         const route = useRoute();

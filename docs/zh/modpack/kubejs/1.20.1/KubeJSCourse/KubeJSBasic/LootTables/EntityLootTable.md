@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 生物掉落
 在下面将会使用kubejs的生物战利品最基础的写法格式、可调用参数

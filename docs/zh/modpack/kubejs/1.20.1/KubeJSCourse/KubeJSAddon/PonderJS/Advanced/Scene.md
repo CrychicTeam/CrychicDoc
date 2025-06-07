@@ -1,5 +1,8 @@
 ---
-authors: ['Gu-meng', 'Qi-Month']
+authors:
+  - Gu-meng
+  - Qi-Month
+editor: Gu-meng
 ---
 > ### encapsulateBounds
 >

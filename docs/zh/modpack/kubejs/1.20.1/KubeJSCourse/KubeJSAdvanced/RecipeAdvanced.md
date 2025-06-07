@@ -1,3 +1,6 @@
+---
+editor: Gu-meng
+---
 # 配方合成进阶
 本章节所有内容都为KubeJS提供的shapeless和shaped，不适用于其他任何配方，哪怕你能够调用，但是并不会有用
 

@@ -8,13 +8,16 @@
   "datapack/": {
     "valueHash": "6a01c565da6473d8e2badeb5e9b3d029",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446740
+    "isActiveInStructure": true
   },
   "resourcepack/": {
     "valueHash": "380c02a0c5a779d07f0f9b65987fba01",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446740
+    "isActiveInStructure": true
+  },
+  "vanilla/": {
+    "valueHash": "7d3cf600bf044a1aaf9324807bd8d13e",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }

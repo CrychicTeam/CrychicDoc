@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # ForgeEvent的使用
 > 孤梦注：可千万不要玩forge事件啊，玩了你就要长脑子了！！！

@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 注册AE存储元件和对应的组件
 本章涉及内容：`Java.loadClass`的使用、`StartupEvents.registry`里的`createCustom`使用

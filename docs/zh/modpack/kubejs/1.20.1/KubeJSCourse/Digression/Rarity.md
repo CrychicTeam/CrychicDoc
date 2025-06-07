@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 物品稀有度(Rarity)
 **稀有度主要作用是用来影响物品名称在游戏内显示的颜色效果(如果物品单独设置了颜色则不受影响)**

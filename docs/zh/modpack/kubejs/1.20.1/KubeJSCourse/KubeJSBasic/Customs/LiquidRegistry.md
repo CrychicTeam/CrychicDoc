@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 注册流体
 在kubejs当中使用下面一行代码进行流体的添加注册

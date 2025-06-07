@@ -8,7 +8,11 @@
   "MBD2/": {
     "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447066
+    "isActiveInStructure": true
+  },
+  "custom/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }

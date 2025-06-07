@@ -3,5 +3,5 @@
   "1.20.1/": true,
   "1.20.4/": true,
   "1.21/": true,
-  "Mixin/": true
+  "Mixin/": false
 }

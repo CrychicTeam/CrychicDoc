@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # MoreJS提供的事件
 在这一章中将会简单分享介绍morejs所提供的所有事件和对应的使用方法示例链接

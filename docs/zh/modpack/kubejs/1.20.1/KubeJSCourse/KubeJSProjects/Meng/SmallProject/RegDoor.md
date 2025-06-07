@@ -1,3 +1,6 @@
+---
+editor: Gu-meng
+---
 # 注册门
 本章主要涉及内容：createCustom，本章所有代码部分都在`startup_scripts`里
 

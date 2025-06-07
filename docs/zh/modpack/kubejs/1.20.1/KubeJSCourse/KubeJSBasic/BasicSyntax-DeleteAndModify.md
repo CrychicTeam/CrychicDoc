@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 基础写法-删除和修改
 在本章中，将介绍**配方过滤器**和使用**配方过滤器**删除和修改配方

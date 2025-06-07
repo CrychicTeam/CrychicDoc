@@ -8,7 +8,11 @@
   "Neoforge/": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447091
+    "isActiveInStructure": true
+  },
+  "1.20.4/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }

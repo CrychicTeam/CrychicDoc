@@ -51,6 +51,16 @@ features:
 gitChangelog: false
 ---
 
+<Contributors
+  owner="PickAID"
+  repo="CrychicDoc"
+  :max-count="100"
+  :show-contributions="true"
+  :enable-cache="true"
+  title="Contributors"
+  locale="en-US"
+/>
+
 <commitsCounter
   username="PickAID"
   repoName="CrychicDoc"

@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 祭坛合成
 本章涉及内容：自定义结构、配方检测、配方注册、JEI自定义注册、物品实体

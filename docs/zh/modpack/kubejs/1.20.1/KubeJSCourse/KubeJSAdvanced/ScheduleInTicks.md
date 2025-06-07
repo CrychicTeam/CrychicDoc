@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 定时任务
 在很多时候我们希望一个事件在一秒或者n秒后执行，而不是立马执行

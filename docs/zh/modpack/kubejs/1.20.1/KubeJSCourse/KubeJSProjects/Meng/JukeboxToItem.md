@@ -1,5 +1,7 @@
 ---
-authors: ['Gu-meng']
+authors:
+  - Gu-meng
+editor: Gu-meng
 ---
 # 唱片转化为物品
 本章涉及内容：唱片方块实体、方块实体数据、方块的弹出物品方法

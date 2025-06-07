@@ -1,5 +1,6 @@
 ---
 authors: ['Gu-meng']
+editor: Gu-meng
 ---
 :::: center
 # KubeJS教程-1.20.1

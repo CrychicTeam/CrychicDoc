@@ -2,19 +2,21 @@
   "Q&A/": {
     "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446768
+    "isActiveInStructure": true
   },
   "borad/": {
     "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446768
+    "isActiveInStructure": true
   },
   "code/": {
     "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254446768
+    "isActiveInStructure": true
+  },
+  "KubeJS/": {
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }
