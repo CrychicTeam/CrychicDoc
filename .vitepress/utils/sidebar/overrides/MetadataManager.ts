@@ -129,7 +129,6 @@ export class MetadataManager {
             valueHash: this.generateValueHash(value),
             isUserSet,
             isActiveInStructure,
-            lastSeen: Date.now(),
         };
     }
 

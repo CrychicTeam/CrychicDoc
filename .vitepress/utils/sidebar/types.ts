@@ -112,7 +112,7 @@ export interface MetadataEntry {
     valueHash: string;      // Hash of the value in the corresponding JSON file (e.g., MD5 of the translated string)
     isUserSet: boolean;     // True if the user created/significantly edited this entry, false if system-generated stub
     isActiveInStructure: boolean; // True if this key currently maps to an item in the live declarative structure
-    lastSeen?: number;      // Timestamp of last update/verification (e.g., Date.now())
+    lastSeen?: number;      // DEPRECATED: No longer actively maintained to prevent heavy git commits
 }
 
 /**

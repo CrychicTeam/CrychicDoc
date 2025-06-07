@@ -66,7 +66,6 @@ export class DirectoryCleanupService {
                     const metadata = await this.metadataManager.readMetadata(type, lang, dirSignature);
                     for (const key in metadata) {
                         metadata[key].isActiveInStructure = false;
-                        metadata[key].lastSeen = Date.now();
                     }
                     await this.metadataManager.writeMetadata(type, lang, dirSignature, metadata);
                 } catch (error) {

@@ -2903,6 +2903,35 @@
       "_hidden": false
     }
   ],
+  "/zh/info/doc/suggestion/": [
+    {
+      "text": "Suggestion",
+      "items": [
+        {
+          "text": "doc",
+          "link": "/zh/info/doc/suggestion/doc.html",
+          "_relativePathKey": "doc.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "writing",
+          "link": "/zh/info/doc/suggestion/writing.html",
+          "_relativePathKey": "writing.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/zh/info/doc/module-request/": [
     {
       "text": "Module request",
@@ -2972,22 +3001,123 @@
       "_hidden": false
     }
   ],
-  "/zh/info/doc/suggestion/": [
+  "/zh/info/KubeJS/borad/": [
     {
-      "text": "Suggestion",
+      "text": "Borad",
       "items": [
         {
-          "text": "doc",
-          "link": "/zh/info/doc/suggestion/doc.html",
-          "_relativePathKey": "doc.md",
+          "text": "code",
+          "link": "/zh/info/KubeJS/borad/code.html",
+          "_relativePathKey": "code.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
         },
         {
-          "text": "writing",
-          "link": "/zh/info/doc/suggestion/writing.html",
-          "_relativePathKey": "writing.md",
+          "text": "docError",
+          "link": "/zh/info/KubeJS/borad/docError.html",
+          "_relativePathKey": "docError.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "modpack",
+          "link": "/zh/info/KubeJS/borad/modpack.html",
+          "_relativePathKey": "modpack.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "modRecommend",
+          "link": "/zh/info/KubeJS/borad/modRecommend.html",
+          "_relativePathKey": "modRecommend.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "navbar",
+          "link": "/zh/info/KubeJS/borad/navbar.html",
+          "_relativePathKey": "navbar.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "publicServer",
+          "link": "/zh/info/KubeJS/borad/publicServer.html",
+          "_relativePathKey": "publicServer.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "teamRecruit",
+          "link": "/zh/info/KubeJS/borad/teamRecruit.html",
+          "_relativePathKey": "teamRecruit.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/info/KubeJS/code/": [
+    {
+      "text": "Code",
+      "items": [
+        {
+          "text": "error",
+          "link": "/zh/info/KubeJS/code/error.html",
+          "_relativePathKey": "error.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "eventHandler",
+          "link": "/zh/info/KubeJS/code/eventHandler.html",
+          "_relativePathKey": "eventHandler.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "loadClass",
+          "link": "/zh/info/KubeJS/code/loadClass.html",
+          "_relativePathKey": "loadClass.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "other",
+          "link": "/zh/info/KubeJS/code/other.html",
+          "_relativePathKey": "other.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "register",
+          "link": "/zh/info/KubeJS/code/register.html",
+          "_relativePathKey": "register.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "utils",
+          "link": "/zh/info/KubeJS/code/utils.html",
+          "_relativePathKey": "utils.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
@@ -3057,75 +3187,6 @@
           "text": "register",
           "link": "/zh/info/KubeJS/Q&A/register.html",
           "_relativePathKey": "register.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/KubeJS/borad/": [
-    {
-      "text": "Borad",
-      "items": [
-        {
-          "text": "code",
-          "link": "/zh/info/KubeJS/borad/code.html",
-          "_relativePathKey": "code.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "docError",
-          "link": "/zh/info/KubeJS/borad/docError.html",
-          "_relativePathKey": "docError.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "modpack",
-          "link": "/zh/info/KubeJS/borad/modpack.html",
-          "_relativePathKey": "modpack.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "modRecommend",
-          "link": "/zh/info/KubeJS/borad/modRecommend.html",
-          "_relativePathKey": "modRecommend.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "navbar",
-          "link": "/zh/info/KubeJS/borad/navbar.html",
-          "_relativePathKey": "navbar.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "publicServer",
-          "link": "/zh/info/KubeJS/borad/publicServer.html",
-          "_relativePathKey": "publicServer.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "teamRecruit",
-          "link": "/zh/info/KubeJS/borad/teamRecruit.html",
-          "_relativePathKey": "teamRecruit.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
@@ -4468,67 +4529,6 @@
         }
       ],
       "collapsed": false,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/KubeJS/code/": [
-    {
-      "text": "Code",
-      "items": [
-        {
-          "text": "error",
-          "link": "/zh/info/KubeJS/code/error.html",
-          "_relativePathKey": "error.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "eventHandler",
-          "link": "/zh/info/KubeJS/code/eventHandler.html",
-          "_relativePathKey": "eventHandler.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "loadClass",
-          "link": "/zh/info/KubeJS/code/loadClass.html",
-          "_relativePathKey": "loadClass.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "other",
-          "link": "/zh/info/KubeJS/code/other.html",
-          "_relativePathKey": "other.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "register",
-          "link": "/zh/info/KubeJS/code/register.html",
-          "_relativePathKey": "register.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "utils",
-          "link": "/zh/info/KubeJS/code/utils.html",
-          "_relativePathKey": "utils.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": true,
       "_priority": 9007199254740991,
       "_relativePathKey": "",
       "_isDirectory": true,

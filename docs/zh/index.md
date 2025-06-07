@@ -1,5 +1,6 @@
 ---
 layout: home
+
 hero:
   name: CrychicDoc
   text: 一个由PickAID团队维护的我的世界文档.

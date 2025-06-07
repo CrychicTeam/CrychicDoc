@@ -44,7 +44,7 @@ export class SyncEngine {
         console.log(`DEBUG: SyncEngine - CONSERVATIVE sync for ${overrideType} (${currentItems.length} items)`);
         console.log(`DEBUG: SyncEngine - Existing JSON keys:`, Object.keys(existingJsonData));
 
-        // CONSERVATIVE APPROACH: Only update lastSeen for existing active entries
+        // CONSERVATIVE APPROACH: Only mark entries as active for existing entries
         // and ADD missing entries - NEVER override existing values
         let newEntriesAdded = 0;
         let existingEntriesUpdated = 0;
@@ -65,11 +65,11 @@ export class SyncEngine {
             const existingJsonValue = existingJsonData[itemKey];
 
             if (existingEntry && existingJsonData.hasOwnProperty(itemKey)) {
-                // ENTRY EXISTS - Only update metadata timestamp, NEVER touch the JSON value
+                // ENTRY EXISTS - Only update metadata status, NEVER touch the JSON value
                 updatedMetadata[itemKey] = {
                     ...existingEntry,
                     isActiveInStructure: true,
-                    lastSeen: currentTimestamp
+                    // lastSeen: currentTimestamp  // Removed to prevent heavy git commits
                     // KEEP existing valueHash and isUserSet unchanged
                 };
                 
@@ -95,7 +95,7 @@ export class SyncEngine {
 
                 // Add new metadata entry (marked as system-generated, not user-set)
                 updatedMetadata[itemKey] = metadataManager.createNewMetadataEntry(defaultValue, false, true);
-                updatedMetadata[itemKey].lastSeen = currentTimestamp;
+                // updatedMetadata[itemKey].lastSeen = currentTimestamp;  // Removed to prevent heavy git commits
                 
                 console.log(`DEBUG: SyncEngine - Added new entry: "${itemKey}" = "${defaultValue}"`);
                 newEntriesAdded++;
@@ -119,7 +119,7 @@ export class SyncEngine {
                     updatedMetadata[existingKey] = {
                     ...existingEntry,
                     isActiveInStructure: false,
-                    lastSeen: currentTimestamp
+                    // lastSeen: currentTimestamp  // Removed to prevent heavy git commits
                 };
                 
                 // REMOVE from JSON data - orphaned entries should not clutter the config
