@@ -1,0 +1,23 @@
+{
+  "_self_": false,
+  "Accessor.md": false,
+  "At.md": false,
+  "Final.md": false,
+  "Implements.md": false,
+  "Inject.md": false,
+  "Interface.md": false,
+  "Intrinsic.md": false,
+  "Invoker.md": false,
+  "Mixin.md": false,
+  "ModifyArg.md": false,
+  "ModifyArgs.md": false,
+  "ModifyConstant.md": false,
+  "ModifyVariable.md": false,
+  "OptionalMixin.md": false,
+  "Overwrite.md": false,
+  "Priority.md": false,
+  "Redirect.md": false,
+  "Shadow.md": false,
+  "Slice.md": false,
+  "Unique.md": false
+}

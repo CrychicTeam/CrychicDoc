@@ -1,0 +1,102 @@
+{
+  "Accessor.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "At.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Final.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Implements.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Inject.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Interface.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Intrinsic.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Invoker.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Mixin.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ModifyArg.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ModifyArgs.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ModifyConstant.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ModifyVariable.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "OptionalMixin.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Overwrite.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Priority.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Redirect.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Shadow.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Slice.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Unique.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  }
+}

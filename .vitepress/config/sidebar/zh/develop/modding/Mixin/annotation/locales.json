@@ -1,0 +1,23 @@
+{
+  "_self_": "注解",
+  "Accessor.md": "@Accessor",
+  "At.md": "@At",
+  "Final.md": "@Final",
+  "Implements.md": "@Implements",
+  "Inject.md": "@Inject",
+  "Interface.md": "@Interface",
+  "Intrinsic.md": "@Intrinsic",
+  "Invoker.md": "@Invoker",
+  "Mixin.md": "@Mixin",
+  "ModifyArg.md": "@ModifyArg",
+  "ModifyArgs.md": "@ModifyArgs",
+  "ModifyConstant.md": "@ModifyConstant",
+  "ModifyVariable.md": "@ModifyVariable",
+  "OptionalMixin.md": "可选 Mixin (Pseudo-Mixins)",
+  "Overwrite.md": "@Overwrite",
+  "Priority.md": "Mixin 优先级",
+  "Redirect.md": "@Redirect",
+  "Shadow.md": "@Shadow",
+  "Slice.md": "@Slice",
+  "Unique.md": "@Unique"
+}

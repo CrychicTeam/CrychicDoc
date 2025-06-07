@@ -1,0 +1,107 @@
+{
+  "_self_": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Accessor.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "At.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Final.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Implements.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Inject.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Interface.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Intrinsic.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Invoker.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Mixin.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ModifyArg.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ModifyArgs.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ModifyConstant.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ModifyVariable.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "OptionalMixin.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Overwrite.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Priority.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Redirect.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Shadow.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Slice.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Unique.md": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  }
+}

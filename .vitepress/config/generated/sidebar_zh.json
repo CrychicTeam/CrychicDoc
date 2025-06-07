@@ -336,7 +336,7 @@
           "text": "1.20.1",
           "link": "/zh/develop/modding/1.20.1/",
           "collapsed": true,
-          "_priority": 9007199254740991,
+          "_priority": 400,
           "_relativePathKey": "1.20.1/",
           "_isDirectory": true,
           "_isRoot": false,
@@ -347,7 +347,7 @@
           "link": "/zh/develop/modding/1.20.4/",
           "items": [],
           "collapsed": true,
-          "_priority": 9007199254740991,
+          "_priority": 500,
           "_relativePathKey": "1.20.4/",
           "_isDirectory": true,
           "_isRoot": true,
@@ -357,10 +357,21 @@
           "text": "1.21",
           "link": "/zh/develop/modding/1.21/",
           "collapsed": true,
-          "_priority": 9007199254740991,
+          "_priority": 1000,
           "_relativePathKey": "1.21/",
           "_isDirectory": true,
           "_isRoot": false,
+          "_hidden": false
+        },
+        {
+          "text": "Mixin",
+          "link": "/zh/develop/modding/Mixin/",
+          "items": [],
+          "collapsed": true,
+          "_priority": 10000000,
+          "_relativePathKey": "Mixin/",
+          "_isDirectory": true,
+          "_isRoot": true,
           "_hidden": false
         }
       ],
@@ -2801,7 +2812,7 @@
                 }
               ],
               "collapsed": true,
-              "_priority": 9007199254740991,
+              "_priority": 500,
               "_relativePathKey": "Neoforge/flandre/",
               "_isDirectory": true,
               "_isRoot": false,
@@ -2809,7 +2820,7 @@
             }
           ],
           "collapsed": true,
-          "_priority": 9007199254740991,
+          "_priority": 500,
           "_relativePathKey": "Neoforge/",
           "_isDirectory": true,
           "_isRoot": true,
@@ -2817,7 +2828,192 @@
         }
       ],
       "collapsed": true,
-      "_priority": 9007199254740991,
+      "_priority": 500,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/develop/modding/Mixin/": [
+    {
+      "text": "Mixin",
+      "items": [
+        {
+          "text": "注解",
+          "link": "/zh/develop/modding/Mixin/annotation/",
+          "items": [
+            {
+              "text": "@Accessor",
+              "link": "/zh/develop/modding/Mixin/annotation/Accessor.html",
+              "_relativePathKey": "annotation/Accessor.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@At",
+              "link": "/zh/develop/modding/Mixin/annotation/At.html",
+              "_relativePathKey": "annotation/At.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Final",
+              "link": "/zh/develop/modding/Mixin/annotation/Final.html",
+              "_relativePathKey": "annotation/Final.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Implements",
+              "link": "/zh/develop/modding/Mixin/annotation/Implements.html",
+              "_relativePathKey": "annotation/Implements.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Inject",
+              "link": "/zh/develop/modding/Mixin/annotation/Inject.html",
+              "_relativePathKey": "annotation/Inject.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Interface",
+              "link": "/zh/develop/modding/Mixin/annotation/Interface.html",
+              "_relativePathKey": "annotation/Interface.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Intrinsic",
+              "link": "/zh/develop/modding/Mixin/annotation/Intrinsic.html",
+              "_relativePathKey": "annotation/Intrinsic.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Invoker",
+              "link": "/zh/develop/modding/Mixin/annotation/Invoker.html",
+              "_relativePathKey": "annotation/Invoker.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Mixin",
+              "link": "/zh/develop/modding/Mixin/annotation/Mixin.html",
+              "_relativePathKey": "annotation/Mixin.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@ModifyArg",
+              "link": "/zh/develop/modding/Mixin/annotation/ModifyArg.html",
+              "_relativePathKey": "annotation/ModifyArg.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@ModifyArgs",
+              "link": "/zh/develop/modding/Mixin/annotation/ModifyArgs.html",
+              "_relativePathKey": "annotation/ModifyArgs.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@ModifyConstant",
+              "link": "/zh/develop/modding/Mixin/annotation/ModifyConstant.html",
+              "_relativePathKey": "annotation/ModifyConstant.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@ModifyVariable",
+              "link": "/zh/develop/modding/Mixin/annotation/ModifyVariable.html",
+              "_relativePathKey": "annotation/ModifyVariable.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "可选 Mixin (Pseudo-Mixins)",
+              "link": "/zh/develop/modding/Mixin/annotation/OptionalMixin.html",
+              "_relativePathKey": "annotation/OptionalMixin.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Overwrite",
+              "link": "/zh/develop/modding/Mixin/annotation/Overwrite.html",
+              "_relativePathKey": "annotation/Overwrite.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "Mixin 优先级",
+              "link": "/zh/develop/modding/Mixin/annotation/Priority.html",
+              "_relativePathKey": "annotation/Priority.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Redirect",
+              "link": "/zh/develop/modding/Mixin/annotation/Redirect.html",
+              "_relativePathKey": "annotation/Redirect.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Shadow",
+              "link": "/zh/develop/modding/Mixin/annotation/Shadow.html",
+              "_relativePathKey": "annotation/Shadow.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Slice",
+              "link": "/zh/develop/modding/Mixin/annotation/Slice.html",
+              "_relativePathKey": "annotation/Slice.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "@Unique",
+              "link": "/zh/develop/modding/Mixin/annotation/Unique.html",
+              "_relativePathKey": "annotation/Unique.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            }
+          ],
+          "collapsed": true,
+          "_priority": -1000,
+          "_relativePathKey": "annotation/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 10000000,
       "_relativePathKey": "",
       "_isDirectory": true,
       "_isRoot": true,
@@ -2866,128 +3062,62 @@
       "_hidden": false
     }
   ],
-  "/zh/info/doc/Q&A/": [
+  "/zh/info/KubeJS/Q&A/": [
     {
       "text": "Q&A",
       "items": [
         {
-          "text": "cooperation",
-          "link": "/zh/info/doc/Q&A/cooperation.html",
-          "_relativePathKey": "cooperation.md",
+          "text": "API",
+          "link": "/zh/info/KubeJS/Q&A/API.html",
+          "_relativePathKey": "API.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "error",
+          "link": "/zh/info/KubeJS/Q&A/error.html",
+          "_relativePathKey": "error.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "event_interaction",
+          "link": "/zh/info/KubeJS/Q&A/event_interaction.html",
+          "_relativePathKey": "event_interaction.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "forgeEvents",
+          "link": "/zh/info/KubeJS/Q&A/forgeEvents.html",
+          "_relativePathKey": "forgeEvents.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "loadClass",
+          "link": "/zh/info/KubeJS/Q&A/loadClass.html",
+          "_relativePathKey": "loadClass.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
         },
         {
           "text": "other",
-          "link": "/zh/info/doc/Q&A/other.html",
+          "link": "/zh/info/KubeJS/Q&A/other.html",
           "_relativePathKey": "other.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
         },
         {
-          "text": "use",
-          "link": "/zh/info/doc/Q&A/use.html",
-          "_relativePathKey": "use.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/doc/suggestion/": [
-    {
-      "text": "Suggestion",
-      "items": [
-        {
-          "text": "doc",
-          "link": "/zh/info/doc/suggestion/doc.html",
-          "_relativePathKey": "doc.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "writing",
-          "link": "/zh/info/doc/suggestion/writing.html",
-          "_relativePathKey": "writing.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/doc/module-request/": [
-    {
-      "text": "Module request",
-      "items": [
-        {
-          "text": "beautify",
-          "link": "/zh/info/doc/module-request/beautify.html",
-          "_relativePathKey": "beautify.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "codeShare",
-          "link": "/zh/info/doc/module-request/codeShare.html",
-          "_relativePathKey": "codeShare.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "component",
-          "link": "/zh/info/doc/module-request/component.html",
-          "_relativePathKey": "component.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "kubejs",
-          "link": "/zh/info/doc/module-request/kubejs.html",
-          "_relativePathKey": "kubejs.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "mod",
-          "link": "/zh/info/doc/module-request/mod.html",
-          "_relativePathKey": "mod.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "modPlugin",
-          "link": "/zh/info/doc/module-request/modPlugin.html",
-          "_relativePathKey": "modPlugin.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "newSection",
-          "link": "/zh/info/doc/module-request/newSection.html",
-          "_relativePathKey": "newSection.md",
+          "text": "register",
+          "link": "/zh/info/KubeJS/Q&A/register.html",
+          "_relativePathKey": "register.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
@@ -3131,62 +3261,128 @@
       "_hidden": false
     }
   ],
-  "/zh/info/KubeJS/Q&A/": [
+  "/zh/info/doc/Q&A/": [
     {
       "text": "Q&A",
       "items": [
         {
-          "text": "API",
-          "link": "/zh/info/KubeJS/Q&A/API.html",
-          "_relativePathKey": "API.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "error",
-          "link": "/zh/info/KubeJS/Q&A/error.html",
-          "_relativePathKey": "error.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "event_interaction",
-          "link": "/zh/info/KubeJS/Q&A/event_interaction.html",
-          "_relativePathKey": "event_interaction.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "forgeEvents",
-          "link": "/zh/info/KubeJS/Q&A/forgeEvents.html",
-          "_relativePathKey": "forgeEvents.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "loadClass",
-          "link": "/zh/info/KubeJS/Q&A/loadClass.html",
-          "_relativePathKey": "loadClass.md",
+          "text": "cooperation",
+          "link": "/zh/info/doc/Q&A/cooperation.html",
+          "_relativePathKey": "cooperation.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
         },
         {
           "text": "other",
-          "link": "/zh/info/KubeJS/Q&A/other.html",
+          "link": "/zh/info/doc/Q&A/other.html",
           "_relativePathKey": "other.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
         },
         {
-          "text": "register",
-          "link": "/zh/info/KubeJS/Q&A/register.html",
-          "_relativePathKey": "register.md",
+          "text": "use",
+          "link": "/zh/info/doc/Q&A/use.html",
+          "_relativePathKey": "use.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/info/doc/suggestion/": [
+    {
+      "text": "Suggestion",
+      "items": [
+        {
+          "text": "doc",
+          "link": "/zh/info/doc/suggestion/doc.html",
+          "_relativePathKey": "doc.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "writing",
+          "link": "/zh/info/doc/suggestion/writing.html",
+          "_relativePathKey": "writing.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/info/doc/module-request/": [
+    {
+      "text": "Module request",
+      "items": [
+        {
+          "text": "beautify",
+          "link": "/zh/info/doc/module-request/beautify.html",
+          "_relativePathKey": "beautify.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "codeShare",
+          "link": "/zh/info/doc/module-request/codeShare.html",
+          "_relativePathKey": "codeShare.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "component",
+          "link": "/zh/info/doc/module-request/component.html",
+          "_relativePathKey": "component.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "kubejs",
+          "link": "/zh/info/doc/module-request/kubejs.html",
+          "_relativePathKey": "kubejs.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "mod",
+          "link": "/zh/info/doc/module-request/mod.html",
+          "_relativePathKey": "mod.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "modPlugin",
+          "link": "/zh/info/doc/module-request/modPlugin.html",
+          "_relativePathKey": "modPlugin.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "newSection",
+          "link": "/zh/info/doc/module-request/newSection.html",
+          "_relativePathKey": "newSection.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false

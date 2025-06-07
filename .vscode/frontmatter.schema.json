@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "文档标题"
+        },
+        "description": {
+            "type": "string",
+            "description": "文档描述"
+        },
+        "layout": {
+            "type": "string",
+            "enum": ["doc", "home", "page"],
+            "description": "页面布局"
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "文档标签"
+        },
+        "authors": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "文档作者"
+        },
+        "progress": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "完成进度"
+        },
+        "noguide": {
+            "type": "boolean",
+            "description": "无指南标记"
+        },
+        "root": {
+            "type": "boolean",
+            "description": "是否为侧边栏根章节"
+        },
+        "collapsed": {
+            "type": "boolean",
+            "description": "侧边栏是否默认折叠"
+        },
+        "hidden": {
+            "type": "boolean",
+            "description": "是否在侧边栏隐藏"
+        },
+        "priority": {
+            "type": "number",
+            "description": "排序优先级"
+        },
+        "maxDepth": {
+            "type": "number",
+            "minimum": 1,
+            "description": "最大嵌套深度"
+        },
+        "prev": {
+            "type": ["boolean", "string"],
+            "description": "上一页导航"
+        },
+        "next": {
+            "type": ["boolean", "string"],
+            "description": "下一页导航"
+        },
+        "showComment": {
+            "type": "boolean",
+            "description": "是否显示评论"
+        },
+        "gitChangelog": {
+            "type": "boolean",
+            "description": "是否显示 Git 更新日志"
+        },
+        "state": {
+            "type": "string",
+            "enum": ["preliminary", "unfinished", "outdated", "renovating"],
+            "description": "文档状态"
+        }
+    }
+} 

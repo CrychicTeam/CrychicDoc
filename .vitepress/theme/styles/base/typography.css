@@ -4,12 +4,97 @@
  */
 
 /* ===== TYPOGRAPHY STYLES ===== */
-body:where(:lang(zh)) {
-    font-family: ui-sans-serif, system-ui, "PingFang SC", "Noto Sans CJK SC", "Noto Sans SC", "Heiti SC",
-        "Microsoft YaHei", "DengXian", sans-serif, "Apple Color Emoji",
+:root {
+    font-family: "HarmonyOS Sans SC", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 1.05em;
+    font-weight: 400;
+}
+
+/* Font imports */
+@font-face {
+    font-family: "HarmonyOS Sans SC";
+    src: url("/fonts/HarmonyOS_Sans_SC_Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "HarmonyOS Sans SC";
+    src: url("/fonts/HarmonyOS_Sans_SC_Light.ttf") format("truetype");
     font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "HarmonyOS Sans SC";
+    src: url("/fonts/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "HarmonyOS Sans SC";
+    src: url("/fonts/HarmonyOS_Sans_SC_Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "HarmonyOS Sans SC";
+    src: url("/fonts/HarmonyOS_Sans_SC_Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "HarmonyOS Sans SC";
+    src: url("/fonts/HarmonyOS_Sans_SC_Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Chinese punctuation marks */
+@font-face {
+    font-family: 'Punctuation SC';
+    font-weight: 400;
+    src: local('PingFang SC Regular'), local('Noto Sans CJK SC'),
+        local('Microsoft YaHei');
+    unicode-range: U+201C, U+201D, U+2018, U+2019, U+2E3A, U+2014, U+2013, U+2026,
+        U+00B7, U+007E, U+002F;
+}
+
+@font-face {
+    font-family: 'Punctuation SC';
+    font-weight: 500;
+    src: local('PingFang SC Medium'), local('Noto Sans CJK SC'),
+        local('Microsoft YaHei');
+    unicode-range: U+201C, U+201D, U+2018, U+2019, U+2E3A, U+2014, U+2013, U+2026,
+        U+00B7, U+007E, U+002F;
+}
+
+@font-face {
+    font-family: 'Punctuation SC';
+    font-weight: 600;
+    src: local('PingFang SC Semibold'), local('Noto Sans CJK SC Bold'),
+        local('Microsoft YaHei Bold');
+    unicode-range: U+201C, U+201D, U+2018, U+2019, U+2E3A, U+2014, U+2013, U+2026,
+        U+00B7, U+007E, U+002F;
+}
+
+@font-face {
+    font-family: 'Punctuation SC';
+    font-weight: 700;
+    src: local('PingFang SC Semibold'), local('Noto Sans CJK SC Bold'),
+        local('Microsoft YaHei Bold');
+    unicode-range: U+201C, U+201D, U+2018, U+2019, U+2E3A, U+2014, U+2013, U+2026,
+        U+00B7, U+007E, U+002F;
 }
 
 .vp-doc p {
@@ -18,9 +103,9 @@ body:where(:lang(zh)) {
 
 .is-home,
 .name .text {
-    font-family: ui-sans-serif, system-ui, "PingFang SC", "Noto Sans CJK SC", "Noto Sans SC", "Heiti SC",
-        "Microsoft YaHei", "DengXian", sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "HarmonyOS Sans SC", "Inter", ui-sans-serif, system-ui, "PingFang SC", 
+        "Noto Sans CJK SC", "Microsoft YaHei", "Heiti SC", "DengXian", sans-serif, 
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1.05em;
 }
 
@@ -30,5 +115,6 @@ body:where(:lang(zh)) {
 .vp-doc h4,
 .vp-doc h5,
 .vp-doc h6 {
-    font-weight: 400;
+    font-weight: 500;
+    font-family: "HarmonyOS Sans SC", "Inter", ui-sans-serif, system-ui, sans-serif;
 }
