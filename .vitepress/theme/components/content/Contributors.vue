@@ -507,7 +507,7 @@
     }
 
     .dark .contributors-container {
-        background: #1b1b1f;
+        background: #1B1B1F !important;
     }
 
     .contributors-content {
@@ -711,92 +711,179 @@
         display: inline-block;
     }
 
-    /* Contributors Layout */
+    .contributor-group {
+        width: 100%;
+    }
+
+    /* Master grid container for perfect alignment */
     .contributors-layout {
         display: flex;
         flex-direction: column;
         gap: 32px;
         margin-top: 32px;
+        --container-max-width: 1200px;
+        --container-padding: 40px;
+        --grid-gap: 20px;
     }
 
     .contributor-group {
         width: 100%;
+        max-width: var(--container-max-width);
+        margin: 0 auto;
+        padding: 0 var(--container-padding);
+        box-sizing: border-box;
     }
 
-    .group-grid {
+    .contributor-group .group-grid {
         display: grid;
-        gap: 20px;
-        justify-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        justify-items: stretch;
+        align-items: start;
     }
 
-    /* Large Group (First 5 Contributors - Rank 1-5) - Always 5 per row */
+    /* Large Group - 5 equal columns within fixed container */
     .group-large .group-grid {
         grid-template-columns: repeat(5, 1fr);
-        width: 100%;
-        margin: 0 auto;
-        gap: 24px;
+        gap: var(--grid-gap);
     }
 
     .group-large .contributor-card {
-        padding: 36px 24px;
+        padding: 24px 16px;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(var(--vp-c-bg-soft-rgb), 0.3);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .group-large .avatar-container {
+        margin: 0 0 16px 0;
+        position: relative;
     }
 
     .group-large .contributor-avatar {
-        width: 88px;
-        height: 88px;
-        border-width: 4px;
+        width: 80px;
+        height: 80px;
+        border-width: 3px;
+    }
+
+    .group-large .contributor-info {
+        text-align: center;
+        padding: 0 16px;
     }
 
     .group-large .contributor-name {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 700;
+        margin: 0 0 8px 0;
     }
 
     .group-large .contributor-contributions {
         font-size: 14px;
+        margin: 0;
     }
 
-    /* Medium Group (Next 5 Contributors - Rank 6-10) - Always 5 per row */
+    /* Medium Group - 5 equal columns within same fixed container */
     .group-medium .group-grid {
         grid-template-columns: repeat(5, 1fr);
-        width: 100%;
-        margin: 0 auto;
-        gap: 16px;
+        gap: var(--grid-gap);
     }
 
     .group-medium .contributor-card {
-        padding: 16px 10px;
+        padding: 20px 12px;
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(var(--vp-c-bg-soft-rgb), 0.3);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .group-medium .avatar-container {
+        margin: 0 0 12px 0;
+        position: relative;
     }
 
     .group-medium .contributor-avatar {
-        width: 48px;
-        height: 48px;
+        width: 56px;
+        height: 56px;
+    }
+
+    .group-medium .contributor-info {
+        text-align: center;
+        padding: 0 12px;
     }
 
     .group-medium .contributor-name {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 600;
+        margin: 0 0 6px 0;
     }
 
     .group-medium .contributor-contributions {
-        font-size: 11px;
+        font-size: 12px;
+        margin: 0;
     }
 
-    /* Small Group (All Remaining Contributors - Rank 11+, 10 per group) - Always 10 per row */
+    /* Small Group - 10 equal columns within same fixed container */
     .group-small .group-grid {
         grid-template-columns: repeat(10, 1fr);
-        width: 100%;
-        margin: 0 auto;
-        gap: 8px;
+        gap: var(--grid-gap);
     }
 
     .group-small .contributor-card {
-        padding: 8px 4px;
+        padding: 16px 8px;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(var(--vp-c-bg-soft-rgb), 0.3);
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .group-small .avatar-container {
+        margin: 0 0 8px 0;
+        position: relative;
     }
 
     .group-small .contributor-avatar {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .group-small .contributor-info {
+        text-align: center;
+        padding: 0 4px;
+    }
+
+    .group-small .contributor-name {
+        font-size: 11px;
+        font-weight: 600;
+        margin: 0 0 4px 0;
+    }
+
+    .group-small .contributor-contributions {
+        font-size: 10px;
+        margin: 0;
     }
 
 
@@ -807,8 +894,55 @@
 
     /* Larger screens - maintain column counts but increase sizes */
     @media (min-width: 1200px) {
+        .contributors-layout {
+            --container-max-width: 1400px;
+            --container-padding: 60px;
+        }
+        
+        .group-large .contributor-card {
+            padding: 28px 20px;
+            min-height: 200px;
+        }
+        
+        .group-large .contributor-avatar {
+            width: 88px;
+            height: 88px;
+        }
+        
+        .group-large .contributor-name {
+            font-size: 20px;
+        }
+        
+        .group-medium .contributor-card {
+            padding: 24px 16px;
+            min-height: 160px;
+        }
+        
+        .group-medium .contributor-avatar {
+            width: 64px;
+            height: 64px;
+        }
+        
+        .group-small .contributor-card {
+            padding: 18px 10px;
+            min-height: 120px;
+        }
+        
+        .group-small .contributor-avatar {
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    @media (min-width: 1600px) {
+        .contributors-layout {
+            --container-max-width: 1600px;
+            --container-padding: 80px;
+        }
+        
         .group-large .contributor-card {
             padding: 40px 28px;
+            min-height: 220px;
         }
         
         .group-large .contributor-avatar {
@@ -821,62 +955,31 @@
         }
         
         .group-medium .contributor-card {
-            padding: 18px 12px;
+            padding: 28px 18px;
+            min-height: 180px;
         }
         
         .group-medium .contributor-avatar {
-            width: 52px;
-            height: 52px;
+            width: 72px;
+            height: 72px;
+        }
+        
+        .group-medium .contributor-name {
+            font-size: 16px;
         }
         
         .group-small .contributor-card {
-            padding: 10px 6px;
+            padding: 20px 12px;
+            min-height: 140px;
         }
         
         .group-small .contributor-avatar {
-            width: 36px;
-            height: 36px;
-        }
-    }
-
-    @media (min-width: 1600px) {
-        .group-large .contributor-card {
-            padding: 48px 32px;
-        }
-        
-        .group-large .contributor-avatar {
-            width: 104px;
-            height: 104px;
-        }
-        
-        .group-large .contributor-name {
-            font-size: 24px;
-        }
-        
-        .group-medium .contributor-card {
-            padding: 20px 14px;
-        }
-        
-        .group-medium .contributor-avatar {
             width: 56px;
             height: 56px;
         }
         
-        .group-medium .contributor-name {
-            font-size: 14px;
-        }
-        
-        .group-small .contributor-card {
-            padding: 12px 8px;
-        }
-        
-        .group-small .contributor-avatar {
-            width: 40px;
-            height: 40px;
-        }
-        
         .group-small .contributor-name {
-            font-size: 11px;
+            font-size: 13px;
         }
     }
 
@@ -1038,11 +1141,19 @@
 
     /* Dark theme adjustments */
     .dark .contributor-card {
-        background: rgba(255, 255, 255, 0.05);
+        background: #1B1B1F;
     }
 
     .dark .contributor-card:hover {
-        background: rgba(255, 255, 255, 0.08);
+        background: #1B1B1F;
+    }
+
+    .dark .owner-card {
+        background: linear-gradient(135deg, 
+            #1B1B1F, 
+            rgba(27, 27, 31, 0.95)
+        );
+        border: 2px solid rgba(var(--vp-c-brand-rgb), 0.3);
     }
 
     /* Responsive design */
@@ -1063,55 +1174,77 @@
             justify-content: space-around;
         }
 
+        .contributors-layout {
+            --container-padding: 16px;
+            --grid-gap: 12px;
+        }
+        
         .group-large .group-grid {
-            grid-template-columns: repeat(5, 1fr);
             gap: 12px;
         }
 
         .group-large .contributor-card {
-            padding: 20px 12px;
+            padding: 12px 6px;
+            min-height: 120px;
+            width: 90px;
+        }
+
+        .group-large .avatar-container {
+            margin-top: 12px;
+            margin-bottom: 10px;
         }
 
         .group-large .contributor-avatar {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
         }
 
         .group-large .contributor-name {
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .group-medium .group-grid {
-            grid-template-columns: repeat(5, 1fr);
             gap: 10px;
         }
 
         .group-medium .contributor-card {
-            padding: 12px 6px;
+            padding: 10px 4px;
+            min-height: 100px;
+            width: 90px;
+        }
+
+        .group-medium .avatar-container {
+            margin-top: 10px;
+            margin-bottom: 8px;
         }
 
         .group-medium .contributor-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
         }
 
         .group-medium .contributor-name {
-            font-size: 11px;
+            font-size: 10px;
         }
 
         .group-small .group-grid {
-            grid-template-columns: repeat(10, 1fr);
-            gap: 6px;
-            width: 100%;
+            gap: 8px;
         }
 
         .group-small .contributor-card {
-            padding: 6px 2px;
+            padding: 6px 3px;
+            min-height: 60px;
+            width: 50px;
+        }
+
+        .group-small .avatar-container {
+            margin-top: 8px;
+            margin-bottom: 6px;
         }
 
         .group-small .contributor-avatar {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
         }
 
 
