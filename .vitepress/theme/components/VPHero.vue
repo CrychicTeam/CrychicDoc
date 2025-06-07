@@ -235,15 +235,17 @@
     const imageVariants = {
         hidden: {
             opacity: 0,
-            clipPath: "inset(100% 0 0 0)",
+            scale: 0.9,
+            y: 20,
         },
         visible: {
             opacity: 1,
-            clipPath: "inset(0% 0 0 0)",
+            scale: 1,
+            y: 0,
             transition: {
-                duration: 1.2,
+                duration: 0.8,
                 ease: "easeOut",
-                delay: 0.4,
+                delay: 0.2,
             },
         },
     };
@@ -261,6 +263,7 @@
     // Simple parallax for floating words
     const parallaxContainer = ref<HTMLElement | null>(null);
     const floatingWords = ref<HTMLElement[]>([]);
+    const isMobile = ref(false);
 
     const handleMouseMove = (event: MouseEvent) => {
         if (!parallaxContainer.value || window.innerWidth < 768) return;
@@ -280,6 +283,10 @@
         });
     };
 
+    const checkMobile = () => {
+        isMobile.value = window.innerWidth < 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    };
+
     onMounted(() => {
         nextTick(() => {
             parallaxContainer.value = document.querySelector(".hero-bg");
@@ -288,7 +295,11 @@
             );
 
             if (typeof window !== "undefined") {
+                checkMobile();
                 window.addEventListener("mousemove", handleMouseMove, {
+                    passive: true,
+                });
+                window.addEventListener("resize", checkMobile, {
                     passive: true,
                 });
             }
@@ -298,6 +309,7 @@
     onUnmounted(() => {
         if (typeof window !== "undefined") {
             window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("resize", checkMobile);
         }
     });
 </script>
@@ -436,14 +448,27 @@
                 <slot name="home-hero-actions-after" />
             </motion.div>
 
+            <!-- Mobile image without motion animations -->
+            <div
+                v-if="(image || heroImageSlotExists) && isMobile"
+                class="image image-mobile"
+            >
+                <div class="image-container">
+                    <slot name="home-hero-image">
+                        <VPImage v-if="image" class="image-src" :image />
+                    </slot>
+                </div>
+            </div>
+
+            <!-- Desktop image with motion animations -->
             <motion.div
-                v-if="image || heroImageSlotExists"
+                v-else-if="image || heroImageSlotExists"
                 class="image"
                 :variants="imageVariants"
                 :whileHover="imageHover"
                 initial="hidden"
                 :whileInView="'visible'"
-                :viewport="{ once: true, margin: '-200px' }"
+                :viewport="{ once: true, margin: '-50px' }"
             >
                 <div class="image-container">
                     <slot name="home-hero-image">
@@ -834,6 +859,24 @@
         position: relative;
     }
 
+    .image-mobile {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        animation: mobile-fade-in 0.6s ease-out;
+    }
+
+    @keyframes mobile-fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     @media (min-width: 960px) {
         .image {
             flex-grow: 1;
@@ -878,6 +921,15 @@
         object-fit: contain;
         border-radius: 16px;
         transition: all 0.3s ease;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+
+    .image-mobile .image-src {
+        transform: none !important;
+        -webkit-transform: none !important;
     }
 
     .hero-bg {

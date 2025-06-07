@@ -721,9 +721,9 @@
         flex-direction: column;
         gap: 32px;
         margin-top: 32px;
-        --container-max-width: 1200px;
-        --container-padding: 40px;
-        --grid-gap: 20px;
+        --container-max-width: 100%;
+        --container-padding: 20px;
+        --grid-gap: 16px;
     }
 
     .contributor-group {
@@ -740,19 +740,21 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        justify-items: stretch;
+        justify-items: center;
         align-items: start;
     }
 
-    /* Large Group - 5 equal columns within fixed container */
+    /* Large Group - responsive columns */
     .group-large .group-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: var(--grid-gap);
+        max-width: 1000px;
+        margin: 0 auto;
     }
 
     .group-large .contributor-card {
-        padding: 24px 16px;
-        min-height: 180px;
+        padding: 20px 12px;
+        min-height: 160px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -763,6 +765,8 @@
         cursor: pointer;
         overflow: hidden;
         margin: 0 auto;
+        max-width: 200px;
+        width: 100%;
     }
 
     .group-large .avatar-container {
@@ -792,15 +796,17 @@
         margin: 0;
     }
 
-    /* Medium Group - 5 equal columns within same fixed container */
+    /* Medium Group - responsive columns */
     .group-medium .group-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: var(--grid-gap);
+        max-width: 1000px;
+        margin: 0 auto;
     }
 
     .group-medium .contributor-card {
-        padding: 20px 12px;
-        min-height: 140px;
+        padding: 16px 10px;
+        min-height: 120px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -811,6 +817,8 @@
         cursor: pointer;
         overflow: hidden;
         margin: 0 auto;
+        max-width: 160px;
+        width: 100%;
     }
 
     .group-medium .avatar-container {
@@ -839,15 +847,17 @@
         margin: 0;
     }
 
-    /* Small Group - 10 equal columns within same fixed container */
+    /* Small Group - responsive columns */
     .group-small .group-grid {
-        grid-template-columns: repeat(10, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: var(--grid-gap);
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .group-small .contributor-card {
-        padding: 16px 8px;
-        min-height: 100px;
+        padding: 12px 6px;
+        min-height: 80px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -858,6 +868,8 @@
         cursor: pointer;
         overflow: hidden;
         margin: 0 auto;
+        max-width: 120px;
+        width: 100%;
     }
 
     .group-small .avatar-container {
@@ -892,16 +904,64 @@
         display: none;
     }
 
-    /* Larger screens - maintain column counts but increase sizes */
+    /* Medium screens */
+    @media (min-width: 768px) {
+        .contributors-layout {
+            --container-padding: 32px;
+            --grid-gap: 20px;
+        }
+        
+        .group-large .group-grid {
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            max-width: 1000px;
+        }
+        
+        .group-large .contributor-card {
+            padding: 24px 16px;
+            min-height: 180px;
+            max-width: 220px;
+        }
+        
+        .group-medium .group-grid {
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            max-width: 1000px;
+        }
+        
+        .group-medium .contributor-card {
+            padding: 20px 12px;
+            min-height: 140px;
+            max-width: 180px;
+        }
+        
+        .group-small .group-grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            max-width: 1200px;
+        }
+        
+        .group-small .contributor-card {
+            padding: 16px 8px;
+            min-height: 100px;
+            max-width: 140px;
+        }
+    }
+
+    /* Large screens */
     @media (min-width: 1200px) {
         .contributors-layout {
             --container-max-width: 1400px;
             --container-padding: 60px;
+            --grid-gap: 24px;
+        }
+        
+        .group-large .group-grid {
+            grid-template-columns: repeat(5, 1fr);
+            max-width: 1200px;
         }
         
         .group-large .contributor-card {
-            padding: 28px 20px;
+            padding: 32px 20px;
             min-height: 200px;
+            max-width: 240px;
         }
         
         .group-large .contributor-avatar {
@@ -913,9 +973,15 @@
             font-size: 20px;
         }
         
+        .group-medium .group-grid {
+            grid-template-columns: repeat(5, 1fr);
+            max-width: 1200px;
+        }
+        
         .group-medium .contributor-card {
-            padding: 24px 16px;
-            min-height: 160px;
+            padding: 28px 16px;
+            min-height: 180px;
+            max-width: 240px;
         }
         
         .group-medium .contributor-avatar {
@@ -923,9 +989,15 @@
             height: 64px;
         }
         
+        .group-small .group-grid {
+            grid-template-columns: repeat(10, 1fr);
+            max-width: 1400px;
+        }
+        
         .group-small .contributor-card {
-            padding: 18px 10px;
+            padding: 20px 10px;
             min-height: 120px;
+            max-width: 140px;
         }
         
         .group-small .contributor-avatar {
@@ -934,6 +1006,7 @@
         }
     }
 
+    /* Extra large screens */
     @media (min-width: 1600px) {
         .contributors-layout {
             --container-max-width: 1600px;
@@ -941,7 +1014,7 @@
         }
         
         .group-large .contributor-card {
-            padding: 40px 28px;
+            padding: 36px 24px;
             min-height: 220px;
         }
         
@@ -955,8 +1028,8 @@
         }
         
         .group-medium .contributor-card {
-            padding: 28px 18px;
-            min-height: 180px;
+            padding: 32px 20px;
+            min-height: 200px;
         }
         
         .group-medium .contributor-avatar {
@@ -969,7 +1042,7 @@
         }
         
         .group-small .contributor-card {
-            padding: 20px 12px;
+            padding: 24px 12px;
             min-height: 140px;
         }
         
@@ -1180,72 +1253,38 @@
         }
         
         .group-large .group-grid {
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            max-width: 100%;
         }
-
+        
         .group-large .contributor-card {
+            padding: 16px 8px;
+            min-height: 140px;
+            max-width: 160px;
+        }
+        
+        .group-medium .group-grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            max-width: 100%;
+        }
+        
+        .group-medium .contributor-card {
             padding: 12px 6px;
             min-height: 120px;
-            width: 90px;
+            max-width: 140px;
         }
-
-        .group-large .avatar-container {
-            margin-top: 12px;
-            margin-bottom: 10px;
-        }
-
-        .group-large .contributor-avatar {
-            width: 50px;
-            height: 50px;
-        }
-
-        .group-large .contributor-name {
-            font-size: 12px;
-        }
-
-        .group-medium .group-grid {
-            gap: 10px;
-        }
-
-        .group-medium .contributor-card {
-            padding: 10px 4px;
-            min-height: 100px;
-            width: 90px;
-        }
-
-        .group-medium .avatar-container {
-            margin-top: 10px;
-            margin-bottom: 8px;
-        }
-
-        .group-medium .contributor-avatar {
-            width: 40px;
-            height: 40px;
-        }
-
-        .group-medium .contributor-name {
-            font-size: 10px;
-        }
-
+        
         .group-small .group-grid {
-            gap: 8px;
+            grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+            max-width: 100%;
         }
-
+        
         .group-small .contributor-card {
-            padding: 6px 3px;
-            min-height: 60px;
-            width: 50px;
+            padding: 10px 4px;
+            min-height: 80px;
+            max-width: 100px;
         }
 
-        .group-small .avatar-container {
-            margin-top: 8px;
-            margin-bottom: 6px;
-        }
-
-        .group-small .contributor-avatar {
-            width: 28px;
-            height: 28px;
-        }
 
 
 
