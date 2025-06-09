@@ -14,6 +14,21 @@
                     {{ link.code[lang] }}
                 </v-sheet>
             </v-btn>
+            <!-- 网站统计信息 -->
+            <v-col 
+                v-if="siteViews > 0 || siteVisitors > 0"
+                class="text-center text-small bold-text theme-text"
+                cols="12"
+            >
+                <v-sheet class="pa-0 ma-0" color="transparent">
+                    <v-icon class="theme-icon mr-1" size="12" icon="mdi-eye-outline" />
+                    <span>{{ lang === 'zh-CN' ? '总访问量' : 'Total Views' }}: {{ siteViews.toLocaleString() }}</span>
+                    <span class="mx-2">|</span>
+                    <v-icon class="theme-icon mr-1" size="12" icon="mdi-account-outline" />
+                    <span>{{ lang === 'zh-CN' ? '访客数' : 'Visitors' }}: {{ siteVisitors.toLocaleString() }}</span>
+                </v-sheet>
+            </v-col>
+            
             <v-col
                 class="text-center text-large bold-text mt-2 theme-text"
                 cols="12"
@@ -22,14 +37,28 @@
                 {{ author.code[lang] }}
             </v-col>
         </v-row>
+        
+        <!-- 不蒜子统计元素 - 使用绝对定位隐藏 -->
+        <div style="position: absolute; left: -9999px;">
+            <span id="busuanzi_container_site_pv">
+                <span id="busuanzi_value_site_pv"></span>
+            </span>
+            <span id="busuanzi_container_site_uv">
+                <span id="busuanzi_value_site_uv"></span>
+            </span>
+        </div>
     </v-footer>
 </template>
 
 <script setup>
-    import { ref } from "vue";
+    import { ref, onMounted } from "vue";
     import { useData } from "vitepress";
 
     const { lang } = useData();
+    
+    // 不蒜子统计数据
+    const siteViews = ref(0);
+    const siteVisitors = ref(0);
 
     const currentYear = new Date().getFullYear();
     const beginYear = "2024";
@@ -66,11 +95,52 @@
     };
 
     const links = ref([icp, license]);
+
+    onMounted(() => {
+        if (typeof window !== 'undefined') {
+            let timeoutPV = 0;
+            let timeoutUV = 0;
+            let retryCount = 0;
+            
+            const getSiteStats = () => {
+                if (timeoutPV) clearTimeout(timeoutPV);
+                if (timeoutUV) clearTimeout(timeoutUV);
+                
+                timeoutPV = window.setTimeout(() => {
+                    const $sitePV = document.querySelector('#busuanzi_value_site_pv');
+                    const pvText = $sitePV?.innerHTML;
+                    if ($sitePV && pvText && pvText.trim() !== '' && !isNaN(parseInt(pvText))) {
+                        siteViews.value = parseInt(pvText);
+                    }
+                }, 500);
+                
+                timeoutUV = window.setTimeout(() => {
+                    const $siteUV = document.querySelector('#busuanzi_value_site_uv');
+                    const uvText = $siteUV?.innerHTML;
+                    if ($siteUV && uvText && uvText.trim() !== '' && !isNaN(parseInt(uvText))) {
+                        siteVisitors.value = parseInt(uvText);
+                    }
+                    
+                    // 如果都没获取到且重试次数未超限，继续重试
+                    if ((siteViews.value === 0 || siteVisitors.value === 0) && retryCount < 15) {
+                        retryCount++;
+                        setTimeout(getSiteStats, 1000);
+                    }
+                }, 500);
+            };
+            
+            getSiteStats();
+        }
+    });
 </script>
 
 <style scoped>
     .text-large {
         font-size: 14px;
+    }
+    .text-small {
+        font-size: 12px;
+        opacity: 0.8;
     }
     .bold-text {
         font-weight: 400;

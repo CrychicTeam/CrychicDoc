@@ -44,29 +44,56 @@
     onMounted(() => {
         analyze();
         
-        // 监听不蒜子统计更新
+        // 获取不蒜子统计数据
         if (typeof window !== 'undefined') {
-            // 设置定时检查不蒜子统计
-            const checkBusuanzi = () => {
-                const pvElement = document.getElementById('busuanzi_value_page_pv');
-                if (pvElement && pvElement.textContent) {
-                    const newValue = parseInt(pvElement.textContent) || 0;
-                    if (newValue > 0) {
-                        pageViews.value = newValue;
-                    }
+            let timeoutPV = 0;
+            let retryCount = 0;
+            
+            const initBusuanzi = () => {
+                // 先尝试调用busuanzi.fetch()来确保统计更新
+                if (typeof (window as any).busuanzi !== 'undefined') {
+                    console.log('调用 busuanzi.fetch() 更新统计');
+                    (window as any).busuanzi.fetch();
                 }
             };
             
-            // 立即检查一次
-            checkBusuanzi();
+            const getPV = () => {
+                if (timeoutPV) clearTimeout(timeoutPV);
+                timeoutPV = window.setTimeout(() => {
+                    const $PV = document.querySelector('#busuanzi_value_page_pv');
+                    const text = $PV?.innerHTML;
+                    console.log('不蒜子检查:', { 
+                        element: !!$PV, 
+                        text, 
+                        parsed: text ? parseInt(text) : 0,
+                        retryCount,
+                        busuanziLoaded: typeof (window as any).busuanzi !== 'undefined'
+                    });
+                    
+                    if ($PV && text && text.trim() !== '' && !isNaN(parseInt(text))) {
+                        pageViews.value = parseInt(text);
+                        console.log('✅ 不蒜子统计更新:', pageViews.value);
+                    } else {
+                        // 如果超过15秒还没获取到，就停止重试
+                        retryCount++;
+                        if (retryCount < 30) {
+                            // 每隔一段时间尝试初始化不蒜子
+                            if (retryCount % 5 === 0) {
+                                initBusuanzi();
+                            }
+                            getPV();
+                        } else {
+                            console.warn('❌ 不蒜子统计获取失败，停止重试');
+                        }
+                    }
+                }, 500);
+            };
             
-            // 设置周期性检查
-            const interval = setInterval(checkBusuanzi, 1000);
-            
-            // 清理定时器
+            // 延迟开始，确保DOM已加载
             setTimeout(() => {
-                clearInterval(interval);
-            }, 5000);
+                initBusuanzi();
+                getPV();
+            }, 1000);
         }
     });
 
@@ -111,12 +138,10 @@
     </div>
     <State />
     
-    <!-- 隐藏的不蒜子元素，用于统计 -->
-    <div style="display: none;">
-        <span id="busuanzi_container_page_pv">
-            <span id="busuanzi_value_page_pv">0</span>
-        </span>
-    </div>
+    <!-- 不蒜子统计元素 - 必须可见才能正确统计 -->
+    <span id="busuanzi_container_page_pv" style="position: absolute; left: -9999px;">
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
 </template>
 
 <style>
