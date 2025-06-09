@@ -85,152 +85,31 @@ export default {
     },
     async enhanceApp(ctx) {
         if (inBrowser) {
-            let busuanziScriptLoaded = false;
+            // Load Busuanzi script
+            const loadBusuanzi = () => {
+                if (document.querySelector('script[src*="busuanzi"]')) return;
+                
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+                document.head.appendChild(script);
+            };
             
-            // 动态加载不蒜子官方脚本
-            const loadBusuanziScript = () => {
-                return new Promise((resolve) => {
-                    if (document.querySelector('script[src*="busuanzi"]') || busuanziScriptLoaded) {
-                        // 检查window.busuanzi是否已经可用
-                        if (typeof (window as any).busuanzi !== 'undefined') {
-                            resolve(true);
-                            return;
-                        }
-                        // 如果脚本已加载但window.busuanzi不可用，等待一下
-                        setTimeout(() => {
-                            resolve(typeof (window as any).busuanzi !== 'undefined');
-                        }, 500);
-                        return;
+            // Update page view statistics
+            const updateStats = () => {
+                setTimeout(() => {
+                    if (typeof (window as any).busuanzi?.fetch === 'function') {
+                        (window as any).busuanzi.fetch();
                     }
-                    
-                    const script = document.createElement('script');
-                    script.async = true;
-                    script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-                    script.onload = () => {
-                        busuanziScriptLoaded = true;
-                        // console.log('✅ 不蒜子官方脚本加载完成');
-                        
-                        // 等待一下让脚本完全初始化
-                        setTimeout(() => {
-                            if (typeof (window as any).busuanzi !== 'undefined') {
-                                // console.log('🎯 window.busuanzi 已可用');
-                                resolve(true);
-                            } else {
-                                // console.warn('⚠️ 脚本加载但window.busuanzi不可用');
-                                resolve(false);
-                            }
-                        }, 500);
-                    };
-                    script.onerror = () => {
-                        // console.warn('❌ 不蒜子官方脚本加载失败');
-                        resolve(false);
-                    };
-                    document.head.appendChild(script);
-                    // console.log('🔧 开始加载不蒜子官方脚本');
-                });
+                }, 1000);
             };
             
-            const updateBusuanzi = () => {
-                setTimeout(async () => {
-                    const scriptLoaded = await loadBusuanziScript();
-                    
-                    if (!scriptLoaded) {
-                        // console.warn('⚠️ 不蒜子脚本加载失败，跳过统计');
-                        return;
-                    }
-                    
-                    // 清空现有统计元素的内容
-                    const pagePV = document.querySelector('#busuanzi_value_page_pv');
-                    const sitePV = document.querySelector('#busuanzi_value_site_pv');
-                    const siteUV = document.querySelector('#busuanzi_value_site_uv');
-                    
-                    if (pagePV) pagePV.innerHTML = '';
-                    if (sitePV) sitePV.innerHTML = '';
-                    if (siteUV) siteUV.innerHTML = '';
-                    
-                    // 等待DOM更新后调用统计
-                    setTimeout(() => {
-                        const currentURL = window.location.href;
-                        const pathname = window.location.pathname;
-                        
-                        // console.log('📊 更新不蒜子统计:', { 
-                        //     url: currentURL, 
-                        //     pathname,
-                        //     busuanziWindow: typeof (window as any).busuanzi !== 'undefined',
-                        //     elements: {
-                        //         pagePV: !!document.querySelector('#busuanzi_value_page_pv'),
-                        //         sitePV: !!document.querySelector('#busuanzi_value_site_pv'),
-                        //         siteUV: !!document.querySelector('#busuanzi_value_site_uv')
-                        //     }
-                        // });
-                        
-                        // 只使用官方脚本
-                        if (typeof (window as any).busuanzi !== 'undefined') {
-                            const busuanziObj = (window as any).busuanzi;
-                            
-                            if (typeof busuanziObj.fetch === 'function') {
-                                try {
-                                    busuanziObj.fetch();
-                                    // console.log('✅ 调用 busuanzi.fetch()');
-                                } catch (error) {
-                                    // console.error('❌ busuanzi.fetch() 调用失败:', error);
-                                }
-                            }
-                            
-                            // 尝试调用其他可能的方法来强制刷新
-                            if (typeof busuanziObj.send === 'function') {
-                                try {
-                                    busuanziObj.send();
-                                    console.log('✅ 调用 busuanzi.send()');
-                                } catch (error) {
-                                    console.error('❌ busuanzi.send() 调用失败:', error);
-                                }
-                            }
-                            
-                            // console.log('🔧 不蒜子对象方法:', Object.keys(busuanziObj));
-                        } else {
-                            // console.warn('❌ window.busuanzi 不可用');
-                            
-                            // 如果官方脚本还未初始化，尝试手动触发
-                            const scriptElements = document.querySelectorAll('script[src*="busuanzi"]');
-                            if (scriptElements.length > 0) {
-                                // console.log('🔄 发现不蒜子脚本，但未初始化，尝试重新加载页面统计');
-                                
-                                // 尝试通过修改URL hash来触发统计更新
-                                const hash = '#' + Date.now();
-                                if (window.location.hash !== hash) {
-                                    window.history.replaceState(null, '', window.location.pathname + hash);
-                                    setTimeout(() => {
-                                        window.history.replaceState(null, '', window.location.pathname);
-                                    }, 100);
-                                }
-                            }
-                        }
-                        
-                        // 2秒后检查结果
-                        setTimeout(() => {
-                            const pagePVNew = document.querySelector('#busuanzi_value_page_pv');
-                            const sitePVNew = document.querySelector('#busuanzi_value_site_pv');
-                            const siteUVNew = document.querySelector('#busuanzi_value_site_uv');
-                            
-                            // console.log('🔍 统计更新结果:', {
-                            //     pagePV: pagePVNew?.innerHTML || '空',
-                            //     sitePV: sitePVNew?.innerHTML || '空',
-                            //     siteUV: siteUVNew?.innerHTML || '空'
-                            // });
-                        }, 2000);
-                    }, 500);
-                }, 300);
-            };
+            // Initialize on first load
+            loadBusuanzi();
+            updateStats();
             
-            // 首次加载
-            updateBusuanzi();
-            
-            // 路由切换时重新调用
-            ctx.router.onAfterRouteChanged = () => {
-                // console.log('🔄 路由切换到:', window.location.pathname);
-                updateBusuanzi();
-            };
+            // Update on route change
+            ctx.router.onAfterRouteChanged = updateStats;
         }
         
         DefaultTheme.enhanceApp(ctx);

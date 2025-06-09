@@ -97,40 +97,27 @@
     const links = ref([icp, license]);
 
     onMounted(() => {
-        if (typeof window !== 'undefined') {
-            let timeoutPV = 0;
-            let timeoutUV = 0;
-            let retryCount = 0;
+        const updateSiteStats = () => {
+            const pvElement = document.querySelector('#busuanzi_value_site_pv');
+            const uvElement = document.querySelector('#busuanzi_value_site_uv');
             
-            const getSiteStats = () => {
-                if (timeoutPV) clearTimeout(timeoutPV);
-                if (timeoutUV) clearTimeout(timeoutUV);
-                
-                timeoutPV = window.setTimeout(() => {
-                    const $sitePV = document.querySelector('#busuanzi_value_site_pv');
-                    const pvText = $sitePV?.innerHTML;
-                    if ($sitePV && pvText && pvText.trim() !== '' && !isNaN(parseInt(pvText))) {
-                        siteViews.value = parseInt(pvText);
-                    }
-                }, 500);
-                
-                timeoutUV = window.setTimeout(() => {
-                    const $siteUV = document.querySelector('#busuanzi_value_site_uv');
-                    const uvText = $siteUV?.innerHTML;
-                    if ($siteUV && uvText && uvText.trim() !== '' && !isNaN(parseInt(uvText))) {
-                        siteVisitors.value = parseInt(uvText);
-                    }
-                    
-                    // 如果都没获取到且重试次数未超限，继续重试
-                    if ((siteViews.value === 0 || siteVisitors.value === 0) && retryCount < 15) {
-                        retryCount++;
-                        setTimeout(getSiteStats, 1000);
-                    }
-                }, 500);
-            };
+            const pvText = pvElement?.innerHTML;
+            const uvText = uvElement?.innerHTML;
             
-            getSiteStats();
-        }
+            if (pvText && !isNaN(parseInt(pvText))) {
+                siteViews.value = parseInt(pvText);
+            }
+            if (uvText && !isNaN(parseInt(uvText))) {
+                siteVisitors.value = parseInt(uvText);
+            }
+        };
+        
+        // Check periodically for updates
+        const interval = setInterval(updateSiteStats, 2000);
+        setTimeout(() => clearInterval(interval), 15000); // Stop after 15 seconds
+        
+        // Initial check
+        setTimeout(updateSiteStats, 3000);
     });
 </script>
 
