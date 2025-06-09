@@ -1,7 +1,8 @@
 ---
 title: 注解
 priority: -1000
-state: renovating
+state: unfinished
+progress: 15
 ---
 
 # 注解 {#annotation}
