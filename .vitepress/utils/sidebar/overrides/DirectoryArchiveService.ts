@@ -114,7 +114,7 @@ export class DirectoryArchiveService {
         }
 
         if (hasArchivedAnyFile) {
-            console.log(`Archived removed directory config: ${dirSignature} -> ${targetDirSignature}`);
+            // Directory successfully archived
         }
     }
 } 

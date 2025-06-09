@@ -968,6 +968,73 @@
       "_hidden": false
     }
   ],
+  "/en/info/KubeJS/code/": [
+    {
+      "text": "Code",
+      "items": [
+        {
+          "text": "error",
+          "link": "/en/info/KubeJS/code/error.html",
+          "_relativePathKey": "error.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "eventHandler",
+          "link": "/en/info/KubeJS/code/eventHandler.html",
+          "_relativePathKey": "eventHandler.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "loadClass",
+          "link": "/en/info/KubeJS/code/loadClass.html",
+          "_relativePathKey": "loadClass.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "other",
+          "link": "/en/info/KubeJS/code/other.html",
+          "_relativePathKey": "other.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "register",
+          "link": "/en/info/KubeJS/code/register.html",
+          "_relativePathKey": "register.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "utils",
+          "link": "/en/info/KubeJS/code/utils.html",
+          "_relativePathKey": "utils.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/en/info/KubeJS/borad/": [
     {
       "text": "Borad",
@@ -1030,73 +1097,6 @@
           "text": "teamRecruit",
           "link": "/en/info/KubeJS/borad/teamRecruit.html",
           "_relativePathKey": "teamRecruit.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/en/info/KubeJS/code/": [
-    {
-      "text": "Code",
-      "items": [
-        {
-          "text": "error",
-          "link": "/en/info/KubeJS/code/error.html",
-          "_relativePathKey": "error.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "eventHandler",
-          "link": "/en/info/KubeJS/code/eventHandler.html",
-          "_relativePathKey": "eventHandler.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "loadClass",
-          "link": "/en/info/KubeJS/code/loadClass.html",
-          "_relativePathKey": "loadClass.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "other",
-          "link": "/en/info/KubeJS/code/other.html",
-          "_relativePathKey": "other.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "register",
-          "link": "/en/info/KubeJS/code/register.html",
-          "_relativePathKey": "register.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "utils",
-          "link": "/en/info/KubeJS/code/utils.html",
-          "_relativePathKey": "utils.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false,
@@ -1258,6 +1258,28 @@
       "_hidden": false
     }
   ],
+  "/en/modpack/kubejs/1.21/": [
+    {
+      "text": "KubeJS",
+      "items": [
+        {
+          "text": "Introduction",
+          "collapsed": true,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "Introduction/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/en/modpack/kubejs/1.20.1/": [
     {
       "text": "KubeJS",
@@ -1345,28 +1367,6 @@
       "_hidden": false
     }
   ],
-  "/en/modpack/kubejs/1.21/": [
-    {
-      "text": "KubeJS",
-      "items": [
-        {
-          "text": "Introduction",
-          "collapsed": true,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "Introduction/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
   "/en/mods/adventure/Champions-Unofficial/": [
     {
       "text": "Champions-Unofficial",
@@ -1436,6 +1436,496 @@
       "_isDirectory": true,
       "_isRoot": true,
       "_hidden": false
+    }
+  ],
+  "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/": [
+    {
+      "text": "前言",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/README",
+      "_relativePathKey": "README.md",
+      "_hidden": false,
+      "_isDirectory": true,
+      "_isRoot": false
+    },
+    {
+      "text": "本文更新日志",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/intro/changelogs",
+      "_relativePathKey": "intro/changelogs.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "1. 指令",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/commands",
+      "_relativePathKey": "the-start/commands.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "1.1 常用指令",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/commands",
+          "_relativePathKey": "the-start/commands.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "1.2 文件结构",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/file-structure",
+          "_relativePathKey": "the-start/file-structure.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "1.3 脚本基础",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/script-format",
+          "_relativePathKey": "the-start/script-format.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "1.4 事件列表",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/event-list",
+          "_relativePathKey": "the-start/event-list.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
+    },
+    {
+      "text": "2. 配方",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/create-recipes",
+      "_relativePathKey": "recipe/create-recipes.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "2.1 新建配方及物品表示",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/create-recipes",
+          "_relativePathKey": "recipe/create-recipes.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "2.2 配方的修改和删除",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/modify-recipes",
+          "_relativePathKey": "recipe/modify-recipes.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "2.3 非标准配方修改",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/custom-recipes",
+          "_relativePathKey": "recipe/custom-recipes.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
+    },
+    {
+      "text": "3. 标签",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/tags",
+      "_relativePathKey": "feature1/tags.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "4. 自定义Loot Table",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/loottable",
+      "_relativePathKey": "feature1/loottable.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "5. 自定义流体",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/fluid",
+      "_relativePathKey": "feature1/fluid.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "6. 自定义世界生成",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/worldgen",
+      "_relativePathKey": "feature1/worldgen.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "7. 添加方块",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/add-blocks",
+      "_relativePathKey": "feature1/add-blocks.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "8. 聊天事件",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/event1/chateventexamples",
+      "_relativePathKey": "event1/chateventexamples.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "9. 计划重启",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/event1/server-auto-restart-example",
+      "_relativePathKey": "event1/server-auto-restart-example.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "10. 自定义窗口标题和logo",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/10-zi-ding-yi-chuang-kou-biao-ti-he-logo",
+      "_relativePathKey": "feature1/10-zi-ding-yi-chuang-kou-biao-ti-he-logo.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "11. 联动相关",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/jei",
+      "_relativePathKey": "mod-tweaks/jei.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "11.1 JEI信息修改",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/jei",
+          "_relativePathKey": "mod-tweaks/jei.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "11.2 REI信息修改",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/rei",
+          "_relativePathKey": "mod-tweaks/rei.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "11.3 FTB Quest相关修改",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/ftb-quests",
+          "_relativePathKey": "mod-tweaks/ftb-quests.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "11.4 KubeJs内置游戏阶段 (类似于GameStage)",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/gamestage",
+          "_relativePathKey": "mod-tweaks/gamestage.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
+    },
+    {
+      "text": "12. KubeJS Addons",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-create",
+      "_relativePathKey": "addons/kubejs-create.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "12.1 KubeJS Create",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-create",
+          "_relativePathKey": "addons/kubejs-create.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "12.2 KubeJS Blood Magic",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-blood-magic",
+          "_relativePathKey": "addons/kubejs-blood-magic.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "12.3 KubeJS Mekanism",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-mekanism",
+          "_relativePathKey": "addons/kubejs-mekanism.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "12.4 KubeJS UI",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-ui",
+          "_relativePathKey": "addons/kubejs-ui.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "12.5 KubeJS Termal",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/termal",
+          "_relativePathKey": "addons/termal.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "12.7 便捷战利品表修改(LootJS Forge)",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs",
+          "_relativePathKey": "addons/lootjs.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "12.8 LootJS战利品表修改实例",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs-examples",
+          "_relativePathKey": "addons/lootjs-examples.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
+    },
+    {
+      "text": "13. 自定义物品和物品ToolTip",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/add-items",
+      "_relativePathKey": "feature2/add-items.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "14. 方块和物品属性修改",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/modify-items-and-blocks",
+      "_relativePathKey": "feature2/modify-items-and-blocks.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "15. 事件相关",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/event-list",
+      "_relativePathKey": "events2/event-list.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "15.0 事件列表",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/event-list",
+          "_relativePathKey": "events2/event-list.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "15.1 玩家&实体事件，信息获取及操作",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/playerjs",
+          "_relativePathKey": "events2/playerjs.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "15.2 实体生成 & RayTraceResultJS & ItemStackJS及其他",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/entityjs-raytrace-itemstack",
+          "_relativePathKey": "events2/entityjs-raytrace-itemstack.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "15.3 方块信息获取及操作",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/block",
+          "_relativePathKey": "events2/block.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "15.4 WorldJS 和 ServerJS",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/worldjs-serverjs",
+          "_relativePathKey": "events2/worldjs-serverjs.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "15.5 本章例子",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/examples",
+          "_relativePathKey": "events2/examples.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "15.6 测试用例",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/tests",
+          "_relativePathKey": "events2/tests.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
+    },
+    {
+      "text": "16. 网络包和Painter API",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/network-painterapi",
+      "_relativePathKey": "others/network-painterapi.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "17. 本地化相关",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/i18n",
+      "_relativePathKey": "others/i18n.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "18. 示例",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/smelting-pickaxe",
+      "_relativePathKey": "others/smelting-pickaxe.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "18.1 熔炼之镐",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/smelting-pickaxe",
+          "_relativePathKey": "others/smelting-pickaxe.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "18.2 罐头示例(包含物品注册, 配方添加, 玩家交互和persistentData的使用)",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/can",
+          "_relativePathKey": "others/can.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
+    },
+    {
+      "text": "19. Forge事件监听",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/forge-events",
+      "_relativePathKey": "others/forge-events.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "20. 1.18.2中的变化和功能",
+      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20-1.18.2-zhong-de-bian-hua-he-gong-neng",
+      "_relativePathKey": "migrate-to-1182/20-1.18.2-zhong-de-bian-hua-he-gong-neng.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "20.1 ProbeJS",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.1-probejs",
+          "_relativePathKey": "migrate-to-1182/20.1-probejs.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "20.2 组件（Component）的使用",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.2-zu-jian-component-de-shi-yong",
+          "_relativePathKey": "migrate-to-1182/20.2-zu-jian-component-de-shi-yong.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "20.3 格式变化",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/README",
+          "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/README.md",
+          "_hidden": false,
+          "_isDirectory": true,
+          "_isRoot": false,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "20.3.1 世界生成",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.1-shi-jie-sheng-cheng",
+              "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/20.3.1-shi-jie-sheng-cheng.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "20.3.2 方块 / 物品注册",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.2-fang-kuai-wu-pin-zhu-ce",
+              "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/20.3.2-fang-kuai-wu-pin-zhu-ce.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "20.3.3 事件",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.3-shi-jian",
+              "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/20.3.3-shi-jian.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            },
+            {
+              "text": "20.3.4 global[] 的使用",
+              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.4-global-de-shi-yong",
+              "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/20.3.4-global-de-shi-yong.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false
+            }
+          ]
+        },
+        {
+          "text": "20.4 命令注册",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.4-ming-ling-zhu-ce",
+          "_relativePathKey": "migrate-to-1182/20.4-ming-ling-zhu-ce.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "20.5 反射与Java access",
+          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.5-fan-she-yu-java-access",
+          "_relativePathKey": "migrate-to-1182/20.5-fan-she-yu-java-access.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
     }
   ],
   "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/": [
@@ -2867,496 +3357,6 @@
               "_isRoot": false
             }
           ]
-        }
-      ]
-    }
-  ],
-  "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/": [
-    {
-      "text": "前言",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/README",
-      "_relativePathKey": "README.md",
-      "_hidden": false,
-      "_isDirectory": true,
-      "_isRoot": false
-    },
-    {
-      "text": "本文更新日志",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/intro/changelogs",
-      "_relativePathKey": "intro/changelogs.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "1. 指令",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/commands",
-      "_relativePathKey": "the-start/commands.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "1.1 常用指令",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/commands",
-          "_relativePathKey": "the-start/commands.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "1.2 文件结构",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/file-structure",
-          "_relativePathKey": "the-start/file-structure.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "1.3 脚本基础",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/script-format",
-          "_relativePathKey": "the-start/script-format.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "1.4 事件列表",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/the-start/event-list",
-          "_relativePathKey": "the-start/event-list.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    },
-    {
-      "text": "2. 配方",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/create-recipes",
-      "_relativePathKey": "recipe/create-recipes.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "2.1 新建配方及物品表示",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/create-recipes",
-          "_relativePathKey": "recipe/create-recipes.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "2.2 配方的修改和删除",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/modify-recipes",
-          "_relativePathKey": "recipe/modify-recipes.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "2.3 非标准配方修改",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/recipe/custom-recipes",
-          "_relativePathKey": "recipe/custom-recipes.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    },
-    {
-      "text": "3. 标签",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/tags",
-      "_relativePathKey": "feature1/tags.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "4. 自定义Loot Table",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/loottable",
-      "_relativePathKey": "feature1/loottable.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "5. 自定义流体",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/fluid",
-      "_relativePathKey": "feature1/fluid.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "6. 自定义世界生成",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/worldgen",
-      "_relativePathKey": "feature1/worldgen.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "7. 添加方块",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/add-blocks",
-      "_relativePathKey": "feature1/add-blocks.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "8. 聊天事件",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/event1/chateventexamples",
-      "_relativePathKey": "event1/chateventexamples.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "9. 计划重启",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/event1/server-auto-restart-example",
-      "_relativePathKey": "event1/server-auto-restart-example.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "10. 自定义窗口标题和logo",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature1/10-zi-ding-yi-chuang-kou-biao-ti-he-logo",
-      "_relativePathKey": "feature1/10-zi-ding-yi-chuang-kou-biao-ti-he-logo.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "11. 联动相关",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/jei",
-      "_relativePathKey": "mod-tweaks/jei.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "11.1 JEI信息修改",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/jei",
-          "_relativePathKey": "mod-tweaks/jei.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "11.2 REI信息修改",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/rei",
-          "_relativePathKey": "mod-tweaks/rei.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "11.3 FTB Quest相关修改",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/ftb-quests",
-          "_relativePathKey": "mod-tweaks/ftb-quests.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "11.4 KubeJs内置游戏阶段 (类似于GameStage)",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/mod-tweaks/gamestage",
-          "_relativePathKey": "mod-tweaks/gamestage.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    },
-    {
-      "text": "12. KubeJS Addons",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-create",
-      "_relativePathKey": "addons/kubejs-create.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "12.1 KubeJS Create",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-create",
-          "_relativePathKey": "addons/kubejs-create.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "12.2 KubeJS Blood Magic",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-blood-magic",
-          "_relativePathKey": "addons/kubejs-blood-magic.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "12.3 KubeJS Mekanism",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-mekanism",
-          "_relativePathKey": "addons/kubejs-mekanism.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "12.4 KubeJS UI",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/kubejs-ui",
-          "_relativePathKey": "addons/kubejs-ui.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "12.5 KubeJS Termal",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/termal",
-          "_relativePathKey": "addons/termal.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "12.7 便捷战利品表修改(LootJS Forge)",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs",
-          "_relativePathKey": "addons/lootjs.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "12.8 LootJS战利品表修改实例",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/addons/lootjs-examples",
-          "_relativePathKey": "addons/lootjs-examples.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    },
-    {
-      "text": "13. 自定义物品和物品ToolTip",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/add-items",
-      "_relativePathKey": "feature2/add-items.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "14. 方块和物品属性修改",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/feature2/modify-items-and-blocks",
-      "_relativePathKey": "feature2/modify-items-and-blocks.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "15. 事件相关",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/event-list",
-      "_relativePathKey": "events2/event-list.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "15.0 事件列表",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/event-list",
-          "_relativePathKey": "events2/event-list.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "15.1 玩家&实体事件，信息获取及操作",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/playerjs",
-          "_relativePathKey": "events2/playerjs.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "15.2 实体生成 & RayTraceResultJS & ItemStackJS及其他",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/entityjs-raytrace-itemstack",
-          "_relativePathKey": "events2/entityjs-raytrace-itemstack.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "15.3 方块信息获取及操作",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/block",
-          "_relativePathKey": "events2/block.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "15.4 WorldJS 和 ServerJS",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/worldjs-serverjs",
-          "_relativePathKey": "events2/worldjs-serverjs.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "15.5 本章例子",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/examples",
-          "_relativePathKey": "events2/examples.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "15.6 测试用例",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/events2/tests",
-          "_relativePathKey": "events2/tests.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    },
-    {
-      "text": "16. 网络包和Painter API",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/network-painterapi",
-      "_relativePathKey": "others/network-painterapi.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "17. 本地化相关",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/i18n",
-      "_relativePathKey": "others/i18n.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "18. 示例",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/smelting-pickaxe",
-      "_relativePathKey": "others/smelting-pickaxe.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "18.1 熔炼之镐",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/smelting-pickaxe",
-          "_relativePathKey": "others/smelting-pickaxe.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "18.2 罐头示例(包含物品注册, 配方添加, 玩家交互和persistentData的使用)",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/can",
-          "_relativePathKey": "others/can.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    },
-    {
-      "text": "19. Forge事件监听",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/others/forge-events",
-      "_relativePathKey": "others/forge-events.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "20. 1.18.2中的变化和功能",
-      "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20-1.18.2-zhong-de-bian-hua-he-gong-neng",
-      "_relativePathKey": "migrate-to-1182/20-1.18.2-zhong-de-bian-hua-he-gong-neng.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "20.1 ProbeJS",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.1-probejs",
-          "_relativePathKey": "migrate-to-1182/20.1-probejs.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "20.2 组件（Component）的使用",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.2-zu-jian-component-de-shi-yong",
-          "_relativePathKey": "migrate-to-1182/20.2-zu-jian-component-de-shi-yong.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "20.3 格式变化",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/README",
-          "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/README.md",
-          "_hidden": false,
-          "_isDirectory": true,
-          "_isRoot": false,
-          "collapsed": true,
-          "items": [
-            {
-              "text": "20.3.1 世界生成",
-              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.1-shi-jie-sheng-cheng",
-              "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/20.3.1-shi-jie-sheng-cheng.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "20.3.2 方块 / 物品注册",
-              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.2-fang-kuai-wu-pin-zhu-ce",
-              "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/20.3.2-fang-kuai-wu-pin-zhu-ce.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "20.3.3 事件",
-              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.3-shi-jian",
-              "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/20.3.3-shi-jian.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            },
-            {
-              "text": "20.3.4 global[] 的使用",
-              "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.3-ge-shi-bian-hua/20.3.4-global-de-shi-yong",
-              "_relativePathKey": "migrate-to-1182/20.3-ge-shi-bian-hua/20.3.4-global-de-shi-yong.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false
-            }
-          ]
-        },
-        {
-          "text": "20.4 命令注册",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.4-ming-ling-zhu-ce",
-          "_relativePathKey": "migrate-to-1182/20.4-ming-ling-zhu-ce.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "20.5 反射与Java access",
-          "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.5-fan-she-yu-java-access",
-          "_relativePathKey": "migrate-to-1182/20.5-fan-she-yu-java-access.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
         }
       ]
     }

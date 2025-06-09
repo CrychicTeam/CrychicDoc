@@ -17,6 +17,43 @@ import { FileSystem, NodeFileSystem } from "./shared/index";
 import { normalizePathSeparators } from "./shared/objectUtils";
 
 /**
+ * Filters out grouped content from sidebar items
+ * @param items - Sidebar items to filter
+ * @param groupPaths - Set of group paths to remove
+ * @returns Filtered sidebar items
+ */
+function filterGroupedContent(items: any[], groupPaths: Set<string>): any[] {
+    return items.map(item => {
+        // Create a copy to avoid mutating the original
+        const newItem = { ...item };
+        
+        // Check if this directory should be removed
+        if (newItem._isDirectory && newItem._relativePathKey && !newItem._isGeneratedGroup) {
+            // Normalize paths for comparison
+            const itemRelativePath = newItem._relativePathKey.replace(/\/$/, '');
+            const itemRelativePathWithSlash = itemRelativePath + '/';
+            
+            // Check if this directory should be removed (exact match with any group path)
+            const shouldRemove = Array.from(groupPaths).some(groupPath => {
+                const normalizedGroupPath = groupPath.replace(/\/$/, '');
+                return itemRelativePath === normalizedGroupPath || itemRelativePathWithSlash === groupPath;
+            });
+            
+            if (shouldRemove) {
+                return null; // Mark for removal
+            }
+        }
+        
+        // Always recursively filter nested items (regardless of whether current item is filtered)
+        if (newItem.items) {
+            newItem.items = filterGroupedContent(newItem.items, groupPaths);
+        }
+        
+        return newItem;
+    }).filter(item => item !== null);
+}
+
+/**
  * @file main.ts
  * @description Top-level orchestrator for the entire sidebar generation process.
  * This file exports the main `generateSidebars` function that drives the system.
@@ -190,6 +227,8 @@ export async function generateSidebars(
             nodeFs,
             langGitbookPaths
         );
+        
+
 
         for (const rootIndexMdPath of normalRootIndexMdPaths) {
             const rootContentPath = normalizePathSeparators(
@@ -224,6 +263,8 @@ export async function generateSidebars(
                 ...effectiveConfig,
                 _baseRelativePathForChildren: "", 
             };
+            
+
 
             const structuralItems =
                 await structuralGenerator.generateSidebarView(
@@ -234,7 +275,8 @@ export async function generateSidebars(
                     isDevMode
                 );
 
-            const finalItems = await jsonSynchronizer.synchronize(
+            // Process structural items normally
+            const synchronizedItems = await jsonSynchronizer.synchronize(
                 rootKeyInSidebarMulti,
                 structuralItems, 
                 lang,
@@ -242,8 +284,112 @@ export async function generateSidebars(
                 langGitbookPaths 
             );
 
-            if (finalItems && finalItems.length > 0) {
-                outputLangSidebar[rootKeyInSidebarMulti] = finalItems;
+            // Handle groups by creating sibling entries in the same sidebar
+            const groupItems: any[] = [];
+            const groupPaths = new Set<string>();
+            
+            if (effectiveConfig.groups && effectiveConfig.groups.length > 0) {
+                for (const groupConfig of effectiveConfig.groups) {
+                    const groupTitle = groupConfig.title;
+                    const groupPath = groupConfig.path;
+                    
+                    // Resolve group content path
+                    const groupContentAbsPath = normalizePathSeparators(
+                        path.resolve(rootContentPath, groupPath)
+                    );
+                    
+                    // Generate unique config path for the group (for JSON configs)
+                    const groupRelativePath = normalizePathSeparators(
+                        path.relative(absDocsPath, groupContentAbsPath)
+                    );
+                    const groupConfigKey = `/${groupRelativePath}/`.replace(/\/\/+/g, "/");
+                    
+                    // Create effective config for group
+                    let groupEffectiveConfig: EffectiveDirConfig;
+                    const groupIndexPath = path.join(groupContentAbsPath, 'index.md');
+                    
+                    try {
+                        groupEffectiveConfig = await configReader.getEffectiveConfig(
+                            groupIndexPath,
+                            lang,
+                            isDevMode
+                        );
+                    } catch (error) {
+                        groupEffectiveConfig = {
+                            ...effectiveConfig,
+                            title: groupTitle,
+                            root: false,
+                            priority: groupConfig.priority ?? 0,
+                            maxDepth: groupConfig.maxDepth ?? effectiveConfig.maxDepth,
+                            _baseRelativePathForChildren: ''
+                        };
+                    }
+                    
+                    // Override with group-specific settings
+                    groupEffectiveConfig = {
+                        ...groupEffectiveConfig,
+                        title: groupTitle,
+                        priority: groupConfig.priority ?? groupEffectiveConfig.priority ?? 0,
+                        maxDepth: groupConfig.maxDepth ?? groupEffectiveConfig.maxDepth,
+                        groups: [], // Prevent infinite recursion
+                        _baseRelativePathForChildren: ''
+                    };
+                    
+                    // Generate group structure
+                    const groupStructuralItems = await structuralGenerator.generateSidebarView(
+                        groupContentAbsPath,
+                        groupEffectiveConfig,
+                        lang,
+                        0,
+                        isDevMode
+                    );
+                    
+                    // Synchronize group items with its own config path
+                    const groupSynchronizedItems = await jsonSynchronizer.synchronize(
+                        groupConfigKey, // Use separate config path for group
+                        groupStructuralItems,
+                        lang,
+                        isDevMode,
+                        langGitbookPaths
+                    );
+                    
+                    if (groupSynchronizedItems && groupSynchronizedItems.length > 0) {
+                        // Create group wrapper item
+                        const groupWrapper = {
+                            text: groupTitle,
+                            items: groupSynchronizedItems,
+                            collapsed: true,
+                            _priority: groupConfig.priority ?? 0,
+                            _relativePathKey: groupPath,
+                            _isDirectory: true,
+                            _isRoot: false,
+                            _hidden: false,
+                            _isGeneratedGroup: true  // Mark as generated group to avoid filtering
+                        };
+                        
+                        groupItems.push(groupWrapper);
+                        groupPaths.add(groupPath);
+                    }
+                }
+            }
+            
+            // Combine main structure (with grouped content removed) and group items
+            if (synchronizedItems && synchronizedItems.length > 0) {
+                let finalItems = synchronizedItems;
+                
+                // Filter out grouped content from main structure
+                if (groupPaths.size > 0) {
+                    finalItems = filterGroupedContent(synchronizedItems, groupPaths);
+                }
+                
+                // Add group items as siblings
+                if (groupItems.length > 0) {
+                    finalItems = [...finalItems, ...groupItems];
+                }
+                
+                if (finalItems.length > 0) {
+                    outputLangSidebar[rootKeyInSidebarMulti] = finalItems;
+                }
             }
         }
         

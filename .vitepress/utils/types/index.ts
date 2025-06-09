@@ -63,6 +63,7 @@ export interface MetadataConfig {
   update: (text: string) => string;
   wordCount: (text: number) => string;
   readTime: (text: number) => string;
+  pageViews: (text: number) => string;
 }
 
 export interface TranslationDictionary {

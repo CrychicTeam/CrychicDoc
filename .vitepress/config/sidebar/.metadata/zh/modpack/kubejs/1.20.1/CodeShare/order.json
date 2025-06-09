@@ -1,32 +1,32 @@
 {
   "CraftingTableGUI.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": true
   },
   "Dining.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": true
   },
   "InvertedBonemeal.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": true
   },
   "LifeValue.md": {
-    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": true
   },
   "Painter.md": {
+    "valueHash": "8bfa9ad090fbbf87e518f1ce24a93eee",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "CodeShare/": {
     "valueHash": "cfcd208495d565ef66e7dff9f98764da",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": false
   }
 }

@@ -20,8 +20,6 @@ export class PathKeyProcessor {
     public extractRelativeKeyForCurrentDir(item: SidebarItem, currentConfigDirSignature: string): string {
         const fullKey = item._relativePathKey || sanitizeTitleForPath(item.text || 'untitled');
         
-        console.log(`DEBUG: PathKeyProcessor - Input: fullKey="${fullKey}", currentConfigDirSignature="${currentConfigDirSignature}", isDirectory=${item._isDirectory}, text="${item.text}"`);
-        
         // If we're at root level, extract the immediate child component
         if (currentConfigDirSignature === '_root') {
             const parts = fullKey.split('/').filter(p => p.length > 0);
@@ -39,7 +37,6 @@ export class PathKeyProcessor {
                 }
             }
             
-            console.log(`DEBUG: PathKeyProcessor - Root level result: "${result}"`);
             return result;
         }
         
@@ -75,12 +72,10 @@ export class PathKeyProcessor {
         if (contentPathStartIndex >= 0 && contentPathStartIndex < configParts.length) {
             // Extract the content path from the config signature
             const contentPath = configParts.slice(contentPathStartIndex).join('/');
-            console.log(`DEBUG: PathKeyProcessor - Extracted content path: "${contentPath}"`);
             
             // Remove the content path prefix from the fullKey to get the relative part
             if (fullKey.startsWith(contentPath + '/')) {
                 const relativePart = fullKey.substring(contentPath.length + 1);
-                console.log(`DEBUG: PathKeyProcessor - Extracted relative part: "${relativePart}"`);
                 
                 // Return only the immediate child portion
                 const parts = relativePart.split('/').filter(p => p.length > 0);
@@ -98,7 +93,6 @@ export class PathKeyProcessor {
                     }
                 }
                 
-                console.log(`DEBUG: PathKeyProcessor - Nested result: "${result}"`);
                 return result;
             } else if (fullKey === contentPath + '/') {
                 // This item represents the directory itself
@@ -121,7 +115,6 @@ export class PathKeyProcessor {
             }
         }
         
-        console.log(`DEBUG: PathKeyProcessor - Fallback result: "${result}"`);
         return result;
     }
 

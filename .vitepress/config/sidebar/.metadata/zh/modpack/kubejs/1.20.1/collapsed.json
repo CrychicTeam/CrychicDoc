@@ -8,19 +8,26 @@
   "CodeShare/": {
     "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447312
+    "isActiveInStructure": true
   },
   "Introduction/": {
     "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447312
+    "isActiveInStructure": true
   },
   "Upgrade/": {
     "valueHash": "b326b5062b2f0e69046810717534cb09",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447312
+    "isActiveInStructure": true
+  },
+  "kubejs-1.20.1/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": false
+  },
+  "代码分享/": {
+    "valueHash": "b326b5062b2f0e69046810717534cb09",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }

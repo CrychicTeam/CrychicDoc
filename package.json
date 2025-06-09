@@ -12,6 +12,7 @@
         "@nolebase/vitepress-plugin-git-changelog": "^2.17.1",
         "@nolebase/vitepress-plugin-inline-link-preview": "^2.17.1",
         "@types/node": "^22.15.26",
+        "busuanzi.pure.js": "^1.0.3",
         "cross-env": "^7.0.3",
         "mermaid": "^11.6.0",
         "postcss": "^8.5.4",
@@ -38,6 +39,7 @@
         "index": "node .vitepress/scripts/create-indexes.mjs"
     },
     "dependencies": {
+        "@fancyapps/ui": "^5.0.36",
         "@lite-tree/vue": "^1.1.6",
         "@mdit-vue/shared": "^2.1.4",
         "@mdit/plugin-alert": "^0.20.0",
@@ -73,9 +75,10 @@
         "motion-v": "^1.1.1",
         "sharp": "^0.34.2",
         "shiki-magic-move": "^1.1.0",
-        "tdesign-vue-next": "^1.13.1",
+        "three.js": "^0.77.1",
         "typescript": "^5.8.3",
         "vitepress-markdown-timeline": "^1.2.2",
+        "vitepress-plugin-llms": "^1.4.0",
         "vue-echarts": "^7.0.3",
         "yarn": "^1.22.22"
     },

@@ -1,5 +1,4 @@
 import path from 'node:path';
-import glob from 'fast-glob'; // For pattern matching
 import { SidebarItem, GroupConfig, EffectiveDirConfig } from '../types';
 import { FileSystem } from '../shared/FileSystem';
 import { ConfigReaderService } from '../config';
@@ -12,13 +11,13 @@ export type ItemProcessorFunction = (
     entryName: string,
     itemAbsPath: string,
     isDir: boolean,
-    parentConfigForEntry: EffectiveDirConfig, // Config context for the item being processed by itemProcessor
+    parentConfigForEntry: EffectiveDirConfig,
     lang: string,
     depthForEntry: number,
     isDevMode: boolean,
     configReader: ConfigReaderService,
     fs: FileSystem,
-    recursiveGeneratorForSubDir: any, // generateSidebarView from StructuralGeneratorService
+    recursiveGeneratorForSubDir: any,
     globalGitBookExclusionList: string[],
     docsAbsPath: string
 ) => Promise<SidebarItem | null>;
@@ -33,177 +32,238 @@ export type RecursiveViewGeneratorFunction = (
 ) => Promise<SidebarItem[]>;
 
 /**
- * Processes a group defined in frontmatter and generates its SidebarItem.
- * @returns A SidebarItem for the group, or null if the group is empty or hidden.
+ * Processes a group defined in frontmatter and generates its separate SidebarItem.
+ * This creates a standalone sidebar section that extracts content from the specified path.
+ * 
+ * @param groupConfig - The simplified group configuration
+ * @param baseDirAbsPath - Absolute path of the directory defining this group
+ * @param parentDirEffectiveConfig - Effective config of the parent directory
+ * @param lang - Current language code
+ * @param isDevMode - Whether running in development mode
+ * @param configReader - Configuration reader service
+ * @param fs - File system interface
+ * @param recursiveViewGenerator - Function to generate nested content
+ * @param globalGitBookExclusionList - Paths to exclude from processing
+ * @param docsAbsPath - Absolute path to docs root
+ * @returns Promise resolving to a SidebarItem for the group, or null if invalid
  */
 export async function processGroup(
     groupConfig: GroupConfig,
-    // Absolute path of the directory whose index.md defines this group
-    baseDirAbsPath: string, 
-    // Effective config of the directory whose index.md defines this group
-    parentDirEffectiveConfig: EffectiveDirConfig, 
+    baseDirAbsPath: string,
+    parentDirEffectiveConfig: EffectiveDirConfig,
     lang: string,
-    // Depth of the group item itself within the parent sidebar structure
-    groupItemLevelDepth: number, 
     isDevMode: boolean,
     configReader: ConfigReaderService,
     fs: FileSystem,
-    itemProcessor: ItemProcessorFunction,
-    recursiveViewGenerator: RecursiveViewGeneratorFunction, // To handle nested groups that are NOT new roots
+    recursiveViewGenerator: RecursiveViewGeneratorFunction,
     globalGitBookExclusionList: string[],
-    docsAbsPath: string,
-    processedPathsSet: Set<string> 
+    docsAbsPath: string
 ): Promise<SidebarItem | null> {
     const groupTitle = groupConfig.title;
-    
+    const groupPath = groupConfig.path;
 
-    const groupItems: SidebarItem[] = [];
-    
-    // Determine content source path for the group's items
-    // Defaults to baseDirAbsPath if groupConfig.path is not set
-    const groupContentSourceAbsPath = groupConfig.path 
-        ? normalizePathSeparators(path.resolve(baseDirAbsPath, groupConfig.path)) 
-        : normalizePathSeparators(baseDirAbsPath);
+    // Resolve the absolute path for the group content
+    const groupContentAbsPath = normalizePathSeparators(
+        path.resolve(baseDirAbsPath, groupPath)
+    );
 
-    let resolvedGroupItemOrder: Record<string, number> = {};
-    if (Array.isArray(groupConfig.itemOrder)) {
-        groupConfig.itemOrder.forEach((item, index) => {
-            if (typeof item === 'string') resolvedGroupItemOrder[item] = index;
-        });
-    } else if (groupConfig.itemOrder && typeof groupConfig.itemOrder === 'object') {
-        resolvedGroupItemOrder = groupConfig.itemOrder as Record<string, number>;
-    }
-
-    // Create an effective config for items within this group
-    // It inherits from parentDirEffectiveConfig but can be overridden by groupConfig properties
-    const groupContextEffectiveConfig: EffectiveDirConfig = {
-        ...parentDirEffectiveConfig, // Inherit from parent
-        title: groupTitle, // Group's title for context, not necessarily for item generation
-        maxDepth: groupConfig.maxDepth ?? parentDirEffectiveConfig.maxDepth,
-        itemOrder: resolvedGroupItemOrder,
-        // _baseRelativePathForChildren should be formed by parent's base + group.path or group.title (slugified)
-        // This needs careful construction based on how group.path or group.title forms a logical subpath
-        _baseRelativePathForChildren: normalizePathSeparators(path.join(parentDirEffectiveConfig._baseRelativePathForChildren || '', groupConfig.path || slugify(groupTitle)))  + '/' // Ensure trailing slash
-    };
-
-    // 1. Process explicit `items` array
-    if (Array.isArray(groupConfig.items)) {
-        for (const itemEntry of groupConfig.items) {
-            let itemName: string;
-            let itemIsLikelyDir = false;
-
-            if (typeof itemEntry === 'string') {
-                itemName = itemEntry;
-                if (itemName.endsWith('/')) itemIsLikelyDir = true;
-            } else { // It's a SidebarItem-like object, less common for raw config
-                itemName = itemEntry.text || '';
-                if (itemEntry.items) itemIsLikelyDir = true;
-            }
-            if (!itemName) continue;
-
-            const itemAbsPath = normalizePathSeparators(path.resolve(groupContentSourceAbsPath, itemName));
-            if (processedPathsSet.has(itemAbsPath) || isGitBookExcluded(itemAbsPath, globalGitBookExclusionList)) continue;
-
-            // Determine actual type by checking fs, unless it's clearly a non-fs item already
-            let isDir = itemIsLikelyDir;
-            try {
-                const stat = await fs.stat(itemAbsPath); // Check existence and type
-                isDir = stat.isDirectory();
-            } catch { continue; /* Skip if stat fails (e.g. not found) */ }
-
-            const processedItem = await itemProcessor(
-                path.basename(itemName.replace(/\/$/, '')), // entryName
-                itemAbsPath,
-                isDir,
-                groupContextEffectiveConfig, // Config context for items within the group
-                lang,
-                groupItemLevelDepth + 1, // Items within a group are one level deeper
-                isDevMode,
-                configReader,
-                fs,
-                recursiveViewGenerator, 
-                globalGitBookExclusionList,
-                docsAbsPath
-            );
-            if (processedItem) {
-                groupItems.push(processedItem);
-                processedPathsSet.add(itemAbsPath);
-            }
+    // Check if the group path exists
+    try {
+        const stat = await fs.stat(groupContentAbsPath);
+        if (!stat.isDirectory()) {
+            console.warn(`Group path is not a directory: ${groupContentAbsPath}`);
+            return null;
         }
-    }
-    // 2. Process `pattern` if no explicit items or if pattern is also provided (additive? TBD by plan)
-    else if (groupConfig.pattern) {
-        const patterns = Array.isArray(groupConfig.pattern) ? groupConfig.pattern : [groupConfig.pattern];
-        const globResults = await glob(patterns.map(p => normalizePathSeparators(p)), { 
-            cwd: groupContentSourceAbsPath, 
-            onlyFiles: false, // Get both files and directories
-            dot: false, 
-            objectMode: true // This should give Dirent-like objects
-        });
-
-        for (const entry of globResults) {
-            const entryName = entry.name;
-            const itemAbsPath = normalizePathSeparators(entry.path);
-            // Glob with mark:true should suffix dirs with '/', but dirent is more reliable if available.
-            // entry.dirent might not be available on all fs-like objects from glob, let's check
-            let isDir = entry.name.endsWith('/'); // Fallback if dirent is not there
-            if(entry.dirent) {
-                isDir = entry.dirent.isDirectory();
-            }
-             // If still unsure, could use await fs.stat(itemAbsPath).then(s => s.isDirectory()).catch(() => false);
-
-            if (processedPathsSet.has(itemAbsPath) || isGitBookExcluded(itemAbsPath, globalGitBookExclusionList)) continue;
-
-            const processedItem = await itemProcessor(
-                entryName.replace(/\/$/, ''),
-                itemAbsPath,
-                isDir,
-                groupContextEffectiveConfig,
-                lang,
-                groupItemLevelDepth + 1, 
-                isDevMode,
-                configReader,
-                fs,
-                recursiveViewGenerator,
-                globalGitBookExclusionList,
-                docsAbsPath
-            );
-            if (processedItem) {
-                groupItems.push(processedItem);
-                processedPathsSet.add(itemAbsPath);
-            }
-        }
-    }
-
-    if (groupItems.length === 0 && !groupConfig.link && ! (groupConfig.path && await fs.exists(path.join(groupContentSourceAbsPath, 'index.md')))) {
-        // Only return null if group has no items AND no explicit link AND its path doesn't have an index.md
-        // This allows empty groups to still be clickable if they have a link or corresponding index.md
+    } catch (error) {
+        console.warn(`Group path does not exist: ${groupContentAbsPath}`);
         return null;
     }
 
-    const finalGroupItems = sortItems(groupItems, groupContextEffectiveConfig.itemOrder);
+    // Check for index.md in the group directory to get configuration
+    const groupIndexPath = path.join(groupContentAbsPath, 'index.md');
+    let groupEffectiveConfig: EffectiveDirConfig;
+    
+    try {
+        groupEffectiveConfig = await configReader.getEffectiveConfig(
+            groupIndexPath,
+            lang,
+            isDevMode
+        );
+    } catch (error) {
+        // If no index.md or error reading config, use parent config as base
+        groupEffectiveConfig = {
+            ...parentDirEffectiveConfig,
+            title: groupTitle,
+            root: false, // Groups are not roots themselves
+            priority: groupConfig.priority ?? 0,
+            maxDepth: groupConfig.maxDepth ?? parentDirEffectiveConfig.maxDepth,
+            path: groupContentAbsPath,
+            _baseRelativePathForChildren: ''
+        };
+    }
 
+    // Override config with group-specific settings
+    groupEffectiveConfig = {
+        ...groupEffectiveConfig,
+        title: groupTitle,
+        priority: groupConfig.priority ?? groupEffectiveConfig.priority ?? 0,
+        maxDepth: groupConfig.maxDepth ?? groupEffectiveConfig.maxDepth,
+        _baseRelativePathForChildren: ''
+    };
+
+    // Generate content for the group using the recursive view generator
+    const groupItems = await recursiveViewGenerator(
+        groupContentAbsPath,
+        groupEffectiveConfig,
+        lang,
+        0, // Start at depth 0 for the group
+        isDevMode
+    );
+
+    // If no items generated, don't create an empty group
+    if (!groupItems || groupItems.length === 0) {
+        return null;
+    }
+
+    // Generate link for the group (to its index.md if it exists)
     const groupLink = await generateLink(
-        groupTitle, // Item name for link generation is the group title
-        'group', 
-        baseDirAbsPath, // Group is defined in this dir, its link is relative to this
-        docsAbsPath, 
-        lang, 
-        fs, 
+        groupTitle,
+        'group',
+        baseDirAbsPath,
+        docsAbsPath,
+        lang,
+        fs,
         groupConfig
     );
 
-    return {
+    // Create the group sidebar item
+    const groupSidebarItem: SidebarItem = {
         text: groupTitle,
         link: groupLink || undefined,
-        items: finalGroupItems.length > 0 ? finalGroupItems : undefined,
-        collapsed: groupConfig.collapsed ?? parentDirEffectiveConfig.collapsed ?? true,
-        _priority: groupConfig.priority, // Group's own priority among its siblings
-        _relativePathKey: groupTitle, // Groups are keyed by their title for parent's itemOrder
-        _isDirectory: true, // Treat as directory-like for collapsing etc.
-        _isRoot: false, // Groups are not roots themselves
+        items: groupItems,
+        collapsed: true, // Groups are collapsed by default
+        _priority: groupConfig.priority ?? 0,
+        _relativePathKey: groupPath,
+        _isDirectory: true,
+        _isRoot: false,
+        _hidden: false
     };
+
+    return groupSidebarItem;
 }
+
+/**
+ * Extracts grouped content from sidebar items and returns both the extracted groups
+ * and the remaining items with grouped content removed.
+ * 
+ * @param sidebarItems - Original sidebar items
+ * @param groups - Group configurations to process
+ * @param baseDirAbsPath - Base directory path
+ * @param parentConfig - Parent directory configuration
+ * @param lang - Language code
+ * @param isDevMode - Development mode flag
+ * @param configReader - Configuration reader
+ * @param fs - File system interface
+ * @param recursiveViewGenerator - Recursive generator function
+ * @param globalGitBookExclusionList - Exclusion list
+ * @param docsAbsPath - Docs root path
+ * @returns Promise resolving to extracted groups and filtered items
+ */
+export async function extractGroups(
+    sidebarItems: SidebarItem[],
+    groups: GroupConfig[],
+    baseDirAbsPath: string,
+    parentConfig: EffectiveDirConfig,
+    lang: string,
+    isDevMode: boolean,
+    configReader: ConfigReaderService,
+    fs: FileSystem,
+    recursiveViewGenerator: RecursiveViewGeneratorFunction,
+    globalGitBookExclusionList: string[],
+    docsAbsPath: string
+): Promise<{ extractedGroups: SidebarItem[]; filteredItems: SidebarItem[] }> {
+    const extractedGroups: SidebarItem[] = [];
+    const pathsToRemove = new Set<string>();
+
+    // Process each group configuration
+    for (const groupConfig of groups) {
+        const groupItem = await processGroup(
+            groupConfig,
+            baseDirAbsPath,
+            parentConfig,
+            lang,
+            isDevMode,
+            configReader,
+            fs,
+            recursiveViewGenerator,
+            globalGitBookExclusionList,
+            docsAbsPath
+        );
+
+        if (groupItem) {
+            extractedGroups.push(groupItem);
+            
+            // Track the path to remove from original items
+            const groupAbsPath = normalizePathSeparators(
+                path.resolve(baseDirAbsPath, groupConfig.path)
+            );
+            pathsToRemove.add(groupAbsPath);
+        }
+    }
+
+    // Filter out items that match the grouped paths
+    const filteredItems = filterItemsByPaths(sidebarItems, pathsToRemove);
+
+    return { extractedGroups, filteredItems };
+}
+
+/**
+ * Removes sidebar items that match the specified paths.
+ * 
+ * @param items - Sidebar items to filter
+ * @param pathsToRemove - Set of absolute paths to remove
+ * @returns Filtered sidebar items
+ */
+function filterItemsByPaths(items: SidebarItem[], pathsToRemove: Set<string>): SidebarItem[] {
+    return items.filter(item => {
+        // Check if this item's path matches any path to remove
+        if (item._filePath && pathsToRemove.has(normalizePathSeparators(item._filePath))) {
+            return false;
+        }
+        
+        // For directory items, check if the directory path matches
+        if (item._isDirectory && item._relativePathKey) {
+            // This is a rough check - might need refinement based on actual path structure
+            const itemPath = item._relativePathKey.replace(/\/$/, '');
+            for (const pathToRemove of pathsToRemove) {
+                if (pathToRemove.endsWith(itemPath) || pathToRemove.includes(`/${itemPath}/`)) {
+                    return false;
+                }
+            }
+        }
+        
+        // Recursively filter nested items
+        if (item.items) {
+            item.items = filterItemsByPaths(item.items, pathsToRemove);
+        }
+        
+        return true;
+    });
+}
+
+/**
+ * Extracts and reorganizes groups from a fully synchronized sidebar structure.
+ * This preserves all existing configurations while creating independent group entries.
+ * 
+ * @param synchronizedItems - The fully synchronized sidebar items with all configs applied
+ * @param groups - Group configurations to process
+ * @param originalRootKey - Original root key (e.g., "/zh/modpack/kubejs/1.20.1/")
+ * @param rootContentPath - Root content path
+ * @param docsAbsPath - Docs absolute path
+ * @param lang - Language code
+ * @returns Promise resolving to reorganized sidebar structure
+ */
+// This function is no longer used - group processing now happens in main.ts
 
 // Helper for slugify, can be moved to shared utils
 function slugify(text: string): string {

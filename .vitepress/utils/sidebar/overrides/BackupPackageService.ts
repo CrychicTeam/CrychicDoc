@@ -58,8 +58,6 @@ export class BackupPackageService {
             this.archivePath, 'removed_directories', packageName
         ));
         
-        console.log(`Creating backup package for removed directory: ${dirSignature} -> ${packageName}`);
-        
         // Ensure package directory exists
         await this.fs.ensureDir(packagePath);
         
@@ -137,8 +135,6 @@ export class BackupPackageService {
         
         // Update main README
         await this.updateMainReadme();
-        
-        console.log(`✅ Created backup package: ${packageName} (${backupInfo.contents.nested_directories.length} nested directories)`);
     }
     
     /**
@@ -228,7 +224,6 @@ export class BackupPackageService {
                             ? `${relativePath}${itemName}/`
                             : `${itemName}/`;
                         
-                        console.log(`Collecting configs from nested directory: ${subDirSignature}`);
                         backupInfo.contents.nested_directories.push(subDirSignature);
                         
                         // Recursively collect from this subdirectory
@@ -265,8 +260,6 @@ export class BackupPackageService {
             this.archivePath, 'inactive_entries', packageName
         ));
         
-        console.log(`Creating backup package for inactive entries: ${configDirSignature} -> ${packageName}`);
-        
         // Ensure package directory exists
         await this.fs.ensureDir(packagePath);
         
@@ -297,8 +290,6 @@ export class BackupPackageService {
         
         // Update main README
         await this.updateMainReadme();
-        
-        console.log(`✅ Created cleanup backup package: ${packageName}`);
     }
     
     /**

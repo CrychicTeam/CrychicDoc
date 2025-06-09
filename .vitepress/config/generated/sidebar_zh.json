@@ -2083,22 +2083,22 @@
               "text": "代码分享",
               "items": [
                 {
-                  "text": "合成台GUI",
+                  "text": "自定义方块打开工作台界面",
                   "link": "/zh/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI.html",
                   "_relativePathKey": "1.20.1/CodeShare/CraftingTableGUI.md",
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false,
-                  "_priority": 0
+                  "_priority": 9007199254740991
                 },
                 {
-                  "text": "进餐",
+                  "text": "饱和修补",
                   "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Dining.html",
                   "_relativePathKey": "1.20.1/CodeShare/Dining.md",
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false,
-                  "_priority": 0
+                  "_priority": 9007199254740991
                 },
                 {
                   "text": "反向骨粉",
@@ -2107,16 +2107,16 @@
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false,
-                  "_priority": 0
+                  "_priority": 9007199254740991
                 },
                 {
-                  "text": "生命值显示",
+                  "text": "死亡扣除最大生命值",
                   "link": "/zh/modpack/kubejs/1.20.1/CodeShare/LifeValue.html",
                   "_relativePathKey": "1.20.1/CodeShare/LifeValue.md",
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false,
-                  "_priority": 0
+                  "_priority": 9007199254740991
                 },
                 {
                   "text": "Painter实例",
@@ -2125,11 +2125,11 @@
                   "_hidden": false,
                   "_isDirectory": false,
                   "_isRoot": false,
-                  "_priority": 0
+                  "_priority": 9007199254740991
                 }
               ],
               "collapsed": true,
-              "_priority": 100000000,
+              "_priority": 9007199254740991,
               "_relativePathKey": "1.20.1/CodeShare/",
               "_isDirectory": true,
               "_isRoot": false,
@@ -3687,6 +3687,281 @@
       "_hidden": false
     }
   ],
+  "/zh/modpack/kubejs/1.21/": [
+    {
+      "text": "KubeJS",
+      "items": [
+        {
+          "text": "介绍",
+          "link": "/zh/modpack/kubejs/1.21/Introduction/",
+          "items": [
+            {
+              "text": "附属",
+              "items": [
+                {
+                  "text": "LootJs",
+                  "items": [
+                    {
+                      "text": "LootJS",
+                      "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootJs.html",
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootJs.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false,
+                      "_priority": -1000000
+                    },
+                    {
+                      "text": "战利品表",
+                      "items": [
+                        {
+                          "text": "Create",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Create.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Create.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Event.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Event.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "Modify",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Modify.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Modify.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        }
+                      ],
+                      "collapsed": true,
+                      "_priority": 100,
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootTables/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    },
+                    {
+                      "text": "战利品修饰器",
+                      "items": [
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/Loot Modifiers/Event.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/Event.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        }
+                      ],
+                      "collapsed": true,
+                      "_priority": 200,
+                      "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    },
+                    {
+                      "text": "战利品修饰器",
+                      "items": [
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootModifiers/Event.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/Event.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        }
+                      ],
+                      "collapsed": true,
+                      "_priority": 300,
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    },
+                    {
+                      "text": "API",
+                      "items": [
+                        {
+                          "text": "ItemFilter",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/ItemFilter.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/ItemFilter.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootConditions",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootConditions.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootConditions.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootContext",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootContext.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootContext.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootEntry",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntry.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntry.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootEntryTransformer",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntryTransformer.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntryTransformer.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootFunctions",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootFunctions.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootFunctions.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootModifier",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootModifier.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootModifier.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootPool",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootPool.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootPool.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootTable",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootTable.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootTable.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "NumberProvider",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/NumberProvider.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/NumberProvider.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "Range",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/Range.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/Range.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        }
+                      ],
+                      "collapsed": true,
+                      "_priority": 10000000000,
+                      "_relativePathKey": "Introduction/Addon/LootJs/API/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "_priority": -1000000,
+                  "_relativePathKey": "Introduction/Addon/LootJs/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                }
+              ],
+              "collapsed": true,
+              "_priority": -1000000,
+              "_relativePathKey": "Introduction/Addon/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
+          "collapsed": true,
+          "_priority": -1000000,
+          "_relativePathKey": "Introduction/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        },
+        {
+          "text": "代码分享",
+          "items": [
+            {
+              "text": "QiHuang02",
+              "items": [
+                {
+                  "text": "矿物生成轮子",
+                  "link": "/zh/modpack/kubejs/1.21/codeshare/QiHuang02/emendatusenigmaticajs.html",
+                  "_relativePathKey": "codeshare/QiHuang02/emendatusenigmaticajs.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false,
+                  "_priority": 0
+                }
+              ],
+              "collapsed": true,
+              "_priority": 0,
+              "_relativePathKey": "codeshare/QiHuang02/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
+          "collapsed": true,
+          "_priority": 0,
+          "_relativePathKey": "codeshare/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        }
+      ],
+      "collapsed": false,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/zh/modpack/kubejs/1.20.1/": [
     {
       "text": "KubeJS-1.20.1",
@@ -5078,62 +5353,6 @@
           "_isDirectory": true,
           "_isRoot": false,
           "_hidden": false
-        },
-        {
-          "text": "代码分享",
-          "items": [
-            {
-              "text": "合成台GUI",
-              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI.html",
-              "_relativePathKey": "CodeShare/CraftingTableGUI.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "进餐",
-              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Dining.html",
-              "_relativePathKey": "CodeShare/Dining.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "反向骨粉",
-              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/InvertedBonemeal.html",
-              "_relativePathKey": "CodeShare/InvertedBonemeal.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "生命值显示",
-              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/LifeValue.html",
-              "_relativePathKey": "CodeShare/LifeValue.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "Painter实例",
-              "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Painter.html",
-              "_relativePathKey": "CodeShare/Painter.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            }
-          ],
-          "collapsed": true,
-          "_priority": 100000000,
-          "_relativePathKey": "CodeShare/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
         }
       ],
       "collapsed": false,
@@ -5142,276 +5361,98 @@
       "_isDirectory": true,
       "_isRoot": true,
       "_hidden": false
-    }
-  ],
-  "/zh/modpack/kubejs/1.21/": [
+    },
     {
-      "text": "KubeJS",
+      "text": "代码分享",
       "items": [
         {
-          "text": "介绍",
-          "link": "/zh/modpack/kubejs/1.21/Introduction/",
-          "items": [
-            {
-              "text": "附属",
-              "items": [
-                {
-                  "text": "LootJs",
-                  "items": [
-                    {
-                      "text": "LootJS",
-                      "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootJs.html",
-                      "_relativePathKey": "Introduction/Addon/LootJs/LootJs.md",
-                      "_hidden": false,
-                      "_isDirectory": false,
-                      "_isRoot": false,
-                      "_priority": -1000000
-                    },
-                    {
-                      "text": "战利品表",
-                      "items": [
-                        {
-                          "text": "Create",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Create.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Create.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "Event",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Event.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Event.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "Modify",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Modify.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Modify.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        }
-                      ],
-                      "collapsed": true,
-                      "_priority": 100,
-                      "_relativePathKey": "Introduction/Addon/LootJs/LootTables/",
-                      "_isDirectory": true,
-                      "_isRoot": false,
-                      "_hidden": false
-                    },
-                    {
-                      "text": "战利品修饰器",
-                      "items": [
-                        {
-                          "text": "Event",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/Loot Modifiers/Event.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/Event.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        }
-                      ],
-                      "collapsed": true,
-                      "_priority": 200,
-                      "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/",
-                      "_isDirectory": true,
-                      "_isRoot": false,
-                      "_hidden": false
-                    },
-                    {
-                      "text": "战利品修饰器",
-                      "items": [
-                        {
-                          "text": "Event",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootModifiers/Event.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/Event.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        }
-                      ],
-                      "collapsed": true,
-                      "_priority": 300,
-                      "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/",
-                      "_isDirectory": true,
-                      "_isRoot": false,
-                      "_hidden": false
-                    },
-                    {
-                      "text": "API",
-                      "items": [
-                        {
-                          "text": "ItemFilter",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/ItemFilter.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/ItemFilter.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootConditions",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootConditions.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootConditions.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootContext",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootContext.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootContext.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootEntry",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntry.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntry.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootEntryTransformer",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntryTransformer.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntryTransformer.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootFunctions",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootFunctions.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootFunctions.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootModifier",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootModifier.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootModifier.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootPool",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootPool.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootPool.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootTable",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootTable.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootTable.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "NumberProvider",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/NumberProvider.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/NumberProvider.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "Range",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/Range.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/Range.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        }
-                      ],
-                      "collapsed": true,
-                      "_priority": 10000000000,
-                      "_relativePathKey": "Introduction/Addon/LootJs/API/",
-                      "_isDirectory": true,
-                      "_isRoot": false,
-                      "_hidden": false
-                    }
-                  ],
-                  "collapsed": true,
-                  "_priority": -1000000,
-                  "_relativePathKey": "Introduction/Addon/LootJs/",
-                  "_isDirectory": true,
-                  "_isRoot": false,
-                  "_hidden": false
-                }
-              ],
-              "collapsed": true,
-              "_priority": -1000000,
-              "_relativePathKey": "Introduction/Addon/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": true,
-          "_priority": -1000000,
-          "_relativePathKey": "Introduction/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
+          "text": "自定义方块打开工作台界面",
+          "link": "/zh/modpack/kubejs/1.20.1/CodeShare/CraftingTableGUI.html",
+          "_priority": 9007199254740991,
+          "_relativePathKey": "CraftingTableGUI.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
         },
         {
-          "text": "代码分享",
-          "items": [
-            {
-              "text": "QiHuang02",
-              "items": [
-                {
-                  "text": "矿物生成轮子",
-                  "link": "/zh/modpack/kubejs/1.21/codeshare/QiHuang02/emendatusenigmaticajs.html",
-                  "_relativePathKey": "codeshare/QiHuang02/emendatusenigmaticajs.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false,
-                  "_priority": 0
-                }
-              ],
-              "collapsed": true,
-              "_priority": 0,
-              "_relativePathKey": "codeshare/QiHuang02/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": true,
-          "_priority": 0,
-          "_relativePathKey": "codeshare/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
+          "text": "饱和修补",
+          "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Dining.html",
+          "_priority": 9007199254740991,
+          "_relativePathKey": "Dining.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "反向骨粉",
+          "link": "/zh/modpack/kubejs/1.20.1/CodeShare/InvertedBonemeal.html",
+          "_priority": 9007199254740991,
+          "_relativePathKey": "InvertedBonemeal.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "死亡扣除最大生命值",
+          "link": "/zh/modpack/kubejs/1.20.1/CodeShare/LifeValue.html",
+          "_priority": 9007199254740991,
+          "_relativePathKey": "LifeValue.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "Painter实例",
+          "link": "/zh/modpack/kubejs/1.20.1/CodeShare/Painter.html",
+          "_priority": 9007199254740991,
+          "_relativePathKey": "Painter.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
         }
       ],
-      "collapsed": false,
+      "collapsed": true,
+      "_priority": 0,
+      "_relativePathKey": "CodeShare/",
+      "_isDirectory": true,
+      "_isRoot": false,
+      "_hidden": false,
+      "_isGeneratedGroup": true
+    }
+  ],
+  "/zh/mods/custom/MBD2/": [
+    {
+      "text": "模组",
+      "items": [
+        {
+          "text": "Multiblock2",
+          "link": "/zh/mods/custom/MBD2/Catalogue.html",
+          "_relativePathKey": "Catalogue.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "SingleBlockBasic",
+          "link": "/zh/mods/custom/MBD2/SingleBlockBasic.html",
+          "_relativePathKey": "SingleBlockBasic.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "SingleBlockBasicSettings",
+          "link": "/zh/mods/custom/MBD2/SingleBlockBasicSettings.html",
+          "_relativePathKey": "SingleBlockBasicSettings.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        }
+      ],
+      "collapsed": true,
       "_priority": 9007199254740991,
       "_relativePathKey": "",
       "_isDirectory": true,
@@ -5454,46 +5495,6 @@
           "text": "Wiki",
           "link": "/zh/mods/adventure/Champions-Unofficial/wiki.html",
           "_relativePathKey": "wiki.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/mods/custom/MBD2/": [
-    {
-      "text": "模组",
-      "items": [
-        {
-          "text": "Multiblock2",
-          "link": "/zh/mods/custom/MBD2/Catalogue.html",
-          "_relativePathKey": "Catalogue.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "SingleBlockBasic",
-          "link": "/zh/mods/custom/MBD2/SingleBlockBasic.html",
-          "_relativePathKey": "SingleBlockBasic.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "SingleBlockBasicSettings",
-          "link": "/zh/mods/custom/MBD2/SingleBlockBasicSettings.html",
-          "_relativePathKey": "SingleBlockBasicSettings.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false,

@@ -46,20 +46,14 @@ export interface DirectoryConfig {
 
 /**
  * Configuration for a group within an index.md's `groups` array.
+ * Groups allow splitting content from a directory into separate sidebar sections.
+ * The grouped content will be removed from the original parent and displayed as a separate top-level item.
  */
 export interface GroupConfig {
-    name?: string // Used to form part of the sidebar key if this group defines a new root
-    path?: string // Relative path to content if this group defines a new root
     title: string // Display title for the group item in the sidebar
-    root?: boolean // True if this group defines a new, independent sidebar root
-    pattern?: string // Glob pattern for items in this group (if not a root-defining group)
-    items?: (string | SidebarItem)[] | string[] // Explicit list of items or item names (if not a root-defining group)
-    collapsed?: boolean
-    hidden?: boolean // True if this group should be hidden from sidebar
-    priority?: number
-    maxDepth?: number
-    itemOrder?: string[] | Record<string, number> // Order for items within this group
-    [key: string]: any // Allow other fields
+    path: string // Relative path to the content directory to be grouped
+    priority?: number // Priority for ordering the group in the sidebar (higher = earlier)
+    maxDepth?: number // Maximum nesting depth for items within this group
 }
 
 /**

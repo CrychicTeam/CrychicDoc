@@ -56,13 +56,10 @@ export class RecursiveSynchronizer {
             return;
         }
 
-        console.log(`DEBUG: synchronizeItemsRecursively called for ${currentConfigDirSignature} with ${items.length} items`);
-
         // Check for flattened root structure (single root item containing all content)
         const isFlattenedRootStructure = isTopLevelCall && items.length === 1 && items[0]._isRoot && items[0].items && items[0].items.length > 0;
 
         if (isFlattenedRootStructure) {
-            console.log(`DEBUG: Processing flattened root structure with ${items[0].items!.length} children`);
 
             // Process the root item's _self_ properties
             const rootItem = items[0];
@@ -78,8 +75,6 @@ export class RecursiveSynchronizer {
             const orderData = await this.jsonFileHandler.readJsonFile('order', lang, currentConfigDirSignature);
             rootItem.items = this.jsonItemSorter.sortItems(rootItem.items!, orderData);
         } else {
-            console.log(`DEBUG: Processing normal hierarchical structure with ${items.length} items`);
-
             // Process direct children at current level
             await this.processDirectChildren(items, currentConfigDirSignature, lang, isDevMode);
 
@@ -117,37 +112,10 @@ export class RecursiveSynchronizer {
                     ? itemRelativeKey.replace(/\/$/, '') // Remove trailing slash for root-level items
                     : normalizePathSeparators(path.join(currentConfigDirSignature, itemRelativeKey.replace(/\/$/, '')));
 
-                console.log(`DEBUG: Processing directory: ${item.text} -> ${nextConfigDirSignature}`);
-                console.log(`DEBUG: Directory has ${item.items?.length || 0} children:`, item.items?.map(child => ({
-                    text: child.text,
-                    _isDirectory: child._isDirectory,
-                    _relativePathKey: child._relativePathKey,
-                    hasItems: child.items ? child.items.length : 0
-                })));
 
-                // Special debugging for flandre and other file-only directories
-                if (item.text === 'flandre' || nextConfigDirSignature.includes('flandre') || (!item.items || item.items.length === 0)) {
-                    console.log(`🔍 SPECIAL DEBUG for file-only directory: ${item.text}`);
-                    console.log(`  - Item text: "${item.text}"`);
-                    console.log(`  - Item _relativePathKey: "${item._relativePathKey}"`);
-                    console.log(`  - NextConfigDirSignature: "${nextConfigDirSignature}"`);
-                    console.log(`  - Has ${item.items?.length || 0} children`);
-                    console.log(`  - Is directory with files only: ${!item.items || item.items.length === 0}`);
-                    
-                    if (item.items && item.items.length > 0) {
-                        console.log(`  - Children details:`, item.items.map(child => ({
-                            text: child.text,
-                            _isDirectory: child._isDirectory,
-                            _relativePathKey: child._relativePathKey,
-                            link: child.link,
-                            _isRoot: child._isRoot
-                        })));
-                    }
-                }
 
                 // Skip GitBook directories
                 if (this.pathProcessor.isGitBookRoot(nextConfigDirSignature, lang, langGitbookPaths, this.absDocsPath)) {
-                    console.log(`DEBUG: Skipping GitBook directory: ${nextConfigDirSignature}`);
                     continue; 
                 }
 
@@ -156,16 +124,6 @@ export class RecursiveSynchronizer {
 
                 // Process children if they exist (both files and subdirectories)
                 if (item.items && item.items.length > 0) {
-                    console.log(`DEBUG: About to recursively process ${item.items.length} children in directory: ${nextConfigDirSignature}`);
-                    
-                    // Add detailed debugging for the children
-                    const childrenDetails = item.items.map(child => ({
-                        text: child.text,
-                        _isDirectory: child._isDirectory,
-                        _relativePathKey: child._relativePathKey,
-                        link: child.link
-                    }));
-                    console.log(`DEBUG: Children details:`, JSON.stringify(childrenDetails, null, 2));
 
                     // First process order for the current directory's items
                     const orderData = await this.jsonFileHandler.readJsonFile('order', lang, nextConfigDirSignature);
@@ -174,11 +132,7 @@ export class RecursiveSynchronizer {
                     
                     // Then recursively process the sorted items
                     await this.synchronizeItemsRecursively(item.items, nextConfigDirSignature, lang, isDevMode, langGitbookPaths, false);
-                } else {
-                    console.log(`DEBUG: Directory "${item.text}" has no children - file-only directory, _self_ properties processed`);
                 }
-                
-                console.log(`DEBUG: Finished processing directory: ${nextConfigDirSignature}`);
             }
         }
     }
@@ -193,34 +147,17 @@ export class RecursiveSynchronizer {
         lang: string,
         isDevMode: boolean
     ): Promise<void> {
-        console.log(`DEBUG: processDirectChildren called for ${currentConfigDirSignature} with ${items.length} items`);
-        
-        // Add debugging to see what items we're processing
-        const itemsDebug = items.map(item => ({
-            text: item.text,
-            _isDirectory: item._isDirectory,
-            _relativePathKey: item._relativePathKey,
-            link: item.link
-        }));
-        console.log(`DEBUG: Items to process:`, JSON.stringify(itemsDebug, null, 2));
-
         // Process locales (text overrides) for direct children
-        console.log(`DEBUG: Processing locales for ${items.length} items...`);
         await this.processChildrenLocales(items, currentConfigDirSignature, lang, isDevMode);
         
         // Process collapsed states for direct children
-        console.log(`DEBUG: Processing collapsed for ${items.length} items...`);
         await this.processChildrenCollapsed(items, currentConfigDirSignature, lang, isDevMode);
         
         // Process hidden states for direct children
-        console.log(`DEBUG: Processing hidden for ${items.length} items...`);
         await this.processChildrenHidden(items, currentConfigDirSignature, lang, isDevMode);
         
         // Process order for direct children
-        console.log(`DEBUG: Processing order for ${items.length} items...`);
         await this.processCurrentItemsOrder(items, currentConfigDirSignature, lang, isDevMode);
-        
-        console.log(`DEBUG: Finished processing all direct children for ${currentConfigDirSignature}`);
     }
 
     /**
@@ -234,8 +171,6 @@ export class RecursiveSynchronizer {
         lang: string,
         langGitbookPaths: string[]
     ): Promise<void> {
-        console.log(`DEBUG: reapplyMigratedValues called for ${rootConfigDirSignature} (${lang})`);
-        
         // Apply overrides for current level items
         const localesData = await this.jsonFileHandler.readJsonFile('locales', lang, rootConfigDirSignature);
         const collapsedData = await this.jsonFileHandler.readJsonFile('collapsed', lang, rootConfigDirSignature);
@@ -274,14 +209,12 @@ export class RecursiveSynchronizer {
                 if (localesData.hasOwnProperty(itemKey)) {
                     item.text = localesData[itemKey];
                     parentOverrideApplied.text = true;
-                    console.log(`DEBUG: Applied parent text override for "${itemKey}": "${localesData[itemKey]}"`);
                 }
                 
                 // Apply collapsed override from parent if it exists
                 if (collapsedData.hasOwnProperty(itemKey) && item._isDirectory) {
                     item.collapsed = collapsedData[itemKey];
                     parentOverrideApplied.collapsed = true;
-                    console.log(`DEBUG: Applied parent collapsed override for "${itemKey}": ${collapsedData[itemKey]}`);
                 }
                 
                 // Apply hidden override from parent if it exists
@@ -306,10 +239,7 @@ export class RecursiveSynchronizer {
                         const itemLocalesData = await this.jsonFileHandler.readJsonFile('locales', lang, nextConfigDirSignature);
                         if (itemLocalesData.hasOwnProperty('_self_')) {
                             item.text = itemLocalesData['_self_'];
-                                console.log(`DEBUG: Applied _self_ text for "${itemKey}": "${itemLocalesData['_self_']}" (no parent override)`);
                             }
-                        } else {
-                            console.log(`DEBUG: Skipped _self_ text for "${itemKey}" (parent override takes priority)`);
                         }
                         
                         // Apply _self_ collapsed value ONLY if parent didn't override it
@@ -317,10 +247,7 @@ export class RecursiveSynchronizer {
                         const itemCollapsedData = await this.jsonFileHandler.readJsonFile('collapsed', lang, nextConfigDirSignature);
                         if (itemCollapsedData.hasOwnProperty('_self_')) {
                             item.collapsed = itemCollapsedData['_self_'];
-                                console.log(`DEBUG: Applied _self_ collapsed for "${itemKey}": ${itemCollapsedData['_self_']} (no parent override)`);
                             }
-                        } else {
-                            console.log(`DEBUG: Skipped _self_ collapsed for "${itemKey}" (parent override takes priority)`);
                         }
                         
                         // Recursively apply to children
@@ -408,12 +335,8 @@ export class RecursiveSynchronizer {
         lang: string,
         isDevMode: boolean
     ): Promise<void> {
-        console.log(`DEBUG: processChildrenLocales - Processing ${items.length} items for ${currentConfigDirSignature}`);
-
         const parentLocalesData = await this.jsonFileHandler.readJsonFile('locales', lang, currentConfigDirSignature);
         const parentLocalesMetadata = await this.metadataManager.readMetadata('locales', lang, currentConfigDirSignature);
-
-        console.log(`DEBUG: processChildrenLocales - Existing JSON has ${Object.keys(parentLocalesData).length} entries`);
 
         const localeSyncResultForChildren = await this.syncEngine.syncOverrideType(
             items, 
@@ -430,16 +353,10 @@ export class RecursiveSynchronizer {
 
         if (hasJsonChanges) {
         await this.jsonFileHandler.writeJsonFile('locales', lang, currentConfigDirSignature, localeSyncResultForChildren.updatedJsonData);
-            console.log(`✅ processChildrenLocales - Updated locales.json for ${currentConfigDirSignature} (new entries added)`);
-        } else {
-            console.log(`⚪ processChildrenLocales - No JSON changes for ${currentConfigDirSignature} (all entries preserved)`);
         }
 
         if (hasMetadataChanges) {
         await this.metadataManager.writeMetadata('locales', lang, currentConfigDirSignature, localeSyncResultForChildren.updatedMetadata);
-            console.log(`✅ processChildrenLocales - Updated metadata for ${currentConfigDirSignature}`);
-        } else {
-            console.log(`⚪ processChildrenLocales - No metadata changes for ${currentConfigDirSignature}`);
         }
     }
 
@@ -528,7 +445,6 @@ export class RecursiveSynchronizer {
             
             // If _self_ already exists in the JSON, NEVER touch it
             if (itemOwnJsonData.hasOwnProperty('_self_')) {
-                console.log(`⚪ processSelfProperties - Preserved existing _self_ for ${type} in ${nextConfigDirSignature}`);
                 continue;
             }
 
@@ -552,8 +468,6 @@ export class RecursiveSynchronizer {
                 // CONSERVATIVE: Only write if _self_ was actually added
                 await this.jsonFileHandler.writeJsonFile(type, lang, nextConfigDirSignature, updatedJsonData);
                 await this.metadataManager.writeMetadata(type, lang, nextConfigDirSignature, updatedMetadata);
-                
-                console.log(`✅ processSelfProperties - Added missing _self_ for ${type} in ${nextConfigDirSignature}: "${defaultSelfValue}"`);
             }
         }
     }
@@ -635,8 +549,6 @@ export class RecursiveSynchronizer {
         lang: string,
         items: SidebarItem[]
     ): Promise<void> {
-        console.log(`DEBUG: Cleaning up orphaned configurations for ${currentConfigDirSignature}`);
-
         try {
             // Get the config directory path
             const configDirPath = currentConfigDirSignature === '_root'
@@ -667,8 +579,6 @@ export class RecursiveSynchronizer {
                     }
                 }
             }
-
-            console.log(`DEBUG: Found ${physicalDirectories.size} physical directories:`, Array.from(physicalDirectories));
 
             // Collect orphaned directories from both config and metadata
             const orphanedDirectories = new Set<string>();
@@ -715,7 +625,6 @@ export class RecursiveSynchronizer {
 
             // Archive all orphaned directories (both config and metadata)
             for (const orphanedDirName of orphanedDirectories) {
-                console.log(`CLEANUP: Found orphaned directory: ${orphanedDirName}`);
                 await this.archiveOrphanedConfigAndMetadata(configDirPath, metadataDirPath, currentConfigDirSignature, lang, orphanedDirName);
             }
 
@@ -770,8 +679,6 @@ export class RecursiveSynchronizer {
                     await fs.cp(sourceConfigPath, targetConfigPath, { recursive: true });
                     await this.jsonFileHandler.getFileSystem().deleteDir(sourceConfigPath);
                 }
-                
-                console.log(`✅ Archived config directory: ${dirName} -> ${targetConfigPath}`);
             }
 
             // Archive metadata directory if it exists
@@ -785,8 +692,6 @@ export class RecursiveSynchronizer {
                     await fs.cp(sourceMetadataPath, targetMetadataPath, { recursive: true });
                     await this.jsonFileHandler.getFileSystem().deleteDir(sourceMetadataPath);
                 }
-                
-                console.log(`✅ Archived metadata directory: ${dirName} -> ${targetMetadataPath}`);
             }
 
             // Create a comprehensive README in the archive
@@ -827,8 +732,6 @@ ${dirName}_removed_${timestamp}/
 `;
 
             await this.jsonFileHandler.getFileSystem().writeFile(readmePath, readmeContent);
-            
-            console.log(`🎯 Completely archived orphaned directory: ${dirName}`);
 
         } catch (error) {
             console.error(`Failed to archive config and metadata for directory ${dirName}:`, error);
@@ -863,7 +766,6 @@ ${dirName}_removed_${timestamp}/
                     
                     // Check if this entry corresponds to a physical directory
                     if (key.endsWith('/') && !physicalDirectories.has(dirName)) {
-                        console.log(`CLEANUP: Removing orphaned JSON entry "${key}" from ${type}.json`);
                         delete updatedData[key];
                         hasChanges = true;
                     }
@@ -871,7 +773,6 @@ ${dirName}_removed_${timestamp}/
 
                 // Write updated data if changes were made
                 if (hasChanges) {
-                    console.log(`✅ Cleaned ${type}.json for ${currentConfigDirSignature}`);
                     await this.jsonFileHandler.writeJsonFile(type, lang, currentConfigDirSignature, updatedData);
                 }
 

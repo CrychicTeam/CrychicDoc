@@ -15,6 +15,7 @@
 
     const wordCount = ref(0);
     const imageCount = ref(0);
+    const pageViews = ref(0);
 
     const readTime = computed(() =>
         utils.vitepress.readingTime.calculateTotalTime(
@@ -42,6 +43,31 @@
 
     onMounted(() => {
         analyze();
+        
+        // 监听不蒜子统计更新
+        if (typeof window !== 'undefined') {
+            // 设置定时检查不蒜子统计
+            const checkBusuanzi = () => {
+                const pvElement = document.getElementById('busuanzi_value_page_pv');
+                if (pvElement && pvElement.textContent) {
+                    const newValue = parseInt(pvElement.textContent) || 0;
+                    if (newValue > 0) {
+                        pageViews.value = newValue;
+                    }
+                }
+            };
+            
+            // 立即检查一次
+            checkBusuanzi();
+            
+            // 设置周期性检查
+            const interval = setInterval(checkBusuanzi, 1000);
+            
+            // 清理定时器
+            setTimeout(() => {
+                clearInterval(interval);
+            }, 5000);
+        }
     });
 
     const isMetadata = computed(() => {
@@ -55,13 +81,13 @@
         return utils.vitepress.getMetadataIcon(key);
     };
 
-    const data = ref([update, wordCount, readTime]);
+    const data = ref([update, wordCount, readTime, pageViews]);
 
     const metadataText = computed(() => {
         return utils.vitepress.getMetadataText(lang.value);
     });
 
-    const metadataKeys = ["update", "wordCount", "readTime"] as const;
+    const metadataKeys = ["update", "wordCount", "readTime", "pageViews"] as const;
 </script>
 
 <template>
@@ -84,6 +110,13 @@
         </div>
     </div>
     <State />
+    
+    <!-- 隐藏的不蒜子元素，用于统计 -->
+    <div style="display: none;">
+        <span id="busuanzi_container_page_pv">
+            <span id="busuanzi_value_page_pv">0</span>
+        </span>
+    </div>
 </template>
 
 <style>

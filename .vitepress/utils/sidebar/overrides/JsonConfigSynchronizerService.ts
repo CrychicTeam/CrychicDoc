@@ -77,16 +77,12 @@ export class JsonConfigSynchronizerService {
         isDevMode: boolean,
         langGitbookPaths: string[]
     ): Promise<SidebarItem[]> {
-        console.log(`DEBUG: JsonConfigSynchronizerService.synchronize called for ${rootPathKey} (${lang})`);
-        
         if (!Array.isArray(sidebarTreeInput)) {
-            console.log(`DEBUG: sidebarTreeInput is not an array, returning empty array`);
             return []; 
         }
 
         // Get root directory signature
         const rootConfigDirectorySignature = this.pathProcessor.getSignatureForRootView(rootPathKey, lang);
-        console.log(`DEBUG: Root config directory signature: ${rootConfigDirectorySignature}`);
         
         const normalizedGitbookPaths = langGitbookPaths.map(p => normalizePathSeparators(p));
 
@@ -94,7 +90,6 @@ export class JsonConfigSynchronizerService {
         const isGitBook = this.pathProcessor.isGitBookRoot(rootConfigDirectorySignature, lang, normalizedGitbookPaths, this.absDocsPath);
         
         if (isGitBook) {
-            console.log(`DEBUG: ${rootConfigDirectorySignature} is a GitBook root, skipping JSON processing`);
             return sidebarTreeInput;
         }
 

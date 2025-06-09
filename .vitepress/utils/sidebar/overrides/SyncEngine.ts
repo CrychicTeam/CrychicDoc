@@ -41,9 +41,6 @@ export class SyncEngine {
         const updatedMetadata = { ...existingMetadata };
         const currentTimestamp = Date.now();
 
-        console.log(`DEBUG: SyncEngine - CONSERVATIVE sync for ${overrideType} (${currentItems.length} items)`);
-        console.log(`DEBUG: SyncEngine - Existing JSON keys:`, Object.keys(existingJsonData));
-
         // CONSERVATIVE APPROACH: Only mark entries as active for existing entries
         // and ADD missing entries - NEVER override existing values
         let newEntriesAdded = 0;
@@ -52,7 +49,6 @@ export class SyncEngine {
         for (const item of currentItems) {
             const itemKey = keyExtractor(item);
             if (!itemKey) {
-                console.log(`DEBUG: SyncEngine - Skipping item with no key: "${item.text}"`);
                 continue;
             }
 
@@ -76,7 +72,6 @@ export class SyncEngine {
                     item._priority = existingJsonValue;
                 }
                 
-                console.log(`DEBUG: SyncEngine - Preserved existing entry: "${itemKey}" = "${existingJsonValue}"`);
                 existingEntriesUpdated++;
             } else {
                 // ENTRY MISSING - Add new entry (this is safe)
@@ -100,7 +95,6 @@ export class SyncEngine {
                 // Add new metadata entry (marked as system-generated, not user-set)
                 updatedMetadata[itemKey] = metadataManager.createNewMetadataEntry(defaultValue, false, true);
                 
-                console.log(`DEBUG: SyncEngine - Added new entry: "${itemKey}" = "${defaultValue}"`);
                 newEntriesAdded++;
             }
         }
@@ -127,7 +121,6 @@ export class SyncEngine {
                 // REMOVE from JSON data - orphaned entries should not clutter the config
                 // The metadata preserves the value and user-set status for potential restoration
                 if (updatedJsonData.hasOwnProperty(existingKey)) {
-                    console.log(`🗑️ SyncEngine - Removing orphaned entry: "${existingKey}" (file renamed/deleted)`);
                     delete updatedJsonData[existingKey];
                     orphanedEntriesRemoved++;
                 }
@@ -135,13 +128,6 @@ export class SyncEngine {
                 inactiveEntriesMarked++;
             }
         }
-
-        console.log(`DEBUG: SyncEngine - CONSERVATIVE sync results:`);
-        console.log(`  - New entries added: ${newEntriesAdded}`);
-        console.log(`  - Existing entries preserved: ${existingEntriesUpdated}`);
-        console.log(`  - Inactive entries marked: ${inactiveEntriesMarked}`);
-        console.log(`  - Orphaned entries removed: ${orphanedEntriesRemoved}`);
-        console.log(`  - Total JSON keys: ${Object.keys(updatedJsonData).length}`);
 
         return {
             updatedJsonData,

@@ -1,8 +1,8 @@
 {
   "_self_": "CodeShare",
-  "CraftingTableGUI.md": "合成台GUI",
-  "Dining.md": "进餐",
+  "CraftingTableGUI.md": "自定义方块打开工作台界面",
+  "Dining.md": "饱和修补",
   "InvertedBonemeal.md": "反向骨粉",
-  "LifeValue.md": "生命值显示",
+  "LifeValue.md": "死亡扣除最大生命值",
   "Painter.md": "Painter实例"
 }

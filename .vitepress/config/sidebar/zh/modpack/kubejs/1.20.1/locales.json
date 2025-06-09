@@ -1,6 +1,6 @@
 {
   "_self_": "KubeJS-1.20.1",
-  "CodeShare/": "代码分享",
   "Introduction/": "基础",
-  "Upgrade/": "进阶"
+  "Upgrade/": "进阶",
+  "CodeShare/": "代码分享"
 }

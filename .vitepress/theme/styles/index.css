@@ -47,6 +47,7 @@
 /* Other plugin styles */
 @import "@mdit/plugin-spoiler/style";
 @import "shiki-magic-move/style.css";
+@import "./components/fancybox.css";
 
 /* ===== SSR SUPPORT STYLES ===== */
 .ssr-placeholder {

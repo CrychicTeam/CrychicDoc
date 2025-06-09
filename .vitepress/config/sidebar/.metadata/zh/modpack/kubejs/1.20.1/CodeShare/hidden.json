@@ -8,31 +8,31 @@
   "CraftingTableGUI.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": true
   },
   "Dining.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": true
   },
   "InvertedBonemeal.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": true
   },
   "LifeValue.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": true
   },
   "Painter.md": {
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447419
+    "isActiveInStructure": true
+  },
+  "CodeShare/": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }

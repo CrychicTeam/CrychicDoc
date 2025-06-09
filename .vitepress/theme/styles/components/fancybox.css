@@ -1,0 +1,182 @@
+/* Fancybox 图片缩放 - Enhanced for better visibility */
+.fancybox__container {
+    --fancybox-bg: none !important;
+}
+
+/* Improved backdrop with better contrast */
+.fancybox__container::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(var(--vp-c-bg-rgb), 0.85) !important;
+    opacity: 0.98;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+}
+
+/* Enhanced toolbar with better contrast */
+.fancybox__container .fancybox__toolbar {
+    --f-button-bg: rgba(var(--vp-c-bg-rgb), 0.9) !important;
+    --f-button-hover-bg: rgba(var(--vp-c-bg-rgb), 0.95) !important;
+    --f-button-color: var(--vp-c-text-1) !important;
+    --f-button-hover-color: var(--vp-c-text-1) !important;
+    --f-button-svg-disabled-opacity: 0.4;
+    background: rgba(var(--vp-c-bg-rgb), 0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(var(--vp-c-divider-rgb), 0.3) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(var(--vp-c-shadow-rgb), 0.15) !important;
+}
+
+/* Button styling for better visibility */
+.fancybox__container .f-button {
+    background: rgba(var(--vp-c-bg-rgb), 0.9) !important;
+    color: var(--vp-c-text-1) !important;
+    border: 1px solid rgba(var(--vp-c-divider-rgb), 0.3) !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.fancybox__container .f-button:hover {
+    background: rgba(var(--vp-c-bg-rgb), 0.95) !important;
+    color: var(--vp-c-text-1) !important;
+    border-color: rgba(var(--vp-c-divider-rgb), 0.5) !important;
+    box-shadow: 0 2px 8px rgba(var(--vp-c-shadow-rgb), 0.2) !important;
+}
+
+.fancybox__container .f-button svg {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.fancybox__container .f-button:disabled svg {
+    opacity: 0.4 !important;
+}
+
+/* Enhanced image styling */
+.fancybox-image {
+    object-fit: initial !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 32px rgba(var(--vp-c-shadow-rgb), 0.2) !important;
+}
+
+/* Enhanced thumbnail selection */
+.is-classic .is-nav-selected .f-thumbs__slide__button::after {
+    border-color: var(--vp-c-brand-1) !important;
+    border-width: 3px !important;
+}
+
+/* Enhanced caption with better readability */
+.fancybox__caption {
+    color: var(--vp-c-text-1) !important;
+    background: rgba(var(--vp-c-bg-rgb), 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(var(--vp-c-divider-rgb), 0.3) !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    margin: 16px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    box-shadow: 0 4px 12px rgba(var(--vp-c-shadow-rgb), 0.15) !important;
+}
+
+/* Enhanced infobar */
+.fancybox__infobar {
+    color: var(--vp-c-text-2) !important;
+    background: rgba(var(--vp-c-bg-rgb), 0.9) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(var(--vp-c-divider-rgb), 0.2) !important;
+    border-radius: 4px !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+/* Enhanced thumbnails container */
+.fancybox__thumbs {
+    background: rgba(var(--vp-c-bg-rgb), 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-top: 1px solid rgba(var(--vp-c-divider-rgb), 0.3) !important;
+}
+
+/* Enhanced close button */
+.f-button[data-fancybox-close] {
+    background: rgba(var(--vp-c-bg-rgb), 0.9) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(var(--vp-c-divider-rgb), 0.3) !important;
+    border-radius: 50% !important;
+    width: 44px !important;
+    height: 44px !important;
+    box-shadow: 0 4px 12px rgba(var(--vp-c-shadow-rgb), 0.15) !important;
+}
+
+.f-button[data-fancybox-close]:hover {
+    background: rgba(var(--vp-c-bg-rgb), 0.95) !important;
+    border-color: rgba(var(--vp-c-divider-rgb), 0.5) !important;
+    box-shadow: 0 6px 16px rgba(var(--vp-c-shadow-rgb), 0.2) !important;
+}
+
+/* Enhanced spinner */
+.fancybox__spinner {
+    color: var(--vp-c-brand-1) !important;
+}
+
+/* Dark theme specific improvements */
+.dark .fancybox__container::before {
+    background: rgba(var(--vp-c-bg-rgb), 0.9) !important;
+}
+
+.dark .fancybox__container .fancybox__toolbar {
+    background: rgba(var(--vp-c-bg-rgb), 0.8) !important;
+    border-color: rgba(var(--vp-c-divider-rgb), 0.4) !important;
+}
+
+.dark .fancybox__container .f-button {
+    background: rgba(var(--vp-c-bg-rgb), 0.8) !important;
+    border-color: rgba(var(--vp-c-divider-rgb), 0.4) !important;
+}
+
+.dark .fancybox-image {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .fancybox__container .fancybox__toolbar {
+        padding: 8px !important;
+        gap: 4px !important;
+    }
+
+    .fancybox__caption {
+        margin: 8px !important;
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+    }
+
+    .f-button {
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
+
+/* Custom hover effects for images */
+img[data-fancybox]:not(.non-preview-image) {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease !important;
+}
+
+img[data-fancybox]:not(.non-preview-image):hover {
+    transform: scale(1.02) !important;
+    opacity: 0.9 !important;
+    filter: brightness(1.05) !important;
+}

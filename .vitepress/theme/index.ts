@@ -7,7 +7,7 @@ import { useData, useRoute } from "vitepress";
 import "./styles/index.css";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import vuetify from "./vuetify";
-import { onMounted, watch, defineAsyncComponent } from "vue";
+import { onMounted, onUnmounted, watch, defineAsyncComponent } from "vue";
 import mermaid from "mermaid";
 import {
     NolebaseEnhancedReadabilitiesMenu,
@@ -16,14 +16,17 @@ import {
 import { NolebaseInlineLinkPreviewPlugin } from "@nolebase/vitepress-plugin-inline-link-preview/client";
 import { NolebaseGitChangelogPlugin } from "@nolebase/vitepress-plugin-git-changelog/client";
 
+
 import { LiteTree } from "@lite-tree/vue";
 import Layout from "./Layout.vue";
 
 // Import custom components
 import VPHero from "./components/VPHero.vue";
 
+// Import Fancybox image viewer
+import { bindFancybox, destroyFancybox } from "./components/media/ImgViewer";
+
 // Import components using @components system
-import { ImageViewer } from "@components/media";
 import {
     comment,
     ArticleMetadataCN,
@@ -67,7 +70,6 @@ export default {
         return h(Animation, props, {
             slot: () =>
                 h(DefaultTheme.Layout, null, {
-                    "doc-bottom": () => h(ImageViewer),
                     "aside-outline-after": () => h(),
                     "doc-after": () => [h(Buttons), h(comment)],
                     "layout-bottom": () => h(Footer),
@@ -91,6 +93,14 @@ export default {
             ctx.app.use(vuetify);
             ctx.app.use(NolebaseInlineLinkPreviewPlugin);
             ctx.app.use(NolebaseGitChangelogPlugin);
+
+            // Setup Fancybox router hooks
+            ctx.router.onBeforeRouteChange = () => {
+                destroyFancybox(); // Destroy before route change
+            };
+            ctx.router.onAfterRouteChange = () => {
+                bindFancybox(); // Bind after route change
+            };
         }
 
         // Register global components
@@ -106,6 +116,8 @@ export default {
         ctx.app.component("LiteTree", LiteTree);
         ctx.app.component("MagicMoveContainer", MagicMoveContainer);
         ctx.app.component("Contributors", Contributors);
+
+
     },
     setup() {
         const route = useRoute();
@@ -156,6 +168,9 @@ export default {
                 initMermaid();
                 mermaid.init(undefined, ".mermaid");
 
+                // Initialize Fancybox
+                bindFancybox();
+
                 watch(
                     () => route.path,
                     () => {
@@ -165,6 +180,10 @@ export default {
                     }
                 );
             }
+        });
+
+        onUnmounted(() => {
+            destroyFancybox();
         });
     },
 } satisfies Theme;

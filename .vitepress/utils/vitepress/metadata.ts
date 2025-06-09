@@ -67,17 +67,20 @@ export const metadataTranslations: {
       update: (text: string) => `最后更新：${text}`,
       wordCount: (text: number) => `全文字数：${text}字`,
       readTime: (text: number) => `阅读时长：${text}分钟`,
+      pageViews: (text: number) => `访问量：${text || 0}`,
     },
     "en-US": {
       update: (text: string) => `Last updated on: ${text}`,
-      wordCount: (text: number) => `Word count: ${text} word`,
+      wordCount: (text: number) => `Word count: ${text} words`,
       readTime: (text: number) => `Reading time: ${text} minutes`,
+      pageViews: (text: number) => `Page views: ${text || 0}`,
     },
   },
   icons: {
     update: "mdi-refresh",
     wordCount: "mdi-text-shadow",
     readTime: "mdi-timer-outline",
+    pageViews: "mdi-eye-outline",
   }
 };
 

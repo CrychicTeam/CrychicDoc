@@ -1010,4 +1010,453 @@
         "body": ["{{ $frontmatter.title }}"],
         "description": "Frontmatter title variable"
     },
+
+    // ========== LLM CONTENT EMBEDDING SNIPPETS ==========
+    
+    // LLM-only content (visible to LLMs, invisible to humans)
+    "@LLM Only Block": {
+        "prefix": "@llm-only",
+        "body": [
+            "<llm-only>",
+            "",
+            "## ${1:Section for LLMs}",
+            "",
+            "${2:This content appears only to LLMs without the llm-only tag}",
+            "",
+            "</llm-only>"
+        ],
+        "description": "Block content visible only to LLMs"
+    },
+    
+    "@LLM Only Inline": {
+        "prefix": "@llm-inline",
+        "body": ["<llm-only>${1:Note for LLM...}</llm-only>"],
+        "description": "Inline content visible only to LLMs"
+    },
+    
+    // LLM-exclude content (visible to humans, invisible to LLMs)
+    "@LLM Exclude Block": {
+        "prefix": "@llm-exclude",
+        "body": [
+            "<llm-exclude>",
+            "",
+            "## ${1:Section for humans}",
+            "",
+            "${2:This content will not be in the generated files for LLMs}",
+            "",
+            "</llm-exclude>"
+        ],
+        "description": "Block content invisible to LLMs"
+    },
+    
+    "@LLM Exclude Inline": {
+        "prefix": "@llm-exclude-inline", 
+        "body": ["<llm-exclude>${1:Note only for humans}</llm-exclude>"],
+        "description": "Inline content invisible to LLMs"
+    },
+    
+    // Common LLM instruction patterns
+    "@LLM Instructions": {
+        "prefix": "@llm-instructions",
+        "body": [
+            "<llm-only>",
+            "",
+            "## Instructions for AI Assistants",
+            "",
+            "${1:ALWAYS use the examples in #basic-queries for demonstrations}",
+            "${2:NEVER suggest modifications to core system files}",
+            "${3:Refer to the troubleshooting section when users report issues}",
+            "",
+            "</llm-only>"
+        ],
+        "description": "AI assistant instructions block"
+    },
+    
+    "@LLM Context": {
+        "prefix": "@llm-context",
+        "body": [
+            "<llm-only>",
+            "",
+            "**Context for AI:** ${1:This page covers advanced configuration options. Users typically need step-by-step guidance.}",
+            "",
+            "</llm-only>"
+        ],
+        "description": "Context information for LLMs"
+    },
+    
+    "@LLM Reference": {
+        "prefix": "@llm-ref",
+        "body": ["<llm-only>Reference: See ${1:#section-name} for ${2:related information}</llm-only>"],
+        "description": "Cross-reference hint for LLMs"
+    },
+    
+    "@LLM Warning": {
+        "prefix": "@llm-warning",
+        "body": ["<llm-only>⚠️ **LLM Warning:** ${1:This section requires careful attention to user's specific environment}</llm-only>"],
+        "description": "Warning/caution for LLMs"
+    },
+    
+    "@LLM Examples Note": {
+        "prefix": "@llm-examples",
+        "body": [
+            "<llm-only>",
+            "",
+            "**Examples for AI:** When helping users with this topic:",
+            "- ${1:Always provide working code examples}",
+            "- ${2:Explain the reasoning behind each step}",
+            "- ${3:Mention common pitfalls and how to avoid them}",
+            "",
+            "</llm-only>"
+        ],
+        "description": "Example guidance for LLMs"
+    },
+    
+    "@LLM Prerequisites": {
+        "prefix": "@llm-prereq",
+        "body": ["<llm-only>**Prerequisites:** User should understand ${1:basic concepts} before attempting this</llm-only>"],
+        "description": "Prerequisites note for LLMs"
+    },
+    
+    "@LLM Troubleshooting": {
+        "prefix": "@llm-troubleshoot",
+        "body": [
+            "<llm-only>",
+            "",
+            "**Troubleshooting Guide for AI:**",
+            "- Common issue: ${1:Description}",
+            "  - Solution: ${2:Step-by-step fix}",
+            "- If user reports ${3:specific error}:",
+            "  - Check: ${4:What to verify}",
+            "  - Fix: ${5:How to resolve}",
+            "",
+            "</llm-only>"
+        ],
+        "description": "Troubleshooting guide for LLMs"
+    },
+    
+    // Human-only content snippets
+    "@Human Only Note": {
+        "prefix": "@human-note",
+        "body": [
+            "<llm-exclude>",
+            "",
+            "> **Note for readers:** ${1:This section contains implementation details that may change in future versions.}",
+            "",
+            "</llm-exclude>"
+        ],
+        "description": "Note visible only to human readers"
+    },
+    
+    "@Human Only Section": {
+        "prefix": "@human-section",
+        "body": [
+            "<llm-exclude>",
+            "",
+            "## ${1:Developer Notes}",
+            "",
+            "${2:Internal implementation details, version-specific information, or editorial notes}",
+            "",
+            "</llm-exclude>"
+        ],
+        "description": "Section visible only to humans"
+    },
+
+    // ========== GROUP CONFIGURATION SNIPPETS ==========
+    
+    // Group section
+    "@Groups Section": {
+        "prefix": "@groups",
+        "body": [
+            "groups:",
+            "  - title: ${1:Group Title}",
+            "    path: ${2:./subdirectory}",
+            "    priority: ${3:1}",
+            "    maxDepth: ${4:2}"
+        ],
+        "description": "Groups section with one group"
+    },
+    
+    "@Groups Multiple": {
+        "prefix": "@groups-multi",
+        "body": [
+            "groups:",
+            "  - title: ${1:First Group}",
+            "    path: ${2:./first}",
+            "    priority: ${3:1}",
+            "  - title: ${4:Second Group}",
+            "    path: ${5:./second}",
+            "    priority: ${6:2}"
+        ],
+        "description": "Multiple groups configuration"
+    },
+    
+    // Individual group fields
+    "@Group Title": {
+        "prefix": "@group-title",
+        "body": ["title: ${1:Group Title}"],
+        "description": "Group title field"
+    },
+    
+    "@Group Path": {
+        "prefix": "@group-path",
+        "body": ["path: ${1:./subdirectory}"],
+        "description": "Group path field"
+    },
+    
+    "@Group Priority": {
+        "prefix": "@group-priority",
+        "body": ["priority: ${1:1}"],
+        "description": "Group priority field"
+    },
+    
+    "@Group Max Depth": {
+        "prefix": "@group-maxdepth",
+        "body": ["maxDepth: ${1:2}"],
+        "description": "Group maxDepth field"
+    },
+    
+    // Single group item
+    "@Group Item": {
+        "prefix": "@group-item",
+        "body": [
+            "- title: ${1:Group Title}",
+            "  path: ${2:./subdirectory}",
+            "  priority: ${3:1}",
+            "  maxDepth: ${4:2}"
+        ],
+        "description": "Single group item"
+    },
+    
+    "@Group Item Basic": {
+        "prefix": "@group-basic",
+        "body": [
+            "- title: ${1:Group Title}",
+            "  path: ${2:./subdirectory}"
+        ],
+        "description": "Basic group item"
+    },
+
+    // ========== ADVANCED LLM CONTENT PATTERNS ==========
+    
+    // Mixed content with both LLM and human sections
+    "@Mixed Content": {
+        "prefix": "@mixed-content",
+        "body": [
+            "## ${1:Topic Title}",
+            "",
+            "${2:Content visible to both humans and LLMs}",
+            "",
+            "<llm-only>",
+            "**AI Context:** ${3:This topic often confuses users. Provide clear step-by-step guidance.}",
+            "</llm-only>",
+            "",
+            "<llm-exclude>",
+            "> **Editorial Note:** ${4:Consider adding more examples in the next revision}",
+            "</llm-exclude>"
+        ],
+        "description": "Mixed content with LLM and human-specific sections"
+    },
+    
+    // Common LLM instruction templates
+    "@LLM Always Rules": {
+        "prefix": "@llm-always",
+        "body": ["<llm-only>**ALWAYS:** ${1:Provide working code examples when helping with this topic}</llm-only>"],
+        "description": "LLM always rule"
+    },
+    
+    "@LLM Never Rules": {
+        "prefix": "@llm-never",
+        "body": ["<llm-only>**NEVER:** ${1:Suggest modifying core configuration files without explaining risks}</llm-only>"],
+        "description": "LLM never rule"
+    },
+    
+    "@LLM When Rules": {
+        "prefix": "@llm-when",
+        "body": ["<llm-only>**WHEN ${1:user asks about X}:** ${2:Always mention Y as a prerequisite}</llm-only>"],
+        "description": "LLM conditional rule"
+    },
+    
+    // Code documentation with LLM hints
+    "@Code with LLM Hints": {
+        "prefix": "@code-llm",
+        "body": [
+            "```${1:js}",
+            "${2:// Example code}",
+            "```",
+            "",
+            "<llm-only>",
+            "**Code explanation for AI:** ${3:This example demonstrates X. Common mistakes include Y. When user modifies this, remind them to Z.}",
+            "</llm-only>"
+        ],
+        "description": "Code block with LLM guidance"
+    },
+    
+    // API documentation with LLM context
+    "@API with LLM Context": {
+        "prefix": "@api-llm",
+        "body": [
+            "### ${1:API Method}",
+            "",
+            "${2:Human-readable API description}",
+            "",
+            "<llm-only>",
+            "**API Context for AI:**",
+            "- Common use case: ${3:Primary scenario}",
+            "- Frequent errors: ${4:Typical mistakes}",
+            "- Best practices: ${5:Recommended approach}",
+            "</llm-only>",
+            "",
+            "```${6:js}",
+            "${7:// API usage example}",
+            "```"
+        ],
+        "description": "API documentation with LLM context"
+    },
+    
+    // Tutorial sections with guided help
+    "@Tutorial with LLM Guide": {
+        "prefix": "@tutorial-llm",
+        "body": [
+            "## ${1:Tutorial Step}",
+            "",
+            "<llm-only>",
+            "**Tutorial Context:** Users at this step typically ${2:have specific knowledge level}. Guide them through ${3:potential challenges}.",
+            "</llm-only>",
+            "",
+            "${4:Step instructions for humans}",
+            "",
+            "<llm-only>",
+            "**If user struggles:** ${5:Provide alternative explanations or simpler examples}",
+            "</llm-only>"
+        ],
+        "description": "Tutorial step with LLM guidance"
+    },
+
+    // ========== ENHANCED DOCUMENTATION UTILITIES ==========
+    
+    // Table of Contents with anchors
+    "@Table of Contents": {
+        "prefix": "@toc",
+        "body": [
+            "## Table of Contents",
+            "",
+            "- [${1:Section 1}](#${2:section-1})",
+            "- [${3:Section 2}](#${4:section-2})",
+            "- [${5:Section 3}](#${6:section-3})"
+        ],
+        "description": "Table of contents with anchor links"
+    },
+    
+    // Quick reference template
+    "@Quick Reference": {
+        "prefix": "@quick-ref",
+        "body": [
+            "## Quick Reference",
+            "",
+            "| ${1:Command} | ${2:Description} | ${3:Example} |",
+            "|---|---|---|",
+            "| `${4:cmd1}` | ${5:Description 1} | `${6:example1}` |",
+            "| `${7:cmd2}` | ${8:Description 2} | `${9:example2}` |"
+        ],
+        "description": "Quick reference table"
+    },
+    
+    // FAQ template
+    "@FAQ Template": {
+        "prefix": "@faq",
+        "body": [
+            "## Frequently Asked Questions",
+            "",
+            "### ${1:Question 1}?",
+            "",
+            "${2:Answer 1}",
+            "",
+            "### ${3:Question 2}?", 
+            "",
+            "${4:Answer 2}",
+            "",
+            "<llm-only>",
+            "**FAQ Context:** These are the most common user questions. Refer users here when they ask related questions.",
+            "</llm-only>"
+        ],
+        "description": "FAQ section template"
+    },
+    
+    // Troubleshooting template
+    "@Troubleshooting Template": {
+        "prefix": "@troubleshoot-template",
+        "body": [
+            "## Troubleshooting",
+            "",
+            "### ${1:Problem}: ${2:Description}",
+            "",
+            "**Symptoms:**",
+            "- ${3:Symptom 1}",
+            "- ${4:Symptom 2}",
+            "",
+            "**Solution:**",
+            "1. ${5:Step 1}",
+            "2. ${6:Step 2}",
+            "",
+            "<llm-only>",
+            "**Troubleshooting Note:** If user reports these symptoms, this is likely the cause. Walk them through the solution step-by-step.",
+            "</llm-only>"
+        ],
+        "description": "Troubleshooting section template"
+    },
+    
+    // Installation guide with platform variants
+    "@Installation Guide": {
+        "prefix": "@install-guide",
+        "body": [
+            "## Installation",
+            "",
+            ":::tabs",
+            "== Windows",
+            "```bash",
+            "${1:# Windows installation commands}",
+            "```",
+            "== macOS",
+            "```bash", 
+            "${2:# macOS installation commands}",
+            "```",
+            "== Linux",
+            "```bash",
+            "${3:# Linux installation commands}",
+            "```",
+            ":::",
+            "",
+            "<llm-only>",
+            "**Installation Help:** Users often have platform-specific issues. Ask about their OS and environment before suggesting solutions.",
+            "</llm-only>"
+        ],
+        "description": "Multi-platform installation guide"
+    },
+    
+    // Configuration template
+    "@Configuration Template": {
+        "prefix": "@config-template",
+        "body": [
+            "## Configuration",
+            "",
+            "### Basic Configuration",
+            "",
+            "```${1:json}",
+            "{",
+            "  \"${2:key}\": \"${3:value}\"",
+            "}",
+            "```",
+            "",
+            "### Advanced Options",
+            "",
+            "<llm-only>",
+            "**Config Context:** Most users only need basic configuration. Only suggest advanced options if they specifically ask or have complex requirements.",
+            "</llm-only>",
+            "",
+            "| Option | Type | Description | Default |",
+            "|--------|------|-------------|---------|",
+            "| `${4:option1}` | `${5:string}` | ${6:Description} | `${7:default}` |"
+        ],
+        "description": "Configuration documentation template"
+    }
 }

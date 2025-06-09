@@ -6,33 +6,33 @@
     "lastSeen": 1749247315828
   },
   "CraftingTableGUI.md": {
-    "valueHash": "3bff4f81986633fa8cd13d9d20a43d36",
+    "valueHash": "9a018b21ab114a51dd7b5979198a941b",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447418
+    "isActiveInStructure": true
   },
   "Dining.md": {
     "valueHash": "fc7a8a928be9e770fa84833b7c43853c",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447418
+    "isActiveInStructure": true
   },
   "InvertedBonemeal.md": {
     "valueHash": "5ff2ce919346506850c74a31f9da006f",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447418
+    "isActiveInStructure": true
   },
   "LifeValue.md": {
     "valueHash": "a7d15aa6deed7913a5c1c6f67804c94c",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447418
+    "isActiveInStructure": true
   },
   "Painter.md": {
     "valueHash": "4d08cbf857994dc42e1b09205158e15f",
     "isUserSet": false,
-    "isActiveInStructure": true,
-    "lastSeen": 1749254447418
+    "isActiveInStructure": true
+  },
+  "CodeShare/": {
+    "valueHash": "fee8b611f48310555b0b0b2ff0d07f88",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }

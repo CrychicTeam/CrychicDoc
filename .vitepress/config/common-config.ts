@@ -12,8 +12,9 @@ import {
     GitChangelog,
     GitChangelogMarkdownSection,
 } from "@nolebase/vitepress-plugin-git-changelog/vite";
+import llmstxt from "vitepress-plugin-llms";
 import * as config from "./markdown-plugins";
-import { sidebarPlugin } from '../plugins/sidebar-plugin'
+import { sidebarPlugin } from "../plugins/sidebar-plugin";
 
 import { search as zhSearch } from "./lang/zh";
 
@@ -131,8 +132,16 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         ssr: {
             noExternal: ["vuetify", "@nolebase/*"],
         },
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    api: "modern",
+                },
+            },
+        },
         plugins: [
             sidebarPlugin(),
+            llmstxt(),
             GitChangelog({
                 repoURL: () => "https://github.com/PickAID/CrychicDoc",
                 mapAuthors: contributors.map((author) => ({
@@ -173,21 +182,7 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
                     css: "logos:css-3",
                     git: "logos:git-icon",
                 },
-            }),
-            AutoImport({
-                resolvers: [
-                    TDesignResolver({
-                        library: "vue-next",
-                    }),
-                ],
-            }),
-            Components({
-                resolvers: [
-                    TDesignResolver({
-                        library: "vue-next",
-                    }),
-                ],
-            }),
+            })
         ],
     },
     head: [
