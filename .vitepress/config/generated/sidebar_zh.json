@@ -102,7 +102,7 @@
       "text": "文档相关",
       "items": [
         {
-          "text": "rules",
+          "text": "文档规范",
           "link": "/zh/doc/rules.html",
           "_relativePathKey": "rules.md",
           "_hidden": false,
@@ -172,6 +172,15 @@
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false
+        },
+        {
+          "text": "LiteTree 组件使用指南",
+          "link": "/zh/doc/litetree-guide.html",
+          "_relativePathKey": "litetree-guide.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 9007199254740991
         }
       ],
       "collapsed": true,
@@ -441,6 +450,235 @@
           "collapsed": true,
           "_priority": 0,
           "_relativePathKey": "resourcepack/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/info/KubeJS/": [
+    {
+      "text": "KubeJS",
+      "items": [
+        {
+          "text": "Borad",
+          "link": "/zh/info/KubeJS/borad/",
+          "items": [
+            {
+              "text": "code",
+              "link": "/zh/info/KubeJS/borad/code.html",
+              "_relativePathKey": "borad/code.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "docError",
+              "link": "/zh/info/KubeJS/borad/docError.html",
+              "_relativePathKey": "borad/docError.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "modpack",
+              "link": "/zh/info/KubeJS/borad/modpack.html",
+              "_relativePathKey": "borad/modpack.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "modRecommend",
+              "link": "/zh/info/KubeJS/borad/modRecommend.html",
+              "_relativePathKey": "borad/modRecommend.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "navbar",
+              "link": "/zh/info/KubeJS/borad/navbar.html",
+              "_relativePathKey": "borad/navbar.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "publicServer",
+              "link": "/zh/info/KubeJS/borad/publicServer.html",
+              "_relativePathKey": "borad/publicServer.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "teamRecruit",
+              "link": "/zh/info/KubeJS/borad/teamRecruit.html",
+              "_relativePathKey": "borad/teamRecruit.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            }
+          ],
+          "collapsed": true,
+          "_priority": 0,
+          "_relativePathKey": "borad/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        },
+        {
+          "text": "Code",
+          "link": "/zh/info/KubeJS/code/",
+          "items": [
+            {
+              "text": "error",
+              "link": "/zh/info/KubeJS/code/error.html",
+              "_relativePathKey": "code/error.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "eventHandler",
+              "link": "/zh/info/KubeJS/code/eventHandler.html",
+              "_relativePathKey": "code/eventHandler.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "loadClass",
+              "link": "/zh/info/KubeJS/code/loadClass.html",
+              "_relativePathKey": "code/loadClass.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "other",
+              "link": "/zh/info/KubeJS/code/other.html",
+              "_relativePathKey": "code/other.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "register",
+              "link": "/zh/info/KubeJS/code/register.html",
+              "_relativePathKey": "code/register.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "utils",
+              "link": "/zh/info/KubeJS/code/utils.html",
+              "_relativePathKey": "code/utils.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            }
+          ],
+          "collapsed": true,
+          "_priority": 0,
+          "_relativePathKey": "code/",
+          "_isDirectory": true,
+          "_isRoot": true,
+          "_hidden": false
+        },
+        {
+          "text": "Q&A",
+          "link": "/zh/info/KubeJS/Q&A/",
+          "items": [
+            {
+              "text": "API",
+              "link": "/zh/info/KubeJS/Q&A/API.html",
+              "_relativePathKey": "Q&A/API.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "error",
+              "link": "/zh/info/KubeJS/Q&A/error.html",
+              "_relativePathKey": "Q&A/error.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "event_interaction",
+              "link": "/zh/info/KubeJS/Q&A/event_interaction.html",
+              "_relativePathKey": "Q&A/event_interaction.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "forgeEvents",
+              "link": "/zh/info/KubeJS/Q&A/forgeEvents.html",
+              "_relativePathKey": "Q&A/forgeEvents.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "loadClass",
+              "link": "/zh/info/KubeJS/Q&A/loadClass.html",
+              "_relativePathKey": "Q&A/loadClass.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "other",
+              "link": "/zh/info/KubeJS/Q&A/other.html",
+              "_relativePathKey": "Q&A/other.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            },
+            {
+              "text": "register",
+              "link": "/zh/info/KubeJS/Q&A/register.html",
+              "_relativePathKey": "Q&A/register.md",
+              "_hidden": false,
+              "_isDirectory": false,
+              "_isRoot": false,
+              "_priority": 0
+            }
+          ],
+          "collapsed": true,
+          "_priority": 0,
+          "_relativePathKey": "Q&A/",
           "_isDirectory": true,
           "_isRoot": true,
           "_hidden": false
@@ -2217,235 +2455,6 @@
       "_hidden": false
     }
   ],
-  "/zh/info/KubeJS/": [
-    {
-      "text": "KubeJS",
-      "items": [
-        {
-          "text": "Borad",
-          "link": "/zh/info/KubeJS/borad/",
-          "items": [
-            {
-              "text": "code",
-              "link": "/zh/info/KubeJS/borad/code.html",
-              "_relativePathKey": "borad/code.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "docError",
-              "link": "/zh/info/KubeJS/borad/docError.html",
-              "_relativePathKey": "borad/docError.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "modpack",
-              "link": "/zh/info/KubeJS/borad/modpack.html",
-              "_relativePathKey": "borad/modpack.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "modRecommend",
-              "link": "/zh/info/KubeJS/borad/modRecommend.html",
-              "_relativePathKey": "borad/modRecommend.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "navbar",
-              "link": "/zh/info/KubeJS/borad/navbar.html",
-              "_relativePathKey": "borad/navbar.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "publicServer",
-              "link": "/zh/info/KubeJS/borad/publicServer.html",
-              "_relativePathKey": "borad/publicServer.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "teamRecruit",
-              "link": "/zh/info/KubeJS/borad/teamRecruit.html",
-              "_relativePathKey": "borad/teamRecruit.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            }
-          ],
-          "collapsed": true,
-          "_priority": 0,
-          "_relativePathKey": "borad/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        },
-        {
-          "text": "Code",
-          "link": "/zh/info/KubeJS/code/",
-          "items": [
-            {
-              "text": "error",
-              "link": "/zh/info/KubeJS/code/error.html",
-              "_relativePathKey": "code/error.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "eventHandler",
-              "link": "/zh/info/KubeJS/code/eventHandler.html",
-              "_relativePathKey": "code/eventHandler.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "loadClass",
-              "link": "/zh/info/KubeJS/code/loadClass.html",
-              "_relativePathKey": "code/loadClass.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "other",
-              "link": "/zh/info/KubeJS/code/other.html",
-              "_relativePathKey": "code/other.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "register",
-              "link": "/zh/info/KubeJS/code/register.html",
-              "_relativePathKey": "code/register.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "utils",
-              "link": "/zh/info/KubeJS/code/utils.html",
-              "_relativePathKey": "code/utils.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            }
-          ],
-          "collapsed": true,
-          "_priority": 0,
-          "_relativePathKey": "code/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        },
-        {
-          "text": "Q&A",
-          "link": "/zh/info/KubeJS/Q&A/",
-          "items": [
-            {
-              "text": "API",
-              "link": "/zh/info/KubeJS/Q&A/API.html",
-              "_relativePathKey": "Q&A/API.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "error",
-              "link": "/zh/info/KubeJS/Q&A/error.html",
-              "_relativePathKey": "Q&A/error.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "event_interaction",
-              "link": "/zh/info/KubeJS/Q&A/event_interaction.html",
-              "_relativePathKey": "Q&A/event_interaction.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "forgeEvents",
-              "link": "/zh/info/KubeJS/Q&A/forgeEvents.html",
-              "_relativePathKey": "Q&A/forgeEvents.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "loadClass",
-              "link": "/zh/info/KubeJS/Q&A/loadClass.html",
-              "_relativePathKey": "Q&A/loadClass.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "other",
-              "link": "/zh/info/KubeJS/Q&A/other.html",
-              "_relativePathKey": "Q&A/other.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            },
-            {
-              "text": "register",
-              "link": "/zh/info/KubeJS/Q&A/register.html",
-              "_relativePathKey": "Q&A/register.md",
-              "_hidden": false,
-              "_isDirectory": false,
-              "_isRoot": false,
-              "_priority": 0
-            }
-          ],
-          "collapsed": true,
-          "_priority": 0,
-          "_relativePathKey": "Q&A/",
-          "_isDirectory": true,
-          "_isRoot": true,
-          "_hidden": false
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
   "/zh/mods/adventure/": [
     {
       "text": "目录",
@@ -3321,274 +3330,218 @@
       "_hidden": false
     }
   ],
-  "/zh/modpack/kubejs/1.21/": [
+  "/zh/info/KubeJS/Q&A/": [
     {
-      "text": "KubeJS",
+      "text": "Q&A",
       "items": [
         {
-          "text": "介绍",
-          "link": "/zh/modpack/kubejs/1.21/Introduction/",
-          "items": [
-            {
-              "text": "附属",
-              "items": [
-                {
-                  "text": "LootJs",
-                  "items": [
-                    {
-                      "text": "LootJS",
-                      "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootJs.html",
-                      "_relativePathKey": "Introduction/Addon/LootJs/LootJs.md",
-                      "_hidden": false,
-                      "_isDirectory": false,
-                      "_isRoot": false,
-                      "_priority": -1000000
-                    },
-                    {
-                      "text": "战利品表",
-                      "items": [
-                        {
-                          "text": "Create",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Create.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Create.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "Event",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Event.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Event.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "Modify",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Modify.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Modify.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        }
-                      ],
-                      "collapsed": true,
-                      "_priority": 100,
-                      "_relativePathKey": "Introduction/Addon/LootJs/LootTables/",
-                      "_isDirectory": true,
-                      "_isRoot": false,
-                      "_hidden": false
-                    },
-                    {
-                      "text": "战利品修饰器",
-                      "items": [
-                        {
-                          "text": "Event",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/Loot Modifiers/Event.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/Event.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        }
-                      ],
-                      "collapsed": true,
-                      "_priority": 200,
-                      "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/",
-                      "_isDirectory": true,
-                      "_isRoot": false,
-                      "_hidden": false
-                    },
-                    {
-                      "text": "战利品修饰器",
-                      "items": [
-                        {
-                          "text": "Event",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootModifiers/Event.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/Event.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        }
-                      ],
-                      "collapsed": true,
-                      "_priority": 300,
-                      "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/",
-                      "_isDirectory": true,
-                      "_isRoot": false,
-                      "_hidden": false
-                    },
-                    {
-                      "text": "API",
-                      "items": [
-                        {
-                          "text": "ItemFilter",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/ItemFilter.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/ItemFilter.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootConditions",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootConditions.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootConditions.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootContext",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootContext.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootContext.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootEntry",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntry.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntry.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootEntryTransformer",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntryTransformer.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntryTransformer.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootFunctions",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootFunctions.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootFunctions.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootModifier",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootModifier.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootModifier.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootPool",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootPool.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootPool.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "LootTable",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootTable.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootTable.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "NumberProvider",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/NumberProvider.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/NumberProvider.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        },
-                        {
-                          "text": "Range",
-                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/Range.html",
-                          "_relativePathKey": "Introduction/Addon/LootJs/API/Range.md",
-                          "_hidden": false,
-                          "_isDirectory": false,
-                          "_isRoot": false,
-                          "_priority": 0
-                        }
-                      ],
-                      "collapsed": true,
-                      "_priority": 10000000000,
-                      "_relativePathKey": "Introduction/Addon/LootJs/API/",
-                      "_isDirectory": true,
-                      "_isRoot": false,
-                      "_hidden": false
-                    }
-                  ],
-                  "collapsed": true,
-                  "_priority": -1000000,
-                  "_relativePathKey": "Introduction/Addon/LootJs/",
-                  "_isDirectory": true,
-                  "_isRoot": false,
-                  "_hidden": false
-                }
-              ],
-              "collapsed": true,
-              "_priority": -1000000,
-              "_relativePathKey": "Introduction/Addon/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": true,
-          "_priority": -1000000,
-          "_relativePathKey": "Introduction/",
-          "_isDirectory": true,
+          "text": "API",
+          "link": "/zh/info/KubeJS/Q&A/API.html",
+          "_relativePathKey": "API.md",
+          "_hidden": false,
+          "_isDirectory": false,
           "_isRoot": false,
-          "_hidden": false
+          "_priority": 0
         },
         {
-          "text": "代码分享",
-          "items": [
-            {
-              "text": "QiHuang02",
-              "items": [
-                {
-                  "text": "矿物生成轮子",
-                  "link": "/zh/modpack/kubejs/1.21/codeshare/QiHuang02/emendatusenigmaticajs.html",
-                  "_relativePathKey": "codeshare/QiHuang02/emendatusenigmaticajs.md",
-                  "_hidden": false,
-                  "_isDirectory": false,
-                  "_isRoot": false,
-                  "_priority": 0
-                }
-              ],
-              "collapsed": true,
-              "_priority": 0,
-              "_relativePathKey": "codeshare/QiHuang02/",
-              "_isDirectory": true,
-              "_isRoot": false,
-              "_hidden": false
-            }
-          ],
-          "collapsed": true,
-          "_priority": 0,
-          "_relativePathKey": "codeshare/",
-          "_isDirectory": true,
+          "text": "error",
+          "link": "/zh/info/KubeJS/Q&A/error.html",
+          "_relativePathKey": "error.md",
+          "_hidden": false,
+          "_isDirectory": false,
           "_isRoot": false,
-          "_hidden": false
+          "_priority": 0
+        },
+        {
+          "text": "event_interaction",
+          "link": "/zh/info/KubeJS/Q&A/event_interaction.html",
+          "_relativePathKey": "event_interaction.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "forgeEvents",
+          "link": "/zh/info/KubeJS/Q&A/forgeEvents.html",
+          "_relativePathKey": "forgeEvents.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "loadClass",
+          "link": "/zh/info/KubeJS/Q&A/loadClass.html",
+          "_relativePathKey": "loadClass.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "other",
+          "link": "/zh/info/KubeJS/Q&A/other.html",
+          "_relativePathKey": "other.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "register",
+          "link": "/zh/info/KubeJS/Q&A/register.html",
+          "_relativePathKey": "register.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
         }
       ],
-      "collapsed": false,
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/info/KubeJS/borad/": [
+    {
+      "text": "Borad",
+      "items": [
+        {
+          "text": "code",
+          "link": "/zh/info/KubeJS/borad/code.html",
+          "_relativePathKey": "code.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "docError",
+          "link": "/zh/info/KubeJS/borad/docError.html",
+          "_relativePathKey": "docError.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "modpack",
+          "link": "/zh/info/KubeJS/borad/modpack.html",
+          "_relativePathKey": "modpack.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "modRecommend",
+          "link": "/zh/info/KubeJS/borad/modRecommend.html",
+          "_relativePathKey": "modRecommend.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "navbar",
+          "link": "/zh/info/KubeJS/borad/navbar.html",
+          "_relativePathKey": "navbar.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "publicServer",
+          "link": "/zh/info/KubeJS/borad/publicServer.html",
+          "_relativePathKey": "publicServer.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "teamRecruit",
+          "link": "/zh/info/KubeJS/borad/teamRecruit.html",
+          "_relativePathKey": "teamRecruit.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/info/KubeJS/code/": [
+    {
+      "text": "Code",
+      "items": [
+        {
+          "text": "error",
+          "link": "/zh/info/KubeJS/code/error.html",
+          "_relativePathKey": "error.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "eventHandler",
+          "link": "/zh/info/KubeJS/code/eventHandler.html",
+          "_relativePathKey": "eventHandler.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "loadClass",
+          "link": "/zh/info/KubeJS/code/loadClass.html",
+          "_relativePathKey": "loadClass.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "other",
+          "link": "/zh/info/KubeJS/code/other.html",
+          "_relativePathKey": "other.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "register",
+          "link": "/zh/info/KubeJS/code/register.html",
+          "_relativePathKey": "register.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "utils",
+          "link": "/zh/info/KubeJS/code/utils.html",
+          "_relativePathKey": "utils.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        }
+      ],
+      "collapsed": true,
       "_priority": 9007199254740991,
       "_relativePathKey": "",
       "_isDirectory": true,
@@ -5054,218 +5007,274 @@
       "_isGeneratedGroup": true
     }
   ],
-  "/zh/info/KubeJS/Q&A/": [
+  "/zh/modpack/kubejs/1.21/": [
     {
-      "text": "Q&A",
+      "text": "KubeJS",
       "items": [
         {
-          "text": "API",
-          "link": "/zh/info/KubeJS/Q&A/API.html",
-          "_relativePathKey": "API.md",
-          "_hidden": false,
-          "_isDirectory": false,
+          "text": "介绍",
+          "link": "/zh/modpack/kubejs/1.21/Introduction/",
+          "items": [
+            {
+              "text": "附属",
+              "items": [
+                {
+                  "text": "LootJs",
+                  "items": [
+                    {
+                      "text": "LootJS",
+                      "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootJs.html",
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootJs.md",
+                      "_hidden": false,
+                      "_isDirectory": false,
+                      "_isRoot": false,
+                      "_priority": -1000000
+                    },
+                    {
+                      "text": "战利品表",
+                      "items": [
+                        {
+                          "text": "Create",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Create.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Create.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Event.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Event.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "Modify",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootTables/Modify.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootTables/Modify.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        }
+                      ],
+                      "collapsed": true,
+                      "_priority": 100,
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootTables/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    },
+                    {
+                      "text": "战利品修饰器",
+                      "items": [
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/Loot Modifiers/Event.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/Event.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        }
+                      ],
+                      "collapsed": true,
+                      "_priority": 200,
+                      "_relativePathKey": "Introduction/Addon/LootJs/Loot Modifiers/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    },
+                    {
+                      "text": "战利品修饰器",
+                      "items": [
+                        {
+                          "text": "Event",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/LootModifiers/Event.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/Event.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        }
+                      ],
+                      "collapsed": true,
+                      "_priority": 300,
+                      "_relativePathKey": "Introduction/Addon/LootJs/LootModifiers/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    },
+                    {
+                      "text": "API",
+                      "items": [
+                        {
+                          "text": "ItemFilter",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/ItemFilter.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/ItemFilter.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootConditions",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootConditions.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootConditions.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootContext",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootContext.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootContext.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootEntry",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntry.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntry.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootEntryTransformer",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootEntryTransformer.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootEntryTransformer.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootFunctions",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootFunctions.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootFunctions.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootModifier",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootModifier.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootModifier.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootPool",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootPool.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootPool.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "LootTable",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/LootTable.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/LootTable.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "NumberProvider",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/NumberProvider.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/NumberProvider.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        },
+                        {
+                          "text": "Range",
+                          "link": "/zh/modpack/kubejs/1.21/Introduction/Addon/LootJs/API/Range.html",
+                          "_relativePathKey": "Introduction/Addon/LootJs/API/Range.md",
+                          "_hidden": false,
+                          "_isDirectory": false,
+                          "_isRoot": false,
+                          "_priority": 0
+                        }
+                      ],
+                      "collapsed": true,
+                      "_priority": 10000000000,
+                      "_relativePathKey": "Introduction/Addon/LootJs/API/",
+                      "_isDirectory": true,
+                      "_isRoot": false,
+                      "_hidden": false
+                    }
+                  ],
+                  "collapsed": true,
+                  "_priority": -1000000,
+                  "_relativePathKey": "Introduction/Addon/LootJs/",
+                  "_isDirectory": true,
+                  "_isRoot": false,
+                  "_hidden": false
+                }
+              ],
+              "collapsed": true,
+              "_priority": -1000000,
+              "_relativePathKey": "Introduction/Addon/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
+          "collapsed": true,
+          "_priority": -1000000,
+          "_relativePathKey": "Introduction/",
+          "_isDirectory": true,
           "_isRoot": false,
-          "_priority": 0
+          "_hidden": false
         },
         {
-          "text": "error",
-          "link": "/zh/info/KubeJS/Q&A/error.html",
-          "_relativePathKey": "error.md",
-          "_hidden": false,
-          "_isDirectory": false,
+          "text": "代码分享",
+          "items": [
+            {
+              "text": "QiHuang02",
+              "items": [
+                {
+                  "text": "矿物生成轮子",
+                  "link": "/zh/modpack/kubejs/1.21/codeshare/QiHuang02/emendatusenigmaticajs.html",
+                  "_relativePathKey": "codeshare/QiHuang02/emendatusenigmaticajs.md",
+                  "_hidden": false,
+                  "_isDirectory": false,
+                  "_isRoot": false,
+                  "_priority": 0
+                }
+              ],
+              "collapsed": true,
+              "_priority": 0,
+              "_relativePathKey": "codeshare/QiHuang02/",
+              "_isDirectory": true,
+              "_isRoot": false,
+              "_hidden": false
+            }
+          ],
+          "collapsed": true,
+          "_priority": 0,
+          "_relativePathKey": "codeshare/",
+          "_isDirectory": true,
           "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "event_interaction",
-          "link": "/zh/info/KubeJS/Q&A/event_interaction.html",
-          "_relativePathKey": "event_interaction.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "forgeEvents",
-          "link": "/zh/info/KubeJS/Q&A/forgeEvents.html",
-          "_relativePathKey": "forgeEvents.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "loadClass",
-          "link": "/zh/info/KubeJS/Q&A/loadClass.html",
-          "_relativePathKey": "loadClass.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "other",
-          "link": "/zh/info/KubeJS/Q&A/other.html",
-          "_relativePathKey": "other.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "register",
-          "link": "/zh/info/KubeJS/Q&A/register.html",
-          "_relativePathKey": "register.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
+          "_hidden": false
         }
       ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/KubeJS/code/": [
-    {
-      "text": "Code",
-      "items": [
-        {
-          "text": "error",
-          "link": "/zh/info/KubeJS/code/error.html",
-          "_relativePathKey": "error.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "eventHandler",
-          "link": "/zh/info/KubeJS/code/eventHandler.html",
-          "_relativePathKey": "eventHandler.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "loadClass",
-          "link": "/zh/info/KubeJS/code/loadClass.html",
-          "_relativePathKey": "loadClass.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "other",
-          "link": "/zh/info/KubeJS/code/other.html",
-          "_relativePathKey": "other.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "register",
-          "link": "/zh/info/KubeJS/code/register.html",
-          "_relativePathKey": "register.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "utils",
-          "link": "/zh/info/KubeJS/code/utils.html",
-          "_relativePathKey": "utils.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/info/KubeJS/borad/": [
-    {
-      "text": "Borad",
-      "items": [
-        {
-          "text": "code",
-          "link": "/zh/info/KubeJS/borad/code.html",
-          "_relativePathKey": "code.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "docError",
-          "link": "/zh/info/KubeJS/borad/docError.html",
-          "_relativePathKey": "docError.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "modpack",
-          "link": "/zh/info/KubeJS/borad/modpack.html",
-          "_relativePathKey": "modpack.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "modRecommend",
-          "link": "/zh/info/KubeJS/borad/modRecommend.html",
-          "_relativePathKey": "modRecommend.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "navbar",
-          "link": "/zh/info/KubeJS/borad/navbar.html",
-          "_relativePathKey": "navbar.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "publicServer",
-          "link": "/zh/info/KubeJS/borad/publicServer.html",
-          "_relativePathKey": "publicServer.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "teamRecruit",
-          "link": "/zh/info/KubeJS/borad/teamRecruit.html",
-          "_relativePathKey": "teamRecruit.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        }
-      ],
-      "collapsed": true,
+      "collapsed": false,
       "_priority": 9007199254740991,
       "_relativePathKey": "",
       "_isDirectory": true,
@@ -5299,6 +5308,55 @@
           "text": "use",
           "link": "/zh/info/doc/Q&A/use.html",
           "_relativePathKey": "use.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/zh/mods/adventure/Champions-Unofficial/": [
+    {
+      "text": "冠军再续",
+      "items": [
+        {
+          "text": "affix_setting",
+          "link": "/zh/mods/adventure/Champions-Unofficial/affix_setting.html",
+          "_relativePathKey": "affix_setting.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "配置",
+          "link": "/zh/mods/adventure/Champions-Unofficial/config.html",
+          "_relativePathKey": "config.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "modifier_setting",
+          "link": "/zh/mods/adventure/Champions-Unofficial/modifier_setting.html",
+          "_relativePathKey": "modifier_setting.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "Wiki",
+          "link": "/zh/mods/adventure/Champions-Unofficial/wiki.html",
+          "_relativePathKey": "wiki.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false,
@@ -5406,55 +5464,6 @@
           "text": "newSection",
           "link": "/zh/info/doc/module-request/newSection.html",
           "_relativePathKey": "newSection.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/zh/mods/adventure/Champions-Unofficial/": [
-    {
-      "text": "冠军再续",
-      "items": [
-        {
-          "text": "affix_setting",
-          "link": "/zh/mods/adventure/Champions-Unofficial/affix_setting.html",
-          "_relativePathKey": "affix_setting.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "配置",
-          "link": "/zh/mods/adventure/Champions-Unofficial/config.html",
-          "_relativePathKey": "config.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "modifier_setting",
-          "link": "/zh/mods/adventure/Champions-Unofficial/modifier_setting.html",
-          "_relativePathKey": "modifier_setting.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "Wiki",
-          "link": "/zh/mods/adventure/Champions-Unofficial/wiki.html",
-          "_relativePathKey": "wiki.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false,

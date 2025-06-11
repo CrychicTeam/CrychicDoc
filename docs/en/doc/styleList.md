@@ -169,12 +169,16 @@ VuePress Theme Hope ++is very++ powerful.
 
 ## Alert Boxes {#alert}
 
+The site provides two alert systems: the legacy `v-alert` format and the new `CustomAlert` with JSON configuration.
+
+### Legacy v-alert Format
+
 Provided by the `v-alert` plugin written by site maintainer [Coconut Milk](https://www.mcmod.cn/author/24749.html), used to create Vuetify-style alert containers.
 
 >[!INFO]Note
 >This plugin is based on [`@mdit/plugin-container`](https://mdit-plugins.github.io/zh/container.html)
 
-::::: demo Example
+::::: demo Legacy Alert Examples
 ::: v-success Success
 This is success style
 :::
@@ -191,6 +195,76 @@ Can be nested
 :::
 ::::
 :::::
+
+### CustomAlert with JSON Configuration
+
+The new `CustomAlert` plugin provides advanced configuration through JSON syntax, offering extensive customization options including themes, variants, icons, and more.
+
+>[!INFO]Note
+>This plugin uses a custom container implementation for reliable JSON configuration parsing.
+
+#### Basic Usage
+
+::::: demo Basic Alert Types
+::: alert {"type": "success", "title": "Success Alert"}
+This is a success alert with JSON configuration.
+:::
+
+::: alert {"type": "info", "title": "Information"}
+This is an info alert supporting **Markdown** content.
+:::
+
+::: alert {"type": "warning", "title": "Warning Alert"}
+This is a warning alert with ++enhanced++ formatting.
+:::
+
+::: alert {"type": "error", "title": "Error Alert"}
+This is an error alert with full Markdown support.
+:::
+:::::
+
+#### Advanced Styling
+
+::::: demo Advanced Styling Options
+::: alert {"type": "success", "title": "Tonal Variant", "variant": "tonal", "density": "comfortable"}
+Using tonal variant with comfortable density.
+:::
+
+::: alert {"type": "info", "title": "Outlined with Border", "variant": "outlined", "border": "start"}
+Outlined variant with start border position.
+:::
+
+::: alert {"type": "warning", "title": "Custom Color", "color": "purple", "icon": "mdi-star"}
+Custom purple color with star icon.
+:::
+:::::
+
+#### Theme Colors
+
+::::: demo Theme-Aware Colors
+::: alert {"type": "success", "title": "Light Theme", "lightColor": "#e8f5e8", "darkColor": "#2d4a2d"}
+Custom colors that adapt to light and dark themes.
+:::
+
+::: alert {"type": "info", "title": "Blue Theme", "lightColor": "#e3f2fd", "darkColor": "#1a237e", "variant": "outlined"}
+Blue-themed alert with outlined variant.
+:::
+:::::
+
+#### Configuration Options
+
+| Property | Type | Description | Values |
+|:---|:---|:---|:---|
+| `type` | `string` | Alert type/color | `success`, `info`, `warning`, `error` |
+| `title` | `string` | Alert title | Any string |
+| `text` | `string` | Text content (alternative to slot) | Any string |
+| `variant` | `string` | Visual style variant | `flat`, `elevated`, `tonal`, `outlined`, `text`, `plain` |
+| `density` | `string` | Spacing density | `default`, `comfortable`, `compact` |
+| `border` | `string|boolean` | Border position | `start`, `end`, `top`, `bottom`, `true`, `false` |
+| `color` | `string` | Custom color | Any CSS color value |
+| `lightColor` | `string` | Light theme color | Any CSS color value |
+| `darkColor` | `string` | Dark theme color | Any CSS color value |
+| `icon` | `string` | Custom icon | Material Design icon name (e.g., `mdi-star`) |
 
 ## Carousel Banners {#carousels}
 
@@ -215,16 +289,74 @@ Provided by the `carousels` plugin written by site maintainer [Coconut Milk](htt
 :::
 ::::
 
-> Try embedding a codeblock?
+### Configuration Syntax {#iframe-grammer}
 
-### Configuration Syntax {#carousels-grammer}
+The configuration options for the `iframes` container are provided by a JSON object following the container declaration, connected with `#`.
 
-The configuration options for the `carousels` container are provided by JSON following the container declaration, connected with `#`.
+| Configuration Field | Purpose                      | Type           | Default Value |
+| ------------------- | ---------------------------- | -------------- | ------------- |
+| `src`               | URL of the webpage, required | `string`       | `N/A`         |
+| `height`            | Sets the element height      | `length value` | `140px`       |
 
-| Configuration Field | Purpose                                 | Type           | Default Value |
-|--------------------|----------------------------------------|----------------|---------------|
-| `src`              | URL of the webpage, required           | `string`       | `N/A`         |
-| `height`           | Sets the element height                | `length value` | `140px`       |
+## Dialogs {#dialog}
+
+Provided by the `dialog` plugin written by site maintainer [M1hono](https://github.com/M1hono), used to create complex dialog boxes that can be triggered from anywhere.
+
+### Syntax
+
+The plugin consists of two parts: **definition** and **trigger**.
+
+1.  **Define Dialog Content (`dialog-def`)**
+    Use a block container to define the dialog's content and properties.
+
+    ```markdown
+    @@@ dialog-def#my-dialog {"title": "My Dialog", "width": 500}
+    # This is the dialog title
+
+    This is **markdown** content, supporting all standard syntax.
+
+    - Lists
+    - Code blocks
+    - etc...
+    @@@
+    ```
+
+2.  **Trigger Dialog (`dialog`)**
+    Use inline syntax to create a link in the text to open the dialog.
+
+    ```markdown
+    Click :::dialog#my-dialog here::: to open the dialog.
+    ```
+
+### Configuration
+
+Configuration is provided via a JSON object after the `dialog-def` container.
+
+| Configuration Field | Purpose | Type | Default Value |
+|---|---|---|---|
+| `title` | The title of the dialog | `string` | `N/A` |
+| `width` | The maximum width of the dialog | `string` \| `number` | `800` |
+| `fullscreen` | Whether to display in fullscreen mode | `boolean` | `false` |
+| `persistent` | Whether the dialog closes on outside click | `boolean` | `false` |
+
+### Example
+
+:::: demo Example
+@@@ dialog-def#style-guide-demo-en {"title": "Dialog Demo", "width": 600}
+# Welcome!
+
+This is a dialog triggered from the style guide.
+
+- You can place any Markdown content here.
+- `code blocks` will be rendered correctly.
+
+```js
+console.log("Hello from dialog!");
+```
+@@@
+
+Click :::dialog#style-guide-demo-en here::: to see it in action.
+::::
 
 ## Cards {#card}
 

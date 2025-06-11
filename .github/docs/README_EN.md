@@ -64,7 +64,7 @@ Git case sensitivity configuration happens **automatically** when you clone the 
 ./setup-git.sh
 ```
 
-This will configure Git to properly handle filename case sensitivity, preventing conflicts between different operating systems. For detailed information, see `.git-setup/README.md`.
+This will configure Git to properly handle filename case sensitivity, preventing conflicts between different operating systems.
 
 This documentation uses a secure and stable deployment solution that ensures long-term stability and access for players in different regions:
 

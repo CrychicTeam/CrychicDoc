@@ -111,7 +111,7 @@
           "_priority": 0
         },
         {
-          "text": "rules",
+          "text": "Document Rules",
           "link": "/en/doc/rules.html",
           "_relativePathKey": "rules.md",
           "_hidden": false,
@@ -163,6 +163,15 @@
           "_isDirectory": true,
           "_isRoot": false,
           "_hidden": false
+        },
+        {
+          "text": "LiteTree Component Guide",
+          "link": "/en/doc/litetree-guide.html",
+          "_relativePathKey": "litetree-guide.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 9007199254740991
         }
       ],
       "collapsed": true,
@@ -892,6 +901,82 @@
       "_hidden": false
     }
   ],
+  "/en/info/KubeJS/borad/": [
+    {
+      "text": "Borad",
+      "items": [
+        {
+          "text": "code",
+          "link": "/en/info/KubeJS/borad/code.html",
+          "_relativePathKey": "code.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "docError",
+          "link": "/en/info/KubeJS/borad/docError.html",
+          "_relativePathKey": "docError.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "modpack",
+          "link": "/en/info/KubeJS/borad/modpack.html",
+          "_relativePathKey": "modpack.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "modRecommend",
+          "link": "/en/info/KubeJS/borad/modRecommend.html",
+          "_relativePathKey": "modRecommend.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "navbar",
+          "link": "/en/info/KubeJS/borad/navbar.html",
+          "_relativePathKey": "navbar.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "publicServer",
+          "link": "/en/info/KubeJS/borad/publicServer.html",
+          "_relativePathKey": "publicServer.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "teamRecruit",
+          "link": "/en/info/KubeJS/borad/teamRecruit.html",
+          "_relativePathKey": "teamRecruit.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/en/info/KubeJS/Q&A/": [
     {
       "text": "Q&A",
@@ -1035,82 +1120,6 @@
       "_hidden": false
     }
   ],
-  "/en/info/KubeJS/borad/": [
-    {
-      "text": "Borad",
-      "items": [
-        {
-          "text": "code",
-          "link": "/en/info/KubeJS/borad/code.html",
-          "_relativePathKey": "code.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "docError",
-          "link": "/en/info/KubeJS/borad/docError.html",
-          "_relativePathKey": "docError.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "modpack",
-          "link": "/en/info/KubeJS/borad/modpack.html",
-          "_relativePathKey": "modpack.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "modRecommend",
-          "link": "/en/info/KubeJS/borad/modRecommend.html",
-          "_relativePathKey": "modRecommend.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "navbar",
-          "link": "/en/info/KubeJS/borad/navbar.html",
-          "_relativePathKey": "navbar.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "publicServer",
-          "link": "/en/info/KubeJS/borad/publicServer.html",
-          "_relativePathKey": "publicServer.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "teamRecruit",
-          "link": "/en/info/KubeJS/borad/teamRecruit.html",
-          "_relativePathKey": "teamRecruit.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
   "/en/info/doc/Q&A/": [
     {
       "text": "Q&A",
@@ -1137,6 +1146,37 @@
           "text": "use",
           "link": "/en/info/doc/Q&A/use.html",
           "_relativePathKey": "use.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
+  "/en/info/doc/suggestion/": [
+    {
+      "text": "Suggestion",
+      "items": [
+        {
+          "text": "doc",
+          "link": "/en/info/doc/suggestion/doc.html",
+          "_relativePathKey": "doc.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false,
+          "_priority": 0
+        },
+        {
+          "text": "writing",
+          "link": "/en/info/doc/suggestion/writing.html",
+          "_relativePathKey": "writing.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false,
@@ -1217,59 +1257,6 @@
           "_isDirectory": false,
           "_isRoot": false,
           "_priority": 0
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/en/info/doc/suggestion/": [
-    {
-      "text": "Suggestion",
-      "items": [
-        {
-          "text": "doc",
-          "link": "/en/info/doc/suggestion/doc.html",
-          "_relativePathKey": "doc.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        },
-        {
-          "text": "writing",
-          "link": "/en/info/doc/suggestion/writing.html",
-          "_relativePathKey": "writing.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false,
-          "_priority": 0
-        }
-      ],
-      "collapsed": true,
-      "_priority": 9007199254740991,
-      "_relativePathKey": "",
-      "_isDirectory": true,
-      "_isRoot": true,
-      "_hidden": false
-    }
-  ],
-  "/en/modpack/kubejs/1.21/": [
-    {
-      "text": "KubeJS",
-      "items": [
-        {
-          "text": "Introduction",
-          "collapsed": true,
-          "_priority": 9007199254740991,
-          "_relativePathKey": "Introduction/",
-          "_isDirectory": true,
-          "_isRoot": false,
-          "_hidden": false
         }
       ],
       "collapsed": true,
@@ -1367,6 +1354,28 @@
       "_hidden": false
     }
   ],
+  "/en/modpack/kubejs/1.21/": [
+    {
+      "text": "KubeJS",
+      "items": [
+        {
+          "text": "Introduction",
+          "collapsed": true,
+          "_priority": 9007199254740991,
+          "_relativePathKey": "Introduction/",
+          "_isDirectory": true,
+          "_isRoot": false,
+          "_hidden": false
+        }
+      ],
+      "collapsed": true,
+      "_priority": 9007199254740991,
+      "_relativePathKey": "",
+      "_isDirectory": true,
+      "_isRoot": true,
+      "_hidden": false
+    }
+  ],
   "/en/mods/adventure/Champions-Unofficial/": [
     {
       "text": "Champions-Unofficial",
@@ -1436,6 +1445,228 @@
       "_isDirectory": true,
       "_isRoot": true,
       "_hidden": false
+    }
+  ],
+  "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/": [
+    {
+      "text": "前言",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/README",
+      "_relativePathKey": "README.md",
+      "_hidden": false,
+      "_isDirectory": true,
+      "_isRoot": false
+    },
+    {
+      "text": "KubeJS 6 魔改教程更新日志",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/changelog",
+      "_relativePathKey": "readme/changelog.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "1. 基础",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/probejs-and-commands",
+      "_relativePathKey": "readme/probejs-and-commands.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "1.1 常用游戏内指令与ProbeJS使用",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/probejs-and-commands",
+          "_relativePathKey": "readme/probejs-and-commands.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "1.2 文件结构和脚本类型",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/file-structure",
+          "_relativePathKey": "readme/file-structure.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "1.3 脚本基础和格式变化",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/script-format",
+          "_relativePathKey": "readme/script-format.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "1.4 事件列表",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/event-list",
+          "_relativePathKey": "readme/event-list.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
+    },
+    {
+      "text": "2. 配方相关",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/itemstacks",
+      "_relativePathKey": "recipe/itemstacks.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "2.1 物品的表示——ItemStack和Ingredient",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/itemstacks",
+          "_relativePathKey": "recipe/itemstacks.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "2.2 配方的添加，修改和移除",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/modify-recipes",
+          "_relativePathKey": "recipe/modify-recipes.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "2.3 非标准配方修改",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/custom-recipes",
+          "_relativePathKey": "recipe/custom-recipes.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "2.4 配方ID",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/recipe-id",
+          "_relativePathKey": "recipe/recipe-id.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
+    },
+    {
+      "text": "3. 标签",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/tags",
+      "_relativePathKey": "game-contents/tags.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "4. 方块注册和属性修改",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/block",
+      "_relativePathKey": "game-contents/block.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "5. 物品注册和属性修改",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/item",
+      "_relativePathKey": "game-contents/item.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "6. 特殊类型方块和物品",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/README",
+      "_relativePathKey": "game-contents/special-blocks-and-items/README.md",
+      "_hidden": false,
+      "_isDirectory": true,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "6.1 作物方块和种子",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/crops",
+          "_relativePathKey": "game-contents/special-blocks-and-items/crops.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "6.2 食物注册",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/food",
+          "_relativePathKey": "game-contents/special-blocks-and-items/food.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "6.3 BlockBench入门教程",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/blockbench",
+          "_relativePathKey": "game-contents/special-blocks-and-items/blockbench.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
+    },
+    {
+      "text": "7. 附魔添加",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/enchantments",
+      "_relativePathKey": "game-contents/enchantments.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "8. 流体注册",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/fluid",
+      "_relativePathKey": "game-contents/fluid.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "9. 战利品表",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/9.-zhan-li-pin-biao",
+      "_relativePathKey": "game-contents/9.-zhan-li-pin-biao.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "10. 世界生成",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/worldgen",
+      "_relativePathKey": "game-contents/worldgen.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false
+    },
+    {
+      "text": "11. 常用附属模组清单",
+      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/addon-list",
+      "_relativePathKey": "addons/addon-list.md",
+      "_hidden": false,
+      "_isDirectory": false,
+      "_isRoot": false,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "11.1 KubeJS Create",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/kubejs-create",
+          "_relativePathKey": "addons/kubejs-create.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        },
+        {
+          "text": "11.2 LootJS —— 便捷战利品表修改",
+          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/lootjs",
+          "_relativePathKey": "addons/lootjs.md",
+          "_hidden": false,
+          "_isDirectory": false,
+          "_isRoot": false
+        }
+      ]
     }
   ],
   "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/": [
@@ -1921,228 +2152,6 @@
           "text": "20.5 反射与Java access",
           "link": "/en/modpack/kubejs/1.18.2/XPlusKubeJSTutorial/migrate-to-1182/20.5-fan-she-yu-java-access",
           "_relativePathKey": "migrate-to-1182/20.5-fan-she-yu-java-access.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    }
-  ],
-  "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/": [
-    {
-      "text": "前言",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/README",
-      "_relativePathKey": "README.md",
-      "_hidden": false,
-      "_isDirectory": true,
-      "_isRoot": false
-    },
-    {
-      "text": "KubeJS 6 魔改教程更新日志",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/changelog",
-      "_relativePathKey": "readme/changelog.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "1. 基础",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/probejs-and-commands",
-      "_relativePathKey": "readme/probejs-and-commands.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "1.1 常用游戏内指令与ProbeJS使用",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/probejs-and-commands",
-          "_relativePathKey": "readme/probejs-and-commands.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "1.2 文件结构和脚本类型",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/file-structure",
-          "_relativePathKey": "readme/file-structure.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "1.3 脚本基础和格式变化",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/script-format",
-          "_relativePathKey": "readme/script-format.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "1.4 事件列表",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/readme/event-list",
-          "_relativePathKey": "readme/event-list.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    },
-    {
-      "text": "2. 配方相关",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/itemstacks",
-      "_relativePathKey": "recipe/itemstacks.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "2.1 物品的表示——ItemStack和Ingredient",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/itemstacks",
-          "_relativePathKey": "recipe/itemstacks.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "2.2 配方的添加，修改和移除",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/modify-recipes",
-          "_relativePathKey": "recipe/modify-recipes.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "2.3 非标准配方修改",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/custom-recipes",
-          "_relativePathKey": "recipe/custom-recipes.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "2.4 配方ID",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/recipe/recipe-id",
-          "_relativePathKey": "recipe/recipe-id.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    },
-    {
-      "text": "3. 标签",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/tags",
-      "_relativePathKey": "game-contents/tags.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "4. 方块注册和属性修改",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/block",
-      "_relativePathKey": "game-contents/block.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "5. 物品注册和属性修改",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/item",
-      "_relativePathKey": "game-contents/item.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "6. 特殊类型方块和物品",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/README",
-      "_relativePathKey": "game-contents/special-blocks-and-items/README.md",
-      "_hidden": false,
-      "_isDirectory": true,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "6.1 作物方块和种子",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/crops",
-          "_relativePathKey": "game-contents/special-blocks-and-items/crops.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "6.2 食物注册",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/food",
-          "_relativePathKey": "game-contents/special-blocks-and-items/food.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "6.3 BlockBench入门教程",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/special-blocks-and-items/blockbench",
-          "_relativePathKey": "game-contents/special-blocks-and-items/blockbench.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        }
-      ]
-    },
-    {
-      "text": "7. 附魔添加",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/enchantments",
-      "_relativePathKey": "game-contents/enchantments.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "8. 流体注册",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/fluid",
-      "_relativePathKey": "game-contents/fluid.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "9. 战利品表",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/9.-zhan-li-pin-biao",
-      "_relativePathKey": "game-contents/9.-zhan-li-pin-biao.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "10. 世界生成",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/game-contents/worldgen",
-      "_relativePathKey": "game-contents/worldgen.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false
-    },
-    {
-      "text": "11. 常用附属模组清单",
-      "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/addon-list",
-      "_relativePathKey": "addons/addon-list.md",
-      "_hidden": false,
-      "_isDirectory": false,
-      "_isRoot": false,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "11.1 KubeJS Create",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/kubejs-create",
-          "_relativePathKey": "addons/kubejs-create.md",
-          "_hidden": false,
-          "_isDirectory": false,
-          "_isRoot": false
-        },
-        {
-          "text": "11.2 LootJS —— 便捷战利品表修改",
-          "link": "/en/modpack/kubejs/1.19.2/XPlusKubeJSTutorial/addons/lootjs",
-          "_relativePathKey": "addons/lootjs.md",
           "_hidden": false,
           "_isDirectory": false,
           "_isRoot": false

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { ref, computed, watch } from "vue";
+    import { ref, computed, watch, onMounted, nextTick } from "vue";
     import { useData } from "vitepress";
     import { defineAsyncComponent } from "vue";
 
@@ -82,6 +82,8 @@
     const isJavaEditionRef = ref(props.isJavaEdition);
 
     const debugInfo = ref("");
+    const chartRef = ref(null);
+    const isChartReady = ref(false);
 
     const localText = computed(
         () => props.translations[lang.value] || props.translations["en-US"]
@@ -343,6 +345,15 @@
         if (props.mode === "static") return;
         isJavaEditionRef.value = !isJavaEditionRef.value;
     };
+
+    // Wait for component to mount and DOM to be ready
+    onMounted(async () => {
+        await nextTick();
+        // Small delay to ensure DOM is fully rendered
+        setTimeout(() => {
+            isChartReady.value = true;
+        }, 100);
+    });
 </script>
 
 <template>
@@ -394,13 +405,17 @@
                 </button>
             </div>
         </div>
-        <div class="chart-container">
+        <div class="chart-container" ref="chartRef">
             <ClientOnly>
                 <v-chart
+                    v-if="isChartReady"
                     :option="chartOptions"
                     :autoresize="true"
                     class="chart"
                 />
+                <div v-else class="chart-loading">
+                    Loading chart...
+                </div>
             </ClientOnly>
         </div>
         <div v-if="mode === 'interactive'" class="debug-info">
@@ -472,12 +487,22 @@
     }
 
     .chart-container {
-        height: var(--chart-height);
-        min-height: var(--chart-min-height);
+        height: 400px;
+        min-height: 300px;
         width: 100%;
         background-color: var(--vp-c-bg-alt);
         border-radius: 4px;
         padding: 10px;
+        position: relative;
+    }
+
+    .chart-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: var(--vp-c-text-2);
+        font-style: italic;
     }
 
     .chart {
@@ -497,8 +522,8 @@
         }
 
         .chart-container {
-            height: var(--mobile-chart-height);
-            min-height: var(--mobile-chart-min-height);
+            height: 300px;
+            min-height: 250px;
         }
 
         .minecraft-damage-chart {

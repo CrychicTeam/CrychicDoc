@@ -1,0 +1,112 @@
+/**
+ * Font Definitions and Controls
+ */
+
+/* Font Variables */
+:root {
+    --vp-font-family-base: "HarmonyOS Sans SC", "HarmonyOS Sans TC", -apple-system, BlinkMacSystemFont, 
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --vp-font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, 
+        "Liberation Mono", "Courier New", monospace;
+    font-family: var(--vp-font-family-base);
+    font-variant-east-asian: simplified;
+}
+
+/* Font imports - Traditional Chinese */
+@font-face {
+    font-family: "HarmonyOS Sans TC";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("HarmonyOS Sans TC Regular"),
+         url("/fonts/HarmonyOS_Sans_TC_Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "HarmonyOS Sans TC";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local("HarmonyOS Sans TC Medium"),
+         url("/fonts/HarmonyOS_Sans_TC_Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "HarmonyOS Sans TC";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("HarmonyOS Sans TC Bold"),
+         url("/fonts/HarmonyOS_Sans_TC_Bold.ttf") format("truetype");
+}
+
+/* Font imports - Simplified Chinese */
+@font-face {
+    font-family: "HarmonyOS Sans SC";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("HarmonyOS Sans SC Regular"),
+         url("/fonts/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "HarmonyOS Sans SC";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local("HarmonyOS Sans SC Medium"),
+         url("/fonts/HarmonyOS_Sans_SC_Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "HarmonyOS Sans SC";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("HarmonyOS Sans SC Bold"),
+         url("/fonts/HarmonyOS_Sans_SC_Bold.ttf") format("truetype");
+}
+
+/* Chinese punctuation marks */
+@font-face {
+    font-family: "Punctuation TC";
+    font-weight: 400;
+    src: local("PingFang TC Regular"), local("Noto Sans CJK TC"),
+        local("Microsoft JhengHei");
+    unicode-range: U+201C, U+201D, U+2018, U+2019, U+2E3A, U+2014, U+2013,
+        U+2026, U+00B7, U+007E, U+002F;
+}
+
+@font-face {
+    font-family: "Punctuation SC";
+    font-weight: 400;
+    src: local("PingFang SC Regular"), local("Noto Sans CJK SC"),
+        local("Microsoft YaHei");
+    unicode-range: U+201C, U+201D, U+2018, U+2019, U+2E3A, U+2014, U+2013,
+        U+2026, U+00B7, U+007E, U+002F;
+}
+
+/* Font Smoothing */
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Manual language controls */
+.hans {
+    font-variant-east-asian: simplified !important;
+    font-family: "HarmonyOS Sans SC", "Punctuation SC", var(--vp-font-family-base) !important;
+}
+
+.hant {
+    font-variant-east-asian: traditional !important;
+    font-family: "HarmonyOS Sans TC", "Punctuation TC", var(--vp-font-family-base) !important;
+}
+
+/* Browser language detection class (added by JavaScript) */
+.browser-hant {
+    font-variant-east-asian: traditional !important;
+    font-family: "HarmonyOS Sans TC", "Punctuation TC", var(--vp-font-family-base) !important;
+} 

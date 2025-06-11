@@ -1,5 +1,4 @@
 import { container } from "@mdit/plugin-container";
-import { logger } from "../config/sidebarControl";
 import type { PluginSimple } from "markdown-it";
 
 export const v_alert: PluginSimple = (md) => {
@@ -14,7 +13,7 @@ export const v_alert: PluginSimple = (md) => {
                         .slice(name.length)
                         .trim();
                     const defaultTitle: string = name.replace("v-", "");
-                    return `<v-alert class="v-alert" title="${
+                    return `<v-alert class="v-alert bg-${defaultTitle}" title="${
                         info || defaultTitle
                     }" type="${defaultTitle}"><div class="v-alert-content">\n`;
                 },

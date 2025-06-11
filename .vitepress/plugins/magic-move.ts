@@ -8,6 +8,9 @@ const reMagicMoveBlock =
 const reCodeBlock =
     /^```([\w'-]+?)(?:\s*\[([^\]]*)\])?(?:\s*{([\d\w*,\|-]+)}\s*?({.*?})?(.*?))?\n([\s\S]+?)^```$/mg;
 
+// Global collection to store all Magic Move filenames for group-icons plugin
+const magicMoveFilenames = new Set<string>();
+
 export function normalizeRangeStr(rangeStr = "") {
     return !rangeStr.trim()
         ? []
@@ -15,6 +18,13 @@ export function normalizeRangeStr(rangeStr = "") {
                 .trim()
                 .split(/\|/g)
                 .map((i) => i.trim());
+}
+
+/**
+ * Get all filenames used in Magic Move blocks for group-icons plugin integration
+ */
+export function getMagicMoveFilenames(): string[] {
+    return Array.from(magicMoveFilenames);
 }
 
 async function MagicMovePlugin(md: MarkdownIt, shiki: Highlighter) {
@@ -37,6 +47,13 @@ async function MagicMovePlugin(md: MarkdownIt, shiki: Highlighter) {
 
                 const ranges = matches.map((i) => normalizeRangeStr(i[3]));
                 const steps = matches.map((i) => {
+                    const fileName = i[2] || i[1];
+                    
+                    // Collect filename for group-icons plugin
+                    if (fileName) {
+                        magicMoveFilenames.add(fileName);
+                    }
+                    
                     return {
                         ...codeToKeyedTokens(shiki, i[6].trimEnd(), {
                             lang: i[1] as any,
@@ -45,7 +62,7 @@ async function MagicMovePlugin(md: MarkdownIt, shiki: Highlighter) {
                                 light: "github-light",
                             },
                         } as unknown as MarkdownItShikiOptions),
-                        fileName: i[2] || i[1],
+                        fileName,
                     };
                 });
 
@@ -66,7 +83,17 @@ async function MagicMovePlugin(md: MarkdownIt, shiki: Highlighter) {
     function renderDefault(tokens: any[], idx: number) {
         if (tokens[idx].nesting === 1) {
             const { stepsLz, stepRanges } = tokens[idx].meta;
-            return `<MagicMoveContainer steps-lz="${stepsLz}" :step-ranges="${stepRanges}" />`;
+            
+            // Extract filenames from steps and inject them as hidden data-title elements
+            // This ensures the group-icons plugin can detect them during build
+            const steps = JSON.parse(decodeURIComponent(stepsLz));
+            const filenameElements = steps
+                .map((step: any) => step.fileName)
+                .filter(Boolean)
+                .map((filename: string) => `<span data-title="${filename}" style="display:none;"></span>`)
+                .join('');
+            
+            return `${filenameElements}<MagicMoveContainer steps-lz="${stepsLz}" :step-ranges="${stepRanges}" />`;
         }
         return "";
     }

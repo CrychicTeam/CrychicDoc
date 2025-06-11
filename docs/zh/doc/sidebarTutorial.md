@@ -479,3 +479,104 @@ find .vitepress/config/sidebar/.metadata -name "*.meta.json" -exec echo {} \; -e
 -   **路径大小写**：确保文件路径大小写在不同操作系统间一致
 
 :::
+
+## 文档编写规范参考 {#rules-reference}
+
+### 📚 最新编写规范
+
+为了充分利用本侧边栏系统的强大功能，建议参考最新的[文档编写规范](./rules.md)，该文档已使用最新的LiteTree组件和样式系统进行了全面优化：
+
+#### 🎨 现代化文档特性
+
+<LiteTree>
+// 新功能样式
+#enhanced=color:white;background:#4caf50;padding:2px 6px;border-radius:3px;font-size:12px;
+#visual=color:white;background:#2196f3;padding:2px 6px;border-radius:3px;font-size:12px;
+#interactive=color:white;background:#ff9800;padding:2px 6px;border-radius:3px;font-size:12px;
+---
+文档编写规范新特性
+    {#enhanced}LiteTree项目结构可视化              //+    交互式目录树
+        彩色标记的文件类型                       // 配置、内容、脚本分类
+        状态指示器支持                          // //+, //v, //!, //x 等
+        自定义图标系统                          // TypeScript、JavaScript等图标
+    {#visual}增强型警告组件                     //v    CustomAlert集成
+        多种警告类型                           // info, warning, error, success
+        自定义标题支持                          // 更好的信息层次
+        主题自适应样式                          // 暗色/亮色主题
+    {#interactive}智能文档导航                  //*    改进的用户体验
+        侧边栏操作模式可视化                     // 两种配置方法对比
+        文档结构层次图                          // H1-H4标题结构
+        协作指南流程图                          // 内容创作最佳实践
+</LiteTree>
+
+#### ✨ 推荐使用的组件
+
+- **📊 LiteTree**: 用于显示项目结构、工作流程、团队组织等
+- **🔔 CustomAlert**: 用于重要提示、警告、成功消息等
+- **📝 代码块**: 支持语法高亮的配置示例
+- **🎯 表格**: 用于配置字段说明和对比
+
+### 📋 侧边栏配置示例
+
+参考规范文档的实际配置方式：
+
+```yaml
+---
+title: VitePress 侧边栏配置指南
+root: true
+priority: 1
+maxDepth: 3
+---
+```
+
+## 开发特性状态 {#feature-status}
+
+### 🔧 当前可用功能
+
+:::alert {"type": "success", "title": "完全可用"}
+- ✅ **智能侧边栏生成**: 全功能可用
+- ✅ **LiteTree组件**: 项目结构可视化
+- ✅ **CustomAlert组件**: 增强型提示框
+- ✅ **Markdown扩展**: VitePress原生支持
+- ✅ **主题切换**: 暗色/亮色自动适配
+:::
+
+### ⚠️ 计划中功能
+
+:::alert {"type": "warning", "title": "开发中"}
+**TwoSlash 类型补全功能目前暂不可用**。我们正在进行技术升级，该功能将在未来版本中重新启用。
+:::
+
+#### 🔮 TwoSlash 类型补全
+
+该功能旨在为代码块提供TypeScript类型提示：
+
+```typescript
+// 计划中的效果
+const config: SidebarConfig = {
+    root: true,
+    title: "指南"
+//  ^? const config: SidebarConfig
+};
+```
+
+**替代方案**: 
+- 使用标准代码块语法高亮
+- 在注释中手动添加类型说明
+- 利用JSDoc风格的类型注解
+
+#### 🚀 未来规划
+
+- **实时预览**: 配置修改的即时预览
+- **可视化编辑器**: 图形界面配置侧边栏
+- **模板系统**: 预定义的侧边栏模板
+- **导入导出**: 配置的批量管理功能
+
+:::tip 开发建议
+
+在等待TwoSlash功能恢复期间，推荐：
+1. 使用详细的代码注释说明类型
+2. 参考TypeScript官方文档示例
+3. 利用IDE的内置类型提示功能
+
+:::

@@ -504,7 +504,7 @@
 
 "@fancyapps/ui@^5.0.36":
   version "5.0.36"
-  resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-5.0.36.tgz#dd5117cb579e9fc85c06dc32c947be6105724fb2"
+  resolved "https://registry.npmjs.org/@fancyapps/ui/-/ui-5.0.36.tgz"
   integrity sha512-GMygQzp1MBTFNTT6AzpbL6pXTD6bTxwjmmpI1fe8Ozmmiseu8/g82Sudl1YhcbZmS4bJgaBOF5THDFGpXQ1fDw==
 
 "@iconify-json/carbon@^1.2.8":
@@ -1928,7 +1928,7 @@ braces@^3.0.3, braces@~3.0.2:
 
 busuanzi.pure.js@^1.0.3:
   version "1.0.3"
-  resolved "https://registry.yarnpkg.com/busuanzi.pure.js/-/busuanzi.pure.js-1.0.3.tgz#a03784db9e5b2c42a059b16551d2511933a46f5c"
+  resolved "https://registry.npmjs.org/busuanzi.pure.js/-/busuanzi.pure.js-1.0.3.tgz"
   integrity sha512-tPULdyx+8NNb9geZYDpktKmHAYx9f2LEOBaHyWCaM7iPEMIa/43KgYAUluuU7YG9UFSOFpj4dO7Nj2Vlu3V9Rg==
 
 byte-size@^9.0.1:

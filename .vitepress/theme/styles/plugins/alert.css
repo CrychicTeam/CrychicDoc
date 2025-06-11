@@ -1,0 +1,132 @@
+/* === Standard v-alert styles === */
+/* Direct styling for alerts, overriding Vuetify defaults for consistency with the site theme. */
+
+.v-alert {
+    margin: 1rem 0;
+    border: 1px solid transparent;
+}
+
+.v-alert-content {
+    font-size: var(--vp-custom-block-font-size);
+    line-height: var(--vp-custom-block-line-height);
+}
+
+/* Light Theme Colors */
+.v-alert.bg-success {
+    background-color: #f0f9eb !important;
+    border-color: #e1f3d8 !important;
+    color: #4b8423 !important;
+}
+.v-alert.bg-info {
+    background-color: #eef7ff !important;
+    border-color: #dbeeff !important;
+    color: #217ac0 !important;
+}
+.v-alert.bg-warning {
+    background-color: #fff8e1 !important;
+    border-color: #fff0c7 !important;
+    color: #ad7b00 !important;
+}
+.v-alert.bg-error {
+    background-color: #ffeff0 !important;
+    border-color: #ffdce0 !important;
+    color: #c53a4b !important;
+}
+
+/* Dark Theme Colors (more subdued) */
+.dark .v-alert.bg-success {
+    background-color: #1a2e21 !important;
+    border-color: #2c4c31 !important;
+    color: #a5d6a7 !important;
+}
+.dark .v-alert.bg-info {
+    background-color: #1a2b3e !important;
+    border-color: #284464 !important;
+    color: #b3e5fc !important;
+}
+.dark .v-alert.bg-warning {
+    background-color: #3e2d1a !important;
+    border-color: #644d28 !important;
+    color: #ffecb3 !important;
+}
+.dark .v-alert.bg-error {
+    background-color: #3e1a21 !important;
+    border-color: #642831 !important;
+    color: #ffcdd2 !important;
+}
+
+/* === Custom Alert Enhanced Styles === */
+.custom-alert-wrapper {
+    border: 1px solid;
+    margin: 1rem 0;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Theme-aware custom colors */
+.custom-alert-wrapper:where([style*="--custom-alert-light-color"]) {
+    background-color: var(--custom-alert-light-color) !important;
+    border-color: color-mix(in srgb, var(--custom-alert-light-color) 80%, transparent) !important;
+    color: color-mix(in srgb, var(--custom-alert-light-color) 20%, #000) !important;
+}
+
+.dark .custom-alert-wrapper:where([style*="--custom-alert-dark-color"]) {
+    background-color: var(--custom-alert-dark-color) !important;
+    border-color: color-mix(in srgb, var(--custom-alert-dark-color) 80%, transparent) !important;
+    color: color-mix(in srgb, var(--custom-alert-dark-color) 20%, #fff) !important;
+}
+
+/* Fallback for browsers that don't support color-mix */
+@supports not (color: color-mix(in srgb, red, blue)) {
+    .custom-alert-wrapper:where([style*="--custom-alert-light-color"]) {
+        border-color: var(--custom-alert-light-color) !important;
+        color: #2c3e50 !important;
+    }
+    
+    .dark .custom-alert-wrapper:where([style*="--custom-alert-dark-color"]) {
+        border-color: var(--custom-alert-dark-color) !important;
+        color: #ecf0f1 !important;
+    }
+}
+
+/* Enhanced content styling */
+.custom-alert-content {
+    font-size: var(--vp-custom-block-font-size, 14px);
+    line-height: var(--vp-custom-block-line-height, 1.6);
+    padding-top: 8px;
+}
+
+.custom-alert-content p {
+    margin: 0 0 0.5rem 0;
+}
+
+.custom-alert-content p:last-child {
+    margin-bottom: 0;
+}
+
+.custom-alert-content code {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.dark .custom-alert-content code {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced alert title styling */
+.v-alert .v-alert__title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 1.05em;
+}
+
+/* Improved spacing for nested content */
+.custom-alert-content > *:first-child {
+    margin-top: 0;
+}
+
+.custom-alert-content > *:last-child {
+    margin-bottom: 0;
+}

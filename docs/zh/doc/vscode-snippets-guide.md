@@ -5,339 +5,269 @@ description: CrychicDoc 项目中的 VSCode Markdown 代码片段完整使用指
 
 # VSCode 代码片段使用指南
 
-本指南介绍如何使用 CrychicDoc 项目中的增强型 VSCode 代码片段，让您更高效地编写 Markdown 文档。
+本指南解释了如何使用 CrychicDoc 项目中经过优化的 VSCode 代码片段，以更高效地编写 Markdown 文档。
 
 ## 快速开始
 
-在 VSCode 中编辑 `.md` 文件时，输入代码片段的**前缀**并按 `Tab` 键 (或根据您的设置按 `Enter`) 即可展开代码片段。
+在 VSCode 中编辑 `.md` 文件时，输入代码片段的 **前缀** (例如 `@page-template`) 并按 `Tab` 或 `Enter` 键即可将其展开。
 
 ## 代码片段分类
 
-为了方便查找和使用，所有代码片段已根据其功能进行了分类。
+所有代码片段都经过了重新组织和标准化，以便于查找和使用。它们被分为以下几类：
+
+-   **VitePress Frontmatter 与页面模板**: 用于快速搭建页面和配置元数据。
+-   **VitePress 内置 Markdown 功能**: 用于 VitePress 特有的容器和代码块。
+-   **自定义插件与组件**: 用于项目中开发的自定义组件，如对话框、警告框等。
+-   **Markdown 通用工具**: 用于标准的 Markdown 元素，如标题和表格。
+-   **LLM 内容工具**: 用于添加仅语言模型可见的上下文或指令。
 
 ---
 
-## 侧边栏与页面配置 (Sidebar, Page, & Frontmatter Configuration)
+## VitePress Frontmatter 与页面模板
 
-这些代码片段用于快速生成和配置页面的 Frontmatter、侧边栏的结构和行为。
+快速生成页面结构并配置 Frontmatter 元数据。
 
-### 页面与章节模板 (Page & Section Templates)
+### 页面与章节模板
 
-用于快速搭建标准页面或侧边栏根章节的结构。
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@page-template` | 快速搭建一个标准的 VitePress 文档页面。 |
+| `@root-template` | 快速搭建一个侧边栏的新根章节。 |
+| `@frontmatter` | 插入一个基础的 Frontmatter 块 (`---`)。 |
+| `@frontmatter-complete` | 生成一个包含所有常用字段的完整 Frontmatter 块。 |
 
-| 前缀             | 描述                             |
-| ---------------- | -------------------------------- |
-| `front`          | 基础 Frontmatter块               |
-| `page`           | 完整页面模板                     |
-| `section`        | 完整侧边栏根章节模板             |
-| `sidebar-root`   | (同上) 完整侧边栏根章节模板    |
-| `sidebar-page`   | 完整侧边栏内页面模板             |
-| `front-complete` | 包含所有常用字段的完整 Frontmatter |
+### 单独的 Frontmatter 字段
 
-### Frontmatter 核心字段 (Core Frontmatter Fields)
+所有 Frontmatter 字段的代码片段现在都使用 `@fm-` 前缀以保持一致性。
 
-用于添加或修改通用的 Frontmatter 字段。
-
-| 前缀              | 描述                       | 输出示例 (仅供参考)        |
-| ----------------- | -------------------------- | ------------------------- |
-| `title`           | 文档标题 (字段生成)        | `title: Your Title`       |
-| `description`     | 文档描述 (字段生成)        | `description: Your Desc`  |
-| `layout`          | 文档布局 (字段生成)        | `layout: doc`             |
-| `tags`            | 文档标签 (字段生成)        | `tags:\n  - tag1`        |
-| `authors`         | 文档作者 (字段生成)        | `authors:\n  - author1`   |
-| `progress`        | 文档进度 (字段生成)        | `progress: 100`           |
-| `noguide`         | 无指南标记 (字段生成)      | `noguide: true`           |
-| `title-val`       | 设置文档/章节标题          | `title: Your Title`       |
-| `description-val` | 设置页面描述               | `description: Your Desc`  |
-| `authors-val`     | 设置页面作者 (数组)        | `authors:\n  - user1`     |
-| `tags-val`        | 设置页面标签 (数组)        | `tags:\n  - tag1`        |
-| `progress-val`    | 设置完成进度               | `progress: 100`           |
-
-### 侧边栏专用配置 (Sidebar-specific Configuration)
-
-用于定义侧边栏项目的特定行为和属性。
-
-| 前缀              | 描述                             | 输出示例              |
-| ----------------- | -------------------------------- | --------------------- |
-| `root`            | 根侧边栏配置 (创建独立区域)      | `root: true...`       |
-| `root-layout`     | 带 VitePress 布局的根侧边栏配置  | `root: true...layout: doc`|
-| `dir`             | 基础目录配置 (用于 `index.md`)   | `title: Dir Title...` |
-| `root-field`      | 添加 `root` 字段                 | `root: true`          |
-| `root-true`       | 设置为侧边栏根章节               | `root: true`          |
-| `root-false`      | 非侧边栏根章节                   | `root: false`         |
-| `collapsed`       | 添加 `collapsed` 字段            | `collapsed: true`     |
-| `collapsed-true`  | 默认折叠                         | `collapsed: true`     |
-| `collapsed-false` | 默认展开                         | `collapsed: false`    |
-| `hidden`          | 添加 `hidden` 字段               | `hidden: true`        |
-| `hidden-true`     | 从侧边栏隐藏                     | `hidden: true`        |
-| `hidden-false`    | 在侧边栏显示                     | `hidden: false`       |
-| `priority-val`    | 设置排序优先级                   | `priority: 1`         |
-| `maxdepth-val`    | 最大嵌套深度                     | `maxDepth: 3`         |
-| `layout-doc`      | 文档布局 (VitePress)             | `layout: doc`         |
-| `layout-home`     | 主页布局 (VitePress)             | `layout: home`        |
-| `layout-page`     | 自定义页面布局 (VitePress)       | `layout: page`        |
-| `prev`            | 添加 `prev` 导航字段             | `prev: false`         |
-| `prev-true`       | 启用上一页导航                   | `prev: true`          |
-| `prev-false`      | 禁用上一页导航                   | `prev: false`         |
-| `next`            | 添加 `next` 导航字段             | `next: false`         |
-| `next-true`       | 启用下一页导航                   | `next: true`          |
-| `next-false`      | 禁用下一页导航                   | `next: false`         |
-| `comment-true`    | 启用评论                         | `showComment: true`   |
-| `comment-false`   | 禁用评论                         | `showComment: false`  |
-| `changelog-true`  | 显示 Git 更新日志                | `gitChangelog: true`  |
-| `changelog-false` | 隐藏 Git 更新日志                | `gitChangelog: false` |
-
-### 文档状态 (Document States)
-
-用于标记文档的当前状态。
-
-| 前缀               | 描述         | 输出                 |
-| ------------------ | ------------ | -------------------- |
-| `state-preliminary`| 初稿状态     | `state: preliminary` |
-| `state-unfinished` | 未完成状态   | `state: unfinished`  |
-| `state-outdated`   | 过期状态     | `state: outdated`    |
-| `state-renovating` | 修订中状态   | `state: renovating`  |
-| `state preliminary`| (同上)初稿   | `state: preliminary` |
-| `state unfinished` | (同上)未完成 | `state: unfinished`  |
-| `state outdated`   | (同上)过期   | `state: outdated`    |
-| `state renovating` | (同上)修订中 | `state: renovating`  |
+| 前缀 | 描述 | 输出示例 |
+| :--- | :--- | :--- |
+| `@fm-title` | 页面标题。 | `title: Page Title` |
+| `@fm-description` | 页面描述。 | `description: Page description` |
+| `@fm-root` | 页面是否为侧边栏根节点。 | `root: true` |
+| `@fm-collapsed` | 侧边栏该章节是否默认折叠。 | `collapsed: true` |
+| `@fm-hidden` | 从侧边栏中隐藏此页面。 | `hidden: true` |
+| `@fm-layout` | 页面布局 (`doc`, `home`, `page`)。 | `layout: doc` |
+| `@fm-prevnext` | 设置上一页/下一页导航链接。 | `prev: false` `next: false` |
+| `@fm-authors` | 页面作者。 | `authors:\n  - author` |
+| `@fm-tags` | 页面标签。 | `tags:\n  - tag` |
+| `@fm-progress` | 页面完成进度。 | `progress: 100` |
+| `@fm-state` | 文档状态 (`preliminary`, `published` 等)。 | `state: preliminary` |
 
 ---
 
-## VitePress 内置功能增强 (VitePress Built-in Feature Enhancements)
+## VitePress 内置 Markdown 功能
 
-用于快速使用 VitePress 提供的 Markdown 扩展功能。
+快速使用 VitePress 提供的 Markdown 扩展。所有这些代码片段现在都使用 `@vp-` 前缀。
 
-### 提示容器 (Admonition Containers)
+### 提示容器
 
-| 前缀             | 描述                       |
-| ---------------- | -------------------------- |
-| `info`           | VitePress 信息容器         |
-| `tip`            | VitePress 提示容器         |
-| `warning`        | VitePress 警告容器         |
-| `danger`         | VitePress 危险/错误容器    |
-| `details`        | VitePress 可折叠详情容器   |
-| `custom-container`| 自定义类型容器             |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@vp-info` | VitePress 信息容器。 |
+| `@vp-tip` | VitePress 提示容器。 |
+| `@vp-warning` | VitePress 警告容器。 |
+| `@vp-danger` | VitePress 危险/错误容器。 |
+| `@vp-details` | VitePress 可折叠详情容器。 |
 
-### 代码功能 (Code Features)
+### 代码功能
 
-| 前缀             | 描述                 |
-| ---------------- | -------------------- |
-| `code-group`     | VitePress 代码组     |
-| `code-lines`     | 带行号的代码块       |
-| `code-highlight` | 带行高亮的代码块     |
-
-### 数学公式 (Math Formulas)
-
-| 前缀          | 描述         | 输出示例                  |
-| ------------- | ------------ | ------------------------- |
-| `math-inline` | 内联数学公式 | `$x^2 + y^2 = z^2$`       |
-| `math-block`  | 块级数学公式 | `$$\nx^2 + y^2 = z^2\n$$` |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@vp-codegroup` | VitePress 代码组，用于选项卡式代码块。 |
+| `@vp-codelines` | 带行号的代码块。 |
+| `@vp-codehighlight` | 特定行高亮的代码块。 |
 
 ---
 
-## 扩展组件与样式 (Extended Components & Styling)
+## 自定义插件与组件
 
-利用项目自定义的 Vue 组件或特殊 Markdown 语法来增强内容表现力。
+为本项目开发的自定义 Vue 组件和 Markdown 插件提供的代码片段。
 
-### 内容组织 (Content Organization)
+### 组件代码片段
 
-| 前缀      | 描述       |
-| --------- | ---------- |
-| `tabs`    | 选项卡容器 |
-| `stepper` | 步骤指示器 |
-| `timeline`| 时间轴插件 |
+CrychicDoc 中所有交互式组件的完整代码片段集合。
 
-### 媒体与交互 (Media & Interaction)
+#### Mermaid 图表
 
-| 前缀         | 描述                 |
-| ------------ | -------------------- |
-| `carousel`   | 图片轮播             |
-| `iframe`     | 内嵌 iframe          |
-| `img-size`   | 指定尺寸的图片       |
-| `linkcard`   | 链接卡片组件         |
-| `bilibili`   | Bilibili 视频组件    |
-| `pdf-viewer` | PDF 查看器组件       |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@mermaid-flowchart` | 带决策节点的流程图。 |
+| `@mermaid-journey` | 用于流程的用户旅程图。 |
+| `@mermaid-sequence` | 用于交互的时序图。 |
+| `@mermaid-gantt` | 项目时间线的甘特图。 |
+| `@mermaid-class` | 对象关系的类图。 |
+| `@mermaid-state` | 状态机的状态图。 |
 
-### 图表与可视化 (Diagrams & Visualization)
+#### 时间线插件
 
-| 前缀           | 描述               |
-| -------------- | ------------------ |
-| `mermaid`      | Mermaid 图表       |
-| `damage-chart` | 伤害计算图表组件   |
-| `lite-tree`    | 文件树结构         |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@timeline` | 带日期和事件的单个时间线条目。 |
+| `@timeline-multiple` | 用于时间顺序内容的多个时间线条目。 |
 
-### 卡片样式 (Card Styles)
+#### 视频组件
 
-| 前缀            | 描述     |
-| --------------- | -------- |
-| `card-text`     | 文本卡片 |
-| `card-flat`     | 扁平卡片 |
-| `card-elevated` | 浮起卡片 |
-| `card-tonal`    | 色调卡片 |
-| `card-outlined` | 轮廓卡片 |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@bilibili` | B站视频嵌入组件。 |
+| `@youtube` | YouTube 视频嵌入组件。 |
 
-### 自定义警告框 (Custom Alerts - v-style)
+#### 伤害图表组件
 
-| 前缀            | 描述       |
-| --------------- | ---------- |
-| `alert-success` | 成功警告框 |
-| `alert-info`    | 信息警告框 |
-| `alert-warning` | 警告警告框 |
-| `alert-error`   | 错误警告框 |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@damage-chart-static` | 用于文档的静态 Minecraft 伤害图表。 |
+| `@damage-chart-interactive` | 带用户控制的交互式伤害图表。 |
+| `@damage-chart-full` | 包含所有选项的全功能伤害图表。 |
 
-### 对齐与布局 (Alignment & Layout)
+#### 媒体与文档组件
 
-| 前缀            | 描述             |
-| --------------- | ---------------- |
-| `align-left`    | 左对齐内容       |
-| `align-center`  | 居中对齐内容     |
-| `align-right`   | 右对齐内容       |
-| `align-justify` | 两端对齐内容     |
-| `demo`          | Demo 演示块容器  |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@pdf-viewer` | 用于文档嵌入的 PDF 查看器组件。 |
+| `@linkcard` | 外部链接的链接卡片组件。 |
+| `@linkcard-full` | 包含所有属性的全功能链接卡片。 |
+| `@contributors` | GitHub 贡献者组件。 |
+| `@contributors-advanced` | 带自定义标题和语言的高级贡献者组件。 |
+| `@commits-counter` | GitHub 提交计数器组件。 |
+| `@responsible-editor` | 责任编辑组件 (使用 frontmatter)。 |
+| `@comment` | 评论区组件 (Giscus 集成)。 |
 
-### 特殊效果 (Special Effects)
+#### 增强插件组件
 
-| 前缀         | 描述               |
-| ------------ | ------------------ |
-| `magic-move` | Magic Move 代码过渡 |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@carousel-simple` | 使用默认设置的简单图片轮播。 |
+| `@carousel-advanced` | 包含完整配置选项的高级轮播。 |
+| `@stepper` | 基础步骤指南组件。 |
+| `@stepper-advanced` | 包含详细内容和代码块的高级步骤器。 |
+| `@iframe` | 基础内嵌 iframe 组件。 |
+| `@iframe-advanced` | 带宽度和高度配置的高级 iframe。 |
+
+#### Demo 块组合
+
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@demo-mermaid` | 包含 Mermaid 图表的 Demo 块。 |
+| `@demo-timeline` | 包含时间线组件的 Demo 块。 |
+| `@demo-video` | 包含视频组件的 Demo 块。 |
+| `@demo-chart` | 包含伤害图表组件的 Demo 块。 |
+
+### 对话框插件 (Dialog Plugin)
+
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@dialog-def` | 创建一个对话框 **定义** 块。内部内容会作为 Markdown 渲染。 |
+| `@dialog-trigger` | 创建一个用于触发对话框的内联 **触发器** 链接。 |
+| `@dialog-full` | 创建一个完整的定义块和一个在 demo 块中的触发器，用于快速测试。 |
+
+### 警告框插件 (Alert Plugin)
+
+项目支持传统v-alert格式和新的带JSON配置的CustomAlert。
+
+#### 传统v-alert格式
+
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@alert` | 通用警告框容器，可通过下拉菜单选择类型 (`success`, `info` 等)。 |
+| `@alert-success` | 成功警告框。 |
+| `@alert-info` | 信息警告框。 |
+| `@alert-warning` | 警告警告框。 |
+| `@alert-error` | 错误警告框。 |
+
+#### 带JSON配置的CustomAlert
+
+**完整警告框模板：**
+
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@custom-alert` | 通用自定义警告框，可选择类型和标题。 |
+| `@custom-alert-success` | 带JSON配置的快速成功警告框。 |
+| `@custom-alert-info` | 带JSON配置的快速信息警告框。 |
+| `@custom-alert-warning` | 带JSON配置的快速警告警告框。 |
+| `@custom-alert-error` | 带JSON配置的快速错误警告框。 |
+| `@custom-alert-advanced` | 带变体和密度选项的警告框。 |
+| `@custom-alert-styled` | 带边框和颜色样式的警告框。 |
+| `@custom-alert-themed` | 带亮色/暗色主题颜色的警告框。 |
+| `@custom-alert-icon` | 带自定义图标的警告框。 |
+| `@custom-alert-full` | 全功能警告框，包含所有配置选项。 |
+| `@custom-alert-minimal` | 仅指定类型的最小警告框。 |
+
+**单一配置属性：**
+
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@alert-config-type` | 警告框类型属性 (`success`, `info`, `warning`, `error`)。 |
+| `@alert-config-title` | 警告框标题属性。 |
+| `@alert-config-text` | 警告框文本内容属性。 |
+| `@alert-config-variant` | 警告框变体属性 (`flat`, `elevated`, `tonal` 等)。 |
+| `@alert-config-density` | 警告框密度属性 (`default`, `comfortable`, `compact`)。 |
+| `@alert-config-border` | 警告框边框属性 (`start`, `end`, `top`, `bottom`, `true`, `false`)。 |
+| `@alert-config-color` | 警告框自定义颜色属性。 |
+| `@alert-config-light-color` | 警告框亮色主题颜色属性。 |
+| `@alert-config-dark-color` | 警告框暗色主题颜色属性。 |
+| `@alert-config-theme-colors` | 亮色和暗色主题颜色。 |
+| `@alert-config-icon` | 警告框自定义图标属性。 |
+
+### 其他组件
+
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@carousel` | 图片轮播插件。 |
+| `@iframe` | 内嵌 iframe 插件。 |
+| `@stepper` | 步骤指示器组件。 |
+| `@file-tree` | 文件树结构组件。 |
+| `@linkcard` | 链接卡片组件。 |
 
 ---
 
-## 常用工具与文本格式化 (Utilities & Text Formatting)
+## Markdown 通用工具
 
-### 文本标记 (Markdown Extensions)
+用于标准 Markdown 语法和文本格式化的代码片段。
 
-| 前缀      | 描述                             | 输出示例                 |
-| --------- | -------------------------------- | ------------------------ |
-| `spoiler` | 隐藏/剧透文本                    | `!!hidden content!!`     |
-| `mark`    | 高亮标记文本                     | `==highlighted text==`   |
-| `insert`  | 插入文本                         | `++inserted text++`      |
-| `sub`     | 下标文本                         | `text~subscript~`        |
-| `sup`     | 上标文本                         | `text^superscript^`      |
-| `ruby`    | Ruby 注解 (拼音指南)             | `{中国:zhōng\|guó}`     |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@h1`, `@h2`, `@h3`, `@h4` | 1 至 4 级标题。 |
+| `@table` | 插入一个 2x2 的 Markdown 表格。 |
+| `@toc` | 插入一个带锚点链接的目录。 |
+| `@demo` | 用于展示示例的 Demo 块容器。 |
+| `@spoiler` | 隐藏/剧透文本 (`!!text!!`)。 |
+| `@mark` | 高亮 (标记) 文本 (`==text==`)。 |
+| `@insert` | 插入的文本 (`++text++`)。 |
+| `@sub` | 下标文本。 |
+| `@sup` | 上标文本。 |
 
-### 任务列表 (Task Lists)
+---
 
-| 前缀   | 描述         | 输出示例                      |
-| ------ | ------------ | ----------------------------- |
-| `todo` | 待办事项列表 | `- [ ] Task\n- [x] Completed` |
+## LLM 内容工具
 
-### 常用工具 (Common Utilities)
+用于添加仅语言模型可见的上下文或指令的代码片段。
 
-| 前缀       | 描述                     | 输出                       |
-| ---------- | ------------------------ | -------------------------- |
-| `#nbsp`    | 插入两个不间断空格       | `&nbsp;&nbsp;`             |
-| `nbsp`     | 插入一个不间断空格       | `&nbsp;`                   |
-| `@title`   | Frontmatter 标题变量引用 | `{{ $frontmatter.title }}` |
-| `fm-title` | (同上) Frontmatter 标题  | `{{ $frontmatter.title }}` |
-| `@done`    | 完成状态 Unicode 复选框  | `☑`                        |
-| `@pending` | 待办状态 Unicode 复选框  | `☐`                        |
+| 前缀 | 描述 |
+| :--- | :--- |
+| `@llm-only` | 仅 LLM 可见的内容块。 |
+| `@llm-exclude` | LLM 不可见的内容块 (从上下文中排除)。 |
+| `@llm-instructions` | AI 助手指令块。 |
+| `@llm-context` | 为 LLM 提供上下文信息。 |
 
 ---
 
 ## 使用技巧
 
-### 1. 快速访问
-
--   按 `Ctrl+空格` (Windows/Linux) 或 `Cmd+空格` (macOS) 打开智能提示，代码片段通常会优先显示。
--   输入前缀的部分字母，VSCode 会自动过滤并显示匹配的代码片段。
-
-### 2. 参数填写
-
--   许多代码片段包含占位符 (例如 `${1:Placeholder}`)。代码片段展开后，光标会自动定位到第一个占位符。
--   填写完毕后，按 `Tab` 键跳转到下一个占位符。
--   按 `Shift+Tab` 返回上一个占位符。
--   所有占位符填写完毕或希望提前结束时，按 `Esc` 键退出片段编辑模式。
-
-### 3. 嵌套使用
-
-大部分容器类代码片段支持嵌套使用，例如在提示容器中标记文本：
-
-```markdown
-::: v-info 提示
-这里可以使用 ==标记文本== 和 !!隐藏内容!!
-:::
-```
-
-### 4. 自定义修改
-
-如需修改或添加您自己的代码片段，可以直接编辑项目根目录下的 `.vscode/md.code-snippets` 文件。文件格式为 JSON。
-
-## 键盘快捷键建议
-
-为了进一步提高效率，您可以为常用的代码片段设置自定义键盘快捷键。编辑您的 `keybindings.json` 文件 (通过 `File > Preferences > Keyboard Shortcuts > User > keybindings.json` 打开)：
-
-```json
-// keybindings.json
-[
-    {
-        "key": "ctrl+shift+d", // 示例快捷键
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && editorLangId == markdown",
-        "args": { 
-            // "name": "Demo Block" // 使用代码片段的名称 (JSON 中的键)
-            "snippet": "::: demo ${1:Demo Title}\n${2:Demo content}\n:::" // 或者直接提供 body
-        }
-    },
-    {
-        "key": "ctrl+shift+t", // 示例快捷键
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && editorLangId == markdown",
-        "args": { 
-            // "name": "Tabs" 
-            "snippet": ":::tabs${1: key:example}\n== ${2:Tab 1}\n${3:Content 1}\n== ${4:Tab 2}\n${5:Content 2}\n:::"
-        }
-    }
-    // 您可以为其他常用片段添加更多快捷键
-]
-```
-**注意**: 使用 `"name": "Snippet Name"` 时，应确保该名称与 `.vscode/md.code-snippets` 文件中定义的片段名称 (JSON对象中的键，如 "Demo Block", "Tabs") 完全一致。如果通过 `snippet` 参数直接提供代码体，则无需 `name`。
-
-## 常见问题
-
-### Q: 代码片段没有提示或无法展开？
-
-A:
-1.  确保您正在编辑的是 Markdown (`.md`) 文件。
-2.  检查 VSCode 设置 (`File > Preferences > Settings`)，搜索 `editor.suggest.showSnippets` 并确保其已启用 (`true`)。
-3.  确认代码片段的前缀输入正确，并且按下了正确的展开键 (通常是 `Tab` 或 `Enter`，取决于您的 `editor.tabCompletion` 和 `editor.suggest.insertMode` 设置)。
-4.  确认 `.vscode/md.code-snippets` 文件存在于项目根目录，并且其 JSON 格式正确无误。
-
-### Q: 如何添加新的自定义代码片段？
-
-A:
-1.  打开项目中的 `.vscode/md.code-snippets` 文件。
-2.  仿照现有代码片段的 JSON 格式添加新的条目。每个代码片段是一个键值对，键是片段的名称 (在 VSCode 命令面板中显示)，值是一个包含 `prefix`、`body` 和 `description` 的对象。
-    ```json
-    "My New Snippet": {
-        "prefix": "mynew",
-        "body": [
-            "This is my new snippet with a ${1:placeholder}.",
-            "$0" // $0 表示片段展开后的最终光标位置
-        ],
-        "description": "A brief description of my new snippet."
-    }
-    ```
-3.  保存文件后，新的代码片段应立即生效。
-
-### Q: 参数占位符 (`${1:text}`) 和光标最终位置 (`$0`) 是什么意思？
-
-A:
--   `${1:text}`: 这是一个参数占位符。`1` 是参数的顺序 (按 `Tab` 跳转)，`text` 是默认显示的提示文本。您可以有 `${2:another}`、`${3:more}` 等。
--   `$0`: 这标记了当用户填写完所有参数并退出片段编辑模式后，光标最终停留的位置。
+-   **参数导航**: 在展开的代码片段中，使用 `Tab` 和 `Shift+Tab` 在占位符 (`${1:text}`) 之间导航。按 `Esc` 退出编辑模式。
+-   **自定义**: 如需修改代码片段，请编辑 `.vscode/md.code-snippets` 文件。
 
 ## 示例工作流
 
-1.  **创建新文档**: 输入 `sidebar-page` (或 `page`) 快速生成包含基本 Frontmatter 和标题的文档框架。
-2.  **定义章节**: 若为新的侧边栏根，使用 `sidebar-root` 初始化 `index.md`。
+1.  **创建页面**: 输入 `@page-template` 快速搭建一个新页面。
+2.  **添加对话框**:
+    *   使用 `@dialog-def` 定义对话框的内容。
+    *   在文档的其他地方使用 `@dialog-trigger` 创建触发链接。
 3.  **添加内容**:
-    *   使用 `tabs` 或 `stepper` 组织分步内容。
-    *   使用 `info`, `warning`, `alert-success` 等提示容器强调重点。
-    *   使用 `card-text` 等卡片组件美化链接或小节。
-4.  **格式化文本**: 使用 `mark`, `spoiler`, `ruby` 等片段丰富文本表现。
-5.  **插入媒体与图表**: 使用 `carousel`, `mermaid`, `bilibili` 等添加富媒体内容。
-6.  **代码展示**: 使用 `code-group`, `code-lines`, `magic-move` 清晰展示代码。
-7.  **完善文档**: 添加 `todo` 任务列表，使用 `@title` 动态引用标题。
+    *   使用 `@stepper` 组织教程步骤。
+    *   使用 `@vp-info`、`@vp-warning` 或 `@alert-success` 强调关键点。
+4.  **展示代码**: 使用 `@vp-codegroup` 来展示多语言示例。
+5.  **格式化文本**: 使用 `@mark` 和 `@spoiler` 丰富文本。
 
-通过熟练使用这些代码片段，您可以显著提高 Markdown 文档的编写效率和规范性！
+通过熟练使用这些代码片段，您可以显著提高编写 Markdown 文档的效率和一致性。

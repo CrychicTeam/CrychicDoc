@@ -188,12 +188,16 @@ VuePress Theme Hope ++十分++ 强大。
 
 ## 警告框 {#alert}
 
+本站提供两套警告框系统：传统的`v-alert`格式和新的带JSON配置的`CustomAlert`。
+
+### 传统v-alert格式
+
 由本站维护成员[椰浆](https://www.mcmod.cn/author/24749.html)编写的`v-alert`插件提供，用于创建vuetify风格的警告容器。
 
 >[!INFO]注
 >此插件基于[`@mdit/plugin-container`](https://mdit-plugins.github.io/zh/container.html)
 
-::::: demo 示例
+::::: demo 传统警告框示例
 ::: v-success 成功
 这是成功样式
 :::
@@ -210,6 +214,76 @@ VuePress Theme Hope ++十分++ 强大。
 :::
 ::::
 :::::
+
+### 带JSON配置的CustomAlert
+
+新的`CustomAlert`插件通过JSON语法提供高级配置，支持主题、变体、图标等广泛的自定义选项。
+
+>[!INFO]注
+>此插件使用自定义容器实现，确保JSON配置的可靠解析。
+
+#### 基础用法
+
+::::: demo 基础警告框类型
+::: alert {"type": "success", "title": "成功警告"}
+这是带JSON配置的成功警告框。
+:::
+
+::: alert {"type": "info", "title": "信息提示"}
+这是支持**Markdown**内容的信息警告框。
+:::
+
+::: alert {"type": "warning", "title": "警告提示"}
+这是带++增强++格式的警告框。
+:::
+
+::: alert {"type": "error", "title": "错误提示"}
+这是支持完整Markdown语法的错误警告框。
+:::
+:::::
+
+#### 高级样式
+
+::::: demo 高级样式选项
+::: alert {"type": "success", "title": "调色变体", "variant": "tonal", "density": "comfortable"}
+使用调色变体和舒适密度。
+:::
+
+::: alert {"type": "info", "title": "轮廓带边框", "variant": "outlined", "border": "start"}
+轮廓变体配合起始边框位置。
+:::
+
+::: alert {"type": "warning", "title": "自定义颜色", "color": "purple", "icon": "mdi-star"}
+自定义紫色配合星形图标。
+:::
+:::::
+
+#### 主题颜色
+
+::::: demo 主题感知颜色
+::: alert {"type": "success", "title": "亮色主题", "lightColor": "#e8f5e8", "darkColor": "#2d4a2d"}
+自适应亮色和暗色主题的自定义颜色。
+:::
+
+::: alert {"type": "info", "title": "蓝色主题", "lightColor": "#e3f2fd", "darkColor": "#1a237e", "variant": "outlined"}
+蓝色主题警告框配合轮廓变体。
+:::
+:::::
+
+#### 配置选项
+
+| 属性 | 类型 | 描述 | 可选值 |
+|:---|:---|:---|:---|
+| `type` | `string` | 警告框类型/颜色 | `success`, `info`, `warning`, `error` |
+| `title` | `string` | 警告框标题 | 任意字符串 |
+| `text` | `string` | 文本内容（替代插槽） | 任意字符串 |
+| `variant` | `string` | 视觉样式变体 | `flat`, `elevated`, `tonal`, `outlined`, `text`, `plain` |
+| `density` | `string` | 间距密度 | `default`, `comfortable`, `compact` |
+| `border` | `string|boolean` | 边框位置 | `start`, `end`, `top`, `bottom`, `true`, `false` |
+| `color` | `string` | 自定义颜色 | 任意CSS颜色值 |
+| `lightColor` | `string` | 亮色主题颜色 | 任意CSS颜色值 |
+| `darkColor` | `string` | 暗色主题颜色 | 任意CSS颜色值 |
+| `icon` | `string` | 自定义图标 | Material Design图标名称（如`mdi-star`） |
 
 ## 滚动横幅 {#carousels}
 
@@ -234,16 +308,74 @@ VuePress Theme Hope ++十分++ 强大。
 :::
 ::::
 
-> 尝试塞入一个 codeblock 试试？
+### 配置语法 {#iframe-grammer}
 
-### 配置语法 {#carousels-grammer}
+`iframes` 容器的配置项由跟随在容器声明后的 `json` 提供，使用 `#` 以连接配置与容器声明。
 
-`carousels`容器的配置项由跟随在容器声明后的`json`提供，使用`#`以连接配置与容器声明。
+| 配置字段   | 用途                   | 类型           | 省缺值    |
+| ---------- | ---------------------- | -------------- | --------- |
+| `src`      | 网页的链接，必填       | `string`       | `N/A`     |
+| `height`   | 设置元素的高度。       | `length value` | `140px`   |
 
-| 配置字段        | 用途                                    | 类型    | 省缺值   |
-|----------------|----------------------------------------|---------|---------|
-| `src`        | 网页的链接，必填          | `string` | `N/A` |
-| `height`     | 设置元素的高度。        | `length value` | `140px`  |
+## 对话框 {#dialog}
+
+由本站维护成员[客服](https://github.com/M1hono)编写的`dialog`插件提供，用于创建可从任何地方触发的复杂对话框。
+
+### 语法
+
+插件包含两个部分：**定义**和**触发**。
+
+1.  **定义对话框内容 (`dialog-def`)**
+    使用块级容器定义对话框的内容和属性。
+
+    ```markdown
+    @@@ dialog-def#my-dialog {"title": "My Dialog", "width": 500}
+    # 这是对话框标题
+
+    这是 **markdown** 内容，支持所有标准语法。
+
+    - 列表
+    - 代码块
+    - 等等...
+    @@@
+    ```
+
+2.  **触发对话框 (`dialog`)**
+    使用内联语法在文本中创建一个链接来打开对话框。
+
+    ```markdown
+    点击 :::dialog#my-dialog 这里::: 打开对话框。
+    ```
+
+### 配置
+
+配置通过 `dialog-def` 容器后的 JSON 对象提供。
+
+| 配置字段 | 用途 | 类型 | 省缺值 |
+|:---|:---|:---|:---|
+| `title` | 对话框的标题 | `string` | `N/A` |
+| `width` | 对话框的最大宽度 | `string` \| `number` | `800` |
+| `fullscreen` | 是否以全屏模式显示 | `boolean` | `false` |
+| `persistent` | 点击外部是否关闭对话框 | `boolean` | `false` |
+
+### 示例
+
+:::: demo 示例
+@@@ dialog-def#style-guide-demo {"title": "对话框演示", "width": 600}
+# 欢迎!
+
+这是一个通过 style guide 触发的对话框。
+
+- 你可以在这里放置任何 Markdown 内容。
+- `code blocks` 也会被正确渲染。
+
+```js
+console.log("Hello from dialog!");
+```
+@@@
+
+点击 :::dialog#style-guide-demo 这里::: 来查看效果。
+::::
 
 ## 卡片 {#card}
 

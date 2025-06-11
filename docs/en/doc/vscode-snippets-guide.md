@@ -9,333 +9,265 @@ This guide explains how to use the enhanced VSCode code snippets in the CrychicD
 
 ## Quick Start
 
-When editing `.md` files in VSCode, type the **prefix** of a snippet and press `Tab` (or `Enter`, depending on your settings) to expand it.
+When editing `.md` files in VSCode, type the **prefix** of a snippet (e.g., `@page-template`) and press `Tab` or `Enter` to expand it.
 
 ## Snippet Categories
 
-All snippets are categorized by their functionality for easier discovery and use.
+All snippets have been reorganized and standardized for clarity and ease of use. They are grouped into the following categories:
+
+-   **VitePress Frontmatter & Page Templates**: For scaffolding pages and configuring metadata.
+-   **VitePress Built-in Markdown Features**: For VitePress-specific containers and code blocks.
+-   **Custom Plugins & Components**: For custom-developed components like Dialogs, Alerts, and Carousels.
+-   **Markdown Utilities**: For standard Markdown elements like headings and tables.
+-   **LLM Content Utilities**: For adding context or instructions visible only to Language Models.
 
 ---
 
-## Sidebar, Page, & Frontmatter Configuration
+## VitePress Frontmatter & Page Templates
 
-These snippets help you quickly generate and configure page frontmatter, as well as the structure and behavior of your sidebars.
+Quickly generate page structures and configure frontmatter metadata.
 
 ### Page & Section Templates
 
-Use these to rapidly scaffold standard page structures or root sections for your sidebar.
+| Prefix | Description |
+| :--- | :--- |
+| `@page-template` | Scaffolds a standard VitePress documentation page. |
+| `@root-template` | Scaffolds a new root section for the sidebar. |
+| `@frontmatter` | Inserts a basic frontmatter block (`---`). |
+| `@frontmatter-complete` | Generates a comprehensive frontmatter block with all common fields. |
 
-| Prefix           | Description                                      |
-| ---------------- | ------------------------------------------------ |
-| `front`          | Basic Frontmatter block                          |
-| `sidebar-page`   | Complete page template (for pages in sidebar)  |
-| `sidebar-root`   | Complete root section template for sidebar       |
-| `front-complete` | Complete frontmatter with all common fields    |
+### Individual Frontmatter Fields
 
-*Note: `page` and `section` are older templates, prefer `sidebar-page` and `sidebar-root` for more complete structures.*
+All frontmatter field snippets now use the `@fm-` prefix for consistency.
 
-### Core Frontmatter Fields
-
-For adding or modifying common frontmatter fields.
-
-| Prefix            | Description                       | Example Output (Illustrative) |
-| ----------------- | --------------------------------- | ----------------------------- |
-| `title`           | Document title (field generation) | `title: Your Title`           |
-| `description`     | Document description (field gen.) | `description: Your Desc`      |
-| `layout`          | Document layout (field gen.)      | `layout: doc`                 |
-| `tags`            | Document tags (field gen.)        | `tags:\n  - tag1`            |
-| `authors`         | Document authors (field gen.)     | `authors:\n  - author1`       |
-| `progress`        | Document progress (field gen.)    | `progress: 100`               |
-| `noguide`         | No guide flag (field gen.)        | `noguide: true`               |
-| `title-val`       | Set document/section title        | `title: Your Title`           |
-| `description-val` | Set page description              | `description: Your Desc`      |
-| `authors-val`     | Set page authors (array)          | `authors:\n  - user1`         |
-| `tags-val`        | Set page tags (array)             | `tags:\n  - tag1`            |
-| `progress-val`    | Set completion progress           | `progress: 100`               |
-
-### Sidebar-specific Configuration
-
-Define specific behaviors and attributes for sidebar items.
-
-| Prefix            | Description                               | Example Output                 |
-| ----------------- | ----------------------------------------- | ------------------------------ |
-| `root`            | Root sidebar config (creates new section) | `root: true...`                |
-| `root-layout`     | Root sidebar config with VitePress layout | `root: true...layout: doc`     |
-| `dir`             | Basic directory config (for `index.md`)   | `title: Dir Title...`          |
-| `root-field`      | Add `root` field                          | `root: true`                   |
-| `root-true`       | Set as sidebar root section               | `root: true`                   |
-| `root-false`      | Not a sidebar root section                | `root: false`                  |
-| `collapsed`       | Add `collapsed` field                     | `collapsed: true`              |
-| `collapsed-true`  | Collapsed by default                      | `collapsed: true`              |
-| `collapsed-false` | Expanded by default                       | `collapsed: false`             |
-| `hidden`          | Add `hidden` field                        | `hidden: true`                 |
-| `hidden-true`     | Hide from sidebar                         | `hidden: true`                 |
-| `hidden-false`    | Show in sidebar                           | `hidden: false`                |
-| `priority-val`    | Set ordering priority                     | `priority: 1`                  |
-| `maxdepth-val`    | Maximum nesting depth                     | `maxDepth: 3`                  |
-| `layout-doc`      | Document layout (VitePress value)         | `layout: doc`                  |
-| `layout-home`     | Home page layout (VitePress value)        | `layout: home`                 |
-| `layout-page`     | Custom page layout (VitePress value)      | `layout: page`                 |
-| `prev`            | Add `prev` navigation field               | `prev: false`                  |
-| `prev-true`       | Enable previous navigation                | `prev: true`                   |
-| `prev-false`      | Disable previous navigation               | `prev: false`                  |
-| `next`            | Add `next` navigation field               | `next: false`                  |
-| `next-true`       | Enable next navigation                    | `next: true`                   |
-| `next-false`      | Disable next navigation                   | `next: false`                  |
-| `comment-true`    | Enable comments                           | `showComment: true`            |
-| `comment-false`   | Disable comments                          | `showComment: false`           |
-| `changelog-true`  | Show git changelog                        | `gitChangelog: true`           |
-| `changelog-false` | Hide git changelog                        | `gitChangelog: false`          |
-
-### Document States
-
-Mark the current status of a document.
-
-| Prefix             | Description          | Output                 |
-| ------------------ | -------------------- | -------------------- |
-| `state-preliminary`| Preliminary state    | `state: preliminary` |
-| `state-unfinished` | Unfinished state     | `state: unfinished`  |
-| `state-outdated`   | Outdated state       | `state: outdated`    |
-| `state-renovating` | Renovating state     | `state: renovating`  |
-
-*Note: Older prefixes like `state preliminary` (with a space) also exist and produce the same output.*
+| Prefix | Description | Example Output |
+| :--- | :--- | :--- |
+| `@fm-title` | Page title. | `title: Page Title` |
+| `@fm-description` | Page description. | `description: Page description` |
+| `@fm-root` | Whether the page is a sidebar root. | `root: true` |
+| `@fm-collapsed` | Whether the sidebar section is collapsed. | `collapsed: true` |
+| `@fm-hidden` | Hides the page from the sidebar. | `hidden: true` |
+| `@fm-layout` | Page layout (`doc`, `home`, `page`). | `layout: doc` |
+| `@fm-prevnext` | Sets previous/next page navigation links. | `prev: false` `next: false` |
+| `@fm-authors` | Page authors. | `authors:\n  - author` |
+| `@fm-tags` | Page tags. | `tags:\n  - tag` |
+| `@fm-progress` | Page completion progress. | `progress: 100` |
+| `@fm-state` | Document's state (`preliminary`, `published`, etc.). | `state: preliminary` |
 
 ---
 
-## VitePress Built-in Feature Enhancements
+## VitePress Built-in Markdown Features
 
-Quickly use Markdown extensions provided by VitePress.
+Quickly use Markdown extensions provided by VitePress. All these snippets now use the `@vp-` prefix.
 
 ### Admonition Containers
 
-| Prefix           | Description                     |
-| ---------------- | ------------------------------- |
-| `info`           | VitePress info container        |
-| `tip`            | VitePress tip container         |
-| `warning`        | VitePress warning container     |
-| `danger`         | VitePress danger/error container|
-| `details`        | VitePress details container     |
-| `custom-container`| Custom type container (uses `:::` syntax) |
+| Prefix | Description |
+| :--- | :--- |
+| `@vp-info` | VitePress info container. |
+| `@vp-tip` | VitePress tip container. |
+| `@vp-warning` | VitePress warning container. |
+| `@vp-danger` | VitePress danger/error container. |
+| `@vp-details` | VitePress details (collapsible) container. |
 
 ### Code Features
 
-| Prefix           | Description                       |
-| ---------------- | --------------------------------- |
-| `code-group`     | VitePress code group              |
-| `code-lines`     | Code block with line numbers      |
-| `code-highlight` | Code block with line highlighting |
-
-### Math Formulas
-
-| Prefix        | Description       | Example Output            |
-| ------------- | ----------------- | ------------------------- |
-| `math-inline` | Inline math formula | `$x^2 + y^2 = z^2$`       |
-| `math-block`  | Block math formula  | `$$\nx^2 + y^2 = z^2\n$$` |
+| Prefix | Description |
+| :--- | :--- |
+| `@vp-codegroup` | VitePress code group for tabbed code blocks. |
+| `@vp-codelines` | Code block with line numbers. |
+| `@vp-codehighlight` | Code block with specific lines highlighted. |
 
 ---
 
-## Extended Components & Styling
+## Custom Plugins & Components
 
-Enhance content presentation using custom Vue components or special Markdown syntax.
+Snippets for custom Vue components and Markdown plugins developed for this project.
 
-### Content Organization
+### Component Snippets
 
-| Prefix    | Description                 |
-| --------- | --------------------------- |
-| `tabs`    | Tab container               |
-| `stepper` | Stepper/progress indicator  |
-| `timeline`| Timeline plugin             |
+Comprehensive snippets for all the interactive components available in CrychicDoc.
 
-### Media & Interaction
+#### Mermaid Diagrams
 
-| Prefix       | Description               |
-| ------------ | ------------------------- |
-| `carousel`   | Image carousel            |
-| `iframe`     | Embedded iframe           |
-| `img-size`   | Image with specific size  |
-| `linkcard`   | Link card component       |
-| `bilibili`   | Bilibili video component  |
-| `pdf-viewer` | PDF viewer component      |
+| Prefix | Description |
+| :--- | :--- |
+| `@mermaid-flowchart` | Flowchart diagram with decision nodes. |
+| `@mermaid-journey` | User journey diagram for process flows. |
+| `@mermaid-sequence` | Sequence diagram for interactions. |
+| `@mermaid-gantt` | Gantt chart for project timelines. |
+| `@mermaid-class` | Class diagram for object relationships. |
+| `@mermaid-state` | State diagram for state machines. |
 
-### Diagrams & Visualization
+#### Timeline Plugin
 
-| Prefix         | Description              |
-| -------------- | ------------------------ |
-| `mermaid`      | Mermaid diagram          |
-| `damage-chart` | Damage chart component   |
-| `lite-tree`    | File tree structure      |
+| Prefix | Description |
+| :--- | :--- |
+| `@timeline` | Single timeline entry with date and events. |
+| `@timeline-multiple` | Multiple timeline entries for chronological content. |
 
-### Card Styles
+#### Video Components
 
-| Prefix          | Description   |
-| --------------- | ------------- |
-| `card-text`     | Text card     |
-| `card-flat`     | Flat card     |
-| `card-elevated` | Elevated card |
-| `card-tonal`    | Tonal card    |
-| `card-outlined` | Outlined card |
+| Prefix | Description |
+| :--- | :--- |
+| `@bilibili` | Bilibili video embed component. |
+| `@youtube` | YouTube video embed component. |
 
-### Custom Alerts (v-style)
+#### Damage Chart Component
 
-| Prefix          | Description    |
-| --------------- | -------------- |
-| `alert-success` | Success alert  |
-| `alert-info`    | Info alert     |
-| `alert-warning` | Warning alert  |
-| `alert-error`   | Error alert    |
+| Prefix | Description |
+| :--- | :--- |
+| `@damage-chart-static` | Static Minecraft damage chart for documentation. |
+| `@damage-chart-interactive` | Interactive damage chart with user controls. |
+| `@damage-chart-full` | Full-featured damage chart with all options. |
 
-### Alignment & Layout
+#### Media & Documentation Components
 
-| Prefix          | Description           |
-| --------------- | --------------------- |
-| `align-left`    | Left-aligned content  |
-| `align-center`  | Center-aligned content|
-| `align-right`   | Right-aligned content |
-| `align-justify` | Justified content     |
-| `demo`          | Demo block container  |
+| Prefix | Description |
+| :--- | :--- |
+| `@pdf-viewer` | PDF viewer component for document embedding. |
+| `@linkcard` | Link card component for external links. |
+| `@linkcard-full` | Full-featured link card with all properties. |
+| `@contributors` | GitHub contributors component. |
+| `@contributors-advanced` | Advanced contributors with custom title and locale. |
+| `@commits-counter` | GitHub commits counter component. |
+| `@responsible-editor` | Responsible editor component (uses frontmatter). |
+| `@comment` | Comment section component (Giscus integration). |
 
-### Special Effects
+#### Enhanced Plugin Components
 
-| Prefix       | Description              |
-| ------------ | ------------------------ |
-| `magic-move` | Magic Move code transition |
+| Prefix | Description |
+| :--- | :--- |
+| `@carousel-simple` | Simple image carousel with default settings. |
+| `@carousel-advanced` | Advanced carousel with full configuration options. |
+| `@stepper` | Basic step-by-step guide component. |
+| `@stepper-advanced` | Advanced stepper with detailed content and code blocks. |
+| `@iframe` | Basic embedded iframe component. |
+| `@iframe-advanced` | Advanced iframe with width and height configuration. |
+
+#### Demo Block Combinations
+
+| Prefix | Description |
+| :--- | :--- |
+| `@demo-mermaid` | Demo block containing a Mermaid diagram. |
+| `@demo-timeline` | Demo block containing timeline components. |
+| `@demo-video` | Demo block containing video components. |
+| `@demo-chart` | Demo block containing damage chart components. |
+
+### Dialog Plugin
+
+| Prefix | Description |
+| :--- | :--- |
+| `@dialog-def` | Creates a dialog **definition** block. Content inside is rendered as Markdown. |
+| `@dialog-trigger` | Creates an inline **trigger** link for a dialog. |
+| `@dialog-full` | Creates a complete definition and a trigger inside a demo block for testing. |
+
+### Alert Plugin
+
+The project supports both legacy v-alert format and the new CustomAlert with JSON configuration.
+
+#### Legacy v-alert Format
+
+| Prefix | Description |
+| :--- | :--- |
+| `@alert` | Generic alert container with a dropdown to select type (`success`, `info`, etc.). |
+| `@alert-success` | Success alert. |
+| `@alert-info` | Info alert. |
+| `@alert-warning` | Warning alert. |
+| `@alert-error` | Error alert. |
+
+#### CustomAlert with JSON Configuration
+
+**Complete Alert Templates:**
+
+| Prefix | Description |
+| :--- | :--- |
+| `@custom-alert` | Generic custom alert with type and title selection. |
+| `@custom-alert-success` | Quick success alert with JSON config. |
+| `@custom-alert-info` | Quick info alert with JSON config. |
+| `@custom-alert-warning` | Quick warning alert with JSON config. |
+| `@custom-alert-error` | Quick error alert with JSON config. |
+| `@custom-alert-advanced` | Alert with variant and density options. |
+| `@custom-alert-styled` | Alert with border and color styling. |
+| `@custom-alert-themed` | Alert with light/dark theme colors. |
+| `@custom-alert-icon` | Alert with custom icon. |
+| `@custom-alert-full` | Full-featured alert with all configuration options. |
+| `@custom-alert-minimal` | Minimal alert with only type specified. |
+
+**Single Configuration Properties:**
+
+| Prefix | Description |
+| :--- | :--- |
+| `@alert-config-type` | Alert type property (`success`, `info`, `warning`, `error`). |
+| `@alert-config-title` | Alert title property. |
+| `@alert-config-text` | Alert text content property. |
+| `@alert-config-variant` | Alert variant property (`flat`, `elevated`, `tonal`, etc.). |
+| `@alert-config-density` | Alert density property (`default`, `comfortable`, `compact`). |
+| `@alert-config-border` | Alert border property (`start`, `end`, `top`, `bottom`, `true`, `false`). |
+| `@alert-config-color` | Alert custom color property. |
+| `@alert-config-light-color` | Alert light theme color property. |
+| `@alert-config-dark-color` | Alert dark theme color property. |
+| `@alert-config-theme-colors` | Both light and dark theme colors. |
+| `@alert-config-icon` | Alert custom icon property. |
+
+### Other Components
+
+| Prefix | Description |
+| :--- | :--- |
+| `@carousel` | Image carousel plugin. |
+| `@iframe` | Embedded iframe plugin. |
+| `@stepper` | Step-by-step guide component. |
+| `@file-tree` | File tree structure component. |
+| `@linkcard` | Link card component. |
 
 ---
 
-## Utilities & Text Formatting
+## Markdown Utilities
 
-### Markdown Extensions (Text Formatting)
+Snippets for standard Markdown syntax and text formatting.
 
-| Prefix    | Description                      | Example Output           |
-| --------- | -------------------------------- | ------------------------ |
-| `spoiler` | Spoiler/hidden text              | `!!hidden content!!`     |
-| `mark`    | Highlighted/marked text          | `==highlighted text==`   |
-| `insert`  | Inserted text                    | `++inserted text++`      |
-| `sub`     | Subscript text                   | `text~subscript~`        |
-| `sup`     | Superscript text                 | `text^superscript^`      |
-| `ruby`    | Ruby annotation (phonetic guide) | `{中国:zhōng\|guó}`     |
+| Prefix | Description |
+| :--- | :--- |
+| `@h1`, `@h2`, `@h3`, `@h4` | Headings level 1 to 4. |
+| `@table` | Inserts a 2x2 Markdown table. |
+| `@toc` | Inserts a Table of Contents with anchor links. |
+| `@demo` | Demo block container for showcasing examples. |
+| `@spoiler` | Hidden/spoiler text (`!!text!!`). |
+| `@mark` | Highlighted (marked) text (`==text==`). |
+| `@insert` | Inserted text (`++text++`). |
+| `@sub` | Subscript text. |
+| `@sup` | Superscript text. |
 
-### Task Lists
+---
 
-| Prefix | Description      | Example Output                |
-| ------ | ---------------- | ----------------------------- |
-| `todo` | To-do list items | `- [ ] Task\n- [x] Completed` |
+## LLM Content Utilities
 
-### Common Utilities
+Snippets for adding context or instructions that are only visible to Language Models.
 
-| Prefix     | Description                             | Output                     |
-| ---------- | --------------------------------------- | -------------------------- |
-| `#nbsp`    | Insert two non-breaking spaces          | `&nbsp;&nbsp;`             |
-| `nbsp`     | Insert one non-breaking space           | `&nbsp;`                   |
-| `@title`   | Frontmatter title variable reference    | `{{ $frontmatter.title }}` |
-| `fm-title` | (Alias for @title) Frontmatter title    | `{{ $frontmatter.title }}` |
-| `@done`    | Done Unicode checkbox                   | `☑`                        |
-| `@pending` | Pending Unicode checkbox                | `☐`                        |
+| Prefix | Description |
+| :--- | :--- |
+| `@llm-only` | Block content visible only to LLMs. |
+| `@llm-exclude` | Block content invisible to LLMs. |
+| `@llm-instructions` | AI assistant instructions block. |
+| `@llm-context` | Provide contextual information for LLMs. |
 
 ---
 
 ## Usage Tips
 
-### 1. Quick Access
-
--   Press `Ctrl+Space` (Windows/Linux) or `Cmd+Space` (macOS) to open IntelliSense; snippets are usually prioritized.
--   Type partial letters of the prefix; VSCode will filter and show matching snippets.
-
-### 2. Parameter Navigation
-
--   Many snippets include placeholders (e.g., `${1:Placeholder}`). When a snippet expands, the cursor automatically focuses on the first placeholder.
--   Press `Tab` to navigate to the next placeholder.
--   Press `Shift+Tab` to go back to the previous placeholder.
--   Press `Esc` to exit snippet editing mode when all placeholders are filled or if you want to finish early.
-
-### 3. Nested Usage
-
-Most container-type snippets support nesting. For example, you can mark text within an info container:
-
-```markdown
-:::info Tip
-This is ==marked text== and !!spoiler content!!.
-:::
-```
-
-### 4. Custom Modifications
-
-To modify or add your own snippets, edit the `.vscode/md.code-snippets` file in the project root. The file format is JSON.
-
-## Suggested Keyboard Shortcuts
-
-For even greater efficiency, you can assign custom keyboard shortcuts to frequently used snippets. Edit your `keybindings.json` file (accessible via `File > Preferences > Keyboard Shortcuts > User > keybindings.json` or by searching "Preferences: Open User Keyboard Shortcuts (JSON)" in the command palette):
-
-```json
-// keybindings.json
-[
-    {
-        "key": "ctrl+shift+d", // Example shortcut
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && editorLangId == markdown",
-        "args": {
-            // "name": "Demo Block" // Use the snippet's name (key from JSON file)
-            "snippet": "::: demo ${1:Demo Title}\n${2:Demo content}\n:::" // Or provide the body directly
-        }
-    },
-    {
-        "key": "ctrl+shift+t", // Example shortcut
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && editorLangId == markdown",
-        "args": {
-            // "name": "Tabs"
-            "snippet": ":::tabs${1: key:example}\n== ${2:Tab 1}\n${3:Content 1}\n== ${4:Tab 2}\n${5:Content 2}\n:::"
-        }
-    }
-    // You can add more shortcuts for other frequently used snippets
-]
-```
-**Note**: When using `"name": "Snippet Name"`, ensure the name matches exactly with the snippet name defined in `.vscode/md.code-snippets` (the key in the JSON object, e.g., "Demo Block", "Tabs"). If providing the snippet body directly via the `snippet` argument, the `name` is not needed.
-
-## Troubleshooting
-
-### Q: Snippets are not showing up or expanding?
-
-A:
-1.  Ensure you are editing a Markdown (`.md`) file.
-2.  Check your VSCode settings (`File > Preferences > Settings`), search for `editor.suggest.showSnippets`, and ensure it is enabled (`true`).
-3.  Confirm you are typing the correct snippet prefix and pressing the correct expansion key (usually `Tab` or `Enter`, depending on your `editor.tabCompletion` and `editor.suggest.insertMode` settings).
-4.  Verify that the `.vscode/md.code-snippets` file exists in your project root and that its JSON format is valid.
-
-### Q: How do I add new custom snippets?
-
-A:
-1.  Open the `.vscode/md.code-snippets` file in your project.
-2.  Add a new entry following the JSON format of existing snippets. Each snippet is a key-value pair: the key is the snippet's name (displayed in VSCode command palette), and the value is an object containing `prefix`, `body` (an array of strings), and `description`.
-    ```json
-    "My New Snippet": {
-        "prefix": "mynew",
-        "body": [
-            "This is my new snippet with a ${1:placeholder}.",
-            "$0" // $0 indicates the final cursor position after snippet expansion
-        ],
-        "description": "A brief description of my new snippet."
-    }
-    ```
-3.  Save the file. The new snippet should be available immediately.
-
-### Q: What do parameter placeholders (`${1:text}`) and final cursor position (`$0`) mean?
-
-A:
--   `${1:text}`: This is a parameter placeholder (also known as a "tab stop"). `1` is the order of the tab stop (navigate with `Tab`), and `text` is the default placeholder text displayed. You can have `${2:another}`, `${3:more}`, etc.
--   `$0`: This marks the final position of the cursor after the user has filled in all placeholders (or pressed `Esc`).
+-   **Parameter Navigation**: Use `Tab` and `Shift+Tab` to navigate between placeholders (`${1:text}`) in an expanded snippet. Press `Esc` to exit editing mode.
+-   **Customization**: To modify snippets, edit the `.vscode/md.code-snippets` file.
 
 ## Example Workflow
 
-1.  **Create New Document**: Type `sidebar-page` to quickly generate a document framework with basic frontmatter and a title.
-2.  **Define Section**: If it's a new sidebar root, use `sidebar-root` to initialize its `index.md`.
+1.  **Create Page**: Type `@page-template` to scaffold a new page.
+2.  **Add Dialog**:
+    *   Define a dialog's content using `@dialog-def`.
+    *   Create a trigger link elsewhere in the text with `@dialog-trigger`.
 3.  **Add Content**:
-    *   Use `tabs` or `stepper` to organize step-by-step content.
-    *   Use `info`, `warning`, `alert-success`, etc., containers to emphasize key points.
-    *   Use `card-text` and other card components to enhance links or small sections.
-4.  **Format Text**: Use `mark`, `spoiler`, `ruby`, etc., snippets to enrich text presentation.
-5.  **Insert Media & Diagrams**: Use `carousel`, `mermaid`, `bilibili`, etc., to add rich media content.
-6.  **Showcase Code**: Use `code-group`, `code-lines`, `magic-move` for clear code presentations.
-7.  **Refine Document**: Add `todo` task lists, use `@title` or `fm-title` to dynamically reference the page title.
+    *   Use `@stepper` to organize a tutorial.
+    *   Use `@vp-info`, `@vp-warning`, or `@alert-success` to emphasize key points.
+4.  **Showcase Code**: Use `@vp-codegroup` for multi-language examples.
+5.  **Format Text**: Use `@mark` and `@spoiler` to enrich the text.
 
-By mastering these code snippets, you can significantly improve the efficiency and consistency of your Markdown document writing!
+By mastering these snippets, you can significantly improve the efficiency and consistency of your Markdown documentation.

@@ -114,7 +114,83 @@ export const configMappers = {
 };
 ```
 
-## 实际例子
+## 注册插件
+
+在 `markdown-plugins.ts` 中注册你的插件。请注意注册"Tab 工厂插件"和"独立插件"的区别。
+
+-   **Tab 工厂插件:** 必须通过 `@mdit/plugin-tab` 主插件进行注册。
+-   **独立插件:** 可以直接使用 `md.use()` 注册。
+
+```typescript
+import { tab } from "@mdit/plugin-tab";
+import { myTabPlugin } from "../plugins/my-tab-plugin"; // Tab 工厂插件
+import { dialogPlugin } from "../plugins/dialog";     // 独立插件
+
+export const markdown: MarkdownOptions = {
+    config: async (md) => {
+        // 注册一个基于 tab 的插件
+        md.use(tab, myTabPlugin);
+
+        // 注册一个独立的插件
+        md.use(dialogPlugin);
+    },
+};
+```
+
+## 最佳实践
+
+### 1. 配置验证
+
+使用 `requiredConfig` 确保必需的配置存在：
+
+```typescript
+export const myPlugin = createTabPlugin({
+    name: "my-plugin",
+    requiredConfig: ["src", "title"],
+    // ...
+});
+```
+
+### 2. 默认值
+
+提供合理的默认配置：
+
+```typescript
+export const myPlugin = createTabPlugin({
+    name: "my-plugin",
+    defaultConfig: {
+        autoplay: false,
+        controls: true,
+    },
+    // ...
+});
+```
+
+### 3. 类型安全
+
+利用 TypeScript 的类型检查：
+
+```typescript
+interface MyPluginConfig {
+    src: string;
+    width?: number;
+    height?: number;
+}
+
+export const myPlugin = createTabPlugin({
+    name: "my-plugin",
+    containerRenderer: (info, config: MyPluginConfig) => {
+        // TypeScript 会验证 config 的类型
+        return `<my-component src="${config.src}">`;
+    },
+});
+```
+
+### 4. 错误处理
+
+工厂会自动处理配置解析错误和必需字段验证，但你也可以在自定义渲染器中添加额外的验证。
+
+## 实际例子 (Tab 工厂)
 
 ### 1. 图片轮播插件
 
@@ -198,76 +274,45 @@ export const iframes = createTabPlugin({
 -   **代码对比插件** - 使用 Vuetify tabs 的前后对比
 -   **警告堆栈插件** - 不同类型的警告消息
 
-## 注册插件
+## 高级自定义插件
 
-在 `markdown-plugins.ts` 中注册你的插件：
+虽然 Tab 插件工厂非常适合用于创建基于容器的组件，但某些场景需要更复杂的交互。`dialog` 插件是展示如何从零开始构建一个独立插件的绝佳案例。
 
-```typescript
-import { tab } from "@mdit/plugin-tab";
-import { myPlugin } from "../plugins/my-plugin";
+### 案例研究: Dialog 插件
 
-export const markdown: MarkdownOptions = {
-    config: async (md) => {
-        // 注册基于 tab 的插件
-        md.use(tab, myPlugin);
+Dialog 插件允许开发者先定义一个内容块，然后在文档中的任何位置通过内联链接来触发它。这需要一种比单个容器规则更复杂的实现方法。
 
-        // 其他插件...
-    },
-};
-```
+**语法:**
 
-## 最佳实践
+1.  **定义 (块级规则):**
+    ```markdown
+    @@@ dialog-def#my-dialog {"title": "My Dialog"}
+    # 对话框内容
+    这是 **markdown** 内容。
+    @@@
+    ```
+2.  **触发 (内联规则):**
+    ```markdown
+    点击 :::dialog#my-dialog 这里::: 来打开。
+    ```
 
-### 1. 配置验证
+**架构:**
 
-使用 `requiredConfig` 确保必需的配置存在：
+该插件使用"三规则"架构来实现此功能：
 
-```typescript
-export const myPlugin = createTabPlugin({
-    name: "my-plugin",
-    requiredConfig: ["src", "title"],
-    // ...
-});
-```
+1.  **块级规则 (`dialog_def`):** 扫描 `@@@ dialog-def#...` 块。它会解析 ID、配置和原始的 Markdown 内容。但它不会立即渲染任何内容，而是将解析后的定义存储在 `state.env.dialogs.definitions` 中以供后续使用。
+2.  **内联规则 (`dialog_ref`):** 扫描 `:::dialog#...` 语法。它会创建一个临时的 `dialog_ref` 占位符令牌，并将触发器的元数据（ID、显示文本）存储在 `state.env.dialogs.list` 中。
+3.  **核心规则 (`dialog_tail`):** 此规则在所有块级和内联解析完成后运行。它会遍历最终的令牌流，找到 `dialog_ref` 令牌，并将其替换为最终的 `<MdDialog>` Vue 组件字符串。它使用令牌中存储的 ID 从 `state.env` 中查找完整的定义信息。
 
-### 2. 默认值
+**关键技术:**
 
-提供合理的默认配置：
+-   **使用 `state.env` 进行状态管理:** `state.env` 作为一个临时的、按文件隔离的数据存储，允许不同的规则（块级、内联、核心）在渲染过程中进行通信和共享数据。
+-   **使用核心规则实现延迟渲染:** 通过使用核心规则，我们将最终的 HTML 生成推迟到所有信息都收集完毕之后。对于需要整个文档上下文的插件来说，这是一个非常强大的模式。
+-   **渲染嵌套的 Markdown 内容:** 为确保对话框内容能以完整的 VitePress 功能（如语法高亮和其他插件）进行渲染，核心规则使用了 `md.render(content, env)`。这是在插件内部处理嵌套 Markdown 内容的推荐方法。
+-   **内容操作:** 插件通过在渲染前操作原始 markdown 字符串 (`content.replace(/^(#+) /gm, ...)`), 以编程方式降级标题（H1 -> H2 等），确保了视觉上的一致性。
+-   **保留缩进:** 在解析 `dialog-def` 块时，我们特别注意了正确计算和修剪基础缩进，从而保留了内部代码块的相对缩进。
 
-```typescript
-export const myPlugin = createTabPlugin({
-    name: "my-plugin",
-    defaultConfig: {
-        autoplay: false,
-        controls: true,
-    },
-    // ...
-});
-```
-
-### 3. 类型安全
-
-利用 TypeScript 的类型检查：
-
-```typescript
-interface MyPluginConfig {
-    src: string;
-    width?: number;
-    height?: number;
-}
-
-export const myPlugin = createTabPlugin({
-    name: "my-plugin",
-    containerRenderer: (info, config: MyPluginConfig) => {
-        // TypeScript 会验证 config 的类型
-        return `<my-component src="${config.src}">`;
-    },
-});
-```
-
-### 4. 错误处理
-
-工厂会自动处理配置解析错误和必需字段验证，但你也可以在自定义渲染器中添加额外的验证。
+这个架构为在 VitePress 中创建强大的自定义 Markdown 功能提供了一个可靠的蓝图。
 
 ## 贡献
 

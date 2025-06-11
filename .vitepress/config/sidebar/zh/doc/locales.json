@@ -3,10 +3,11 @@
   "cooperation.md": "项目合作教程",
   "dev.md": "环境配置与预览",
   "guide/": "guide",
-  "rules.md": "rules",
+  "rules.md": "文档规范",
   "samples.md": "文档插件示例",
   "sidebarTutorial.md": "sidebarTutorial",
   "styleList.md": "文档样式一览",
   "vscode-snippets-guide.md": "VSCode 代码片段使用指南",
-  "scripts.md": "脚本工具使用指南"
+  "scripts.md": "脚本工具使用指南",
+  "litetree-guide.md": "LiteTree 组件使用指南"
 }

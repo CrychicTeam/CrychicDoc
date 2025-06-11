@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 import { withMermaid } from "vitepress-plugin-mermaid";
 
 import {en_US} from "./config/lang/en"

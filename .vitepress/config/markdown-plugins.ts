@@ -23,6 +23,7 @@ import { stepper } from "../plugins/stepper";
 import { tab } from "@mdit/plugin-tab";
 import { mark } from "@mdit/plugin-mark";
 import { ins } from "@mdit/plugin-ins";
+import { customAlert } from "../plugins/custom-alert";
 import { v_alert } from "../plugins/v-alert";
 import { mdDemo } from "../plugins/demo";
 import { carousels } from "../plugins/carousels";
@@ -30,6 +31,7 @@ import { iframes } from "../plugins/iframe";
 import { card } from "../plugins/card";
 import { groupIconMdPlugin } from "vitepress-plugin-group-icons";
 import MagicMovePlugin from "../plugins/magic-move";
+import { dialogPlugin } from "../plugins/dialog";
 import ts from "typescript";
 
 import fs from "fs";
@@ -39,15 +41,40 @@ let magicMoveShiki: any = null;
 
 export const markdown: MarkdownOptions = {
     math: true,
-    shikiSetup: (shiki) => {
+    theme: {
+        light: "github-light",
+        dark: "github-dark"
+    },
+    shikiSetup: async (shiki) => {
+        // Pre-load common languages for Magic Move
+        const commonLanguages = [
+            'javascript', 'js', 'typescript', 'ts', 'java', 'python', 'py',
+            'cpp', 'c', 'csharp', 'cs', 'php', 'ruby', 'go', 'rust', 'swift',
+            'kotlin', 'scala', 'r', 'sql', 'html', 'css', 'scss', 'sass',
+            'json', 'yaml', 'yml', 'xml', 'markdown', 'md', 'bash', 'sh',
+            'powershell', 'docker', 'dockerfile', 'vue', 'react', 'jsx', 'tsx'
+        ];
+        
+        for (const lang of commonLanguages) {
+            try {
+                if (!shiki.getLoadedLanguages().includes(lang)) {
+                    await shiki.loadLanguage(lang as any);
+                }
+            } catch (error) {
+                // Silently ignore languages that can't be loaded
+            }
+        }
+        
         magicMoveShiki = shiki;
     },
     config: async (md) => {
         md.use(InlineLinkPreviewElementTransform);
         md.use(BiDirectionalLinks());
         md.use(groupIconMdPlugin);
+        
         md.use(timeline);
         md.use(tabsMarkdownPlugin);
+        md.use(dialogPlugin);
 
         md.use(mdFootnote);
         md.use(mdTaskLists);
@@ -61,6 +88,7 @@ export const markdown: MarkdownOptions = {
         md.use(ruby);
         md.use(demo, mdDemo);
         md.use(dl);
+        md.use(customAlert);
         md.use(v_alert);
         md.use(mark);
         md.use(ins);
@@ -75,7 +103,10 @@ export const markdown: MarkdownOptions = {
         
         // Magic move plugin with shiki integration
         if (magicMoveShiki) {
-            md.use(MagicMovePlugin, magicMoveShiki);
+            md.use(MagicMovePlugin, magicMoveShiki, {
+                light: "github-light",
+                dark: "github-dark"
+            });
         }
 
         md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {

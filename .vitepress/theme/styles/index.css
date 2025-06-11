@@ -9,8 +9,10 @@
  * 4. Component styles
  */
 
-/* ===== CONFIGURATION & VARIABLES ===== */
-@import "./config/variables.css";
+/* ================== GLOBAL STYLES ================== */
+
+/* ================== CONFIG VARIABLES ================== */
+@import "./config/base-variables.css";
 @import "./config/component-variables.css";
 
 /* ===== BASE STYLES ===== */
@@ -27,6 +29,7 @@
 @import "./plugins/code-groups.css";
 @import "./plugins/demo.css";
 @import "./plugins/link-icons.css";
+@import "./plugins/alert.css";
 @import "./iframe.css";
 
 /* ===== COMPONENT STYLES ===== */

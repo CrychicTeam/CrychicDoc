@@ -12,3 +12,4 @@ output.html
 .cache
 .vitepress/config/sidebar.json
 .vitepress/config.mts.timestamp*
+docs/.vitepress/

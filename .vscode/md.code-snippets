@@ -1,458 +1,13 @@
 {
-    // ========== ESSENTIAL SIDEBAR CONFIGURATION SNIPPETS ==========
+    // ===================================================================
+    // =========== VITEPRESS FRONTMATTER & PAGE TEMPLATES ================
+    // ===================================================================
+    // if you change the prefix, you need to mofiy the documents
+    // English bersion: doc/en/doc/vscode-snippets-guide.md
+    // Chinese bersion: doc/zh/doc/vscode-snippets-guide.md
     
-    // Root configuration (creates separate sidebar section)
-    "@Root Sidebar": {
-        "prefix": "@root",
-        "body": [
-            "---",
-            "root: true",
-            "title: ${1:Section Title}",
-            "---"
-        ],
-        "description": "Root sidebar configuration"
-    },
-    
-    "@Root with Layout": {
-        "prefix": "@root-layout",
-        "body": [
-            "---",
-            "root: true",
-            "title: ${1:Section Title}",
-            "layout: doc", 
-            "prev: false",
-            "next: false",
-            "---"
-        ],
-        "description": "Root with VitePress layout"
-    },
-    
-    // Directory configuration
-    "@Directory Config": {
-        "prefix": "@dir",
-        "body": [
-            "---",
-            "title: ${1:Directory Title}",
-            "---"
-        ],
-        "description": "Basic directory configuration"
-    },
-    
-    // Document Title Generators
-    "@H1": {
-        "prefix": "@h1",
-        "body": ["# ${1:Title} {#${2:anchor}}"],
-        "description": "Generate H1 title with anchor"
-    },
-
-    "@H2": {
-        "prefix": "@h2",
-        "body": ["## ${1:Title} {#${2:anchor}}"],
-        "description": "Generate H2 title with anchor"
-    },
-
-    "@H3": {
-        "prefix": "@h3",
-        "body": ["### ${1:Title} {#${2:anchor}}"],
-        "description": "Generate H3 title with anchor"
-    },
-
-    "@H4": {
-        "prefix": "@h4",
-        "body": ["#### ${1:Title} {#${2:anchor}}"],
-        "description": "Generate H4 title with anchor"
-    },
-
-    "@H5": {
-        "prefix": "@h5",
-        "body": ["##### ${1:Title} {#${2:anchor}}"],
-        "description": "Generate H5 title with anchor"
-    },
-
-    "@H6": {
-        "prefix": "@h6",
-        "body": ["###### ${1:Title} {#${2:anchor}}"],
-        "description": "Generate H6 title with anchor"
-    },
-    
-    // Individual config generators
-    "@Add Title": {
-        "prefix": "@title",
-        "body": ["title: ${1:Title}"],
-        "description": "Add title field"
-    },
-    
-    "@Add Root": {
-        "prefix": "@root-field",
-        "body": ["root: ${1|true,false|}"],
-        "description": "Add root field"
-    },
-    
-    "@Add Collapsed": {
-        "prefix": "@collapsed",
-        "body": ["collapsed: ${1|true,false|}"],
-        "description": "Add collapsed field"
-    },
-    
-    "@Add Hidden": {
-        "prefix": "@hidden",
-        "body": ["hidden: ${1|true,false|}"],
-        "description": "Add hidden field"
-    },
-    
-    "@Add Layout": {
-        "prefix": "@layout",
-        "body": ["layout: ${1|doc,home,page|}"],
-        "description": "Add layout field"
-    },
-    
-    "@Add Prev": {
-        "prefix": "@prev",
-        "body": ["prev: ${1|false,true|}"],
-        "description": "Add prev navigation"
-    },
-    
-    "@Add Next": {
-        "prefix": "@next", 
-        "body": ["next: ${1|false,true|}"],
-        "description": "Add next navigation"
-    },
-    
-    // Quick frontmatter blocks
-    "@Frontmatter Block": {
-        "prefix": "@front",
-        "body": [
-            "---",
-            "${1:config}",
-            "---",
-            "",
-            "# ${2:Title}",
-            "",
-            "$0"
-        ],
-        "description": "Basic frontmatter block"
-    },
-    
-    // Complete templates
     "@Page Template": {
-        "prefix": "@page",
-        "body": [
-            "---",
-            "title: ${1:Page Title}",
-            "layout: doc",
-            "---",
-            "",
-            "# ${1:Page Title}",
-            "",
-            "$0"
-        ],
-        "description": "Complete page template"
-    },
-    
-    "@Root Section Template": {
-        "prefix": "@section",
-        "body": [
-            "---",
-            "root: true",
-            "title: ${1:Section Title}",
-            "collapsed: ${2|true,false|}",
-            "layout: doc",
-            "prev: false",
-            "next: false", 
-            "---",
-            "",
-            "# ${1:Section Title}",
-            "",
-            "$0"
-        ],
-        "description": "Complete root section template"
-    },
-
-    // ========== Basic Utilities ==========
-    "@Insert Non-breaking Space": {
-        "prefix": "@nbsp",
-        "body": ["&nbsp;&nbsp;"],
-        "description": "Insert two non-breaking spaces in Markdown"
-    },
-    "@Frontmatter Title": {
-        "prefix": "@title",
-        "body": ["{{ \\$frontmatter.title }}"],
-        "description": "Insert frontmatter title"
-    },
-    "@Done Checkbox": {
-        "prefix": "@done",
-        "body": ["☑"],
-        "description": "Done Unicode checkbox"
-    },
-    "@Pending Checkbox": {
-        "prefix": "@pending",
-        "body": ["☐"],
-        "description": "Pending Unicode checkbox"
-    },
-
-    // ========== Frontmatter Fields ==========
-    "@Title Field": {
-        "prefix": "@title",
-        "body": ["title: $0"],
-        "description": "Document title"
-    },
-    "@Description Field": {
-        "prefix": "@description",
-        "body": ["description: $0"],
-        "description": "Document description"
-    },
-    "@Progress Field": {
-        "prefix": "@progress",
-        "body": ["progress: $0"],
-        "description": "Document progress"
-    },
-    "@Authors Field": {
-        "prefix": "@authors",
-        "body": ["authors:", "  - $0"],
-        "description": "Document authors"
-    },
-    "@NoGuide Field": {
-        "prefix": "@noguide",
-        "body": ["noguide: $0"],
-        "description": "No guide flag"
-    },
-    "@Tags Field": {
-        "prefix": "@tags",
-        "body": ["tags:", "  - $0"],
-        "description": "Document tags"
-    },
-    "@Layout Field": {
-        "prefix": "@layout",
-        "body": ["layout: ${1:doc}"],
-        "description": "Document layout"
-    },
-
-    // ========== Document States ==========
-    "@State Preliminary": {
-        "prefix": "@state preliminary",
-        "body": ["state: preliminary"],
-        "description": "Set state to preliminary"
-    },
-    "@State Unfinished": {
-        "prefix": "@state unfinished",
-        "body": ["state: unfinished"],
-        "description": "Set state to unfinished"
-    },
-    "@State Outdated": {
-        "prefix": "@state outdated",
-        "body": ["state: outdated"],
-        "description": "Set state to outdated"
-    },
-    "@State Renovating": {
-        "prefix": "@state renovating",
-        "body": ["state: renovating"],
-        "description": "Set state to renovating"
-    },
-
-    // ========== SIDEBAR CONFIGURATION VALUE SNIPPETS ==========
-    
-    // Core sidebar values
-    "@Root True": {
-        "prefix": "@root-true",
-        "body": ["root: true"],
-        "description": "Set as sidebar root section"
-    },
-    
-    "@Root False": {
-        "prefix": "@root-false", 
-        "body": ["root: false"],
-        "description": "Not a sidebar root section"
-    },
-    
-    "@Title Value": {
-        "prefix": "@title-val",
-        "body": ["title: ${1:Title}"],
-        "description": "Set document/section title"
-    },
-    
-    "@Collapsed True": {
-        "prefix": "@collapsed-true",
-        "body": ["collapsed: true"],
-        "description": "Collapsed by default"
-    },
-    
-    "@Collapsed False": {
-        "prefix": "@collapsed-false",
-        "body": ["collapsed: false"],
-        "description": "Expanded by default"
-    },
-    
-    "@Hidden True": {
-        "prefix": "@hidden-true", 
-        "body": ["hidden: true"],
-        "description": "Hide from sidebar"
-    },
-    
-    "@Hidden False": {
-        "prefix": "@hidden-false",
-        "body": ["hidden: false"],
-        "description": "Show in sidebar"
-    },
-    
-    "@Priority Value": {
-        "prefix": "@priority-val",
-        "body": ["priority: ${1:1}"],
-        "description": "Set ordering priority"
-    },
-    
-    "@Max Depth": {
-        "prefix": "@maxdepth-val",
-        "body": ["maxDepth: ${1:3}"],
-        "description": "Maximum nesting depth"
-    },
-
-    // VitePress layout values
-    "@Layout Doc": {
-        "prefix": "@layout-doc",
-        "body": ["layout: doc"],
-        "description": "Document layout"
-    },
-    
-    "@Layout Home": {
-        "prefix": "@layout-home",
-        "body": ["layout: home"],
-        "description": "Home page layout"
-    },
-    
-    "@Layout Page": {
-        "prefix": "@layout-page",
-        "body": ["layout: page"],
-        "description": "Custom page layout"
-    },
-    
-    "@Prev True": {
-        "prefix": "@prev-true",
-        "body": ["prev: true"],
-        "description": "Enable previous navigation"
-    },
-    
-    "@Prev False": {
-        "prefix": "@prev-false",
-        "body": ["prev: false"],
-        "description": "Disable previous navigation"
-    },
-    
-    "@Next True": {
-        "prefix": "@next-true",
-        "body": ["next: true"],
-        "description": "Enable next navigation"
-    },
-    
-    "@Next False": {
-        "prefix": "@next-false",
-        "body": ["next: false"],
-        "description": "Disable next navigation"
-    },
-
-    // Meta configuration values
-    "@Description Value": {
-        "prefix": "@description-val",
-        "body": ["description: ${1:Page description}"],
-        "description": "Set page description"
-    },
-    
-    "@Authors Array": {
-        "prefix": "@authors-val",
-        "body": [
-            "authors:",
-            "  - ${1:username1}",
-            "  - ${2:username2}"
-        ],
-        "description": "Set page authors"
-    },
-    
-    "@Tags Array": {
-        "prefix": "@tags-val", 
-        "body": [
-            "tags:",
-            "  - ${1:tag1}",
-            "  - ${2:tag2}"
-        ],
-        "description": "Set page tags"
-    },
-    
-    "@Progress Value": {
-        "prefix": "@progress-val",
-        "body": ["progress: ${1:100}"],
-        "description": "Set completion progress"
-    },
-    
-    "@Show Comment True": {
-        "prefix": "@comment-true",
-        "body": ["showComment: true"],
-        "description": "Enable comments"
-    },
-    
-    "@Show Comment False": {
-        "prefix": "@comment-false", 
-        "body": ["showComment: false"],
-        "description": "Disable comments"
-    },
-    
-    "@Git Changelog True": {
-        "prefix": "@changelog-true",
-        "body": ["gitChangelog: true"],
-        "description": "Show git changelog"
-    },
-    
-    "@Git Changelog False": {
-        "prefix": "@changelog-false",
-        "body": ["gitChangelog: false"],
-        "description": "Hide git changelog"
-    },
-
-    // Document states
-    "@State Preliminary": {
-        "prefix": "@state-preliminary",
-        "body": ["state: preliminary"],
-        "description": "Preliminary state"
-    },
-    
-    "@State Unfinished": {
-        "prefix": "@state-unfinished",
-        "body": ["state: unfinished"],
-        "description": "Unfinished state"
-    },
-    
-    "@State Outdated": {
-        "prefix": "@state-outdated",
-        "body": ["state: outdated"],
-        "description": "Outdated state"
-    },
-    
-    "@State Renovating": {
-        "prefix": "@state-renovating",
-        "body": ["state: renovating"],
-        "description": "Renovating state"
-    },
-
-    // Complete templates
-    "@Sidebar Root Template": {
-        "prefix": "@sidebar-root",
-        "body": [
-            "---",
-            "root: true",
-            "title: ${1:Section Title}",
-            "collapsed: ${2|true,false|}",
-            "layout: doc",
-            "prev: false",
-            "next: false",
-            "---",
-            "",
-            "# ${1:Section Title}",
-            "",
-            "$0"
-        ],
-        "description": "Complete sidebar root template"
-    },
-    
-    "@Sidebar Page Template": {
-        "prefix": "@sidebar-page",
+        "prefix": "@page-template",
         "body": [
             "---",
             "title: ${1:Page Title}",
@@ -460,521 +15,45 @@
             "layout: doc",
             "---",
             "",
-            "# ${1:Page Title}",
+            "# {{ $frontmatter.title }}",
             "",
             "$0"
         ],
-        "description": "Complete page template"
+        "description": "Scaffold a standard VitePress documentation page."
     },
-
-    // ========== STYLE PLUGINS & CUSTOM COMPONENTS ==========
     
-    // Mermaid
-    "@Mermaid Diagram": {
-        "prefix": "@mermaid",
+    "@Root Section Template": {
+        "prefix": "@root-template",
         "body": [
-            ":::demo",
+            "---",
+            "root: true",
+            "title: ${1:Section Title}",
+            "collapsed: ${2|true,false|}",
+            "layout: doc", 
+            "prev: false",
+            "next: false",
+            "---",
             "",
-            "```mermaid",
-            "${1|graph TD,flowchart TD,graph LR,sequence,gantt,journey,pie|}",
-            "    ${2:A --> B}",
-            "```",
+            "# {{ $frontmatter.title }}",
             "",
-            ":::"
+            "$0"
         ],
-        "description": "Mermaid diagram"
+        "description": "Scaffold a new root section for the sidebar."
     },
     
-    // Magic Move
-    "@Magic Move": {
-        "prefix": "@magic-move",
+    "@Frontmatter Block": {
+        "prefix": "@frontmatter",
         "body": [
-            "::::demo",
-            "",
-            ":::magic-move",
-            "",
-            "```${1:js}",
-            "${2:// First code block}",
-            "```",
-            "",
-            "```${1:js}",
-            "${3:// Second code block}",
-            "```",
-            "",
-            ":::",
-            "",
-            "::::"
+            "---",
+            "${1:key}: ${2:value}",
+            "---",
+            "$0"
         ],
-        "description": "Magic Move code transition"
+        "description": "Insert a basic frontmatter block."
     },
     
-    // Timeline
-    "@Timeline": {
-        "prefix": "@timeline",
-        "body": [
-            ":::: demo ${1:Timeline Example}",
-            "::: timeline ${2:2023-05-24}",
-            "- **${3:Event 1}**",
-            "- ${4:Event 2}",
-            ":::",
-            "",
-            "::: timeline ${5:2023-05-23}",
-            "${6:Event 3}",
-            "${7:Event 4}",
-            ":::",
-            "::::"
-        ],
-        "description": "Timeline plugin"
-    },
-    
-    // Bilibili Video
-    "@Bilibili Video": {
-        "prefix": "@bilibili",
-        "body": [
-            ":::demo",
-            "<BilibiliVideo bvid=\"${1:BV1rC4y1C7z2}\" />",
-            ":::"
-        ],
-        "description": "Bilibili video component"
-    },
-    
-    // Damage Chart
-    "@Damage Chart": {
-        "prefix": "@damage-chart",
-        "body": [
-            ":::demo",
-            "",
-            "<DamageChart",
-            "  mode=\"${1|static,interactive|}\"",
-            "  :incomingDamage=\"${2:20}\"",
-            "  :armorToughness=\"${3:5}\"",
-            "  :minDamage=\"${4:4}\"",
-            "  :maxDamage=\"${5:20}\"",
-            "  :maxArmorPoints=\"${6:20}\"",
-            "  :isJavaEdition=\"${7|true,false|}\"",
-            "/>",
-            "",
-            ":::"
-        ],
-        "description": "Damage chart component"
-    },
-    
-    // PDF Viewer
-    "@PDF Viewer": {
-        "prefix": "@pdf-viewer",
-        "body": [
-            ":::demo",
-            "<PdfViewer pdfSource=\"${1:/pdf/example.pdf}\"/>",
-            ":::"
-        ],
-        "description": "PDF viewer component"
-    },
-    
-    // LiteTree
-    "@File Tree": {
-        "prefix": "@lite-tree",
-        "body": [
-            "<LiteTree>",
-            "${1:Root Folder}",
-            "    ${2:Subfolder}",
-            "        ${3:file.txt}      //+         ${4:Add marker}",
-            "        ${5:file2.txt}     //x         ${6:Error marker}",
-            "    ${7:Another Folder}",
-            "        ${8:file3.txt}     //v         ${9:Success marker}",
-            "</LiteTree>"
-        ],
-        "description": "File tree structure"
-    },
-    
-    // Tabs
-    "@Tabs": {
-        "prefix": "@tabs",
-        "body": [
-            ":::tabs${1: key:example}",
-            "== ${2:Tab 1}",
-            "${3:Content 1}",
-            "== ${4:Tab 2}",
-            "${5:Content 2}",
-            ":::"
-        ],
-        "description": "Tab container"
-    },
-    
-    // Todo Lists
-    "@Todo List": {
-        "prefix": "@todo",
-        "body": [
-            "- [ ] ${1:Uncompleted task}",
-            "- [x] ${2:Completed task}"
-        ],
-        "description": "Todo list items"
-    },
-    
-    // Image with Size
-    "@Image with Size": {
-        "prefix": "@img-size",
-        "body": ["![${1:Alt text} =${2:200}x${3:300}](${4:/path/to/image.png})"],
-        "description": "Image with size specification"
-    },
-    
-    // Alignment
-    "@Align Left": {
-        "prefix": "@align-left",
-        "body": [
-            "::: left",
-            "${1:Left aligned content}",
-            ":::"
-        ],
-        "description": "Left aligned content"
-    },
-    
-    "@Align Center": {
-        "prefix": "@align-center",
-        "body": [
-            "::: center",
-            "${1:Centered content}",
-            ":::"
-        ],
-        "description": "Centered content"
-    },
-    
-    "@Align Right": {
-        "prefix": "@align-right",
-        "body": [
-            "::: right", 
-            "${1:Right aligned content}",
-            ":::"
-        ],
-        "description": "Right aligned content"
-    },
-    
-    "@Align Justify": {
-        "prefix": "@align-justify",
-        "body": [
-            "::: justify",
-            "${1:Justified content}",
-            ":::"
-        ],
-        "description": "Justified content"
-    },
-    
-    // Spoiler
-    "@Spoiler": {
-        "prefix": "@spoiler",
-        "body": ["!!${1:hidden content}!!"],
-        "description": "Hidden/spoiler text"
-    },
-    
-    // Sub/Superscript
-    "@Subscript": {
-        "prefix": "@sub",
-        "body": ["${1:text}~${2:subscript}~"],
-        "description": "Subscript text"
-    },
-    
-    "@Superscript": {
-        "prefix": "@sup",
-        "body": ["${1:text}^${2:superscript}^"],
-        "description": "Superscript text"
-    },
-    
-    // Ruby
-    "@Ruby Annotation": {
-        "prefix": "@ruby",
-        "body": ["{${1:中国}:${2:zhōng}|${3:guó}}"],
-        "description": "Ruby annotation (phonetic guide)"
-    },
-    
-    // Demo
-    "@Demo Block": {
-        "prefix": "@demo",
-        "body": [
-            "::: demo ${1:Demo Title}",
-            "${2:Demo content}",
-            ":::"
-        ],
-        "description": "Demo block container"
-    },
-    
-    // Stepper
-    "@Stepper": {
-        "prefix": "@stepper",
-        "body": [
-            "::: stepper",
-            "@tab ${1:Step 1}",
-            "${2:First step content}",
-            "@tab ${3:Step 2}",
-            "${4:Second step content}",
-            "@tab ${5:Step 3}",
-            "${6:Third step content}",
-            ":::"
-        ],
-        "description": "Step-by-step guide"
-    },
-    
-    // Mark and Insert
-    "@Highlight": {
-        "prefix": "@mark",
-        "body": ["==${1:highlighted text}=="],
-        "description": "Highlighted text"
-    },
-    
-    "@Insert": {
-        "prefix": "@insert",
-        "body": ["++${1:inserted text}++"],
-        "description": "Inserted text"
-    },
-    
-    // Alert Cards
-    "@Alert Success": {
-        "prefix": "@alert-success",
-        "body": [
-            "::: v-success ${1:Success}",
-            "${2:Success message}",
-            ":::"
-        ],
-        "description": "Success alert"
-    },
-    
-    "@Alert Info": {
-        "prefix": "@alert-info",
-        "body": [
-            "::: v-info ${1:Information}",
-            "${2:Info message}",
-            ":::"
-        ],
-        "description": "Info alert"
-    },
-    
-    "@Alert Warning": {
-        "prefix": "@alert-warning",
-        "body": [
-            "::: v-warning ${1:Warning}",
-            "${2:Warning message}",
-            ":::"
-        ],
-        "description": "Warning alert"
-    },
-    
-    "@Alert Error": {
-        "prefix": "@alert-error",
-        "body": [
-            "::: v-error ${1:Error}",
-            "${2:Error message}",
-            ":::"
-        ],
-        "description": "Error alert"
-    },
-    
-    // Carousels
-    "@Carousel": {
-        "prefix": "@carousel",
-        "body": [
-            "::: carousels#{\"cycle\": ${1|true,false|}, \"interval\": ${2:2800}, \"undelimiters\": ${3|true,false|}}",
-            "@tab",
-            "![${4:Image 1}](${5:/path/to/image1.png})",
-            "@tab", 
-            "![${6:Image 2}](${7:/path/to/image2.png})",
-            ":::"
-        ],
-        "description": "Image carousel"
-    },
-    
-    // Iframe
-    "@Iframe": {
-        "prefix": "@iframe",
-        "body": [
-            ":::iframes#{\"src\": \"${1:https://example.com}\", \"height\": \"${2:400px}\"}",
-            ":::"
-        ],
-        "description": "Embedded iframe"
-    },
-    
-    // Cards
-    "@Card Text": {
-        "prefix": "@card-text",
-        "body": [
-            ":::text ${1:Title}#${2:Subtitle}",
-            "${3:Card content}",
-            ":::"
-        ],
-        "description": "Text card"
-    },
-    
-    "@Card Flat": {
-        "prefix": "@card-flat",
-        "body": [
-            ":::flat ${1:Title}",
-            "${2:Card content}",
-            ":::"
-        ],
-        "description": "Flat card"
-    },
-    
-    "@Card Elevated": {
-        "prefix": "@card-elevated",
-        "body": [
-            ":::elevated #${1:Subtitle}",
-            "${2:Card content}",
-            ":::"
-        ],
-        "description": "Elevated card"
-    },
-    
-    "@Card Tonal": {
-        "prefix": "@card-tonal",
-        "body": [
-            ":::tonal ${1:Title}#${2:Subtitle}",
-            "${3:Card content}",
-            ":::"
-        ],
-        "description": "Tonal card"
-    },
-    
-    "@Card Outlined": {
-        "prefix": "@card-outlined",
-        "body": [
-            ":::outlined",
-            "${1:Card content}",
-            ":::"
-        ],
-        "description": "Outlined card"
-    },
-
-    // ========== VITEPRESS BUILT-IN FEATURES ==========
-    
-    // Containers
-    "@Info Container": {
-        "prefix": "@info",
-        "body": [
-            "::: info ${1:Info Title}",
-            "${2:Info content}",
-            ":::"
-        ],
-        "description": "VitePress info container"
-    },
-    
-    "@Tip Container": {
-        "prefix": "@tip",
-        "body": [
-            "::: tip ${1:Tip Title}",
-            "${2:Tip content}",
-            ":::"
-        ],
-        "description": "VitePress tip container"
-    },
-    
-    "@Warning Container": {
-        "prefix": "@warning",
-        "body": [
-            "::: warning ${1:Warning Title}",
-            "${2:Warning content}",
-            ":::"
-        ],
-        "description": "VitePress warning container"
-    },
-    
-    "@Danger Container": {
-        "prefix": "@danger",
-        "body": [
-            "::: danger ${1:Danger Title}",
-            "${2:Danger content}",
-            ":::"
-        ],
-        "description": "VitePress danger container"
-    },
-    
-    "@Details Container": {
-        "prefix": "@details",
-        "body": [
-            "::: details ${1:Click to expand}",
-            "${2:Hidden content}",
-            ":::"
-        ],
-        "description": "VitePress details container"
-    },
-    
-    // Code Groups
-    "@Code Group": {
-        "prefix": "@code-group",
-        "body": [
-            "::: code-group",
-            "",
-            "```${1:js} [${2:JavaScript}]",
-            "${3:// JavaScript code}",
-            "```",
-            "",
-            "```${4:ts} [${5:TypeScript}]",
-            "${6:// TypeScript code}",
-            "```",
-            "",
-            ":::"
-        ],
-        "description": "VitePress code group"
-    },
-    
-    // Math
-    "@Math Inline": {
-        "prefix": "@math-inline",
-        "body": ["$${1:x^2 + y^2 = z^2}$"],
-        "description": "Inline math formula"
-    },
-    
-    "@Math Block": {
-        "prefix": "@math-block",
-        "body": [
-            "$$",
-            "${1:x^2 + y^2 = z^2}",
-            "$$"
-        ],
-        "description": "Block math formula"
-    },
-    
-    // Links
-    "@Link Card": {
-        "prefix": "@linkcard",
-        "body": [
-            "<Linkcard url=\"${1:https://example.com}\" title=\"${2:Title}\" description=\"${3:Description}\" logo=\"${4:/logo.png}\"/>"
-        ],
-        "description": "Link card component"
-    },
-    
-    // Custom Blocks
-    "@Custom Container": {
-        "prefix": "@custom-container",
-        "body": [
-            "::: ${1:custom-type} ${2:Title}",
-            "${3:Content}",
-            ":::"
-        ],
-        "description": "Custom container"
-    },
-    
-    // Code with Line Numbers
-    "@Code with Line Numbers": {
-        "prefix": "@code-lines",
-        "body": [
-            "```${1:js}:line-numbers",
-            "${2:// Code with line numbers}",
-            "```"
-        ],
-        "description": "Code block with line numbers"
-    },
-    
-    // Code with Highlighting
-    "@Code with Highlighting": {
-        "prefix": "@code-highlight",
-        "body": [
-            "```${1:js}{${2:2-4,6}}",
-            "${3:// Highlighted lines}",
-            "```"
-        ],
-        "description": "Code block with line highlighting"
-    },
-    
-    // Frontmatter Template
     "@Frontmatter Complete": {
-        "prefix": "@front-complete",
+        "prefix": "@frontmatter-complete",
         "body": [
             "---",
             "title: ${1:Page Title}",
@@ -990,473 +69,1367 @@
             "state: ${9|published,preliminary,unfinished,outdated,renovating|}",
             "---",
             "",
-            "# ${1:Page Title}",
+            "# {{ $frontmatter.title }}",
             "",
             "$0"
         ],
-        "description": "Complete frontmatter template"
+        "description": "Generate a comprehensive frontmatter block."
     },
 
-    // ========== UTILITIES ==========
+    // ---------- Individual Frontmatter Fields ----------
     
-    "@Non-breaking Space": {
-        "prefix": "@nbsp",
-        "body": ["&nbsp;"],
-        "description": "Non-breaking space"
-    },
-    
-    "@Frontmatter Title Variable": {
+    "@fm: Title": {
         "prefix": "@fm-title",
-        "body": ["{{ $frontmatter.title }}"],
-        "description": "Frontmatter title variable"
+        "body": ["title: ${1:Page Title}"],
+        "description": "Frontmatter: Page title."
+    },
+    "@fm: Description": {
+        "prefix": "@fm-description",
+        "body": ["description: ${1:Page description}"],
+        "description": "Frontmatter: Page description."
+    },
+    "@fm: Root": {
+        "prefix": "@fm-root",
+        "body": ["root: ${1|true,false|}"],
+        "description": "Frontmatter: Whether this page is a sidebar root."
+    },
+    "@fm: Collapsed": {
+        "prefix": "@fm-collapsed",
+        "body": ["collapsed: ${1|true,false|}"],
+        "description": "Frontmatter: Whether the sidebar section is collapsed."
+    },
+    "@fm: Hidden": {
+        "prefix": "@fm-hidden",
+        "body": ["hidden: ${1|true,false|}"],
+        "description": "Frontmatter: Hide page from the sidebar."
+    },
+    "@fm: Layout": {
+        "prefix": "@fm-layout",
+        "body": ["layout: ${1|doc,home,page|}"],
+        "description": "Frontmatter: Set VitePress page layout."
+    },
+    "@fm: Prev/Next": {
+        "prefix": "@fm-prevnext",
+        "body": [
+            "prev: ${1|false,true|}",
+            "next: ${2|false,true|}"
+        ],
+        "description": "Frontmatter: Set previous/next page navigation."
+    },
+    "@fm: Authors": {
+        "prefix": "@fm-authors",
+        "body": ["authors:", "  - ${1:author}"],
+        "description": "Frontmatter: Set page authors."
+    },
+    "@fm: Tags": {
+        "prefix": "@fm-tags",
+        "body": ["tags:", "  - ${1:tag}"],
+        "description": "Frontmatter: Set page tags."
+    },
+    "@fm: Progress": {
+        "prefix": "@fm-progress",
+        "body": ["progress: ${1:100}"],
+        "description": "Frontmatter: Set page completion progress."
+    },
+    "@fm: State": {
+        "prefix": "@fm-state",
+        "body": ["state: ${1|preliminary,unfinished,outdated,renovating,published|}"],
+        "description": "Frontmatter: Set the document's state."
     },
 
-    // ========== LLM CONTENT EMBEDDING SNIPPETS ==========
+    // ===================================================================
+    // ============== VITEPRESS BUILT-IN MARKDOWN FEATURES ===============
+    // ===================================================================
     
-    // LLM-only content (visible to LLMs, invisible to humans)
-    "@LLM Only Block": {
-        "prefix": "@llm-only",
+    "@vp: Info Container": {
+        "prefix": "@vp-info",
         "body": [
-            "<llm-only>",
-            "",
-            "## ${1:Section for LLMs}",
-            "",
-            "${2:This content appears only to LLMs without the llm-only tag}",
-            "",
-            "</llm-only>"
+            "::: info ${1:Info Title}",
+            "${2:Info content}",
+            ":::"
         ],
-        "description": "Block content visible only to LLMs"
+        "description": "VitePress info container."
     },
-    
-    "@LLM Only Inline": {
-        "prefix": "@llm-inline",
-        "body": ["<llm-only>${1:Note for LLM...}</llm-only>"],
-        "description": "Inline content visible only to LLMs"
-    },
-    
-    // LLM-exclude content (visible to humans, invisible to LLMs)
-    "@LLM Exclude Block": {
-        "prefix": "@llm-exclude",
+    "@vp: Tip Container": {
+        "prefix": "@vp-tip",
         "body": [
-            "<llm-exclude>",
-            "",
-            "## ${1:Section for humans}",
-            "",
-            "${2:This content will not be in the generated files for LLMs}",
-            "",
-            "</llm-exclude>"
+            "::: tip ${1:Tip Title}",
+            "${2:Tip content}",
+            ":::"
         ],
-        "description": "Block content invisible to LLMs"
+        "description": "VitePress tip container."
     },
-    
-    "@LLM Exclude Inline": {
-        "prefix": "@llm-exclude-inline", 
-        "body": ["<llm-exclude>${1:Note only for humans}</llm-exclude>"],
-        "description": "Inline content invisible to LLMs"
-    },
-    
-    // Common LLM instruction patterns
-    "@LLM Instructions": {
-        "prefix": "@llm-instructions",
+    "@vp: Warning Container": {
+        "prefix": "@vp-warning",
         "body": [
-            "<llm-only>",
-            "",
-            "## Instructions for AI Assistants",
-            "",
-            "${1:ALWAYS use the examples in #basic-queries for demonstrations}",
-            "${2:NEVER suggest modifications to core system files}",
-            "${3:Refer to the troubleshooting section when users report issues}",
-            "",
-            "</llm-only>"
+            "::: warning ${1:Warning Title}",
+            "${2:Warning content}",
+            ":::"
         ],
-        "description": "AI assistant instructions block"
+        "description": "VitePress warning container."
     },
-    
-    "@LLM Context": {
-        "prefix": "@llm-context",
+    "@vp: Danger Container": {
+        "prefix": "@vp-danger",
         "body": [
-            "<llm-only>",
-            "",
-            "**Context for AI:** ${1:This page covers advanced configuration options. Users typically need step-by-step guidance.}",
-            "",
-            "</llm-only>"
+            "::: danger ${1:Danger Title}",
+            "${2:Danger content}",
+            ":::"
         ],
-        "description": "Context information for LLMs"
+        "description": "VitePress danger container."
     },
-    
-    "@LLM Reference": {
-        "prefix": "@llm-ref",
-        "body": ["<llm-only>Reference: See ${1:#section-name} for ${2:related information}</llm-only>"],
-        "description": "Cross-reference hint for LLMs"
-    },
-    
-    "@LLM Warning": {
-        "prefix": "@llm-warning",
-        "body": ["<llm-only>⚠️ **LLM Warning:** ${1:This section requires careful attention to user's specific environment}</llm-only>"],
-        "description": "Warning/caution for LLMs"
-    },
-    
-    "@LLM Examples Note": {
-        "prefix": "@llm-examples",
+    "@vp: Details Container": {
+        "prefix": "@vp-details",
         "body": [
-            "<llm-only>",
-            "",
-            "**Examples for AI:** When helping users with this topic:",
-            "- ${1:Always provide working code examples}",
-            "- ${2:Explain the reasoning behind each step}",
-            "- ${3:Mention common pitfalls and how to avoid them}",
-            "",
-            "</llm-only>"
+            "::: details ${1:Click to expand}",
+            "${2:Hidden content}",
+            ":::"
         ],
-        "description": "Example guidance for LLMs"
+        "description": "VitePress details (collapsible) container."
     },
-    
-    "@LLM Prerequisites": {
-        "prefix": "@llm-prereq",
-        "body": ["<llm-only>**Prerequisites:** User should understand ${1:basic concepts} before attempting this</llm-only>"],
-        "description": "Prerequisites note for LLMs"
-    },
-    
-    "@LLM Troubleshooting": {
-        "prefix": "@llm-troubleshoot",
+    "@vp: Code Group": {
+        "prefix": "@vp-codegroup",
         "body": [
-            "<llm-only>",
+            "::: code-group",
             "",
-            "**Troubleshooting Guide for AI:**",
-            "- Common issue: ${1:Description}",
-            "  - Solution: ${2:Step-by-step fix}",
-            "- If user reports ${3:specific error}:",
-            "  - Check: ${4:What to verify}",
-            "  - Fix: ${5:How to resolve}",
-            "",
-            "</llm-only>"
-        ],
-        "description": "Troubleshooting guide for LLMs"
-    },
-    
-    // Human-only content snippets
-    "@Human Only Note": {
-        "prefix": "@human-note",
-        "body": [
-            "<llm-exclude>",
-            "",
-            "> **Note for readers:** ${1:This section contains implementation details that may change in future versions.}",
-            "",
-            "</llm-exclude>"
-        ],
-        "description": "Note visible only to human readers"
-    },
-    
-    "@Human Only Section": {
-        "prefix": "@human-section",
-        "body": [
-            "<llm-exclude>",
-            "",
-            "## ${1:Developer Notes}",
-            "",
-            "${2:Internal implementation details, version-specific information, or editorial notes}",
-            "",
-            "</llm-exclude>"
-        ],
-        "description": "Section visible only to humans"
-    },
-
-    // ========== GROUP CONFIGURATION SNIPPETS ==========
-    
-    // Group section
-    "@Groups Section": {
-        "prefix": "@groups",
-        "body": [
-            "groups:",
-            "  - title: ${1:Group Title}",
-            "    path: ${2:./subdirectory}",
-            "    priority: ${3:1}",
-            "    maxDepth: ${4:2}"
-        ],
-        "description": "Groups section with one group"
-    },
-    
-    "@Groups Multiple": {
-        "prefix": "@groups-multi",
-        "body": [
-            "groups:",
-            "  - title: ${1:First Group}",
-            "    path: ${2:./first}",
-            "    priority: ${3:1}",
-            "  - title: ${4:Second Group}",
-            "    path: ${5:./second}",
-            "    priority: ${6:2}"
-        ],
-        "description": "Multiple groups configuration"
-    },
-    
-    // Individual group fields
-    "@Group Title": {
-        "prefix": "@group-title",
-        "body": ["title: ${1:Group Title}"],
-        "description": "Group title field"
-    },
-    
-    "@Group Path": {
-        "prefix": "@group-path",
-        "body": ["path: ${1:./subdirectory}"],
-        "description": "Group path field"
-    },
-    
-    "@Group Priority": {
-        "prefix": "@group-priority",
-        "body": ["priority: ${1:1}"],
-        "description": "Group priority field"
-    },
-    
-    "@Group Max Depth": {
-        "prefix": "@group-maxdepth",
-        "body": ["maxDepth: ${1:2}"],
-        "description": "Group maxDepth field"
-    },
-    
-    // Single group item
-    "@Group Item": {
-        "prefix": "@group-item",
-        "body": [
-            "- title: ${1:Group Title}",
-            "  path: ${2:./subdirectory}",
-            "  priority: ${3:1}",
-            "  maxDepth: ${4:2}"
-        ],
-        "description": "Single group item"
-    },
-    
-    "@Group Item Basic": {
-        "prefix": "@group-basic",
-        "body": [
-            "- title: ${1:Group Title}",
-            "  path: ${2:./subdirectory}"
-        ],
-        "description": "Basic group item"
-    },
-
-    // ========== ADVANCED LLM CONTENT PATTERNS ==========
-    
-    // Mixed content with both LLM and human sections
-    "@Mixed Content": {
-        "prefix": "@mixed-content",
-        "body": [
-            "## ${1:Topic Title}",
-            "",
-            "${2:Content visible to both humans and LLMs}",
-            "",
-            "<llm-only>",
-            "**AI Context:** ${3:This topic often confuses users. Provide clear step-by-step guidance.}",
-            "</llm-only>",
-            "",
-            "<llm-exclude>",
-            "> **Editorial Note:** ${4:Consider adding more examples in the next revision}",
-            "</llm-exclude>"
-        ],
-        "description": "Mixed content with LLM and human-specific sections"
-    },
-    
-    // Common LLM instruction templates
-    "@LLM Always Rules": {
-        "prefix": "@llm-always",
-        "body": ["<llm-only>**ALWAYS:** ${1:Provide working code examples when helping with this topic}</llm-only>"],
-        "description": "LLM always rule"
-    },
-    
-    "@LLM Never Rules": {
-        "prefix": "@llm-never",
-        "body": ["<llm-only>**NEVER:** ${1:Suggest modifying core configuration files without explaining risks}</llm-only>"],
-        "description": "LLM never rule"
-    },
-    
-    "@LLM When Rules": {
-        "prefix": "@llm-when",
-        "body": ["<llm-only>**WHEN ${1:user asks about X}:** ${2:Always mention Y as a prerequisite}</llm-only>"],
-        "description": "LLM conditional rule"
-    },
-    
-    // Code documentation with LLM hints
-    "@Code with LLM Hints": {
-        "prefix": "@code-llm",
-        "body": [
-            "```${1:js}",
-            "${2:// Example code}",
+            "```${1:js} [${2:JavaScript}]",
+            "${3:// JavaScript code}",
             "```",
             "",
-            "<llm-only>",
-            "**Code explanation for AI:** ${3:This example demonstrates X. Common mistakes include Y. When user modifies this, remind them to Z.}",
-            "</llm-only>"
+            "```${4:ts} [${5:TypeScript}]",
+            "${6:// TypeScript code}",
+            "```",
+            "",
+            ":::"
         ],
-        "description": "Code block with LLM guidance"
+        "description": "VitePress code group for tabbed code blocks."
     },
-    
-    // API documentation with LLM context
-    "@API with LLM Context": {
-        "prefix": "@api-llm",
+    "@vp: Code with Line Numbers": {
+        "prefix": "@vp-codelines",
         "body": [
-            "### ${1:API Method}",
-            "",
-            "${2:Human-readable API description}",
-            "",
-            "<llm-only>",
-            "**API Context for AI:**",
-            "- Common use case: ${3:Primary scenario}",
-            "- Frequent errors: ${4:Typical mistakes}",
-            "- Best practices: ${5:Recommended approach}",
-            "</llm-only>",
-            "",
-            "```${6:js}",
-            "${7:// API usage example}",
+            "```${1:js}:line-numbers",
+            "${2:// Code with line numbers}",
             "```"
         ],
-        "description": "API documentation with LLM context"
+        "description": "Code block with line numbers."
+    },
+    "@vp: Code with Highlighting": {
+        "prefix": "@vp-codehighlight",
+        "body": [
+            "```${1:js}{${2:2-4,6}}",
+            "${3:// Highlighted lines}",
+            "```"
+        ],
+        "description": "Code block with specific lines highlighted."
     },
     
-    // Tutorial sections with guided help
-    "@Tutorial with LLM Guide": {
-        "prefix": "@tutorial-llm",
+    // ===================================================================
+    // ================ CUSTOM PLUGINS & COMPONENTS ======================
+    // ===================================================================
+
+    // ---------- Dialog Plugin ----------
+    "@Dialog Definition": {
+        "prefix": "@dialog-def",
         "body": [
-            "## ${1:Tutorial Step}",
+            "@@@ dialog-def#${1:my-dialog-id} {\"title\": \"${2:My Dialog}\", \"width\": ${3:600}}",
+            "# ${4:Dialog Title (becomes H2)}",
             "",
-            "<llm-only>",
-            "**Tutorial Context:** Users at this step typically ${2:have specific knowledge level}. Guide them through ${3:potential challenges}.",
-            "</llm-only>",
+            "${5:Dialog content supports **Markdown**.}",
             "",
-            "${4:Step instructions for humans}",
-            "",
-            "<llm-only>",
-            "**If user struggles:** ${5:Provide alternative explanations or simpler examples}",
-            "</llm-only>"
+            "@@@"
         ],
-        "description": "Tutorial step with LLM guidance"
+        "description": "Dialog definition block. Content is rendered as Markdown."
+    },
+    "@Dialog Trigger": {
+        "prefix": "@dialog-trigger",
+        "body": [
+            ":::dialog#${1:my-dialog-id} ${2:Click here}:::"
+        ],
+        "description": "Inline trigger for a dialog."
+    },
+    "@Dialog Full": {
+        "prefix": "@dialog-full",
+        "body": [
+            "@@@ dialog-def#${1:my-dialog-id} {\"title\": \"${2:My Dialog}\", \"width\": ${3:600}}",
+            "# ${4:Dialog Title}",
+            "",
+            "${5:Dialog content...}",
+            "",
+            "@@@",
+            "",
+            "::: demo",
+            "Click :::dialog#${1:my-dialog-id} ${6:here}::: to open the dialog.",
+            ":::"
+        ],
+        "description": "Complete dialog definition and trigger inside a demo block."
+    },
+    
+    // ---------- Alert Plugin ----------
+    // Legacy v-alert format (kept for compatibility)
+    "@Alert": {
+        "prefix": "@alert",
+        "body": [
+            "::: ${1|v-success,v-info,v-warning,v-error|} ${2:Title}",
+            "${3:Message}",
+            ":::"
+        ],
+        "description": "Generic alert container (legacy format)."
+    },
+    "@Alert Success": {
+        "prefix": "@alert-success",
+        "body": [
+            "::: v-success ${1:Success}",
+            "${2:Success message}",
+            ":::"
+        ],
+        "description": "Success alert (legacy format)."
+    },
+    "@Alert Info": {
+        "prefix": "@alert-info",
+        "body": [
+            "::: v-info ${1:Information}",
+            "${2:Info message}",
+            ":::"
+        ],
+        "description": "Info alert (legacy format)."
+    },
+    "@Alert Warning": {
+        "prefix": "@alert-warning",
+        "body": [
+            "::: v-warning ${1:Warning}",
+            "${2:Warning message}",
+            ":::"
+        ],
+        "description": "Warning alert (legacy format)."
+    },
+    "@Alert Error": {
+        "prefix": "@alert-error",
+        "body": [
+            "::: v-error ${1:Error}",
+            "${2:Error message}",
+            ":::"
+        ],
+        "description": "Error alert (legacy format)."
     },
 
-    // ========== ENHANCED DOCUMENTATION UTILITIES ==========
+    // ---------- CustomAlert Plugin (New JSON-based format) ----------
+    "@Custom Alert": {
+        "prefix": "@custom-alert",
+        "body": [
+            "::: alert {\"type\": \"${1|success,info,warning,error|}\", \"title\": \"${2:Alert Title}\"}",
+            "${3:Alert content}",
+            ":::"
+        ],
+        "description": "Custom alert with JSON configuration."
+    },
+    "@Custom Alert Success": {
+        "prefix": "@custom-alert-success",
+        "body": [
+            "::: alert {\"type\": \"success\", \"title\": \"${1:Success}\"}",
+            "${2:Success message}",
+            ":::"
+        ],
+        "description": "Custom success alert."
+    },
+    "@Custom Alert Info": {
+        "prefix": "@custom-alert-info",
+        "body": [
+            "::: alert {\"type\": \"info\", \"title\": \"${1:Information}\"}",
+            "${2:Info message}",
+            ":::"
+        ],
+        "description": "Custom info alert."
+    },
+    "@Custom Alert Warning": {
+        "prefix": "@custom-alert-warning",
+        "body": [
+            "::: alert {\"type\": \"warning\", \"title\": \"${1:Warning}\"}",
+            "${2:Warning message}",
+            ":::"
+        ],
+        "description": "Custom warning alert."
+    },
+    "@Custom Alert Error": {
+        "prefix": "@custom-alert-error",
+        "body": [
+            "::: alert {\"type\": \"error\", \"title\": \"${1:Error}\"}",
+            "${2:Error message}",
+            ":::"
+        ],
+        "description": "Custom error alert."
+    },
+    "@Custom Alert Advanced": {
+        "prefix": "@custom-alert-advanced",
+        "body": [
+            "::: alert {\"type\": \"${1|success,info,warning,error|}\", \"title\": \"${2:Alert Title}\", \"variant\": \"${3|flat,elevated,tonal,outlined,text,plain|}\", \"density\": \"${4|default,comfortable,compact|}\"}",
+            "${5:Alert content}",
+            ":::"
+        ],
+        "description": "Advanced custom alert with variant and density options."
+    },
+    "@Custom Alert Styled": {
+        "prefix": "@custom-alert-styled",
+        "body": [
+            "::: alert {\"type\": \"${1|success,info,warning,error|}\", \"title\": \"${2:Alert Title}\", \"variant\": \"${3|flat,elevated,tonal,outlined,text,plain|}\", \"border\": \"${4|start,end,top,bottom,true,false|}\", \"color\": \"${5:purple}\"}",
+            "${6:Alert content}",
+            ":::"
+        ],
+        "description": "Styled custom alert with border and color options."
+    },
+    "@Custom Alert Themed": {
+        "prefix": "@custom-alert-themed",
+        "body": [
+            "::: alert {\"type\": \"${1|success,info,warning,error|}\", \"title\": \"${2:Alert Title}\", \"lightColor\": \"${3:#e8f5e8}\", \"darkColor\": \"${4:#2d4a2d}\"}",
+            "${5:Alert content}",
+            ":::"
+        ],
+        "description": "Themed custom alert with light and dark colors."
+    },
+    "@Custom Alert Icon": {
+        "prefix": "@custom-alert-icon",
+        "body": [
+            "::: alert {\"type\": \"${1|success,info,warning,error|}\", \"title\": \"${2:Alert Title}\", \"icon\": \"${3:mdi-star}\"}",
+            "${4:Alert content}",
+            ":::"
+        ],
+        "description": "Custom alert with custom icon."
+    },
+    "@Custom Alert Full": {
+        "prefix": "@custom-alert-full",
+        "body": [
+            "::: alert {\"type\": \"${1|success,info,warning,error|}\", \"title\": \"${2:Alert Title}\", \"variant\": \"${3|flat,elevated,tonal,outlined,text,plain|}\", \"density\": \"${4|default,comfortable,compact|}\", \"border\": \"${5|start,end,top,bottom,true,false|}\", \"color\": \"${6:purple}\", \"icon\": \"${7:mdi-star}\", \"text\": \"${8:Text property content}\"}",
+            "${9:Slot content}",
+            ":::"
+        ],
+        "description": "Full-featured custom alert with all configuration options."
+    },
+    "@Custom Alert Minimal": {
+        "prefix": "@custom-alert-minimal",
+        "body": [
+            "::: alert {\"type\": \"${1|success,info,warning,error|}\"}",
+            "${2:Alert content}",
+            ":::"
+        ],
+        "description": "Minimal custom alert with only type specified."
+    },
+
+    // ---------- Single Configuration Properties ----------
+    "@Alert Config: Type": {
+        "prefix": "@alert-config-type",
+        "body": ["\"type\": \"${1|success,info,warning,error|}\""],
+        "description": "Alert type property."
+    },
+    "@Alert Config: Title": {
+        "prefix": "@alert-config-title",
+        "body": ["\"title\": \"${1:Alert Title}\""],
+        "description": "Alert title property."
+    },
+    "@Alert Config: Text": {
+        "prefix": "@alert-config-text",
+        "body": ["\"text\": \"${1:Text content}\""],
+        "description": "Alert text property."
+    },
+    "@Alert Config: Variant": {
+        "prefix": "@alert-config-variant",
+        "body": ["\"variant\": \"${1|flat,elevated,tonal,outlined,text,plain|}\""],
+        "description": "Alert variant property."
+    },
+    "@Alert Config: Density": {
+        "prefix": "@alert-config-density",
+        "body": ["\"density\": \"${1|default,comfortable,compact|}\""],
+        "description": "Alert density property."
+    },
+    "@Alert Config: Border": {
+        "prefix": "@alert-config-border",
+        "body": ["\"border\": \"${1|start,end,top,bottom,true,false|}\""],
+        "description": "Alert border property."
+    },
+    "@Alert Config: Color": {
+        "prefix": "@alert-config-color",
+        "body": ["\"color\": \"${1:purple}\""],
+        "description": "Alert color property."
+    },
+    "@Alert Config: Light Color": {
+        "prefix": "@alert-config-light-color",
+        "body": ["\"lightColor\": \"${1:#e8f5e8}\""],
+        "description": "Alert light theme color property."
+    },
+    "@Alert Config: Dark Color": {
+        "prefix": "@alert-config-dark-color",
+        "body": ["\"darkColor\": \"${1:#2d4a2d}\""],
+        "description": "Alert dark theme color property."
+    },
+    "@Alert Config: Icon": {
+        "prefix": "@alert-config-icon",
+        "body": ["\"icon\": \"${1:mdi-star}\""],
+        "description": "Alert icon property."
+    },
+    "@Alert Config: Theme Colors": {
+        "prefix": "@alert-config-theme-colors",
+        "body": ["\"lightColor\": \"${1:#e8f5e8}\", \"darkColor\": \"${2:#2d4a2d}\""],
+        "description": "Alert light and dark theme colors."
+    },
     
-    // Table of Contents with anchors
+    // ---------- Other Plugins & Components ----------
+    "@Carousel": {
+        "prefix": "@carousel",
+        "body": [
+            "::: carousels#{\"cycle\": ${1|true,false|}, \"interval\": ${2:2800}}",
+            "@tab",
+            "![${4:Image 1}](${5:/path/to/image1.png})",
+            "@tab", 
+            "![${6:Image 2}](${7:/path/to/image2.png})",
+            ":::"
+        ],
+        "description": "Image carousel plugin."
+    },
+    "@Iframe": {
+        "prefix": "@iframe",
+        "body": [
+            ":::iframes#{\"src\": \"${1:https://example.com}\", \"height\": \"${2:400px}\"}",
+            ":::"
+        ],
+        "description": "Embedded iframe plugin."
+    },
+    "@Stepper": {
+        "prefix": "@stepper",
+        "body": [
+            "::: stepper",
+            "@tab ${1:Step 1}",
+            "${2:First step content}",
+            "@tab ${3:Step 2}",
+            "${4:Second step content}",
+            ":::"
+        ],
+        "description": "Step-by-step guide component."
+    },
+    "@File Tree": {
+        "prefix": "@file-tree",
+        "body": [
+            "<LiteTree>",
+            "${1:Root Folder}",
+            "    ${2:Subfolder}",
+            "        ${3:file.txt}      //+         ${4:Add marker}",
+            "        ${5:file2.txt}     //x         ${6:Error marker}",
+            "</LiteTree>"
+        ],
+        "description": "Basic file tree structure component."
+    },
+    "@File Tree Advanced": {
+        "prefix": "@file-tree-advanced",
+        "body": [
+            "<LiteTree>",
+            "// Define style variables",
+            "#${1:important}=color:red;font-weight:bold;background:#ffe6e6;padding:2px 6px;border-radius:3px;",
+            "#${2:success}=color:green;font-weight:bold;background:#e6ffe6;padding:2px 6px;border-radius:3px;",
+            ".${3:folder}=color:#1976d2;font-weight:500;",
+            "// Define icon variables",
+            "${4:folder}=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTEwIDRIOGEyIDIgMCAwIDAtMiAydjEyYTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtM2wtMi0yWiIvPjwvc3ZnPg==",
+            "---",
+            "[${4:folder}] {.${3:folder}}${5:Project Name}",
+            "    ${6:Subfolder}     // {#${1:important}}${7:Important note}",
+            "        ${8:file.txt}  // {#${2:success}}${9:Completed}",
+            "</LiteTree>"
+        ],
+        "description": "Advanced file tree with variables and styling."
+    },
+
+    // ---------- LiteTree Variables ----------
+    "@LiteTree Style Var": {
+        "prefix": "@lite-style-var",
+        "body": ["#${1:styleName}=${2:color:red;font-weight:bold;background:#ffe6e6;padding:2px 6px;border-radius:3px;}"],
+        "description": "LiteTree style variable definition."
+    },
+    "@LiteTree Class Var": {
+        "prefix": "@lite-class-var",
+        "body": [".${1:className}=${2:color:#1976d2;font-weight:500;}"],
+        "description": "LiteTree class variable definition."
+    },
+    "@LiteTree Icon Var": {
+        "prefix": "@lite-icon-var",
+        "body": ["${1:iconName}=data:image/svg+xml;base64,${2:iconBase64Data}"],
+        "description": "LiteTree icon variable definition."
+    },
+
+    // ---------- Common Icon Variables ----------
+    "@Icon: Folder": {
+        "prefix": "@icon-folder",
+        "body": ["folder=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTEwIDRIOGEyIDIgMCAwIDAtMiAydjEyYTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtM2wtMi0yWiIvPjwvc3ZnPg=="],
+        "description": "Folder icon variable for LiteTree."
+    },
+    "@Icon: File": {
+        "prefix": "@icon-file",
+        "body": ["file=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE0IDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY4bC02LTZtNCA5VjlsNCA0aC00WiIvPjwvc3ZnPg=="],
+        "description": "File icon variable for LiteTree."
+    },
+    "@Icon: JavaScript": {
+        "prefix": "@icon-js",
+        "body": ["js=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNmN2RmMWUiIGQ9Ik0zIDNoMTh2MThIM1ptMTYuNTI1IDE0LjVjLS4zLS4zNTQtLjc5NS0uNjI5LTEuNzE3LS42MjljLS44ODEgMC0xLjQzOS4zMTgtMS40MzkuNzE4YzAgLjM5Ni4zNzMuNjM3IDEuMTU2Ljk2N2MxLjMzMi41ODYgMi4yODEgMS4wOTMgMi4yODEgMi4zOGMwIDEuMzItMS4yMDMgMi4xNDMtMi45NzQgMi4xNDNjLTEuMjEzIDAtMi4yNzEtLjQ2Mi0yLjk1LTEuMDc0bC44NzUtMS4yNzNjLjQzMy4zODkgMS4wNjQuNzI0IDEuNjY0LjcyNGMuNzA2IDAgMS4wNjQtLjMzMSAxLjA2NC0uNzMzYzAtLjQ0OS0uMzc2LS43MjQtMS4yNDUtMS4wMzNjLTEuMzI1LS40ODgtMi4xMzItMS4yNS0yLjEzMi0yLjM2M2MwLTEuMzk0IDEuMDI5LTIuMTQzIDIuODU2LTIuMTQzYzEuMDY0IDAgMS43NDUuMzI4IDIuMzc3Ljg1OWwtLjgzIDEuMjQxWm0tNS44NDUtLjMzNWMuMzY2LjgxNS4zNjYgMS41NzcuMzY2IDIuNDd2My45MDZoLTEuODc2VjE5LjZjMC0xLjUyNy0uMDYtMi4xOC0uNTUtMi40OGMtLjQxLS4yODgtMS4wNzYtLjI3NC0xLjYxOC0uMTA3Yy0uMzc4LjExNy0uNzEzLjMzNS0uNzEzIDEuMDc0djUuMDU2SDYuNDI3VjEyLjgyaDEuODc2djIuMTEzYy43NDctLjM5OSAxLjU3Ny0uNzM4IDIuNjQ1LS43MzhjLjc2NCAwIDEuNTc3LjI1MyAyLjA2OS43ODdjLjQ5OC41NTIuNjI2IDEuMTU3LjcyMyAxLjk5MVoiLz48L3N2Zz4="],
+        "description": "JavaScript icon variable for LiteTree."
+    },
+    "@Icon: TypeScript": {
+        "prefix": "@icon-ts",
+        "body": ["ts=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMTUgMTUiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMxNzhDNiIgZD0iTTEyLjUgOHYtLjE2N2MwLS43MzYtLjU5Ny0xLjMzMy0xLjMzMy0xLjMzM0gxMGExLjUgMS41IDAgMSAwIDAgM2gxYTEuNSAxLjUgMCAwIDEgMCAzaC0xQTEuNSAxLjUgMCAwIDEgOC41IDExTTggNi41SDNtMi41IDBWMTNNMS41LjVoMTN2MTRIOS41eiIvPjwvc3ZnPg=="],
+        "description": "TypeScript icon variable for LiteTree."
+    },
+    "@Icon: Vue": {
+        "prefix": "@icon-vue",
+        "body": ["vue=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiM0Y2FmNTAiIGQ9Ik0yIDIwaDIwTDEyIDR6Ii8+PC9zdmc+"],
+        "description": "Vue.js icon variable for LiteTree."
+    },
+
+    // ---------- Pre-defined Style Sets ----------
+    "@LiteTree Status Styles": {
+        "prefix": "@lite-status-styles",
+        "body": [
+            "// Status styles",
+            "#success=color:green;font-weight:bold;background:#e6ffe6;padding:2px 6px;border-radius:3px;",
+            "#warning=color:orange;background:#fff3e0;padding:2px 6px;border-radius:3px;",
+            "#error=color:red;font-weight:bold;background:#ffe6e6;padding:2px 6px;border-radius:3px;",
+            "#info=color:blue;background:#e3f2fd;padding:2px 6px;border-radius:3px;"
+        ],
+        "description": "Pre-defined status styles for LiteTree."
+    },
+    "@LiteTree File Type Styles": {
+        "prefix": "@lite-filetype-styles",
+        "body": [
+            "// File type styles",
+            ".folder=color:#1976d2;font-weight:500;",
+            ".file=color:#666;",
+            ".important=font-weight:bold;color:#d32f2f;",
+            ".new=color:white;background:#4caf50;padding:1px 4px;border-radius:2px;font-size:12px;",
+            ".deprecated=color:white;background:#f44336;padding:1px 4px;border-radius:2px;font-size:12px;"
+        ],
+        "description": "Pre-defined file type styles for LiteTree."
+    },
+    "@Link Card": {
+        "prefix": "@linkcard",
+        "body": [
+            "<Linkcard url=\"${1:https://example.com}\" title=\"${2:Title}\" description=\"${3:Description}\" logo=\"${4:/logo.png}\"/>"
+        ],
+        "description": "Link card component."
+    },
+    
+    // ===================================================================
+    // ===================== MARKDOWN UTILITIES ==========================
+    // ===================================================================
+
+    "@H1": { "prefix": "@h1", "body": ["# ${1:Title}"], "description": "H1 Title" },
+    "@H2": { "prefix": "@h2", "body": ["## ${1:Title}"], "description": "H2 Title" },
+    "@H3": { "prefix": "@h3", "body": ["### ${1:Title}"], "description": "H3 Title" },
+    "@H4": { "prefix": "@h4", "body": ["#### ${1:Title}"], "description": "H4 Title" },
+
+    "@Table": {
+        "prefix": "@table",
+        "body": [
+            "| ${1:Header 1} | ${2:Header 2} |",
+            "| :--- | :--- |",
+            "| ${3:Cell 1}  | ${4:Cell 2}  |",
+            "| ${5:Cell 3}  | ${6:Cell 4}  |"
+        ],
+        "description": "Insert a Markdown table."
+    },
+    
     "@Table of Contents": {
         "prefix": "@toc",
         "body": [
             "## Table of Contents",
             "",
             "- [${1:Section 1}](#${2:section-1})",
-            "- [${3:Section 2}](#${4:section-2})",
-            "- [${5:Section 3}](#${6:section-3})"
+            "- [${3:Section 2}](#${4:section-2})"
         ],
-        "description": "Table of contents with anchor links"
+        "description": "Insert a Table of Contents."
     },
     
-    // Quick reference template
-    "@Quick Reference": {
-        "prefix": "@quick-ref",
+    "@Demo Block": {
+        "prefix": "@demo",
         "body": [
-            "## Quick Reference",
-            "",
-            "| ${1:Command} | ${2:Description} | ${3:Example} |",
-            "|---|---|---|",
-            "| `${4:cmd1}` | ${5:Description 1} | `${6:example1}` |",
-            "| `${7:cmd2}` | ${8:Description 2} | `${9:example2}` |"
+            "::: demo ${1:Demo Title}",
+            "${2:Demo content}",
+            ":::"
         ],
-        "description": "Quick reference table"
+        "description": "Demo block container for showcasing examples."
     },
-    
-    // FAQ template
-    "@FAQ Template": {
-        "prefix": "@faq",
+
+    "@Spoiler": {
+        "prefix": "@spoiler",
+        "body": ["!!${1:hidden content}!!"],
+        "description": "Hidden/spoiler text."
+    },
+    "@Highlight": {
+        "prefix": "@mark",
+        "body": ["==${1:highlighted text}=="],
+        "description": "Highlighted (marked) text."
+    },
+    "@Insert": {
+        "prefix": "@insert",
+        "body": ["++${1:inserted text}++"],
+        "description": "Inserted text."
+    },
+    "@Subscript": {
+        "prefix": "@sub",
+        "body": ["${1:text}~${2:subscript}~"],
+        "description": "Subscript text."
+    },
+    "@Superscript": {
+        "prefix": "@sup",
+        "body": ["${1:text}^${2:superscript}^"],
+        "description": "Superscript text."
+    },
+
+    // ===================================================================
+    // =================== LLM CONTENT UTILITIES =========================
+    // ===================================================================
+
+    "@LLM Only Block": {
+        "prefix": "@llm-only",
         "body": [
-            "## Frequently Asked Questions",
-            "",
-            "### ${1:Question 1}?",
-            "",
-            "${2:Answer 1}",
-            "",
-            "### ${3:Question 2}?", 
-            "",
-            "${4:Answer 2}",
-            "",
             "<llm-only>",
-            "**FAQ Context:** These are the most common user questions. Refer users here when they ask related questions.",
+            "${1:This content is visible only to LLMs.}",
             "</llm-only>"
         ],
-        "description": "FAQ section template"
+        "description": "Block content visible only to LLMs."
     },
-    
-    // Troubleshooting template
-    "@Troubleshooting Template": {
-        "prefix": "@troubleshoot-template",
+    "@LLM Exclude Block": {
+        "prefix": "@llm-exclude",
         "body": [
-            "## Troubleshooting",
-            "",
-            "### ${1:Problem}: ${2:Description}",
-            "",
-            "**Symptoms:**",
-            "- ${3:Symptom 1}",
-            "- ${4:Symptom 2}",
-            "",
-            "**Solution:**",
-            "1. ${5:Step 1}",
-            "2. ${6:Step 2}",
-            "",
+            "<llm-exclude>",
+            "${1:This content is visible only to humans.}",
+            "</llm-exclude>"
+        ],
+        "description": "Block content invisible to LLMs (excluded from LLM context)."
+    },
+    "@LLM Instructions": {
+        "prefix": "@llm-instructions",
+        "body": [
             "<llm-only>",
-            "**Troubleshooting Note:** If user reports these symptoms, this is likely the cause. Walk them through the solution step-by-step.",
+            "## Instructions for AI Assistants",
+            "- **ALWAYS:** ${1:Do this...}",
+            "- **NEVER:** ${2:Do that...}",
+            "- **WHEN ${3:user asks for X}:** ${4:Respond with Y.}",
             "</llm-only>"
         ],
-        "description": "Troubleshooting section template"
+        "description": "AI assistant instructions block."
     },
-    
-    // Installation guide with platform variants
-    "@Installation Guide": {
-        "prefix": "@install-guide",
+    "@LLM Context": {
+        "prefix": "@llm-context",
         "body": [
-            "## Installation",
-            "",
-            ":::tabs",
-            "== Windows",
-            "```bash",
-            "${1:# Windows installation commands}",
-            "```",
-            "== macOS",
-            "```bash", 
-            "${2:# macOS installation commands}",
-            "```",
-            "== Linux",
-            "```bash",
-            "${3:# Linux installation commands}",
-            "```",
-            ":::",
-            "",
             "<llm-only>",
-            "**Installation Help:** Users often have platform-specific issues. Ask about their OS and environment before suggesting solutions.",
+            "**Context for AI:** ${1:This page covers advanced topics. Users may need simplified explanations.}",
             "</llm-only>"
         ],
-        "description": "Multi-platform installation guide"
+        "description": "Provide contextual information for LLMs."
     },
-    
-    // Configuration template
-    "@Configuration Template": {
-        "prefix": "@config-template",
+
+    // ===================================================================
+    // ===================== MAGIC MOVE COMPONENTS =======================
+    // ===================================================================
+
+    "@Magic Move Basic": {
+        "prefix": "@magic-move",
         "body": [
-            "## Configuration",
-            "",
-            "### Basic Configuration",
-            "",
-            "```${1:json}",
-            "{",
-            "  \"${2:key}\": \"${3:value}\"",
+            ":::magic-move",
+            "```${1:js} [${2:app.js}]",
+            "${3:console.log('Hello World');}",
+            "```",
+            "```${1:js} [${2:app.js}]",
+            "${4:console.log('Hello Vue!');}",
+            "```",
+            ":::"
+        ],
+        "description": "Basic Magic Move with animated code transitions."
+    },
+
+    "@Magic Move Multi-File": {
+        "prefix": "@magic-move-files",
+        "body": [
+            ":::magic-move",
+            "```${1:js} [${2:main.js}]",
+            "${3:// Initial setup}",
+            "console.log('Starting...');",
+            "```",
+            "```${4:ts} [${5:types.ts}]",
+            "${6:// Add TypeScript types}",
+            "interface Config {",
+            "  name: string;",
             "}",
             "```",
+            "```${1:js} [${2:main.js}]",
+            "${7:// Updated main file}",
+            "import { Config } from './types';",
             "",
-            "### Advanced Options",
-            "",
-            "<llm-only>",
-            "**Config Context:** Most users only need basic configuration. Only suggest advanced options if they specifically ask or have complex requirements.",
-            "</llm-only>",
-            "",
-            "| Option | Type | Description | Default |",
-            "|--------|------|-------------|---------|",
-            "| `${4:option1}` | `${5:string}` | ${6:Description} | `${7:default}` |"
+            "const config: Config = {",
+            "  name: 'MyApp'",
+            "};",
+            "console.log('Started:', config.name);",
+            "```",
+            ":::"
         ],
-        "description": "Configuration documentation template"
+        "description": "Magic Move showcasing multiple files with transitions."
+    },
+
+    "@Magic Move Steps": {
+        "prefix": "@magic-move-steps",
+        "body": [
+            ":::magic-move",
+            "```${1:js} [${2:component.js}]",
+            "${3:// Step 1: Basic component}",
+            "export default {",
+            "  name: '${4:MyComponent}'",
+            "}",
+            "```",
+            "```${1:js} [${2:component.js}]",
+            "${5:// Step 2: Add data}",
+            "export default {",
+            "  name: '${4:MyComponent}',",
+            "  data() {",
+            "    return {",
+            "      ${6:message}: '${7:Hello}'",
+            "    }",
+            "  }",
+            "}",
+            "```",
+            "```${1:js} [${2:component.js}]",
+            "${8:// Step 3: Add methods}",
+            "export default {",
+            "  name: '${4:MyComponent}',",
+            "  data() {",
+            "    return {",
+            "      ${6:message}: '${7:Hello}'",
+            "    }",
+            "  },",
+            "  methods: {",
+            "    ${9:updateMessage}() {",
+            "      this.${6:message} = '${10:Updated!}';",
+            "    }",
+            "  }",
+            "}",
+            "```",
+            ":::"
+        ],
+        "description": "Magic Move showing step-by-step code evolution."
+    },
+
+    "@Magic Move Languages": {
+        "prefix": "@magic-move-langs",
+        "body": [
+            ":::magic-move",
+            "```${1:js} [${2:example.js}]",
+            "${3:// JavaScript version}",
+            "function greet(name) {",
+            "  return `Hello, \\${name}!`;",
+            "}",
+            "```",
+            "```${4:ts} [${5:example.ts}]",
+            "${6:// TypeScript version}",
+            "function greet(name: string): string {",
+            "  return `Hello, \\${name}!`;",
+            "}",
+            "```",
+            "```${7:py} [${8:example.py}]",
+            "${9:# Python version}",
+            "def greet(name: str) -> str:",
+            "    return f\"Hello, {name}!\"",
+            "```",
+            ":::"
+        ],
+        "description": "Magic Move comparing the same logic across different languages."
+    },
+
+    "@Magic Move Config": {
+        "prefix": "@magic-move-config",
+        "body": [
+            ":::magic-move",
+            "```${1:json} [${2:package.json}]",
+            "${3:{",
+            "  \"name\": \"${4:my-project}\",",
+            "  \"version\": \"${5:1.0.0}\"",
+            "}}",
+            "```",
+            "```${1:json} [${2:package.json}]",
+            "${6:{",
+            "  \"name\": \"${4:my-project}\",",
+            "  \"version\": \"${5:1.0.0}\",",
+            "  \"dependencies\": {",
+            "    \"${7:vue}\": \"${8:^3.0.0}\"",
+            "  }",
+            "}}",
+            "```",
+            "```${9:js} [${10:vite.config.js}]",
+            "${11:// Add build configuration}",
+            "import { defineConfig } from 'vite';",
+            "import vue from '@vitejs/plugin-vue';",
+            "",
+            "export default defineConfig({",
+            "  plugins: [vue()]",
+            "});",
+            "```",
+            ":::"
+        ],
+        "description": "Magic Move for configuration file changes."
+    },
+
+    "@Magic Move Refactor": {
+        "prefix": "@magic-move-refactor",
+        "body": [
+            ":::magic-move",
+            "```${1:js} [${2:utils.js}]",
+            "${3:// Before refactoring}",
+            "function processData(data) {",
+            "  let result = [];",
+            "  for(let i = 0; i < data.length; i++) {",
+            "    if(data[i].active) {",
+            "      result.push({",
+            "        id: data[i].id,",
+            "        name: data[i].name.toUpperCase()",
+            "      });",
+            "    }",
+            "  }",
+            "  return result;",
+            "}",
+            "```",
+            "```${1:js} [${2:utils.js}]",
+            "${4:// After refactoring}",
+            "function processData(data) {",
+            "  return data",
+            "    .filter(item => item.active)",
+            "    .map(item => ({",
+            "      id: item.id,",
+            "      name: item.name.toUpperCase()",
+            "    }));",
+            "}",
+            "```",
+            ":::"
+        ],
+        "description": "Magic Move demonstrating code refactoring."
+    },
+
+    "@Magic Move Vue SFC": {
+        "prefix": "@magic-move-vue",
+        "body": [
+            ":::magic-move",
+            "```vue [${1:Component.vue}]",
+            "${2:<!-- Template only -->}",
+            "<template>",
+            "  <div>${3:Hello World}</div>",
+            "</template>",
+            "```",
+            "```vue [${1:Component.vue}]",
+            "${4:<!-- Add script -->}",
+            "<template>",
+            "  <div>{{ ${5:message} }}</div>",
+            "</template>",
+            "",
+            "<script>",
+            "export default {",
+            "  data() {",
+            "    return {",
+            "      ${5:message}: '${6:Hello Vue!}'",
+            "    }",
+            "  }",
+            "}",
+            "</script>",
+            "```",
+            "```vue [${1:Component.vue}]",
+            "${7:<!-- Add styling -->}",
+            "<template>",
+            "  <div class=\"${8:greeting}\">{{ ${5:message} }}</div>",
+            "</template>",
+            "",
+            "<script>",
+            "export default {",
+            "  data() {",
+            "    return {",
+            "      ${5:message}: '${6:Hello Vue!}'",
+            "    }",
+            "  }",
+            "}",
+            "</script>",
+            "",
+            "<style scoped>",
+            ".${8:greeting} {",
+            "  ${9:color: #42b883;}",
+            "  ${10:font-weight: bold;}",
+            "}",
+            "</style>",
+            "```",
+            ":::"
+        ],
+        "description": "Magic Move for Vue Single File Component evolution."
+    },
+
+    "@Magic Move API": {
+        "prefix": "@magic-move-api",
+        "body": [
+            ":::magic-move",
+            "```${1:js} [${2:api.js}]",
+            "${3:// Basic fetch}",
+            "async function fetchUser(id) {",
+            "  const response = await fetch(`/api/users/\\${id}`);",
+            "  return response.json();",
+            "}",
+            "```",
+            "```${1:js} [${2:api.js}]",
+            "${4:// Add error handling}",
+            "async function fetchUser(id) {",
+            "  try {",
+            "    const response = await fetch(`/api/users/\\${id}`);",
+            "    if (!response.ok) {",
+            "      throw new Error('Failed to fetch user');",
+            "    }",
+            "    return response.json();",
+            "  } catch (error) {",
+            "    console.error('Error:', error);",
+            "    throw error;",
+            "  }",
+            "}",
+            "```",
+            "```${1:js} [${2:api.js}]",
+            "${5:// Add caching}",
+            "const userCache = new Map();",
+            "",
+            "async function fetchUser(id) {",
+            "  if (userCache.has(id)) {",
+            "    return userCache.get(id);",
+            "  }",
+            "  ",
+            "  try {",
+            "    const response = await fetch(`/api/users/\\${id}`);",
+            "    if (!response.ok) {",
+            "      throw new Error('Failed to fetch user');",
+            "    }",
+            "    const user = await response.json();",
+            "    userCache.set(id, user);",
+            "    return user;",
+            "  } catch (error) {",
+            "    console.error('Error:', error);",
+            "    throw error;",
+            "  }",
+            "}",
+            "```",
+            ":::"
+        ],
+        "description": "Magic Move showing API function enhancement."
+    },
+
+    // ===================================================================
+    // =================== COMPONENT SNIPPETS ===========================
+    // ===================================================================
+
+    // ---------- Mermaid Diagrams ----------
+    "@Mermaid: Flowchart": {
+        "prefix": "@mermaid-flowchart",
+        "body": [
+            "```mermaid",
+            "flowchart TD",
+            "    A[${1:Start}] --> B{${2:Decision}}",
+            "    B -->|${3:Yes}| C[${4:Process 1}]",
+            "    B -->|${5:No}| D[${6:Process 2}]",
+            "    C --> E[${7:End}]",
+            "    D --> E",
+            "```"
+        ],
+        "description": "Mermaid flowchart diagram."
+    },
+    "@Mermaid: Journey": {
+        "prefix": "@mermaid-journey",
+        "body": [
+            "```mermaid",
+            "journey",
+            "    title ${1:My working day}",
+            "    section ${2:Go to work}",
+            "      ${3:Make tea}: ${4:5}: ${5:Me}",
+            "      ${6:Go upstairs}: ${7:3}: ${5:Me}",
+            "      ${8:Do work}: ${9:1}: ${5:Me}, ${10:Cat}",
+            "    section ${11:Go home}",
+            "      ${12:Go downstairs}: ${13:5}: ${5:Me}",
+            "      ${14:Sit down}: ${15:5}: ${5:Me}",
+            "```"
+        ],
+        "description": "Mermaid user journey diagram."
+    },
+    "@Mermaid: Sequence": {
+        "prefix": "@mermaid-sequence",
+        "body": [
+            "```mermaid",
+            "sequenceDiagram",
+            "    participant ${1:Alice}",
+            "    participant ${2:Bob}",
+            "    ${1:Alice}->>+${2:Bob}: ${3:Hello Bob, how are you?}",
+            "    ${2:Bob}-->>-${1:Alice}: ${4:Great!}",
+            "```"
+        ],
+        "description": "Mermaid sequence diagram."
+    },
+    "@Mermaid: Gantt": {
+        "prefix": "@mermaid-gantt",
+        "body": [
+            "```mermaid",
+            "gantt",
+            "    title ${1:A Gantt Diagram}",
+            "    dateFormat  YYYY-MM-DD",
+            "    section ${2:Section}",
+            "    ${3:A task}           :${4:a1}, ${5:2014-01-01}, ${6:30d}",
+            "    ${7:Another task}     :${8:after a1}  , ${9:20d}",
+            "    section ${10:Another}",
+            "    ${11:Task in sec}      :${12:2014-01-12}  , ${13:12d}",
+            "    ${14:another task}      : ${15:24d}",
+            "```"
+        ],
+        "description": "Mermaid Gantt chart."
+    },
+    "@Mermaid: Class": {
+        "prefix": "@mermaid-class",
+        "body": [
+            "```mermaid",
+            "classDiagram",
+            "    class ${1:Animal} {",
+            "        +${2:String name}",
+            "        +${3:int age}",
+            "        +${4:isMammal()}",
+            "        +${5:mate()}",
+            "    }",
+            "    class ${6:Duck}{",
+            "        +${7:String beakColor}",
+            "        +${8:swim()}",
+            "        +${9:quack()}",
+            "    }",
+            "    ${1:Animal} <|-- ${6:Duck}",
+            "```"
+        ],
+        "description": "Mermaid class diagram."
+    },
+    "@Mermaid: State": {
+        "prefix": "@mermaid-state",
+        "body": [
+            "```mermaid",
+            "stateDiagram-v2",
+            "    [*] --> ${1:Still}",
+            "    ${1:Still} --> [*]",
+            "    ${1:Still} --> ${2:Moving}",
+            "    ${2:Moving} --> ${1:Still}",
+            "    ${2:Moving} --> ${3:Crash}",
+            "    ${3:Crash} --> [*]",
+            "```"
+        ],
+        "description": "Mermaid state diagram."
+    },
+
+    // ---------- Timeline Plugin ----------
+    "@Timeline": {
+        "prefix": "@timeline",
+        "body": [
+            "::: timeline ${1:2023-05-24}",
+            "- **${2:Event title}**",
+            "- ${3:Event description}",
+            ":::"
+        ],
+        "description": "Timeline entry with date and events."
+    },
+    "@Timeline Multiple": {
+        "prefix": "@timeline-multiple",
+        "body": [
+            "::: timeline ${1:2023-05-24}",
+            "- **${2:First event}**",
+            "- ${3:First description}",
+            ":::",
+            "",
+            "::: timeline ${4:2023-05-23}",
+            "- **${5:Second event}**",
+            "- ${6:Second description}",
+            ":::"
+        ],
+        "description": "Multiple timeline entries."
+    },
+
+    // ---------- Video Components ----------
+    "@Bilibili Video": {
+        "prefix": "@bilibili",
+        "body": [
+            "<BilibiliVideo bvid=\"${1:BV1rC4y1C7z2}\" />"
+        ],
+        "description": "Bilibili video component."
+    },
+    "@YouTube Video": {
+        "prefix": "@youtube",
+        "body": [
+            "<YoutubeVideo videoId=\"${1:IL7J9ueYRYc}\" />"
+        ],
+        "description": "YouTube video component."
+    },
+
+    // ---------- Damage Chart Component ----------
+    "@Damage Chart Static": {
+        "prefix": "@damage-chart-static",
+        "body": [
+            "<DamageChart",
+            "  mode=\"static\"",
+            "  :incomingDamage=\"${1:20}\"",
+            "  :armorToughness=\"${2:5}\"",
+            "  :minDamage=\"${3:4}\"",
+            "  :maxDamage=\"${4:20}\"",
+            "  :maxArmorPoints=\"${5:20}\"",
+            "  :isJavaEdition=\"${6|true,false|}\"",
+            "/>"
+        ],
+        "description": "Static Minecraft damage chart component."
+    },
+    "@Damage Chart Interactive": {
+        "prefix": "@damage-chart-interactive",
+        "body": [
+            "<DamageChart",
+            "  mode=\"interactive\"",
+            "  :incomingDamage=\"${1:201}\"",
+            "  :armorToughness=\"${2:150}\"",
+            "  :minDamage=\"${3:0}\"",
+            "  :maxDamage=\"${4:200}\"",
+            "  :maxArmorPoints=\"${5:50}\"",
+            "  :isJavaEdition=\"${6|true,false|}\"",
+            "/>"
+        ],
+        "description": "Interactive Minecraft damage chart component."
+    },
+    "@Damage Chart Full": {
+        "prefix": "@damage-chart-full",
+        "body": [
+            "<DamageChart",
+            "  mode=\"${1|static,interactive|}\"",
+            "  :incomingDamage=\"${2:50}\"",
+            "  :armorToughness=\"${3:0}\"",
+            "  :minDamage=\"${4:0}\"",
+            "  :maxDamage=\"${5:60}\"",
+            "  :maxArmorPoints=\"${6:100}\"",
+            "  :isJavaEdition=\"${7|true,false|}\"",
+            "  :translations=\"${8:{}}\"",
+            "/>"
+        ],
+        "description": "Full-featured Minecraft damage chart component."
+    },
+
+    // ---------- PDF Viewer Component ----------
+    "@PDF Viewer": {
+        "prefix": "@pdf-viewer",
+        "body": [
+            "<PdfViewer pdfSource=\"${1:/pdf/modding/java/test.pdf}\"/>"
+        ],
+        "description": "PDF viewer component."
+    },
+
+    // ---------- Advanced Carousel Configurations ----------
+    "@Carousel Advanced": {
+        "prefix": "@carousel-advanced",
+        "body": [
+            "::: carousels#{\"cycle\": ${1|true,false|}, \"interval\": ${2:3000}, \"arrows\": ${3|true,false|}, \"undelimiters\": ${4|true,false|}}",
+            "@tab",
+            "![${5:Image 1}](${6:/path/to/image1.png})",
+            "@tab",
+            "![${7:Image 2}](${8:/path/to/image2.png})",
+            "@tab",
+            "![${9:Image 3}](${10:/path/to/image3.png})",
+            ":::"
+        ],
+        "description": "Advanced image carousel with full configuration."
+    },
+    "@Carousel Simple": {
+        "prefix": "@carousel-simple",
+        "body": [
+            "::: carousels",
+            "@tab",
+            "![${1:Image 1}](${2:/path/to/image1.png})",
+            "@tab",
+            "![${3:Image 2}](${4:/path/to/image2.png})",
+            ":::"
+        ],
+        "description": "Simple image carousel with default settings."
+    },
+
+    // ---------- Iframe Component ----------
+    "@Iframe": {
+        "prefix": "@iframe",
+        "body": [
+            ":::iframes#{\"src\": \"${1:https://example.com}\", \"height\": \"${2:400px}\"}",
+            ":::"
+        ],
+        "description": "Embedded iframe component."
+    },
+    "@Iframe Advanced": {
+        "prefix": "@iframe-advanced",
+        "body": [
+            ":::iframes#{\"src\": \"${1:https://example.com}\", \"height\": \"${2:500px}\", \"width\": \"${3:100%}\"}",
+            ":::"
+        ],
+        "description": "Advanced iframe with width and height configuration."
+    },
+
+    // ---------- Stepper Component ----------
+    "@Stepper": {
+        "prefix": "@stepper",
+        "body": [
+            "::: stepper",
+            "@tab ${1:Step 1}",
+            "${2:First step content}",
+            "@tab ${3:Step 2}",
+            "${4:Second step content}",
+            "@tab ${5:Step 3}",
+            "${6:Third step content}",
+            ":::"
+        ],
+        "description": "Step-by-step guide component."
+    },
+    "@Stepper Advanced": {
+        "prefix": "@stepper-advanced",
+        "body": [
+            "::: stepper",
+            "@tab ${1:准备工作}",
+            "在开始之前，请确保：",
+            "- ${2:安装必要的工具}",
+            "- ${3:准备开发环境}",
+            "",
+            "@tab ${4:安装配置}",
+            "按照以下步骤进行配置：",
+            "1. ${5:下载配置文件}",
+            "2. ${6:修改配置参数}",
+            "",
+            "@tab ${7:测试验证}",
+            "配置完成后进行测试：",
+            "```${8:bash}",
+            "${9:npm test}",
+            "```",
+            ":::"
+        ],
+        "description": "Advanced stepper with detailed content and code blocks."
+    },
+
+    // ---------- Linkcard Component ----------
+    "@Linkcard": {
+        "prefix": "@linkcard",
+        "body": [
+            "<Linkcard url=\"${1:https://example.com}\" title=\"${2:Title}\" description=\"${3:Description}\" logo=\"${4:/logo.png}\"/>"
+        ],
+        "description": "Link card component."
+    },
+    "@Linkcard Full": {
+        "prefix": "@linkcard-full",
+        "body": [
+            "<Linkcard",
+            "  url=\"${1:https://github.com/PickAID/CrychicDoc}\"",
+            "  title=\"${2:CrychicDoc Repository}\"",
+            "  description=\"${3:A comprehensive documentation site for Minecraft modding}\"",
+            "  logo=\"${4:https://github.com/favicon.ico}\"",
+            "/>"
+        ],
+        "description": "Full-featured link card component."
+    },
+
+    // ---------- Contributors Component ----------
+    "@Contributors": {
+        "prefix": "@contributors",
+        "body": [
+            "<Contributors",
+            "  owner=\"${1:PickAID}\"",
+            "  repo=\"${2:CrychicDoc}\"",
+            "  :maxCount=\"${3:50}\"",
+            "  :showContributions=\"${4|true,false|}\"",
+            "  :enableCache=\"${5|true,false|}\"",
+            "/>"
+        ],
+        "description": "Contributors component for GitHub repositories."
+    },
+    "@Contributors Advanced": {
+        "prefix": "@contributors-advanced",
+        "body": [
+            "<Contributors",
+            "  owner=\"${1:PickAID}\"",
+            "  repo=\"${2:CrychicDoc}\"",
+            "  :maxCount=\"${3:200}\"",
+            "  :showContributions=\"${4|true,false|}\"",
+            "  :enableCache=\"${5|true,false|}\"",
+            "  title=\"${6:Project Contributors}\"",
+            "  locale=\"${7|zh-CN,en-US|}\"",
+            "/>"
+        ],
+        "description": "Advanced contributors component with custom title and locale."
+    },
+
+    // ---------- Responsible Editor Component ----------
+    "@Responsible Editor": {
+        "prefix": "@responsible-editor",
+        "body": [
+            "<ResponsibleEditor />"
+        ],
+        "description": "Responsible editor component (uses frontmatter editor field)."
+    },
+
+    // ---------- Comment Component ----------
+    "@Comment Section": {
+        "prefix": "@comment",
+        "body": [
+            "<comment />"
+        ],
+        "description": "Comment section component (Giscus integration)."
+    },
+
+    // ---------- Commits Counter Component ----------
+    "@Commits Counter": {
+        "prefix": "@commits-counter",
+        "body": [
+            "<CommitsCounter",
+            "  username=\"${1:PickAID}\"",
+            "  repo-name=\"${2:CrychicDoc}\"",
+            "  :days-to-fetch=\"${3:30}\"",
+            "/>"
+        ],
+        "description": "GitHub commits counter component."
+    },
+
+    // ---------- Demo Container Combinations ----------
+    "@Demo Mermaid": {
+        "prefix": "@demo-mermaid",
+        "body": [
+            ":::demo ${1:Mermaid Example}",
+            "```mermaid",
+            "${2:flowchart TD}",
+            "    ${3:A[Start] --> B[End]}",
+            "```",
+            ":::"
+        ],
+        "description": "Demo block with Mermaid diagram."
+    },
+    "@Demo Timeline": {
+        "prefix": "@demo-timeline",
+        "body": [
+            ":::: demo ${1:Timeline Example}",
+            "::: timeline ${2:2023-05-24}",
+            "- **${3:Event title}**",
+            "- ${4:Event description}",
+            ":::",
+            "::::"
+        ],
+        "description": "Demo block with timeline component."
+    },
+    "@Demo Video": {
+        "prefix": "@demo-video",
+        "body": [
+            ":::demo ${1:Video Example}",
+            "<${2|BilibiliVideo,YoutubeVideo|} ${3|bvid,videoId|}=\"${4:video_id}\" />",
+            ":::"
+        ],
+        "description": "Demo block with video component."
+    },
+    "@Demo Chart": {
+        "prefix": "@demo-chart",
+        "body": [
+            ":::demo ${1:Damage Chart Example}",
+            "<DamageChart",
+            "  mode=\"${2|static,interactive|}\"",
+            "  :incomingDamage=\"${3:50}\"",
+            "  :armorToughness=\"${4:0}\"",
+            "  :minDamage=\"${5:0}\"",
+            "  :maxDamage=\"${6:60}\"",
+            "  :maxArmorPoints=\"${7:100}\"",
+            "  :isJavaEdition=\"${8|true,false|}\"",
+            "/>",
+            ":::"
+        ],
+        "description": "Demo block with damage chart component."
     }
 }

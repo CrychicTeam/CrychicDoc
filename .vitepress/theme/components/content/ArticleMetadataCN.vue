@@ -28,15 +28,19 @@
         if (typeof window !== 'undefined' && typeof document !== 'undefined') {
             utils.vitepress.contentAnalysis.cleanupMetadata();
 
-            const docDomContainer = window.document.querySelector("#VPContent");
-            const imgs = docDomContainer?.querySelectorAll<HTMLImageElement>(
-                ".content-container .main img"
-            );
+            const mainContainer = window.document.querySelector(".content-container .main");
+            if (!mainContainer) return;
+
+            // Clone the container to avoid modifying the live DOM
+            const clone = mainContainer.cloneNode(true) as HTMLElement;
+
+            // Remove all dialog cards from the cloned container before analysis
+            clone.querySelectorAll('.md-dialog-card').forEach(el => el.remove());
+
+            const imgs = clone.querySelectorAll<HTMLImageElement>("img");
             imageCount.value = imgs?.length || 0;
             
-            const words =
-                docDomContainer?.querySelector(".content-container .main")
-                    ?.textContent || "";
+            const words = clone.textContent || "";
             wordCount.value = utils.content.countWord(words);
         }
     }
