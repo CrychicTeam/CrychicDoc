@@ -5,7 +5,7 @@
   "guide/": "guide",
   "rules.md": "文档规范",
   "samples.md": "文档插件示例",
-  "sidebarTutorial.md": "sidebarTutorial",
+  "sidebarTutorial.md": "侧边栏配置",
   "styleList.md": "文档样式一览",
   "vscode-snippets-guide.md": "VSCode 代码片段使用指南",
   "scripts.md": "脚本工具使用指南",

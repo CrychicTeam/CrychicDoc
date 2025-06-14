@@ -30,6 +30,20 @@ export type SidebarMulti = Record<string, SidebarItem[]>;
 export type VitePressSidebar = SidebarItem[] | SidebarMulti | false;
 
 /**
+ * Configuration for an external link in the sidebar.
+ */
+export interface ExternalLinkConfig {
+    /** Display text for the external link */
+    text: string
+    /** URL for the external link (must start with http:// or https://) */
+    link: string
+    /** Priority for ordering among sidebar items (lower numbers appear first) */
+    priority?: number
+    /** Whether this link should be hidden */
+    hidden?: boolean
+}
+
+/**
  * Configuration options for a directory, typically from index.md frontmatter.
  */
 export interface DirectoryConfig {
@@ -41,6 +55,8 @@ export interface DirectoryConfig {
     collapsed?: boolean // Default collapsed state for this item if it's a directory
     itemOrder?: string[] | Record<string, number> // Order of items within this directory
     groups?: GroupConfig[]
+    /** External links to be added to this directory's sidebar */
+    externalLinks?: ExternalLinkConfig[]
     [key: string]: any // Allow other frontmatter fields
 }
 
@@ -82,6 +98,7 @@ export interface EffectiveDirConfig {
     collapsed: boolean; // Resolved collapsed state for this directory's item
     itemOrder: Record<string, number>; // RESOLVED to Record<string, number>, default {}
     groups: GroupConfig[]; // Resolved groups, if any
+    externalLinks: ExternalLinkConfig[]; // Resolved external links, if any
     path: string; // Absolute path to the directory this config is for
     lang: string; // Language of this config
     isDevMode: boolean; // Whether running in dev mode (affects draft status)

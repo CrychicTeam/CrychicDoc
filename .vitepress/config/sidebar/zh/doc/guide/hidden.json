@@ -1,3 +1,11 @@
 {
-  "_self_": false
+  "_self_": false,
+  "resource.md": false,
+  "community.md": false,
+  "minecraft.md": false,
+  "pixelart.md": false,
+  "KubeJS.md": false,
+  "external:官方网站": false,
+  "external:GitHub 项目": false,
+  "external:Discord 社区": false
 }

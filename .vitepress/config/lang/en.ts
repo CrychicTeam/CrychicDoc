@@ -1,5 +1,5 @@
 import type { DefaultTheme } from 'vitepress';
-import { sidebarForLanguage } from '../loadSidebar';
+import { getSidebarSync } from '../../utils/sidebar';
 
 export const en_US = <DefaultTheme.Config>{
     lang: "en-US",
@@ -67,7 +67,7 @@ export const en_US = <DefaultTheme.Config>{
             ]},
             {text: "Discussion", link: "/en/info"},
         ],
-        sidebar: sidebarForLanguage("en"),
+        sidebar: getSidebarSync("en"),
         outline: {
             level: "deep",
             label: "Page Content",

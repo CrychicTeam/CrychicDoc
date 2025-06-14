@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { SidebarItem, EffectiveDirConfig, FileConfig, GroupConfig } from '../types';
+import { SidebarItem, EffectiveDirConfig, FileConfig, GroupConfig, ExternalLinkConfig } from '../types';
 import { ConfigReaderService } from '../config'; // To check if a subdir is a new root
 import { FileSystem } from '../shared/FileSystem'; // Or direct fs, to check for index.md
 import { normalizePathSeparators } from '../shared/objectUtils';
@@ -56,6 +56,61 @@ export class StructuralGeneratorService {
     }
 
     /**
+     * Validates and processes external links from configuration.
+     * @param externalLinks Array of external link configurations
+     * @param baseRelativePathKey Base relative path for generating keys
+     * @returns Array of valid SidebarItems for external links
+     * @private
+     */
+    private processExternalLinks(
+        externalLinks: ExternalLinkConfig[],
+        baseRelativePathKey: string
+    ): SidebarItem[] {
+        if (!externalLinks || externalLinks.length === 0) {
+            return [];
+        }
+
+        const externalLinkItems: SidebarItem[] = [];
+
+        for (const linkConfig of externalLinks) {
+            // Skip hidden links
+            if (linkConfig.hidden) {
+                continue;
+            }
+
+            // Validate external link
+            if (!linkConfig.text || !linkConfig.link) {
+                console.warn('External link must have both text and link properties:', linkConfig);
+                continue;
+            }
+
+            // Ensure it's actually an external link
+            if (!linkConfig.link.startsWith('http://') && !linkConfig.link.startsWith('https://')) {
+                console.warn('External link must start with http:// or https://:', linkConfig.link);
+                continue;
+            }
+
+            // Generate unique key for external link
+            const linkKey = `external:${linkConfig.text}`;
+            const relativePathKey = baseRelativePathKey ? `${baseRelativePathKey}${linkKey}` : linkKey;
+
+            const externalLinkItem: SidebarItem = {
+                text: linkConfig.text,
+                link: linkConfig.link,
+                _priority: linkConfig.priority ?? 0,
+                _relativePathKey: relativePathKey,
+                _hidden: linkConfig.hidden ?? false,
+                _isDirectory: false,
+                _isRoot: false,
+            };
+
+            externalLinkItems.push(externalLinkItem);
+        }
+
+        return externalLinkItems;
+    }
+
+    /**
      * Generates flattened content for a root directory by collecting all subdirectory content
      * into a single array instead of creating separate top-level items.
      * @param rootContentPath Absolute path to the root directory.
@@ -109,7 +164,19 @@ export class StructuralGeneratorService {
             isDevMode
         );
 
-        rootSection.items = flattenedContent;
+        // Add external links to the root section
+        const externalLinkItems = this.processExternalLinks(
+            rootConfig.externalLinks || [],
+            rootConfig._baseRelativePathForChildren ?? ""
+        );
+
+        // Combine flattened content with external links
+        const allContent = [...flattenedContent, ...externalLinkItems];
+
+        // Sort all items together
+        const sortedContent = sortItems(allContent, rootConfig.itemOrder);
+
+        rootSection.items = sortedContent;
         return rootSection;
     }
 
@@ -468,8 +535,17 @@ export class StructuralGeneratorService {
             }
         }
 
-        // 2. Sorting
-        const sortedItems = sortItems(generatedItems, currentScopeConfigWithBaseKey.itemOrder);
+        // 2. External Links Processing
+        const externalLinkItems = this.processExternalLinks(
+            effectiveConfigForThisView.externalLinks || [],
+            baseRelativePathKeyForChildrenInThisScope
+        );
+        
+        // Combine file/directory items with external links
+        const allItems = [...generatedItems, ...externalLinkItems];
+
+        // 3. Sorting
+        const sortedItems = sortItems(allItems, currentScopeConfigWithBaseKey.itemOrder);
         
         return sortedItems;
     }

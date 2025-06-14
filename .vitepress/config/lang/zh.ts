@@ -1,5 +1,5 @@
 import type { DefaultTheme } from 'vitepress';
-import { sidebarForLanguage } from '../loadSidebar';
+import { getSidebarSync } from '../../utils/sidebar';
 
 export const zh_CN = <DefaultTheme.Config>{
     label: '简体中文',
@@ -68,7 +68,7 @@ export const zh_CN = <DefaultTheme.Config>{
             ]},
             {text: "讨论区", link: "/zh/info"},
         ],
-        sidebar: sidebarForLanguage("zh"),
+        sidebar: getSidebarSync("zh"),
         outline: {
             level: "deep",
             label: "页面导航",

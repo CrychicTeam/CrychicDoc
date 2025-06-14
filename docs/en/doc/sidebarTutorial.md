@@ -1,575 +1,489 @@
 ---
-layout: doc
-title: Sidebar Configuration Tutorial
+title: Sidebar Configuration
+description: CrychicDoc sidebar configuration system complete guide, from basic to advanced comprehensive tutorial
 ---
 
-# VitePress Sidebar Generator Configuration Guide {#guide}
+# Sidebar Configuration Tutorial
 
-## Overview {#info}
+::: alert {"type": "success", "title": "Overview", "variant": "outlined"}
+Through this tutorial, you will master CrychicDoc's powerful sidebar configuration system and learn to create well-structured, easy-to-navigate documentation sites.
+:::
 
-This site uses a self-developed intelligent sidebar generation system that supports automatic discovery, configuration inheritance, JSON overrides, and intelligent migration features. This document provides a detailed explanation of the system architecture and configuration methods.
+The sidebar configuration used to be very bloated and difficult to maintain. It has now been optimized through complex design to achieve the same effect with minimal `Front-matter` configuration.
 
-## System Architecture {#architecture}
+## Configuration System Overview
 
-### Core Service Components
+This system provides users with four types of configurations: `Global Config`, `Root Config`, `Sub Config`, and `JSON Config`, with priority from low to high. The highest priority existing configuration will override lower priority configurations.
 
-```mermaid
-graph TD
-    A[main.ts Main Dispatcher] --> B[ConfigReaderService Config Reading]
-    A --> C[StructuralGeneratorService Structure Generation]
-    A --> D[JsonConfigSynchronizerService JSON Sync]
-    A --> E[GitBookParserService GitBook Parsing]
+::: alert {"type": "info", "title": "💡 Configuration Priority", "variant": "outlined"}
+**Configuration Priority (Low → High):**
+1. Global Config - Global default settings
+2. Root Config - Root directory configuration  
+3. Sub Config - Subdirectory configuration
+4. JSON Config - Precise control configuration
 
-    B --> F[Global Config .sidebarrc.yml]
-    B --> G[frontmatter Hierarchical Merge]
+**Memory Rule**: The more specific the configuration, the higher the priority!
+:::
 
-    D --> H[JSON Override Files]
-    D --> I[Metadata Tracking]
-    D --> J[Smart Migration]
-```
+@@@ dialog-def#config-overview {"title": "📊 Configuration System Architecture", "width": 800}
+<LiteTree>
+CrychicDoc Sidebar Configuration System
+    Global Config (Priority 1)                     // .sidebarrc.yml
+        Site-wide default configuration, affects all directories
+    Root Config (Priority 2)                       // index.md + root: true
+        Define sidebar root nodes
+        Support grouping and external links  
+        Apply to this root and all subdirectories
+    Sub Config (Priority 3)                        // Regular index.md
+        Adjust specific directory behavior
+        Override inherited configuration
+    JSON Config (Priority 4)                       // .vitepress/config/sidebar/
+        locales.json                                // Display names
+        order.json                                  // Sort control  
+        collapsed.json                              // Collapse state
+        hidden.json                                 // Visibility control
+</LiteTree>
 
-### Automatic Root Node Discovery
+**Use Cases:**
+- **Global**: Set site-wide uniform default behavior
+- **Root**: Create main navigation structure, add external links
+- **Sub**: Fine-tune specific directory display effects
+- **JSON**: Precise control over file/directory display
+@@@
 
-When `index.md` in a directory contains the following configuration:
+Want to understand the complete architecture? :::dialog#config-overview Click to view detailed explanation:::
+
+## Quick Start
+
+::: stepper
+@tab Step 1: Create Global Configuration
+Create `.sidebarrc.yml` in the `docs/` directory:
 
 ```yaml
----
-root: true # Enable root node mode
-title: Development Guide # Sidebar group title
----
-```
-
-The system will automatically:
-
-1. 🔍 **Scan & Discover**: Find all root nodes through `findAllRootIndexMdPaths()`
-2. 📂 **Create Groups**: Generate independent sidebar groups for each root node
-3. ⚙️ **Merge Configs**: Apply global config, hierarchical frontmatter, and JSON overrides
-4. 🗂️ **Structure Flattening**: Display subdirectory content directly, avoiding deep nesting
-
-### File Scanning Rules {#scan-rules}
-
-Based on the actual implementation of `findAllRootIndexMdPaths()` in `main.ts`:
-
-#### ✅ Included Files
-
-- All `.md` files (except system reserved files)
-- `index.md` files in subdirectories
-- `SUMMARY.md` files from GitBook projects
-
-#### 🚫 Auto-ignored Items
-
-```typescript
-// Ignore rules based on actual implementation
-const ignorePatterns = [
-    "**/.vitepress/**", // VitePress system directory
-    "**/node_modules/**", // Node modules
-    "**/_*/**", // Private directories starting with underscore
-    langGitbookPaths, // GitBook directories (handled separately)
-];
-```
-
-#### 🎯 Deep Nesting Filter
-
-The system automatically filters overly nested root nodes:
-
-```typescript
-// Prevent conflicts from deeply nested root nodes
-const isMuchDeeper = depthFromLang > otherDepthFromLang + 2;
-if (isWithinOther && isMuchDeeper) {
-    // Filter out deeply nested root nodes
-}
-```
-
-## Configuration System {#config-system}
-
-### Configuration Priority (Actual Merge Order)
-
-```mermaid
-graph LR
-    A[Global Config .sidebarrc.yml] --> B[Parent index.md frontmatter]
-    B --> C[Current index.md frontmatter]
-    C --> D[JSON Override Files]
-    D --> E[System Defaults]
-```
-
-### frontmatter Configuration {#frontmatter}
-
-Complete configuration options based on the `DirectoryConfig` interface in `types.ts`:
-
-| Config Field | Purpose | Type | Default | Implementation Location |
-|-------------|---------|------|---------|------------------------|
-| `root` | Create independent sidebar root node | boolean | `false` | main.ts |
-| `title` | Set display title | string | Directory name | ConfigReaderService |
-| `hidden` | Content visibility | boolean | `false` | EffectiveDirConfig |
-| `priority` | Sorting priority | number | 0 | configDefaultsProvider |
-| `maxDepth` | Maximum scan depth | number | 3 | Global config |
-| `collapsed` | Default collapse state | boolean | `false` | JSON override |
-| `itemOrder` | Child item sorting rules | Record<string,number> | `{}` | Config merge |
-| `groups` | Group configuration | GroupConfig[] | `[]` | StructuralGenerator |
-
-#### Configuration Inheritance Rules
-
-```typescript
-// Based on actual implementation in ConfigReaderService.ts
-for (const hIndexMdPath of hierarchyIndexMdPaths) {
-    const frontmatter = await this.getFrontmatter(hIndexMdPath);
-    const { root: _, ...frontmatterWithoutRoot } = frontmatter; // Exclude root inheritance
-    mergedConfig = deepMerge(mergedConfig, frontmatterWithoutRoot);
-}
-```
-
-**Note**: The `root` property is not inherited by subdirectories; it only takes effect in the directory where it's declared.
-
-### itemOrder Configuration {#itemorder}
-
-Based on the actual implementation in `itemSorter.ts`, supports both array and object formats:
-
-#### Array Format (Index-based)
-```yaml
----
-itemOrder: ["setup.md", "guide.md", "api.md"]
----
-```
-
-#### Object Format (Priority-based)  
-```yaml
----
-itemOrder:
-  "setup.md": 1
-  "guide.md": 2
-  "advanced/": 3
-  "api.md": 4
----
-```
-
-#### Sorting Implementation Logic
-
-```typescript
-// Based on actual sortItems() implementation
-function sortItems(items: SidebarItem[], itemOrder?: ItemOrder): SidebarItem[] {
-    return items.sort((a, b) => {
-        const orderA = getItemPriority(a._relativePathKey, itemOrder);
-        const orderB = getItemPriority(b._relativePathKey, itemOrder);
-        
-        if (orderA !== orderB) return orderA - orderB;
-        
-        // Fallback to priority field, then alphabetical
-        const priorityA = a._priority ?? DEFAULT_PRIORITY;
-        const priorityB = b._priority ?? DEFAULT_PRIORITY; 
-        
-        if (priorityA !== priorityB) return priorityA - priorityB;
-        
-        return a.text.localeCompare(b.text);
-    });
-}
-```
-
-### groups Advanced Configuration {#groups}
-
-Based on the `GroupConfig` interface in `types.ts`:
-
-| Field | Purpose | Type | Required | Example |
-|-------|---------|------|----------|---------|
-| `title` | Group display name | string | ✅ | "Getting Started" |
-| `items` | Group item list | string[] | ✅ | ["setup.md", "guide/"] |
-| `hidden` | Group visibility | boolean | ❌ | `false` |
-| `collapsed` | Default collapse state | boolean | ❌ | `true` |
-| `priority` | Group sorting priority | number | ❌ | `1` |
-
-#### Group Processing Flow
-
-```mermaid
-flowchart TD
-    A[Parse groups config] --> B{Has items?}
-    B -->|Yes| C[Resolve item paths]
-    B -->|No| D[Skip empty group]
-    C --> E[Apply group visibility]
-    E --> F[Set collapse state]
-    F --> G[Add to sidebar]
-    G --> H[Mark paths as processed]
-```
-
-#### Complete Example
-
-```yaml
----
-title: API Documentation
-root: true
-groups:
-  - title: Getting Started
-    items: ["introduction.md", "installation.md"]
+# docs/.sidebarrc.yml
+defaults:
+    maxDepth: 1
     collapsed: false
-    priority: 1
-  - title: Core Concepts  
-    items: ["concepts/", "architecture.md"]
-    collapsed: true
-    priority: 2
-  - title: Advanced Topics
-    items: ["advanced/", "extending.md"]
     hidden: false
-    priority: 3
+```
+
+@tab Step 2: Set Root Configuration
+Add to `index.md` in main directories:
+
+```yaml
+---
+root: true
+title: "My Documentation"
+maxDepth: 2
+---
+```
+
+@tab Step 3: Test Effect
+Start the development server to see sidebar changes:
+
+```bash
+npm run docs:dev
+```
+:::
+
+## Global Config (Global Configuration)
+
+**Location**: `docs/.sidebarrc.yml`  
+**Priority**: Lowest (Level 1)  
+**Scope**: Entire documentation site
+
+The global configuration file defines the default behavior for the entire site. All directories will inherit these settings unless overridden by higher priority configurations.
+
+### Configuration Example
+
+```yaml
+# docs/.sidebarrc.yml
+defaults:
+    maxDepth: 0 # Sidebar expansion depth (0=current level only, 1=include subdirectories)
+    collapsed: true # Default collapse state
+    hidden: false # Default hide state
+    itemOrder: {} # Global sorting configuration
+```
+
+### Configurable Fields
+
+| Field       | Type    | Default | Description                |
+| ----------- | ------- | ------- | -------------------------- |
+| `maxDepth`  | number  | 0       | Sidebar expansion depth    |
+| `collapsed` | boolean | true    | Default collapse state of directory items |
+| `hidden`    | boolean | false   | Default hide state of directory items |
+| `itemOrder` | object  | {}      | Global item sorting configuration |
+
+## Root Config (Root Configuration)
+
+**Location**: `index.md` frontmatter (containing `root: true`)  
+**Priority**: 🔹 Medium-Low (Level 2)  
+**Scope**: Directory declared as root and all its subdirectories
+
+Root configuration marks a directory as a sidebar root node. This configuration affects the behavior of this directory and all its subdirectories.
+
+### Configuration Example
+
+```md
+---
+root: true # Declare as sidebar root
+title: "KubeJS Documentation" # Display title
+maxDepth: 2 # Expand to second level
+collapsed: false # Default expanded
+priority: 100 # Sort priority
+groups: # Group configuration
+    - title: "Code Sharing"
+      path: "CodeShare/"
+externalLinks: # External links
+    - text: "GitHub Repository"
+      link: "https://github.com/KubeJS-Mods/KubeJS"
+      priority: -1000
+    - text: "Official Wiki"
+      link: "https://kubejs.com/wiki"
+      priority: -999
+---
+
+# KubeJS 1.20.1 Documentation
+
+Here is the complete documentation for KubeJS 1.20.1...
+```
+
+### Configurable Fields
+
+| Field           | Type         | Description                              |
+| --------------- | ------------ | ---------------------------------------- |
+| `root`          | boolean      | **Must be true**, mark as sidebar root |
+| `title`         | string       | Title displayed in sidebar              |
+| `hidden`        | boolean      | Whether to hide this root node          |
+| `priority`      | number       | Sort priority (smaller numbers first)   |
+| `maxDepth`      | number       | Expansion depth                         |
+| `collapsed`     | boolean      | Whether to collapse by default          |
+| `groups`        | array        | Group configuration                     |
+| `externalLinks` | array        | External link configuration             |
+| `itemOrder`     | array/object | Child item sorting configuration        |
+
+### Group Configuration (Groups)
+
+The grouping feature allows promoting subdirectory content as independent top-level items:
+
+```yaml
+groups:
+    - title: "Code Sharing" # Group display name
+      path: "CodeShare/" # Subdirectory path
+      priority: 10 # Group sort priority
+      maxDepth: 3 # Expansion depth of group content
+```
+
+### External Link Configuration
+
+```yaml
+externalLinks:
+    - text: "GitHub Repository" # Display text
+      link: "https://github.com/example/repo" # Link address
+      priority: -1000 # Sort priority
+      hidden: false # Whether to hide
+```
+
+## Sub Config (Sub Configuration)
+
+**Location**: `index.md` frontmatter in any directory (not containing `root: true`)  
+**Priority**: 🔸 Medium-High (Level 3)  
+**Scope**: Current directory and its subdirectories
+
+Sub configuration is used to adjust the behavior of non-root directories and can override settings inherited from parent directories or global configuration.
+
+At the code level, it overrides `Directory Config` to modify the related configuration of that directory.
+
+### Configuration Example
+
+```md
+---
+title: "Advanced Features" # Custom display title
+hidden: false # Show this directory
+priority: 50 # Adjust sorting
+maxDepth: 1 # Limit expansion depth
+collapsed: true # Default collapsed
+itemOrder: # Child item sorting
+    - "setup.md"
+    - "advanced.md"
+    - "troubleshooting.md"
+---
+
+# Advanced Features Guide
+
+This directory contains detailed explanations of advanced features...
+```
+
+### Configurable Fields
+
+| Field       | Type         | Description                      |
+| ----------- | ------------ | -------------------------------- |
+| `title`     | string       | Title displayed in sidebar       |
+| `hidden`    | boolean      | Whether to hide this directory   |
+| `priority`  | number       | Sort priority                    |
+| `maxDepth`  | number       | Expansion depth                  |
+| `collapsed` | boolean      | Whether to collapse by default   |
+| `itemOrder` | array/object | Child item sorting configuration |
+
+## JSON Config (JSON Configuration)
+
+**Location**: `.vitepress/config/sidebar/{lang}/{path}/`  
+**Priority**: 🔹 Highest (Level 4)  
+**Scope**: Specific directory
+
+JSON configuration provides the finest granular control and can override all other configurations. Each directory can have multiple JSON files to control different aspects.
+
+### File Types
+
+#### 1. Localization Configuration - `locales.json`
+
+Controls display names of directories and files:
+
+```json
+{
+    "_self_": "Modpack",
+    "kubejs/": "KubeJS",
+    "recommendation/": "Recommendations",
+    "setup.md": "Environment Setup",
+    "advanced.md": "Advanced Configuration"
+}
+```
+
+-   `_self_`: Display name of current directory
+-   `path/`: Display name of subdirectory
+-   `file.md`: Display name of file
+
+#### 2. Sort Configuration - `order.json`
+
+Controls `SidebarItem` `Priority`:
+
+```json
+{
+    "setup.md": 1,
+    "basic/": 2,
+    "advanced/": 3,
+    "kubejs/": 9007199254740991,
+    "recommendation/": 9007199254740992
+}
+```
+
+-   Smaller Priority values appear first
+-   This doesn't follow common sense but cannot be modified
+-   Default value: `9007199254740991` (JavaScript maximum safe integer)
+
+#### 3. Collapse Configuration - `collapsed.json`
+
+Controls collapse state of directory items:
+
+```json
+{
+  "basic/": false,     # Default expanded
+  "advanced/": true,   # Default collapsed
+  "api/": true
+}
+```
+
+#### 4. Hide Configuration - `hidden.json`
+
+Controls item visibility:
+
+```json
+{
+  "draft.md": true,        # Hide draft files
+  "internal/": true,       # Hide internal directories
+  "deprecated/": true      # Hide deprecated content
+}
+```
+
+### JSON Configuration Directory Structure
+
+:::demo JSON Configuration Directory Structure
+<LiteTree>
+.vitepress/config/sidebar/
+    zh/                                 // Chinese configuration
+        modpack/
+            locales.json                // Localization
+            order.json                  // Sorting
+            collapsed.json              // Collapse state
+            hidden.json                 // Hide configuration
+            kubejs/
+                locales.json
+                order.json
+        docs/
+    en/                                 // English configuration
+        ...
+</LiteTree>
+:::
+
+## Configuration Priority Details
+
+Configuration application order and priority:
+
+```
+📊 Priority (Low → High):
+1️⃣ Global Config     (.sidebarrc.yml)
+2️⃣ Root Config       (index.md with root: true)
+3️⃣ Sub Config        (regular index.md)
+4️⃣ JSON Config       (.vitepress/config/sidebar/)
+```
+
+### Priority Example
+
+Assume the following configurations:
+
+```yaml
+# 1️⃣ docs/.sidebarrc.yml
+defaults:
+    maxDepth: 0
+    collapsed: true
+```
+
+```yaml
+# 2️⃣ docs/zh/modpack/kubejs/index.md
+---
+root: true
+maxDepth: 2
+collapsed: false
+---
+```
+
+```yaml
+# 3️⃣ docs/zh/modpack/kubejs/1.20.1/index.md
+---
+maxDepth: 1
+---
+```
+
+```json
+// 4️⃣ .vitepress/config/sidebar/zh/modpack/kubejs/1.20.1/collapsed.json
+{
+    "basic/": true
+}
+```
+
+**Final Result**:
+
+-   `maxDepth`: 1 (Sub Config overrides Root Config)
+-   `collapsed`: false (Root Config overrides Global Config)
+-   `basic/` directory collapse: true (JSON Config has highest priority)
+
+## Practical Configuration Tips
+
+### 1. Creating Multi-level Navigation
+
+```yaml
+# docs/zh/modpack/kubejs/index.md
+---
+root: true
+title: "KubeJS"
+maxDepth: 3
+groups:
+    - title: "Version 1.20.1"
+      path: "1.20.1/"
+      priority: 1
+    - title: "Version 1.21"
+      path: "1.21/"
+      priority: 2
+---
+```
+
+### 2. Adding External Resource Links
+
+```yaml
+externalLinks:
+    - text: "📚 Official Documentation"
+      link: "https://kubejs.com/"
+      priority: -1000
+    - text: "💬 Discord Community"
+      link: "https://discord.gg/lat"
+      priority: -999
+    - text: "🐛 Issue Reports"
+      link: "https://github.com/KubeJS-Mods/KubeJS/issues"
+      priority: -998
+```
+
+### 3. Flexible Sorting Configuration
+
+```yaml
+# Using array (simple sorting)
+itemOrder:
+  - "introduction.md"
+  - "getting-started.md"
+  - "advanced/"
+  - "examples/"
+
+# Using object (precise control)
 itemOrder:
   "introduction.md": 1
-  "installation.md": 2
-  "concepts/": 3
----
+  "getting-started.md": 2
+  "advanced/": 100
+  "examples/": 200
 ```
 
-### JSON Override System {#json-overrides}
+### 4. Conditional Content Hiding
 
-#### Override File Types
-
-| Filename | Purpose | Data Structure | Processing Service |
-|----------|---------|----------------|-------------------|
-| `locales.json` | Display title override | `{"file.md": "Custom Title"}` | JsonFileHandler |
-| `order.json` | Sorting control | `{"file.md": 1, "other.md": 2}` | JsonItemSorter |
-| `collapsed.json` | Collapse state | `{"dir/": true}` | SyncEngine |
-| `hidden.json` | Visibility control | `{"file.md": true}` | RecursiveSynchronizer |
-
-#### Configuration Path Mapping
-
-```bash
-# Document path → Config path conversion (based on actual code)
-docs/zh/guide/index.md → .vitepress/config/sidebar/zh/guide/
-docs/en/api/reference.md → .vitepress/config/sidebar/en/api/
-```
-
-#### Metadata Tracking Mechanism
-
-Based on the actual implementation of `MetadataManager`, the system tracks each configuration item:
-
-```typescript
-interface MetadataEntry {
-    valueHash: string; // MD5 hash of config value
-    isUserSet: boolean; // User customization flag
-    isActiveInStructure: boolean; // Active in current structure
-    lastSeen?: number; // Last update timestamp
-}
-```
-
-### Debugging Tips {#debugging}
-
-#### 1. View Configuration Merge Process
-
-```bash
-# Enable verbose logging mode
-DEBUG=sidebar:* npm run docs:dev
-```
-
-#### 2. Check Generation Cache
-
-```bash
-# View final generated sidebar configuration
-cat .vitepress/config/generated/sidebars.json | jq '.'
-```
-
-#### 3. Metadata Inspection
-
-```bash
-# View metadata for specific directory
-cat .vitepress/config/sidebar/.metadata/zh/guide/locales.meta.json
-```
-
-#### 4. Force Rebuild
-
-```bash
-# Clear cache and rebuild
-rm -rf .vitepress/cache && npm run docs:build
-```
-
-## Title Sync Tool {#title-sync}
-
-### 🛠️ Utility Description
-
-We provide a powerful title synchronization tool that automatically syncs `title` configurations from `index.md` files to corresponding `locales.json` files:
-
-#### 📦 Command Usage
-
-```bash
-# 🎯 Quick use - Update all languages
-npm run update-titles
-
-# 🎯 Single language - Update only Chinese
-npm run update-titles zh
-
-# 🎯 Multiple languages - Update specified languages
-npm run update-titles en zh
-
-# 🎯 View help
-npm run update-titles -- --help
-
-# 🎯 Direct script usage
-node .vitepress/scripts/update-index-titles.mjs
-```
-
-#### 💡 How It Works
-
-```mermaid
-flowchart TD
-    A[Scan docs directory] --> B{Detect index.md}
-    B -->|Has title| C[Parse frontmatter]
-    B -->|No title| D[Skip file]
-    C --> E[Calculate config path]
-    E --> F[Read existing locales.json]
-    F --> G[Merge _self_ key]
-    G --> H[Save updates]
-    H --> I[Output report]
-```
-
-#### 🔧 Practical Example
-
-**Before processing**:
-```yaml
-# docs/zh/guide/advanced/index.md
----
-title: Advanced Guide
-root: true
----
-```
-
-**After auto-sync**:
 ```json
-// .vitepress/config/sidebar/zh/guide/advanced/locales.json
+// hidden.json - Hide content under development
 {
-  "_self_": "Advanced Guide",
-  "setup.md": "Environment Setup",
-  "troubleshooting.md": "Troubleshooting"
+    "wip/": true,
+    "draft-feature.md": true,
+    "experimental/": true
 }
 ```
 
-#### ✅ Smart Features
+## 🎯 Best Practices
 
-- **🎯 Selective Processing**: Only processes index.md files containing `title` frontmatter
-- **🔒 Data Protection**: Completely preserves other configuration items in locales.json
-- **📁 Auto Creation**: Automatically creates non-existent locales.json files
-- **⚡ Incremental Updates**: Only updates files that actually changed
-- **🛡️ Error Recovery**: Single file errors don't affect overall processing
+### 1. Configuration Hierarchy Planning
 
-#### 📊 Execution Report Example
+-   **Global Config**: Set basic default values for the entire site
+-   **Root Config**: Define main section structure and external links
+-   **Sub Config**: Adjust display methods of specific directories
+-   **JSON Config**: Precise control of display names and sorting
 
-```bash
-🔍 Scanning for index.md files with title configuration...
+### 2. Naming Conventions
 
-📁 Processing language: zh
-==================================================
-✓ Found index.md with title: zh/guide/advanced -> "Advanced Guide"
-✓ Found index.md with title: zh/api/reference -> "API Reference"
+-   Use camelCase for directory names, e.g., `GettingStart` or `gettingStart`
+-   Use friendly display names in JSON configuration
 
-Found 2 index.md files with titles
-------------------------------
-✓ Updated locales.json: .vitepress/config/sidebar/zh/guide/advanced/locales.json
-  _self_: "Advanced Guide"
-- No change needed for: .vitepress/config/sidebar/zh/api/reference/locales.json
+### 3. Performance Optimization
 
-============================================================
-📊 Summary:
-   Scanned: 2 index.md files
-   Updated: 1 locales.json files
-✅ Index title update completed!
-```
+-   Set `maxDepth` reasonably to avoid overly deep nesting
+-   For large directories, use grouping features to break down content
+-   Use `hidden` configuration to hide unnecessary files
 
-## GitBook Integration System {#gitbook}
+### 4. Maintenance Recommendations
 
-### GitBook Auto-detection
+-   Regularly check and clean up unused JSON configuration files
+-   Use Git to track configuration file changes
+-   Establish configuration documentation for team collaboration
 
-Based on the `GitBookService` implementation, the system automatically:
-
-1. **Detect SUMMARY.md**: Identify GitBook project root directories
-2. **Exclude Conflicts**: GitBook directories don't participate in regular root node scanning
-3. **Independent Processing**: Use `GitBookParserService` for specialized parsing
-4. **Path Cleanup**: Automatically handle README.md link formatting
-
-#### GitBook vs Regular Root Nodes
-
-```typescript
-// Based on actual logic in main.ts
-const langGitbookPaths = await gitbookService.findGitBookDirectoriesInPath(
-    currentLanguagePath
-);
-
-// GitBook paths are excluded from regular root node scanning
-const normalRootIndexMdPaths = await findAllRootIndexMdPaths(
-    currentLanguagePath,
-    nodeFs,
-    langGitbookPaths // Pass GitBook paths for exclusion
-);
-```
-
-## Smart Migration System {#migration}
-
-### Migration Architecture
-
-```mermaid
-sequenceDiagram
-    User->>System: Modify config/rename directory
-    System->>KeyMigrationService: Detect key format changes
-    KeyMigrationService->>MetadataManager: Read metadata
-    MetadataManager->>DirectoryMigrationService: Handle directory migration
-    DirectoryMigrationService->>DirectoryCleanupService: Clean outdated data
-    DirectoryCleanupService->>User: Output migration report
-```
-
-### Migration Service Components
-
-Based on actual migration service implementations:
-
-#### 1. KeyMigrationService
-
-```typescript
-// Key format migration: full path → relative path
-async migrateKeysRecursively(
-    sidebarItems: SidebarItem[],
-    rootSignature: string,
-    lang: string,
-    gitbookPaths: string[],
-    docsPath: string
-): Promise<boolean>
-```
-
-#### 2. DirectoryMigrationService
-
-```typescript
-// Handle data migration for directory renames
-async handleDirectoryMigrations(
-    rootSignature: string,
-    lang: string,
-    activeSignatures: Set<string>,
-    outdatedDirs: string[]
-): Promise<boolean>
-```
-
-#### 3. DirectoryCleanupService
-
-```typescript
-// Clean up unused configuration directories
-async cleanupOutdatedDirectories(
-    outdatedDirs: string[],
-    lang: string
-): Promise<void>
-```
-
-### User Data Protection Mechanism
-
-```typescript
-// Protection logic based on MetadataEntry
-if (metadata.isUserSet) {
-    // User-customized configurations are always protected
-    await migrateUserSetting(oldPath, newPath);
-} else if (!metadata.isActiveInStructure) {
-    // Only clean up confirmed safe system-generated data
-    await cleanupSystemData(oldPath);
-}
-```
-
-### Migration Trigger Conditions
-
-1. **Key Format Upgrade**: Detect old full-path key format
-2. **Directory Rename**: Identify renames by comparing directory signatures
-3. **Structure Changes**: Active directory set changes
-4. **Cleanup Request**: Outdated metadata accumulates to threshold
-
-## Performance Optimization {#performance}
-
-### Caching Strategy
-
-Cache mechanism based on actual implementation:
-
-```typescript
-// ConfigReaderService cache implementation
-private globalConfigCache: GlobalSidebarConfig | null | undefined = undefined;
-private frontmatterCache: Map<string, Partial<DirectoryConfig>> = new Map();
-
-public clearCache(): void {
-    this.globalConfigCache = undefined;
-    this.frontmatterCache.clear();
-}
-```
-
-### Incremental Updates
-
-```typescript
-// UpdateTrackingService (planned optimization)
-if (
-    !isDevMode &&
-    !(await updateTracker.needsRegeneration([...allSourceFilePaths]))
-) {
-    return previouslyGeneratedSidebars; // Skip unnecessary rebuilds
-}
-```
-
-### Parallel Processing
-
-```typescript
-// Parallel processing of multiple root nodes
-for (const rootIndexMdPath of normalRootIndexMdPaths) {
-    // Each root node processes independently, can be parallelized
-    const structuralItems =
-        await structuralGenerator.generateSidebarView(/*...*/);
-    const finalItems = await jsonSynchronizer.synchronize(/*...*/);
-}
-```
-
-## Best Practices {#best-practices}
-
-### 1. Directory Structure Design
-
-```
-docs/
-├── zh/
-│   ├── guide/
-│   │   ├── index.md (root: true)
-│   │   ├── getting-started.md
-│   │   └── advanced/
-│   │       ├── index.md (sub-level config)
-│   │       └── concepts.md
-│   └── api/
-│       └── index.md (root: true)
-└── en/ (same structure)
-```
-
-### 2. Configuration Strategy
-
-- **Prefer frontmatter**: Write simple configurations in index.md
-- **JSON for fine-grained control**: Use locales.json for complex title translations
-- **Avoid deep nesting**: Recommend sidebar depth ≤ 3 levels
-- **Keep paths simple**: Leverage flattening features to reduce directory levels
-
-### 3. Migration Strategy
-
-- **Progressive migration**: Migrate configurations in batches, avoid large-scale changes
-- **Backup metadata**: Backup .metadata directory before important changes
-- **Verify migration results**: Use debugging commands to confirm migration correctness
-
-### 4. Debugging Workflow
-
-```bash
-# 1. Clear cache
-rm -rf .vitepress/cache
-
-# 2. Check configuration merge
-DEBUG=sidebar:config npm run docs:dev
-
-# 3. Verify JSON overrides
-cat .vitepress/config/sidebar/zh/guide/locales.json
-
-# 4. Check metadata status
-find .vitepress/config/sidebar/.metadata -name "*.meta.json" -exec echo {} \; -exec cat {} \;
-```
-
-::: tip Development Tips
-
-1. **Hot Reload Limitations**: JSON configuration file modifications require manual restart of development server
-2. **Configuration Validation**: Use TypeScript interfaces to ensure correct configuration types
-3. **Path Normalization**: System automatically handles path separator differences (Windows/Unix)
-4. **Error Recovery**: When migration fails, system conservatively retains original configuration
-
+::: alert {"type": "info", "title": "Note"}
+You can generally use `_self_` to control the `JSON Config` of `Root`.
 :::
 
-::: warning Important Notes
+## ❓ Frequently Asked Questions
 
-- **Avoid Circular References**: Don't set root: true in nested directories
-- **GitBook Priority**: GitBook directories skip regular JSON override processing
-- **Metadata Consistency**: Don't manually edit files in .metadata directory
-- **Path Case Sensitivity**: Ensure file path case consistency across different operating systems
+### Q: Why isn't my configuration taking effect?
 
-:::
+A: Check the configuration priority order. Higher priority configurations will override lower priority configurations.
+
+### Q: How do I hide an entire directory?
+
+A: Set `hidden: true` in that directory's `index.md`, or configure it in the corresponding `hidden.json`.
+
+### Q: How do I control the sorting of external links?
+
+A: Use the `priority` field. Smaller values appear first. It's recommended to use negative numbers to make external links appear at the top.
+
+### Q: How do I debug configuration issues?
+
+A:
+
+1. Check browser console for error messages
+2. Confirm file paths and syntax correctness
+3. Use development mode to view real-time effects
+4. Check configuration priority level by level
+
+---
+
+By properly using these four configuration methods, you can create a well-structured, easy-to-navigate documentation sidebar. Remember the priority rules and make good use of the characteristics of various configurations to create the perfect user experience! 

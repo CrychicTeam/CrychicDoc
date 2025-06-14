@@ -1,0 +1,42 @@
+{
+  "resource.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "community.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "minecraft.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "pixelart.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "KubeJS.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "external:官方网站": {
+    "valueHash": "e4da3b7fbbce2345d7772b0674a318d5",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "external:GitHub 项目": {
+    "valueHash": "d3d9446802a44259755d38e6d163e820",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "external:Discord 社区": {
+    "valueHash": "9bf31c7ff062936a96d3c8bd1f8f2ff3",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  }
+}

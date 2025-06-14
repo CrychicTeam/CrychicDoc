@@ -4,5 +4,45 @@
     "isUserSet": false,
     "isActiveInStructure": true,
     "lastSeen": 1749249338171
+  },
+  "resource.md": {
+    "valueHash": "c41332befa1a468999c9dd6c55a9c7ec",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "community.md": {
+    "valueHash": "5ad978a0ef455b191d1167852d173748",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "minecraft.md": {
+    "valueHash": "575d0689b7dbbc83301b774b07d337ed",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "pixelart.md": {
+    "valueHash": "f36f172c935591badfbac9c45b103c87",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "KubeJS.md": {
+    "valueHash": "a5b10124c73efb47be9e6410796d1e42",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "external:官方网站": {
+    "valueHash": "667b5b8b604f28201c90f0ccd3c00bae",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "external:GitHub 项目": {
+    "valueHash": "f2025fba6fb266a8503c27ebf173037b",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "external:Discord 社区": {
+    "valueHash": "2e30c5268fc709e9a3890064d1795e61",
+    "isUserSet": false,
+    "isActiveInStructure": true
   }
 }

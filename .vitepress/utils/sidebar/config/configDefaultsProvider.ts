@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { EffectiveDirConfig, GlobalSidebarConfig, DirectoryConfig, GroupConfig } from '../types';
+import { EffectiveDirConfig, GlobalSidebarConfig, DirectoryConfig, GroupConfig, ExternalLinkConfig } from '../types';
 // import { normalizePathSeparators } from '../shared/objectUtils'; // Not needed if path comes normalized
 
 function convertItemOrderToRecord(itemOrder?: string[] | Record<string, number>): Record<string, number> {
@@ -74,7 +74,7 @@ export function applyConfigDefaults(
 
     // Constructing the object with all required fields of EffectiveDirConfig first,
     // then spreading the remaining/custom fields from mergedConfig.
-    const baseConfig: Omit<EffectiveDirConfig, keyof Partial<DirectoryConfig>> & Required<Pick<EffectiveDirConfig, 'path' | 'lang' | 'isDevMode' | 'root' | 'title' | 'hidden' | 'priority' | 'maxDepth' | 'collapsed' | 'itemOrder' | 'groups'>> = {
+    const baseConfig: Omit<EffectiveDirConfig, keyof Partial<DirectoryConfig>> & Required<Pick<EffectiveDirConfig, 'path' | 'lang' | 'isDevMode' | 'root' | 'title' | 'hidden' | 'priority' | 'maxDepth' | 'collapsed' | 'itemOrder' | 'groups' | 'externalLinks'>> = {
         path: directoryPath,
         lang,
         isDevMode,
@@ -86,6 +86,7 @@ export function applyConfigDefaults(
         collapsed: collapsed,
         itemOrder: resolvedItemOrder, 
         groups: mergedConfig.groups ?? [],
+        externalLinks: mergedConfig.externalLinks ?? [],
     };
 
     // Add any other custom properties from mergedConfig that are not part of the core EffectiveDirConfig fields already set.

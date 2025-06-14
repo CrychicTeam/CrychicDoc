@@ -11,7 +11,7 @@ import {
 } from "@nolebase/vitepress-plugin-git-changelog/vite";
 import llmstxt from "vitepress-plugin-llms";
 import * as config from "./markdown-plugins";
-import { sidebarPlugin } from "../plugins/sidebar-plugin";
+import { sidebarPlugin } from "../utils/sidebar";
 
 import { search as zhSearch } from "./lang/zh";
 
@@ -158,7 +158,12 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         },
         cacheDir: '.vitepress/.vite',
         plugins: [
-            sidebarPlugin(),
+            sidebarPlugin({
+                languages: ['zh', 'en'],
+                debug: process.env.NODE_ENV === 'development',
+                docsDir: './docs',
+                cacheDir: './.vitepress/cache/sidebar'
+            }),
             llmstxt(),
             GitChangelog({
                 repoURL: () => "https://github.com/PickAID/CrychicDoc",

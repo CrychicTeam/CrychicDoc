@@ -4,5 +4,20 @@
     "isUserSet": false,
     "isActiveInStructure": true,
     "lastSeen": 1749252345352
+  },
+  "Classes/": {
+    "valueHash": "e9878b4854d29907146149f695cb1cfb",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ConstantsAndObjects/": {
+    "valueHash": "5575337e7e9158fd2486015f71c05642",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "WrappedClasses/": {
+    "valueHash": "829fd190e95be24f77c3b64ac29365e0",
+    "isUserSet": false,
+    "isActiveInStructure": true
   }
 }

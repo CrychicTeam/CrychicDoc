@@ -563,4 +563,3 @@ export async function generateSidebars(
         return null;
     }
 }
-

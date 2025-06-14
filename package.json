@@ -33,6 +33,7 @@
     "scripts": {
         "docs:dev": "vitepress dev",
         "docs:build": "tsx .vitepress/scripts/build-sidebar.mjs && vitepress build",
+        "docs:sidebar": "tsx .vitepress/scripts/build-sidebar.mjs",
         "docs:preview": "vitepress preview",
         "title": "node .vitepress/scripts/update-index-titles.mjs",
         "frontmatter": "node .vitepress/scripts/update-frontmatter.mjs",
@@ -72,7 +73,6 @@
         "markdown-it-mathjax3": "^4.3.2",
         "markdown-it-task-lists": "^2.1.1",
         "marked": "^15.0.12",
-        "mitt": "^3.0.1",
         "motion-v": "^1.1.1",
         "sharp": "^0.34.2",
         "shiki-magic-move": "^1.1.0",

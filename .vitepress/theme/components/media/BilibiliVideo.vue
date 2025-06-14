@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
     import { useData } from "vitepress";
-    import { defineProps, ref, onMounted, onUnmounted } from "vue";
+    import { ref, onMounted, onUnmounted } from "vue";
 
     const { isDark } = useData();
     const props = defineProps({

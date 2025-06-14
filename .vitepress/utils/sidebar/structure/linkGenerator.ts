@@ -30,15 +30,25 @@ function normalizeDirPathToUrl(
         relativePath = relativePath + "/";
     }
 
-    let link = `/${lang}/${relativePath}`;
+    let link: string;
+    if (!lang || lang === '') {
+        // For root directory (empty lang), don't add language prefix
+        link = relativePath ? `/${relativePath}` : "/";
+    } else {
+        // For specific languages, include language prefix
+        link = `/${lang}/${relativePath}`;
+    }
+    
     // Consolidate multiple slashes into one, but not for protocol (e.g. http://)
     link = link.replace(/([^:])\/\/+/g, "$1/");
-    // Ensure it ends with a slash if it has content beyond the language
-    if (link !== `/${lang}/` && link !== "/" && !link.endsWith("/")) {
+    
+    // Ensure it ends with a slash if it has content beyond the root
+    if (link !== "/" && !link.endsWith("/")) {
         link += "/";
     }
-    if (link === `//`) link = "/"; // Handles root of docs if lang is empty or not used in path
-    if (link.endsWith("//") && link !== "//") link = link.slice(0, -1); // Clean up potential double slash at end
+    
+    // Clean up any remaining double slashes
+    link = link.replace(/\/\/+/g, "/");
 
     return link;
 }
@@ -82,17 +92,17 @@ export async function generateLink(
         normalizePathSeparators(currentDirAbsPath);
 
     if (itemType === "group" && groupConfig) {
-        if (typeof groupConfig.link === "string") {
-            return groupConfig.link.startsWith("/") ||
-                groupConfig.link.startsWith("http")
-                ? groupConfig.link
-                : normalizePathSeparators(
-                        path.join("/", lang, groupConfig.link)
-                  ); // Assume relative to lang root if not absolute
-        }
-        if (groupConfig.link === false) {
-            return null; // Explicitly not linkable
-        }
+        // if (typeof groupConfig.link === "string") {
+        //     return groupConfig.link.startsWith("/") ||
+        //         groupConfig.link.startsWith("http")
+        //         ? groupConfig.link
+        //         : normalizePathSeparators(
+        //                 path.join("/", lang, groupConfig.link)
+        //           ); // Assume relative to lang root if not absolute
+        // }
+        // if (groupConfig.link === false) {
+        //     return null; // Explicitly not linkable
+        // }
 
         let targetDirForGroupIndexMdAbs: string | null = null;
 

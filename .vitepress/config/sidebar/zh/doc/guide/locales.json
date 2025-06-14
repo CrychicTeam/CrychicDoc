@@ -1,3 +1,11 @@
 {
-  "_self_": "guide"
+  "_self_": "guide",
+  "resource.md": "美术资源",
+  "community.md": "社区链接",
+  "minecraft.md": "我的世界",
+  "pixelart.md": "像素艺术",
+  "KubeJS.md": "KubeJS",
+  "external:官方网站": "官方网站",
+  "external:GitHub 项目": "GitHub 项目",
+  "external:Discord 社区": "Discord 社区"
 }

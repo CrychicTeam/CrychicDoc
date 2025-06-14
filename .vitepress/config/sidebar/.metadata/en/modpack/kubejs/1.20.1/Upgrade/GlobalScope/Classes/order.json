@@ -1,0 +1,97 @@
+{
+  "AABB.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Block.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "BlockStatePredicate.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Catalogue.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Color.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Direction.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Facing.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Fluid.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Ingredient.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "IngredientHelper.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Item.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "JsonIO.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "NBT.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "NBTIO.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Platform.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "ResourceLocation.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Text.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Utils.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  },
+  "Uuid.md": {
+    "valueHash": "cfcd208495d565ef66e7dff9f98764da",
+    "isUserSet": false,
+    "isActiveInStructure": true
+  }
+}

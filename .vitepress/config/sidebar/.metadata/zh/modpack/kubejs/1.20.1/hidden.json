@@ -54,5 +54,20 @@
     "valueHash": "68934a3e9455fa72420237eb05902327",
     "isUserSet": false,
     "isActiveInStructure": false
+  },
+  "external:GitHub 地址": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false
+  },
+  "external:Wiki": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false
+  },
+  "external:Discord 社区": {
+    "valueHash": "68934a3e9455fa72420237eb05902327",
+    "isUserSet": false,
+    "isActiveInStructure": false
   }
 }
