@@ -1,8 +1,6 @@
 {
     "type": "module",
-    "overrides": {
-        "vite": "npm:rolldown-vite@latest"
-    },
+
     "devDependencies": {
         "@iconify/json": "^2.2.342",
         "@mdi/font": "^7.4.47",

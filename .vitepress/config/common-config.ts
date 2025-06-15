@@ -228,7 +228,6 @@ export const commonConfig: UserConfig<DefaultTheme.Config> = {
         const preloadLinks = [];
         
         const scFontFile = assets.find(file => /HarmonyOS_Sans_SC_Regular\.[\w-]+\.ttf/.test(file));
-        console.log(scFontFile);
         if (scFontFile) {
             preloadLinks.push([
                 'link',
